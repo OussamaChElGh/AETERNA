@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/context/AuthContext";
 import { GamificationProvider } from "@/context/GamificationContext";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { GlobalFooter } from "@/components/GlobalFooter";
 import { GuidesStrip } from "@/components/GuidesStrip";
 import { FloatingGuides } from "@/components/FloatingGuides";
 import { FloatingMascot } from "@/components/FloatingMascot";
@@ -44,7 +44,7 @@ export default function RootLayout({
                 <main className="flex-1">
                   {children}
                 </main>
-                <Footer />
+                <GlobalFooter />
                 <FloatingMascot />
                 <FloatingGuides />
               </div>

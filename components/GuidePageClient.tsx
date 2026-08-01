@@ -119,7 +119,7 @@ const availableSubcategories = ["Todas", ...Array.from(new Set(selectionItems.fi
               El contenido de esta dimensión del conocimiento se está construyendo.
               Nuestro equipo está trabajando para traerte la mejor ruta de estudio.
             </p>
-            <Link href="/home2"
+            <Link href="/"
               className="mt-6 px-8 py-4 bg-brand-gold text-brand-ink text-[11px] font-sans font-bold uppercase tracking-[0.4em] hover:bg-brand-offwhite transition-all shadow-[0_0_30px_rgba(212,175,55,0.3)]"
             >
               Volver al Nexo
@@ -273,7 +273,7 @@ const availableSubcategories = ["Todas", ...Array.from(new Set(selectionItems.fi
         </div>
         
         <div className="mx-auto max-w-7xl px-8 relative z-10 text-center">
-          <Link href="/home2" 
+          <Link href="/" 
             className="inline-flex items-center gap-4 text-brand-offwhite/40 text-[9px] uppercase tracking-[0.4em] font-bold mb-16 hover:text-brand-gold transition-all group"
           >
             <ArrowLeft className="h-3 w-3 group-hover:-translate-x-2 transition-transform" />

@@ -59,7 +59,7 @@ export function BranchPageClient({ overrideCategory, initialArticles = [] }: Bra
       <section className="relative pt-40 pb-28 px-8 overflow-hidden">
         <Starfield className="absolute inset-0 w-full h-full pointer-events-none opacity-60" />
         <div className="max-w-6xl mx-auto relative z-10 text-center">
-          <Link href="/home2"
+            <Link href="/"
             className="inline-flex items-center gap-4 text-brand-offwhite/40 text-[9px] uppercase tracking-[0.4em] font-bold mb-16 hover:text-brand-gold transition-all group"
           >
             <ArrowLeft className="h-3 w-3 group-hover:-translate-x-2 transition-transform" />
@@ -225,7 +225,7 @@ export function BranchPageClient({ overrideCategory, initialArticles = [] }: Bra
 
           {/* CTA volver al Nexo */}
           <div className="flex justify-center mt-24">
-            <Link href="/home2"
+          <Link href="/"
               className="px-10 py-4 border border-brand-gold/30 text-brand-gold text-[11px] font-bold uppercase tracking-[0.4em] hover:bg-brand-gold hover:text-brand-ink transition-all"
             >
               Volver al Nexo

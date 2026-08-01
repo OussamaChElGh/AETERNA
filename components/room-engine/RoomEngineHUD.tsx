@@ -36,7 +36,7 @@ export function RoomEngineHUD({
       {/* Title & Back Button */}
       <div className="flex items-center gap-3">
         <Link 
-          href="/home2"
+          href="/"
           className="p-2 bg-brand-gold/10 hover:bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-xl transition-all hover:scale-105"
           title="Volver al Nexo"
         >
