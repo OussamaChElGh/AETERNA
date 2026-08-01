@@ -44,7 +44,9 @@ function normalizeForComparison(s: string): string {
 // - Fenced blocks interactivos (```...```) — su contenido se duplica por diseño en capas
 // - Componentes JSX (<AeternaDecisionBox ... />, <PedagogicalContentBlock>...</>)
 // - Datos/atributos JSX (question=, options=[], id=...)
-// Así la detección de frases repetidas opera sobre prosa real, no sobre bloques.
+// - Líneas de encabezados (## / ###) — el título de sección se repite en las 3 capas
+//   por diseño, no es prosa repetida.
+// Así la detección de frases repetidas opera sobre prosa real, no sobre estructura.
 function extractNarrativeText(rawBody: string): string {
   return rawBody
     // 1. Eliminar fenced code blocks completos
@@ -55,6 +57,8 @@ function extractNarrativeText(rawBody: string): string {
     .replace(/<[A-Z][A-Za-z]*\b[^>]*>[\s\S]*?<\/[A-Z][A-Za-z]*>/g, ' ')
     // 4. Eliminar etiquetas JSX sueltas residuales
     .replace(/<\/?[A-Z][A-Za-z]*\b[^>]*>/g, ' ')
+    // 5. Eliminar líneas de encabezados markdown (estructura, no prosa)
+    .replace(/^#{1,6}\s.*$/gm, ' ')
     .replace(/\{[\s\S]*?\}/g, ' ');
 }
 
