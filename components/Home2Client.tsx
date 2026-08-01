@@ -15,70 +15,52 @@ interface Home2ClientProps {
   articleContent: Record<string, { introduccion?: string; secciones?: { titulo: string; niveles?: Record<string, string> }[] }>;
 }
 
-function NodePoint({ id, active, label, x, y, delay = 0, onClick }: any) {
-  return (
-    <motion.button
-      onClick={onClick}
-      initial={{ opacity: 0, scale: 0 }}
-      whileHover={{ scale: 1.15 }}
-      whileTap={{ scale: 0.95 }}
-      animate={{
-        opacity: 1,
-        scale: active ? 1.25 : 1,
-        left: `${x}%`,
-        top: `${y}%`,
-        boxShadow: active ? "0 0 60px rgba(212,175,55,0.4)" : "0 0 20px rgba(212,175,55,0)"
-      }}
-      transition={{ delay, duration: 0.8, type: "spring", stiffness: 100 }}
-      className={cn(
-        "absolute -translate-x-1/2 -translate-y-1/2 group z-20 pointer-events-auto cursor-pointer",
-        "w-16 h-16 md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center transition-all",
-        active
-          ? "bg-brand-cosmic/10 text-brand-ink border-4 border-brand-cosmic shadow-[0_0_40px_rgba(14,165,233,0.3)]"
-          : "bg-brand-ink/40 backdrop-blur-3xl border border-brand-gold/30 text-brand-gold hover:border-brand-cosmic hover:text-brand-cosmic hover:shadow-[0_0_30px_rgba(14,165,233,0.2)]"
-      )}
-    >
-      <div className="absolute inset-0 rounded-full bg-brand-cosmic/0 blur-xl group-hover:bg-brand-cosmic/20 transition-colors" />
-      <div className="w-full h-full p-2 relative z-10 transition-transform duration-500 group-hover:scale-110">
-        <NexusNode3D id={id} active={active} />
-      </div>
-      <div className={cn(
-        "absolute top-full mt-6 flex flex-col items-center transition-all duration-500",
-        active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
-      )}>
-        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-cosmic whitespace-nowrap bg-brand-ink/80 px-4 py-1 backdrop-blur-md border border-brand-cosmic/30">
-          {label}
-        </span>
-        <div className="w-px h-8 bg-gradient-to-b from-brand-cosmic/60 to-transparent mt-2" />
-      </div>
-    </motion.button>
-  );
-}
+const ORBITS = [
+  { id: "inner", radius: 24, duration: 30, phase: 0.35, categories: ["ciencias_naturales", "ciencias_formales"] },
+  { id: "mid", radius: 36, duration: 42, phase: 1.1, categories: ["ciencias_sociales", "humanidades", "artes"] },
+  { id: "outer", radius: 48, duration: 56, phase: 0.75, categories: ["aplicadas", "idiomas"] },
+];
 
-function ConnectionLine({ x1, y1, x2, y2, active }: any) {
+function OrbitalNode({ category, angle, radius, duration, active, delay = 0, onClick }: any) {
   return (
-    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
-      <motion.line
-        x1={`${x1}%`} y1={`${y1}%`} x2={`${x2}%`} y2={`${y2}%`}
-        stroke={active ? "var(--brand-cosmic, #0EA5E9)" : "rgba(212, 175, 55, 0.1)"}
-        strokeWidth={active ? 2 : 1}
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 1.5, delay: 0.5 }}
-      />
-      {active && (
-        <motion.circle
-          r="3"
-          fill="var(--brand-cosmic, #0EA5E9)"
-          animate={{
-            cx: [`${x1}%`, `${x2}%`],
-            cy: [`${y1}%`, `${y2}%`],
-            opacity: [0, 1, 0]
-          }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        />
-      )}
-    </svg>
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, type: "spring", stiffness: 100 }}
+      className="absolute pointer-events-none"
+      style={{
+        left: `calc(50% + (${radius}% * cos(${angle}rad)))`,
+        top: `calc(50% + (${radius}% * sin(${angle}rad)))`,
+      }}
+    >
+      <motion.div
+        animate={{ rotateZ: -360 }}
+        transition={{ duration, repeat: Infinity, ease: "linear" }}
+        className="w-14 h-14 md:w-24 md:h-24 -translate-x-1/2 -translate-y-1/2"
+      >
+        <button
+          onClick={onClick}
+          className="group pointer-events-auto relative w-full h-full cursor-pointer"
+        >
+          <div className={cn(
+            "w-full h-full rounded-full flex items-center justify-center transition-all duration-300 p-1.5",
+            active
+              ? "bg-brand-cosmic/10 border-2 border-brand-cosmic shadow-[0_0_50px_rgba(14,165,233,0.5)] scale-110"
+              : "bg-brand-ink/50 backdrop-blur-md border border-brand-gold/30 hover:border-brand-cosmic hover:shadow-[0_0_35px_rgba(14,165,233,0.3)]"
+          )}>
+            <NexusNode3D id={category.id} active={active} />
+          </div>
+          <div className={cn(
+            "absolute top-full mt-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-500 pointer-events-none",
+            active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+          )}>
+            <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.35em] text-brand-cosmic whitespace-nowrap bg-brand-ink/80 px-3 py-1 backdrop-blur-md border border-brand-cosmic/30">
+              {category.name}
+            </span>
+          </div>
+        </button>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -138,81 +120,106 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-brand-ink via-brand-ink/80 to-transparent" />
       </div>
 
-      {/* HERO — NEXUS CONSTELLATION */}
+      {/* HERO — ANILLOS ORBITALES 3D */}
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center p-4 overflow-hidden">
         <motion.div
           animate={{ x: activeNode ? "-15%" : "0%" }}
           transition={{ duration: 0.8, ease: "circOut" }}
           className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
         >
-          {/* Constellation Lines */}
-          <div className="absolute inset-0">
-            {CATEGORIES_DATA.map((cat, i) => {
-              const angle = (i / CATEGORIES_DATA.length) * Math.PI * 2;
-              const x = 50 + Math.cos(angle) * 35;
-              const y = 50 + Math.sin(angle) * 35;
-              return (
-                <ConnectionLine
-                  key={cat.id}
-                  x1={50} y1={50} x2={x} y2={y}
-                  active={activeNode === cat.id}
-                />
-              );
-            })}
-          </div>
-
-          {/* Nodes */}
-          <div className="absolute inset-0 pointer-events-none">
-            {CATEGORIES_DATA.map((cat, i) => {
-              const angle = (i / CATEGORIES_DATA.length) * Math.PI * 2;
-              const x = 50 + Math.cos(angle) * 35;
-              const y = 50 + Math.sin(angle) * 35;
-              return (
-                <NodePoint
-                  key={cat.id}
-                  id={cat.id}
-                  x={x} y={y}
-                  label={cat.name}
-                  delay={i * 0.15}
-                  active={activeNode === cat.id}
-                  onClick={() => setActiveNode(activeNode === cat.id ? null : cat.id)}
-                />
-              );
-            })}
-          </div>
-
-          {/* Central Core */}
+          {/* Sistema de anillos 3D */}
           <motion.div
-            initial={{ scale: 0, rotate: -45 }}
-            animate={{ scale: 1, rotate: 0 }}
-            className="relative z-30 flex flex-col items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="relative w-[min(88vw,620px)] md:w-[min(88vw,860px)] aspect-square"
+            style={{ perspective: "1400px" }}
           >
-            <div className="relative group cursor-pointer" onClick={() => setActiveNode(null)}>
-              <div className="absolute inset-0 rounded-full bg-brand-gold opacity-20 blur-[60px] animate-pulse group-hover:opacity-40 transition-opacity" />
-              <div className="absolute inset-0 rounded-full bg-brand-cosmic opacity-20 blur-[80px] animate-pulse scale-125 mix-blend-screen group-hover:opacity-50 transition-opacity" />
-              <div className="w-48 h-48 md:w-64 md:h-64 border-2 border-brand-gold hover:border-brand-cosmic flex items-center justify-center bg-brand-ink/80 backdrop-blur-3xl shadow-[0_0_80px_rgba(14,165,233,0.15)] group-hover:shadow-[0_0_100px_rgba(14,165,233,0.3)] transition-all p-6 relative">
-                <div className="absolute inset-0 z-0 overflow-hidden opacity-40">
-                  <NexusNode3D id="core" active={!!activeNode} />
-                </div>
-                <div className="absolute inset-2 border border-brand-gold/20 pointer-events-none" />
-                <div className="text-center relative z-10 w-full">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center"
-                  >
-                    <Hexagon size={240} className="text-brand-gold" />
-                  </motion.div>
-                  <h1 className="font-serif text-4xl md:text-6xl tracking-tight leading-none text-brand-offwhite mb-2">
-                    AE<span className="italic text-brand-gold">TER</span>NA
-                  </h1>
-                  <div className="flex items-center justify-center gap-2 text-[7px] md:text-[8px] font-bold uppercase tracking-[0.4em] text-brand-gold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-ping" />
-                    El Camino del Sabio
+            {/* Plano orbital inclinado */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ transformStyle: "preserve-3d", transform: "rotateX(62deg) rotateZ(-14deg)" }}
+            >
+              {/* Anillos */}
+              {ORBITS.map((orbit) => (
+                <div
+                  key={orbit.id}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border"
+                  style={{
+                    width: `${orbit.radius * 2}%`,
+                    height: `${orbit.radius * 2}%`,
+                    borderColor: "rgba(212,175,55,0.14)",
+                    boxShadow: "0 0 60px rgba(212,175,55,0.05)",
+                  }}
+                />
+              ))}
+              {/* Micro-anillo decorativo interior */}
+              <div
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-gold/5"
+                style={{ width: "16%", height: "16%" }}
+              />
+              {/* Portadores orbitales (rotan) */}
+              {ORBITS.map((orbit) => (
+                <motion.div
+                  key={`carrier-${orbit.id}`}
+                  animate={{ rotateZ: 360 }}
+                  transition={{ duration: orbit.duration, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0"
+                >
+                  {orbit.categories.map((catId, i) => {
+                    const cat = CATEGORIES_DATA.find((c) => c.id === catId);
+                    if (!cat) return null;
+                    const angle = orbit.phase + (i / orbit.categories.length) * Math.PI * 2;
+                    return (
+                      <OrbitalNode
+                        key={catId}
+                        category={cat}
+                        angle={angle}
+                        radius={orbit.radius}
+                        duration={orbit.duration}
+                        active={activeNode === catId}
+                        delay={0.8 + i * 0.15}
+                        onClick={() => setActiveNode(activeNode === catId ? null : catId)}
+                      />
+                    );
+                  })}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Núcleo central AETERNA */}
+            <motion.div
+              initial={{ scale: 0, rotate: -45 }}
+              animate={{ scale: 1, rotate: 0 }}
+              className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none"
+            >
+              <div className="relative group cursor-pointer pointer-events-auto" onClick={() => setActiveNode(null)}>
+                <div className="absolute inset-0 rounded-full bg-brand-gold opacity-20 blur-[60px] animate-pulse group-hover:opacity-40 transition-opacity" />
+                <div className="absolute inset-0 rounded-full bg-brand-cosmic opacity-20 blur-[80px] animate-pulse scale-125 mix-blend-screen group-hover:opacity-50 transition-opacity" />
+                <div className="w-40 h-40 md:w-56 md:h-56 border-2 border-brand-gold hover:border-brand-cosmic flex items-center justify-center bg-brand-ink/80 backdrop-blur-3xl shadow-[0_0_80px_rgba(14,165,233,0.15)] group-hover:shadow-[0_0_100px_rgba(14,165,233,0.3)] transition-all p-5 relative">
+                  <div className="absolute inset-0 z-0 overflow-hidden opacity-40">
+                    <NexusNode3D id="core" active={!!activeNode} />
+                  </div>
+                  <div className="absolute inset-2 border border-brand-gold/20 pointer-events-none" />
+                  <div className="text-center relative z-10 w-full">
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center"
+                    >
+                      <Hexagon size={200} className="text-brand-gold" />
+                    </motion.div>
+                    <h1 className="font-serif text-3xl md:text-5xl tracking-tight leading-none text-brand-offwhite mb-2">
+                      AE<span className="italic text-brand-gold">TER</span>NA
+                    </h1>
+                    <div className="flex items-center justify-center gap-2 text-[7px] md:text-[8px] font-bold uppercase tracking-[0.4em] text-brand-gold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-ping" />
+                      El Camino del Sabio
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </motion.div>
 
