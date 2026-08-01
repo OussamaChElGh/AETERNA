@@ -129,6 +129,30 @@ A 400 km de altura (la ISS), esa velocidad es de unos 7.7 km/s — más de 27.00
 
 **[IMAGEN SUGERIDA: La Estación Espacial Internacional en órbita sobre la Tierra. Pie de foto: "La ISS cae alrededor de la Tierra a 27.000 km/h."]**
 
+
+### Estima como un físico: ¿cuántos satélites activos hay?
+
+La **estimación de Fermi** es una herramienta del físico para aproximar cantidades aparentemente incalculables. Descompón el problema en partes y estima cada una. Intenta este ejercicio:
+
+- ¿Cuántos satélites artificiales crees que orbitan hoy la Tierra?
+- Descompón: la mayoría son de comunicaciones. Cada operador grande (SpaceX, OneWeb) lanza constelaciones de miles. Los satélites de comunicaciones comerciales, los de observación, los GPS...
+- Estima cada categoría y suma.
+
+Un físico no busca la cifra exacta: busca el **orden de magnitud** correcto. Estimar no es adivinar: es modelar con supuestos explícitos y comprobar la plausibilidad.
+
+> **💡 El poder del modelo simplificado**
+> Toda estimación de Fermi es un **modelo simplificado** de la realidad: omites detalles irrelevantes para revelar la escala esencial. Esa capacidad de simplificar sin traicionar es el corazón del pensamiento físico.
+
+
+
+```aeterna-exercise
+TITLE: Fermi: satélites en órbita
+HINT: Descompón: comunicaciones, GPS, observación, militares. Estima cada categoría.
+XP: 40
+Estima cuántos satélites artificiales activos hay alrededor de la Tierra. Explica tus supuestos.
+SOLUTION: Un orden de magnitud razonable es ~10,000: unos 5,000 de comunicaciones (las constelaciones de SpaceX superan los 4,000), ~30 GPS, ~150 de observación, ~500 militares y científicos. El orden de magnitud (10⁴) es lo que importa, no la cifra exacta.
+```
+
 ---
 
 ## La gravedad como fuerza centrípeta
@@ -328,6 +352,30 @@ PARAM: masa | Masa del satélite | kg | 100 | 5000 | 100 | 1000
 > **🔑 Concepto clave: Órbita geosíncrona**
 > Una órbita geosíncrona tiene un período de 24 horas, coincidiendo con la rotación terrestre. El satélite parece estacionario sobre la Tierra, ideal para comunicaciones y meteorología. Para lograrlo, debe estar a ~35.786 km de altura.
 
+
+### Estima como un físico: ¿cuántos satélites activos hay?
+
+La **estimación de Fermi** es una herramienta del físico para aproximar cantidades aparentemente incalculables. Descompón el problema en partes y estima cada una. Intenta este ejercicio:
+
+- ¿Cuántos satélites artificiales crees que orbitan hoy la Tierra?
+- Descompón: la mayoría son de comunicaciones. Cada operador grande (SpaceX, OneWeb) lanza constelaciones de miles. Los satélites de comunicaciones comerciales, los de observación, los GPS...
+- Estima cada categoría y suma.
+
+Un físico no busca la cifra exacta: busca el **orden de magnitud** correcto. Estimar no es adivinar: es modelar con supuestos explícitos y comprobar la plausibilidad.
+
+> **💡 El poder del modelo simplificado**
+> Toda estimación de Fermi es un **modelo simplificado** de la realidad: omites detalles irrelevantes para revelar la escala esencial. Esa capacidad de simplificar sin traicionar es el corazón del pensamiento físico.
+
+
+
+```aeterna-exercise
+TITLE: Fermi: satélites en órbita
+HINT: Descompón: comunicaciones, GPS, observación, militares. Estima cada categoría.
+XP: 40
+Estima cuántos satélites artificiales activos hay alrededor de la Tierra. Explica tus supuestos.
+SOLUTION: Un orden de magnitud razonable es ~10,000: unos 5,000 de comunicaciones (las constelaciones de SpaceX superan los 4,000), ~30 GPS, ~150 de observación, ~500 militares y científicos. El orden de magnitud (10⁴) es lo que importa, no la cifra exacta.
+```
+
 ---
 
 ## La gravedad como fuerza centrípeta
@@ -520,6 +568,30 @@ Las **maniobras de transferencia de Hohmann** se usan para mover satélites entr
 
 > **💡 Nota de frontera**
 > Los satélites de órbita baja (LEO) necesitan correcciones periódicas porque la fricción residual de la atmósfera los frena lentamente. La ISS recibe impulsos de sus propulsores para mantener su altitud.
+
+
+### Estima como un físico: ¿cuántos satélites activos hay?
+
+La **estimación de Fermi** es una herramienta del físico para aproximar cantidades aparentemente incalculables. Descompón el problema en partes y estima cada una. Intenta este ejercicio:
+
+- ¿Cuántos satélites artificiales crees que orbitan hoy la Tierra?
+- Descompón: la mayoría son de comunicaciones. Cada operador grande (SpaceX, OneWeb) lanza constelaciones de miles. Los satélites de comunicaciones comerciales, los de observación, los GPS...
+- Estima cada categoría y suma.
+
+Un físico no busca la cifra exacta: busca el **orden de magnitud** correcto. Estimar no es adivinar: es modelar con supuestos explícitos y comprobar la plausibilidad.
+
+> **💡 El poder del modelo simplificado**
+> Toda estimación de Fermi es un **modelo simplificado** de la realidad: omites detalles irrelevantes para revelar la escala esencial. Esa capacidad de simplificar sin traicionar es el corazón del pensamiento físico.
+
+
+
+```aeterna-exercise
+TITLE: Fermi: satélites en órbita
+HINT: Descompón: comunicaciones, GPS, observación, militares. Estima cada categoría.
+XP: 40
+Estima cuántos satélites artificiales activos hay alrededor de la Tierra. Explica tus supuestos.
+SOLUTION: Un orden de magnitud razonable es ~10,000: unos 5,000 de comunicaciones (las constelaciones de SpaceX superan los 4,000), ~30 GPS, ~150 de observación, ~500 militares y científicos. El orden de magnitud (10⁴) es lo que importa, no la cifra exacta.
+```
 
 ---
 

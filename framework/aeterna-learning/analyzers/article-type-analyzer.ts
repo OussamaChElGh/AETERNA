@@ -20,13 +20,27 @@ export function detectArticleType(
   interactivesCount: number
 ): ArticleTypeDetectionResult {
   // 1. Check if articleType is declared explicitly in frontmatter
-  const declaredRaw = rawFrontmatter.articleType || rawFrontmatter.type;
+  //    Soporta tanto `articleType`/`type` (en inglés) como `tipo` (curriculum Aeterna).
+  //    Mapea los valores del curriculum al tipo del framework:
+  //      theory -> conceptual, practice -> problem_solving, demo -> simulation
+  const TIPO_TO_TYPE: Record<string, ArticleType> = {
+    theory: 'conceptual',
+    conceptual: 'conceptual',
+    practice: 'problem_solving',
+    methodological: 'methodological',
+    hub: 'synthesis',
+    demo: 'simulation'
+  };
+
+  const declaredRaw = rawFrontmatter.articleType || rawFrontmatter.type || rawFrontmatter.tipo;
   let declaredType: ArticleType | null = null;
 
   if (typeof declaredRaw === 'string') {
-    const normalizedDeclared = declaredRaw.toLowerCase().trim() as ArticleType;
-    if (VALID_ARTICLE_TYPES.includes(normalizedDeclared)) {
-      declaredType = normalizedDeclared;
+    const normalizedDeclared = declaredRaw.toLowerCase().trim();
+    if (VALID_ARTICLE_TYPES.includes(normalizedDeclared as ArticleType)) {
+      declaredType = normalizedDeclared as ArticleType;
+    } else if (TIPO_TO_TYPE[normalizedDeclared]) {
+      declaredType = TIPO_TO_TYPE[normalizedDeclared];
     }
   }
 
@@ -38,7 +52,7 @@ export function detectArticleType(
       confidence: 1.0,
       confidenceLevel: 'HIGH',
       alternatives: [],
-      signals: [`Tipo declarado explícitamente en el frontmatter: "${declaredType}"`]
+      signals: [`Tipo declarado explícitamente en el frontmatter: "${declaredRaw}" → ${declaredType}`]
     };
   }
 
