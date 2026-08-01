@@ -44,7 +44,8 @@ export function IsoSpriteObject({
     || asset?.src 
     || '/images/aeterna_master_sofa.png';
 
-  const [cleanSpriteSrc, setCleanSpriteSrc] = useState<string>(rawSpriteSrc);
+  const [cleanSpriteSrc, setCleanSpriteSrc] = useState<string>('');
+  const [spriteReady, setSpriteReady] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isValidDrag, setIsValidDrag] = useState(true);
 
@@ -52,9 +53,11 @@ export function IsoSpriteObject({
 
   useEffect(() => {
     let isMounted = true;
+    setSpriteReady(false);
     getChromaKeyAlphaSprite(rawSpriteSrc).then(cleanUrl => {
       if (isMounted) {
         setCleanSpriteSrc(cleanUrl);
+        setSpriteReady(true);
       }
     });
     return () => {
@@ -282,7 +285,7 @@ export function IsoSpriteObject({
           />
         )}
 
-        {/* RASTER PNG SPRITE */}
+        {/* RASTER PNG SPRITE — oculto hasta que el chroma-key procese la transparencia */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={cleanSpriteSrc}
@@ -290,7 +293,7 @@ export function IsoSpriteObject({
           className={cn(
             "w-full h-full object-contain filter group-hover:scale-[1.02] transition-transform pointer-events-none",
             dropShadowClass,
-            !isValidDrag && "brightness-75 sepia-0 saturate-200 hue-rotate-[300deg] opacity-80",
+            !spriteReady ? "opacity-0" : (!isValidDrag ? "opacity-80" : "opacity-100"),
             isSelected && isValidDrag && "drop-shadow-[0_0_20px_#06b6d4]"
           )}
         />
