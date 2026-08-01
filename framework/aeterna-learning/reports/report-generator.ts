@@ -73,6 +73,21 @@ export function formatTerminalReport(report: AuditReport): string {
   lines.push(`Search intent:        ${da ? da.searchIntentScore : 85}/100`);
   lines.push('');
 
+  if (report.textQuality) {
+    const tq = report.textQuality;
+    lines.push('TEXT QUALITY');
+    lines.push(`Overall:              ${tq.overallScore}/100`);
+    lines.push(`Repetition:           ${tq.repetitionScore}/100 (${tq.repeatedPhrases.length} frases repetidas)`);
+    lines.push(`Markdown-as-code:     ${tq.codeMarkdownScore}/100 (${tq.codeMarkdownIssues.length} fragmentos)`);
+    if (tq.repeatedPhrases.length > 0) {
+      tq.repeatedPhrases.slice(0, 3).forEach(rp => lines.push(`  ↻ "${rp.phrase.slice(0, 60)}..." ×${rp.count}`));
+    }
+    if (tq.codeMarkdownIssues.length > 0) {
+      tq.codeMarkdownIssues.slice(0, 3).forEach(ci => lines.push(`  ⚠ [${ci.kind}] ${ci.sample.slice(0, 60)}`));
+    }
+    lines.push('');
+  }
+
   if (kb) {
     lines.push('KNOWLEDGE BENCHMARK (DIAGNOSTIC MODE)');
     lines.push(`Topic:                ${kb.topicProfile.topic}`);

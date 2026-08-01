@@ -40,6 +40,7 @@ export function analyzeArticleContent(fileContent: string, filePath: string): {
     prerequisites: struct.prerequisites,
     rawFrontmatter: struct.rawFrontmatter,
     rawBody: struct.rawBody,
+    rawBodyUnique: struct.rawBody,
     layers,
     exercises,
     interactives: interactivesResult.interactives,

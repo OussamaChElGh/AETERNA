@@ -7,6 +7,7 @@ import { analyzeVisuals } from '../analyzers/visual-analyzer';
 import { analyzeDiscoverability } from '../analyzers/discoverability-analyzer';
 import { analyzeKnowledgeBenchmark } from '../analyzers/knowledge-benchmark-analyzer';
 import { analyzeGlossaryCoverage } from '../analyzers/glossary-analyzer';
+import { analyzeTextQuality } from '../analyzers/text-quality-analyzer';
 import { evaluateCrossDimensionInterventions } from './cross-dimension-engine';
 import { 
   ArticleType, 
@@ -344,6 +345,21 @@ export function evaluateScoring(
   // NEW: Glossary Coverage Analysis (terms that enable the hover-dictionary feature)
   const glossaryCoverage = analyzeGlossaryCoverage(parsed.rawBody, parsed.subcategory === 'fisica' ? 'fisica' : parsed.subcategory || 'fisica');
 
+  // NEW: Text Quality Analysis (repeated phrases + markdown shown as code)
+  const textQuality = analyzeTextQuality(parsed.rawBodyUnique || parsed.rawBody);
+  if (textQuality.repeatedPhrases.length > 0) {
+    warnings.push(`Texto con ${textQuality.repeatedPhrases.length} frases repetidas innecesariamente.`);
+  }
+  if (textQuality.codeMarkdownIssues.length > 0) {
+    warnings.push(`Se detectaron ${textQuality.codeMarkdownIssues.length} fragmentos de contenido markdown que se muestran como código sin procesar.`);
+  }
+  textQuality.repeatedPhrases.slice(0, 5).forEach(rp => {
+    recommendations.push(`Elimina la frase repetida "${rp.phrase.slice(0, 60)}..." (aparece ${rp.count} veces).`);
+  });
+  textQuality.codeMarkdownIssues.slice(0, 5).forEach(ci => {
+    recommendations.push(`Convierte a contenido renderizado el fragmento que aparece como código: "${ci.sample.slice(0, 60)}..."`);
+  });
+
   // NEW: Content Depth Analysis
   const wordCount = parsed.rawBody.split(/\s+/).length;
   const contentDepthAnalysis: ContentDepthAnalysis = {
@@ -412,6 +428,14 @@ export function evaluateScoring(
   const glossaryBonus = glossaryCoverage.glossaryHasTerms && glossaryCoverage.coverageScore >= 20 ? 1 : 0;
   const experienciaScore = Math.min(5, (aeternaBlocksCount >= 3 ? 3 : 2) + cuadernoBonus + imagesBonus + glossaryBonus);
 
+  // Text quality penalty: mala calidad de texto no puede aspirar a nota alta.
+  let textQualityPenalty = 0;
+  if (textQuality.status === 'FAIL') {
+    textQualityPenalty = textQuality.overallScore < 50 ? 8 : 5;
+  } else if (textQuality.status === 'PARTIAL') {
+    textQualityPenalty = 3;
+  }
+
   let uncappedTotalScore = Math.min(100, Math.max(0, Math.round(
     rigorScore + 
     estructuraScore + 
@@ -419,7 +443,8 @@ export function evaluateScoring(
     reasoningAnalysis.weightedScore + 
     interactividadCategoryScore + 
     conexionesScore + 
-    experienciaScore
+    experienciaScore -
+    textQualityPenalty
   )));
 
   // Populate Evidence Traces
@@ -508,6 +533,7 @@ export function evaluateScoring(
     reasoningAnalysis.weightedScore >= 11 &&
     learningExperienceAudit.experienceCompletenessPercentage >= 80 &&
     learningExperienceAudit.coreGapsCount === 0 &&
+    textQuality.status === 'PASS' &&
     !appliedScoreCap;
 
   let status: AuditStatus = 'NO_APROBADO';
@@ -550,6 +576,7 @@ export function evaluateScoring(
     aeternaExperienceResult,
     knowledgeBenchmarkResult,
     glossaryCoverage,
+    textQuality,
 
     evidenceTraces,
     competencyAnalysis,
@@ -591,7 +618,10 @@ export function evaluateScoring(
       semanticCoverageScore: discoverabilityAnalysis.semanticCoverageScore,
       searchIntentScore: discoverabilityAnalysis.searchIntentScore,
       knowledgeCoverageScore: knowledgeBenchmarkResult.coreConceptCoverageScore,
-      referenceAlignmentScore: knowledgeBenchmarkResult.referenceAlignmentScore
+      referenceAlignmentScore: knowledgeBenchmarkResult.referenceAlignmentScore,
+      textQualityScore: textQuality.overallScore,
+      repetitionScore: textQuality.repetitionScore,
+      codeMarkdownScore: textQuality.codeMarkdownScore
     },
     totalScore: Math.min(100, Math.max(0, recalculatedTotalScore)),
     appliedScoreCap,

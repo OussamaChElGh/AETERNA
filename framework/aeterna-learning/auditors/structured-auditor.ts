@@ -76,6 +76,24 @@ export function buildParsedFromJson(slug: string): ParsedArticleStructure {
 
   const rawBody = allTextParts.join('\n\n');
 
+  // Cuerpo único: cada sección una sola vez (el nivel con más contenido) para
+  // que el análisis de calidad de texto no inflé repeticiones por capas paralelas.
+  const uniqueParts: string[] = [];
+  if (article.introduccion) uniqueParts.push(article.introduccion);
+  for (const sec of secciones) {
+    if (sec.titulo) uniqueParts.push(`## ${sec.titulo}`);
+    const niveles = sec.niveles || {};
+    const candidates = ['principiante', 'intermedio', 'avanzado']
+      .map(l => niveles[l])
+      .filter(c => c && String(c).trim().length > 0)
+      .sort((a, b) => String(b).length - String(a).length);
+    if (candidates.length > 0) {
+      uniqueParts.push(String(candidates[0]));
+    }
+  }
+  if (article.conclusion) uniqueParts.push(article.conclusion);
+  const rawBodyUnique = uniqueParts.join('\n\n');
+
   // Build the pseudo-markdown with <NivelActivo> tags so analyzeLayers works
   const nivelActivoBody = [
     `<NivelActivo id="fundamentos">\n\n${layerBodies.principiante.join('\n\n---\n\n')}\n\n</NivelActivo>`,
@@ -120,6 +138,7 @@ export function buildParsedFromJson(slug: string): ParsedArticleStructure {
     prerequisites: Array.isArray(metadata.prerequisites) ? metadata.prerequisites : [],
     rawFrontmatter: metadata,
     rawBody,
+    rawBodyUnique,
     layers,
     exercises,
     interactives: interactivesResult.interactives,

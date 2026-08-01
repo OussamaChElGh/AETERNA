@@ -289,6 +289,20 @@ export interface ContentDepthAnalysis {
   readabilityScore: number; // 0..100
 }
 
+export interface TextQualityResult {
+  repetitionScore: number; // 0..100
+  repeatedPhrases: { phrase: string; count: number; locations: number[] }[];
+  codeMarkdownScore: number; // 0..100
+  codeMarkdownIssues: {
+    kind: 'fenced_markdown' | 'raw_markdown' | 'escaped_markdown';
+    sample: string;
+    location: number;
+  }[];
+  overallScore: number; // 0..100
+  status: 'PASS' | 'PARTIAL' | 'FAIL';
+  message: string;
+}
+
 export interface StructureAnalysisResult {
   articleStructureScore: number; // 0..100
   layerDistributionScore: number; // 0..100
@@ -532,6 +546,9 @@ export interface ParsedArticleStructure {
   prerequisites: string[];
   rawFrontmatter: Record<string, any>;
   rawBody: string;
+  // Cuerpo con el contenido de cada sección una sola vez (sin duplicar por capas),
+  // usado por el analyzer de calidad de texto para evitar inflar repeticiones.
+  rawBodyUnique?: string;
   
   // Layer breakdown
   layers: {
@@ -611,6 +628,7 @@ export interface AuditReport {
   aeternaExperienceResult: AeternaExperienceResult;
   knowledgeBenchmarkResult?: KnowledgeBenchmarkResult;
   glossaryCoverage?: GlossaryCoverageResult;
+  textQuality?: TextQualityResult;
 
   // Legacy & Specific Audits
   evidenceTraces: EvidenceTraceItem[];
@@ -663,6 +681,10 @@ export interface AuditReport {
     // Benchmark Scores
     knowledgeCoverageScore?: number;
     referenceAlignmentScore?: number;
+    // Text Quality
+    textQualityScore?: number;
+    repetitionScore?: number;
+    codeMarkdownScore?: number;
   };
   totalScore: number; // 0..100
   appliedScoreCap?: {
