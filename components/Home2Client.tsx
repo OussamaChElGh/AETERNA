@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'motion/react';
 import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, X } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
 import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/components/LearningPath';
 import { NexusNode3D } from '@/components/NexusNode3D';
+import { Starfield } from '@/components/Starfield';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
@@ -94,6 +95,22 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
   const [mounted, setMounted] = useState(false);
   const [activeNode, setActiveNode] = useState<string | null>(null);
 
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const smx = useSpring(mx, { stiffness: 50, damping: 20 });
+  const smy = useSpring(my, { stiffness: 50, damping: 20 });
+  const tiltX = useTransform(smy, [-0.5, 0.5], [66, 58]);
+  const tiltZ = useTransform(smx, [-0.5, 0.5], [-10, -18]);
+  const sceneX = useTransform(smx, [-0.5, 0.5], [12, -12]);
+  const sceneY = useTransform(smy, [-0.5, 0.5], [8, -8]);
+  const planeTransform = useMotionTemplate`rotateX(${tiltX}deg) rotateZ(${tiltZ}deg)`;
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mx.set((e.clientX - rect.left) / rect.width - 0.5);
+    my.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
   useEffect(() => { setMounted(true); }, []);
 
   const completedArticles = new Set(
@@ -121,7 +138,13 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
       </div>
 
       {/* HERO — ANILLOS ORBITALES 3D */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center p-4 overflow-hidden">
+      <section
+        onMouseMove={handleMouseMove}
+        className="relative h-[80vh] min-h-[600px] flex items-center justify-center p-4 overflow-hidden"
+      >
+        {/* Starfield + polvo orbital */}
+        <Starfield className="absolute inset-0 w-full h-full pointer-events-none" />
+
         <motion.div
           animate={{ x: activeNode ? "-15%" : "0%" }}
           transition={{ duration: 0.8, ease: "circOut" }}
@@ -132,13 +155,13 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
+            style={{ perspective: "1400px", x: sceneX, y: sceneY }}
             className="relative w-[min(88vw,620px)] md:w-[min(88vw,860px)] aspect-square"
-            style={{ perspective: "1400px" }}
           >
             {/* Plano orbital inclinado */}
-            <div
+            <motion.div
               className="absolute inset-0 pointer-events-none"
-              style={{ transformStyle: "preserve-3d", transform: "rotateX(62deg) rotateZ(-14deg)" }}
+              style={{ transformStyle: "preserve-3d", transform: planeTransform }}
             >
               {/* Anillos */}
               {ORBITS.map((orbit) => (
@@ -185,7 +208,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                   })}
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* Núcleo central AETERNA */}
             <motion.div
