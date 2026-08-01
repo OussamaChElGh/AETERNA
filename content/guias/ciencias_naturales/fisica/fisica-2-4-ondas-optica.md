@@ -1,34 +1,206 @@
 ---
 title: "Ondas y Óptica: La Física de la Luz y el Sonido"
-description: "Descubre qué son las ondas mecánicas y electromagnéticas, cómo se propaga la luz, por qué el cielo es azul y cómo funcionan los espejos, las lentes y los prismas. Guía completa con ejemplos claros."
-slug: "ondas-y-optica"
-author: "Aeterna"
-category: "ciencias"
-subcategory: "fisica"
+description: Descubre qué son las ondas mecánicas y electromagnéticas, cómo se propaga la luz, por qué el cielo es azul y cómo funcionan los espejos, las lentes y los prismas. Guía completa con ejemplos claros.
+slug: ondas-y-optica
+author: Aeterna
+category: ciencias
+subcategory: fisica
 tags: ["física", "ondas", "óptica", "luz", "sonido", "reflexión", "refracción", "interferencia", "difracción", "efecto Doppler"]
 image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop"
-date: "2026-05-08"
+date: 2026-05-08
 nivel: 2
-nivel_titulo: "El Reino de lo Clásico"
 orden: 4
-insignia: "Señor de lo Clásico"
+nivel_titulo: El Reino de lo Clásico
+insignia: Señor de lo Clásico
+---
 
 
-## Bienvenida: La danza de la luz y el sonido
+<NivelActivo id="fundamentos">
 
-Cierra los ojos un instante. Escucha. Quizá oigas el zumbido de un ordenador, el rumor del tráfico, el viento contra la ventana. Ahora ábrelos. Mira los colores, las formas, las sombras. Todo lo que percibes —cada sonido que oyes, cada imagen que ves— te llega a través de ondas.
+## 1. ¿Qué es una onda?
 
-Las ondas son ubicuas en la naturaleza. El sonido de una voz, la luz de una estrella, las olas del mar, la vibración de un terremoto, la señal de tu teléfono móvil. Todas son ondas que transportan energía e información sin transportar materia.
+## ¿Qué es una onda?
 
-La óptica, por su parte, es el estudio de la luz. Y durante siglos fue un campo de debate feroz: ¿la luz es una partícula que viaja en línea recta, como pensaba Newton? ¿O es una onda que se propaga como las olas del mar, como defendía Huygens? La respuesta, como descubrirías más adelante en la física cuántica, es que es ambas cosas. Pero en esta parada nos ocuparemos de su faceta ondulatoria.
+Lanza una piedra a un estanque. Verás círculos expandiéndose desde el punto de impacto. Los círculos se mueven, pero el agua no viaja con ellos: cada gota de agua sube y baja, y el impulso se transmite de una gota a la siguiente.
 
-> **💡 La clave en 10 segundos**
->
-> Una onda es una perturbación que se propaga a través del espacio o de un medio, transportando energía pero no materia. Las ondas se reflejan, se refractan, interfieren y difractan. La luz y el sonido son ondas, pero de tipos radicalmente distintos.
+Una **onda** es una perturbación que transfiere energía de un punto a otro **sin transferir materia**. Es el "impulso" que viaja, no el medio.
 
-**[IMAGEN SUGERIDA: Una gota de agua cayendo sobre un estanque en calma, generando ondas circulares concéntricas. Pie de foto: "Una onda es una perturbación que viaja. La superficie del agua ondula, pero el agua en sí no viaja: solo sube y baja."]**
+> **🔑 Concepto clave: Onda**
+> Una onda transporta energía sin transportar materia. La perturbación avanza, pero las partículas del medio solo oscilan en su lugar.
+
+**[IMAGEN SUGERIDA: Piedra cayendo en un estanque con ondas circulares expandiéndose. Pie de foto: "La onda viaja, el agua se queda."]**
+
+
+```aeterna-exercise
+TITLE: ¿Onda o no?
+HINT: Piensa si necesita un medio para propagarse.
+XP: 30
+¿Cuál de estos fenómenos es una onda electromagnética que puede viajar en el vacío?
+SOLUTION: La luz. El sonido, las ondas en el agua y las ondas en una cuerda necesitan un medio material. La luz es una onda electromagnética que se propaga incluso en el vacío del espacio.
+```
 
 ---
+
+## 2. Tipos de ondas: mecánicas y electromagnéticas
+
+## Dos grandes familias de ondas
+
+Hay dos tipos fundamentales de ondas:
+
+- **Ondas mecánicas**: necesitan un medio para viajar. El sonido es una onda mecánica: no puede viajar en el vacío. Un golpe en la mesa viaja a través de la madera.
+- **Ondas electromagnéticas**: no necesitan medio. La luz, la radio, los rayos X viajan por el vacío del espacio.
+
+> **Dato que rompe el cerebro**
+> La luz del Sol viaja 150 millones de kilómetros por el vacío del espacio hasta llegar a tu ojo. Si la luz fuera una onda mecánica, necesitaría un medio para propagarse —y no podría llegar a la Tierra.
+
+**[IMAGEN SUGERIDA: Comparación lado a lado: ondas en una cuerda (mecánica) y ondas de luz en el espacio (electromagnética). Pie de foto: "Las mecánicas necesitan medio; las electromagnéticas no."]**
+
+---
+
+## 3. Propiedades fundamentales de las ondas
+
+## Las propiedades de una onda
+
+Toda onda tiene cuatro propiedades fundamentales:
+
+- **Amplitud (A)**: altura de la onda, cuánta energía transporta
+- **Longitud de onda (λ)**: distancia entre dos crestas consecutivas
+- **Frecuencia (f)**: cuántas ondas pasan por segundo (en hercios, Hz)
+- **Velocidad (v)**: rapidez con que avanza la onda
+
+La relación clave es:
+
+$$ v = \lambda \cdot f $$
+
+La velocidad de una onda depende del medio, no de su frecuencia ni amplitud.
+
+> **Dato curioso**
+> Cuando subes la música en la radio, la onda no viaja más rápido. Su velocidad es fija. Lo que cambia es la amplitud (más energía) y quizá la frecuencia del sonido que escuchas.
+
+---
+
+## 4. Fenómenos ondulatorios
+
+## Fenómenos ondulatorios
+
+Las ondas tienen comportamientos sorprendentes:
+
+- **Reflexión**: la onda rebota al chocar con una frontera (el eco del sonido, tu reflejo en el espejo)
+- **Refracción**: la onda cambia de dirección al pasar a otro medio (la cuchara "rota" en el vaso de agua)
+- **Difracción**: la onda se curva al pasar por una abertura (escuchas música a través de una puerta abierta)
+- **Interferencia**: dos ondas se combinan, reforzándose o cancelándose
+
+> **Dato que rompe el cerebro**
+> Los sonidos graves (baja frecuencia, longitud de onda larga) se difractan más que los agudos. Por eso oyes los bajos de la música del vecino a través de la pared, pero no los agudos.
+
+
+```parameter-lab
+TITLE: Laboratorio de interferencia
+DESC: Ajusta la separación entre rendijas y la longitud de onda para ver cómo cambia el patrón de franjas.
+OUTPUT_LABEL: Separación de franjas
+OUTPUT_UNIT: mm
+QUESTION: ¿Qué ocurre con la separación de las franjas si aumentas la longitud de onda de la luz?
+ANSWER: Las franjas se separan más. La separación es proporcional a la longitud de onda (Δy = λL/d): al doble de λ, doble de separación.
+XP: 50
+PARAM: lambda | Longitud de onda | nm | 400 | 700 | 10 | 500
+PARAM: d | Separación de rendijas | mm | 0.05 | 0.5 | 0.01 | 0.1
+```
+
+---
+
+## 5. Óptica geométrica: espejos y lentes
+
+## Óptica geométrica: la luz como rayos
+
+Cuando la luz viaja en línea recta y sus obstáculos son mucho más grandes que su longitud de onda, podemos tratarla como **rayos**. Esta es la óptica geométrica.
+
+**La ley de reflexión** es sencilla: el ángulo de incidencia es igual al ángulo de reflexión.
+
+**La ley de Snell** describe la refracción:
+
+$$ n_1 \sin \theta_1 = n_2 \sin \theta_2 $$
+
+Donde n es el índice de refracción del medio. Esto explica por qué la cuchara en el vaso de agua se ve "rota".
+
+> **Dato curioso**
+> El arcoíris es refracción + reflexión interna: cada gota de lluvia descompone la luz blanca en colores, y la luz se refleja dentro de la gota antes de salir.
+
+
+```aeterna-formula
+title="Ley de Snell"
+formula="n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2"
+variables={[{"symbol":"n₁","name":"Índice de refracción medio 1","unit":"adimensional"},{"symbol":"θ₁","name":"Ángulo de incidencia","unit":"grados"},{"symbol":"n₂","name":"Índice de refracción medio 2","unit":"adimensional"},{"symbol":"θ₂","name":"Ángulo de refracción","unit":"grados"}]}
+note="La luz se acerca a la normal al entrar en un medio más denso y se aleja al salir. Es la base de las lentes y los prismas."
+```
+
+```aeterna-exercise
+TITLE: Distancia focal de una lente
+HINT: Usa 1/f = 1/do + 1/di.
+XP: 40
+Una lente convergente forma una imagen de un objeto a 30 cm cuando este está a 60 cm. ¿Cuál es la distancia focal?
+SOLUTION: 1/f = 1/60 + 1/30 = 1/60 + 2/60 = 3/60 = 1/20 → f = 20 cm.
+```
+
+---
+
+## 6. Óptica física: la naturaleza ondulatoria de la luz
+
+## Óptica física: la luz como onda
+
+La óptica geométrica trata la luz como rayos, pero la luz también es una onda. La **óptica física** estudia los fenómenos que solo se explican con la naturaleza ondulatoria: interferencia, difracción y polarización.
+
+El experimento de la doble rendija de Thomas Young en 1801 fue crucial: la luz pasaba por dos rendijas y formaba franjas claras y oscuras —el patrón de interferencia típico de las ondas.
+
+> **Dato que rompe el cerebro**
+> La luz es simultáneamente una onda y un conjunto de partículas (fotones). Depende de cómo la mires. Esta dualidad es una de las ideas más extrañas de la física.
+
+
+```error-hunter
+TITLE: La naturaleza de la luz
+CONTEXT: Un estudiante afirma: "El experimento de la doble rendija demostró que la luz está hecha de partículas, porque vemos puntos de luz individuales."
+XP: 60
+STEP_CORRECT: La doble rendija demuestra interferencia | Las franjas claras y oscuras solo se explican si la luz es una onda que interfiere consigo misma.
+STEP_CORRECT: La luz llega como fotones individuales | Al detectar fotones uno a uno, cada impacto es un punto. Pero el patrón acumulado es de interferencia ondulatoria.
+STEP_ERROR: Por lo tanto la luz es solo partícula | Ignora la evidencia de interferencia y difracción, que son propiedades ondulatorias.
+```
+
+---
+
+## 7. El color y el cielo: por qué vemos lo que vemos
+
+## El color y el cielo
+
+¿Por qué el cielo es azul? La luz del Sol es blanca (todos los colores). Al atravesar la atmósfera, los colores de menor longitud de onda (azul, violeta) se dispersan más por las moléculas de aire. El cielo se ve azul porque el azul se dispersa hacia todas partes.
+
+Al atardecer, el Sol está bajo y la luz atraviesa más atmósfera. Los azules se dispersan por completo y quedan los rojos y naranjas: por eso los atardeceres son cálidos.
+
+> **Dato que rompe el cerebro**
+> Si estuvieras en la Luna (sin atmósfera), el cielo sería negro a mediodía y el Sol se vería blanco. La atmósfera terrestre es lo que pinta el cielo de azul.
+
+---
+
+## 8. El efecto Doppler: cuando el sonido y la luz se mueven
+
+## El efecto Doppler
+
+¿Has notado cómo cambia el sonido de una ambulancia al pasar? Se oye agudo cuando se acerca y grave cuando se aleja. Eso es el **efecto Doppler**: el cambio de frecuencia percibida cuando la fuente y el observador se mueven.
+
+Cuando la fuente se acerca, las ondas se comprimen (frecuencia mayor, sonido más agudo). Cuando se aleja, se estiran (frecuencia menor, sonido más grave).
+
+> **Dato curioso**
+> Los radares de velocidad usan el efecto Doppler: miden el cambio de frecuencia de las ondas que rebotan en tu coche para calcular qué tan rápido vas.
+
+---
+
+## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+
+> **Sistema Aeterna, paso 1: La onda viaja, el medio se queda**
+> Las ondas transportan energía sin transportar materia. Esa es una lección sobre el conocimiento: las ideas se propagan como ondas, cambiando de medio pero no de esencia. ¿Qué ideas te llegan de lejos y te atraviesan sin moverte?
+
+</NivelActivo>
+
+
+<NivelActivo id="profundizacion">
 
 ## 1. ¿Qué es una onda?
 
@@ -53,6 +225,16 @@ La relación fundamental que une estas magnitudes es:
 **v = λ · f**
 
 La velocidad de la onda es igual a su longitud de onda multiplicada por su frecuencia. Esta ecuación es válida para todas las ondas: sonido, luz, ondas sísmicas, olas del mar.
+
+---
+
+```aeterna-exercise
+TITLE: ¿Onda o no?
+HINT: Piensa si necesita un medio para propagarse.
+XP: 30
+¿Cuál de estos fenómenos es una onda electromagnética que puede viajar en el vacío?
+SOLUTION: La luz. El sonido, las ondas en el agua y las ondas en una cuerda necesitan un medio material. La luz es una onda electromagnética que se propaga incluso en el vacío del espacio.
+```
 
 ---
 
@@ -89,6 +271,8 @@ Como viste en la parada de Electromagnetismo, Maxwell demostró que una onda ele
 
 ---
 
+---
+
 ## 3. Propiedades fundamentales de las ondas
 
 ### 3.1 Velocidad de propagación
@@ -100,6 +284,8 @@ La luz, en cambio, viaja más despacio en medios materiales que en el vacío. En
 ### 3.2 Energía y amplitud
 
 La energía transportada por una onda depende del cuadrado de la amplitud. En una ola del mar, duplicar la altura de la ola implica multiplicar por cuatro su energía. En el sonido, la intensidad (volumen) depende del cuadrado de la amplitud de la vibración.
+
+---
 
 ---
 
@@ -143,6 +329,20 @@ La difracción explica por qué puedes oír a alguien que habla en otra habitaci
 
 ---
 
+```parameter-lab
+TITLE: Laboratorio de interferencia
+DESC: Ajusta la separación entre rendijas y la longitud de onda para ver cómo cambia el patrón de franjas.
+OUTPUT_LABEL: Separación de franjas
+OUTPUT_UNIT: mm
+QUESTION: ¿Qué ocurre con la separación de las franjas si aumentas la longitud de onda de la luz?
+ANSWER: Las franjas se separan más. La separación es proporcional a la longitud de onda (Δy = λL/d): al doble de λ, doble de separación.
+XP: 50
+PARAM: lambda | Longitud de onda | nm | 400 | 700 | 10 | 500
+PARAM: d | Separación de rendijas | mm | 0.05 | 0.5 | 0.01 | 0.1
+```
+
+---
+
 ## 5. Óptica geométrica: espejos y lentes
 
 La óptica geométrica trata la luz como si fueran rayos que viajan en línea recta. Es una aproximación válida cuando las longitudes de onda son mucho menores que los objetos con los que interactúa la luz. Permite entender el funcionamiento de espejos, lentes y todos los instrumentos ópticos clásicos.
@@ -172,6 +372,23 @@ La **miopía** ocurre cuando la imagen se forma antes de la retina (el ojo es de
 
 ---
 
+```aeterna-formula
+title="Ley de Snell"
+formula="n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2"
+variables={[{"symbol":"n₁","name":"Índice de refracción medio 1","unit":"adimensional"},{"symbol":"θ₁","name":"Ángulo de incidencia","unit":"grados"},{"symbol":"n₂","name":"Índice de refracción medio 2","unit":"adimensional"},{"symbol":"θ₂","name":"Ángulo de refracción","unit":"grados"}]}
+note="La luz se acerca a la normal al entrar en un medio más denso y se aleja al salir. Es la base de las lentes y los prismas."
+```
+
+```aeterna-exercise
+TITLE: Distancia focal de una lente
+HINT: Usa 1/f = 1/do + 1/di.
+XP: 40
+Una lente convergente forma una imagen de un objeto a 30 cm cuando este está a 60 cm. ¿Cuál es la distancia focal?
+SOLUTION: 1/f = 1/60 + 1/30 = 1/60 + 2/60 = 3/60 = 1/20 → f = 20 cm.
+```
+
+---
+
 ## 6. Óptica física: la naturaleza ondulatoria de la luz
 
 Mientras la óptica geométrica trata la luz como rayos, la óptica física la trata como ondas y explica los fenómenos que la geometría no puede: interferencia, difracción y polarización.
@@ -192,6 +409,17 @@ Newton fue el primero en demostrar esto en 1666, descomponiendo luz solar con un
 
 ---
 
+```error-hunter
+TITLE: La naturaleza de la luz
+CONTEXT: Un estudiante afirma: "El experimento de la doble rendija demostró que la luz está hecha de partículas, porque vemos puntos de luz individuales."
+XP: 60
+STEP_CORRECT: La doble rendija demuestra interferencia | Las franjas claras y oscuras solo se explican si la luz es una onda que interfiere consigo misma.
+STEP_CORRECT: La luz llega como fotones individuales | Al detectar fotones uno a uno, cada impacto es un punto. Pero el patrón acumulado es de interferencia ondulatoria.
+STEP_ERROR: Por lo tanto la luz es solo partícula | Ignora la evidencia de interferencia y difracción, que son propiedades ondulatorias.
+```
+
+---
+
 ## 7. El color y el cielo: por qué vemos lo que vemos
 
 ### 7.1 ¿Por qué el cielo es azul?
@@ -201,6 +429,8 @@ La luz solar que llega a la Tierra es blanca (suma de todos los colores). Al atr
 ### 7.2 ¿Por qué el atardecer es rojo?
 
 Al atardecer, la luz solar atraviesa una capa mucho más gruesa de atmósfera para llegar a tus ojos. La luz azul se dispersa tanto que apenas queda. Solo los colores de longitud de onda más larga —rojos, naranjas, amarillos— logran atravesar esa distancia. Por eso los atardeceres parecen incendiarse.
+
+---
 
 ---
 
@@ -217,6 +447,8 @@ Este es el **efecto Doppler**, y se aplica a todas las ondas, no solo al sonido.
 Cuando una estrella se aleja de la Tierra, sus ondas de luz se estiran y su frecuencia disminuye. Esto desplaza sus líneas espectrales hacia el rojo: es el **corrimiento al rojo cosmológico**. Fue observando este fenómeno como Edwin Hubble descubrió en 1929 que las galaxias se alejan de nosotros, lo que implica que el universo está en expansión.
 
 Cuando una fuente de luz se acerca, sus ondas se comprimen y la frecuencia aumenta, desplazando las líneas espectrales hacia el azul: es el **corrimiento al azul**.
+
+---
 
 ---
 
@@ -262,3 +494,203 @@ Cuando una fuente de luz se acerca, sus ondas se comprimen y la frecuencia aumen
 ---
 
 **📚 Para seguir explorando:** *"QED: The Strange Theory of Light and Matter"* de Richard Feynman es una explicación magistral de la naturaleza cuántica de la luz. Si quieres seguir explorando la óptica desde la perspectiva más brillante y didáctica, Feynman es el guía perfecto. [Consíguelo aquí](enlace-afiliado).
+
+</NivelActivo>
+
+
+<NivelActivo id="frontera">
+
+## 1. ¿Qué es una onda?
+
+## Ondas: el lenguaje de la física
+
+Las ondas son ubicuas: el sonido, la luz, las ondas sísmicas, las ondas de radio, las ondas gravitacionales. Toda la información que recibimos del universo —excepto la materia que cae en nuestros detectores— llega en forma de ondas.
+
+La descripción matemática de una onda se basa en la **función de onda**:
+
+$$ y(x,t) = A \sin(kx - \omega t) $$
+
+Donde A es la amplitud, k el número de onda y ω la frecuencia angular. Esta función describe cómo se desplaza cada punto del medio.
+
+Las ondas transportan **energía y momento**, pero no materia. La energía de una onda es proporcional al cuadrado de su amplitud: E ∝ A². Por eso un terremoto de amplitud doble libera cuatro veces más energía.
+
+> **💡 Nota avanzada**
+> El principio de superposición establece que cuando dos ondas se cruzan, la perturbación resultante es la suma de ambas. Las ondas no "chocan": se superponen y continúan su camino sin alterarse mutuamente.
+
+
+```aeterna-exercise
+TITLE: ¿Onda o no?
+HINT: Piensa si necesita un medio para propagarse.
+XP: 30
+¿Cuál de estos fenómenos es una onda electromagnética que puede viajar en el vacío?
+SOLUTION: La luz. El sonido, las ondas en el agua y las ondas en una cuerda necesitan un medio material. La luz es una onda electromagnética que se propaga incluso en el vacío del espacio.
+```
+
+---
+
+## 2. Tipos de ondas: mecánicas y electromagnéticas
+
+## Ondas transversales y longitudinales
+
+Además de la clasificación por medio, las ondas se clasifican por la dirección de oscilación:
+
+- **Transversales**: la oscilación es perpendicular a la dirección de propagación (cuerda, ondas en la superficie del agua, luz).
+- **Longitudinales**: la oscilación es paralela a la propagación (sonido, ondas de compresión).
+
+Las ondas sísmicas combinan ambas: las ondas P (primarias) son longitudinales y las S (secundarias) transversales. Las S no atraviesan el núcleo líquido de la Tierra —así se descubrió que el núcleo exterior es líquido.
+
+> **💡 Nota de frontera**
+> Las ondas gravitacionales, detectadas por LIGO en 2015, son ondas del propio espacio-tiempo. No viajan "por" un medio: el medio es el propio tejido del espacio.
+
+---
+
+## 3. Propiedades fundamentales de las ondas
+
+## La relación de dispersión
+
+La relación v = λ·f es válida cuando la velocidad no depende de la frecuencia. En medios **dispersivos**, cada frecuencia viaja a distinta velocidad, y la onda se deforma al propagarse.
+
+Ejemplos de dispersión:
+- La luz blanca se separa en colores al pasar por un prisma porque cada color (frecuencia) viaja a distinta velocidad en el vidrio
+- Las ondas de agua: las ondas largas viajan más rápido que las cortas (por eso los tsunamis, de longitud de onda enorme, viajan a cientos de km/h)
+- La fibra óptica gestiona la dispersión cromática para que los pulsos de luz no se mezclen
+
+> **💡 Nota avanzada**
+> La dispersión es la clave de la espectroscopía: analizando la luz descompuesta de una estrella, sabemos de qué está hecha y a qué velocidad se aleja (corrimiento al rojo).
+
+---
+
+## 4. Fenómenos ondulatorios
+
+## Interferencia y difracción
+
+La **interferencia** ocurre cuando dos ondas coherentes se superponen:
+
+- **Constructiva**: crestas con crestas → amplitud doble
+- **Destructiva**: crestas con valles → se cancelan
+
+El experimento de la **doble rendija** de Young (1801) demostró que la luz interfiere, probando su naturaleza ondulatoria. Las franjas claras y oscuras en una pantalla son interferencia constructiva y destructiva.
+
+La **difracción** es la curvatura de las ondas al pasar por aberturas comparables a su longitud de onda. La condición para difracción apreciable es que la abertura sea del orden de λ.
+
+> **💡 Nota de frontera**
+> El principio de Huygens describe cada punto de un frente de onda como fuente de nuevas ondas secundarias. Es la base de la óptica física y explica tanto la difracción como la refracción desde un único principio.
+
+
+```parameter-lab
+TITLE: Laboratorio de interferencia
+DESC: Ajusta la separación entre rendijas y la longitud de onda para ver cómo cambia el patrón de franjas.
+OUTPUT_LABEL: Separación de franjas
+OUTPUT_UNIT: mm
+QUESTION: ¿Qué ocurre con la separación de las franjas si aumentas la longitud de onda de la luz?
+ANSWER: Las franjas se separan más. La separación es proporcional a la longitud de onda (Δy = λL/d): al doble de λ, doble de separación.
+XP: 50
+PARAM: lambda | Longitud de onda | nm | 400 | 700 | 10 | 500
+PARAM: d | Separación de rendijas | mm | 0.05 | 0.5 | 0.01 | 0.1
+```
+
+---
+
+## 5. Óptica geométrica: espejos y lentes
+
+## Lentes, espejos y formación de imágenes
+
+La **ecuación de las lentes delgadas** relaciona la distancia al objeto (do), la distancia a la imagen (di) y la distancia focal (f):
+
+$$ \frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i} $$
+
+El **aumento** es:
+
+$$ m = -\frac{d_i}{d_o} $$
+
+Tipos de lentes:
+- **Convergentes** (biconvexas): enfocan rayos paralelos en un punto focal. Lupa, cámara, ojo
+- **Divergentes** (bicóncavas): separan rayos. Corrector de miopía
+
+> **💡 Nota avanzada**
+> El ojo humano es una lente convergente que forma una imagen invertida en la retina. Tu cerebro la voltea. Las gafas corrigen el punto donde se forma la imagen: detrás de la retina (hipermetropía) o delante (miopía).
+
+
+```aeterna-formula
+title="Ley de Snell"
+formula="n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2"
+variables={[{"symbol":"n₁","name":"Índice de refracción medio 1","unit":"adimensional"},{"symbol":"θ₁","name":"Ángulo de incidencia","unit":"grados"},{"symbol":"n₂","name":"Índice de refracción medio 2","unit":"adimensional"},{"symbol":"θ₂","name":"Ángulo de refracción","unit":"grados"}]}
+note="La luz se acerca a la normal al entrar en un medio más denso y se aleja al salir. Es la base de las lentes y los prismas."
+```
+
+```aeterna-exercise
+TITLE: Distancia focal de una lente
+HINT: Usa 1/f = 1/do + 1/di.
+XP: 40
+Una lente convergente forma una imagen de un objeto a 30 cm cuando este está a 60 cm. ¿Cuál es la distancia focal?
+SOLUTION: 1/f = 1/60 + 1/30 = 1/60 + 2/60 = 3/60 = 1/20 → f = 20 cm.
+```
+
+---
+
+## 6. Óptica física: la naturaleza ondulatoria de la luz
+
+## La luz: onda y partícula
+
+El debate sobre la naturaleza de la luz duró siglos:
+
+- **Newton** (corpúsculos): la luz son partículas
+- **Huygens** (ondas): la luz es una onda
+- **Young** (1801): la interferencia demostró ondas
+- **Einstein** (1905): el efecto fotoeléctrico demostró fotones
+
+La **dualidad onda-partícula** es la resolución: la luz se comporta como onda en propagación e interferencia, y como partícula en absorción y emisión. Los fotones tienen energía E = hf, donde h es la constante de Planck.
+
+> **💡 Nota de frontera**
+> El experimento de la doble rendija con detectores de partículas individuales muestra que los fotones llegan uno a uno, pero forman el patrón de interferencia al acumularse. La naturaleza cuántica de la luz desafía nuestra intuición clásica.
+
+
+```error-hunter
+TITLE: La naturaleza de la luz
+CONTEXT: Un estudiante afirma: "El experimento de la doble rendija demostró que la luz está hecha de partículas, porque vemos puntos de luz individuales."
+XP: 60
+STEP_CORRECT: La doble rendija demuestra interferencia | Las franjas claras y oscuras solo se explican si la luz es una onda que interfiere consigo misma.
+STEP_CORRECT: La luz llega como fotones individuales | Al detectar fotones uno a uno, cada impacto es un punto. Pero el patrón acumulado es de interferencia ondulatoria.
+STEP_ERROR: Por lo tanto la luz es solo partícula | Ignora la evidencia de interferencia y difracción, que son propiedades ondulatorias.
+```
+
+---
+
+## 7. El color y el cielo: por qué vemos lo que vemos
+
+## Dispersión de Rayleigh y percepción del color
+
+La **dispersión de Rayleigh** explica que la intensidad de luz dispersada varía como 1/λ⁴: los azules (λ corta) se dispersan mucho más que los rojos. Por eso el cielo es azul y los atardeceres rojos.
+
+La **percepción del color** es un fenómeno biofísico: el ojo tiene tres tipos de conos (rojo, verde, azul) que responden a distintas frecuencias. El "color" que percibimos no es una propiedad de la luz sino de la interpretación de nuestro cerebro de las frecuencias que llegan a la retina.
+
+> **💡 Nota de frontera**
+> Los animales ven "colores" distintos: las abejas ven en ultravioleta (para encontrar néctar), las serpientes en infrarrojo (para ver a sus presas de sangre caliente). Nuestro arcoíris es solo una pequeña ventana del espectro.
+
+---
+
+## 8. El efecto Doppler: cuando el sonido y la luz se mueven
+
+## Doppler para la luz: corrimiento al rojo
+
+El efecto Doppler también afecta a la luz. Cuando una fuente luminosa se aleja, su luz se desplaza hacia el rojo (frecuencia menor, longitud de onda mayor). Cuando se acerca, hacia el azul.
+
+Este **corrimiento al rojo** es la base de la cosmología: las galaxias lejanas se alejan de nosotros (su luz se corre al rojo), lo que reveló la expansión del universo. Edwin Hubble observó que el corrimiento es proporcional a la distancia —la ley de Hubble.
+
+> **💡 Nota de frontera**
+> El corrimiento al rojo cosmológico no es exactamente Doppler de velocidad: es la expansión del propio espacio la que estira la luz durante su viaje. La luz de galaxias muy lejanas se corre tanto que se ve infrarroja.
+
+---
+
+## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+
+> **Sistema Aeterna, paso 2: La luz es onda y partícula a la vez**
+> La dualidad de la luz nos enseña que la realidad no siempre se ajusta a nuestras categorías. A veces un mismo fenómeno tiene dos descripciones válidas que se complementan. ¿En qué áreas de tu vida dos "verdades" coexisten sin anularse?
+
+> **Sistema Aeterna, paso 3: El corrimiento al rojo revela lo que no se ve**
+> El efecto Doppler de la luz nos dice que el universo se expande. A veces los pequeños cambios que observamos —un tono, un matiz— revelan grandes movimientos que no vemos directamente. ¿Qué señales sutiles te revelan grandes procesos ocultos?
+
+</NivelActivo>
+
+
+Las ondas son el idioma universal de la física: transportan energía sin transportar materia, desde el sonido que llega a tu oído hasta la luz que revela el universo. Has aprendido que una onda se describe por su amplitud, longitud de onda, frecuencia y velocidad, unidas por v = λf. Has visto cómo la reflexión, la refracción, la difracción y la interferencia gobiernan el comportamiento de las ondas, y cómo la óptica geométrica trata la luz como rayos mientras la óptica física la trata como ondas. Pero la lección más profunda es la dualidad: la luz es onda y partícula a la vez, un recordatorio de que la realidad no siempre se ajusta a nuestras categorías. Y el corrimiento al rojo nos enseña que, observando las ondas, podemos leer el movimiento del universo entero. Las ondas no solo mueven el mundo: son el mensajero que nos cuenta la historia del cosmos.
