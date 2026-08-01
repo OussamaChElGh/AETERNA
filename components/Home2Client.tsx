@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'motion/react';
-import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, Lock, Clock, ChevronDown } from 'lucide-react';
-import { useGamification } from '@/context/GamificationContext';
+import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, Lock, Clock, ChevronDown, Zap, Trophy, Award, Package } from 'lucide-react';
+import { useGamification, formatXP } from '@/context/GamificationContext';
 import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/components/LearningPath';
 import { NexusNode3D } from '@/components/NexusNode3D';
+import { evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
+import relicsData from '@/data/relics.json';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
@@ -171,6 +173,20 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
   const focusedCategory = hoverNode ? CATEGORIES_DATA.find(c => c.id === hoverNode) : null;
   const focusedIsLive = focusedCategory ? LIVE_CATEGORIES.has(focusedCategory.id) : false;
 
+  // Stats for progression panel
+  const totalLayers = Object.values(progress.completedLayers || {}).reduce((s, arr) => s + (Array.isArray(arr) ? arr.length : 0), 0);
+  const { unlockedIds } = evaluateRoomUnlocks({
+    completedPaths: progress.completedPaths || [],
+    completedLayers: progress.completedLayers || {}
+  });
+  const relicUnlockedCount = (relicsData.relics || []).filter(r =>
+    (progress.completedLayers?.[r.unlocksOn.article] || []).includes(r.unlocksOn.layer)
+  ).length;
+  const levelInfo = {
+    level: progress.level || 1,
+    nextLevel: progress.xp
+  };
+
   return (
     <div className="home-page-container bg-brand-ink min-h-screen relative selection:bg-brand-gold selection:text-brand-ink overflow-x-hidden">
       {/* Background */}
@@ -186,15 +202,15 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
       {/* HERO — LA HABITACIÓN COMO MAPA DEL SABER */}
       <section
         onMouseMove={handleMouseMove}
-        className="relative h-[80vh] min-h-[600px] flex items-center justify-center p-4 overflow-hidden"
+        className="relative min-h-[600px] flex items-center justify-center p-4 overflow-hidden"
       >
-        {/* Fondo: estancia de fantasía */}
+        {/* Fondo: estancia de fantasía — imagen completa */}
         <img 
           src="/images/hero-fantasy-room.png"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-contain object-center"
           alt="Estancia del Sabio"
         />
-        <div className="absolute inset-0 bg-brand-ink/35 pointer-events-none" />
+        <div className="absolute inset-0 bg-brand-ink/25 pointer-events-none" />
 
           <motion.div
             className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
@@ -206,7 +222,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
               style={{ perspective: "1400px", x: sceneX, y: sceneY }}
-              className="relative w-[min(88vw,620px)] md:w-[min(88vw,860px)] aspect-square"
+              className="relative w-[min(88vw,620px)] md:w-[min(88vw,720px)] lg:w-[min(50vw,700px)] aspect-square"
             >
             {/* Plano orbital inclinado */}
             <motion.div
@@ -369,6 +385,72 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
             Personalizar Estancia
             <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
           </Link>
+        </motion.div>
+
+        {/* Panel de Progreso — recompensas del estudio */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1, duration: 0.8 }}
+          className="absolute right-6 top-1/2 -translate-y-1/2 z-30 hidden lg:block"
+        >
+          <div className="relative w-[240px] bg-brand-ink/70 backdrop-blur-xl border border-brand-gold/30 shadow-[0_0_50px_rgba(212,175,55,0.15)] p-6">
+            <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-brand-gold" />
+            <div className="absolute top-0 right-0 w-2 h-2 border-r border-t border-brand-gold" />
+            <div className="absolute bottom-0 left-0 w-2 h-2 border-l border-b border-brand-gold" />
+            <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-brand-gold" />
+
+            <div className="flex items-center gap-2 mb-5">
+              <Zap size={14} className="text-brand-gold" />
+              <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-brand-gold">Tu Sabiduría</span>
+            </div>
+
+            <div className="flex items-end justify-between mb-5">
+              <div>
+                <div className="text-[9px] font-mono uppercase tracking-widest text-brand-offwhite/40 mb-1">Experiencia</div>
+                <div className="font-serif text-3xl text-brand-offwhite leading-none">{formatXP(progress.xp)}</div>
+              </div>
+              <div className="text-right">
+                <div className="text-[9px] font-mono uppercase tracking-widest text-brand-offwhite/40 mb-1">Nivel</div>
+                <div className="font-serif text-3xl text-brand-gold leading-none">{levelInfo.level}</div>
+              </div>
+            </div>
+
+            <div className="h-px bg-brand-gold/15 mb-5" />
+
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-[10px] text-brand-offwhite/60">
+                  <BookOpen size={12} className="text-brand-gold/70" /> Guías
+                </div>
+                <span className="font-mono text-xs text-brand-offwhite">{completedArticles.size}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-[10px] text-brand-offwhite/60">
+                  <Sparkles size={12} className="text-brand-gold/70" /> Capas asimiladas
+                </div>
+                <span className="font-mono text-xs text-brand-offwhite">{totalLayers}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-[10px] text-brand-offwhite/60">
+                  <Package size={12} className="text-brand-gold/70" /> Objetos en tu estancia
+                </div>
+                <span className="font-mono text-xs text-brand-offwhite">{unlockedIds.size}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2 text-[10px] text-brand-offwhite/60">
+                  <Award size={12} className="text-brand-gold/70" /> Reliquias
+                </div>
+                <span className="font-mono text-xs text-brand-offwhite">{relicUnlockedCount}</span>
+              </div>
+            </div>
+
+            <div className="mt-5 pt-4 border-t border-brand-gold/10">
+              <Link href="/room-engine" className="flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.3em] text-brand-gold hover:text-brand-offwhite transition-all">
+                <Trophy size={12} /> Reclamar recompensas <ArrowRight size={10} className="hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
         </motion.div>
 
         {/* Indicador de scroll */}
