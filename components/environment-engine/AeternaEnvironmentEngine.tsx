@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { EnvironmentLayout, EnvironmentTheme, EnvironmentPlacedItem } from '@/types/environmentEngine';
 import { Room } from './Room';
 import { RoomEngineHUD } from '../room-engine/RoomEngineHUD';
@@ -50,12 +50,14 @@ export function AeternaEnvironmentEngine({
   const [isPanning, setIsPanning] = useState(false);
   const panStartRef = useRef<{ startX: number; startY: number; initialPanX: number; initialPanY: number } | null>(null);
 
-  // Gamification unlock evaluation
-  const unlockCtx = {
-    completedPaths: progress.completedPaths || [],
-    completedLayers: progress.completedLayers || {}
-  };
-  const { unlockedIds } = evaluateRoomUnlocks(unlockCtx);
+  // Gamification unlock evaluation (memoized: no se recalcula durante drags)
+  const unlockedIds = useMemo(() => {
+    const ctx = {
+      completedPaths: progress.completedPaths || [],
+      completedLayers: progress.completedLayers || {}
+    };
+    return evaluateRoomUnlocks(ctx).unlockedIds;
+  }, [progress.completedPaths, progress.completedLayers]);
 
   const mountedRef = useRef(false);
   useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
@@ -80,6 +82,7 @@ export function AeternaEnvironmentEngine({
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
+    if (relicWallOpen) return;
     setSelectedInstanceId(null);
     setIsPanning(true);
     panStartRef.current = {
@@ -92,24 +95,25 @@ export function AeternaEnvironmentEngine({
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
-    if (isPanning && panStartRef.current) {
-      const deltaX = e.clientX - panStartRef.current.startX;
-      const deltaY = e.clientY - panStartRef.current.startY;
-      setPan({
-        x: panStartRef.current.initialPanX + deltaX,
-        y: panStartRef.current.initialPanY + deltaY
-      });
-    }
+    if (relicWallOpen || !isPanning || !panStartRef.current) return;
+    const deltaX = e.clientX - panStartRef.current.startX;
+    const deltaY = e.clientY - panStartRef.current.startY;
+    setPan({
+      x: panStartRef.current.initialPanX + deltaX,
+      y: panStartRef.current.initialPanY + deltaY
+    });
   };
 
   const handlePointerUp = (e: React.PointerEvent) => {
-    if (isPanning) {
+    if (relicWallOpen || !isPanning) {
       setIsPanning(false);
-      panStartRef.current = null;
-      try {
-        (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
-      } catch (err) {}
+      return;
     }
+    setIsPanning(false);
+    panStartRef.current = null;
+    try {
+      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+    } catch (err) {}
   };
 
   const handleResetCamera = () => {

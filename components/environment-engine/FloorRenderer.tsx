@@ -9,7 +9,7 @@ interface FloorRendererProps {
   theme: EnvironmentTheme;
 }
 
-export function FloorRenderer({ layout, theme }: FloorRendererProps) {
+const FloorRendererBase = ({ layout, theme }: FloorRendererProps) => {
   const [cleanFloorSrc, setCleanFloorSrc] = useState<string>('/images/master_floor_asset.png');
 
   useEffect(() => {
@@ -39,4 +39,6 @@ export function FloorRenderer({ layout, theme }: FloorRendererProps) {
       />
     </div>
   );
-}
+};
+
+export const FloorRenderer = React.memo(FloorRendererBase);

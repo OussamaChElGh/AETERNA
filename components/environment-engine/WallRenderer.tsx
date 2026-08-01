@@ -5,7 +5,6 @@ import { EnvironmentLayout, EnvironmentTheme } from '@/types/environmentEngine';
 interface WallRendererProps {
   layout: EnvironmentLayout;
   theme: EnvironmentTheme;
-  placedItems?: any[];
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -14,7 +13,7 @@ interface WallRendererProps {
 // used by wall objects, ensuring 100% visual alignment.
 // ─────────────────────────────────────────────────────────────────────────────
 
-export function WallRenderer({ layout, theme }: WallRendererProps) {
+const WallRendererBase = ({ layout, theme }: WallRendererProps) => {
   const wallSrcNW = '/images/master_wall_iso_nw.png';
   const wallSrcNE = '/images/master_wall_iso_ne.png';
 
@@ -63,4 +62,6 @@ export function WallRenderer({ layout, theme }: WallRendererProps) {
       </div>
     </div>
   );
-}
+};
+
+export const WallRenderer = React.memo(WallRendererBase);

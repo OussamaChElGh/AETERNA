@@ -1,8 +1,7 @@
 'use client';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { EnvironmentPlacedItem } from '@/types/environmentEngine';
 import { IsoSpriteObject } from '../room-engine/IsoSpriteObject';
-import { calculateDerivedZIndex } from '@/lib/roomEngineStorage';
 
 interface FurnitureRendererProps {
   placedItems: EnvironmentPlacedItem[];
@@ -29,19 +28,14 @@ export function FurnitureRenderer({
   onDeselect,
   scaleFactor
 }: FurnitureRendererProps) {
-  // Painter's algorithm: ordenar por z-index derivado para un correcto solapamiento
-  // de sprites isométricos (los cercanos se dibujan encima de los lejanos).
-  const sortedItems = useMemo(() => {
-    return [...placedItems].sort((a, b) => {
-      const za = calculateDerivedZIndex(a.tileX, a.tileY, a.tileZ, a.catalogItemId);
-      const zb = calculateDerivedZIndex(b.tileX, b.tileY, b.tileZ, b.catalogItemId);
-      return za - zb;
-    });
-  }, [placedItems]);
-
+  // El orden de profundidad lo gestiona IsoSpriteObject vía z-index CSS
+  // (calculateDerivedZIndex aplicado como style.zIndex). Ordenar aquí por
+  // profundidad en cada render causa reordenamientos del DOM durante el drag
+  // → lag perceptible. Renderizamos en orden de array y dejamos que el CSS
+  // resuelva el solapamiento.
   return (
     <>
-      {sortedItems.map(item => (
+      {placedItems.map(item => (
         <IsoSpriteObject
           key={item.instanceId}
           item={item}

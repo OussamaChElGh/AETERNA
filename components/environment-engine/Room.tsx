@@ -52,7 +52,7 @@ export function Room({
       <FloorRenderer layout={layout} theme={theme} />
 
       {/* 2. WallRenderer (WallNorth, WallWest, Corner, Window) */}
-      <WallRenderer layout={layout} theme={theme} placedItems={placedItems} />
+      <WallRenderer layout={layout} theme={theme} />
 
       {/* 3. FurnitureRenderer (Placed User Items with Contact Shadows & Depth Sorting) */}
       <FurnitureRenderer

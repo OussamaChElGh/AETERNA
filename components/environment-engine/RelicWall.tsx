@@ -44,6 +44,7 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
+          onPointerDown={(e) => e.stopPropagation()}
           className="absolute inset-0 z-[80] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
         >
           <motion.div
