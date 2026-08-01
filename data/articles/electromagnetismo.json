@@ -1,35 +1,313 @@
 {
   "metadata": {
     "title": "Electromagnetismo: La Fuerza Invisible",
-    "description": "Electricidad, magnetismo y cómo Maxwell los unificó. La fuerza que enciende tu pantalla y mueve el mundo moderno.",
+    "description": "Electricidad, magnetismo y cómo Maxwell los unificó. La fuerza que enciende tu pantalla, mueve el mundo moderno y explica por qué tu mano no atraviesa la mesa.",
     "slug": "electromagnetismo",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
       "física",
       "electromagnetismo",
       "electricidad",
       "magnetismo",
-      "ecuaciones de Maxwell"
+      "ecuaciones de Maxwell",
+      "campos",
+      "circuitos"
     ],
     "image": "https://images.unsplash.com/photo-1549487920-d326ef658742?q=80&w=2070&auto=format&fit=crop",
     "date": "2026-05-09",
-    "nivel": "2",
+    "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
-    "orden": "3",
-    "insignia": "Señor de lo Clásico"
+    "orden": 9,
+    "insignia": "Maestro de la Electricidad",
+    "tipo": "theory",
+    "prerequisites": [
+      "materia-y-energia",
+      "vectores"
+    ],
+    "breadcrumb": "Física / El Reino de lo Clásico / Electromagnetismo"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  Cada chispazo, cada imán de nevera, cada pantalla que enciendes: una sola fuerza invisible lo gobierna todo.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El electromagnetismo es la fuerza que une la electricidad y el magnetismo en una sola descripción. Cuatro ecuaciones de Maxwell lo resumen todo: la carga crea campos eléctricos, el movimiento de cargas crea campos magnéticos, y un campo magnético cambiante crea electricidad. Sin esta fuerza, no habría átomos estables, ni luz, ni tecnología moderna.\n\n**[IMAGEN SUGERIDA: Fotografía de una tormenta eléctrica nocturna con relámpagos sobre una ciudad. Pie de foto: \"Un relámpago es electromagnetismo en su forma más espectacular: millones de voltios entre el cielo y la tierra.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "una-breve-historia-del-electromagnetismo",
-      "titulo": "Una Breve Historia del Electromagnetismo",
+      "id": "carga-electrica",
+      "titulo": "1. Carga eléctrica: la moneda del universo",
       "niveles": {
-        "intermedio": "La electricidad y el magnetismo parecían fenómenos desconectados hasta que M. Faraday y J. Clerk Maxwell demostraron que eran dos caras de la misma moneda. Esa moneda ilumina hoy nuestra civilización."
+        "principiante": "## Carga eléctrica: la moneda del universo\n\nImagina que tienes dos globos. Los frotas contra tu jersey de lana y los acercas. Se repelen. Los acercas a tu jersey y se pegan. Ese fenómeno cotidiano esconde una de las fuerzas más fundamentales del universo: la fuerza eléctrica.\n\nLa **carga eléctrica** es una propiedad intrínseca de la materia, como la masa. Hay dos tipos: **positiva** (protón) y **negativa** (electrón). La regla es simple:\n\n- **Cargas iguales se repelen** (+ y +, − y −)\n- **Cargas opuestas se atraen** (+ y −)\n\nEsto explica por qué tu mano no atraviesa la mesa. Los electrones de tu mano y los de la mesa se repelen. La 'solidez' que sientes no es contacto real: es repulsión eléctrica. Entre las partículas de tu mano y las de la mesa, la mayor parte del tiempo solo hay vacío y campos eléctricos empujándose.\n\nLa unidad de carga es el **culombio (C)**. Un culombio es una cantidad enorme: aproximadamente 6.24 × 10^18 electrones. Una carga tan pequeña como un microculombio ya es suficiente para darte un calambre notable.\n\n> **🔑 Concepto clave: Carga eléctrica**\n> La carga eléctrica es una propiedad conservada: no se crea ni se destruye, solo se transfiere. Cuando frotas un globo, no creas carga: la mueves de tu jersey al globo. El globo queda con un exceso de electrones (negativo) y el jersey con un déficit (positivo).\n\n**[IMAGEN SUGERIDA: Diagrama de dos globos frotados con lana, uno junto al otro, con flechas mostrando la repulsión. Pie de foto: \"Dos cargas iguales se repelen.\"]**\n\n```aeterna-exercise\nTITLE: Frotando globos\nHINT: Piensa en qué tipo de carga adquiere cada objeto tras la fricción.\nXP: 30\nFrotas un globo contra tu jersey de lana. El globo queda cargado negativamente. ¿Qué carga adquiere el jersey y qué ocurre si acercas ambos?\nSOLUTION: El jersey adquiere carga positiva (perdió electrones). El globo (negativo) y el jersey (positivo) se atraen, porque las cargas opuestas se atraen. Por eso el globo se pega al jersey tras frotarlo.\n```",
+        "intermedio": "## La carga como propiedad cuantizada\n\nLa carga eléctrica tiene una propiedad sorprendente: está **cuantizada**. No puedes tener cualquier cantidad de carga; solo múltiplos enteros de la carga elemental e = 1.602 × 10^-19 C. Esto fue demostrado por Robert Millikan en 1909 con su famoso experimento de la gota de aceite.\n\nLa fuerza entre dos cargas se describe por la **ley de Coulomb**:\n\n$$ F = k \\frac{|q_1 q_2|}{r^2} $$\n\nDonde k = 8.99 × 10^9 N·m²/C². La fuerza es directamente proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia.\n\n```aeterna-formula\ntitle=\"Ley de Coulomb\"\nformula=\"F = k \\\\frac{|q_1 q_2|}{r^2}\"\nvariables={[{\"symbol\":\"F\",\"name\":\"Fuerza eléctrica\",\"unit\":\"N\"},{\"symbol\":\"k\",\"name\":\"Constante de Coulomb\",\"unit\":\"8.99×10⁹ N·m²/C²\"},{\"symbol\":\"q₁, q₂\",\"name\":\"Cargas\",\"unit\":\"C\"},{\"symbol\":\"r\",\"name\":\"Distancia entre cargas\",\"unit\":\"m\"}]}\nnote=\"La fuerza eléctrica domina a escala atómica: es unas 10³⁹ veces más fuerte que la gravedad entre dos protones.\"\n```\n\n**El campo eléctrico** es la forma de describir cómo una carga afecta al espacio que la rodea. Cada carga genera un campo que ejerce fuerza sobre cualquier otra carga que entre en su región. Los físicos prefieren pensar en campos en lugar de 'acción a distancia' porque los campos tienen energía, momento y viajan a la velocidad de la luz.\n\n> **Dato que rompe el cerebro**\n> La fuerza eléctrica entre los dos protones de tu ADN, si estuvieran a 1 cm de distancia, sería suficiente para levantar un camión. Pero a la escala del núcleo atómico, la fuerza nuclear fuerte los mantiene juntos, venciendo esa repulsión colosal.\n",
+        "avanzado": "## Carga, simetría y campos\n\nEn su formulación moderna, la carga eléctrica es el generador de la simetría de gauge U(1) de la electrodinámica cuántica. Esta idea, aunque abstracta, tiene consecuencias profundas: la conservación de la carga no es un accidente, sino una consecuencia del teorema de Noether aplicado a la simetría U(1).\n\nEl **campo eléctrico E** se define como la fuerza por unidad de carga: E = F/q. Se mide en V/m. El campo de una carga puntual es:\n\n$$ \\vec{E} = \\frac{1}{4\\pi\\epsilon_0} \\frac{q}{r^2} \\hat{r} $$\n\nLa **ley de Gauss** conecta el flujo del campo eléctrico a través de una superficie cerrada con la carga encerrada:\n\n$$ \\oint \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{enc}}{\\epsilon_0} $$\n\nEsta ley es una de las cuatro ecuaciones de Maxwell y es equivalente a la ley de Coulomb, pero mucho más general: funciona para cualquier distribución de carga.\n\n> **💡 Nota avanzada**\n> La ley de Gauss demuestra que la fuerza eléctrica decae como 1/r² porque vivimos en 3 dimensiones espaciales. Si viviéramos en 4 dimensiones espaciales, la fuerza eléctrica decaería como 1/r³. La geometría del espacio determina las leyes de la física.\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "corriente",
+      "titulo": "2. Corriente eléctrica: electrones en movimiento",
+      "niveles": {
+        "principiante": "## Corriente eléctrica: electrones en movimiento\n\nSi la carga es la moneda, la **corriente eléctrica** es el flujo de esa moneda. Es el movimiento ordenado de cargas a través de un conductor.\n\nImagina una fila de personas pasando un cubo de agua. La corriente es cuántos cubos pasan por segundo. En un cable, los 'cubos' son electrones.\n\nLa corriente se mide en **amperios (A)**: 1 amperio = 1 culombio por segundo.\n\n> **Dato curioso**\n> En un cable de cobre por el que circula 1 A, los electrones se mueven increíblemente lento: alrededor de 0.1 mm por segundo. La 'velocidad de la electricidad' no es la velocidad de los electrones individuales, sino la del **campo eléctrico**, que viaja a casi la velocidad de la luz. Es como una manguera llena de agua: las primeras gotas salen casi al instante porque el agua ya estaba dentro, no porque viajen rápido.\n\nPara que haya corriente, necesitas dos cosas: **un circuito cerrado** y **una diferencia de potencial** (voltaje). La diferencia de potencial es como la presión en la manguera: empuja a los electrones. Sin presión, no hay flujo.\n\n> **❌ Error común**\n> [El error]: 'La corriente se consume en el circuito.'\n> [La realidad]: La corriente no se consume. La energía se transfiere, pero las cargas fluyen en un bucle cerrado y regresan a la fuente. Los electrones no desaparecen: simplemente continúan su viaje en el circuito.\n\n**[IMAGEN SUGERIDA: Diagrama de un circuito simple con batería y bombilla, mostrando el flujo de electrones en bucle. Pie de foto: \"La corriente es un flujo en bucle cerrado.\"]**\n",
+        "intermedio": "## Corriente, densidad y velocidad de deriva\n\nEn un conductor, la corriente I es el flujo neto de carga a través de una sección transversal:\n\n$$ I = \\frac{dQ}{dt} = n A v_d e $$\n\nDonde n es la densidad de portadores, A el área de la sección, v_d la **velocidad de deriva** y e la carga elemental.\n\nLa **ley de Ohm** relaciona voltaje, corriente y resistencia:\n\n$$ V = IR $$\n\nLa resistencia R se mide en ohmios (Ω) y depende del material (resistividad ρ), la longitud L y el área A:\n\n$$ R = \\rho \\frac{L}{A} $$\n\n```aeterna-exercise\nTITLE: Calcula la resistencia\nHINT: Usa R = ρ·L/A. La resistividad del cobre es 1.68 × 10^-8 Ω·m.\nXP: 40\nUn cable de cobre de 100 m de longitud y 1 mm² de sección. ¿Cuál es su resistencia?\nSOLUTION: R = ρ·L/A = 1.68×10^-8 × 100 / (1×10^-6) = 1.68 Ω. Es una resistencia pequeña, típica del cobre.\n```\n\n**Resistividad de algunos materiales:**\n\n| Material | Resistividad (Ω·m) |\n| :--- | :--- |\n| Plata | 1.59 × 10^-8 |\n| Cobre | 1.68 × 10^-8 |\n| Aluminio | 2.65 × 10^-8 |\n| Silicio | 6.4 × 10² |\n| Vidrio | 10^10 - 10^14 |\n\nLos **conductores** (metales) tienen resistividad muy baja; los **aislantes** (vidrio, plástico) la tienen altísima; los **semiconductores** (silicio) están en medio, y esa propiedad intermedia es lo que permite construir transistores.\n\n> **🔑 Concepto clave: Diferencia de potencial**\n> El voltaje (diferencia de potencial) es la energía por unidad de carga disponible para mover los electrones. Se mide en voltios (V): 1 V = 1 J/C. Una pila de 1.5 V proporciona 1.5 julios de energía por cada culombio de carga que circula.\n",
+        "avanzado": "## Corriente y disipación de energía\n\nLa **potencia** disipada en un circuito es el producto del voltaje y la corriente:\n\n$$ P = VI = I^2R = \\frac{V^2}{R} $$\n\nEsta es la razón por la que las líneas de alta tensión transmiten energía a voltajes enormes: para una potencia dada, aumentar V reduce I, y como las pérdidas por calor son I²R, reducir la corriente a la mitad reduce las pérdidas a una cuarta parte.\n\nLa **ley de Joule** describe el calor generado por una corriente en una resistencia:\n\n$$ Q = I^2 R t $$\n\n**Reglas de Kirchhoff**:\n\n1. **Ley de corrientes (nodos):** la suma de corrientes que entran a un nodo es igual a la suma que sale (conservación de la carga).\n2. **Ley de voltajes (mallas):** la suma de las diferencias de potencial a lo largo de cualquier lazo cerrado es cero (conservación de la energía).\n\n```aeterna-decision\nBadge: Desafío\nTítulo: ¿En serie o en paralelo?\nPregunta: Dos resistencias de 100 Ω cada una. Si las conectas en serie, la resistencia total es 200 Ω. Si las conectas en paralelo, ¿cuál es la resistencia total?\nNivel: avanzado\nXP: 40\nBotón: Comprobar\nRespuesta: Respuesta: En paralelo, la resistencia total es 50 Ω: 1/R_total = 1/R₁ + 1/R₂ = 1/100 + 1/100 = 2/100, por lo que R_total = 50 Ω. En paralelo, la resistencia total siempre es menor que la menor de las resistencias individuales.\n```\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "ley-ohm",
+      "titulo": "3. Ley de Ohm y circuitos: el control del flujo",
+      "niveles": {
+        "principiante": "## Ley de Ohm: la regla del flujo\n\nGeorg Ohm descubrió en 1827 una relación sorprendentemente simple: la corriente que circula por un conductor es directamente proporcional al voltaje aplicado e inversamente proporcional a su resistencia.\n\n$$ V = IR $$\n\nEsta es probablemente la ecuación más usada en toda la ingeniería eléctrica. Con ella puedes calcular cualquier cosa en un circuito simple: cuánta corriente pasará, qué voltaje necesitas, o qué resistencia poner.\n\n**Un circuito simple tiene tres partes:**\n\n1. **Fuente** (batería): proporciona la diferencia de potencial\n2. **Conductor** (cable): el camino para los electrones\n3. **Carga** (bombilla, motor, resistencia): usa la energía\n\n> **❌ Error común**\n> [El error]: 'La bombilla consume los electrones.'\n> [La realidad]: La bombilla consume energía, no electrones. Los electrones fluyen a través de ella y siguen su camino. La energía se convierte en luz y calor en la bombilla.\n\n**[IMAGEN SUGERIDA: Circuito eléctrico de juguete con batería, cables y bombilla, colores vivos, estilo isométrico. Pie de foto: \"Batería, cables y carga: el circuito mínimo.\"]**\n\n\n```graph-lab\nTITLE: Ley de Ohm: corriente vs voltaje\nDESC: Un resistor de 10 Ω. La gráfica muestra la corriente para distintos voltajes. Interpreta la relación lineal.\nX_LABEL: Voltaje (V)\nY_LABEL: Corriente (A)\nQUESTION: ¿Qué representa la pendiente de la recta en la gráfica V vs I?\nXP: 50\nPOINT: 0 | 0 | Origen\nPOINT: 5 | 0.5 | V=5V\nPOINT: 10 | 1.0 | V=10V\nPOINT: 15 | 1.5 | V=15V\nOPTION_CORRECT: La pendiente es la conductancia (1/R) | De V = IR, despejando I = V/R, la pendiente de I vs V es 1/R. Para R = 10 Ω, pendiente = 0.1 A/V.\nOPTION_WRONG: La pendiente es la resistencia R | La pendiente de la gráfica V vs I sería R; aquí graficamos I vs V, así que la pendiente es 1/R.\nOPTION_WRONG: La pendiente es la potencia | La potencia es P = VI, no la pendiente de la recta.\n```\n\n<Connect title=\"La corriente y el calor\" sourceConcept=\"Ley de Ohm\" targetConcept=\"Termodinámica\">\nLa corriente eléctrica que atraviesa una resistencia disipa energía en forma de calor (Q = I²Rt). Este fenómeno, llamado efecto Joule, conecta el electromagnetismo con la termodinámica: la energía eléctrica se convierte en térmica. Es la razón por la que las bombillas incandescentes calientan y por la que los cables de alta tensión necesitan refrigeración.\n</Connect>\n",
+        "intermedio": "## Análisis de circuitos\n\nLos circuitos reales combinan resistencias en **serie** y en **paralelo**.\n\n**Serie:** los componentes están uno detrás de otro. La corriente es la misma en todos, pero el voltaje se reparte:\n\n$$ R_{total} = R_1 + R_2 + R_3 $$\n\n**Paralelo:** los componentes están en ramas separadas. El voltaje es el mismo en todos, pero la corriente se reparte:\n\n$$ \\frac{1}{R_{total}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\frac{1}{R_3} $$\n\n```parameter-lab\nTITLE: Laboratorio de circuitos\nDESC: Conecta dos resistencias en serie y en paralelo para ver cómo cambia la resistencia total.\nOUTPUT_LABEL: Resistencia total\nOUTPUT_UNIT: Ω\nQUESTION: ¿En qué configuración la resistencia total es mayor?\nANSWER: En serie. La resistencia en serie siempre es la suma, mayor que cualquiera de las individuales. En paralelo, la total es menor que la más pequeña.\nXP: 50\nPARAM: R1 | Resistencia 1 | Ω | 10 | 1000 | 10 | 100\nPARAM: R2 | Resistencia 2 | Ω | 10 | 1000 | 10 | 200\n```\n\n**La bombilla de tu casa**: las luces de una casa están conectadas en paralelo. Si una se funde, las demás siguen funcionando. Si estuvieran en serie, una bombilla fundida apagaría toda la casa.\n\n> **🔑 Concepto clave: Cortocircuito**\n> Si conectas los dos terminales de una batería directamente con un cable sin resistencia, la corriente intenta ser infinita. Ese es un cortocircuito: un flujo de corriente enorme que calienta el cable hasta quemarse. Por eso los circuitos llevan fusibles o disyuntores.\n\n\n```graph-lab\nTITLE: Ley de Ohm: corriente vs voltaje\nDESC: Un resistor de 10 Ω. La gráfica muestra la corriente para distintos voltajes. Interpreta la relación lineal.\nX_LABEL: Voltaje (V)\nY_LABEL: Corriente (A)\nQUESTION: ¿Qué representa la pendiente de la recta en la gráfica V vs I?\nXP: 50\nPOINT: 0 | 0 | Origen\nPOINT: 5 | 0.5 | V=5V\nPOINT: 10 | 1.0 | V=10V\nPOINT: 15 | 1.5 | V=15V\nOPTION_CORRECT: La pendiente es la conductancia (1/R) | De V = IR, despejando I = V/R, la pendiente de I vs V es 1/R. Para R = 10 Ω, pendiente = 0.1 A/V.\nOPTION_WRONG: La pendiente es la resistencia R | La pendiente de la gráfica V vs I sería R; aquí graficamos I vs V, así que la pendiente es 1/R.\nOPTION_WRONG: La pendiente es la potencia | La potencia es P = VI, no la pendiente de la recta.\n```\n\n<Connect title=\"La corriente y el calor\" sourceConcept=\"Ley de Ohm\" targetConcept=\"Termodinámica\">\nLa corriente eléctrica que atraviesa una resistencia disipa energía en forma de calor (Q = I²Rt). Este fenómeno, llamado efecto Joule, conecta el electromagnetismo con la termodinámica: la energía eléctrica se convierte en térmica. Es la razón por la que las bombillas incandescentes calientan y por la que los cables de alta tensión necesitan refrigeración.\n</Connect>\n",
+        "avanzado": "## Redes complejas y superposición\n\nLos circuitos reales pueden tener decenas de componentes. Dos técnicas permiten analizarlos sistemáticamente:\n\n**1. Teorema de superposición:** en un circuito lineal con varias fuentes, la corriente en cualquier rama es la suma de las corrientes que cada fuente produciría por separado.\n\n**2. Equivalente de Thévenin:** cualquier red de fuentes y resistencias puede reducirse a una sola fuente de voltaje con una sola resistencia en serie.\n\n```aeterna-exercise\nTITLE: Circuito mixto\nHINT: Reduce primero el paralelo, luego suma la serie.\nXP: 60\nUn circuito tiene una resistencia de 10 Ω en serie con un paralelo de 20 Ω y 30 Ω. La fuente es de 12 V. Calcula la corriente total.\nSOLUTION: 1/R_par = 1/20 + 1/30 = 5/60, R_par = 12 Ω. R_total = 10 + 12 = 22 Ω. I = V/R = 12/22 ≈ 0.545 A.\n```\n\n> **💡 Aplicación: ¿por qué las casas usan 220 V?**\n> El voltaje de red es un compromiso entre seguridad y eficiencia. Voltajes muy altos son peligrosos; voltajes bajos requieren cables enormes. 220 V (Europa) o 110-120 V (EE. UU.) equilibran ambos factores para distribución doméstica.\n\n\n```graph-lab\nTITLE: Ley de Ohm: corriente vs voltaje\nDESC: Un resistor de 10 Ω. La gráfica muestra la corriente para distintos voltajes. Interpreta la relación lineal.\nX_LABEL: Voltaje (V)\nY_LABEL: Corriente (A)\nQUESTION: ¿Qué representa la pendiente de la recta en la gráfica V vs I?\nXP: 50\nPOINT: 0 | 0 | Origen\nPOINT: 5 | 0.5 | V=5V\nPOINT: 10 | 1.0 | V=10V\nPOINT: 15 | 1.5 | V=15V\nOPTION_CORRECT: La pendiente es la conductancia (1/R) | De V = IR, despejando I = V/R, la pendiente de I vs V es 1/R. Para R = 10 Ω, pendiente = 0.1 A/V.\nOPTION_WRONG: La pendiente es la resistencia R | La pendiente de la gráfica V vs I sería R; aquí graficamos I vs V, así que la pendiente es 1/R.\nOPTION_WRONG: La pendiente es la potencia | La potencia es P = VI, no la pendiente de la recta.\n```\n\n<Connect title=\"La corriente y el calor\" sourceConcept=\"Ley de Ohm\" targetConcept=\"Termodinámica\">\nLa corriente eléctrica que atraviesa una resistencia disipa energía en forma de calor (Q = I²Rt). Este fenómeno, llamado efecto Joule, conecta el electromagnetismo con la termodinámica: la energía eléctrica se convierte en térmica. Es la razón por la que las bombillas incandescentes calientan y por la que los cables de alta tensión necesitan refrigeración.\n</Connect>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "campos-magneticos",
+      "titulo": "4. Campos magnéticos: la fuerza invisible que orienta",
+      "niveles": {
+        "principiante": "## Campos magnéticos\n\nLos imanes han fascinado a la humanidad durante milenios. La brújula, inventada en China hace más de mil años, fue el primer gran uso práctico del magnetismo. Pero ¿qué es realmente un campo magnético?\n\nUn **campo magnético (B)** es una región del espacio donde una carga en movimiento experimenta una fuerza. Se mide en **teslas (T)**.\n\n**Hechos fundamentales del magnetismo:**\n\n- Todo imán tiene dos polos: **norte** y **sur**\n- Polos iguales se repelen; polos opuestos se atraen\n- **No existen monopolos magnéticos**: cortar un imán por la mitad no produce un polo norte suelto, sino dos imanes más pequeños\n\nLa Tierra misma es un imán gigante. Su campo magnético es lo que hace funcionar las brújulas y nos protege de las partículas cargadas del viento solar.\n\n> **Dato que rompe el cerebro**\n> El polo norte magnético de la Tierra está realmente cerca del polo sur geográfico. La aguja de una brújula apunta al norte porque es atraída por el polo sur magnético que hay cerca del polo norte geográfico. Es un juego de polos opuestos.\n\n**[IMAGEN SUGERIDA: Brújula sobre un mapa antiguo, con la aguja señalando al norte. Pie de foto: \"La brújula: la aplicación más antigua del magnetismo.\"]**\n",
+        "intermedio": "## Campo magnético y fuerza de Lorentz\n\nUna carga q moviéndose con velocidad v en un campo magnético B experimenta la **fuerza de Lorentz**:\n\n$$ \\vec{F} = q\\vec{v} \\times \\vec{B} $$\n\nLa fuerza es perpendicular tanto a la velocidad como al campo. Esto hace que las cargas sigan trayectorias circulares o helicoidales en campos magnéticos uniformes.\n\nEl **radio de la trayectoria circular** es:\n\n$$ r = \\frac{mv}{qB} $$\n\n```aeterna-formula\ntitle=\"Radio de giro en campo magnético\"\nformula=\"r = \\\\frac{mv}{qB}\"\nvariables={[{\"symbol\":\"r\",\"name\":\"Radio de giro\",\"unit\":\"m\"},{\"symbol\":\"m\",\"name\":\"Masa de la partícula\",\"unit\":\"kg\"},{\"symbol\":\"v\",\"name\":\"Velocidad\",\"unit\":\"m/s\"},{\"symbol\":\"q\",\"name\":\"Carga\",\"unit\":\"C\"},{\"symbol\":\"B\",\"name\":\"Campo magnético\",\"unit\":\"T\"}]}\nnote=\"Esta fórmula es la base de los aceleradores de partículas, la espectrometría de masas y las auroras boreales.\"\n```\n\n**La regla de la mano derecha** permite predecir la dirección de la fuerza: apunta el pulgar en la dirección de la velocidad y los dedos en la del campo; la fuerza sale de la palma.\n\n> **Dato que rompe el cerebro**\n> Las auroras boreales son electrones del viento solar que caen a lo largo de las líneas del campo magnético terrestre hacia los polos, donde chocan con la atmósfera. El campo magnético de la Tierra es la razón por la que ves luces danzantes en el cielo ártico.\n",
+        "avanzado": "## Origen del campo magnético\n\n¿De dónde sale el campo magnético? De cargas en movimiento. Una corriente eléctrica genera un campo magnético a su alrededor (ley de Ampère).\n\nPara un conductor rectilíneo, el campo a distancia r es:\n\n$$ B = \\frac{\\mu_0 I}{2\\pi r} $$\n\nDonde μ₀ = 4π × 10^-7 T·m/A es la permeabilidad del vacío.\n\n**La ley de Ampère** (forma integral):\n\n$$ \\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc} $$\n\n**Los electromagnetos:** enrollar un cable en una bobina (solenoide) concentra el campo magnético. El campo dentro de un solenoide largo es:\n\n$$ B = \\mu_0 n I $$\n\nDonde n es el número de vueltas por metro. Esta es la base de los motores eléctricos, los altavoces y las resonancias magnéticas.\n\n> **🔑 Concepto clave: Dipolo magnético**\n> La unidad fundamental del magnetismo es el dipolo: un par norte-sur inseparable. Los átomos se comportan como diminutos dipolos porque los electrones orbitan y giran. En la mayoría de los materiales estos dipolos están desordenados y se cancelan, pero en los ferromagnéticos (hierro, cobalto, níquel) se alinean formando imanes permanentes.\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "induccion",
+      "titulo": "5. Inducción electromagnética: la revolución silenciosa",
+      "niveles": {
+        "principiante": "## Inducción electromagnética\n\nMichael Faraday descubrió en 1831 un fenómeno que cambiaría el mundo para siempre: un campo magnético **cambiante** genera una corriente eléctrica. Este fenómeno, llamado **inducción electromagnética**, es la base de toda la generación de electricidad moderna.\n\nLa regla es elegante: **no es el magnetismo lo que genera electricidad, sino el cambio del magnetismo**. Un imán quieto junto a un cable no hace nada. Un imán que se mueve, o un campo que cambia, genera corriente.\n\n> **Dato que rompe el cerebro**\n> Casi toda la electricidad del planeta se genera por inducción electromagnética. Las centrales eléctricas —de carbón, gas, nuclear, eólica o hidroeléctrica— en esencia hacen girar imanes junto a bobinas de cobre. Faraday inventó la plantilla de toda la generación eléctrica moderna.\n\n**[IMAGEN SUGERIDA: Ilustración de una bobina con un imán que se mueve dentro y una bombilla que se enciende. Pie de foto: \"Un imán en movimiento dentro de una bobina genera corriente.\"]**\n",
+        "intermedio": "## La ley de Faraday\n\nLa magnitud de la fuerza electromotriz inducida se describe por la **ley de Faraday-Lenz**:\n\n$$ \\mathcal{E} = -\\frac{d\\Phi_B}{dt} $$\n\nDonde Φ_B es el **flujo magnético**:\n\n$$ \\Phi_B = \\int \\vec{B} \\cdot d\\vec{A} = BA\\cos\\theta $$\n\nEl signo negativo es la **ley de Lenz**: la corriente inducida crea un campo magnético que se opone al cambio que la produjo. La naturaleza 'resiste' los cambios de flujo.\n\n```aeterna-exercise\nTITLE: Generador de Faraday\nHINT: El flujo cambia cuando cambia B, A o el ángulo.\nXP: 50\nUna bobina de 100 vueltas y área 0.01 m² está perpendicular a un campo magnético que cambia de 0 a 0.5 T en 0.1 s. ¿Cuál es la fuerza electromotriz inducida?\nSOLUTION: Φ = BA = 0.5 × 0.01 = 0.005 Wb. ε = -N·ΔΦ/Δt = -100 × 0.005 / 0.1 = -5 V. La FEM inducida es de 5 V (el signo indica la oposición de Lenz).\n```\n\n**Aplicaciones:**\n- **Generadores**: convierten movimiento en electricidad\n- **Motores**: convierten electricidad en movimiento (el proceso inverso)\n- **Transformadores**: cambian el voltaje de la corriente alterna usando inducción entre dos bobinas\n- **Frenos magnéticos**: de trenes, usan corrientes inducidas (eddy currents) que disipan energía\n",
+        "avanzado": "## Inducción y energía\n\nLa inducción electromagnética no es solo un fenómeno curioso: es la manifestación de la **conservación de la energía**. La ley de Lenz garantiza que no puedes obtener energía de la nada: extraer corriente de una bobina requiere trabajo mecánico contra la fuerza que se opone al cambio de flujo.\n\n**La inductancia L** mide cuánto se opone un circuito a los cambios de corriente:\n\n$$ \\mathcal{E} = -L\\frac{dI}{dt} $$\n\n**Transformadores:** la relación entre voltajes y espiras de un transformador ideal es:\n\n$$ \\frac{V_1}{V_2} = \\frac{N_1}{N_2} $$\n\nLos transformadores permiten elevar el voltaje a cientos de miles de voltios para transmitir energía a largas distancias con pérdidas mínimas (porque las pérdidas I²R se reducen al bajar la corriente), y luego bajarlo a 220 V para uso doméstico.\n\n> **Dato que rompe el cerebro**\n> El concepto de 'voltaje de red' (220 V o 110 V) solo funciona con corriente alterna. La corriente continua no puede usar transformadores para cambiar de voltaje. Por eso Edison (DC) perdió la 'guerra de las corrientes' frente a Tesla (AC): la corriente alterna podía transformarse y transmitirse a grandes distancias.\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "ecuaciones-maxwell",
+      "titulo": "6. Ecuaciones de Maxwell: la unificación definitiva",
+      "niveles": {
+        "principiante": "## Ecuaciones de Maxwell\n\nA mediados del siglo XIX, la electricidad y el magnetismo parecían fenómenos separados. James Clerk Maxwell, un físico escocés, los unificó en cuatro ecuaciones que describen toda la electrodinámica clásica. Stephen Hawking dijo que fue el momento más importante de la física desde Newton.\n\nLas cuatro ecuaciones son:\n\n1. **Ley de Gauss** (electricidad): la carga crea campos eléctricos\n2. **Ley de Gauss** (magnetismo): no existen monopolos magnéticos\n3. **Ley de Faraday**: un campo magnético cambiante crea un campo eléctrico\n4. **Ley de Ampère-Maxwell**: un campo eléctrico cambiante crea un campo magnético\n\n> **Dato que rompe el cerebro**\n> Maxwell descubrió que sus ecuaciones predecían la existencia de **ondas electromagnéticas** que viajan a una velocidad que se podía calcular a partir de constantes conocidas. Al hacer el cálculo, obtuvo un número que coincidía exactamente con la velocidad de la luz medida. Maxwell se dio cuenta de que la luz es una onda electromagnética. Unificó electricidad, magnetismo y óptica en una sola teoría.\n\n**[IMAGEN SUGERIDA: Retrato artístico de las cuatro ecuaciones de Maxwell escritas en una pizarra, con ondas de luz emanando. Pie de foto: \"Cuatro ecuaciones resumen toda la electrodinámica.\"]**\n\n\n<Transfer targetDomain=\"Ingeniería y tecnología\" title=\"Transfiere: el electromagnetismo en tu vida\">\nElige una tecnología que uses a diario (móvil, microondas, wifi, motor eléctrico, tarjeta de crédito) e identifica qué principio electromagnético la hace funcionar. ¿Dónde hay un campo eléctrico? ¿Un campo magnético? ¿Inducción? ¿Ondas?\n</Transfer>\n",
+        "intermedio": "## Las cuatro ecuaciones en forma integral\n\nEn su forma integral, las ecuaciones de Maxwell son:\n\n$$ \\oint \\vec{E} \\cdot d\\vec{A} = \\frac{Q_{enc}}{\\epsilon_0} $$\n\n$$ \\oint \\vec{B} \\cdot d\\vec{A} = 0 $$\n\n$$ \\oint \\vec{E} \\cdot d\\vec{l} = -\\frac{d\\Phi_B}{dt} $$\n\n$$ \\oint \\vec{B} \\cdot d\\vec{l} = \\mu_0 I_{enc} + \\mu_0 \\epsilon_0 \\frac{d\\Phi_E}{dt} $$\n\nLa cuarta ecuación contiene el término clave que añadió Maxwell: la **corriente de desplazamiento** ε₀·dΦ_E/dt. Este término es el que hace simétricas las ecuaciones y permite que existan ondas electromagnéticas.\n\n> **🔑 Concepto clave: Simetría**\n> Maxwell completó la simetría que faltaba: si un campo B cambiante crea un campo E (Faraday), entonces un campo E cambiante debe crear un campo B (Ampère-Maxwell). Esta simetría implica que los campos eléctrico y magnético se alimentan mutuamente, propagándose como ondas.\n\n\n<Transfer targetDomain=\"Ingeniería y tecnología\" title=\"Transfiere: el electromagnetismo en tu vida\">\nElige una tecnología que uses a diario (móvil, microondas, wifi, motor eléctrico, tarjeta de crédito) e identifica qué principio electromagnético la hace funcionar. ¿Dónde hay un campo eléctrico? ¿Un campo magnético? ¿Inducción? ¿Ondas?\n</Transfer>\n",
+        "avanzado": "## De Maxwell a la relatividad\n\nLas ecuaciones de Maxwell tienen una consecuencia revolucionaria: la velocidad de la luz es la misma para todos los observadores. Esto contradecía la mecánica newtoniana, donde las velocidades se suman. La solución llegó con Einstein en 1905: la relatividad especial.\n\n**Ondas electromagnéticas:** la velocidad de propagación es:\n\n$$ c = \\frac{1}{\\sqrt{\\mu_0 \\epsilon_0}} $$\n\nEl **espectro electromagnético** abarca desde ondas de radio (baja frecuencia) hasta rayos gamma (altísima frecuencia), pasando por microondas, infrarrojo, visible, ultravioleta y rayos X.\n\n```aeterna-formula\ntitle=\"Velocidad de la luz en el vacío\"\nformula=\"c = \\\\frac{1}{\\\\sqrt{\\\\mu_0 \\\\epsilon_0}}\"\nvariables={[{\"symbol\":\"c\",\"name\":\"Velocidad de la luz\",\"unit\":\"3×10⁸ m/s\"},{\"symbol\":\"μ₀\",\"name\":\"Permeabilidad del vacío\",\"unit\":\"4π×10⁻⁷ T·m/A\"},{\"symbol\":\"ε₀\",\"name\":\"Permitividad del vacío\",\"unit\":\"8.85×10⁻¹² F/m\"}]}\nnote=\"Maxwell calculó este número a partir de constantes de laboratorio y descubrió que era exactamente la velocidad de la luz: la luz es electromagnética.\"\n```\n\n**La profunda conexión:** la relatividad especial nació de la pregunta '¿qué pasa si viajas junto a un rayo de luz?' Einstein, preguntándose por qué la luz no 'se mueve más lento' para un observador que la persigue, reescribió nuestra comprensión del espacio y el tiempo.\n\n> **💡 Nota de frontera**\n> El electromagnetismo es la mejor teoría clásica que existe: precisa a una parte en 10^12. Pero deja preguntas abiertas que la mecánica cuántica responde: ¿qué es un fotón? ¿Por qué la carga está cuantizada? La electrodinámica cuántica (QED) responde a estas preguntas y es la teoría más precisa jamás creada por la humanidad.\n\n\n<Transfer targetDomain=\"Ingeniería y tecnología\" title=\"Transfiere: el electromagnetismo en tu vida\">\nElige una tecnología que uses a diario (móvil, microondas, wifi, motor eléctrico, tarjeta de crédito) e identifica qué principio electromagnético la hace funcionar. ¿Dónde hay un campo eléctrico? ¿Un campo magnético? ¿Inducción? ¿Ondas?\n</Transfer>\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "El electromagnetismo es la fuerza que sostiene el mundo moderno. Desde el chispazo estático al frotar un globo hasta los relámpagos que cruzan el cielo, desde la brújula que orientó a los navegantes hasta las ondas que llevan tu conexión a internet, todo es una sola fuerza unificada por las ecuaciones de Maxwell. Has aprendido que la carga crea campos, que el movimiento de cargas crea magnetismo, que un campo cambiante crea electricidad, y que esas cuatro leyes se condensan en la velocidad de la luz. Pero el electromagnetismo es también una puerta: sus misterios —la cuantización de la carga, la naturaleza del fotón— abren hacia la mecánica cuántica y la relatividad. La fuerza invisible que enciende tu pantalla es la misma que ilumina el universo.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Cargas y frotamiento",
+        "enunciado": "Frotas dos globos contra tu jersey y los acercas. Se repelen. ¿Qué carga tiene cada globo y por qué se repelen?",
+        "solucion": "Ambos globos ganan electrones del jersey, quedando ambos con carga negativa. Como cargas iguales se repelen, los dos globos se repelen entre sí.",
+        "xp": 30,
+        "pistas": [
+          "El frotamiento transfiere electrones",
+          "¿Qué carga adquieren los globos?",
+          "¿Qué hacen dos cargas iguales?"
+        ],
+        "opciones": [
+          {
+            "label": "Ambos negativos; cargas iguales se repelen",
+            "correcta": true
+          },
+          {
+            "label": "Uno positivo y otro negativo; se atraen",
+            "correcta": false
+          },
+          {
+            "label": "Ambos positivos; se atraen",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica que el jersey pierde electrones hacia los globos",
+          "Concluye que ambos globos quedan negativos",
+          "Aplica: cargas iguales se repelen"
+        ]
+      },
+      {
+        "titulo": "Ley de Coulomb",
+        "enunciado": "Dos cargas de 1 µC están separadas 1 m. ¿Cuál es la fuerza entre ellas? (k = 8.99 × 10⁹ N·m²/C²)",
+        "solucion": "F = k·|q₁·q₂|/r² = 8.99×10⁹ × (1×10⁻⁶)² / 1² = 8.99×10⁻³ N ≈ 9 mN. Es una fuerza pequeña a esta distancia y con estas cargas.",
+        "xp": 35,
+        "pistas": [
+          "1 µC = 1×10⁻⁶ C",
+          "F = k·|q₁·q₂|/r²",
+          "Sustituye y calcula"
+        ],
+        "opciones": [
+          {
+            "label": "≈ 9 mN",
+            "correcta": true
+          },
+          {
+            "label": "≈ 9 N",
+            "correcta": false
+          },
+          {
+            "label": "≈ 0.9 N",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Convierte 1 µC a culombios",
+          "Aplica la ley de Coulomb",
+          "Calcula F ≈ 8.99×10⁻³ N"
+        ]
+      },
+      {
+        "titulo": "Corriente en un circuito",
+        "enunciado": "Una bombilla de 60 W funciona a 220 V. ¿Qué corriente circula por ella?",
+        "solucion": "P = V·I → I = P/V = 60/220 ≈ 0.27 A. La corriente es de aproximadamente 0.27 amperios.",
+        "xp": 30,
+        "pistas": [
+          "P = V·I",
+          "Despeja I",
+          "Divide 60 entre 220"
+        ],
+        "opciones": [
+          {
+            "label": "≈ 0.27 A",
+            "correcta": true
+          },
+          {
+            "label": "≈ 2.7 A",
+            "correcta": false
+          },
+          {
+            "label": "≈ 13 A",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Recuerda P = V·I",
+          "Despeja I = P/V",
+          "Calcula 60/220 ≈ 0.27 A"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Resistencia de un cable",
+        "enunciado": "Un cable de cobre de 200 m y 2 mm² de sección. Resistividad del cobre = 1.68 × 10⁻⁸ Ω·m. ¿Cuál es su resistencia?",
+        "solucion": "R = ρ·L/A = 1.68×10⁻⁸ × 200 / (2×10⁻⁶) = 1.68 Ω. La resistencia es de 1.68 ohmios.",
+        "xp": 40,
+        "pistas": [
+          "R = ρ·L/A",
+          "2 mm² = 2×10⁻⁶ m²",
+          "Sustituye los valores"
+        ],
+        "opciones": [
+          {
+            "label": "1.68 Ω",
+            "correcta": true
+          },
+          {
+            "label": "16.8 Ω",
+            "correcta": false
+          },
+          {
+            "label": "0.168 Ω",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Convierte mm² a m²",
+          "Aplica R = ρ·L/A",
+          "Calcula 1.68×10⁻⁸ × 200 / 2×10⁻⁶ = 1.68 Ω"
+        ]
+      },
+      {
+        "titulo": "Radio de giro en campo magnético",
+        "enunciado": "Un protón (m = 1.67×10⁻²⁷ kg, q = 1.6×10⁻¹⁹ C) se mueve a 10⁶ m/s en un campo de 0.1 T. ¿Cuál es el radio de su trayectoria?",
+        "solucion": "r = mv/qB = 1.67×10⁻²⁷ × 10⁶ / (1.6×10⁻¹⁹ × 0.1) = 1.67×10⁻²¹ / 1.6×10⁻²⁰ = 0.104 m ≈ 10 cm.",
+        "xp": 45,
+        "pistas": [
+          "r = mv/qB",
+          "Sustituye cada valor",
+          "Simplifica las potencias de 10"
+        ],
+        "opciones": [
+          {
+            "label": "≈ 10 cm",
+            "correcta": true
+          },
+          {
+            "label": "≈ 1 m",
+            "correcta": false
+          },
+          {
+            "label": "≈ 1 mm",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica r = mv/qB",
+          "Sustituye los valores",
+          "Calcula ≈ 0.104 m = 10 cm"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "FEM inducida en una bobina",
+        "enunciado": "Una bobina de 50 vueltas y área 0.02 m² ve cambiar su campo magnético de 0 a 0.4 T en 0.05 s. ¿Cuál es la FEM inducida?",
+        "solucion": "ΔΦ = B·A = 0.4 × 0.02 = 0.008 Wb. ε = -N·ΔΦ/Δt = -50 × 0.008/0.05 = -8 V. La magnitud es de 8 V.",
+        "xp": 50,
+        "pistas": [
+          "Flujo: Φ = BA",
+          "ε = -N·ΔΦ/Δt",
+          "Calcula ΔΦ y divide entre Δt"
+        ],
+        "opciones": [
+          {
+            "label": "8 V",
+            "correcta": true
+          },
+          {
+            "label": "0.8 V",
+            "correcta": false
+          },
+          {
+            "label": "80 V",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula ΔΦ = 0.4×0.02 = 0.008 Wb",
+          "Aplica ε = -N·ΔΦ/Δt",
+          "ε = -50×0.008/0.05 = -8 V"
+        ]
+      },
+      {
+        "titulo": "Transformador",
+        "enunciado": "Un transformador tiene 200 vueltas en el primario y 40 en el secundario. Si el primario recibe 220 V, ¿qué voltaje sale del secundario?",
+        "solucion": "V₁/V₂ = N₁/N₂ → 220/V₂ = 200/40 → V₂ = 220 × 40/200 = 44 V. El voltaje del secundario es de 44 V (transformador reductor).",
+        "xp": 50,
+        "pistas": [
+          "V₁/V₂ = N₁/N₂",
+          "Despeja V₂",
+          "Multiplica 220 por la relación de vueltas"
+        ],
+        "opciones": [
+          {
+            "label": "44 V",
+            "correcta": true
+          },
+          {
+            "label": "1100 V",
+            "correcta": false
+          },
+          {
+            "label": "220 V",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Plantea la relación de transformación",
+          "V₂ = V₁ × N₂/N₁",
+          "V₂ = 220 × 40/200 = 44 V"
+        ]
+      }
+    ]
+  }
 }
