@@ -1,69 +1,57 @@
-'use client';
+﻿'use client';
 import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface PixelFrameProps {
   children: React.ReactNode;
   className?: string;
-  borderColor?: string;
-  shadowColor?: string;
-  innerColor?: string;
-  bgClass?: string;
   accent?: string;
+  bgClass?: string;
+  dense?: boolean;
 }
 
 /**
- * PixelFrame: marco 8-bit para bloques de Aeterna.
- * - Doble borde duro (exterior 4px + interior 2px)
- * - Esquinas "mordidas" estilo sprite (cuadrados en cada esquina)
- * - Textura checkerboard de píxel en el fondo
- * - Sombra dura desplazada (hard offset shadow)
+ * PixelFrame — placa compacta estilo "ficha de inventario 8-bit".
+ * Pequeña, sin sombras gigantes, con barra superior pixelada (dithering)
+ * y borde de un solo píxel. Distinta de las tarjetas grandes: es una placa.
  */
 export function PixelFrame({
   children,
   className,
-  borderColor = '#D4AF37',
-  shadowColor = '#000',
-  innerColor = '#000',
+  accent = '#D4AF37',
   bgClass = 'bg-[#FAF6EC] dark:bg-[#1A1712]',
-  accent = '#8B6914'
+  dense = false
 }: PixelFrameProps) {
   return (
-    <div className={cn("relative", className)}>
-      {/* Outer hard shadow + thick pixel border */}
+    <div
+      className={cn(
+        "relative w-full border-2 overflow-hidden",
+        dense ? "p-3" : "p-4 md:p-5",
+        bgClass,
+        className
+      )}
+      style={{ borderColor: accent }}
+    >
+      {/* Top pixel dithering bar */}
       <div
-        className="relative border-4"
+        className="absolute top-0 left-0 right-0 h-2"
         style={{
-          borderColor,
-          boxShadow: `8px 8px 0 0 ${shadowColor}`,
-          color: accent
+          backgroundImage:
+            `linear-gradient(90deg, ${accent} 25%, transparent 25%, transparent 50%, ${accent} 50%, ${accent} 75%, transparent 75%)`,
+          backgroundSize: '8px 8px',
+          opacity: 0.9
         }}
-      >
-        {/* Pixel checkerboard texture (whole block) */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            opacity: 0.08,
-            backgroundImage:
-              'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
-            backgroundSize: '14px 14px',
-            backgroundPosition: '0 0, 7px 7px'
-          }}
-        />
-
-        {/* Inner thin border (double-line pixel look) */}
-        <div className="absolute inset-1.5 border-2 pointer-events-none" style={{ borderColor: innerColor, opacity: 0.35 }} />
-
-        {/* Corner sprites (pixel corners) */}
-        <span className="absolute -top-2 -left-2 w-4 h-4 z-20" style={{ background: borderColor }} aria-hidden="true" />
-        <span className="absolute -top-2 -right-2 w-4 h-4 z-20" style={{ background: borderColor }} aria-hidden="true" />
-        <span className="absolute -bottom-2 -left-2 w-4 h-4 z-20" style={{ background: borderColor }} aria-hidden="true" />
-        <span className="absolute -bottom-2 -right-2 w-4 h-4 z-20" style={{ background: borderColor }} aria-hidden="true" />
-
-        <div className={cn("relative z-10 p-6 md:p-8 space-y-5", bgClass)}>
-          {children}
-        </div>
-      </div>
+      />
+      {/* Subtle diagonal hatch across the plate */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        style={{
+          backgroundImage:
+            'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
+          backgroundSize: '10px 10px'
+        }}
+      />
+      <div className="relative z-10">{children}</div>
     </div>
   );
 }

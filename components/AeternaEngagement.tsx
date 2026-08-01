@@ -1,7 +1,7 @@
-'use client';
+﻿'use client';
 import React from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Gamepad2, TrendingUp, Lightbulb, ShieldAlert, Cpu, XCircle, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Gamepad2, Lightbulb, ShieldAlert, Cpu, XCircle, CheckCircle2 } from 'lucide-react';
 import { PixelFrame } from '@/components/blocks/PixelFrame';
 
 export type EngagementType =
@@ -19,162 +19,120 @@ interface EngagementBlockProps {
   extra?: string;
 }
 
+function CompactTag({ label, color, dark }: { label: string; color: string; dark: string }) {
+  return (
+    <span
+      className="inline-block px-2 py-0.5 font-mono font-black text-[9px] uppercase tracking-[0.2em] text-white"
+      style={{ background: color }}
+    >
+      {label}
+    </span>
+  );
+}
+
 export function AeternaEngagement({ type, title, content, extra }: EngagementBlockProps) {
   let canonicalType = type;
   if (type === 'did-you-know') canonicalType = 'archive-fragment';
   if (type === 'common-error') canonicalType = 'misconception';
   if (type === 'key-concept') canonicalType = 'key-insight';
 
-  // 1. PIXEL MISCONCEPTION (ERROR COMÚN) DUAL BOX
+  // 1. COMPACT MISCONCEPTION (ERROR COMÚN)
   if (canonicalType === 'misconception') {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="my-10"
+        className="my-6"
       >
-        <PixelFrame borderColor="#F43F5E" shadowColor="#991B1B" accent="#9F1239" bgClass="bg-[#FFF0F2] dark:bg-[#2A0E14]">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b-4 border-rose-600/30 dark:border-rose-500/30 pb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-none bg-white dark:bg-black border-2 border-rose-600 dark:border-rose-500 flex items-center justify-center text-rose-600 dark:text-rose-400 shadow-[2px_2px_0px_0px_#991B1B] dark:shadow-[2px_2px_0px_0px_#F43F5E] shrink-0">
-                <ShieldAlert size={18} />
-              </div>
-              <div>
-                <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-rose-700 dark:text-rose-300 block">
-                  [DISONANCIA COGNITIVA]
-                </span>
-                <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
-                  {title}
-                </h3>
-              </div>
+        <PixelFrame accent="#F43F5E" bgClass="bg-[#FFF0F2] dark:bg-[#2A0E14]" dense>
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-none bg-rose-600 border border-black flex items-center justify-center text-white shrink-0">
+              <ShieldAlert size={13} />
             </div>
-
-            <span className="px-3 py-1 bg-rose-600 text-white font-mono font-bold text-[10px] uppercase tracking-widest border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#000]">
-              Error Común
-            </span>
+            <h4 className="font-mono text-xs font-black uppercase tracking-[0.15em] text-rose-700 dark:text-rose-300 leading-tight">
+              {title}
+            </h4>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono">
-            <div className="bg-white dark:bg-black p-4 border-2 border-rose-500/50 dark:border-rose-400/50 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
-              <span className="text-[9px] font-black uppercase tracking-wider flex items-center gap-1 text-rose-600 dark:text-rose-400 mb-1">
-                <XCircle size={14} /> INTUICIÓN ERRÓNEA:
-              </span>
-              <p className="font-sans text-sm md:text-base text-brand-ink dark:text-slate-100 leading-relaxed">
-                {content}
-              </p>
+          <div className="flex items-start gap-2 font-mono text-[12px] leading-snug text-brand-ink dark:text-slate-200">
+            <span className="text-rose-600 dark:text-rose-400 font-black shrink-0">✗</span>
+            <p>{content}</p>
+          </div>
+          {extra && (
+            <div className="mt-2 flex items-start gap-2 font-mono text-[12px] leading-snug text-brand-ink dark:text-emerald-200 border-t border-rose-600/20 pt-2">
+              <span className="text-emerald-600 dark:text-emerald-400 font-black shrink-0">✓</span>
+              <p>{extra}</p>
             </div>
-
-            {extra && (
-              <div className="bg-emerald-50 dark:bg-emerald-950/50 p-4 border-2 border-emerald-500/50 dark:border-emerald-400/50 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
-                <span className="text-[9px] font-black uppercase tracking-wider flex items-center gap-1 text-emerald-700 dark:text-emerald-400 mb-1">
-                  <CheckCircle2 size={14} /> LA REALIDAD FÍSICA:
-                </span>
-                <p className="font-sans text-sm md:text-base text-brand-ink dark:text-slate-100 leading-relaxed">
-                  {extra}
-                </p>
-              </div>
-            )}
-          </div>
+          )}
         </PixelFrame>
       </motion.div>
     );
   }
 
-  // 2. PIXEL KEY INSIGHT (LA CLAVE EN 10S)
+  // 2. COMPACT KEY INSIGHT (LA CLAVE)
   if (canonicalType === 'key-insight') {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="my-10"
+        className="my-6"
       >
-        <PixelFrame borderColor="#D4AF37" shadowColor="#8B6914" accent="#8B6914" bgClass="bg-[#FFFDF0] dark:bg-[#241E10]">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b-4 border-[#D4AF37]/40 pb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-none bg-white dark:bg-black border-2 border-[#D4AF37] flex items-center justify-center text-[#8B6914] dark:text-[#D4AF37] shadow-[2px_2px_0px_0px_#8B6914] shrink-0">
-                <Lightbulb size={18} />
-              </div>
-              <div>
-                <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-[#8B6914] dark:text-brand-gold block">
-                  [AXIOMA FUNDAMENTAL]
-                </span>
-                <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
-                  {title}
-                </h3>
-              </div>
+        <PixelFrame accent="#D4AF37" bgClass="bg-[#FFFDF0] dark:bg-[#241E10]" dense>
+          <div className="flex items-center gap-2 mb-2">
+            <div className="w-6 h-6 rounded-none bg-[#D4AF37] border border-black flex items-center justify-center text-black shrink-0">
+              <Lightbulb size={13} />
             </div>
-
-            <span className="px-3 py-1 bg-[#D4AF37] text-black font-mono font-bold text-[10px] uppercase tracking-widest border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#000]">
-              La Clave en 10s
-            </span>
+            <h4 className="font-mono text-xs font-black uppercase tracking-[0.15em] text-[#8B6914] dark:text-brand-gold leading-tight">
+              {title}
+            </h4>
           </div>
-
-          <div className="bg-white dark:bg-black p-5 border-2 border-[#D4AF37]/60 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] space-y-2">
-            <p className="font-serif text-lg md:text-xl font-bold italic text-brand-ink dark:text-white leading-snug">
-              "{content}"
+          <p className="font-mono text-[12px] leading-snug text-brand-ink dark:text-slate-200">
+            ▸ {content}
+          </p>
+          {extra && (
+            <p className="mt-1.5 font-mono text-[11px] text-[#8B6914] dark:text-brand-gold">
+              ▶ {extra}
             </p>
-            {extra && (
-              <p className="font-mono text-xs text-[#8B6914] dark:text-brand-gold">
-                ▶ {extra}
-              </p>
-            )}
-          </div>
+          )}
         </PixelFrame>
       </motion.div>
     );
   }
 
-  // 3. PIXEL ARCHIVE FRAGMENT / AETERNA SYSTEM / GENERAL PIXEL BLOCK
+  // 3. COMPACT ARCHIVE / SYSTEM / GENERAL
   const isSystem = canonicalType === 'aeterna-system';
   const isArchive = canonicalType === 'archive-fragment';
   const Icon = isSystem ? Cpu : isArchive ? Sparkles : Gamepad2;
-  const borderColor = isSystem ? '#A855F7' : '#22D3EE';
-  const shadowColor = isSystem ? '#6B21A8' : '#0891B2';
-  const badgeBg = isSystem ? 'bg-purple-600' : 'bg-cyan-500';
-  const tagText = isSystem ? 'Sistema Aeterna' : 'Fragmento de Archivo';
+  const accent = isSystem ? '#A855F7' : '#22D3EE';
+  const tagText = isSystem ? 'SISTEMA AETERNA' : isArchive ? 'FRAGMENTO' : 'BLOQUE';
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.98 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      className="my-10"
+      className="my-6"
     >
-      <PixelFrame borderColor={borderColor} shadowColor={shadowColor} accent="#000" bgClass="bg-white dark:bg-[#141418]">
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b-4 border-black/10 dark:border-white/15 pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-none bg-white dark:bg-black border-2 flex items-center justify-center text-brand-ink dark:text-white shadow-[2px_2px_0px_0px_#000] shrink-0" style={{ borderColor }}>
-              <Icon size={18} />
-            </div>
-            <div>
-              <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-brand-ink/70 dark:text-brand-muted block">
-                [{tagText.toUpperCase()}]
-              </span>
-              <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
-                {title}
-              </h3>
-            </div>
+      <PixelFrame accent={accent} bgClass="bg-white dark:bg-[#141418]" dense>
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-6 h-6 rounded-none flex items-center justify-center shrink-0 border border-black text-brand-ink dark:text-white" style={{ background: accent }}>
+            <Icon size={13} className="text-black" />
           </div>
-
-          <span className={`px-3 py-1 ${badgeBg} text-black font-mono font-bold text-[10px] uppercase tracking-widest border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#000]`}>
-            {tagText}
-          </span>
+          <h4 className="font-mono text-xs font-black uppercase tracking-[0.15em] text-brand-ink dark:text-white leading-tight">
+            {title}
+          </h4>
+          <CompactTag label={tagText} color={accent} dark={accent} />
         </div>
-
-        <div className="bg-[#FAF9F6] dark:bg-black p-4 border-2 border-black/20 dark:border-white/20 font-mono text-brand-ink dark:text-slate-100 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)]">
-          <p className="font-sans text-base leading-relaxed">
-            {content}
+        <p className="font-mono text-[12px] leading-snug text-brand-ink dark:text-slate-200">
+          {content}
+        </p>
+        {extra && (
+          <p className="mt-1.5 font-mono text-[11px] text-brand-ink/60 dark:text-brand-muted">
+            ▶ {extra}
           </p>
-          {extra && (
-            <div className="mt-3 pt-2 border-t border-black/10 dark:border-white/10 text-xs font-mono text-brand-ink/70 dark:text-brand-muted">
-              ▶ {extra}
-            </div>
-          )}
-        </div>
+        )}
       </PixelFrame>
     </motion.div>
   );
 }
-

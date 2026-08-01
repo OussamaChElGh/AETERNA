@@ -77,35 +77,25 @@ export function AeternaDecisionBox({
   return (
     <div ref={feedbackRef} className={cn("not-prose relative my-12 mx-auto max-w-2xl px-4", className)}>
       <div ref={cardRef} className={cn(
-        "relative z-10 bg-[#FAF6EC] dark:bg-[#1A1712] border-4 border-[#D4AF37] p-6 md:p-8 transition-all duration-300 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#D4AF37] space-y-6 overflow-hidden",
-        isCompleted && "border-emerald-500 shadow-[6px_6px_0px_0px_#10B981]",
+        "relative z-10 bg-[#FAF6EC] dark:bg-[#1A1712] border-2 border-[#D4AF37] p-4 transition-all duration-300 shadow-[4px_4px_0px_0px_#000] dark:shadow-[4px_4px_0px_0px_#D4AF37] space-y-4 overflow-hidden",
+        isCompleted && "border-emerald-500 shadow-[4px_4px_0px_0px_#10B981]",
         fxClass
       )}>
-        {/* Pixel checkerboard texture */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.07]"
-          style={{
-            backgroundImage:
-              'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
-            backgroundSize: '14px 14px',
-            backgroundPosition: '0 0, 7px 7px'
-          }}
-        />
-        <div className="relative z-10 space-y-6">
+        <div className="relative z-10 space-y-4">
         {/* HEADER */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#D4AF37]/40 pb-3">
+          <div className="flex items-center gap-2">
             <div className={cn(
-              "w-11 h-11 rounded-none bg-purple-600 border-2 border-black flex items-center justify-center text-white shrink-0 shadow-[2px_2px_0px_0px_#000]",
+              "w-7 h-7 rounded-none bg-purple-600 border border-black flex items-center justify-center text-white shrink-0",
               isCompleted && "bg-emerald-500 text-black"
             )}>
-              {isCompleted ? <ShieldCheck size={22} /> : <Sparkles size={22} />}
+              {isCompleted ? <ShieldCheck size={14} /> : <Sparkles size={14} />}
             </div>
             <div>
-              <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-purple-700 dark:text-purple-300 block">
-                [{finalBadge.toUpperCase()}]
+              <span className="text-[8px] font-mono font-black uppercase tracking-[0.2em] text-purple-700 dark:text-purple-300 block">
+                {finalBadge.toUpperCase()}
               </span>
-              <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
+              <h3 className="font-mono text-sm md:text-base font-black uppercase text-brand-ink dark:text-white leading-tight">
                 {finalQuestion || "Reflexión Aeterna"}
               </h3>
             </div>
@@ -118,8 +108,8 @@ export function AeternaDecisionBox({
 
         {/* SUBTITLE */}
         {finalTitle && (
-          <div className="bg-white dark:bg-[#12100C] p-4 border-2 border-[#D4AF37]/60 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] font-mono text-sm">
-            <p className="font-sans text-base leading-relaxed italic text-brand-ink/90 dark:text-amber-100">
+          <div className="bg-white dark:bg-[#12100C] p-3 border-2 border-[#D4AF37]/50 font-mono text-sm">
+            <p className="font-sans text-[13px] leading-snug italic text-brand-ink/90 dark:text-amber-100">
               {finalTitle}
             </p>
           </div>
@@ -127,14 +117,14 @@ export function AeternaDecisionBox({
 
         {/* INPUT */}
         {!isCompleted ? (
-          <div className="space-y-4 font-mono">
+          <div className="space-y-3 font-mono">
             <textarea 
               value={textValue}
               onChange={(e) => setTextValue(e.target.value)}
-              className="w-full p-4 rounded-none bg-white dark:bg-[#12100C] border-2 border-[#D4AF37] text-brand-ink dark:text-slate-100 font-sans focus:outline-none focus:border-yellow-400 shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.2)] text-base resize-none"
+              className="w-full p-3 rounded-none bg-white dark:bg-[#12100C] border-2 border-[#D4AF37] text-brand-ink dark:text-slate-100 font-sans focus:outline-none focus:border-yellow-400 shadow-[inset_2px_2px_0px_0px_rgba(0,0,0,0.2)] text-sm resize-none"
               placeholder={isLocked ? `Desbloquea el Nivel ${finalLevel} para interactuar` : "Expresa tu respuesta aquí..."}
               disabled={isCompleted || isLocked}
-              rows={4}
+              rows={3}
             />
 
             <div className="flex justify-end">

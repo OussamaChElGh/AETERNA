@@ -101,30 +101,20 @@ export function PredictionBox({
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="bg-[#FAF6EC] dark:bg-[#1A1712] border-4 border-[#D4AF37] p-6 md:p-8 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#D4AF37] relative space-y-6 overflow-hidden"
+        className="bg-[#FAF6EC] dark:bg-[#1A1712] border-2 border-[#D4AF37] p-4 shadow-[4px_4px_0px_0px_#000] dark:shadow-[4px_4px_0px_0px_#D4AF37] relative space-y-4 overflow-hidden"
       >
-        {/* Pixel checkerboard texture */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.07]"
-          style={{
-            backgroundImage:
-              'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
-            backgroundSize: '14px 14px',
-            backgroundPosition: '0 0, 7px 7px'
-          }}
-        />
-        <div className="relative z-10 space-y-6">
+        <div className="relative z-10 space-y-4">
         {/* HEADER */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-none bg-cyan-500 border-2 border-black flex items-center justify-center text-black shrink-0 shadow-[2px_2px_0px_0px_#000]">
-              <Eye size={22} />
+        <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-[#D4AF37]/40 pb-3">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-none bg-cyan-500 border border-black flex items-center justify-center text-black shrink-0">
+              <Eye size={14} />
             </div>
             <div>
-              <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-cyan-700 dark:text-cyan-300 block">
-                [{badgeText.toUpperCase()}]
+              <span className="text-[8px] font-mono font-black uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-300 block">
+                {badgeText.toUpperCase()}
               </span>
-              <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
+              <h3 className="font-mono text-sm md:text-base font-black uppercase text-brand-ink dark:text-white leading-tight">
                 {parsedTitle}
               </h3>
             </div>
