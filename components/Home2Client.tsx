@@ -208,6 +208,16 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         {/* Starfield base — llena las bandas donde la imagen no llega */}
         <Starfield className="absolute inset-0 w-full h-full pointer-events-none" />
 
+        {/* SVG filter: distorsión ondulada para bordes */}
+        <svg className="absolute w-0 h-0" aria-hidden="true">
+          <defs>
+            <filter id="edge-warp" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="45" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+        </svg>
+
         {/* Halo circular difuminado alrededor de la imagen */}
         <img 
           src="/images/hero-fantasy-room.png"
@@ -216,13 +226,26 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
           aria-hidden="true"
         />
 
-        {/* Fondo: estancia de fantasía — imagen completa con bordes disueltos */}
+        {/* Fondo: estancia de fantasía — centro nítido */}
         <img 
           src="/images/hero-fantasy-room.png"
           className="absolute inset-0 w-full h-full object-contain object-center pointer-events-none"
           style={{
-            maskImage: 'radial-gradient(ellipse 62% 62% at center, black 45%, transparent 78%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 62% 62% at center, black 45%, transparent 78%)'
+            maskImage: 'radial-gradient(ellipse 58% 58% at center, black 42%, transparent 60%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 58% 58% at center, black 42%, transparent 60%)'
+          }}
+          alt=""
+          aria-hidden="true"
+        />
+
+        {/* Capa de bordes distorsionados — solo el anillo exterior con warp */}
+        <img 
+          src="/images/hero-fantasy-room.png"
+          className="absolute inset-0 w-full h-full object-contain object-center pointer-events-none"
+          style={{
+            filter: 'url(#edge-warp)',
+            maskImage: 'radial-gradient(ellipse 58% 58% at center, transparent 40%, black 55%, black 100%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 58% 58% at center, transparent 40%, black 55%, black 100%)'
           }}
           alt="Estancia del Sabio"
         />
