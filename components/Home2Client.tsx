@@ -6,6 +6,7 @@ import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, Lock, Clock, Ch
 import { useGamification, formatXP } from '@/context/GamificationContext';
 import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/components/LearningPath';
 import { NexusNode3D } from '@/components/NexusNode3D';
+import { Starfield } from '@/components/Starfield';
 import { evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
 import relicsData from '@/data/relics.json';
 import { CATEGORIES_DATA } from '@/data/categories';
@@ -204,13 +205,21 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         onMouseMove={handleMouseMove}
         className="relative min-h-[600px] flex items-center justify-center p-4 overflow-hidden"
       >
+        {/* Starfield base — llena las bandas donde la imagen no llega */}
+        <Starfield className="absolute inset-0 w-full h-full pointer-events-none" />
+
         {/* Fondo: estancia de fantasía — imagen completa */}
         <img 
           src="/images/hero-fantasy-room.png"
           className="absolute inset-0 w-full h-full object-contain object-center"
           alt="Estancia del Sabio"
         />
-        <div className="absolute inset-0 bg-brand-ink/25 pointer-events-none" />
+
+        {/* Viñetas de transición: starfield → imagen sin corte duro */}
+        <div className="absolute inset-y-0 left-0 w-[18%] bg-gradient-to-r from-brand-ink/80 via-brand-ink/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-[18%] bg-gradient-to-l from-brand-ink/80 via-brand-ink/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-[14%] bg-gradient-to-b from-brand-ink/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[14%] bg-gradient-to-t from-brand-ink/80 to-transparent pointer-events-none" />
 
           <motion.div
             className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
