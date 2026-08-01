@@ -1,35 +1,310 @@
 {
   "metadata": {
-    "title": "Física de Partículas: El Zoo Subatómico",
-    "description": "El Modelo Estándar, los quarks, los leptones y el bosón de Higgs. El 'zoo subatómico' completo.",
+    "title": "Física de Partículas",
+    "description": "Guía completa de la física de partículas: las partículas elementales, el modelo estándar, los quarks y leptones, las fuerzas fundamentales, el bosón de Higgs y los aceleradores de partículas.",
     "slug": "fisica-particulas",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
-      "Modelo Estándar",
+      "partículas elementales",
+      "modelo estándar",
       "quarks",
       "leptones",
-      "bosón de Higgs"
+      "bosón de Higgs",
+      "aceleradores",
+      "LHC",
+      "fuerzas fundamentales"
     ],
-    "image": "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-09",
-    "nivel": "4",
-    "nivel_titulo": "La Síntesis y el Futuro",
-    "orden": "2",
-    "insignia": "Señor de la Síntesis"
+    "image": "https://images.unsplash.com/photo-1542909192-2f2241a99c9d?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 4,
+    "nivel_titulo": "Fronteras del Cosmos",
+    "orden": 2,
+    "insignia": "Arquitecto de la Materia",
+    "tipo": "theory",
+    "prerequisites": [
+      "mecanica-cuantica",
+      "cosmologia"
+    ],
+    "breadcrumb": "Física / Fronteras del Cosmos / Física de Partículas"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  Toda la materia ordinaria —tú, las estrellas, las galaxias— está hecha de un puñado de partículas fundamentales regidas por cuatro fuerzas.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **modelo estándar** de la física de partículas describe el universo con unas pocas partículas: 6 **quarks** (up, down, charm, strange, top, bottom) y 6 **leptones** (electrón, muón, tau y sus neutrinos), que son la **materia**; y las partículas mediadoras de las **fuerzas** (fotón, gluones, W/Z, y el **bosón de Higgs** que da masa). Cuatro fuerzas fundamentales: gravedad, electromagnética, nuclear fuerte y nuclear débil. Los **aceleradores** como el LHC colisionan partículas para revelar esta estructura y descubrir la nueva física.\n\n**[IMAGEN SUGERIDA: La tabla de partículas del modelo estándar. Pie de foto: \"Un puñado de partículas construye todo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "adentrndose-en-el-modelo-estndar",
-      "titulo": "Adentrándose en el Modelo Estándar",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: el universo de las partículas",
       "niveles": {
-        "intermedio": "Más allá de los protones, neutrones y electrones, yace un zoológico de partículas con masa, momento angular y características excéntricas. El Modelo Estándar explica cuáles son y cómo interactúan las fuerzas entre ellas."
+        "principiante": "## Bienvenida: el universo de las partículas\n\n¿De qué está hecha la materia? Durante siglos, la respuesta fue: átomos. Pero los átomos tienen núcleo y electrones; el núcleo tiene protones y neutrones; y estos están hechos de **quarks**.\n\nLa **física de partículas** estudia las partículas fundamentales: las que no tienen estructura interna y no pueden dividirse más.\n\nLa respuesta moderna: toda la materia está hecha de un pequeño conjunto de partículas fundamentales, gobernadas por cuatro fuerzas.\n\n> **🔑 Concepto clave: Partículas fundamentales**\n> Una partícula fundamental no tiene estructura interna: no está hecha de nada más pequeño. Los electrones y los quarks lo son; los protones (compuestos de quarks) no.\n\n**[IMAGEN SUGERIDA: Del átomo al quark, descomponiendo la materia. Pie de foto: \"De la materia al quark.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** el modelo estándar tiene 6 quarks + 6 leptones (materia, fermiones) y bosones (fuerza: fotón, gluones, W/Z, y el Higgs que da masa). Cuatro fuerzas: gravedad (débil, infinita), electromagnética (fotón), fuerte (gluones, la más intensa, confina quarks) y débil (W/Z, radiactividad). Los aceleradores (LHC) crean partículas pesadas con E = mc².\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: del átomo al modelo estándar\n\nLa historia de la física de partículas es la historia de descomponer la materia:\n\n- 1897: electrón (Thomson)\n- 1911: núcleo atómico (Rutherford)\n- 1932: neutrón (Chadwick)\n- 1964: quarks (Gell-Mann, Zweig) — postulados\n- 1983: bosones W y Z (CERN)\n- 1995: quark top (Fermilab)\n- 2012: bosón de Higgs (CERN/LHC)\n\nEl **modelo estándar** (años 1970) unifica estas partículas y fuerzas en una teoría. Es la teoría más exitosa de la física: cada predicción ha sido verificada con precisión extraordinaria.\n\n> **Dato que rompe el cerebro**\n> El modelo estándar describe Toda la materia ordinaria con solo 12 partículas de materia (6 quarks + 6 leptones) y 5 partículas de fuerza (fotón, 8 gluones, W, Z, Higgs). Casi todo lo que ves —y tú mismo— es up quarks, down quarks y electrones.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** el modelo estándar tiene 6 quarks + 6 leptones (materia, fermiones) y bosones (fuerza: fotón, gluones, W/Z, y el Higgs que da masa). Cuatro fuerzas: gravedad (débil, infinita), electromagnética (fotón), fuerte (gluones, la más intensa, confina quarks) y débil (W/Z, radiactividad). Los aceleradores (LHC) crean partículas pesadas con E = mc².\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la teoría de los campos cuánticos\n\nEl modelo estándar es una **teoría cuántica de campos**: las partículas son excitaciones de campos subyacentes que llenan todo el espacio.\n\n- El campo del electrón: su excitación es un electrón\n- El campo del fotón: su excitación es un fotón\n- El campo de Higgs: da masa a las demás partículas\n\nEste formalismo (QED, QCD, electrodébil) unifica mecánica cuántica y relatividad especial. Es el marco matemático del modelo estándar.\n\n> **💡 Nota avanzada**\n> La teoría cuántica de campos es el lenguaje de la física moderna. La QED (electrodinámica cuántica) predice el momento magnético del electrón con 12 dígitos de precisión —la predicción más precisa de toda la ciencia. Cualquier desviación sería nueva física.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** el modelo estándar tiene 6 quarks + 6 leptones (materia, fermiones) y bosones (fuerza: fotón, gluones, W/Z, y el Higgs que da masa). Cuatro fuerzas: gravedad (débil, infinita), electromagnética (fotón), fuerte (gluones, la más intensa, confina quarks) y débil (W/Z, radiactividad). Los aceleradores (LHC) crean partículas pesadas con E = mc².\n</PedagogicalContentBlock>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "particulas-elementales",
+      "titulo": "Las partículas elementales",
+      "niveles": {
+        "principiante": "## Las partículas elementales\n\nToda la materia ordinaria está hecha de tres partículas:\n\n- **Quark up** (u): forma protones\n- **Quark down** (d): forma neutrones\n- **Electrón** (e⁻): orbita el núcleo\n\nUn protón = 2 up + 1 down. Un neutrón = 1 up + 2 down. El electrón es una partícula elemental.\n\nAdemás existen partículas más pesadas (charm, strange, top, bottom, muón, tau) que se producen en los aceleradores y no son estables.\n\n> **Dato que rompe el cerebro**\n> Todo lo que ves —rocas, árboles, personas, estrellas— es una combinación de up quarks, down quarks y electrones. Solo tres partículas (más fotones y gluones) construyen el 5% del universo que conocemos.\n\n```aeterna-exercise\nTITLE: Explicar la composición\nHINT: Protón = 2 up + 1 down.\nXP: 30\n¿Cuáles son las tres partículas que forman toda la materia ordinaria?\nSOLUTION: Quark up, quark down y electrón. El protón es 2 up + 1 down; el neutrón es 1 up + 2 down; el electrón es elemental. Estas tres partículas (más las de fuerza) construyen todos los átomos y toda la materia visible.\n```\n\n> **🔑 Concepto clave: Tres partículas, todo lo visible**\n> Toda la materia ordinaria está hecha de up quarks, down quarks y electrones. Las demás partículas (charm, top, muón, etc.) son más pesadas, inestables, y solo existen en condiciones extremas o en aceleradores.\n",
+        "intermedio": "## El zoo de partículas\n\nEl modelo estándar tiene 12 partículas de materia (fermiones) en 3 familias:\n\n| Generación | Quarks | Leptones |\n|-----------|--------|----------|\n| 1ª | up, down | electrón, neutrino-e |\n| 2ª | charm, strange | muón, neutrino-μ |\n| 3ª | top, bottom | tau, neutrino-τ |\n\nCada generación es una copia más pesada de la anterior. Solo la 1ª es estable y forma la materia ordinaria.\n\nCada partícula tiene su **antipartícula** (misma masa, carga opuesta).\n\n> **🔑 Concepto clave: Tres generaciones**\n> Las partículas vienen en 3 generaciones: la 1ª (up, down, electrón, neutrino-e) forma la materia estable. Las 2ª y 3ª (más pesadas) se desintegran rápido y solo se observan en aceleradores. Cada una tiene su antipartícula.\n",
+        "avanzado": "## Fermiones y bosones\n\nLas partículas se dividen por su **espín**:\n\n- **Fermiones** (espín ½): partículas de materia (quarks, leptones). Obedecen el principio de exclusión de Pauli —no pueden ocupar el mismo estado.\n- **Bosones** (espín entero): partículas de fuerza y el Higgs. No tienen exclusión —muchas pueden estar en el mismo estado.\n\nLa distinción fermión/bosón es fundamental: los fermiones forman la estructura (no se amontonan), los bosones transmiten fuerzas (sí se amontonan — láseres).\n\n> **💡 Nota de frontera**\n> El principio de exclusión de Pauli explica por qué la materia no colapsa: los electrones no pueden ocupar el mismo estado, generando la presión que sostiene a las estrellas enanas blancas y los átomos. Fermiones y bosones son las dos caras del mundo cuántico.\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "modelo-estandar",
+      "titulo": "El modelo estándar",
+      "niveles": {
+        "principiante": "## El modelo estándar\n\nEl **modelo estándar** es la teoría que describe todas las partículas y fuerzas conocidas (excepto la gravedad).\n\nDos tipos de partículas:\n\n1. **Fermiones** (materia): quarks y leptones\n2. **Bosones** (fuerzas): fotón, gluones, W/Z, Higgs\n\nEl modelo estándar es un éxito extraordinario: explica los átomos, las estrellas, los imanes, los rayos cósmicos... y cada una de sus predicciones ha sido verificada.\n\n> **Dato curioso**\n> El modelo estándar es una de las teorías más precisas de la historia: predice fenómenos con 12 dígitos de precisión. Pero no incluye la gravedad, la materia oscura ni la energía oscura —sus límites son la frontera de la física.\n\n**[IMAGEN SUGERIDA: La tabla del modelo estándar con todas las partículas. Pie de foto: \"El modelo estándar: el catálogo de la materia.\"]**\n",
+        "intermedio": "## Mapa conceptual del modelo estándar\n\n```concept-map\nTITLE: El modelo estándar\nNODES: Quarks | Leptones | Bosones | Fuerza electromagnética | Fuerza nuclear fuerte | Fuerza nuclear débil\nCONNECTIONS: Quarks-Bosones | Los quarks interactúan mediante los gluones (fuerza fuerte)\nCONNECTIONS: Leptones-Bosones | Los leptones interactúan mediante fotones (electromagnética) y W/Z (débil)\nCONNECTIONS: Bosones-Fuerza electromagnética | El fotón media la fuerza electromagnética\nCONNECTIONS: Bosones-Fuerza nuclear fuerte | Los gluones median la fuerza fuerte\nCONNECTIONS: Bosones-Fuerza nuclear débil | Los bosones W/Z median la fuerza débil\n```\n\nEl modelo estándar tiene 17 partículas: 6 quarks + 6 leptones + 4 bosones de fuerza (fotón, 8 gluones, W, Z) + bosón de Higgs.\n\n> **🔑 Concepto clave: Materia y fuerza**\n> El modelo estándar distingue fermiones (materia: quarks, leptones) y bosones (fuerza: fotón, gluones, W/Z, Higgs). Es la teoría más exitosa de la física, pero no incluye la gravedad ni la materia oscura.\n",
+        "avanzado": "## La simetría del modelo estándar\n\nEl modelo estándar está basado en simetrías (grupos de gauge):\n\n$$ SU(3) \\times SU(2) \\times U(1) $$\n\n- **SU(3)**: cromodinámica cuántica (fuerza fuerte, gluones)\n- **SU(2) × U(1)**: fuerza electrodébil (unifica electromagnética y débil)\n\nLas simetrías determinan las interacciones. La **ruptura espontánea de simetría** (Higgs) da masa a las partículas.\n\n> **💡 Nota de frontera**\n> El modelo estándar se probó exhaustivamente en el LHC: se encontró el Higgs, se midieron los bosones, y no se halló 'nueva física' más allá del modelo —un resultado que es a la vez un triunfo y un misterio. ¿Qué hay más allá?\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "quarks-leptones",
+      "titulo": "Quarks y leptones",
+      "niveles": {
+        "principiante": "## Quarks y leptones\n\nLos fermiones (materia) se dividen en:\n\n**Quarks**: sienten la fuerza nuclear fuerte (la que une el núcleo). Forman protones y neutrones.\n- up, down, charm, strange, top, bottom\n\n**Leptones**: no sienten la fuerza fuerte. Son libres.\n- electrón, muón, tau, y sus neutrinos\n\nLa diferencia clave: los quarks sienten la 'fuerza de color' (fuerte), los leptones no.\n\n> **Dato que rompe el cerebro**\n> Los quarks nunca se encuentran libres: están permanentemente confinados dentro de protones y neutrones por la fuerza fuerte. Los leptones (como el electrón) sí son partículas libres.\n\n**[IMAGEN SUGERIDA: Quarks dentro del protón, y leptones libres. Pie de foto: \"Los quarks están confinados; los leptones, libres.\"]**\n",
+        "intermedio": "## Quarks y la fuerza de color\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: Quarks y leptones\nPregunta: ¿Cuál es la diferencia fundamental entre quarks y leptones?\nNivel: intermedio\nXP: 35\nBotón: Comprobar\nRespuesta: Los quarks sienten la fuerza nuclear fuerte (interacción de color) mediada por gluones; los leptones no. Por eso los quarks forman protones y neutrones (confinados), mientras que los electrones son libres. Ambas son partículas de materia (fermiones), pero se distinguen por qué fuerzas sienten.\n```\n\nLos quarks tienen 'carga de color' (rojo, verde, azul) y los gluones transmiten la fuerza fuerte entre ellos. La cromodinámica cuántica (QCD) describe esta interacción.\n\n> **🔑 Concepto clave: Fuerza fuerte = color**\n> Los quarks se distinguen de los leptones por la fuerza de color: los quarks la sienten (confinados por gluones), los leptones no. Los quarks nunca están libres; los electrones sí.\n",
+        "avanzado": "## Confinamiento y libertad asintótica\n\nLa fuerza fuerte tiene dos propiedades sorprendentes:\n\n- **Confinamiento**: la fuerza entre quarks NO se debilita con la distancia (a diferencia de las demás): separar quarks cuesta más energía, hasta crear pares nuevos. Por eso nunca se ven quarks libres.\n- **Libertad asintótica** (Nobel 2004): a distancias muy cortas (altas energías), la fuerza fuerte se debilita —los quarks se comportan casi libres dentro del protón.\n\n> **💡 Nota de frontera**\n> El confinamiento es la razón por la que nunca observamos quarks sueltos: al intentar separarlos, la energía se convierte en nuevas partículas (hadrones). La libertad asintótica permitió calcular la fuerza fuerte perturbativamente —un Nobel para Gross, Politzer y Wilczek (2004).\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "fuerzas-fundamentales",
+      "titulo": "Las fuerzas fundamentales",
+      "niveles": {
+        "principiante": "## Las fuerzas fundamentales\n\nHay **cuatro fuerzas fundamentales** que gobiernan el universo:\n\n| Fuerza | Mediador | Alcance | Intensidad |\n|--------|----------|---------|-----------|\n| Gravedad | (gravitón) | infinito | 1 |\n| Electromagnética | fotón | infinito | 10³⁶ |\n| Nuclear débil | W, Z | 10⁻¹⁸ m | 10²⁹ |\n| Nuclear fuerte | gluón | 10⁻¹⁵ m | 10³⁸ |\n\nLa gravedad es la más débil pero tiene alcance infinito y nunca se cancela.\n\n> **Dato que rompe el cerebro**\n> La gravedad es ~10³⁶ veces más débil que el electromagnetismo. Un pequeño imán puede levantar un clip contra la gravedad de TODO el planeta Tierra. Pero la gravedad domina el cosmos porque no se cancela y tiene alcance infinito.\n\n**[IMAGEN SUGERIDA: Las cuatro fuerzas con sus mediadores. Pie de foto: \"Cuatro fuerzas gobiernan el universo.\"]**\n",
+        "intermedio": "## Cómo funcionan las fuerzas\n\nCada fuerza se transmite por partículas mediadoras (bosones):\n\n- **Electromagnética** (fotón): atrae y repele cargas\n- **Fuerte** (gluones): une quarks y el núcleo\n- **Débil** (W, Z): causa la radiactividad beta, transforma quarks\n- **Gravedad** (gravitón, hipotético): atrae masas\n\nLas fuerzas débiles y electromagnética están **unificadas** a altas energías (fuerza electrodébil).\n\n```aeterna-exercise\nTITLE: Explicar las fuerzas\nHINT: Cada fuerza tiene su mediador y alcance.\nXP: 40\n¿Cuáles son las cuatro fuerzas fundamentales y qué las distingue?\nSOLUTION: Gravedad (más débil, alcance infinito, media la masa), electromagnética (cargas, mediada por el fotón), nuclear fuerte (une quarks y núcleos, gluones, la más intensa), y nuclear débil (radiactividad, W/Z, alcance corto). Se distinguen por su intensidad, alcance y la partícula que las media.\n```\n\n> **🔑 Concepto clave: La unificación**\n> Las cuatro fuerzas se unifican a altas energías: la electrodébil ya está unificada. La búsqueda de unificar fuerte, electrodébil (GUT) y gravedad es el objetivo de la física fundamental.\n",
+        "avanzado": "## Fuerzas y unificación\n\nLa historia de la física es la historia de la unificación:\n\n- Newton: gravedad y mecánica\n- Maxwell: electricidad y magnetismo\n- Glashow-Weinberg-Salam: electromagnética y débil → electrodébil (Nobel 1979)\n- GUT: fuerte + electrodébil (propuesta, sin verificar)\n- TOE: incluir gravedad (sin éxito aún)\n\nLas intensidades de las fuerzas dependen de la energía; convergen a altas energías —una pista de una unificación profunda.\n\n> **💡 Nota de frontera**\n> La unificación de la gravedad con las demás fuerzas requiere gravedad cuántica: cuerdas, gravedad cuántica de lazos, o nuevos paradigmas. Es el problema más profundo de la física, y conecta con la cosmología (el universo temprano era un acelerador natural de altísima energía).\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "boson-higgs",
+      "titulo": "El bosón de Higgs",
+      "niveles": {
+        "principiante": "## El bosón de Higgs\n\n¿Por qué las partículas tienen masa? La respuesta del modelo estándar: el **campo de Higgs**.\n\nEl campo de Higgs llena todo el espacio. Las partículas que interactúan con él adquieren masa: cuanta más interacción, más masa.\n\nEl **bosón de Higgs** es la partícula asociada a ese campo. Se descubrió en 2012 en el LHC (Nobel 2013).\n\n> **Dato que rompe el cerebro**\n> El campo de Higgs es como una melaza invisible: las partículas que la 'atraviesan con dificultad' son más masivas. Los fotones no interactúan con él (no tienen masa); los quarks top sí (son los más pesados).\n\n**[IMAGEN SUGERIDA: El campo de Higgs como 'melaza' que da masa a las partículas. Pie de foto: \"El campo de Higgs da masa.\"]**\n\n\n<Connect title=\"De la física de partículas al cosmos\" sourceConcept=\"Colisiones del LHC\" targetConcept=\"Universo temprano\">\nLas colisiones del LHC recrean las condiciones del universo a 10⁻¹² segundos del Big Bang. La cosmología y la física de partículas son la misma ciencia: la materia oscura podría ser partículas nuevas del modelo estándar extendido, y la nucleosíntesis primordial explica la abundancia de elementos. El LHC y el telescopio observan la misma historia cósmica.\n</Connect>\n",
+        "intermedio": "## El campo y el bosón de Higgs\n\n```aeterna-formula\ntitle=\"Mecanismo de Higgs\"\nformula=\"m \\\\propto y_v\\\\, v \\\\quad (v = 246\\\\text{ GeV})\"\nvariables={[{\"symbol\":\"m\",\"name\":\"Masa de la partícula\",\"unit\":\"GeV\"},{\"symbol\":\"yv\",\"name\":\"Acoplamiento de Yukawa\",\"unit\":\"—\"},{\"symbol\":\"v\",\"name\":\"Valor de expectación del vacío\",\"unit\":\"GeV\"}]}\nnote=\"La masa de cada partícula depende de su acoplamiento al campo de Higgs. El fotón no se acopla (masa 0); el top se acopla fuertemente (más masivo).\"\n```\n\nEl mecanismo de Higgs:\n1. Un campo llena todo el espacio con un valor no nulo (condensado)\n2. Las partículas interactúan con él y adquieren masa\n3. La excitación del campo es el bosón de Higgs\n\nDescubierto en 2012: la pieza final del modelo estándar.\n\n> **🔑 Concepto clave: Interacción con el campo = masa**\n> Las partículas adquieren masa por su interacción con el campo de Higgs (v = 246 GeV). El bosón de Higgs es su excitación, descubierta en el LHC en 2012 —el último eslabón del modelo estándar.\n\n\n<Connect title=\"De la física de partículas al cosmos\" sourceConcept=\"Colisiones del LHC\" targetConcept=\"Universo temprano\">\nLas colisiones del LHC recrean las condiciones del universo a 10⁻¹² segundos del Big Bang. La cosmología y la física de partículas son la misma ciencia: la materia oscura podría ser partículas nuevas del modelo estándar extendido, y la nucleosíntesis primordial explica la abundancia de elementos. El LHC y el telescopio observan la misma historia cósmica.\n</Connect>\n",
+        "avanzado": "## ¿Por qué importa el Higgs?\n\nEl mecanismo de Higgs explica:\n\n- La masa de las partículas (fermiones y bosones W/Z)\n- La ruptura de la simetría electrodébil\n- Por qué el rango de la fuerza débil es corto (masas de W/Z)\n\nSin Higgs, los bosones W/Z no tendrían masa y la fuerza débil tendría alcance infinito —un universo completamente distinto, sin átomos estables.\n\n> **💡 Nota de frontera**\n> La masa del Higgs (125 GeV) y su acoplamiento al top sugieren que el vacío del universo está en un borde de estabilidad (punto casi crítico). Algunos modelos especulan sobre el 'paisaje del vacío' y la posibilidad de un vacío metaestable —una pregunta profunda sobre la estabilidad del propio universo.\n\n\n<Connect title=\"De la física de partículas al cosmos\" sourceConcept=\"Colisiones del LHC\" targetConcept=\"Universo temprano\">\nLas colisiones del LHC recrean las condiciones del universo a 10⁻¹² segundos del Big Bang. La cosmología y la física de partículas son la misma ciencia: la materia oscura podría ser partículas nuevas del modelo estándar extendido, y la nucleosíntesis primordial explica la abundancia de elementos. El LHC y el telescopio observan la misma historia cósmica.\n</Connect>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "aceleradores",
+      "titulo": "Los aceleradores de partículas",
+      "niveles": {
+        "principiante": "## Los aceleradores de partículas\n\nPara estudiar las partículas, los físicos las **aceleran** a velocidades enormes y las hacen **colisionar**. De la energía de la colisión (E = mc²) nacen partículas nuevas.\n\nEl **LHC** (Gran Colisionador de Hadrones, CERN) es el mayor acelerador del mundo:\n- Túnel circular de 27 km\n- Acelera protones a 0.99999999c\n- Energías de hasta 13-14 TeV\n\n> **Dato que rompe el cerebro**\n> El LHC crea partículas que no existen en la naturaleza actual: el quark top, el Higgs, pares de antimateria. Cada colisión es un 'mini Big Bang' que recrea las condiciones del universo temprano.\n\n**[IMAGEN SUGERIDA: El túnel del LHC con su detector ATLAS. Pie de foto: \"El LHC: 27 km de aceleración.\"]**\n\n\n<Transfer targetDomain=\"Medicina y tecnología\" title=\"Transfiere: las partículas en los hospitales\">\nLa física de partículas tiene aplicaciones médicas directas: la tomografía PET usa la aniquilación de positrones (antimateria), la radioterapia con protones ataca tumores con precisión, y los aceleradores de partículas producen radioisótopos para diagnóstico. Investiga cómo la tecnología desarrollada para el LHC —detectores, imanes, haces— se usa hoy en los hospitales.\n</Transfer>\n",
+        "intermedio": "## Cómo funciona un acelerador\n\nEl método de los aceleradores:\n1. **Acelerar**: campos eléctricos aceleran las partículas\n2. **Guiar**: campos magnéticos curvan su trayectoria (fuerza de Lorentz)\n3. **Colisionar**: las partículas chocan frontalmente\n4. **Detectar**: los detectores (ATLAS, CMS) reconstruyen las partículas resultantes\n\nLa energía de colisión crea masa: E = mc² permite crear partículas pesadas (quark top ~173 GeV, Higgs ~125 GeV).\n\n```aeterna-exercise\nTITLE: Explicar los aceleradores\nHINT: E = mc² convierte energía en masa.\nXP: 45\n¿Cómo 'crean' los aceleradores partículas pesadas como el bosón de Higgs?\nSOLUTION: Aceleran protones a energías enormes (TeV) y los colisionan. La energía cinética de la colisión se convierte en masa de partículas nuevas según E = mc². Con suficiente energía, se crea el Higgs (~125 GeV) y el quark top (~173 GeV). Después, los detectores reconstruyen las partículas de los restos de la colisión.\n```\n\n> **🔑 Concepto clave: Energía → masa**\n> Los aceleradores convierten energía cinética en masa de partículas nuevas (E = mc²). A mayor energía, partículas más pesadas. El LHC, con 13-14 TeV, es la máquina más potente para explorar la materia.\n\n\n<Transfer targetDomain=\"Medicina y tecnología\" title=\"Transfiere: las partículas en los hospitales\">\nLa física de partículas tiene aplicaciones médicas directas: la tomografía PET usa la aniquilación de positrones (antimateria), la radioterapia con protones ataca tumores con precisión, y los aceleradores de partículas producen radioisótopos para diagnóstico. Investiga cómo la tecnología desarrollada para el LHC —detectores, imanes, haces— se usa hoy en los hospitales.\n</Transfer>\n",
+        "avanzado": "## Más allá del LHC\n\nEl futuro de la física de partículas:\n\n- **LHC de alta luminosidad** (HL-LHC, 2029): más colisiones, más precisión\n- **Colisionadores de leptones**: propuestas (CLIC, FCC-ee) para estudiar el Higgs con precisión\n- **Colisionadores de muones**: menores pérdidas de energía, nuevas posibilidades\n- **Colisionadores de neutrinos**: para estudiar la masa de los neutrinos\n\nLos límites: coste, tamaño, y la física desconocida que podría estar más allá de la escala del LHC.\n\n> **💡 Nota de frontera**\n> La materia oscura podría ser partículas de escala TeV que el LHC aún no ha producido directamente. Los futuros colisionadores y los detectores de materia oscura (subterráneos) buscan la 'nueva física' que el modelo estándar no explica: la gravedad, la materia oscura, la asimetría materia-antimateria.\n\n\n<Transfer targetDomain=\"Medicina y tecnología\" title=\"Transfiere: las partículas en los hospitales\">\nLa física de partículas tiene aplicaciones médicas directas: la tomografía PET usa la aniquilación de positrones (antimateria), la radioterapia con protones ataca tumores con precisión, y los aceleradores de partículas producen radioisótopos para diagnóstico. Investiga cómo la tecnología desarrollada para el LHC —detectores, imanes, haces— se usa hoy en los hospitales.\n</Transfer>\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "Has recorrido la física de partículas, la frontera de nuestra comprensión de la materia. El modelo estándar describe el universo con una elegancia asombrosa: seis quarks y seis leptones forman toda la materia, los bosones median las cuatro fuerzas fundamentales, y el bosón de Higgs —descubierto en el LHC en 2012— explica el origen de la masa. Has aprendido que el protón está hecho de quarks confinados por la fuerza fuerte, que los leptones son libres, que las cuatro fuerzas (gravedad, electromagnética, fuerte, débil) tienen intensidades y alcances muy distintos, y que los aceleradores convierten energía en masa (E = mc²) para revelar la estructura más íntima de la realidad. El modelo estándar es un triunfo: la teoría más precisa de la historia, verificada con 12 dígitos de precisión. Pero es también un mapa incompleto: no explica la gravedad, no contiene la materia oscura ni la energía oscura, y no responde por qué hay más materia que antimateria. Esas son las fronteras que la próxima generación de aceleradores y de física teórica debe cruzar. La lección más profunda de la física de partículas es la unidad en la diversidad: toda la complejidad del cosmos —estrellas, vida, consciencia— emerge de un puñado de partículas y cuatro fuerzas. Y ese viaje hacia lo más pequeño conecta directamente con lo más grande: la cosmología, el estudio del universo entero.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Composición del protón",
+        "enunciado": "¿De qué quarks está hecho un protón?",
+        "solucion": "De 2 quarks up y 1 quark down (uud). El neutrón es 1 up y 2 down (udd).",
+        "xp": 30,
+        "pistas": [
+          "¿Cuántos quarks?",
+          "¿Qué combinación?"
+        ],
+        "opciones": [
+          {
+            "label": "2 up + 1 down",
+            "correcta": true
+          },
+          {
+            "label": "1 up + 2 down",
+            "correcta": false
+          },
+          {
+            "label": "3 up",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Protón = uud",
+          "Recuerda la combinación"
+        ]
+      },
+      {
+        "titulo": "Bosón de Higgs",
+        "enunciado": "¿Qué explica el bosón de Higgs?",
+        "solucion": "El origen de la masa: las partículas adquieren masa por su interacción con el campo de Higgs. El bosón es su excitación, descubierto en 2012 en el LHC (Nobel 2013).",
+        "xp": 30,
+        "pistas": [
+          "¿Qué da la masa?",
+          "¿Dónde se descubrió?"
+        ],
+        "opciones": [
+          {
+            "label": "El origen de la masa",
+            "correcta": true
+          },
+          {
+            "label": "La fuerza fuerte",
+            "correcta": false
+          },
+          {
+            "label": "La gravedad",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Campo de Higgs",
+          "Da masa a las partículas"
+        ]
+      },
+      {
+        "titulo": "Fuerzas fundamentales",
+        "enunciado": "¿Cuáles son las cuatro fuerzas fundamentales?",
+        "solucion": "Gravedad, electromagnética, nuclear fuerte y nuclear débil. La fuerte es la más intensa; la gravedad, la más débil pero de alcance infinito.",
+        "xp": 35,
+        "pistas": [
+          "¿Qué cuatro fuerzas?",
+          "¿Cuál es la más intensa?"
+        ],
+        "opciones": [
+          {
+            "label": "Gravedad, EM, fuerte, débil",
+            "correcta": true
+          },
+          {
+            "label": "Gravedad, fricción, magnética, débil",
+            "correcta": false
+          },
+          {
+            "label": "Solo dos fuerzas",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Enlista las cuatro",
+          "Distingue intensidades"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Quarks vs leptones",
+        "enunciado": "¿Cuál es la diferencia fundamental entre quarks y leptones?",
+        "solucion": "Los quarks sienten la fuerza nuclear fuerte (carga de color, confinados por gluones); los leptones no. Por eso los quarks forman protones y neutrones (siempre confinados) y los electrones son partículas libres.",
+        "xp": 45,
+        "pistas": [
+          "¿Qué fuerza distingue?",
+          "¿Cuáles están confinados?"
+        ],
+        "opciones": [
+          {
+            "label": "La fuerza fuerte (color)",
+            "correcta": true
+          },
+          {
+            "label": "La carga eléctrica",
+            "correcta": false
+          },
+          {
+            "label": "La masa",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica la fuerza de color",
+          "Confinamiento de quarks"
+        ]
+      },
+      {
+        "titulo": "Crear partículas",
+        "enunciado": "¿Cómo crea el LHC partículas tan pesadas como el bosón de Higgs (125 GeV) si los protones solo pesan ~1 GeV?",
+        "solucion": "La energía cinética de la colisión se convierte en masa según E = mc². Los protones se aceleran a 6.5-7 TeV cada uno y al colisionar frontalmente su energía total (13-14 TeV) permite crear partículas de hasta esa masa, incluido el Higgs (125 GeV).",
+        "xp": 50,
+        "pistas": [
+          "¿Qué dice E = mc²?",
+          "¿De dónde sale la energía para la masa?"
+        ],
+        "opciones": [
+          {
+            "label": "Energía cinética → masa (E = mc²)",
+            "correcta": true
+          },
+          {
+            "label": "Se descompone el protón",
+            "correcta": false
+          },
+          {
+            "label": "Se fusionan quarks",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Energía de la colisión",
+          "E = mc² crea masa"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Límites del modelo estándar",
+        "enunciado": "¿Qué fenómenos no explica el modelo estándar?",
+        "solucion": "La gravedad (no está incluida como teoría cuántica), la materia oscura (ninguna partícula del modelo la constituye), la energía oscura, la asimetría materia-antimateria (¿por qué ganó la materia?) y la masa de los neutrinos (el modelo predice masa cero). Estos límites son la frontera de la nueva física.",
+        "xp": 55,
+        "pistas": [
+          "¿Qué fuerzas incluye?",
+          "¿Qué componentes del universo faltan?"
+        ],
+        "opciones": [
+          {
+            "label": "Gravedad, materia oscura, energía oscura",
+            "correcta": true
+          },
+          {
+            "label": "Solo la fuerza débil",
+            "correcta": false
+          },
+          {
+            "label": "Ninguno, lo explica todo",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica la gravedad",
+          "Materia y energía oscuras"
+        ]
+      },
+      {
+        "titulo": "Confinamiento",
+        "enunciado": "¿Por qué nunca se observan quarks libres?",
+        "solucion": "Por el confinamiento: la fuerza fuerte entre quarks no se debilita con la distancia (a diferencia de las demás fuerzas). Al separar quarks, la energía crece hasta crear pares de partículas nuevos. Por eso los quarks solo existen confinados en hadrones (protones, neutrones).",
+        "xp": 55,
+        "pistas": [
+          "¿Qué le pasa a la fuerza fuerte con la distancia?",
+          "¿Qué se crea al separarlos?"
+        ],
+        "opciones": [
+          {
+            "label": "Confinamiento: la fuerza no decae",
+            "correcta": true
+          },
+          {
+            "label": "No existen realmente",
+            "correcta": false
+          },
+          {
+            "label": "Se convierten en leptones",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "La fuerza crece con la distancia",
+          "Se crean pares nuevos"
+        ]
+      }
+    ]
+  }
 }

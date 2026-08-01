@@ -1,36 +1,283 @@
 {
   "metadata": {
-    "title": "Física y Tecnología: El Mundo que Construimos",
-    "description": "Cómo la física moldea el mundo: del transistor al GPS, del láser a la energía nuclear, de la resonancia magnética a los ordenadores cuánticos.",
+    "title": "Física y Tecnología",
+    "description": "Guía de síntesis de la física y la tecnología: la física en la vida cotidiana, las tecnologías clave que transformaron el mundo y el futuro tecnológico que la física prepara.",
     "slug": "fisica-tecnologia",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "tecnología",
-      "transistor",
+      "física aplicada",
+      "semiconductores",
       "láser",
       "computación cuántica",
-      "GPS"
+      "energía",
+      "electrónica",
+      "transistores"
     ],
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-09",
-    "nivel": "4",
-    "nivel_titulo": "La Síntesis y el Futuro",
-    "orden": "4",
-    "insignia": "Señor de la Síntesis"
+    "date": "2026-05-12",
+    "nivel": 4,
+    "nivel_titulo": "Fronteras del Cosmos",
+    "orden": 4,
+    "insignia": "Arquitecto del Futuro",
+    "tipo": "synthesis",
+    "prerequisites": [
+      "mecanica-cuantica",
+      "electromagnetismo-avanzado",
+      "teoria-del-todo"
+    ],
+    "breadcrumb": "Física / Fronteras del Cosmos / Física y Tecnología"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  El móvil en tu bolsillo tiene más potencia que los ordenadores que llevaron al hombre a la Luna. Y existe porque unos físicos entendieron la mecánica cuántica de los semiconductores.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La física es la madre de la tecnología moderna. Los **transistores** (base de todos los chips) funcionan por la mecánica cuántica de los semiconductores. El **láser** nació de Einstein y la emisión estimulada. El **GPS** depende de la relatividad. La **fibra óptica** usa la reflexión total interna. Las **energías** solar, eólica y nuclear son física aplicada. Y el **futuro** —computación cuántica, fusión, nuevos materiales— se construye hoy en los laboratorios de física.\n\n**[IMAGEN SUGERIDA: Un chip de silicio brillando, con circuitos y luz. Pie de foto: \"La física cuántica, hecha hardware.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "transformando-el-entendimiento-en-accin",
-      "titulo": "Transformando el Entendimiento en Acción",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: la física que te rodea",
       "niveles": {
-        "intermedio": "El impacto del descubrimiento físico es inmediato: cada nuevo paradigma, ya sea clásico, relativista o cuántico, eventualmente se transfiere a patentes, circuitos, radares y dispositivos médicos. La tecnología es, en esencia, física domesticada y codificada."
+        "principiante": "## Bienvenida: la física que te rodea\n\nCada objeto de tu vida diaria es física hecha objeto:\n\n- **El móvil**: transistores (cuántica), pantalla (óptica), batería (química), GPS (relatividad)\n- **El microondas**: ondas electromagnéticas\n- **El láser**: emisión estimulada\n- **El coche**: mecánica, termodinámica\n- **El wifi**: ondas electromagnéticas\n\nLa tecnología no es 'otra cosa' que la física: es la física aplicada.\n\n> **🔑 Concepto clave: La física es tecnología**\n> Cada avance tecnológico nació de entender mejor la física. Los transistores, los láseres, el GPS: todos son física pura convertida en objetos. Entender la física es entender la tecnología.\n\n**[IMAGEN SUGERIDA: Un móvil con iconos de las físicas que lo componen. Pie de foto: \"Tu móvil es un laboratorio de física.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Física y Tecnología\">\n**Los Fundamentos de Física y Tecnología:** la tecnología es física aplicada. El transistor (cuántica de semiconductores) creó la era digital; el láser (emisión estimulada) las comunicaciones y la medicina; el GPS (relatividad) la navegación; la fibra óptica (reflexión total interna) el internet. El futuro —computación cuántica, fusión, superconductores— se construye hoy en los laboratorios de física.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: del laboratorio al bolsillo\n\nEl camino de la física a la tecnología:\n\n1. **Descubrimiento**: un físico entiende un fenómeno\n2. **Aplicación**: un ingeniero lo convierte en dispositivo\n3. **Escala**: la industria lo produce en masa\n4. **Sociedad**: transforma la vida cotidiana\n\nEjemplo: el transistor (1947, Bardeen-Brattain-Shockley) → chips → ordenadores, móviles, internet. El tiempo de la idea al dispositivo: décadas.\n\n> **Dato que rompe el cerebro**\n> El transistor es el objeto más fabricado de la historia: se producen ~10²² por año (más que granos de arroz). Y funciona por la mecánica cuántica de los semiconductores —la teoría 'rara' de los átomos.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Física y Tecnología\">\n**Los Fundamentos de Física y Tecnología:** la tecnología es física aplicada. El transistor (cuántica de semiconductores) creó la era digital; el láser (emisión estimulada) las comunicaciones y la medicina; el GPS (relatividad) la navegación; la fibra óptica (reflexión total interna) el internet. El futuro —computación cuántica, fusión, superconductores— se construye hoy en los laboratorios de física.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la ciencia como inversión\n\nLa física fundamental, aparentemente inútil, produce las mayores revoluciones tecnológicas:\n\n- Maxwell (1860s) estudiaba 'teoría abstracta' → radio, móviles, wifi\n- Einstein (1905) 'física especulativa' → GPS, energía nuclear\n- Dirac (1928) 'matemáticas puras' → electrónica, semiconductores\n- Mecánica cuántica → láser, transistores, RM, ordenadores\n\nLa historia muestra: la ciencia fundamental es la mejor inversión a largo plazo, aunque sus frutos tarden décadas.\n\n> **💡 Nota avanzada**\n> La ecuación de Dirac, que nació de las matemáticas de la relatividad cuántica, es la base teórica de los semiconductores y de toda la electrónica. A menudo, la física 'más inútil' es la que más cambia el mundo.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Física y Tecnología\">\n**Los Fundamentos de Física y Tecnología:** la tecnología es física aplicada. El transistor (cuántica de semiconductores) creó la era digital; el láser (emisión estimulada) las comunicaciones y la medicina; el GPS (relatividad) la navegación; la fibra óptica (reflexión total interna) el internet. El futuro —computación cuántica, fusión, superconductores— se construye hoy en los laboratorios de física.\n</PedagogicalContentBlock>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "fisica-cotidiana",
+      "titulo": "La física en la vida cotidiana",
+      "niveles": {
+        "principiante": "## La física en la vida cotidiana\n\nLa física está en cada objeto cotidiano:\n\n- **Microondas**: las ondas de 2.45 GHz agitan las moléculas de agua\n- **Bombilla LED**: los electrones saltan entre niveles emitiendo luz (cuántica)\n- **GPS**: relatividad (dilatación del tiempo)\n- **Fibra óptica**: reflexión total interna\n- **Pantallas táctiles**: capacitancia\n\n> **Dato que rompe el cerebro**\n> La bombilla LED —que hoy ilumina tu casa— funciona por saltos cuánticos de electrones, el mismo efecto que estudiaste en mecánica cuántica. Tu lámpara es un experimento cuántico.\n\n```aeterna-exercise\nTITLE: Explicar la física cotidiana\nHINT: Cada objeto es física aplicada.\nXP: 30\nElige un objeto cotidiano y explica qué física lo hace funcionar.\nSOLUTION: Ejemplos: microondas → ondas EM agitan agua; LED → saltos cuánticos de electrones; GPS → relatividad; fibra óptica → reflexión total interna; altavoz → electromagnetismo (bobina + imán); wifi → ondas electromagnéticas. Cada objeto es una aplicación directa de una ley de la física.\n```\n\n> **🔑 Concepto clave: Todo es física**\n> El microondas es electromagnetismo, el LED es cuántica, el GPS es relatividad, la fibra óptica es óptica. La vida cotidiana está hecha de física: cada objeto es una ley de la naturaleza aplicada.\n\n\n### El camino de la física a la tecnología\n\n<PedagogicalContentBlock type=\"process\" title=\"Del descubrimiento al dispositivo\">\n1. **Descubrimiento**: la física entiende un fenómeno fundamental (ej. la cuántica de los semiconductores)\n2. **Prototipo**: se demuestra el primer dispositivo (ej. el transistor, 1947)\n3. **Ingeniería**: se escala y miniaturiza (ley de Moore)\n4. **Industria**: producción masiva y abaratamiento\n5. **Sociedad**: la tecnología transforma la vida cotidiana\n</PedagogicalContentBlock>\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"Error común: la tecnología es solo ingeniería\">\nCreer que la tecnología moderna es pura ingeniería, sin relación con la física fundamental. En realidad, cada tecnología nació de un descubrimiento de física 'abstracta': los transistores de la mecánica cuántica, el GPS de la relatividad, los paneles solares del efecto fotoeléctrico, la fibra óptica de la reflexión total. La ingeniería escala las ideas; la física las crea.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Las tecnologías invisibles\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: El GPS y la relatividad\nPregunta: ¿Por qué el GPS necesita corregir efectos relativistas para funcionar?\nNivel: intermedio\nXP: 45\nBotón: Comprobar\nRespuesta: Los satélites GPS llevan relojes atómicos que se ven afectados por dos efectos: la dilatación del tiempo por velocidad (marchan −7 μs/día, por moverse a ~3.9 km/s) y la dilatación gravitacional (marchan +45 μs/día, por estar a 20,000 km de altura). El neto (+38 μs/día) debe corregirse: sin la corrección, el GPS acumularía errores de ~10 km diarios. La relatividad de Einstein es ingeniería de tu navegación.\n```\n\nOtras tecnologías invisibles:\n- **Resonancia magnética**: espín nuclear cuántico\n- **Turbinas eólicas**: aerodinámica + electromagnetismo\n- **Panel solar**: efecto fotoeléctrico (cuántica)\n- **Baterías**: electroquímica\n\n> **🔑 Concepto clave: Tecnologías que no ves**\n> El GPS depende de la relatividad; los paneles solares del efecto fotoeléctrico; la RM del espín cuántico. Las tecnologías más revolucionarias son las que aplican la física más 'abstracta' sin que la veamos.\n\n\n### El camino de la física a la tecnología\n\n<PedagogicalContentBlock type=\"process\" title=\"Del descubrimiento al dispositivo\">\n1. **Descubrimiento**: la física entiende un fenómeno fundamental (ej. la cuántica de los semiconductores)\n2. **Prototipo**: se demuestra el primer dispositivo (ej. el transistor, 1947)\n3. **Ingeniería**: se escala y miniaturiza (ley de Moore)\n4. **Industria**: producción masiva y abaratamiento\n5. **Sociedad**: la tecnología transforma la vida cotidiana\n</PedagogicalContentBlock>\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"Error común: la tecnología es solo ingeniería\">\nCreer que la tecnología moderna es pura ingeniería, sin relación con la física fundamental. En realidad, cada tecnología nació de un descubrimiento de física 'abstracta': los transistores de la mecánica cuántica, el GPS de la relatividad, los paneles solares del efecto fotoeléctrico, la fibra óptica de la reflexión total. La ingeniería escala las ideas; la física las crea.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## La física de la información\n\nLa era digital es física aplicada:\n\n- **Transistor**: controla el flujo de electrones en semiconductores\n- **Ley de Moore**: los transistores se duplican cada ~2 años\n- **Límites**: a escala nanométrica, los efectos cuánticos (túnel) limitan la miniaturización\n- **Nuevas vías**: spintrónica (espín), fotónica (luz), computación cuántica (qubits)\n\nLa física define tanto las posibilidades como los límites de la tecnología.\n\n> **💡 Nota de frontera**\n> El efecto túnel, que estudiaste en cuántica, es hoy un límite físico de los transistores: a 5 nm, los electrones 'tunelan' y escapan. La industria busca alternativas (GAAFET, fotónica, cuántica). La física no solo crea tecnología: fija sus fronteras.\n\n\n### El camino de la física a la tecnología\n\n<PedagogicalContentBlock type=\"process\" title=\"Del descubrimiento al dispositivo\">\n1. **Descubrimiento**: la física entiende un fenómeno fundamental (ej. la cuántica de los semiconductores)\n2. **Prototipo**: se demuestra el primer dispositivo (ej. el transistor, 1947)\n3. **Ingeniería**: se escala y miniaturiza (ley de Moore)\n4. **Industria**: producción masiva y abaratamiento\n5. **Sociedad**: la tecnología transforma la vida cotidiana\n</PedagogicalContentBlock>\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"Error común: la tecnología es solo ingeniería\">\nCreer que la tecnología moderna es pura ingeniería, sin relación con la física fundamental. En realidad, cada tecnología nació de un descubrimiento de física 'abstracta': los transistores de la mecánica cuántica, el GPS de la relatividad, los paneles solares del efecto fotoeléctrico, la fibra óptica de la reflexión total. La ingeniería escala las ideas; la física las crea.\n</PedagogicalContentBlock>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "tecnologias-clave",
+      "titulo": "Las tecnologías que transformaron el mundo",
+      "niveles": {
+        "principiante": "## Las tecnologías que transformaron el mundo\n\nCuatro tecnologías transformadoras nacidas de la física:\n\n1. **Electrónica** (transistores): todos los chips, ordenadores, móviles\n2. **Láser**: comunicaciones, medicina, lectores de códigos\n3. **Energía**: solar, eólica, nuclear\n4. **Comunicaciones**: fibra óptica, satélites, wifi\n\nCada una es una revolución.\n\n> **Dato que rompe el cerebro**\n> El láser nació en 1960 como 'una solución en busca de problema'. Hoy está en tu lector de códigos, tu reproductor de CD, tu internet de fibra óptica y tu cirugía ocular.\n\n**[IMAGEN SUGERIDA: Un rayo láser, un chip, un panel solar y una antena. Pie de foto: \"Cuatro tecnologías que cambiaron el mundo.\"]**\n\n\n<Connect title=\"De la física a la sociedad\" sourceConcept=\"Transistor\" targetConcept=\"Era digital\">\nUn solo invento de física (el transistor, 1947) multiplicado billones de veces produjo los ordenadores, los móviles y el internet: la revolución más rápida de la historia. La física fundamental, aparentemente abstracta, reconfigura la economía, la medicina y la comunicación en cada generación.\n</Connect>\n\n\n### Estima como un físico: el número de transistores\n\nLa **estimación de Fermi** de los transistores: un chip moderno tiene ~10¹⁰ transistores; se producen ~10²² chips-equivalentes de transistores al año en el mundo. Eso es más que granos de arena en la Tierra (~10¹⁹). Estimar órdenes de magnitud convierte lo inabarcable en comprensible y entrena el hábito de descomponer problemas enormes.\n\n",
+        "intermedio": "## Las revoluciones tecnológicas\n\n```aeterna-exercise\nTITLE: Explicar el transistor\nHINT: El transistor funciona por la física de los semiconductores.\nXP: 45\n¿Por qué el transistor fue una revolución y qué física lo hace funcionar?\nSOLUTION: Fue la revolución que hizo posible todos los chips: sustituyó los tubos de vacío (frágiles, grandes, calientes) por un componente diminuto y eficiente. Funciona por la física de los semiconductores: el silicio dopado tiene bandas de energía (cuántica), y el transistor amplifica o conmuta la corriente controlando el flujo de electrones. Su miniaturización (ley de Moore) llevó a los millones de transistores de cada chip.\n```\n\n**Las revoluciones en detalle:**\n- **Electrónica** (1947): transistor → era digital\n- **Láser** (1960): luz coherente → comunicaciones, medicina\n- **Espacial** (1957+): satélites → GPS, telecomunicaciones, observación\n- **Internet** (años 80-90): fibra óptica + protocolos → era conectada\n\n> **🔑 Concepto clave: Revoluciones de la física**\n> La electrónica, el láser, la energía y las comunicaciones nacieron de la física fundamental: cuántica, óptica, electromagnetismo, relatividad. Cada una transformó la civilización.\n\n\n<Connect title=\"De la física a la sociedad\" sourceConcept=\"Transistor\" targetConcept=\"Era digital\">\nUn solo invento de física (el transistor, 1947) multiplicado billones de veces produjo los ordenadores, los móviles y el internet: la revolución más rápida de la historia. La física fundamental, aparentemente abstracta, reconfigura la economía, la medicina y la comunicación en cada generación.\n</Connect>\n\n\n### Estima como un físico: el número de transistores\n\nLa **estimación de Fermi** de los transistores: un chip moderno tiene ~10¹⁰ transistores; se producen ~10²² chips-equivalentes de transistores al año en el mundo. Eso es más que granos de arena en la Tierra (~10¹⁹). Estimar órdenes de magnitud convierte lo inabarcable en comprensible y entrena el hábito de descomponer problemas enormes.\n\n",
+        "avanzado": "## De la física al cambio civilizacional\n\nEl impacto de cada física en la sociedad:\n\n- **Electromagnetismo** → electricidad, electrónica, comunicaciones\n- **Mecánica cuántica** → semiconductores, láser, RM, GPS\n- **Termodinámica** → motores, refrigeración, centrales\n- **Relatividad** → GPS, energía nuclear\n- **Física nuclear** → energía, medicina, (bombas)\n\nLa física no solo crea tecnología: redefine la economía, la medicina, la comunicación y la geopolítica.\n\n> **💡 Nota de frontera**\n> Cada revolución física trae oportunidades y desafíos: la energía nuclear ilumina y preocupa; la IA consume energía; la computación cuántica romperá la criptografía actual. La sociedad debe decidir cómo usar la física —un desafío que la ciencia por sí sola no resuelve.\n\n\n<Connect title=\"De la física a la sociedad\" sourceConcept=\"Transistor\" targetConcept=\"Era digital\">\nUn solo invento de física (el transistor, 1947) multiplicado billones de veces produjo los ordenadores, los móviles y el internet: la revolución más rápida de la historia. La física fundamental, aparentemente abstracta, reconfigura la economía, la medicina y la comunicación en cada generación.\n</Connect>\n\n\n### Estima como un físico: el número de transistores\n\nLa **estimación de Fermi** de los transistores: un chip moderno tiene ~10¹⁰ transistores; se producen ~10²² chips-equivalentes de transistores al año en el mundo. Eso es más que granos de arena en la Tierra (~10¹⁹). Estimar órdenes de magnitud convierte lo inabarcable en comprensible y entrena el hábito de descomponer problemas enormes.\n\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "futuro-tecnologico",
+      "titulo": "El futuro tecnológico",
+      "niveles": {
+        "principiante": "## El futuro tecnológico\n\nLa física está preparando el futuro:\n\n- **Computación cuántica**: ordenadores exponencialmente más potentes\n- **Fusión nuclear**: energía limpia e ilimitada\n- **Materiales nuevos**: superconductores, grafeno\n- **Inteligencia artificial**: necesita chips mejores\n\nEstas tecnologías nacen hoy en los laboratorios de física.\n\n> **Dato que rompe el cerebro**\n> Los ordenadores cuánticos actuales (IBM, Google) ya resuelven problemas que los clásicos no pueden. Y los reactores de fusión (ITER) recrean el Sol en la Tierra. El futuro que la física promete no es ciencia ficción: es ingeniería en curso.\n\n**[IMAGEN SUGERIDA: Un ordenador cuántico con sus cables dorados. Pie de foto: \"El futuro se construye en los laboratorios de física.\"]**\n\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía limpia\">\nITER construye un reactor de fusión que recrea el Sol en la Tierra (deuterio + tritio → helio + energía). Investiga la física: ¿por qué se necesitan 150 millones de grados? ¿Cómo se confina el plasma (tokamak)? ¿Qué papel juega E = mc²? Evalúa por qué la fusión, si funciona, resolvería la crisis energética.\n</Transfer>\n",
+        "intermedio": "## Las tecnologías del futuro\n\n```prediction-box\nBadge: Predice\nTítulo: El futuro de la física\nPregunta: ¿Cuál de estas tecnologías crees que transformará más la sociedad en las próximas décadas? Predice antes de leer.\nOpciones:\n  - Computación cuántica\n  - Fusión nuclear\n  - Nuevos materiales (grafeno, superconductores)\n  - Inteligencia artificial con física cuántica\nXP: 40\nRespuesta: Todas transformarán, pero de forma distinta: la computación cuántica revolucionará la información, la fusión la energía, los materiales casi todo, y la IA cuántica combinaría ambas. La física del futuro no es una tecnología: es un ecosistema donde la cuántica, la energía y los materiales se potencian mutuamente.\n```\n\n**El futuro en detalle:**\n- **Computación cuántica**: qubits superpuestos y entrelazados, simulación de moléculas, criptografía\n- **Fusión**: deuterio+tritio → helio + energía, combustible abundante (agua de mar)\n- **Superconductores**: pérdida de resistencia eléctrica → energía sin pérdidas, levitación, MRI mejores\n- **Nanotecnología**: manipular materia átomo a átomo\n\n> **🔑 Concepto clave: El futuro es física**\n> La computación cuántica, la fusión, los superconductores y los materiales nuevos son física fundamental en desarrollo. Las tecnologías que definirán el siglo XXI nacen hoy en los laboratorios.\n\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía limpia\">\nITER construye un reactor de fusión que recrea el Sol en la Tierra (deuterio + tritio → helio + energía). Investiga la física: ¿por qué se necesitan 150 millones de grados? ¿Cómo se confina el plasma (tokamak)? ¿Qué papel juega E = mc²? Evalúa por qué la fusión, si funciona, resolvería la crisis energética.\n</Transfer>\n",
+        "avanzado": "## La física de los desafíos globales\n\nLa física enfrenta los grandes desafíos:\n\n- **Energía limpia**: fusión, solar avanzada, almacenamiento\n- **Clima**: entender la atmósfera, modelar el clima, energías renovables\n- **Salud**: diagnóstico (RM, PET), terapia (protones), imágenes\n- **Espacio**: exploración, colonización, detección de asteroides\n\nLa física no resuelve sola los problemas globales, pero es indispensable para las soluciones.\n\n> **💡 Nota de frontera**\n> El desafío más profundo sigue siendo la teoría del todo: unificar la gravedad con la cuántica. De ella podrían nacer tecnologías hoy inimaginables, como la relatividad general produjo el GPS. La frontera entre física y tecnología es la frontera del futuro.\n\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía limpia\">\nITER construye un reactor de fusión que recrea el Sol en la Tierra (deuterio + tritio → helio + energía). Investiga la física: ¿por qué se necesitan 150 millones de grados? ¿Cómo se confina el plasma (tokamak)? ¿Qué papel juega E = mc²? Evalúa por qué la fusión, si funciona, resolvería la crisis energética.\n</Transfer>\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "Has cerrado el recorrido con la síntesis que conecta toda la física con tu vida: la física y la tecnología son la misma historia. Has visto que el móvil en tu bolsillo es un laboratorio de cuántica, electromagnetismo y relatividad: los transistores funcionan por la mecánica cuántica de los semiconductores, el GPS depende de la relatividad de Einstein, la fibra óptica usa la reflexión total interna, y los paneles solares el efecto fotoeléctrico. Has recorrido las tecnologías que transformaron el mundo —la electrónica, el láser, la energía, las comunicaciones— y el futuro que la física prepara: la computación cuántica, la fusión nuclear, los superconductores y los materiales nuevos. La lección más profunda de esta síntesis es doble. Primero, que la ciencia fundamental —la aparentemente 'inútil'— es la fuente de las mayores revoluciones: las ecuaciones de Maxwell dieron la radio, la cuántica dio los transistores, la relatividad dio el GPS. Y segundo, que la física no solo crea tecnología: fija sus límites, plantea sus desafíos y exige decisiones éticas y sociales. Este viaje por la rama de física te ha llevado de los vectores a la teoría del todo, de una manzana cayendo a la expansión del universo. Has adquirido no solo conocimientos, sino una manera de pensar: modelar, estimar, verificar, cuestionar. Esa manera de pensar —el método de la física— es la herramienta más valiosa que te llevas. El universo sigue lleno de preguntas, y ahora tienes las herramientas para empezar a responderlas.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "La física del móvil",
+        "enunciado": "Nombra tres físicas que hacen funcionar tu móvil.",
+        "solucion": "Mecánica cuántica (transistores del chip), electromagnetismo (wifi, señales), óptica (pantalla y cámara), relatividad (GPS), física del estado sólido (batería). Los transistores, el wifi y el GPS son ejemplos claros.",
+        "xp": 30,
+        "pistas": [
+          "¿Qué hace funcionar el chip?",
+          "¿Cómo funciona el wifi?",
+          "¿Cómo sabe dónde estás?"
+        ],
+        "opciones": [
+          {
+            "label": "Cuántica, EM, relatividad",
+            "correcta": true
+          },
+          {
+            "label": "Solo electricidad",
+            "correcta": false
+          },
+          {
+            "label": "Ninguna, es ingeniería pura",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Chip = cuántica",
+          "Wifi = EM",
+          "GPS = relatividad"
+        ]
+      },
+      {
+        "titulo": "El láser",
+        "enunciado": "¿De qué física nació el láser y en qué tecnologías se usa?",
+        "solucion": "Del concepto de emisión estimulada de Einstein (y la mecánica cuántica). Se usa en lectores de códigos, CD/DVD, fibra óptica, cirugía ocular, corte industrial, punteros y comunicaciones.",
+        "xp": 30,
+        "pistas": [
+          "¿Quién predijo la emisión estimulada?",
+          "¿Dónde se usa?"
+        ],
+        "opciones": [
+          {
+            "label": "Emisión estimulada (Einstein)",
+            "correcta": true
+          },
+          {
+            "label": "La gravedad",
+            "correcta": false
+          },
+          {
+            "label": "El sonido",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Einstein y la emisión estimulada",
+          "Aplicaciones ópticas"
+        ]
+      },
+      {
+        "titulo": "El GPS",
+        "enunciado": "¿Por qué el GPS necesita la relatividad?",
+        "solucion": "Los relojes atómicos de los satélites sufren dilatación del tiempo: por velocidad (−7 μs/día) y por gravedad (+45 μs/día), neto +38 μs/día. Sin corregir, el GPS erraría ~10 km al día. La relatividad de Einstein es esencial.",
+        "xp": 35,
+        "pistas": [
+          "¿Qué le pasa a los relojes?",
+          "¿Cuánto error acumularía?"
+        ],
+        "opciones": [
+          {
+            "label": "Corrige la dilatación del tiempo",
+            "correcta": true
+          },
+          {
+            "label": "No lo necesita",
+            "correcta": false
+          },
+          {
+            "label": "Usa la gravedad de Newton",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Relojes atómicos y dilatación",
+          "38 μs/día de corrección"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "El transistor",
+        "enunciado": "¿Qué física explica el funcionamiento del transistor y por qué es la base de la era digital?",
+        "solucion": "La física de los semiconductores (mecánica cuántica): el silicio dopado tiene bandas de energía, y el transistor controla el flujo de electrones para amplificar o conmutar. Sustituyó los tubos de vacío, permitió la miniaturización (ley de Moore) y creó todos los chips: ordenadores, móviles, internet.",
+        "xp": 45,
+        "pistas": [
+          "¿Qué física del silicio?",
+          "¿Qué reemplazó?"
+        ],
+        "opciones": [
+          {
+            "label": "Semiconductores (cuántica)",
+            "correcta": true
+          },
+          {
+            "label": "La termodinámica",
+            "correcta": false
+          },
+          {
+            "label": "La relatividad",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Bandas de energía del silicio",
+          "Control del flujo de electrones"
+        ]
+      },
+      {
+        "titulo": "Panel solar",
+        "enunciado": "¿Qué efecto físico usa un panel solar y qué física lo explica?",
+        "solucion": "El efecto fotoeléctrico: los fotones de la luz expulsan electrones del material, generando corriente. Einstein lo explicó en 1905 (cuantos de luz), Nobel 1921. La mecánica cuántica de los semiconductores es la base de los paneles.",
+        "xp": 45,
+        "pistas": [
+          "¿Qué efecto?",
+          "¿Quién lo explicó?"
+        ],
+        "opciones": [
+          {
+            "label": "Efecto fotoeléctrico (cuántica)",
+            "correcta": true
+          },
+          {
+            "label": "Reflexión total interna",
+            "correcta": false
+          },
+          {
+            "label": "Inducción electromagnética",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Fotones expulsan electrones",
+          "Einstein y los cuantos"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Física fundamental → tecnología",
+        "enunciado": "Elige dos descubrimientos de física 'abstracta' que produjeron revoluciones tecnológicas y explica el vínculo.",
+        "solucion": "Ejemplos: (1) Las ecuaciones de Maxwell (teoría abstracta del electromagnetismo) → radio, móviles, wifi. (2) La mecánica cuántica (física 'rara' de los átomos) → transistores, láser, RM, GPS. (3) La relatividad (física especulativa) → GPS, energía nuclear. (4) La ecuación de Dirac (matemáticas puras) → semiconductores. La ciencia fundamental es la mejor inversión a largo plazo.",
+        "xp": 55,
+        "pistas": [
+          "¿Qué teoría abstracta dio la radio?",
+          "¿Qué dio los transistores?"
+        ],
+        "opciones": [
+          {
+            "label": "Maxwell → radio; cuántica → chips",
+            "correcta": true
+          },
+          {
+            "label": "Ninguna, es casualidad",
+            "correcta": false
+          },
+          {
+            "label": "Solo la termodinámica",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Maxwell y el electromagnetismo",
+          "Cuántica y semiconductores"
+        ]
+      },
+      {
+        "titulo": "Los límites de la física",
+        "enunciado": "¿Cómo fija la física los límites de la tecnología actual y qué fronteras abre?",
+        "solucion": "El efecto túnel limita la miniaturización de los transistores (los electrones escapan a escala nanométrica). La física también abre nuevas vías: computación cuántica (qubits), fusión nuclear (energía), superconductores, fotónica, spintrónica. Cada límite de la física clásica es una frontera donde la física nueva toma el relevo.",
+        "xp": 55,
+        "pistas": [
+          "¿Qué límite cuántico afecta a los chips?",
+          "¿Qué tecnologías nuevas?"
+        ],
+        "opciones": [
+          {
+            "label": "Túnel limita chips; cuántica abre el futuro",
+            "correcta": true
+          },
+          {
+            "label": "No hay límites",
+            "correcta": false
+          },
+          {
+            "label": "Solo el coste",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Efecto túnel en los chips",
+          "Nuevas tecnologías cuánticas"
+        ]
+      }
+    ]
+  }
 }

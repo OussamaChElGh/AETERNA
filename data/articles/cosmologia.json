@@ -1,34 +1,310 @@
 {
   "metadata": {
-    "title": "Cosmología: El Origen y el Destino",
-    "description": "El origen, la evolución y el destino del universo. Del Big Bang a la energía oscura, pasando por la inflación cósmica.",
+    "title": "Cosmología",
+    "description": "Guía completa de la cosmología: el universo observable, el Big Bang, la expansión del universo, la radiación de fondo, la materia oscura y el destino del cosmos.",
     "slug": "cosmologia",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "cosmología",
       "Big Bang",
+      "expansión del universo",
+      "radiación de fondo",
+      "materia oscura",
+      "energía oscura",
+      "ley de Hubble",
       "universo"
     ],
-    "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-09",
-    "nivel": "4",
-    "nivel_titulo": "La Síntesis y el Futuro",
-    "orden": "1",
-    "insignia": "Señor de la Síntesis"
+    "image": "https://images.unsplash.com/photo-1462332420958-a05d1e002413?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 4,
+    "nivel_titulo": "Fronteras del Cosmos",
+    "orden": 1,
+    "insignia": "Cartógrafo del Universo",
+    "tipo": "theory",
+    "prerequisites": [
+      "relatividad-general",
+      "fisica-atomica-y-nuclear"
+    ],
+    "breadcrumb": "Física / Fronteras del Cosmos / Cosmología"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  El universo tiene 13.8 mil millones de años, empezó en un instante de densidad infinita, se expande acelerándose, y está hecho mayoritariamente de materia que no podemos ver.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La cosmología es la física del universo entero. Su historia: el universo comenzó en el **Big Bang** y se **expande** (ley de Hubble: v = H₀d). La **radiación de fondo** (CMB) es el eco del universo primigenio a 2.7 K. La **materia oscura** (27%) no emite luz pero su gravedad la revela; la **energía oscura** (68%) acelera la expansión. El **destino del universo** depende de su densidad: expandirse para siempre, frenarse o colapsar. Hoy sabemos: se expande acelerándose, hacia un universo frío y vacío.\n\n**[IMAGEN SUGERIDA: Una galaxia espiral y el fondo de radiación cósmica. Pie de foto: \"El universo: 13.8 mil millones de años de historia.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "de-todo-a-la-nada-y-ms-all",
-      "titulo": "De Todo, a la Nada, y Más Allá",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: la física del universo entero",
       "niveles": {
-        "intermedio": "Investigar la cosmología significa mirar hacia el inicio del tiempo mismo, reconstruir cronologías primordiales, y trazar proyecciones teóricas que estiman cómo terminaremos el largo viaje que empezamos con el Big Bang."
+        "principiante": "## Bienvenida: la física del universo entero\n\nLa **cosmología** es el estudio del universo como un todo: su origen, evolución y destino.\n\nPreguntas que responde:\n- ¿Cómo empezó el universo?\n- ¿Se expande o se contrae?\n- ¿De qué está hecho?\n- ¿Cuál será su fin?\n\nEn el siglo XX, la cosmología pasó de la especulación filosófica a la ciencia con datos: la expansión del universo, la radiación de fondo y la abundancia de elementos confirman el modelo del Big Bang.\n\n> **🔑 Concepto clave: El universo tiene historia**\n> El universo no es eterno e inmutable: empezó hace 13.8 mil millones de años, se ha expandido y evolucionado, y tiene un destino. La cosmología estudia esa historia completa con la física.\n\n**[IMAGEN SUGERIDA: El universo observable, con el fondo cósmico de microondas en el borde. Pie de foto: \"El universo tiene historia.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** el universo empezó en el Big Bang (13.8 mil millones de años) y se expande (v = H₀d). La radiación de fondo es su fotografía a los 380,000 años. Está hecho de ~68% energía oscura, ~27% materia oscura y solo 5% materia visible. La expansión se acelera: el destino probable es un universo frío, vacío y en expansión eterna.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: el modelo del Big Bang\n\nEl modelo del Big Bang (o modelo estándar de la cosmología) es la teoría dominante:\n\n1. El universo empezó muy denso y caliente hace ~13.8 mil millones de años\n2. Se ha expandido desde entonces\n3. La expansión enfría el universo\n4. Se formaron: partículas, átomos, estrellas, galaxias\n\nEvidencias:\n- **Expansión** (Hubble, 1929): las galaxias se alejan\n- **Radiación de fondo** (1964): el eco del Big Bang\n- **Abundancia de elementos**: hidrógeno y helio en la proporción predicha\n\n> **Dato que rompe el cerebro**\n> El Big Bang no fue una explosión 'en un lugar': fue el comienzo del espacio y del tiempo mismos. No explotó hacia un espacio preexistente: el espacio se expandió. Preguntar 'qué había antes' no tiene sentido físico: no había 'antes'.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** el universo empezó en el Big Bang (13.8 mil millones de años) y se expande (v = H₀d). La radiación de fondo es su fotografía a los 380,000 años. Está hecho de ~68% energía oscura, ~27% materia oscura y solo 5% materia visible. La expansión se acelera: el destino probable es un universo frío, vacío y en expansión eterna.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: el principio cosmológico\n\nLa cosmología moderna asume el **principio cosmológico**: el universo es homogéneo e isótropo a gran escala (mismo aspecto en todos los lugares y direcciones).\n\nConsecuencias:\n- No hay un 'centro' del universo\n- Todos los observadores ven un universo similar\n- La expansión es uniforme\n\nEl universo observable tiene ~46 mil millones de años-luz de radio (más que la edad × c, porque el espacio se expandió).\n\n> **💡 Nota avanzada**\n> El principio cosmológico es una simplificación enorme (a escala de galaxias, el universo es grumoso), pero a escalas mayores de cientos de millones de años-luz, el universo es notablemente uniforme. Es la base sobre la que se escriben las ecuaciones de Friedmann que describen la expansión.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** el universo empezó en el Big Bang (13.8 mil millones de años) y se expande (v = H₀d). La radiación de fondo es su fotografía a los 380,000 años. Está hecho de ~68% energía oscura, ~27% materia oscura y solo 5% materia visible. La expansión se acelera: el destino probable es un universo frío, vacío y en expansión eterna.\n</PedagogicalContentBlock>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "universo-observable",
+      "titulo": "El universo observable",
+      "niveles": {
+        "principiante": "## El universo observable\n\nNo podemos ver todo el universo: solo lo que está dentro de nuestro **horizonte** —la distancia que la luz ha tenido tiempo de recorrer desde el Big Bang.\n\nEl universo observable:\n- Radio: ~46 mil millones de años-luz\n- Contiene ~2 billones de galaxias\n- Cada galaxia tiene ~100 mil millones de estrellas\n\nMás allá del horizonte, hay más universo que nunca podremos ver directamente.\n\n> **Dato que rompe el cerebro**\n> El radio observable (46 mil millones de años-luz) es mayor que la edad del universo × velocidad de la luz (13.8 mil millones de años-luz). Porque el espacio se ha expandido mientras la luz viajaba: las galaxias lejanas se alejaron más que su luz tardó en llegar.\n\n```aeterna-exercise\nTITLE: Explicar el universo observable\nHINT: El horizonte es la distancia máxima que la luz ha recorrido.\nXP: 30\n¿Por qué no podemos ver todo el universo, y por qué el universo observable es más grande que la edad del universo × c?\nSOLUTION: Solo vemos lo que la luz ha tenido tiempo de alcanzarnos desde el Big Bang (el horizonte). El radio observable es mayor que edad×c porque el espacio se expande: las galaxias lejanas se han alejado mientras su luz viajaba, así que la distancia actual es mayor que la recorrida por la luz.\n```\n\n> **🔑 Concepto clave: El horizonte cosmológico**\n> El universo observable es la esfera hasta donde la luz ha podido viajarnos desde el Big Bang. Más allá hay más universo, inaccesible a la observación directa —pero la física puede inferir su existencia.\n\n\n### Estima como un físico: el número de estrellas\n\nLa **estimación de Fermi** del número de estrellas: ~2 billones de galaxias × ~100 mil millones de estrellas por galaxia ≈ 2×10²³ estrellas. Con una Tierra como planeta promedio por estrella, hay ~10²³ planetas —un número con 23 ceros. Esta estimación de orden de magnitud contextualiza la inmensidad del cosmos y entrena el hábito de descomponer problemas enormes en factores estimables.\n\n",
+        "intermedio": "## La escala del cosmos\n\nEl universo observable en números:\n\n- ~2 billones de galaxias\n- ~10²⁴ estrellas (más que granos de arena en todas las playas de la Tierra)\n- ~10⁸⁰ átomos\n- 46 mil millones de años-luz de radio\n\nEl **telescopio espacial James Webb** (JWST, 2021) observa el universo temprano: galaxias formadas pocos cientos de millones de años después del Big Bang, ampliando nuestro horizonte.\n\n> **Dato que rompe el cerebro**\n> Cuando el JWST observa una galaxia a 13 mil millones de años-luz, ve la luz que esa galaxia emitió hace 13 mil millones de años: está viendo el universo cuando tenía solo unos cientos de millones de años. Mirar lejos es mirar al pasado.\n\n\n### Estima como un físico: el número de estrellas\n\nLa **estimación de Fermi** del número de estrellas: ~2 billones de galaxias × ~100 mil millones de estrellas por galaxia ≈ 2×10²³ estrellas. Con una Tierra como planeta promedio por estrella, hay ~10²³ planetas —un número con 23 ceros. Esta estimación de orden de magnitud contextualiza la inmensidad del cosmos y entrena el hábito de descomponer problemas enormes en factores estimables.\n\n",
+        "avanzado": "## Cosmología observacional\n\nLos cosmólogos observan el universo con distintos 'mensajeros':\n\n- **Luz**: galaxias, cuásares, supernovas\n- **Radiación de fondo**: el universo primigenio\n- **Ondas gravitacionales**: eventos que no emiten luz\n- **Neutrinos**: mensajeros del interior de las estrellas\n\nCada mensajero revela una capa distinta. La **astronomía multimessenger** combina todos.\n\n> **💡 Nota de frontera**\n> El horizonte observable no es una frontera física: es informacional. El universo podría ser infinito, o finito pero con más allá. La topología del universo (¿esférico, plano, toroidal?) es una pregunta abierta que las mediciones de la CMB siguen acotando.\n\n\n### Estima como un físico: el número de estrellas\n\nLa **estimación de Fermi** del número de estrellas: ~2 billones de galaxias × ~100 mil millones de estrellas por galaxia ≈ 2×10²³ estrellas. Con una Tierra como planeta promedio por estrella, hay ~10²³ planetas —un número con 23 ceros. Esta estimación de orden de magnitud contextualiza la inmensidad del cosmos y entrena el hábito de descomponer problemas enormes en factores estimables.\n\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "big-bang",
+      "titulo": "El Big Bang",
+      "niveles": {
+        "principiante": "## El Big Bang\n\nEl **Big Bang** es el modelo que describe el origen del universo: comenzó como un estado extremadamente denso y caliente hace ~13.8 mil millones de años, y se ha expandido y enfriado desde entonces.\n\nEs importante entender qué NO es:\n- NO es una explosión en el espacio\n- NO tuvo un 'centro'\n- Es el comienzo del espacio-tiempo\n\nLa línea de tiempo cósmica:\n- 10⁻⁴³ s: era de Planck (la física conocida no aplica)\n- 10⁻³⁶ s: inflación cósmica (expansión exponencial)\n- 380,000 años: formación de átomos → emisión de la radiación de fondo\n- 13.8 mil millones de años: hoy\n\n> **Dato que rompe el cerebro**\n> En los primeros instantes, el universo entero era más pequeño que un átomo. La inflación lo expandió billones de veces en una fracción de segundo. Todo el cosmos observable empezó como una diminuta región.\n\n**[IMAGEN SUGERIDA: La línea de tiempo del universo, del Big Bang a hoy. Pie de foto: \"13.8 mil millones de años de evolución.\"]**\n\n\n<Connect title=\"De la cosmología a la física de partículas\" sourceConcept=\"Big Bang\" targetConcept=\"Modelo estándar\">\nLos primeros instantes del universo fueron un acelerador de partículas natural: temperaturas tan altas que todas las partículas del modelo estándar existieron. La nucleosíntesis primordial explica la abundancia de hidrógeno y helio. La cosmología y la física de partículas se necesitan mutuamente: el universo temprano es el laboratorio de la física fundamental.\n</Connect>\n",
+        "intermedio": "## La historia cósmica\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: El Big Bang\nPregunta: ¿El Big Bang fue una explosión que ocurrió en algún lugar del espacio? ¿Qué significa realmente?\nNivel: intermedio\nXP: 40\nBotón: Comprobar\nRespuesta: No. El Big Bang no ocurrió 'en' el espacio: es el comienzo del espacio y el tiempo. No tuvo un centro ni un punto de origen: el espacio mismo se expandió desde un estado extremadamente denso. Todas las galaxias se alejan de todas (no de un punto central). La analogía: no es una bomba en una habitación, sino la habitación misma expandiéndose.\n```\n\nLas eras del universo temprano:\n\n1. **Era de Planck** (<10⁻⁴³ s): física desconocida (gravedad cuántica)\n2. **Inflación** (10⁻³⁶ s): expansión exponencial, 10⁶⁰ veces\n3. **Nucleosíntesis** (primeros minutos): se forman hidrógeno, helio y litio\n4. **Recombinación** (380,000 años): se forman átomos, el universo se vuelve transparente\n5. **Edad oscura**: antes de las primeras estrellas\n6. **Formación de estructuras**: estrellas, galaxias, cúmulos\n\n> **🔑 Concepto clave: El universo se expande y enfría**\n> La expansión enfría el universo: de un plasma caliente a átomos a estrellas. Cada era cósmica (inflación, nucleosíntesis, recombinación, estructura) corresponde a un estado físico del universo en expansión.\n\n\n<Connect title=\"De la cosmología a la física de partículas\" sourceConcept=\"Big Bang\" targetConcept=\"Modelo estándar\">\nLos primeros instantes del universo fueron un acelerador de partículas natural: temperaturas tan altas que todas las partículas del modelo estándar existieron. La nucleosíntesis primordial explica la abundancia de hidrógeno y helio. La cosmología y la física de partículas se necesitan mutuamente: el universo temprano es el laboratorio de la física fundamental.\n</Connect>\n",
+        "avanzado": "## La inflación cósmica\n\nLa **inflación cósmica** (Guth, 1981) resuelve problemas del Big Bang clásico:\n\n- **Problema del horizonte**: regiones opuestas del cielo están a la misma temperatura sin haber estado en contacto → la inflación las conectó antes\n- **Problema de planitud**: el universo es casi perfectamente plano → la inflación lo aplanó\n- **Estructura**: las fluctuaciones cuánticas de la inflación dieron origen a las galaxias\n\nLa inflación explica por qué el universo es uniforme, plano y estructurado.\n\n> **💡 Nota de frontera**\n> La inflación predice que las fluctuaciones cuánticas primordiales se amplificaron y dejaron su huella en la radiación de fondo —confirmada por Planck y otros satélites. Es la conexión más directa entre la mecánica cuántica y el cosmos.\n\n\n<Connect title=\"De la cosmología a la física de partículas\" sourceConcept=\"Big Bang\" targetConcept=\"Modelo estándar\">\nLos primeros instantes del universo fueron un acelerador de partículas natural: temperaturas tan altas que todas las partículas del modelo estándar existieron. La nucleosíntesis primordial explica la abundancia de hidrógeno y helio. La cosmología y la física de partículas se necesitan mutuamente: el universo temprano es el laboratorio de la física fundamental.\n</Connect>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "expansion-universo",
+      "titulo": "La expansión del universo",
+      "niveles": {
+        "principiante": "## La expansión del universo\n\nEn 1929, Edwin Hubble descubrió que las galaxias se alejan de nosotros: el universo se expande.\n\nLa **ley de Hubble**:\n\n$$ v = H_0 d $$\n\nLa velocidad de recesión de una galaxia es proporcional a su distancia. Las galaxias más lejanas se alejan más rápido.\n\nEl **desplazamiento al rojo**: la luz de las galaxias lejanas se estira hacia longitudes de onda mayores, revelando su velocidad de alejamiento.\n\n> **Dato que rompe el cerebro**\n> Las galaxias no se mueven por el espacio: es el espacio entre ellas el que se expande. Como pasas encima de un globo que se infla: los puntos se alejan sin moverse por su cuenta.\n\n**[IMAGEN SUGERIDA: Globos con puntos que se separan al inflarse, con la ley de Hubble. Pie de foto: \"La expansión del espacio separa las galaxias.\"]**\n\n\n<Transfer targetDomain=\"Astronomía observacional\" title=\"Transfiere: mide la expansión con supernovas\">\nLas supernovas tipo Ia son 'velas estándar': su brillo intrínseco es conocido, así que su brillo aparente mide su distancia. Comparando distancia y desplazamiento al rojo se construye la curva de expansión. Investiga cómo este método reveló la expansión acelerada y qué otros métodos (cefeidas, CMB, ondas gravitacionales) miden H₀.\n</Transfer>\n",
+        "intermedio": "## La ley de Hubble\n\n```aeterna-formula\ntitle=\"Ley de Hubble\"\nformula=\"v = H_0 d\"\nvariables={[{\"symbol\":\"v\",\"name\":\"Velocidad de recesión\",\"unit\":\"km/s\"},{\"symbol\":\"H₀\",\"name\":\"Constante de Hubble\",\"unit\":\"km/s/Mpc\"},{\"symbol\":\"d\",\"name\":\"Distancia\",\"unit\":\"Mpc\"}]}\nnote=\"Las galaxias se alejan con velocidad proporcional a la distancia. Es la firma de un universo en expansión.\"\n```\n\nEl inverso de H₀ da una escala de edad del universo: 1/H₀ ≈ 14 mil millones de años.\n\nLa expansión es uniforme: cualquier observador en cualquier galaxia ve que las demás se alejan. No hay centro.\n\n> **🔑 Concepto clave: Todo se aleja de todo**\n> v = H₀d: cuanto más lejos, más rápido se aleja. No hay centro de la expansión: cada galaxia ve que las demás se alejan. El desplazamiento al rojo es su firma observacional.\n\n\n<Transfer targetDomain=\"Astronomía observacional\" title=\"Transfiere: mide la expansión con supernovas\">\nLas supernovas tipo Ia son 'velas estándar': su brillo intrínseco es conocido, así que su brillo aparente mide su distancia. Comparando distancia y desplazamiento al rojo se construye la curva de expansión. Investiga cómo este método reveló la expansión acelerada y qué otros métodos (cefeidas, CMB, ondas gravitacionales) miden H₀.\n</Transfer>\n",
+        "avanzado": "## La expansión acelerada\n\nEn 1998, un descubrimiento sorprendente: la expansión del universo se **acelera**.\n\n- Supernovas tipo Ia lejanas eran más débiles de lo esperado (más lejos de lo previsto)\n- Algo empuja la expansión: la **energía oscura**\n- El universo no se frena por la gravedad: se acelera\n\nNobel 2011: Perlmutter, Riess, Schmidt.\n\nLa energía oscura constituye ~68% del universo. Su naturaleza es uno de los mayores misterios de la física.\n\n> **💡 Nota de frontera**\n> La energía oscura podría ser la constante cosmológica Λ de Einstein —un 'error' que resultó real— o un campo dinámico (quintaesencia). Su estudio es el mayor problema abierto de la cosmología, y de él depende el destino del universo.\n\n\n<Transfer targetDomain=\"Astronomía observacional\" title=\"Transfiere: mide la expansión con supernovas\">\nLas supernovas tipo Ia son 'velas estándar': su brillo intrínseco es conocido, así que su brillo aparente mide su distancia. Comparando distancia y desplazamiento al rojo se construye la curva de expansión. Investiga cómo este método reveló la expansión acelerada y qué otros métodos (cefeidas, CMB, ondas gravitacionales) miden H₀.\n</Transfer>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "radiacion-fondo",
+      "titulo": "La radiación de fondo",
+      "niveles": {
+        "principiante": "## La radiación de fondo\n\nHace 380,000 años, el universo se enfrió lo suficiente para que los electrones y protones se combinaran en átomos. La luz dejó de dispersarse y el universo se volvió transparente.\n\nEsa luz primordial —hoy enfriada a 2.7 K— es la **radiación de fondo de microondas** (CMB). Llena todo el cielo.\n\n> **Dato que rompe el cerebro**\n> El ~1% de la 'nieve' de tu televisión analógica era radiación de fondo del Big Bang. Penzias y Wilson la descubrieron en 1964 como un ruido que no podían eliminar —y ganaron el Nobel.\n\n**[IMAGEN SUGERIDA: El mapa de la radiación de fondo (CMB) con sus fluctuaciones de temperatura. Pie de foto: \"La radiación de fondo: el eco del Big Bang.\"]**\n",
+        "intermedio": "## La CMB y sus fluctuaciones\n\nLa radiación de fondo es casi perfectamente uniforme (2.725 K), con variaciones diminutas (~1 parte en 100,000).\n\nEsas **fluctuaciones** son cruciales:\n- Son las semillas de las galaxias\n- Surgieron de fluctuaciones cuánticas amplificadas por la inflación\n- Su patrón confirma el modelo del Big Bang\n\nLos satélites COBE, WMAP y Planck han medido la CMB con precisión extraordinaria, confirmando el modelo estándar y determinando los parámetros del universo.\n\n> **🔑 Concepto clave: El mapa del universo primigenio**\n> La CMB es la fotografía del universo a los 380,000 años. Sus fluctuaciones de temperatura son las semillas de toda la estructura: galaxias, cúmulos, y el fondo cósmico que vemos hoy.\n",
+        "avanzado": "## Los parámetros cosmológicos\n\nEl estudio de la CMB (Planck) determinó los parámetros del universo:\n\n- Edad: 13.8 mil millones de años\n- Materia ordinaria: ~5%\n- Materia oscura: ~27%\n- Energía oscura: ~68%\n- Curvatura: plana (Ω ≈ 1)\n\nLa geometría del universo es plana a gran escala —consistente con la inflación.\n\n> **💡 Nota de frontera**\n> Las fluctuaciones de la CMB contienen una riqueza increíble: fonética acústica del plasma primordial, la proporción de elementos, y pistas sobre la física de la inflación. Las futuras observaciones (telescopios de lentes gravitacionales, polarización de la CMB) buscarán las ondas gravitacionales primordiales de la inflación.\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "materia-oscura",
+      "titulo": "La materia oscura",
+      "niveles": {
+        "principiante": "## La materia oscura\n\nLas galaxias giran más rápido de lo que su masa visible permite. Algo invisible añade gravedad: la **materia oscura**.\n\nEvidencias:\n- Curvas de rotación de las galaxias\n- Lentes gravitacionales\n- El fondo cósmico de microondas\n- La formación de estructuras\n\nLa materia oscura no emite, absorbe ni refleja luz: solo interactúa por gravedad.\n\n> **Dato que rompe el cerebro**\n> La materia que ves —estrellas, planetas, gas, tú— es solo el 5% del universo. El 27% es materia oscura invisible, y el 68% energía oscura. Vivimos en un universo mayoritariamente invisible.\n\n**[IMAGEN SUGERIDA: Un cúmulo de galaxias con su halo de materia oscura (mapa de lentes). Pie de foto: \"La materia oscura: invisible pero con gravedad.\"]**\n",
+        "intermedio": "## Evidencias de la materia oscura\n\n```error-hunter\nTITLE: La materia oscura y la luz\nCONTEXT: Un estudiante afirma: «La materia oscura no existe: si no emite ni absorbe luz, es que no está ahí. Las galaxias giran rápido porque algo no entendemos de la gravedad, no por materia invisible.»\nXP: 60\nSTEP_CORRECT: Múltiples evidencias independientes la respaldan | Curvas de rotación, lentes gravitacionales, CMB y formación de estructuras coinciden en que hay más masa de la visible.\nSTEP_CORRECT: La gravedad revela lo invisible | La materia oscura interactúa gravitatoriamente: dobla la luz, atrapa galaxias, moldea el cosmos. Es observable por sus efectos.\nSTEP_ERROR: No existe porque no emite luz | No emitir luz no significa no existir: la gravedad la delata. Los mapas de lentes gravitacionales muestran su distribución con total claridad.\n```\n\nEvidencias principales:\n\n1. **Curvas de rotación**: las estrellas en los bordes de las galaxias giran tan rápido como las del centro —sin materia oscura, se escaparían\n2. **Lentes gravitacionales**: la luz se desvía más de lo que la masa visible predice\n3. **CMB**: las fluctuaciones requieren más materia de la visible\n\n> **🔑 Concepto clave: Invisible pero gravitatoria**\n> La materia oscura no interactúa con la luz pero sí con la gravedad. Sus evidencias son independientes y coincidentes: rotación, lentes, CMB. Qué es exactamente —WIMPs, axiones, agujeros negros primordiales— sigue abierto.\n",
+        "avanzado": "## ¿Qué es la materia oscura?\n\nCandidatos a materia oscura:\n\n- **WIMPs** (partículas masivas de interacción débil): hipotéticas, buscadas en detectores subterráneos\n- **Axiones**: partículas ultraligeras, buscadas en laboratorio y en el Sol\n- **Agujeros negros primordiales**: de las primeras eras\n- **Partículas masivas gravitacionales**: teoría de cuerdas\n\nHasta ahora, ninguna ha sido detectada directamente. La búsqueda continúa en el LHC, detectores subterráneos (XENON, LZ) y telescopios.\n\n> **💡 Nota de frontera**\n> La materia oscura es uno de los mayores misterios: sabemos que existe (su gravedad es inconfundible) pero no qué es. Su descubrimiento —cuando llegue— será un Nobel garantizado y podría revelar física más allá del modelo estándar.\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "destino-universo",
+      "titulo": "El destino del universo",
+      "niveles": {
+        "principiante": "## El destino del universo\n\n¿Cómo terminará el universo? Depende de su densidad y de la energía oscura.\n\nEscenarios clásicos:\n- **Big Crunch**: si la gravedad domina, el universo se contrae\n- **Universo en expansión eterna**: si la energía es insuficiente para frenarla\n- **Big Rip**: si la energía oscura se acelera sin límite, todo se desgarra\n\nHoy sabemos: la expansión se acelera, así que el escenario más probable es la **expansión eterna** hacia un universo frío y oscuro.\n\n> **Dato que rompe el cerebro**\n> El universo observable morirá lentamente: las estrellas se apagarán, los agujeros negros se evaporarán (radiación de Hawking), y quedará un vacío frío y tenue. El 'fin' del universo es la muerte térmica, no una explosión.\n\n**[IMAGEN SUGERIDA: Un universo frío y vacío, con estrellas apagándose. Pie de foto: \"El destino probable: un universo frío y vacío.\"]**\n",
+        "intermedio": "## Los escenarios del destino\n\nLos tres escenarios dependen de la densidad Ω:\n\n| Densidad | Destino |\n|----------|---------|\n| Ω < 1 | Expansión eterna (universo abierto) |\n| Ω = 1 | Expansión que se frena asintóticamente (plano) |\n| Ω > 1 | Colapso (Big Crunch) |\n\nLas mediciones actuales: Ω ≈ 1 (plano) pero con la energía oscura acelerando la expansión → destino probable: expansión eterna acelerada.\n\nLa **muerte térmica** (heat death): el universo alcanza el equilibrio térmico, sin gradientes de energía, sin vida posible.\n\n> **🔑 Concepto clave: La densidad decide**\n> El destino depende de la densidad del universo: abierto (expansión eterna), plano (frenado asintótico) o cerrado (Big Crunch). Las mediciones con energía oscura apuntan a expansión eterna acelerada.\n",
+        "avanzado": "## El futuro lejano\n\nLa línea de tiempo del futuro:\n\n- 100 mil millones de años: la última estrella se apaga\n- 1 billón de años: las galaxias se evaporan\n- 10¹⁴ años: los agujeros negros dominan\n- 10¹⁰⁰ años: los agujeros negros se evaporan (Hawking)\n- 10¹⁰⁰⁰+ años: muerte térmica, vacío casi perfecto\n\n> **💡 Nota de frontera**\n> El destino del universo depende de la naturaleza de la energía oscura —desconocida. Si es la constante cosmológica, la expansión acelerará para siempre. Si es dinámica, el destino podría cambiar. Estudiar la energía oscura es estudiar el futuro del cosmos.\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "La cosmología es la física del universo entero, y has recorrido su historia completa: del Big Bang hace 13.8 mil millones de años a la expansión acelerada de hoy, y al destino de un universo que se enfría hacia la muerte térmica. Has aprendido que el universo observable —2 billones de galaxias— está limitado por el horizonte de la luz; que el Big Bang no fue una explosión en el espacio sino el comienzo del espacio-tiempo; que la ley de Hubble (v = H₀d) revela una expansión que se acelera por la energía oscura; que la radiación de fondo es la fotografía del universo a los 380,000 años, con fluctuaciones que son las semillas de las galaxias; y que la materia oscura —invisible pero gravitatoria— constituye el 27% del cosmos. Las evidencias convergen en un modelo extraordinariamente preciso: el modelo estándar de la cosmología, confirmado por la CMB, la abundancia de elementos y las supernovas. Pero la cosmología también revela nuestros límites: la materia oscura, la energía oscura y la era de Planck —donde la relatividad general y la cuántica colisionan— son fronteras abiertas. La cosmología es la ciencia más humilde y ambiciosa a la vez: estudia la totalidad del universo sabiendo que el 95% de él nos es desconocido. Y esa ignorancia es exactamente lo que la hace emocionante: cada respuesta abre preguntas más profundas sobre el cosmos que habitamos.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "El Big Bang",
+        "enunciado": "¿Qué es el Big Bang y qué NO es?",
+        "solucion": "Es el modelo del origen del universo: empezó como un estado extremadamente denso y caliente hace 13.8 mil millones de años y se expande desde entonces. NO es una explosión en el espacio ni tuvo un centro: es el comienzo del espacio-tiempo, que se expande uniformemente.",
+        "xp": 30,
+        "pistas": [
+          "¿Cómo empezó?",
+          "¿Fue una explosión en el espacio?"
+        ],
+        "opciones": [
+          {
+            "label": "Origen del espacio-tiempo en expansión",
+            "correcta": true
+          },
+          {
+            "label": "Una explosión en un lugar del espacio",
+            "correcta": false
+          },
+          {
+            "label": "La creación de las estrellas",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Denso y caliente al inicio",
+          "El espacio-tiempo comienza y se expande"
+        ]
+      },
+      {
+        "titulo": "Ley de Hubble",
+        "enunciado": "Según la ley de Hubble, ¿qué le ocurre a la velocidad de recesión de las galaxias con la distancia?",
+        "solucion": "Aumenta proporcionalmente: v = H₀d. Las galaxias más lejanas se alejan más rápido. Es la firma de un universo en expansión uniforme.",
+        "xp": 35,
+        "pistas": [
+          "v = H₀d",
+          "¿Proporcional a qué?"
+        ],
+        "opciones": [
+          {
+            "label": "Mayor distancia, mayor velocidad",
+            "correcta": true
+          },
+          {
+            "label": "Mayor distancia, menor velocidad",
+            "correcta": false
+          },
+          {
+            "label": "Todas van igual",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica v = H₀d",
+          "Las lejanas van más rápido"
+        ]
+      },
+      {
+        "titulo": "Composición del universo",
+        "enunciado": "¿Cuál es la composición aproximada del universo?",
+        "solucion": "~68% energía oscura, ~27% materia oscura, ~5% materia ordinaria (la que vemos). El universo está mayoritariamente hecho de componentes invisibles.",
+        "xp": 35,
+        "pistas": [
+          "¿Cuánto es materia visible?",
+          "¿Qué domina?"
+        ],
+        "opciones": [
+          {
+            "label": "68% energía oscura, 27% materia oscura",
+            "correcta": true
+          },
+          {
+            "label": "99% materia visible",
+            "correcta": false
+          },
+          {
+            "label": "Mitad materia, mitad energía",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Recuerda las proporciones",
+          "La materia visible es mínima"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Distancia por Hubble",
+        "enunciado": "Una galaxia se aleja a 7000 km/s. Si H₀ ≈ 70 km/s/Mpc, ¿a qué distancia está?",
+        "solucion": "d = v/H₀ = 7000/70 = 100 Mpc (≈326 millones de años-luz).",
+        "xp": 45,
+        "pistas": [
+          "d = v/H₀",
+          "Divide 7000 entre 70"
+        ],
+        "opciones": [
+          {
+            "label": "100 Mpc",
+            "correcta": true
+          },
+          {
+            "label": "70 Mpc",
+            "correcta": false
+          },
+          {
+            "label": "490,000 Mpc",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Despeja d de v = H₀d",
+          "Calcula 7000/70 = 100 Mpc"
+        ]
+      },
+      {
+        "titulo": "Materia oscura",
+        "enunciado": "¿Cuál es la evidencia más directa de la materia oscura en las galaxias?",
+        "solucion": "Las curvas de rotación: las estrellas en los bordes giran tan rápido como las del centro. Sin materia invisible que añada gravedad, se escaparían. Complementada por lentes gravitacionales y la CMB.",
+        "xp": 45,
+        "pistas": [
+          "¿Qué revela la rotación?",
+          "¿Qué más la confirma?"
+        ],
+        "opciones": [
+          {
+            "label": "Curvas de rotación planas",
+            "correcta": true
+          },
+          {
+            "label": "Las estrellas brillan más",
+            "correcta": false
+          },
+          {
+            "label": "Los planetas orbitan",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce la rotación plana",
+          "Múltiples evidencias coinciden"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "El horizonte cosmológico",
+        "enunciado": "¿Por qué el radio del universo observable (46 mil millones de años-luz) es mayor que la edad del universo × c (13.8 mil millones de años-luz)?",
+        "solucion": "Porque el espacio se expande: mientras la luz de las galaxias lejanas viaja hacia nosotros, el espacio entre medias crece. Las galaxias que hoy vemos a 46 mil millones de años-luz estaban mucho más cerca cuando emitieron su luz (hace ~13.8 mil millones de años). La distancia actual es mayor que la recorrida por la luz.",
+        "xp": 55,
+        "pistas": [
+          "¿Qué le ocurre al espacio mientras viaja la luz?",
+          "¿La distancia actual es igual a la recorrida por la luz?"
+        ],
+        "opciones": [
+          {
+            "label": "El espacio se expande durante el viaje",
+            "correcta": true
+          },
+          {
+            "label": "La luz va más rápido que c",
+            "correcta": false
+          },
+          {
+            "label": "El universo es infinito",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "La expansión estira el espacio",
+          "La distancia actual supera c·edad"
+        ]
+      },
+      {
+        "titulo": "Energía oscura",
+        "enunciado": "¿Qué descubrieron las supernovas tipo Ia en 1998 y por qué fue revolucionario?",
+        "solucion": "Descubrieron que la expansión del universo se acelera: las supernovas lejanas eran más débiles (más distantes) de lo que un universo desacelerando predeciría. La causa es la energía oscura, que empuja la expansión contra la gravedad. Nobel 2011. Cambió el destino del universo: no se frena, se acelera.",
+        "xp": 60,
+        "pistas": [
+          "¿Qué hacían las supernovas lejanas?",
+          "¿Qué fuerza la acelera?"
+        ],
+        "opciones": [
+          {
+            "label": "La expansión se acelera (energía oscura)",
+            "correcta": true
+          },
+          {
+            "label": "La expansión se frena",
+            "correcta": false
+          },
+          {
+            "label": "El universo se contrae",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Las supernovas revelan distancia",
+          "La expansión se acelera"
+        ]
+      }
+    ]
+  }
 }
