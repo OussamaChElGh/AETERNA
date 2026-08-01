@@ -1,149 +1,320 @@
 {
   "metadata": {
-    "title": "Cinemática: El Lenguaje del Movimiento",
-    "description": "Cómo describir el movimiento de los objetos: posición, velocidad, aceleración. Desde caminar en línea recta hasta lanzar un proyectil al aire. Todo el lenguaje matemático para narrar el movimiento.",
+    "title": "Cinemática: El Arte de Describir el Movimiento",
+    "description": "Guía completa de cinemática: posición, velocidad, aceleración, movimiento rectilíneo uniforme y acelerado, caída libre, movimiento parabólico y la relación entre derivadas e integrales. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "cinematica",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "cinemática",
-      "movimiento",
+      "posición",
       "velocidad",
       "aceleración",
+      "movimiento rectilíneo",
+      "caída libre",
+      "movimiento parabólico",
       "MRU",
       "MRUA",
-      "movimiento parabólico",
-      "movimiento circular",
-      "ecuaciones cinemáticas"
+      "derivadas",
+      "integrales"
     ],
-    "image": "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-11",
-    "nivel": "2",
-    "orden": "5",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-09",
+    "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
-    "insignia": "Señor de lo Clásico",
+    "orden": 2,
+    "insignia": "Maestro del Movimiento",
     "tipo": "theory",
     "prerequisites": [
-      "leyes-newton-movimiento",
       "vectores"
     ],
-    "breadcrumb": [
-      "El Reino de lo Clásico",
-      "Cinemática"
-    ]
+    "breadcrumb": "Física / El Reino de lo Clásico / Cinemática"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  Todo se mueve: la Tierra, el aire, tu corazón. La cinemática es el arte de describir ese movimiento —sin preguntar por qué ocurre.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La cinemática describe el movimiento con tres conceptos: **posición** (dónde estás), **velocidad** (qué tan rápido cambias de posición) y **aceleración** (qué tan rápido cambia tu velocidad). El movimiento rectilíneo uniforme (MRU) mantiene velocidad constante; el uniformemente acelerado (MRUA) cambia la velocidad a ritmo constante; y la caída libre es MRUA con la aceleración de la gravedad. Con estas herramientas puedes describir desde un coche en la autopista hasta un planeta orbitando.\n\n**[IMAGEN SUGERIDA: Una autopista vista desde arriba con estelas de luz de los coches moviéndose, mostrando trayectorias. Pie de foto: \"La cinemática describe el movimiento sin preguntar por qué.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-el-mundo-est-en-movimiento",
-      "titulo": "▶️ Bienvenida: El mundo está en movimiento",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: el mundo está en movimiento",
       "niveles": {
-        "principiante": "En este instante, la Tierra gira sobre su eje a 1.670 km/h, orbita el Sol a 107.000 km/h, y el Sol orbita el centro de la Vía Láctea a 828.000 km/h. **Todo se mueve. Siempre.**\n\nLa pregunta más antigua de la física no es \"¿por qué se mueven las cosas?\", sino algo más fundamental: **¿cómo sabemos que algo se mueve?** Parece obvio hasta que te das cuenta de que un pasajero en un tren de alta velocidad puede estar perfectamente quieto respecto al vagón, moviéndose a 300 km/h respecto a la vía, y a casi 1.100 km/h respecto a alguien que camina por el andén.\n\nLa **cinemática** es la rama de la física que responde a estas preguntas. No se preocupa por las *causas* del movimiento (eso es la dinámica, que ya vimos). Se preocupa por el **qué**: ¿dónde está un objeto? ¿A qué velocidad? ¿Cómo cambia eso con el tiempo?\n\n> **💡 La clave en 10 segundos**\n>\n> > La cinemática es el **lenguaje** para describir el movimiento sin preguntarte *por qué* se mueve. Te da las herramientas para responder: ¿dónde está?, ¿a qué velocidad?, ¿cuándo llegará? Usando tres ecuaciones simples (para el caso más básico) y un poco de geometría (para todo lo demás).\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — DESCRIBIR EL MOVIMIENTO -->\n<!-- ============================================ -->",
-        "intermedio": "En este instante, la Tierra gira sobre su eje a 1.670 km/h, orbita el Sol a 107.000 km/h, y el Sol orbita el centro de la Vía Láctea a 828.000 km/h. **Todo se mueve. Siempre.**\n\nLa pregunta más antigua de la física no es \"¿por qué se mueven las cosas?\", sino algo más fundamental: **¿cómo sabemos que algo se mueve?** Parece obvio hasta que te das cuenta de que un pasajero en un tren de alta velocidad puede estar perfectamente quieto respecto al vagón, moviéndose a 300 km/h respecto a la vía, y a casi 1.100 km/h respecto a alguien que camina por el andén.\n\nLa **cinemática** es la rama de la física que responde a estas preguntas. No se preocupa por las *causas* del movimiento (eso es la dinámica, que ya vimos). Se preocupa por el **qué**: ¿dónde está un objeto? ¿A qué velocidad? ¿Cómo cambia eso con el tiempo?\n\n> **💡 La clave en 10 segundos**\n>\n> > La cinemática es el **lenguaje** para describir el movimiento sin preguntarte *por qué* se mueve. Te da las herramientas para responder: ¿dónde está?, ¿a qué velocidad?, ¿cuándo llegará? Usando tres ecuaciones simples (para el caso más básico) y un poco de geometría (para todo lo demás).\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — DESCRIBIR EL MOVIMIENTO -->\n<!-- ============================================ -->",
-        "avanzado": "En este instante, la Tierra gira sobre su eje a 1.670 km/h, orbita el Sol a 107.000 km/h, y el Sol orbita el centro de la Vía Láctea a 828.000 km/h. **Todo se mueve. Siempre.**\n\nLa pregunta más antigua de la física no es \"¿por qué se mueven las cosas?\", sino algo más fundamental: **¿cómo sabemos que algo se mueve?** Parece obvio hasta que te das cuenta de que un pasajero en un tren de alta velocidad puede estar perfectamente quieto respecto al vagón, moviéndose a 300 km/h respecto a la vía, y a casi 1.100 km/h respecto a alguien que camina por el andén.\n\nLa **cinemática** es la rama de la física que responde a estas preguntas. No se preocupa por las *causas* del movimiento (eso es la dinámica, que ya vimos). Se preocupa por el **qué**: ¿dónde está un objeto? ¿A qué velocidad? ¿Cómo cambia eso con el tiempo?\n\n> **💡 La clave en 10 segundos**\n>\n> > La cinemática es el **lenguaje** para describir el movimiento sin preguntarte *por qué* se mueve. Te da las herramientas para responder: ¿dónde está?, ¿a qué velocidad?, ¿cuándo llegará? Usando tres ecuaciones simples (para el caso más básico) y un poco de geometría (para todo lo demás).\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — DESCRIBIR EL MOVIMIENTO -->\n<!-- ============================================ -->"
+        "principiante": "## Bienvenida: el mundo está en movimiento\n\nEn este instante, la Tierra gira sobre su eje a 1.670 km/h, orbita el Sol a 107.000 km/h, y el Sol viaja por la galaxia a 720.000 km/h. Aunque no lo sientas, te estás moviendo a velocidades vertiginosas.\n\nLa **cinemática** es la rama de la física que describe el movimiento: dónde están las cosas, qué tan rápido se mueven y cómo cambia su rapidez. No pregunta *por qué* se mueven (eso es la dinámica): solo describe *cómo*.\n\nEs la herramienta más básica de la física. Antes de entender las fuerzas (Newton), la energía o la gravedad, necesitas un lenguaje para describir el movimiento. Ese lenguaje es la cinemática.\n\n> **🔑 Concepto clave: Cinemática**\n> La cinemática describe el movimiento mediante posición, velocidad y aceleración, sin investigar sus causas. Es la 'gramática' del movimiento: con ella describimos cualquier trayectoria antes de preguntarnos qué la produce.\n\n**[IMAGEN SUGERIDA: Una mariposa en vuelo con una línea de puntos que traza su trayectoria. Pie de foto: \"Describir el movimiento es dibujar su trayectoria.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la cinemática describe el movimiento con tres conceptos encadenados: posición (dónde estás), velocidad (cómo cambia la posición) y aceleración (cómo cambia la velocidad). Describir un movimiento es conocer esas tres funciones del tiempo.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: el lenguaje del movimiento\n\nLa cinemática se distingue de la dinámica por una frontera conceptual clara: la cinemática describe *cómo* se mueve un objeto, la dinámica explica *por qué*. Esta separación es una de las mayores contribuciones de Galileo y Newton.\n\nLos conceptos fundamentales son:\n\n- **Sistema de referencia**: el marco desde el que observamos. 'Moverse' solo tiene sentido respecto a algo.\n- **Posición**: el lugar del objeto en el sistema de referencia, un vector.\n- **Trayectoria**: la curva que describe el objeto.\n- **Desplazamiento**: el cambio neto de posición (vector), distinto de la distancia recorrida (escalar).\n- **Velocidad**: la rapidez del cambio de posición.\n- **Aceleración**: la rapidez del cambio de velocidad.\n\nUn ejemplo que ilustra la diferencia entre desplazamiento y distancia: si caminas 3 km al norte y luego 4 km al sur, la distancia recorrida es 7 km, pero el desplazamiento es 1 km al norte. Son conceptos distintos que los físicos cuidan de no confundir.\n\n> **Dato que rompe el cerebro**\n> La velocidad de la luz es constante para todos los observadores —no se suma con la velocidad del observador. Esta 'rareza' de la cinemática llevó a Einstein a la relatividad especial. La cinemática clásica es una aproximación válida a velocidades cotidianas.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la cinemática describe el movimiento con tres conceptos encadenados: posición (dónde estás), velocidad (cómo cambia la posición) y aceleración (cómo cambia la velocidad). Describir un movimiento es conocer esas tres funciones del tiempo.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la cinemática como geometría del espacio-tiempo\n\nEn su formulación moderna, la cinemática describe el movimiento como una curva en el **espacio-tiempo**: un evento es un punto (t, x, y, z), y la trayectoria de una partícula es una línea mundial en 4 dimensiones.\n\nLa velocidad es la tangente a esa línea mundial, y la aceleración mide la curvatura de la línea. Esta visión geométrica, formalizada por Minkowski, es la base de la relatividad.\n\nEn cinemática clásica (no relativista), el tiempo es absoluto y común a todos los observadores. Las coordenadas de un objeto son funciones del tiempo: x(t), y(t), z(t). La velocidad y la aceleración son derivadas:\n\n$$ \\vec{v} = \\frac{d\\vec{r}}{dt}, \\quad \\vec{a} = \\frac{d\\vec{v}}{dt} = \\frac{d^2\\vec{r}}{dt^2} $$\n\nEsta conexión entre cinemática y cálculo —que velocidad y aceleración son derivadas de la posición— es el puente que Newton construyó entre la física y las matemáticas.\n\n> **💡 Nota avanzada**\n> La elección del sistema de referencia no es trivial. En relatividad, dos observadores con movimientos distintos miden intervalos de tiempo y longitudes diferentes. La cinemática relativista corrige la clásica con los factores de Lorentz, aunque a velocidades cotidianas la corrección es despreciable.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la cinemática describe el movimiento con tres conceptos encadenados: posición (dónde estás), velocidad (cómo cambia la posición) y aceleración (cómo cambia la velocidad). Describir un movimiento es conocer esas tres funciones del tiempo.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-capa-i-intuicin---qu-significa-moverse",
-      "titulo": "🌱 Capa I: Intuición - ¿Qué significa \"moverse\"?",
+      "id": "posicion-movimiento",
+      "titulo": "Posición y movimiento: ¿dónde estoy?",
       "niveles": {
-        "principiante": "### 1.1 Posición: ¿dónde estoy?\n\nTodo comienza con una **pregunta absurda de niño**: ¿dónde estás?\n\nPara responder necesitas dos cosas:\n1. Un **punto de referencia** (¿respecto a qué?)\n2. Un **número** que indique la distancia y dirección desde ese punto\n\nEse número con dirección es lo que llamamos **posición**, y se representa con un vector $\\vec{r}$ (del latín *radius*: distancia).\n\nSi estás a 5 metros al este de una farola:\n\n$$\\vec{r} = 5 \\hat{i} \\text{ metros}$$\n\ndonde $\\hat{i}$ es el vector unitario que apunta al este.\n\nSi después caminas 3 metros al norte:\n\n$$\\vec{r} = 5\\hat{i} + 3\\hat{j} \\text{ metros}$$\n\n**Tu posición cambió**, y el vector lo captura todo: magnitud y dirección.\n\n### 1.2 Desplazamiento: el cambio importa\n\nEl **desplazamiento** ($\\Delta \\vec{r}$) no es lo mismo que la distancia recorrida. Es la diferencia entre tu posición final y la inicial:\n\n$$\\Delta \\vec{r} = \\vec{r}_f - \\vec{r}_i$$\n\n**Ejemplo:** Sales de casa, caminas 4 km al parque, luego 4 km de vuelta a casa.\n- **Distancia recorrida:** 8 km\n- **Desplazamiento:** 0 km (terminaste donde empezaste)\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > Un corredor que da una vuelta completa a una pista de 400 m recorre 400 m de distancia, pero su desplazamiento es **cero**. La física distingue entre \"cuánto camino\" (distancia, escalar) y \"cuánto cambié de sitio\" (desplazamiento, vector). Esta diferencia es la semilla de todo lo que sigue.\n\n---"
+        "principiante": "## Posición y movimiento: ¿dónde estoy?\n\nTodo comienza con una pregunta de niño: ¿dónde estoy? La respuesta siempre necesita un punto de referencia. 'A 5 metros de la puerta', 'a 2 calles de casa': la posición es relativa a algo.\n\nEn física, la **posición** de un objeto es su lugar respecto a un **sistema de referencia** —un punto fijo que elegimos como origen. Se representa con un número (en 1D), un par de coordenadas (en 2D) o un vector.\n\nLa **trayectoria** es el camino que recorre el objeto. La **distancia** es cuánto camino recorrió. El **desplazamiento** es cuánto cambió su posición neta —la línea recta entre el inicio y el final, con dirección.\n\n> **Dato que rompe el cerebro**\n> Si caminas 3 km al norte y luego 4 km al sur, recorriste 7 km (distancia), pero tu desplazamiento es solo 1 km al norte. Distancia y desplazamiento son conceptos diferentes.\n\n**[IMAGEN SUGERIDA: Un mapa con una línea discontinua mostrando el camino recorrido y una flecha recta mostrando el desplazamiento. Pie de foto: \"Distancia vs desplazamiento.\"]**\n",
+        "intermedio": "## Posición como función del tiempo\n\nEn cinemática, la posición es una función del tiempo: x(t). Conocer x(t) es conocerlo todo sobre el movimiento en esa dimensión.\n\nEl **desplazamiento** entre dos instantes es:\n\n$$ \\Delta x = x(t_2) - x(t_1) $$\n\nLa **velocidad media** es el desplazamiento dividido por el tiempo:\n\n$$ v_{media} = \\frac{\\Delta x}{\\Delta t} $$\n\nLa **velocidad instantánea** es el límite cuando Δt tiende a cero —la derivada de la posición:\n\n$$ v = \\lim_{\\Delta t \\to 0} \\frac{\\Delta x}{\\Delta t} = \\frac{dx}{dt} $$\n\n```aeterna-exercise\nTITLE: ¿Distancia o desplazamiento?\nHINT: Distancia = camino recorrido. Desplazamiento = cambio neto de posición con dirección.\nXP: 30\nCorres una vuelta completa a una pista de 400 m y vuelves al punto de partida. ¿Cuál es tu distancia y cuál tu desplazamiento?\nSOLUTION: La distancia es 400 m (el camino recorrido). El desplazamiento es 0 m: volviste al punto de partida, tu posición neta no cambió. El desplazamiento es el cambio de posición, no la distancia.\n```\n\n> **🔑 Concepto clave: La posición es relativa**\n> No existe una posición absoluta. Solo tiene sentido hablar de posición respecto a un sistema de referencia. Esta relatividad es tan fundamental que Einstein la extendió a la velocidad y al tiempo.\n",
+        "avanzado": "## La posición y el cálculo diferencial\n\nLa posición x(t) es una función continua y (para movimientos físicos) derivable. La velocidad es su primera derivada y la aceleración la segunda.\n\nPara un movimiento con aceleración constante, la posición es un polinomio cuadrático:\n\n$$ x(t) = x_0 + v_0 t + \\frac{1}{2} a t^2 $$\n\nDerivando: v(t) = v₀ + at, y a(t) = a (constante). La forma cuadrática de la posición es la firma de la aceleración constante.\n\nLa relación entre posición y sus derivadas es la base del problema inverso: si conoces la aceleración a(t) y las condiciones iniciales, puedes integrar para obtener v(t) y x(t):\n\n$$ v(t) = v_0 + \\int_0^t a(\\tau) d\\tau $$\n\n$$ x(t) = x_0 + \\int_0^t v(\\tau) d\\tau $$\n\n> **💡 Nota avanzada**\n> La conexión cinemática-cálculo es la razón por la que Newton inventó el cálculo: necesitaba un lenguaje para describir la variación continua. La derivada de la posición (velocidad) y su integral (recorrido) son los dos pilares de la descripción del movimiento.\n"
       },
       "acciones": []
     },
     {
-      "id": "13-velocidad-qu-tan-rpido-y-hacia-dnde",
-      "titulo": "1.3 Velocidad: ¿qué tan rápido y hacia dónde?",
+      "id": "velocidad",
+      "titulo": "Velocidad: qué tan rápido y hacia dónde",
       "niveles": {
-        "principiante": "La **velocidad media** es cuánto cambió tu posición dividido entre cuánto tardaste:\n\n$$\\vec{v}_{media} = \\frac{\\Delta \\vec{r}}{\\Delta t}$$\n\nPero la velocidad media es una aproximación burda. ¿Y si empiezo rápido y termino lento? La **velocidad instantánea** captura tu velocidad en *cada momento*:\n\n$$\\vec{v} = \\lim_{\\Delta t \\to 0} \\frac{\\Delta \\vec{r}}{\\Delta t} = \\frac{d\\vec{r}}{dt}$$\n\nSi esto te parece aterrador, no te preocupes. En la práctica, **la velocidad instantánea es la velocidad que marca tu velocímetro** en cada instante. La derivada simplemente dice: \"mira lo que pasa en intervalos de tiempo cada vez más pequeños\".\n\n### Rapidez vs. Velocidad\n\n| Concepto | Tipo | Incluye dirección | Ejemplo |\n|:--------:|:----:|:-----------------:|:-------:|\n| **Rapidez** (speed) | Escalar | No | \"Voy a 60 km/h\" |\n| **Velocidad** (velocity) | Vector | Sí | \"Voy a 60 km/h hacia el norte\" |\n\n---"
+        "principiante": "## Velocidad: qué tan rápido y hacia dónde\n\nLa **velocidad** nos dice dos cosas: qué tan rápido se mueve un objeto y hacia dónde. A diferencia de la rapidez (solo qué tan rápido), la velocidad es un vector: tiene magnitud y dirección.\n\n- **Rapidez**: cuánta distancia recorres por unidad de tiempo (solo un número). Ej: 50 km/h\n- **Velocidad**: cuánto cambia tu posición por unidad de tiempo, con dirección. Ej: 50 km/h hacia el norte\n\nUn coche que da vueltas en una rotonda a rapidez constante está cambiando de dirección constantemente, así que su velocidad está cambiando aunque su rapidez no.\n\n> **Dato curioso**\n> El velocímetro de tu coche mide la rapidez, no la velocidad. La velocidad incluye la dirección: por eso ir a 50 km/h hacia el norte y a 50 km/h hacia el sur son velocidades opuestas, aunque la rapidez sea la misma.\n",
+        "intermedio": "## Velocidad media e instantánea\n\nLa **velocidad media** es el desplazamiento total dividido por el tiempo total:\n\n$$ \\vec{v}_{media} = \\frac{\\Delta \\vec{x}}{\\Delta t} $$\n\nLa **velocidad instantánea** es la derivada de la posición:\n\n$$ \\vec{v} = \\frac{d\\vec{x}}{dt} $$\n\nEn el movimiento rectilíneo uniforme (MRU), la velocidad es constante, por lo que la posición avanza linealmente:\n\n$$ x = x_0 + vt $$\n\n```aeterna-formula\ntitle=\"Velocidad en MRU\"\nformula=\"x = x_0 + vt\"\nvariables={[{\"symbol\":\"x\",\"name\":\"Posición final\",\"unit\":\"m\"},{\"symbol\":\"x₀\",\"name\":\"Posición inicial\",\"unit\":\"m\"},{\"symbol\":\"v\",\"name\":\"Velocidad constante\",\"unit\":\"m/s\"},{\"symbol\":\"t\",\"name\":\"Tiempo\",\"unit\":\"s\"}]}\nnote=\"El MRU es el movimiento más simple: la posición avanza a ritmo constante, la gráfica x vs t es una línea recta cuya pendiente es la velocidad.\"\n```\n\n> **🔑 Concepto clave: La pendiente de la gráfica x-t**\n> En una gráfica de posición frente a tiempo, la pendiente en cada punto es la velocidad instantánea. Una pendiente constante = velocidad constante (MRU). Una pendiente creciente = el objeto acelera.\n",
+        "avanzado": "## Velocidad, rapidez y distancia\n\nLa rapidez es la magnitud del vector velocidad: rapidez = |v|. La distancia recorrida es la integral de la rapidez:\n\n$$ d = \\int |\\vec{v}| \\, dt $$\n\nMientras que el desplazamiento es la integral de la velocidad (vectorial):\n\n$$ \\Delta \\vec{x} = \\int \\vec{v} \\, dt $$\n\nPara movimientos con velocidad variable, la distancia y el desplazamiento pueden diferir mucho. Un objeto que va y viene a distintas velocidades acumula distancia pero puede tener desplazamiento neto pequeño.\n\n> **💡 Nota de frontera**\n> En relatividad, la velocidad se combina de forma no trivial (suma relativista de velocidades). A velocidades cercanas a la luz, ninguna velocidad supera c. Pero en cinemática clásica, las velocidades simplemente se suman: v_total = v₁ + v₂.\n"
       },
       "acciones": []
     },
     {
-      "id": "14-aceleracin-el-cambio-del-cambio",
-      "titulo": "1.4 Aceleración: el cambio del cambio",
+      "id": "aceleracion",
+      "titulo": "Aceleración: el cambio del cambio",
       "niveles": {
-        "principiante": "Si la velocidad mide cómo cambia la posición, la **aceleración** mide cómo cambia la velocidad:\n\n$$\\vec{a} = \\frac{d\\vec{v}}{dt}$$\n\n**Tres cosas que necesitas saber sobre la aceleración:**\n\n1. **Acelerar no significa ir más rápido.** Si frenas, tu aceleración es negativa (desaceleración).\n2. **Girar es acelerar.** Aunque tu rapidez no cambie, si cambias de dirección, tu *velocidad* cambió (porque es un vector), y por tanto hubo aceleración.\n3. **La aceleración tiene dirección.** Caída libre: aceleración hacia abajo. Curva a la izquierda: aceleración hacia la izquierda.\n\n> **❌ Error común**\n>\n> > **[El error]:** \"Un objeto que se mueve rápido tiene mucha aceleración.\"\n> >\n> > **[La realidad]:** Un objeto que se mueve rápido tiene mucha **velocidad**. La aceleración mide **cuánto cambia** esa velocidad. Un cohete que despega tiene mucha aceleración. Un coche de carreras a velocidad constante en recta tiene aceleración **cero**, aunque vaya a 300 km/h.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 2: EL CORAZÓN MATEMÁTICO -->\n<!-- ============================================ -->"
+        "principiante": "## Aceleración: el cambio del cambio\n\nSi la velocidad mide cómo cambia la posición, la **aceleración** mide cómo cambia la velocidad. Es el 'cambio del cambio'.\n\nLa aceleración nos dice qué tan rápido cambia la velocidad —y recuerda que la velocidad incluye la dirección. Por eso:\n\n- Frenar es acelerar (negativa)\n- Girar es acelerar (cambia la dirección)\n- Acelerar es acelerar (cambia la rapidez)\n\nCuando pisas el acelerador, tu velocidad aumenta: aceleras. Cuando pisas el freno, tu velocidad disminuye: también es aceleración, solo que en sentido opuesto.\n\n> **Dato que rompe el cerebro**\n> En física, 'aceleración' incluye frenar y girar. Un coche en una curva cerrada a velocidad constante está acelerando, porque su dirección cambia. La aceleración es cualquier cambio en la velocidad, ya sea en rapidez o en dirección.\n\n**[IMAGEN SUGERIDA: Un coche de carreras acelerando en línea recta, con flechas de velocidad creciendo y una flecha de aceleración. Pie de foto: \"La aceleración cambia la velocidad.\"]**\n",
+        "intermedio": "## Aceleración media e instantánea\n\nLa **aceleración media** es el cambio de velocidad dividido por el tiempo:\n\n$$ a_{media} = \\frac{\\Delta v}{\\Delta t} $$\n\nLa **aceleración instantánea** es la derivada de la velocidad:\n\n$$ a = \\frac{dv}{dt} = \\frac{d^2x}{dt^2} $$\n\nEn el MRUA, la aceleración es constante, y las ecuaciones del movimiento son:\n\n$$ v = v_0 + at $$\n\n$$ x = x_0 + v_0 t + \\frac{1}{2} a t^2 $$\n\n$$ v^2 = v_0^2 + 2a(x - x_0) $$\n\n```graph-lab\nTITLE: Gráficas del MRUA\nDESC: El MRUA con aceleración constante produce tres gráficas características: posición parabólica, velocidad lineal y aceleración constante.\nX_LABEL: Tiempo (s)\nY_LABEL: Posición / Velocidad\nQUESTION: ¿Qué forma tiene la gráfica de posición frente a tiempo en un MRUA?\nXP: 45\nPOINT: 0 | 0 | t=0\nPOINT: 1 | 1.5 | t=1\nPOINT: 2 | 6 | t=2\nPOINT: 3 | 13.5 | t=3\nOPTION_CORRECT: Una parábola | La posición crece como t² en un MRUA (x = ½at²), que es una parábola. La velocidad crece linealmente y la aceleración es constante.\nOPTION_WRONG: Una línea recta | La línea recta corresponde al MRU (velocidad constante), no al MRUA.\nOPTION_WRONG: Una onda | Las ondas corresponden a movimientos oscilatorios, no al MRUA.\n```\n\n> **🔑 Concepto clave: Las tres ecuaciones del MRUA**\n> Con aceleración constante, solo necesitas tres ecuaciones: v = v₀ + at, x = x₀ + v₀t + ½at², y v² = v₀² + 2a(x−x₀). Con cualquiera de estas puedes resolver cualquier problema de MRUA.\n",
+        "avanzado": "## Aceleración como curvatura\n\nLa aceleración mide la curvatura de la trayectoria en el espacio-tiempo. En coordenadas, la aceleración tiene componentes tangencial y normal:\n\n- **Tangencial**: cambia la rapidez\n- **Normal (centrípeta)**: cambia la dirección\n\nLa aceleración total es la suma vectorial de ambas. Para un movimiento circular uniforme, solo hay componente normal: a = v²/r.\n\nLa relación entre aceleración y fuerza (segunda ley de Newton) conecta la cinemática con la dinámica: F = ma. Pero en cinemática pura, la aceleración es solo una propiedad geométrica de la trayectoria.\n\n> **💡 Nota avanzada**\n> Las gráficas de aceleración frente a tiempo pueden tener formas complejas, pero el área bajo la curva a-t da el cambio de velocidad (integral). Del mismo modo, el área bajo la curva v-t da el desplazamiento. Estas son las dos integrales fundamentales de la cinemática.\n"
       },
       "acciones": []
     },
     {
-      "id": "21-movimiento-rectilneo-uniforme-mru-la-lnea-recta-perfecta",
-      "titulo": "2.1 Movimiento Rectilíneo Uniforme (MRU): la línea recta perfecta",
+      "id": "mrua-caida-libre",
+      "titulo": "MRUA y caída libre: la gravedad como protagonista",
       "niveles": {
-        "principiante": "**Definición:** Un objeto se mueve en **línea recta** a **velocidad constante** (sin aceleración).\n\n**¿Dónde lo ves?**\n- Un tren en tramo recto de alta velocidad (idealizado)\n- Un asteroide cruzando el espacio profundo (sin gravedad significativa)\n- La luz viajando por el vacío\n\n**Las ecuaciones clave** ($v$ = constante):\n\n$$x = x_0 + v \\cdot t$$\n\n| Símbolo | Significado | Unidad |\n|:-------:|:-----------|:------:|\n| $x$ | Posición final | metros (m) |\n| $x_0$ | Posición inicial | metros (m) |\n| $v$ | Velocidad constante | m/s |\n| $t$ | Tiempo | segundos (s) |\n\n**Ejemplo:** Un coche pasa frente a ti a las 2:00 PM viajando a 25 m/s (90 km/h). ¿Dónde estará a las 2:05 PM?\n\n$$x = 0 + 25 \\times 300 = 7500 \\text{ metros} = 7{,}5 \\text{ km}$$\n\nSimple. Pero la mayoría de los movimientos en la vida real **no** son uniformes.\n\n---"
+        "principiante": "## Movimiento rectilíneo uniformemente acelerado\n\nEl **MRUA** es el movimiento en línea recta con aceleración constante. El ejemplo más importante es la **caída libre**: cuando sueltas un objeto, la gravedad lo acelera constantemente a 9.8 m/s².\n\nEn la caída libre:\n- La velocidad aumenta 9.8 m/s cada segundo\n- La distancia recorrida crece cada vez más rápido\n- Todos los objetos caen igual (sin resistencia del aire)\n\n> **Dato que rompe el cerebro**\n> Sin resistencia del aire, una pluma y un martillo caen al mismo tiempo y a la misma velocidad. Esto se demostró en la Luna en 1971: el astronauta David Scott dejó caer una pluma y un martillo, y ambos llegaron juntos al suelo. La gravedad acelera todos los objetos por igual.\n\n**[IMAGEN SUGERIDA: Una pluma y un martillo cayendo en la Luna (experimento de Apollo 15), ambos al mismo nivel. Pie de foto: \"En el vacío, todos caen igual.\"]**\n\n\n### Estima como un físico: ¿cuánto tarda un objeto en caer?\n\nLa **estimación de Fermi** es una herramienta del físico: descomponer un problema aparentemente incalculable en partes estimables. Un ejemplo clásico de **modelo simplificado**:\n\n- Quieres estimar cuánto tarda una moneda en caer desde lo alto de un edificio de 100 m.\n- Usas el modelo de caída libre (sin resistencia del aire): t = √(2h/g) = √(200/10) = √20 ≈ 4.5 s.\n- En la realidad, la resistencia del aire la frena un poco, pero el orden de magnitud es correcto.\n\nUn físico no busca la cifra exacta: busca el **orden de magnitud** correcto. Estimar es modelar con supuestos explícitos y comprobar la plausibilidad —esa capacidad de **simplificar** sin traicionar es el corazón del pensamiento físico.\n\n",
+        "intermedio": "## Caída libre y lanzamiento vertical\n\nEn la caída libre, la aceleración es la gravedad g = 9.8 m/s² hacia abajo. Las ecuaciones del MRUA se adaptan:\n\n$$ y = y_0 + v_0 t - \\frac{1}{2} g t^2 $$\n\n$$ v = v_0 - g t $$\n\nPara un lanzamiento vertical hacia arriba:\n- El objeto sube hasta que v = 0 (altura máxima)\n- Luego cae con la misma aceleración\n- El tiempo de subida es igual al de bajada\n\n```parameter-lab\nTITLE: Laboratorio de caída libre\nDESC: Ajusta la altura inicial y observa cómo varía el tiempo de caída y la velocidad final.\nOUTPUT_LABEL: Tiempo de caída\nOUTPUT_UNIT: s\nQUESTION: Si duplicas la altura de caída, ¿el tiempo de caída se duplica?\nANSWER: No. El tiempo crece como la raíz cuadrada de la altura (t = √(2h/g)): al duplicar la altura, el tiempo solo se multiplica por √2 ≈ 1.41. La distancia crece como t².\nXP: 50\nPARAM: altura | Altura inicial | m | 5 | 100 | 1 | 20\nPARAM: g | Gravedad | m/s² | 1.6 | 25 | 0.1 | 9.8\n```\n\n> **🔑 Concepto clave: La altura máxima**\n> En un lanzamiento vertical, la altura máxima ocurre cuando la velocidad es cero: v = 0. Usando v² = v₀² − 2gh, la altura máxima es h_max = v₀²/(2g). El tiempo de subida es t = v₀/g.\n\n\n### Estima como un físico: ¿cuánto tarda un objeto en caer?\n\nLa **estimación de Fermi** es una herramienta del físico: descomponer un problema aparentemente incalculable en partes estimables. Un ejemplo clásico de **modelo simplificado**:\n\n- Quieres estimar cuánto tarda una moneda en caer desde lo alto de un edificio de 100 m.\n- Usas el modelo de caída libre (sin resistencia del aire): t = √(2h/g) = √(200/10) = √20 ≈ 4.5 s.\n- En la realidad, la resistencia del aire la frena un poco, pero el orden de magnitud es correcto.\n\nUn físico no busca la cifra exacta: busca el **orden de magnitud** correcto. Estimar es modelar con supuestos explícitos y comprobar la plausibilidad —esa capacidad de **simplificar** sin traicionar es el corazón del pensamiento físico.\n\n",
+        "avanzado": "## Caída libre: de Galileo a la Luna\n\nGalileo estableció en el siglo XVII que, en ausencia de resistencia del aire, todos los cuerpos caen con la misma aceleración. Lo verificó (según la leyenda) lanzando objetos desde la Torre de Pisa, y más rigurosamente con planos inclinados que ralentizaban la caída.\n\nLa caída libre es un caso de MRUA con a = g:\n\n$$ y(t) = y_0 + v_0 t - \\frac{1}{2} g t^2 $$\n\nLa velocidad final al caer desde una altura h:\n\n$$ v = \\sqrt{2gh} $$\n\n> **💡 Nota de frontera**\n> La aceleración gravitatoria no es exactamente constante: varía con la altitud (g = GM/r²) y la latitud. A 400 km (órbita de la ISS), g ≈ 8.7 m/s². En la Luna, g ≈ 1.6 m/s². La 'constante' g es local, no universal.\n\n\n### Estima como un físico: ¿cuánto tarda un objeto en caer?\n\nLa **estimación de Fermi** es una herramienta del físico: descomponer un problema aparentemente incalculable en partes estimables. Un ejemplo clásico de **modelo simplificado**:\n\n- Quieres estimar cuánto tarda una moneda en caer desde lo alto de un edificio de 100 m.\n- Usas el modelo de caída libre (sin resistencia del aire): t = √(2h/g) = √(200/10) = √20 ≈ 4.5 s.\n- En la realidad, la resistencia del aire la frena un poco, pero el orden de magnitud es correcto.\n\nUn físico no busca la cifra exacta: busca el **orden de magnitud** correcto. Estimar es modelar con supuestos explícitos y comprobar la plausibilidad —esa capacidad de **simplificar** sin traicionar es el corazón del pensamiento físico.\n\n"
       },
       "acciones": []
     },
     {
-      "id": "22-movimiento-rectilneo-uniformemente-acelerado-mrua-cuando-la-velocidad-cambia",
-      "titulo": "2.2 Movimiento Rectilíneo Uniformemente Acelerado (MRUA): cuando la velocidad cambia",
+      "id": "movimiento-2d",
+      "titulo": "Movimiento en dos dimensiones: el tiro parabólico",
       "niveles": {
-        "principiante": "**Definición:** Un objeto se mueve en **línea recta** con **aceleración constante**. Este es el caso más importante de la cinemática, y las ecuaciones que lo describen son las **ecuaciones cinemáticas fundamentales**.\n\n### Las Tres Ecuaciones Cinemáticas\n\nDerivadas del cálculo (o experimentalmente verificadas por Galileo en sus famosos experimentos con rampas inclinadas):\n\n**Ecuación 1 — Posición en función del tiempo:**\n\n$$x = x_0 + v_0 \\cdot t + \\frac{1}{2}a \\cdot t^2$$\n\n**Ecuación 2 — Velocidad en función del tiempo:**\n\n$$v = v_0 + a \\cdot t$$\n\n**Ecuación 3 — Velocidad en función de la posición (sin tiempo):**\n\n$$v^2 = v_0^2 + 2a(x - x_0)$$\n\n> **🧠 Truco de memoria:** Estas tres ecuaciones comparten una estructura. Cada una \"falta\" una variable: la 1ª no tiene $v$ final, la 2ª no tiene $x$, la 3ª no tiene $t$. Elige la que tenga solo **una incógnita**.\n\n### La Caída Libre: La prueba definitiva\n\nGalileo demostró (leyenda o no) que **todos los cuerpos caen igual**, independientemente de su masa (ignorando la resistencia del aire). Cuando un objeto cae desde el reposo cerca de la superficie terrestre:\n\n$$a = g \\approx 9{,}8 \\text{ m/s}^2 \\text{ (hacia abajo)}$$\n\n**Ejemplo:** Sueltas una pelota desde lo alto de un edificio de 80 metros. ¿Cuánto tarda en llegar al suelo?\n\n$$0 = 80 + 0 \\cdot t - \\frac{1}{2}(9{,}8)t^2$$\n$$t^2 = \\frac{2 \\times 80}{9{,}8} = 16{,}33$$\n$$t = 4{,}04 \\text{ segundos}$$\n\n> **🌌 Imagina que...**\n>\n> > Si Galileo hubiera tenido una cámara de video moderna, habría grabado que en el **primer segundo** la pelota cae 4,9 m. En el **segundo segundo**, cae 14,7 m. En el **tercero**, 24,5 m. Cada segundo cae más que el anterior porque va cada vez más rápido. Eso es la aceleración en acción.\n\n### Línea numérica: la recta numérica con velocidad\n\nUna herramienta visual poderosa para el MRUA:\n\n```\nTiempo:   0s    1s    2s    3s    4s\nPosición:  0    4,9   19,6  44,1  78,4   ← distancias cada segundo\nVelocid:  0    9,8   19,6  29,4  39,2   ← velocidades cada segundo\n```\n\n*Nota: las posiciones siguen la proporción 1:4:9:16 (proporcional a t²)*\n\n---"
+        "principiante": "## Movimiento en dos dimensiones\n\nLa vida real es más que una línea recta. Cuando lanzas una pelota, se mueve en el aire hacia arriba y hacia adelante a la vez. Para describirlo, usamos dos ejes: horizontal (x) y vertical (y).\n\nLa clave del **tiro parabólico** es que los dos movimientos son independientes:\n\n- **Horizontal**: velocidad constante (MRU), sin aceleración\n- **Vertical**: aceleración de la gravedad (MRUA)\n\nComo actúan de forma independiente, podemos analizarlos por separado y combinar los resultados.\n\n> **Dato que rompe el cerebro**\n> Un proyectil lanzado horizontalmente y otro que se deja caer desde la misma altura llegan al suelo al mismo tiempo. La gravedad actúa igual sobre ambos, independientemente del movimiento horizontal.\n\n**[IMAGEN SUGERIDA: Un cañón lanzando una bala, con la trayectoria parabólica descompuesta en componentes horizontal y vertical. Pie de foto: \"El tiro parabólico combina MRU horizontal y MRUA vertical.\"]**\n\n\n<Connect title=\"Del tiro parabólico a la órbita\" sourceConcept=\"Tiro parabólico\" targetConcept=\"Movimiento orbital\">\nSi un proyectil se lanza con velocidad horizontal suficiente, la curvatura de la Tierra hace que \"caiga\" alrededor de ella en lugar de tocar el suelo. El tiro parabólico y la órbita son el mismo fenómeno visto a distintas escalas: la cinemática 2D conecta con la mecánica orbital que estudiarás en Movimiento Circular.\n</Connect>\n",
+        "intermedio": "## El tiro parabólico en detalle\n\nDescomponemos el movimiento en componentes. La velocidad inicial v₀ se separa:\n\n$$ v_{0x} = v_0 \\cos \\theta $$\n\n$$ v_{0y} = v_0 \\sin \\theta $$\n\nLas ecuaciones por componente:\n\n**Horizontal** (MRU):\n\n$$ x = v_{0x} t $$\n\n**Vertical** (MRUA con g):\n\n$$ y = v_{0y} t - \\frac{1}{2} g t^2 $$\n\nLa trayectoria es una parábola. El **alcance máximo** (horizontal) ocurre a 45°:\n\n$$ R = \\frac{v_0^2 \\sin(2\\theta)}{g} $$\n\n```aeterna-exercise\nTITLE: Alcance de un proyectil\nHINT: R = v₀²·sin(2θ)/g. Convierte la velocidad a m/s si es necesario.\nXP: 45\nUn cañón dispara a 50 m/s a 45°. ¿Cuál es su alcance horizontal? (g = 9.8 m/s²)\nSOLUTION: R = v₀²·sin(2θ)/g = 50²·sin(90°)/9.8 = 2500/9.8 ≈ 255 m. A 45° se maximiza el alcance.\n```\n\n> **🔑 Concepto clave: Independencia de movimientos**\n> La clave del tiro parabólico es que los movimientos horizontal y vertical son independientes. El tiempo de vuelo lo determina solo el movimiento vertical; el alcance horizontal es velocidad horizontal × tiempo de vuelo.\n\n\n<Connect title=\"Del tiro parabólico a la órbita\" sourceConcept=\"Tiro parabólico\" targetConcept=\"Movimiento orbital\">\nSi un proyectil se lanza con velocidad horizontal suficiente, la curvatura de la Tierra hace que \"caiga\" alrededor de ella en lugar de tocar el suelo. El tiro parabólico y la órbita son el mismo fenómeno visto a distintas escalas: la cinemática 2D conecta con la mecánica orbital que estudiarás en Movimiento Circular.\n</Connect>\n",
+        "avanzado": "## Del tiro parabólico al movimiento orbital\n\nSi lanzas un proyectil con velocidad horizontal suficiente, la curvatura de la Tierra hace que 'caiga' alrededor de ella: el tiro parabólico se convierte en órbita. A ~7.9 km/s, el proyectil orbita la Tierra.\n\nEsto conecta la cinemática 2D con la mecánica orbital: el movimiento parabólico es el caso límite de un proyectil local; la órbita es el proyectil que nunca cae.\n\n> **💡 Nota de frontera**\n> El tiro parabólico asume gravedad uniforme y sin resistencia del aire. En la realidad, la trayectoria se desvía: el aire frena el proyectil y la gravedad decrece con la altura. Los misiles balísticos reales siguen elipses, no parábolas, porque cubren distancias donde la Tierra se curva.\n\n\n<Connect title=\"Del tiro parabólico a la órbita\" sourceConcept=\"Tiro parabólico\" targetConcept=\"Movimiento orbital\">\nSi un proyectil se lanza con velocidad horizontal suficiente, la curvatura de la Tierra hace que \"caiga\" alrededor de ella en lugar de tocar el suelo. El tiro parabólico y la órbita son el mismo fenómeno visto a distintas escalas: la cinemática 2D conecta con la mecánica orbital que estudiarás en Movimiento Circular.\n</Connect>\n"
       },
       "acciones": []
     },
     {
-      "id": "23-lanzamiento-vertical-mrua-en-accin-directa",
-      "titulo": "2.3 Lanzamiento Vertical: MRUA en acción directa",
+      "id": "derivacion-integracion",
+      "titulo": "De la derivada a la integral: el puente del cálculo",
       "niveles": {
-        "principiante": "Cuando lanzas una pelota hacia arriba, tienes un MRUA con aceleración $a = -g$ (negativa porque va contra la dirección positiva elegida).\n\n### Datos clave del lanzamiento vertical hacia arriba\n\n| Momento | Velocidad | Altura | Nota |\n|:-------:|:---------:|:------:|:----:|\n| Lanzamiento | $v_0$ (hacia arriba) | 0 | Empieza |\n| Punto más alto | 0 | $H = \\frac{v_0^2}{2g}$ | Se detiene un instante |\n| De vuelta al lanzador | $-v_0$ | 0 | Misma rapidez, dirección opuesta |\n\n**Propiedad elegante:** El tiempo de subida es **igual** al tiempo de bajada (mismo MRUA simétrico).\n\n**Ejemplo:** Lanzas una pelota verticalmente a 20 m/s.\n- Tiempo hasta el punto más alto: $t = \\frac{v_0}{g} = \\frac{20}{9{,}8} = 2{,}04$ s\n- Altura máxima: $H = \\frac{20^2}{2 \\times 9{,}8} = 20{,}4$ metros\n- Tiempo total de vuelo: 4,08 s\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "31-movimiento-en-dos-dimensiones-la-vida-real-es-ms-que-una-lnea",
-      "titulo": "3.1 Movimiento en Dos Dimensiones: la vida real es más que una línea",
-      "niveles": {
-        "principiante": "Hasta ahora todo ha sido en **una dimensión** (línea recta). Pero el mundo real tiene **dos (o tres) dimensiones**. Aquí es donde los vectores que aprendiste cobran todo su poder.\n\n### El principio fundamental del movimiento 2D\n\n> **El movimiento en 2D (o 3D) se puede descomponer en movimientos independientes en cada eje.**\n\nEsta es quizás la idea más importante de la cinemática. Lo que pasa en la dirección X **no afecta** a lo que pasa en la dirección Y. Son problemas **independientes** que puedes resolver **por separado** y luego combinar.\n\n```\n    y\n    ↑      / posición final\n    |    /\n    |  / R (resultante)\n    |/ θ\n    ●————————————→ x\n   inicio\n```\n\n$$\\vec{r}_{total} = \\vec{r}_x + \\vec{r}_y$$\n\nCon las componentes:\n- $x = x_0 + v_{0x} \\cdot t + \\frac{1}{2}a_x \\cdot t^2$\n- $y = y_0 + v_{0y} \\cdot t + \\frac{1}{2}a_y \\cdot t^2$\n\n**La clave:** las componentes x e y evolucionan **cada una por su lado**. Las resuelves independientemente y luego \"reconstruyes\" el movimiento total.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "32-movimiento-parablico-el-rey-de-la-cinemtica-2d",
-      "titulo": "3.2 Movimiento Parabólico: el rey de la cinemática 2D",
-      "niveles": {
-        "principiante": "**Definición:** Un objeto que se lanza con cierto ángulo respecto a la horizontal y queda sometido **únicamente a la gravedad** (idealizando sin resistencia del aire).\n\nEste es el movimiento de un balón de fútbol, una pelota de tenis, una bala (sin resistencia del aire), o cualquier objeto lanzado cerca de la superficie terrestre.\n\n### Descomposición del movimiento parabólico\n\n| Componente | Movimiento | Ecuaciones |\n|:----------:|:----------:|:----------:|\n| **Horizontal (x)** | MRU (rapidez constante) | $x = v_{0x} \\cdot t$ |\n| **Vertical (y)** | MRUA ($a_y = -g$) | $y = v_{0y} \\cdot t - \\frac{1}{2}g \\cdot t^2$ |\n\nDonde:\n$$v_{0x} = v_0 \\cdot \\cos(\\theta)$$\n$$v_{0y} = v_0 \\cdot \\sin(\\theta)$$\n\n### Fórmulas clave del movimiento parabólico\n\n**Alcance máximo** (cuando lanza y cae a la misma altura):\n\n$$R = \\frac{v_0^2 \\cdot \\sin(2\\theta)}{g}$$\n\n**Altura máxima:**\n\n$$H = \\frac{v_{0y}^2}{2g} = \\frac{v_0^2 \\cdot \\sin^2(\\theta)}{2g}$$\n\n**Tiempo de vuelo total:**\n\n$$T = \\frac{2v_{0y}}{g} = \\frac{2v_0 \\cdot \\sin(\\theta)}{g}$$\n\n**Ángulo óptimo para máximo alcance:**\n\n$$\\theta_{óptimo} = 45°$$\n\n(a menos que el punto de lanzamiento y aterrizaje estén a distinta altura)\n\n### Trayectoria: la parábola\n\nSi eliminas el tiempo entre las ecuaciones de x e y, obtienes la ecuación de la trayectoria:\n\n$$y = x \\cdot \\tan(\\theta) - \\frac{g \\cdot x^2}{2v_0^2 \\cdot \\cos^2(\\theta)}$$\n\nEs una ecuación de la forma $y = ax + bx^2$, que es una **parábola** (de ahí el nombre del movimiento).\n\n> **❌ Error común**\n>\n> > **[El error]:** \"El ángulo de 45° siempre da el mayor alcance.\"\n> >\n> > **[La realidad]:** Solo si el punto de lanzamiento y el de aterrizaje están a la **misma altura**. Si lanzas desde un acantilado, el ángulo óptimo es **menor** a 45°. Si lanzas cuesta arriba, es **mayor**.\n\n### Ejemplo resuelto: La canasta imposible\n\nLanzas una pelota de baloncesto con una velocidad inicial de 12 m/s a un ángulo de 50°. La canasta está a la misma altura que el lanzamiento. ¿Alcanza?\n\n**Datos:** $v_0 = 12$ m/s, $\\theta = 50°$, $g = 9{,}8$ m/s²\n\n**Alcance:**\n$$R = \\frac{12^2 \\cdot \\sin(100°)}{9{,}8} = \\frac{144 \\times 0{,}985}{9{,}8} = \\frac{141{,}8}{9{,}8} \\approx 14{,}5 \\text{ metros}$$\n\nSi estás a 6 metros del aro, **sí llega** (con casi 8 metros de margen).\n\n**Altura máxima:**\n$$H = \\frac{(12 \\cdot \\sin 50°)^2}{2 \\times 9{,}8} = \\frac{(9{,}19)^2}{19{,}6} = \\frac{84{,}5}{19{,}6} \\approx 4{,}3 \\text{ metros}$$\n\n> **🌌 Imagina que...**\n>\n> > Un jugador de fútbol americano lanza el balón a 30 m/s a 45°. El balón recorrería **91,8 metros** (¡casi un campo entero!). En la realidad, la resistencia del aire reduce esto a unos 50-60 metros para un lanzamiento real.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "33-movimiento-circular-girar-sin-irse-en-lnea-recta",
-      "titulo": "3.3 Movimiento Circular: girar sin irse en línea recta",
-      "niveles": {
-        "principiante": "### Movimiento Circular Uniforme (MCU)\n\n**Definición:** Un objeto se mueve en una **circunferencia** a **rapidez constante**.\n\nAunque la rapidez no cambia, la **velocidad sí** (porque la dirección cambia constantemente). Por tanto, hay **aceleración**.\n\n**Aceleración centrípeta** (apunta al centro del círculo):\n\n$$a_c = \\frac{v^2}{r}$$\n\ndonde $r$ es el radio de la circunferencia.\n\n**Ejemplo:** Conduces un coche a 20 m/s (72 km/h) por una curva de radio 50 metros.\n\n$$a_c = \\frac{20^2}{50} = \\frac{400}{50} = 8 \\text{ m/s}^2$$\n\nEso es casi igual que la gravedad. Notarás la fuerza \"que te empuja\" contra la puerta del coche: eso es la **fuerza centrífuga** (un efecto aparente en tu marco de referencia acelerado).\n\n### ¿Qué mantiene el movimiento circular?\n\nSiempre necesitas una **fuerza hacia el centro**:\n\n| Situación | Fuerza centrípeta |\n|:---------:|:-----------------:|\n| Satélite orbitando la Tierra | Gravitación |\n| Coche en una curva | Fricción lateral de los neumáticos |\n| Pelota en un hilo girando | Tensión del hilo |\n| Ciclista en un velódromo | Fricción + componente normal de la rampa |\n\n**Frecuencia y período:**\n\n$$T = \\frac{2\\pi r}{v} \\qquad f = \\frac{1}{T} = \\frac{v}{2\\pi r}$$\n\n| Concepto | Significado | Unidad |\n|:--------:|:-----------|:------:|\n| $T$ | Período: tiempo en dar una vuelta completa | segundos (s) |\n| $f$ | Frecuencia: vueltas por segundo | hercios (Hz) |\n| $\\omega$ | Velocidad angular: radianes por segundo | rad/s |\n\nRelación: $\\omega = \\frac{2\\pi}{T} = 2\\pi f$\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > La Estación Espacial Internacional orbita a unos 400 km de altitud a **28.000 km/h**. Completa una vuelta alrededor de la Tierra cada **92 minutos**. Los astronautas \"flotan\" no porque no haya gravedad (a esa altura, la gravedad es aún el 90% de la de la superficie), sino porque están en **caída libre continua**: caen hacia la Tierra, pero la curvatura de la Tierra \"se aleja\" a la misma velocidad. La ISS está cayendo todo el rato... y nunca llega al suelo.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
-      "niveles": {
-        "principiante": "> **🧠 Sistema Aeterna, paso 1: El movimiento se puede narrar**\n>\n> > Toda la cinemática es, en esencia, el arte de **contar historias sobre cómo se mueven las cosas**. Posición (¿dónde?), velocidad (¿qué tan rápido y hacia dónde?), aceleración (¿cómo cambia?). Con estas tres ideas y unas pocas ecuaciones, puedes describir desde una pelota que rebota hasta un satélite en órbita.\n\n> **🧠 Sistema Aeterna, paso 2: Descomponer es el superpoder**\n>\n> > Todo movimiento complejo se descompone en movimientos simples a lo largo de cada eje. Un proyectil no es \"un movimiento complicado\": es un MRU horizontal + un MRUA vertical, simultáneos e independientes. Si dominas la descomposición, dominas la cinemática.\n\n> **🧠 Sistema Aeterna, paso 3: Las ecuaciones cuentan la misma historia de tres formas**\n>\n> > Tres ecuaciones cinemáticas, cada una \"esconde\" una variable diferente. Aprender a **elegir la ecuación correcta** según los datos que tienes es la verdadera habilidad. No memorices: entiende qué variable falta en cada una, y la ecuación correcta se elegirá sola.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-preguntas-frecuentes-sobre-cinemtica",
-      "titulo": "❓ Preguntas frecuentes sobre Cinemática",
-      "niveles": {
-        "principiante": "> **❓ ¿Cuándo uso cada ecuación cinemática?**\n>\n> Usa esta regla: mira qué variable **no aparece** en cada ecuación:\n> - Faltan $v$ final → Ecuación 1 ($x = x_0 + v_0 t + \\frac{1}{2}at^2$)\n> - Falta $t$ → Ecuación 3 ($v^2 = v_0^2 + 2a\\Delta x$)\n> - Falta $a$ → No necesitas ecuación cinemática (es MRU)\n> - Falta $x$ → Ecuación 2 ($v = v_0 + at$)\n> - Falta $v_0$ → Reorganiza cualquiera de las anteriores\n\n> **❓ ¿Por qué el movimiento parabólico forma una parábola?**\n>\n> En horizontal, el objeto avanza a velocidad constante (línea recta). En vertical, cae con aceleración constante (parábola). Al combinar ambos movimientos, la trayectoria resultante es una **curva cuadrática**, es decir, una parábola. Matemáticamente, si despejas el tiempo de la ecuación horizontal y lo sustituyes en la vertical, obtienes $y = ax + bx^2$, que es la ecuación de una parábola.\n\n> **❓ ¿La velocidad de un objeto en MCU es constante?**\n>\n> **En rapidez**, sí. En **velocidad** (vector), no. La rapidez es constante, pero la dirección cambia continuamente, por lo que la velocidad cambia. Por eso existe aceleración centrípeta: cualquier cambio en la velocidad (aunque sea solo de dirección) requiere aceleración.\n\n> **❓ ¿Un objeto en caída libre tiene aceleración constante?**\n>\n> Sí (idealizando sin resistencia del aire). Cerca de la superficie terrestre, la aceleración gravitatoria es prácticamente constante: $g \\approx 9{,}8$ m/s² hacia abajo. Por eso la caída libre es un **MRUA** aplicado en la vertical.\n\n---",
-        "intermedio": "> **❓ ¿Cuándo uso cada ecuación cinemática?**\n>\n> Usa esta regla: mira qué variable **no aparece** en cada ecuación:\n> - Faltan $v$ final → Ecuación 1 ($x = x_0 + v_0 t + \\frac{1}{2}at^2$)\n> - Falta $t$ → Ecuación 3 ($v^2 = v_0^2 + 2a\\Delta x$)\n> - Falta $a$ → No necesitas ecuación cinemática (es MRU)\n> - Falta $x$ → Ecuación 2 ($v = v_0 + at$)\n> - Falta $v_0$ → Reorganiza cualquiera de las anteriores\n\n> **❓ ¿Por qué el movimiento parabólico forma una parábola?**\n>\n> En horizontal, el objeto avanza a velocidad constante (línea recta). En vertical, cae con aceleración constante (parábola). Al combinar ambos movimientos, la trayectoria resultante es una **curva cuadrática**, es decir, una parábola. Matemáticamente, si despejas el tiempo de la ecuación horizontal y lo sustituyes en la vertical, obtienes $y = ax + bx^2$, que es la ecuación de una parábola.\n\n> **❓ ¿La velocidad de un objeto en MCU es constante?**\n>\n> **En rapidez**, sí. En **velocidad** (vector), no. La rapidez es constante, pero la dirección cambia continuamente, por lo que la velocidad cambia. Por eso existe aceleración centrípeta: cualquier cambio en la velocidad (aunque sea solo de dirección) requiere aceleración.\n\n> **❓ ¿Un objeto en caída libre tiene aceleración constante?**\n>\n> Sí (idealizando sin resistencia del aire). Cerca de la superficie terrestre, la aceleración gravitatoria es prácticamente constante: $g \\approx 9{,}8$ m/s² hacia abajo. Por eso la caída libre es un **MRUA** aplicado en la vertical.\n\n---",
-        "avanzado": "> **❓ ¿Cuándo uso cada ecuación cinemática?**\n>\n> Usa esta regla: mira qué variable **no aparece** en cada ecuación:\n> - Faltan $v$ final → Ecuación 1 ($x = x_0 + v_0 t + \\frac{1}{2}at^2$)\n> - Falta $t$ → Ecuación 3 ($v^2 = v_0^2 + 2a\\Delta x$)\n> - Falta $a$ → No necesitas ecuación cinemática (es MRU)\n> - Falta $x$ → Ecuación 2 ($v = v_0 + at$)\n> - Falta $v_0$ → Reorganiza cualquiera de las anteriores\n\n> **❓ ¿Por qué el movimiento parabólico forma una parábola?**\n>\n> En horizontal, el objeto avanza a velocidad constante (línea recta). En vertical, cae con aceleración constante (parábola). Al combinar ambos movimientos, la trayectoria resultante es una **curva cuadrática**, es decir, una parábola. Matemáticamente, si despejas el tiempo de la ecuación horizontal y lo sustituyes en la vertical, obtienes $y = ax + bx^2$, que es la ecuación de una parábola.\n\n> **❓ ¿La velocidad de un objeto en MCU es constante?**\n>\n> **En rapidez**, sí. En **velocidad** (vector), no. La rapidez es constante, pero la dirección cambia continuamente, por lo que la velocidad cambia. Por eso existe aceleración centrípeta: cualquier cambio en la velocidad (aunque sea solo de dirección) requiere aceleración.\n\n> **❓ ¿Un objeto en caída libre tiene aceleración constante?**\n>\n> Sí (idealizando sin resistencia del aire). Cerca de la superficie terrestre, la aceleración gravitatoria es prácticamente constante: $g \\approx 9{,}8$ m/s² hacia abajo. Por eso la caída libre es un **MRUA** aplicado en la vertical.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-siguiente-parada-en-la-ruta",
-      "titulo": "⚠️ Siguiente parada en la ruta",
-      "niveles": {
-        "principiante": "> **⚠️ Siguiente parada: Fuerzas y Dinámica**\n>\n> Acabas de aprender a **describir** el movimiento. Ahora pregúntate: **¿por qué** se mueven las cosas así? Las Leyes de Newton (que ya estudiaste) te dicen qué fuerzas actúan sobre un objeto. Con la cinemática que acabas de dominar, puedes **predecir exactamente** dónde estará un objeto en cualquier instante si conoces las fuerzas. Estos dos conocimientos juntos son la base de toda la mecánica clásica. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando:**\n- *\"Fundamentos de Física\"* de Halliday, Resnick y Walker — Capítulos 2 y 3 tienen las mejores explicaciones de cinemática con decenas de ejemplos resueltos.\n- *\"The Organic Chemistry Tutor\"* (YouTube) — Sus videos de cinemática son extraordinariamente claros, con resolución paso a paso de problemas.\n- *\"PhET Simulations — Projectile Motion\"* (phet.colorado.edu) — Simulador interactivo donde puedes lanzar proyectiles y ver las gráficas de posición, velocidad y aceleración en tiempo real.\n- *\"3Blue1Brown — But what is a derivative?\"* (YouTube) — Para entender intuitivamente qué es una derivada (velocidad instantánea y aceleración) sin necesidad de cálculo formal."
+        "principiante": "## La derivada y la integral: dos caras de lo mismo\n\nLa cinemática tiene un secreto hermoso: la velocidad es la **derivada** de la posición, y la posición es la **integral** de la velocidad. Son operaciones inversas.\n\n- Derivar: de la posición obtienes la velocidad (¿qué tan rápido cambia?)\n- Integrar: de la velocidad obtienes la posición (¿cuánto camino recorrió?)\n\nEs como sumar y restar, pero para funciones continuas.\n\n> **Dato curioso**\n> Newton inventó el cálculo justamente para resolver problemas de cinemática. Necesitaba una forma de describir cómo cambia la posición continuamente. Por eso la física y el cálculo nacieron juntos.\n\n**[IMAGEN SUGERIDA: Una gráfica de posición (curva), velocidad (recta) y aceleración (línea horizontal), mostrando las relaciones de derivada e integral. Pie de foto: \"Derivar e integrar conectan posición, velocidad y aceleración.\"]**\n\n\n<Transfer targetDomain=\"Economía y finanzas\" title=\"Transfiere: derivadas en la economía\">\nEn economía, la \"velocidad\" de una magnitud es su derivada: la inflación es la derivada de los precios, y el crecimiento es la derivada del PIB. Elige una magnitud económica (precios, población, ventas) e identifica qué sería su \"velocidad\" y su \"aceleración\" —el mismo lenguaje de la cinemática aplicado a otro dominio.\n</Transfer>\n",
+        "intermedio": "## Derivadas e integrales en cinemática\n\nLas relaciones fundamentales:\n\n$$ v(t) = \\frac{dx}{dt}, \\quad a(t) = \\frac{dv}{dt} $$\n\n$$ x(t) = x_0 + \\int_0^t v(\\tau) d\\tau $$\n\n$$ v(t) = v_0 + \\int_0^t a(\\tau) d\\tau $$\n\n```aeterna-formula\ntitle=\"Velocidad como derivada de la posición\"\nformula=\"v = \\\\frac{dx}{dt}\"\nvariables={[{\"symbol\":\"v\",\"name\":\"Velocidad\",\"unit\":\"m/s\"},{\"symbol\":\"x\",\"name\":\"Posición\",\"unit\":\"m\"},{\"symbol\":\"t\",\"name\":\"Tiempo\",\"unit\":\"s\"}]}\nnote=\"La velocidad instantánea es la pendiente de la curva de posición. El área bajo la curva de velocidad da el desplazamiento (integral).\"\n```\n\n**Interpretación gráfica:**\n- La pendiente de x-t es la velocidad\n- La pendiente de v-t es la aceleración\n- El área bajo v-t es el desplazamiento\n- El área bajo a-t es el cambio de velocidad\n\n> **🔑 Concepto clave: Pendiente y área**\n> En cinemática, las gráficas tienen dos lecturas: la **pendiente** de una curva es la derivada (velocidad o aceleración), y el **área** bajo una curva es la integral (desplazamiento o cambio de velocidad). Esta dualidad pendiente-área es el corazón del cálculo aplicado al movimiento.\n\n\n<Transfer targetDomain=\"Economía y finanzas\" title=\"Transfiere: derivadas en la economía\">\nEn economía, la \"velocidad\" de una magnitud es su derivada: la inflación es la derivada de los precios, y el crecimiento es la derivada del PIB. Elige una magnitud económica (precios, población, ventas) e identifica qué sería su \"velocidad\" y su \"aceleración\" —el mismo lenguaje de la cinemática aplicado a otro dominio.\n</Transfer>\n",
+        "avanzado": "## El cálculo como lenguaje del movimiento\n\nLa cinemática es la aplicación más directa del cálculo. Para una posición general x(t), la velocidad y aceleración son sus derivadas, y reconstruir x(t) desde a(t) requiere dos integraciones.\n\nUn ejemplo completo: si a = constante, integrando una vez obtenemos v = v₀ + at, e integrando de nuevo x = x₀ + v₀t + ½at². Las tres ecuaciones del MRUA son exactamente la integración del caso más simple.\n\nPara movimientos con aceleración variable (por ejemplo, a(t) = kt), las ecuaciones se complican pero el método es el mismo: integrar.\n\n> **💡 Nota de frontera**\n> Esta conexión entre cinemática y cálculo es la razón por la que el análisis matemático es el lenguaje natural de la física. Cada ley física se expresa como relaciones entre funciones y sus derivadas o integrales —ecuaciones diferenciales. La cinemática es la primera y más clara manifestación de este lenguaje.\n\n\n<Transfer targetDomain=\"Economía y finanzas\" title=\"Transfiere: derivadas en la economía\">\nEn economía, la \"velocidad\" de una magnitud es su derivada: la inflación es la derivada de los precios, y el crecimiento es la derivada del PIB. Elige una magnitud económica (precios, población, ventas) e identifica qué sería su \"velocidad\" y su \"aceleración\" —el mismo lenguaje de la cinemática aplicado a otro dominio.\n</Transfer>\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "La cinemática es el lenguaje del movimiento. Has aprendido que la posición describe dónde estás, la velocidad qué tan rápido cambia tu posición, y la aceleración qué tan rápido cambia tu velocidad —el 'cambio del cambio'. El movimiento rectilíneo uniforme mantiene velocidad constante, el uniformemente acelerado la cambia a ritmo constante, y la caída libre es el caso especial donde la gravedad acelera todo por igual. El tiro parabólico revela que los movimientos horizontal y vertical son independientes, y la conexión entre derivadas e integrales muestra que la posición, la velocidad y la aceleración son eslabones de una misma cadena matemática. Pero la cinemática solo describe: no pregunta por qué. Esa pregunta —por qué los objetos se mueven como se mueven— es el territorio de la dinámica, a la que llegarás pronto. Con el lenguaje de la cinemática dominado, estás listo para descubrir qué hace que las cosas se muevan. El movimiento ya no es un misterio: es un libro abierto, y ahora sabes leerlo.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Distancia vs desplazamiento",
+        "enunciado": "Caminas 4 km al norte y luego 3 km al sur. ¿Cuál es tu distancia total y tu desplazamiento?",
+        "solucion": "La distancia total es 4 + 3 = 7 km (el camino recorrido). El desplazamiento es 4 − 3 = 1 km al norte (el cambio neto de posición).",
+        "xp": 30,
+        "pistas": [
+          "Distancia = camino recorrido (suma)",
+          "Desplazamiento = cambio neto de posición (resta con dirección)"
+        ],
+        "opciones": [
+          {
+            "label": "7 km de distancia, 1 km al norte",
+            "correcta": true
+          },
+          {
+            "label": "7 km de distancia, 7 km al norte",
+            "correcta": false
+          },
+          {
+            "label": "1 km de distancia, 7 km al norte",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Suma para la distancia: 7 km",
+          "Resta para el desplazamiento: 1 km al norte"
+        ]
+      },
+      {
+        "titulo": "Velocidad media",
+        "enunciado": "Un coche recorre 120 km en 1.5 horas. ¿Cuál es su velocidad media en km/h?",
+        "solucion": "v = distancia/tiempo = 120/1.5 = 80 km/h.",
+        "xp": 25,
+        "pistas": [
+          "v = d/t",
+          "Divide 120 entre 1.5"
+        ],
+        "opciones": [
+          {
+            "label": "80 km/h",
+            "correcta": true
+          },
+          {
+            "label": "180 km/h",
+            "correcta": false
+          },
+          {
+            "label": "1.25 km/h",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica v = d/t",
+          "Calcula 120/1.5 = 80 km/h"
+        ]
+      },
+      {
+        "titulo": "Caída libre",
+        "enunciado": "Sueltas una pelota desde una altura de 20 m. ¿Cuánto tarda en llegar al suelo? (g = 10 m/s²)",
+        "solucion": "h = ½gt² → t = √(2h/g) = √(2×20/10) = √4 = 2 s.",
+        "xp": 30,
+        "pistas": [
+          "h = ½gt²",
+          "Despeja t",
+          "t = √(2h/g)"
+        ],
+        "opciones": [
+          {
+            "label": "2 s",
+            "correcta": true
+          },
+          {
+            "label": "4 s",
+            "correcta": false
+          },
+          {
+            "label": "0.5 s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica h = ½gt²",
+          "Despeja t = √(2h/g)",
+          "Calcula √(40/10) = 2 s"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "MRUA: distancia de frenado",
+        "enunciado": "Un coche a 30 m/s frena con aceleración de −5 m/s². ¿Qué distancia recorre hasta detenerse?",
+        "solucion": "Usando v² = v₀² + 2ax, con v = 0: 0 = 900 + 2(−5)x → x = 900/10 = 90 m.",
+        "xp": 40,
+        "pistas": [
+          "v² = v₀² + 2ax",
+          "v final = 0",
+          "Despeja x"
+        ],
+        "opciones": [
+          {
+            "label": "90 m",
+            "correcta": true
+          },
+          {
+            "label": "6 m",
+            "correcta": false
+          },
+          {
+            "label": "180 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica v² = v₀² + 2ax",
+          "0 = 900 − 10x",
+          "x = 90 m"
+        ]
+      },
+      {
+        "titulo": "Lanzamiento vertical",
+        "enunciado": "Lanzas una pelota hacia arriba a 20 m/s. ¿Qué altura máxima alcanza? (g = 10 m/s²)",
+        "solucion": "h_max = v₀²/(2g) = 20²/(2×10) = 400/20 = 20 m.",
+        "xp": 40,
+        "pistas": [
+          "h_max = v₀²/(2g)",
+          "v en la altura máxima = 0",
+          "Sustituye"
+        ],
+        "opciones": [
+          {
+            "label": "20 m",
+            "correcta": true
+          },
+          {
+            "label": "40 m",
+            "correcta": false
+          },
+          {
+            "label": "10 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica h_max = v₀²/(2g)",
+          "Calcula 400/20 = 20 m"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Alcance de un proyectil",
+        "enunciado": "Un proyectil se lanza a 40 m/s a 30°. ¿Cuál es su alcance horizontal? (g = 10 m/s²)",
+        "solucion": "R = v₀²·sin(2θ)/g = 40²·sin(60°)/10 = 1600×0.866/10 ≈ 138.6 m.",
+        "xp": 50,
+        "pistas": [
+          "R = v₀²·sin(2θ)/g",
+          "sin(60°) ≈ 0.866",
+          "Sustituye"
+        ],
+        "opciones": [
+          {
+            "label": "≈ 139 m",
+            "correcta": true
+          },
+          {
+            "label": "≈ 80 m",
+            "correcta": false
+          },
+          {
+            "label": "≈ 160 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica R = v₀²·sin(2θ)/g",
+          "Calcula 1600×0.866/10 ≈ 139 m"
+        ]
+      },
+      {
+        "titulo": "De la aceleración a la posición",
+        "enunciado": "Un objeto parte del reposo con aceleración a = 4 m/s². Usa integración para hallar su velocidad y posición a los 3 s.",
+        "solucion": "v = ∫a dt = 4t → v(3) = 12 m/s. x = ∫v dt = ½·4·t² = 2t² → x(3) = 18 m. Integrando dos veces: posición = 18 m, velocidad = 12 m/s.",
+        "xp": 55,
+        "pistas": [
+          "Integra a para obtener v: v = at",
+          "Integra v para obtener x: x = ½at²",
+          "Sustituye t = 3"
+        ],
+        "opciones": [
+          {
+            "label": "v = 12 m/s, x = 18 m",
+            "correcta": true
+          },
+          {
+            "label": "v = 4 m/s, x = 6 m",
+            "correcta": false
+          },
+          {
+            "label": "v = 36 m/s, x = 54 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Integra a: v = 4t",
+          "Integra v: x = 2t²",
+          "Sustituye t = 3: v = 12, x = 18"
+        ]
+      }
+    ]
+  }
 }
