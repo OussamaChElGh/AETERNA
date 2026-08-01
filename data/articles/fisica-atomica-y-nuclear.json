@@ -28,9 +28,9 @@
       "id": "1-el-concepto-del-tomo",
       "titulo": "1. El Concepto del Átomo",
       "niveles": {
-        "principiante": "### El universo en un grano de arena\n    Imagina que cortas un trozo de hierro por la mitad una y otra vez. ¿Hasta dónde puedes llegar? Demócrito, hace 2.500 años, llamó a la pieza final *átomo* (\"sin corte\"). \n    \n    Hoy sabemos que un átomo es casi todo **espacio vacío**. Si el núcleo fuera una canica en el centro de un estadio, los electrones serían abejas zumbando en las gradas más lejanas. Lo que sientes como \"solidez\" es en realidad repulsión eléctrica entre átomos.\n\n    > 💡 **Idea clave**\n    > Eres 99.99% vacío. La materia es solo energía vibrando en patrones específicos.",
-        "intermedio": "### Evolución de los Modelos Atómicos\n    Nuestra comprensión ha pasado por fases críticas:\n    - **Thomson (1897):** El 'pudín de pasas' (electrones incrustados en masa positiva).\n    - **Rutherford (1911):** El núcleo denso. Disparó partículas alfa a láminas de oro y algunas rebotaron; fue como disparar cañones a papel de seda y que la bala volviera.\n    - **Bohr (1913):** Niveles de energía cuantizados. Los electrones saltan entre órbitas fijas sin pasar por el espacio intermedio.",
-        "avanzado": "### El Tratamiento Cuántico Completo\n    Abandonamos las órbitas por **orbitales**: nubes de probabilidad definidas por la ecuación de Schrödinger:\n    $$\\hat{H}\\Psi = E\\Psi$$\n    \n    Los números cuánticos ($n, l, m_l, m_s$) y el principio de exclusión de Pauli dictan que no puede haber dos electrones con la misma identidad cuántica, lo que estructura toda la tabla periódica y la estabilidad química de la realidad."
+        "principiante": "### El universo en un grano de arena\n    Imagina que cortas un trozo de hierro por la mitad una y otra vez. ¿Hasta dónde puedes llegar? Demócrito, hace 2.500 años, llamó a la pieza final *átomo* (\"sin corte\"). \n    \n    Hoy sabemos que un átomo es casi todo **espacio vacío**. Si el núcleo fuera una canica en el centro de un estadio, los electrones serían abejas zumbando en las gradas más lejanas. Lo que sientes como \"solidez\" es en realidad repulsión eléctrica entre átomos.\n\n    > 💡 **Idea clave**\n    > Eres 99.99% vacío. La materia es solo energía vibrando en patrones específicos.\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Del Átomo a la Estrella\">\n**Los Fundamentos de Del Átomo a la Estrella:** el núcleo atómico (protones + neutrones) se mantiene unido por la fuerza nuclear fuerte, que vence la repulsión eléctrica. Los núcleos inestables se desintegran (radiactividad: alfa, beta, gamma) con una vida media característica. La fisión (partir núcleos pesados) y la fusión (unir ligeros) liberan energía según E = mc²: el Sol es un reactor de fusión que convierte 4 millones de toneladas de masa en energía cada segundo.\n</PedagogicalContentBlock>\n",
+        "intermedio": "### Evolución de los Modelos Atómicos\n    Nuestra comprensión ha pasado por fases críticas:\n    - **Thomson (1897):** El 'pudín de pasas' (electrones incrustados en masa positiva).\n    - **Rutherford (1911):** El núcleo denso. Disparó partículas alfa a láminas de oro y algunas rebotaron; fue como disparar cañones a papel de seda y que la bala volviera.\n    - **Bohr (1913):** Niveles de energía cuantizados. Los electrones saltan entre órbitas fijas sin pasar por el espacio intermedio.\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Del Átomo a la Estrella\">\n**Los Fundamentos de Del Átomo a la Estrella:** el núcleo atómico (protones + neutrones) se mantiene unido por la fuerza nuclear fuerte, que vence la repulsión eléctrica. Los núcleos inestables se desintegran (radiactividad: alfa, beta, gamma) con una vida media característica. La fisión (partir núcleos pesados) y la fusión (unir ligeros) liberan energía según E = mc²: el Sol es un reactor de fusión que convierte 4 millones de toneladas de masa en energía cada segundo.\n</PedagogicalContentBlock>\n",
+        "avanzado": "### El Tratamiento Cuántico Completo\n    Abandonamos las órbitas por **orbitales**: nubes de probabilidad definidas por la ecuación de Schrödinger:\n    $$\\hat{H}\\Psi = E\\Psi$$\n    \n    Los números cuánticos ($n, l, m_l, m_s$) y el principio de exclusión de Pauli dictan que no puede haber dos electrones con la misma identidad cuántica, lo que estructura toda la tabla periódica y la estabilidad química de la realidad.\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Del Átomo a la Estrella\">\n**Los Fundamentos de Del Átomo a la Estrella:** el núcleo atómico (protones + neutrones) se mantiene unido por la fuerza nuclear fuerte, que vence la repulsión eléctrica. Los núcleos inestables se desintegran (radiactividad: alfa, beta, gamma) con una vida media característica. La fisión (partir núcleos pesados) y la fusión (unir ligeros) liberan energía según E = mc²: el Sol es un reactor de fusión que convierte 4 millones de toneladas de masa en energía cada segundo.\n</PedagogicalContentBlock>\n"
       },
       "acciones": [
         {
@@ -53,9 +53,9 @@
       "id": "3-transmutacin-y-radiactividad",
       "titulo": "3. Transmutación y Radiactividad",
       "niveles": {
-        "principiante": "### Átomos que cambian\n    Algunos átomos son inestables y se \"rompen\" solos para buscar estabilidad. Al hacerlo, emiten radiación.\n    - **Alfa (α):** Pesada, se frena con un papel.\n    - **Beta (β):** Ligera, penetra más.\n    - **Gamma (γ):** Pura energía, atraviesa casi todo.",
-        "intermedio": "### La Ley de Desintegración\n    La radiactividad es estadística. La **Vida Media** ($t_{1/2}$) es el tiempo necesario para que la mitad de una muestra se desintegre.\n    $$N(t) = N_0 e^{-\\lambda t}$$\n    Se usa para datar fósiles (Carbono-14) o en medicina nuclear para diagnósticos.",
-        "avanzado": "### Mecanismos Cuánticos: Efecto Túnel\n    La desintegración alfa ocurre porque la partícula alfa atraviesa la barrera de potencial del núcleo mediante el **efecto túnel**. No tiene energía suficiente para \"saltar\" la valla, pero la mecánica cuántica le permite simplemente aparecer al otro lado."
+        "principiante": "### Átomos que cambian\n    Algunos átomos son inestables y se \"rompen\" solos para buscar estabilidad. Al hacerlo, emiten radiación.\n    - **Alfa (α):** Pesada, se frena con un papel.\n    - **Beta (β):** Ligera, penetra más.\n    - **Gamma (γ):** Pura energía, atraviesa casi todo.\n```graph-lab\nTITLE: Desintegración radiactiva\nDESC: La cantidad de un isótopo radiactivo decae exponencialmente con la vida media.\nX_LABEL: Tiempo (vidas medias)\nY_LABEL: Cantidad restante (fracción)\nQUESTION: ¿Cuánta cantidad queda después de 3 vidas medias?\nXP: 50\nPOINT: 0 | 1 | Inicio\nPOINT: 1 | 0.5 | 1 vida media\nPOINT: 2 | 0.25 | 2 vidas medias\nPOINT: 3 | 0.125 | 3 vidas medias\nOPTION_CORRECT: 12.5% (1/8) | Cada vida media divide la cantidad a la mitad: 1 → 0.5 → 0.25 → 0.125.\nOPTION_WRONG: 25% | Eso es después de 2 vidas medias.\nOPTION_WRONG: 50% | Eso es después de 1 vida media.\n```\n\n\n### Diagrama: los tres tipos de radiación\n\n<PedagogicalContentBlock type=\"diagram\" title=\"Partículas alfa, beta y gamma\">\n- **Alfa (α)**: núcleo de helio (2p+2n), baja penetración (papel), alta ionización\n- **Beta (β)**: electrón o positrón, penetración media (aluminio), liberada al convertir neutrón↔protón\n- **Gamma (γ)**: fotón de alta energía, alta penetración (plomo), acompañante de las anteriores\n</PedagogicalContentBlock>\n\n\n<Connect title=\"De la física nuclear a la medicina\" sourceConcept=\"Radiactividad\" targetConcept=\"Medicina nuclear\">\nLa radiactividad diagnostica y trata: la tomografía PET detecta la aniquilación de positrones (radiación beta+), la radioterapia destruye tumores con rayos gamma, y la datación por carbono-14 data fósiles. La física del núcleo que estudias aquí salva vidas cada día en los hospitales.\n</Connect>\n",
+        "intermedio": "### La Ley de Desintegración\n    La radiactividad es estadística. La **Vida Media** ($t_{1/2}$) es el tiempo necesario para que la mitad de una muestra se desintegre.\n    $$N(t) = N_0 e^{-\\lambda t}$$\n    Se usa para datar fósiles (Carbono-14) o en medicina nuclear para diagnósticos.\n```graph-lab\nTITLE: Desintegración radiactiva\nDESC: La cantidad de un isótopo radiactivo decae exponencialmente con la vida media.\nX_LABEL: Tiempo (vidas medias)\nY_LABEL: Cantidad restante (fracción)\nQUESTION: ¿Cuánta cantidad queda después de 3 vidas medias?\nXP: 50\nPOINT: 0 | 1 | Inicio\nPOINT: 1 | 0.5 | 1 vida media\nPOINT: 2 | 0.25 | 2 vidas medias\nPOINT: 3 | 0.125 | 3 vidas medias\nOPTION_CORRECT: 12.5% (1/8) | Cada vida media divide la cantidad a la mitad: 1 → 0.5 → 0.25 → 0.125.\nOPTION_WRONG: 25% | Eso es después de 2 vidas medias.\nOPTION_WRONG: 50% | Eso es después de 1 vida media.\n```\n\n\n### Diagrama: los tres tipos de radiación\n\n<PedagogicalContentBlock type=\"diagram\" title=\"Partículas alfa, beta y gamma\">\n- **Alfa (α)**: núcleo de helio (2p+2n), baja penetración (papel), alta ionización\n- **Beta (β)**: electrón o positrón, penetración media (aluminio), liberada al convertir neutrón↔protón\n- **Gamma (γ)**: fotón de alta energía, alta penetración (plomo), acompañante de las anteriores\n</PedagogicalContentBlock>\n\n\n<Connect title=\"De la física nuclear a la medicina\" sourceConcept=\"Radiactividad\" targetConcept=\"Medicina nuclear\">\nLa radiactividad diagnostica y trata: la tomografía PET detecta la aniquilación de positrones (radiación beta+), la radioterapia destruye tumores con rayos gamma, y la datación por carbono-14 data fósiles. La física del núcleo que estudias aquí salva vidas cada día en los hospitales.\n</Connect>\n",
+        "avanzado": "### Mecanismos Cuánticos: Efecto Túnel\n    La desintegración alfa ocurre porque la partícula alfa atraviesa la barrera de potencial del núcleo mediante el **efecto túnel**. No tiene energía suficiente para \"saltar\" la valla, pero la mecánica cuántica le permite simplemente aparecer al otro lado.\n```graph-lab\nTITLE: Desintegración radiactiva\nDESC: La cantidad de un isótopo radiactivo decae exponencialmente con la vida media.\nX_LABEL: Tiempo (vidas medias)\nY_LABEL: Cantidad restante (fracción)\nQUESTION: ¿Cuánta cantidad queda después de 3 vidas medias?\nXP: 50\nPOINT: 0 | 1 | Inicio\nPOINT: 1 | 0.5 | 1 vida media\nPOINT: 2 | 0.25 | 2 vidas medias\nPOINT: 3 | 0.125 | 3 vidas medias\nOPTION_CORRECT: 12.5% (1/8) | Cada vida media divide la cantidad a la mitad: 1 → 0.5 → 0.25 → 0.125.\nOPTION_WRONG: 25% | Eso es después de 2 vidas medias.\nOPTION_WRONG: 50% | Eso es después de 1 vida media.\n```\n\n\n### Diagrama: los tres tipos de radiación\n\n<PedagogicalContentBlock type=\"diagram\" title=\"Partículas alfa, beta y gamma\">\n- **Alfa (α)**: núcleo de helio (2p+2n), baja penetración (papel), alta ionización\n- **Beta (β)**: electrón o positrón, penetración media (aluminio), liberada al convertir neutrón↔protón\n- **Gamma (γ)**: fotón de alta energía, alta penetración (plomo), acompañante de las anteriores\n</PedagogicalContentBlock>\n\n\n<Connect title=\"De la física nuclear a la medicina\" sourceConcept=\"Radiactividad\" targetConcept=\"Medicina nuclear\">\nLa radiactividad diagnostica y trata: la tomografía PET detecta la aniquilación de positrones (radiación beta+), la radioterapia destruye tumores con rayos gamma, y la datación por carbono-14 data fósiles. La física del núcleo que estudias aquí salva vidas cada día en los hospitales.\n</Connect>\n"
       },
       "acciones": []
     },
@@ -63,9 +63,9 @@
       "id": "4-la-energa-del-ncleo-fisin-y-fusin",
       "titulo": "4. La Energía del Núcleo: Fisión y Fusión",
       "niveles": {
-        "principiante": "### Romper o Unir\n    - **Fisión:** Romper un átomo pesado (Uranio) para liberar energía. Es lo que usamos en las centrales nucleares.\n    - **Fusión:** Unir átomos ligeros (Hidrógeno) para formar uno más pesado. Es lo que hace el Sol. Libera mucha más energía y es más limpia.",
-        "intermedio": "### La equivalencia Masa-Energía\n    Tanto en la fisión como en la fusión, el resultado final pesa un poco menos que el inicial. Esa masa desaparecida se ha convertido en energía según la ecuación de Einstein:\n    ```aeterna-equation\n    E = mc^2\n    ```\n    Un solo gramo de uranio libera la energía de 2.5 toneladas de carbón.",
-        "avanzado": "### Nucleosíntesis Estelar y el Límite del Hierro\n    Las estrellas forjan elementos mediante fusión. Sin embargo, el **Hierro-56** es el punto de máxima estabilidad. Fusionar elementos más pesados consume energía en lugar de liberarla. Por eso, los elementos más pesados que el hierro solo se crean en eventos violentos como las **Supernovas**."
+        "principiante": "### Romper o Unir\n    - **Fisión:** Romper un átomo pesado (Uranio) para liberar energía. Es lo que usamos en las centrales nucleares.\n    - **Fusión:** Unir átomos ligeros (Hidrógeno) para formar uno más pesado. Es lo que hace el Sol. Libera mucha más energía y es más limpia.\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía\">\nLa fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (isótopos de hidrógeno) libera energía sin residuos de larga vida. Investiga los proyectos ITER y los reactores de fusión por confinamiento inercial, y explica con la física que has aprendido por qué la fusión es tan difícil de controlar (temperaturas de millones de grados) pero tan prometedora.\n</Transfer>\n",
+        "intermedio": "### La equivalencia Masa-Energía\n    Tanto en la fisión como en la fusión, el resultado final pesa un poco menos que el inicial. Esa masa desaparecida se ha convertido en energía según la ecuación de Einstein:\n    ```aeterna-equation\n    E = mc^2\n    ```\n    Un solo gramo de uranio libera la energía de 2.5 toneladas de carbón.\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía\">\nLa fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (isótopos de hidrógeno) libera energía sin residuos de larga vida. Investiga los proyectos ITER y los reactores de fusión por confinamiento inercial, y explica con la física que has aprendido por qué la fusión es tan difícil de controlar (temperaturas de millones de grados) pero tan prometedora.\n</Transfer>\n",
+        "avanzado": "### Nucleosíntesis Estelar y el Límite del Hierro\n    Las estrellas forjan elementos mediante fusión. Sin embargo, el **Hierro-56** es el punto de máxima estabilidad. Fusionar elementos más pesados consume energía en lugar de liberarla. Por eso, los elementos más pesados que el hierro solo se crean en eventos violentos como las **Supernovas**.\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía\">\nLa fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (isótopos de hidrógeno) libera energía sin residuos de larga vida. Investiga los proyectos ITER y los reactores de fusión por confinamiento inercial, y explica con la física que has aprendido por qué la fusión es tan difícil de controlar (temperaturas de millones de grados) pero tan prometedora.\n</Transfer>\n"
       },
       "acciones": [
         {
@@ -83,5 +83,209 @@
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "Has recorrido el camino del átomo a la estrella, la física que explica el corazón de la materia y el motor del cosmos. Los **Fundamentos de Del Átomo a la Estrella** te han llevado desde el núcleo atómico —donde la fuerza fuerte vence a la repulsión eléctrica— hasta las reacciones nucleares que hacen brillar las estrellas. Has aprendido que el núcleo está hecho de protones y neutrones unidos por la fuerza nuclear fuerte; que algunos núcleos son inestables y se desintegran (radiactividad) en un proceso regido por la física cuántica del efecto túnel; y que la energía nuclear —la fisión que parte núcleos pesados y la fusión que une ligeros— es la manifestación de E = mc², convirtiendo una fracción de la masa en energía. Esta física tiene dos caras: la energía nuclear que abastece ciudades y la radiactividad que diagnostica y trata enfermedades (datación por carbono-14, medicina nuclear), pero también las bombas y los residuos que obligan a la humanidad a decidir con sabiduría. La lección más profunda es la escala: en una cucharada de materia hay una energía inconcebible, y el Sol —4 millones de toneladas de masa convertidas en energía cada segundo— es un reactor de fusión que la física nuclear explica. Del átomo a la estrella, la misma física gobierna ambos extremos.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Composición del núcleo",
+        "enunciado": "¿De qué están hechos los núcleos atómicos?",
+        "solucion": "De protones (carga positiva) y neutrones (sin carga), llamados nucleones, unidos por la fuerza nuclear fuerte, que vence la repulsión eléctrica entre protones.",
+        "xp": 30,
+        "pistas": [
+          "¿Qué partículas hay en el núcleo?",
+          "¿Qué fuerza las une?"
+        ],
+        "opciones": [
+          {
+            "label": "Protones y neutrones",
+            "correcta": true
+          },
+          {
+            "label": "Electrones y protones",
+            "correcta": false
+          },
+          {
+            "label": "Solo neutrones",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica los nucleones",
+          "La fuerza fuerte los une"
+        ]
+      },
+      {
+        "titulo": "Radiactividad",
+        "enunciado": "¿Qué es la radiactividad?",
+        "solucion": "Es la desintegración espontánea de núcleos inestables que emiten radiación (alfa, beta, gamma) para alcanzar estabilidad. El proceso es aleatorio pero con una vida media característica.",
+        "xp": 30,
+        "pistas": [
+          "¿Qué núcleos la sufren?",
+          "¿Qué emiten?"
+        ],
+        "opciones": [
+          {
+            "label": "Desintegración de núcleos inestables",
+            "correcta": true
+          },
+          {
+            "label": "Aparición de protones nuevos",
+            "correcta": false
+          },
+          {
+            "label": "Reacción química",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Núcleos inestables",
+          "Emisión de radiación"
+        ]
+      },
+      {
+        "titulo": "Fisión vs fusión",
+        "enunciado": "¿Cuál es la diferencia entre fisión y fusión nuclear?",
+        "solucion": "La fisión parte un núcleo pesado (uranio) en fragmentos más ligeros liberando energía. La fusión une núcleos ligeros (hidrógeno) en uno más pesado (helio) liberando energía. La fusión alimenta el Sol; la fisión las centrales nucleares.",
+        "xp": 35,
+        "pistas": [
+          "¿Qué hace cada una con el núcleo?",
+          "¿Cuál alimenta el Sol?"
+        ],
+        "opciones": [
+          {
+            "label": "Fisión parte, fusión une",
+            "correcta": true
+          },
+          {
+            "label": "Son lo mismo",
+            "correcta": false
+          },
+          {
+            "label": "Ambas solo en bombas",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Define cada proceso",
+          "Asocia al Sol y a las centrales"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Defecto de masa",
+        "enunciado": "Un núcleo de helio tiene 2 protones y 2 neutrones. La masa del núcleo (6.6447×10⁻²⁷ kg) es menor que la suma de sus partes (6.6951×10⁻²⁷ kg). ¿Cuánta energía libera su formación? (c = 3×10⁸ m/s)",
+        "solucion": "Δm = 6.6951−6.6447 = 5.04×10⁻²⁹ kg. E = Δmc² = 5.04×10⁻²⁹ × 9×10¹⁶ ≈ 4.54×10⁻¹² J ≈ 28.3 MeV. Es la energía de enlace del helio —por eso la fusión libera energía.",
+        "xp": 50,
+        "pistas": [
+          "Calcula el defecto de masa",
+          "E = Δmc²"
+        ],
+        "opciones": [
+          {
+            "label": "≈28 MeV",
+            "correcta": true
+          },
+          {
+            "label": "≈4.5×10⁻¹² J ≈ 28 MeV",
+            "correcta": true
+          },
+          {
+            "label": "≈1 MeV",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Resta las masas",
+          "Aplica E = Δmc²"
+        ]
+      },
+      {
+        "titulo": "Vida media",
+        "enunciado": "Un isótopo tiene vida media de 10 años. Si empiezas con 80 g, ¿cuánto queda después de 30 años?",
+        "solucion": "30 años = 3 vidas medias. Tras cada vida media se reduce a la mitad: 80 → 40 → 20 → 10 g. Quedan 10 g.",
+        "xp": 45,
+        "pistas": [
+          "¿Cuántas vidas medias son 30 años?",
+          "Divide entre 2 cada vez"
+        ],
+        "opciones": [
+          {
+            "label": "10 g",
+            "correcta": true
+          },
+          {
+            "label": "20 g",
+            "correcta": false
+          },
+          {
+            "label": "40 g",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Cuenta las vidas medias",
+          "Divide 80 entre 2 tres veces"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Datación con carbono-14",
+        "enunciado": "Un hueso fósil tiene 1/8 del carbono-14 que tenía un organismo vivo. Si la vida media del C-14 es 5730 años, ¿qué edad tiene el fósil?",
+        "solucion": "1/8 = (1/2)³ → han pasado 3 vidas medias. Edad = 3 × 5730 = 17,190 años.",
+        "xp": 55,
+        "pistas": [
+          "1/8 = (1/2)³",
+          "Multiplica por la vida media"
+        ],
+        "opciones": [
+          {
+            "label": "17,190 años",
+            "correcta": true
+          },
+          {
+            "label": "5730 años",
+            "correcta": false
+          },
+          {
+            "label": "22,920 años",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Cuenta las vidas medias (3)",
+          "Multiplica 3 × 5730"
+        ]
+      },
+      {
+        "titulo": "Energía del Sol",
+        "enunciado": "El Sol convierte 4 millones de toneladas de masa en energía cada segundo. ¿Cuánta energía produce? (1 tonelada = 1000 kg, c = 3×10⁸ m/s)",
+        "solucion": "m = 4×10⁶×1000 = 4×10⁹ kg. E = mc² = 4×10⁹ × 9×10¹⁶ = 3.6×10²⁶ J/s. Esta es la luminosidad del Sol —suficiente para toda la vida en la Tierra.",
+        "xp": 60,
+        "pistas": [
+          "Convierte toneladas a kg",
+          "E = mc²"
+        ],
+        "opciones": [
+          {
+            "label": "3.6×10²⁶ J/s",
+            "correcta": true
+          },
+          {
+            "label": "4×10²⁶ J/s",
+            "correcta": false
+          },
+          {
+            "label": "3.6×10²³ J/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Convierte unidades",
+          "Aplica E = mc²"
+        ]
+      }
+    ]
+  }
 }

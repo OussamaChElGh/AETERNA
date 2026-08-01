@@ -1,118 +1,310 @@
 {
   "metadata": {
-    "title": "Relatividad General: La Gravedad es Geometría",
-    "description": "Einstein reveló que la gravedad no es una fuerza que tira de nosotros, sino la curvatura del propio espacio-tiempo. Descubre cómo masas y energía deforman el universo, qué son las ondas gravitacionales y por qué los agujeros negros no son agujeros.",
+    "title": "Relatividad General",
+    "description": "Guía completa de la relatividad general de Einstein: la gravedad como curvatura del espacio-tiempo, el principio de equivalencia, las lentes gravitacionales, los agujeros negros y las ondas gravitacionales.",
     "slug": "relatividad-general",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "relatividad general",
-      "gravedad",
+      "Einstein",
+      "curvatura",
       "espacio-tiempo",
       "agujeros negros",
       "ondas gravitacionales",
-      "Einstein",
-      "curvatura"
+      "lentes gravitacionales",
+      "principio de equivalencia"
     ],
-    "image": "https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-11",
-    "nivel": "3",
-    "orden": "2",
-    "nivel_titulo": "Las Fronteras de la Realidad",
-    "insignia": "Explorador de lo Oculto",
+    "image": "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 3,
+    "nivel_titulo": "Física Moderna",
+    "orden": 3,
+    "insignia": "Arquitecto del Espacio-Tiempo",
     "tipo": "theory",
     "prerequisites": [
-      "relatividad-especial"
-    ]
+      "relatividad-especial",
+      "electromagnetismo-avanzado"
+    ],
+    "breadcrumb": "Física / Física Moderna / Relatividad General"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  En 1915, Einstein dio el siguiente paso: la gravedad no es una fuerza que tira de los objetos, sino la curvatura del propio espacio-tiempo.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La relatividad general dice que **la masa curva el espacio-tiempo** y que los objetos siguen las trayectorias más rectas posibles (geodésicas) en ese espacio curvo —lo que percibimos como gravedad. El **principio de equivalencia** (no puedes distinguir localmente entre gravedad y aceleración) es su punto de partida. Sus predicciones: la **curvatura de la luz** (lentes gravitacionales), los **agujeros negros** (curvatura extrema), la **dilatación gravitacional del tiempo** y las **ondas gravitacionales** —detectadas en 2015, un siglo después de su predicción.\n\n**[IMAGEN SUGERIDA: El espacio-tiempo como una malla curva, con la Tierra hundiéndola. Pie de foto: \"La masa curva el espacio-tiempo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-qu-pasara-si-la-gravedad-no-existiera",
-      "titulo": "▶️ Bienvenida: ¿Qué pasaría si la gravedad no existiera?",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: la gravedad como geometría",
       "niveles": {
-        "principiante": "Cierra los ojos e imagina: sueltas una manzana y, en lugar de caer al suelo, simplemente flota. Tú también flotas. Los océanos se deshacen en esferas perfectas de agua suspendidas en el vacío. La Tierra se desmorona lentamente, porque nada mantiene unidas sus partículas.\n\nTodo eso ocurriría si la gravedad desapareciera. Pero, ¿qué **es** realmente la gravedad? Durante siglos, Newton nos dijo que era una **fuerza** que actúa a distancia entre masas. Una fuerza invisible, instantánea, que tiraba de la manzana hacia el suelo y de la Luna hacia la Tierra.\n\nSin embargo, en 1915, Albert Einstein demostró que estábamos equivocados. La gravedad **no es una fuerza**. Es algo mucho más profundo y hermoso: es la **curvatura del espacio-tiempo** causada por la masa y la energía.\n\nBienvenido a la relatividad general: la teoría que redefine la realidad misma.\n\n> **💡 La clave en 10 segundos**\n>\n> > La gravedad no es una \"fuerza de atracción\" como la describió Newton. Es el efecto que produce la masa y la energía al **curvar el tejido del espacio-tiempo**. Los planetas no \"tiran\" del Sol: siguen caminos rectos (geodésicas) en un espacio curvado. Los relojes en lugares con más gravedad marcan el tiempo más despacio. Y la luz se curva cuando pasa cerca de objetos masivos.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LA SABANA Y LAS CANICAS -->\n<!-- ============================================ -->",
-        "intermedio": "Cierra los ojos e imagina: sueltas una manzana y, en lugar de caer al suelo, simplemente flota. Tú también flotas. Los océanos se deshacen en esferas perfectas de agua suspendidas en el vacío. La Tierra se desmorona lentamente, porque nada mantiene unidas sus partículas.\n\nTodo eso ocurriría si la gravedad desapareciera. Pero, ¿qué **es** realmente la gravedad? Durante siglos, Newton nos dijo que era una **fuerza** que actúa a distancia entre masas. Una fuerza invisible, instantánea, que tiraba de la manzana hacia el suelo y de la Luna hacia la Tierra.\n\nSin embargo, en 1915, Albert Einstein demostró que estábamos equivocados. La gravedad **no es una fuerza**. Es algo mucho más profundo y hermoso: es la **curvatura del espacio-tiempo** causada por la masa y la energía.\n\nBienvenido a la relatividad general: la teoría que redefine la realidad misma.\n\n> **💡 La clave en 10 segundos**\n>\n> > La gravedad no es una \"fuerza de atracción\" como la describió Newton. Es el efecto que produce la masa y la energía al **curvar el tejido del espacio-tiempo**. Los planetas no \"tiran\" del Sol: siguen caminos rectos (geodésicas) en un espacio curvado. Los relojes en lugares con más gravedad marcan el tiempo más despacio. Y la luz se curva cuando pasa cerca de objetos masivos.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LA SABANA Y LAS CANICAS -->\n<!-- ============================================ -->",
-        "avanzado": "Cierra los ojos e imagina: sueltas una manzana y, en lugar de caer al suelo, simplemente flota. Tú también flotas. Los océanos se deshacen en esferas perfectas de agua suspendidas en el vacío. La Tierra se desmorona lentamente, porque nada mantiene unidas sus partículas.\n\nTodo eso ocurriría si la gravedad desapareciera. Pero, ¿qué **es** realmente la gravedad? Durante siglos, Newton nos dijo que era una **fuerza** que actúa a distancia entre masas. Una fuerza invisible, instantánea, que tiraba de la manzana hacia el suelo y de la Luna hacia la Tierra.\n\nSin embargo, en 1915, Albert Einstein demostró que estábamos equivocados. La gravedad **no es una fuerza**. Es algo mucho más profundo y hermoso: es la **curvatura del espacio-tiempo** causada por la masa y la energía.\n\nBienvenido a la relatividad general: la teoría que redefine la realidad misma.\n\n> **💡 La clave en 10 segundos**\n>\n> > La gravedad no es una \"fuerza de atracción\" como la describió Newton. Es el efecto que produce la masa y la energía al **curvar el tejido del espacio-tiempo**. Los planetas no \"tiran\" del Sol: siguen caminos rectos (geodésicas) en un espacio curvado. Los relojes en lugares con más gravedad marcan el tiempo más despacio. Y la luz se curva cuando pasa cerca de objetos masivos.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LA SABANA Y LAS CANICAS -->\n<!-- ============================================ -->"
+        "principiante": "## Bienvenida: la gravedad como geometría\n\nNewton dijo que la gravedad es una fuerza que actúa a distancia. Einstein fue más allá: la gravedad es la **curvatura del espacio-tiempo**.\n\nImagina una tela elástica: una bola pesada la hunde. Si ruedas una canica, se curva hacia la bola —no porque haya una 'fuerza de gravedad', sino porque la tela está curvada.\n\nAsí funciona el universo: el Sol hunde el espacio-tiempo, y la Tierra sigue esa curvatura. No es una fuerza: es geometría.\n\n> **🔑 Concepto clave: Masa curva, objetos siguen**\n> La masa y la energía curvan el espacio-tiempo. Los objetos se mueven por las trayectorias más rectas posibles en ese espacio curvo. Eso que llamamos gravedad es la geometría del espacio-tiempo.\n\n**[IMAGEN SUGERIDA: Una malla elástica con una bola hundida y una canica orbitando. Pie de foto: \"La gravedad es la curvatura del espacio-tiempo.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la masa y la energía curvan el espacio-tiempo; los objetos (incluida la luz) siguen las geodésicas de ese espacio curvo —eso es la gravedad. El principio de equivalencia (gravedad = aceleración) es su base. Predicciones confirmadas: la luz se curva, los agujeros negros atrapan la luz, los relojes se ralentizan cerca de la masa, y las ondas gravitacionales ondulan el espacio (detectadas en 2015).\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: de la fuerza a la geometría\n\nLa relatividad general (1915) es la teoría de la gravedad de Einstein. Sus ideas centrales:\n\n1. **El principio de equivalencia**: localmente, gravedad y aceleración son indistinguibles.\n2. **La curvatura**: la masa-energía curva el espacio-tiempo.\n3. **Las geodésicas**: los objetos siguen las trayectorias 'más rectas' (geodésicas) en el espacio curvo.\n\nLa relatividad general explica fenómenos que la de Newton no puede: la órbita de Mercurio, la desviación de la luz, los agujeros negros y la expansión del universo.\n\n> **Dato que rompe el cerebro**\n> La luz, que no tiene masa, también se curva por la gravedad. La luz sigue la curvatura del espacio-tiempo. Esto se observó por primera vez en el eclipse de 1919, y convirtió a Einstein en una celebridad mundial.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la masa y la energía curvan el espacio-tiempo; los objetos (incluida la luz) siguen las geodésicas de ese espacio curvo —eso es la gravedad. El principio de equivalencia (gravedad = aceleración) es su base. Predicciones confirmadas: la luz se curva, los agujeros negros atrapan la luz, los relojes se ralentizan cerca de la masa, y las ondas gravitacionales ondulan el espacio (detectadas en 2015).\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: las ecuaciones de campo\n\nLa relatividad general se resume en las **ecuaciones de campo de Einstein**:\n\n$$ G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu} $$\n\nEl lado izquierdo describe la **geometría** del espacio-tiempo (curvatura); el derecho describe la **materia-energía**. La geometría le dice a la materia cómo moverse; la materia le dice a la geometría cómo curvarse.\n\n> **💡 Nota avanzada**\n> La constante cosmológica Λ, que Einstein introdujo y luego llamó 'su mayor error', resulta ser la clave de la expansión acelerada del universo (energía oscura). La ecuación es el puente entre la materia y la geometría: 'el espacio le dice a la materia cómo moverse, la materia le dice al espacio cómo curvarse'.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la masa y la energía curvan el espacio-tiempo; los objetos (incluida la luz) siguen las geodésicas de ese espacio curvo —eso es la gravedad. El principio de equivalencia (gravedad = aceleración) es su base. Predicciones confirmadas: la luz se curva, los agujeros negros atrapan la luz, los relojes se ralentizan cerca de la masa, y las ondas gravitacionales ondulan el espacio (detectadas en 2015).\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-capa-i-intuicin---la-sabana-y-las-canicas",
-      "titulo": "🌱 Capa I: Intuición - La Sabana y las Canicas",
+      "id": "gravedad-curvatura",
+      "titulo": "La gravedad como curvatura",
       "niveles": {
-        "principiante": "### 1.1 El experimento mental definitivo\n\nImagina una **sábana perfectamente tensada** y completamente plana. Esa sábana representa el **espacio** (o más exactamente, el espacio-tiempo, pero vayamos paso a paso).\n\nAhora coloca una **bola de boliche** en el centro de la sábana. ¿Qué pasa? La sábana se **deforma**, creando una depresión alrededor de la bola. Esa depresión es exactamente lo que hace la masa con el espacio: lo **curva**.\n\nSi ahora lanzas una **canica** cerca de la bola de boliche, no se mueve en línea recta. Sigue la curvatura de la sábana y **gira alrededor** de la bola de boliche, como si estuviera \"atraída\" por ella.\n\n**Pero aquí está lo crucial:** la canica no siente ninguna \"fuerza de atracción\". Simplemente sigue el camino más natural en una superficie curva. Eso es exactamente lo que hacen los planetas alrededor del Sol: no los \"tira\" una fuerza invisible; siguen la geometría curva del espacio-tiempo creada por la masa del Sol.\n\n### 1.2 ¿Entonces qué pasó con Newton?\n\nLa gravedad de Newton no está \"mal\". Funciona **increíblemente bien** para la mayoría de situaciones cotidianas:\n\n- Calcula con precisión dónde caerá una pelota lanzada\n- Predice con exactitud las órbitas de los satélites artificiales\n- Permite construir puentes y rascacielos sin problemas\n\nPero Newton tiene **dos problemas graves**:\n\n1. **No explica el \"cómo\"**: ¿Cómo transmite la gravedad su fuerza a través del vacío del espacio? ¿A qué velocidad? Newton nunca lo explicó. Según su teoría, si el Sol desapareciera **ahora mismo**, la Tierra saldría volada **instantáneamente**. Eso violaba todo lo que sabemos sobre la física.\n\n2. **No es exacta en ciertos casos**: Hay situaciones donde las predicciones de Newton se desvían de la realidad. La órbita de Mercurio, por ejemplo, no se comporta exactamente como predice la mecánica newtoniana.\n\nEinstein resolvió ambos problemas con una idea elegante: **no hay fuerza gravitatoria**. Solo hay **espacio-tiempo curvado**, y los objetos simplemente siguen los caminos más rectos posibles dentro de esa curvatura.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > Si el Sol desapareciera **ahora mismo**, la Tierra no lo sentiría **instantáneamente**. Según la relatividad general, el cambio en la curvatura del espacio-tiempo se propaga a la **velocidad de la luz** (300.000 km/s). Así que seguiríamos orbitando un Sol fantasma durante **8 minutos y 20 segundos** antes de sentir la diferencia. Exactamente el mismo tiempo que tarda la luz del Sol en llegar hasta nosotros.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: FUNDAMENTOS — EL ESPACIO-TIEMPO -->\n<!-- ============================================ -->"
+        "principiante": "## La gravedad como curvatura\n\nNewton describió la gravedad como una fuerza: F = GMm/r². Einstein la redefinió: la masa curva el espacio-tiempo.\n\nDiferencia clave: para Newton, si quitas el Sol, su fuerza desaparece al instante. Para Einstein, la curvatura del espacio-tiempo 'se propaga' a la velocidad de la luz.\n\nSi el Sol desapareciera, la Tierra tardaría 8 minutos en notarlo (el tiempo que tarda la luz en llegar).\n\n> **Dato que rompe el cerebro**\n> Para Einstein, la Tierra no 'siente' una fuerza del Sol: sigue su camino recto en un espacio curvo. La órbita es una geodésica —la trayectoria más recta posible en un espacio-tiempo curvado por el Sol.\n\n```aeterna-exercise\nTITLE: Explicar la curvatura\nHINT: Piensa en la tela elástica con la bola.\nXP: 30\nExplica con tus palabras por qué la Tierra orbita el Sol según la relatividad general, sin usar el concepto de 'fuerza'.\nSOLUTION: El Sol, con su masa, curva el espacio-tiempo a su alrededor. La Tierra sigue la trayectoria más recta posible (geodésica) en ese espacio curvo. Esa trayectoria es una órbita cerrada. No hay fuerza que tire: es geometría. Como la canica en la tela elástica hundida por la bola.\n```\n\n> **🔑 Concepto clave: Órbitas como geodésicas**\n> Las órbitas no son trayectorias elípticas en un espacio plano con una fuerza central: son geodésicas en un espacio-tiempo curvo. La curvatura reemplaza a la fuerza.\n",
+        "intermedio": "## Curvatura y sus consecuencias\n\nLa curvatura del espacio-tiempo produce efectos medibles:\n\n1. **Desviación de la luz**: la luz se curva al pasar cerca de una masa\n2. **Precesión del perihelio de Mercurio**: su órbita no es una elipse perfecta\n3. **Dilatación gravitacional del tiempo**: los relojes marchan más lento cerca de una masa\n4. **Lentes gravitacionales**: las masas desvían la luz como una lente\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: Luz y gravedad\nPregunta: La luz no tiene masa. ¿Por qué entonces la gravedad la curva?\nNivel: intermedio\nXP: 35\nBotón: Comprobar\nRespuesta: Porque la gravedad, en la relatividad general, no es una fuerza que actúa sobre la masa: es la curvatura del espacio-tiempo. La luz sigue la geodésica (la trayectoria recta en el espacio-tiempo curvo), igual que una canica rueda hacia la hendidura de una tela elástica sin que haya fuerza.\n```\n\n> **🔑 Concepto clave: La luz se curva**\n> La luz sigue las geodésicas del espacio-tiempo curvo. Por eso se desvía al pasar cerca del Sol. Fue la primera predicción confirmada de la relatividad general (eclipse de 1919).\n",
+        "avanzado": "## De Newton a Einstein\n\nLa relatividad general generaliza la gravedad de Newton:\n\n- Newton: F = GMm/r² (válida para campos débiles y velocidades bajas)\n- Einstein: ecuaciones de campo (universales)\n\nLa gravedad de Newton es el **límite de campo débil** de la relatividad general. A la escala del sistema solar, la diferencia es pequeña —salvo en la órbita de Mercurio, donde Einstein corrige la precesión que Newton no explica.\n\n> **💡 Nota de frontera**\n> La relatividad general es la teoría de la gravedad que se usa para el GPS, la órbita de Mercurio, los púlsares binarios y los agujeros negros. Pero tiene un límite: no se ha conciliado con la mecánica cuántica. Ese es el problema abierto más grande de la física.\n"
       },
       "acciones": []
     },
     {
-      "id": "1-el-espacio-tiempo-por-qu-necesitamos-4-dimensiones",
-      "titulo": "1. El espacio-tiempo: por qué necesitamos 4 dimensiones",
+      "id": "principio-equivalencia",
+      "titulo": "El principio de equivalencia",
       "niveles": {
-        "principiante": "### 1.1 El espacio no es suficiente\n\nEn la vida cotidiana pensamos en el espacio como algo **fijo y absoluto**: hay tres direcciones (izquierda-derecha, adelante-atrás, arriba-abajo) y el tiempo simplemente \"pasa\" igual para todos.\n\nNewton veía el espacio como un **escenario inmóvil** donde ocurrían los eventos físicos. El tiempo era un **reloj cósmico** que avanzaba al mismo ritmo para todos, en todas partes del universo.\n\nEinstein (primero con la relatividad especial, y luego con la general) demostró que esto es **incorrecto**:\n\n- **El espacio y el tiempo están entrelazados** formando una estructura única de 4 dimensiones llamada **espacio-tiempo**.\n- **El tiempo no transcurre igual para todos**: depende de tu velocidad y de la gravedad que te rodea.\n- **El espacio mismo se deforma** por la presencia de masa y energía.\n\n### 1.2 ¿Qué es una dimensión más?\n\nEs fácil entender 3 dimensiones espaciales: largo, ancho y alto. Pero el tiempo como cuarta dimensión es más difícil de visualizar. Piénsalo así:\n\n- Para localizar un **lugar**, necesitas 3 coordenadas: \"calle X, número Y, piso Z\"\n- Para localizar un **evento**, necesitas 4 coordenadas: \"calle X, número Y, piso Z, **a las 15:30**\"\n\nSin el tiempo, no puedes describir completamente la realidad. Y según Einstein, el espacio y el tiempo no son independientes: están **tejidos juntos** en una misma estructura que puede estirarse, comprimirse y deformarse.\n\n> **❌ Error común**\n>\n> > **[El error]:** \"La relatividad general es muy complicada y solo la entienden los físicos teóricos.\"\n> >\n> > **[La realidad]:** La **idea central** de la relatividad general es sorprendentemente simple: \"La masa curva el espacio-tiempo, y esa curvatura es lo que llamamos gravedad.\" Las matemáticas para calcular cosas concretas (como órbitas exactas o ondas gravitacionales) son complejas, pero el concepto fundamental es accesible para cualquier persona.\n\n---"
+        "principiante": "## El principio de equivalencia\n\nImagina que estás en un ascensor cerrado, sin ventanas. Si sientes que tu cuerpo pesa, ¿estás en la Tierra o el ascensor está acelerando hacia arriba?\n\nNo puedes distinguirlos. Esta es la idea central del **principio de equivalencia**: la gravedad y la aceleración son localmente indistinguibles.\n\nEinstein lo usó como punto de partida de la relatividad general.\n\n> **Dato que rompe el cerebro**\n> En una nave espacial acelerando a 9.8 m/s², sientes exactamente lo mismo que en la Tierra. Y en caída libre (como los astronautas en órbita), no sientes nada —como si la gravedad hubiera desaparecido.\n\n**[IMAGEN SUGERIDA: Un ascensor con un observador, y la nave acelerando. Pie de foto: \"¿Gravedad o aceleración? No puedes saberlo.\"]**\n\n\n<Connect title=\"De la relatividad general al GPS\" sourceConcept=\"Dilatación gravitacional del tiempo\" targetConcept=\"Navegación satelital\">\nLos relojes del GPS a 20,000 km de altura marchan +45 μs/día más rápido que en la superficie (menos gravedad). Combinado con la dilatación por velocidad (−7 μs/día), el GPS debe corregir 38 μs/día. La relatividad general de Einstein es ingeniería de tu navegación diaria.\n</Connect>\n",
+        "intermedio": "## Gravedad y aceleración\n\nEl principio de equivalencia tiene consecuencias profundas:\n\n1. **La masa inercial = masa gravitatoria**: la resistencia a acelerar es la misma que la respuesta a la gravedad.\n2. **La luz se desvía en campos gravitatorios**: si un ascensor acelerando desvía la luz, la gravedad también debe hacerlo.\n3. **La dilatación gravitacional del tiempo**: los relojes en campos gravitatorios más fuertes marchan más lento.\n\n> **Dato que rompe el cerebro**\n> Si la luz se desvía en un ascensor acelerando (porque mientras cruza, el ascensor sube), entonces la gravedad —que es equivalente a la aceleración— también debe desviar la luz. Einstein lo dedujo sin experimentos.\n\n> **🔑 Concepto clave: Gravedad = aceleración**\n> El principio de equivalencia dice que, localmente, un campo gravitatorio es indistinguible de un sistema acelerado. Es el puente conceptual entre la relatividad especial (aceleración) y la general (gravedad).\n\n\n<Connect title=\"De la relatividad general al GPS\" sourceConcept=\"Dilatación gravitacional del tiempo\" targetConcept=\"Navegación satelital\">\nLos relojes del GPS a 20,000 km de altura marchan +45 μs/día más rápido que en la superficie (menos gravedad). Combinado con la dilatación por velocidad (−7 μs/día), el GPS debe corregir 38 μs/día. La relatividad general de Einstein es ingeniería de tu navegación diaria.\n</Connect>\n",
+        "avanzado": "## La equivalencia en la práctica\n\nEl principio de equivalencia está verificado con gran precisión:\n\n- **Eötvös (1889)**: masa inercial = masa gravitatoria con precisión de 1 parte en 10⁸\n- **Experimentos modernos**: mejor de 1 parte en 10¹³\n- **Los astronautas en caída libre** son la manifestación cotidiana\n\nLa dilatación gravitacional del tiempo se mide en el GPS: los relojes a 20,000 km de altura marchan +45 μs/día más rápido que en la superficie.\n\n> **💡 Nota de frontera**\n> El principio de equivalencia débil está verificado. El fuerte (que la caída libre sea indistinguible de la ausencia de gravedad en todos los aspectos) es la base de la relatividad general, y las desviaciones buscadas en él podrían revelar nueva física.\n\n\n<Connect title=\"De la relatividad general al GPS\" sourceConcept=\"Dilatación gravitacional del tiempo\" targetConcept=\"Navegación satelital\">\nLos relojes del GPS a 20,000 km de altura marchan +45 μs/día más rápido que en la superficie (menos gravedad). Combinado con la dilatación por velocidad (−7 μs/día), el GPS debe corregir 38 μs/día. La relatividad general de Einstein es ingeniería de tu navegación diaria.\n</Connect>\n"
       },
       "acciones": []
     },
     {
-      "id": "2-el-principio-de-equivalencia-el-momento-eureka-de-einstein",
-      "titulo": "2. El principio de equivalencia: el momento \"eureka\" de Einstein",
+      "id": "curvatura-espacio-tiempo",
+      "titulo": "La curvatura del espacio-tiempo",
       "niveles": {
-        "principiante": "### 2.1 La historia del hombre más feliz (o más triste) de la ciencia\n\nEn 1907, Einstein tuvo lo que él mismo llamó \"la idea más feliz de su vida\". Estaba trabajando en una oficina de patentes en Berna y se le ocurrió un pensamiento aparentemente simple:\n\n> *\"Si una persona cae libremente, no sentirá su propio peso.\"*\n\nPiénsalo: si estás en un ascensor que cae libremente (sin fricción), flotarías en su interior exactamente igual que un astronauta en la Estación Espacial. No podrías distinguir entre **caída libre** y **ausencia de gravedad**.\n\n### 2.2 El experimento del ascensor\n\nImagina que estás dentro de un **ascensor cerrado** sin ventanas:\n\n**Escenario 1:** El ascensor está **quieto** en la superficie de la Tierra. Sientes tus pies pegados al suelo. Un objeto que sueltas cae hacia el suelo. **Hay gravedad.**\n\n**Escenario 2:** El ascensor está en el **espacio profundo**, lejos de cualquier planeta, y **acelera hacia arriba** a 9,8 m/s² (la aceleración de la gravedad terrestre). Al soltar un objeto, este \"cae\" al suelo del ascensor exactamente igual que en el Escenario 1. **No hay gravedad, pero el efecto es idéntico.**\n\n**Escenario 3:** El ascensor **cae libremente** hacia la Tierra. Flotas en su interior. Un objeto suspendido a tu lado no se mueve respecto a ti. **Hay gravedad, pero no la sientes.**\n\n### 2.3 ¿Qué significa esto?\n\nEl **principio de equivalencia** dice:\n\n> **No existe ningún experimento que pueda distinguir localmente entre gravedad y aceleración.**\n\nEsto implica algo revolucionario: **la gravedad no es una fuerza**. Es la manifestación de un **espacio-tiempo curvado**. Cuando estás de pie en la Tierra, no es que la gravedad te empuje hacia abajo. Es que el suelo te **empuja hacia arriba**, impidiéndote seguir tu camino natural (que sería caer libremente en una línea recta a través del espacio-tiempo curvado).\n\nSí, lo acabas de leer bien: **estar de pie en la Tierra es estar acelerando**. Tú no te mueves, pero el suelo te fuerza a desviarte de tu trayectoria natural en el espacio-tiempo.\n\n---"
+        "principiante": "## La curvatura del espacio-tiempo\n\nEl espacio-tiempo es como una tela elástica en 4 dimensiones. La masa y la energía lo deforman.\n\n- El Sol hunde el espacio-tiempo a su alrededor\n- Los planetas siguen esa curvatura\n- Cuanta más masa, mayor curvatura\n\nNo podemos ver la curvatura directamente: vivimos dentro del espacio-tiempo. Pero podemos medir sus efectos.\n\n> **Dato curioso**\n> La curvatura explica por qué los planetas orbitan: no hay 'cuerdas invisibles', solo un espacio-tiempo deformado. Es como una canica que rueda alrededor de un embudo sin tocar el fondo.\n\n**[IMAGEN SUGERIDA: El espacio-tiempo como embudo con planetas orbitando. Pie de foto: \"Los planetas siguen la curvatura.\"]**\n",
+        "intermedio": "## Modelando la curvatura\n\n```model-builder\nTITLE: ¿Qué curva el espacio-tiempo?\nPROBLEM: El espacio-tiempo se curva por la presencia de masa y energía. Selecciona las variables relevantes para la curvatura y descarta las irrelevantes.\nXP: 60\nVAR_RELEVANT: Masa del objeto | Más masa → más curvatura\nVAR_RELEVANT: Distribución de la energía | La energía también curva (E = mc²)\nVAR_RELEVANT: Distancia al objeto | La curvatura decae con la distancia\nVAR_IRRELEVANT: Color del objeto | No afecta la geometría\nVAR_IRRELEVANT: Forma estética del objeto | Solo la masa-energía importa\n```\n\nLa curvatura se mide con el **tensor de Riemann** (matemática compleja), pero su efecto se resume: la masa-energía dice al espacio-tiempo cómo curvarse.\n\n> **🔑 Concepto clave: Materia y geometría se hablan**\n> Las ecuaciones de Einstein dicen: 'la materia-energía curva el espacio-tiempo; el espacio-tiempo curvo dice a la materia cómo moverse'. Este diálogo entre materia y geometría es toda la relatividad general.\n",
+        "avanzado": "## Geometría de Riemann\n\nLa relatividad general usa la **geometría riemanniana**: en cada punto, el espacio-tiempo es localmente plano (como la Tierra es localmente plana en cada punto), pero globalmente curvo.\n\nLa **métrica** gμν describe la geometría: la distancia entre puntos en el espacio-tiempo curvo.\n\n- Espacio plano de Minkowski: g = diag(−1, 1, 1, 1)\n- Espacio de Schwarzschild (agujero negro): curvatura esférica\n\n> **💡 Nota de frontera**\n> La geometría riemanniana es el lenguaje de la relatividad general. Einstein necesitó dominarla (con ayuda de su amigo Grossmann) para formular sus ecuaciones. Es un ejemplo de cómo la física a veces requiere matemáticas nuevas.\n"
       },
       "acciones": []
     },
     {
-      "id": "3-la-curvatura-del-espacio-tiempo-la-nueva-gravedad",
-      "titulo": "3. La curvatura del espacio-tiempo: la nueva gravedad",
+      "id": "lente-gravitacional",
+      "titulo": "Las lentes gravitacionales",
       "niveles": {
-        "principiante": "### 3.1 ¿Cómo curva la masa el espacio-tiempo?\n\nLa ecuación que describe esta relación es la **ecuación de campo de Einstein**, y es una de las ecuaciones más elegantes de la física:\n\n$$G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}$$\n\nNo te preocupes si no entiendes los símbolos. En palabras simples, esta ecuación dice:\n\n| Lado izquierdo | Lado derecho | Relación |\n|:-:|:-:|:-:|\n| **Geometría del espacio-tiempo** (cómo está curvado) | **Distribución de masa y energía** (qué hay en el espacio) | La geometría **depende de** la materia |\n\nEn otras palabras:\n\n> **\"La materia le dice al espacio-tiempo cómo curvarse, y el espacio-tiempo le dice a la materia cómo moverse.\"**\n> — John Archibald Wheeler\n\n### 3.2 La analogía de la sabana (con matices importantes)\n\nLa analogía de la sabana es útil, pero tiene limitaciones que debes conocer:\n\n**Lo que la analogía hace bien:**\n- Muestra cómo un objeto masivo deforma su entorno\n- Explica por qué otros objetos \"giran\" alrededor de él\n- Ilustra por qué no hay \"fuerza de atracción\"\n\n**Lo que la analogía no captura:**\n- La sábana es **2D**, pero el espacio-tiempo es **4D** (3 espaciales + 1 temporal)\n- La curvatura real ocurre **también en el tiempo** (los relojes marcan más lento cerca de masas grandes)\n- En la sábana, usamos la gravedad **terrestre** para explicar la gravedad, lo cual es circular\n\n> **🌌 Imagina que...**\n>\n> > ...en lugar de una sábana 2D, imaginas un globo terráqueo hinchado. Cada objeto masivo es como una bola pesada pegada en la superficie que deforma la zona circundante. Si lanzas una pelota pequeña cerca de la bola pesada, no se mueve en línea recta: sigue la curvatura de la superficie. Ahora multiplica eso por 4 dimensiones (3 de espacio + 1 de tiempo) y tendrás una idea más cercana a la realidad.\n\n---"
+        "principiante": "## Las lentes gravitacionales\n\nCuando la luz pasa cerca de una masa enorme, se curva. Si la masa es grande (una galaxia o un cúmulo), actúa como una **lente**: distorsiona y amplifica la luz de objetos detrás.\n\nEsto crea imágenes sorprendentes:\n- **Anillos de Einstein**: arcos de luz alrededor de la lente\n- **Múltiples imágenes**: la misma galaxia vista varias veces\n- **Amplificación**: objetos lejanos que se ven más brillantes\n\n> **Dato que rompe el cerebro**\n> A veces vemos la misma galaxia lejana dos o cuatro veces en el cielo, porque su luz llega por distintos caminos curvados. Las lentes gravitacionales son los 'telescopios naturales' del universo.\n\n**[IMAGEN SUGERIDA: Un cúmulo de galaxias con arcos de luz (anillos de Einstein). Pie de foto: \"La gravedad actúa como lente.\"]**\n\n\n<Transfer targetDomain=\"Astronomía observacional\" title=\"Transfiere: mapea la materia oscura\">\nUsa las lentes gravitacionales como herramienta: un cúmulo de galaxias distorsiona la luz de las galaxias detrás. Comparando la distorsión (que revela la masa total) con la masa visible, se revela que la mayor parte es invisible. Investiga cómo los mapas de materia oscura se construyen con lentes gravitacionales y qué implican para nuestra imagen del universo.\n</Transfer>\n",
+        "intermedio": "## El eclipse de 1919\n\nLa primera confirmación de la relatividad general fue en 1919: Arthur Eddington midió la desviación de la luz de las estrellas cerca del Sol durante un eclipse.\n\n- Newton predecía una desviación pequeña\n- Einstein predecía el doble (1.75 segundos de arco)\n- Eddington midió la desviación de Einstein\n\nLa noticia convirtió a Einstein en celebridad mundial.\n\n> **Dato que rompe el cerebro**\n> La desviación de la luz por el Sol es de solo 1.75 segundos de arco (menos de 1/2000 de grado). Medirla en 1919, con telescopios de la época, fue una hazaña técnica extraordinaria.\n\n> **🔑 Concepto clave: La luz sigue la curvatura**\n> Las lentes gravitacionales confirmaron que la luz se curva en campos gravitatorios, y hoy son herramientas: permiten medir la masa de las galaxias, ver objetos lejanos amplificados y mapear la materia oscura.\n\n\n<Transfer targetDomain=\"Astronomía observacional\" title=\"Transfiere: mapea la materia oscura\">\nUsa las lentes gravitacionales como herramienta: un cúmulo de galaxias distorsiona la luz de las galaxias detrás. Comparando la distorsión (que revela la masa total) con la masa visible, se revela que la mayor parte es invisible. Investiga cómo los mapas de materia oscura se construyen con lentes gravitacionales y qué implican para nuestra imagen del universo.\n</Transfer>\n",
+        "avanzado": "## Lentes como herramientas\n\nLas lentes gravitacionales son instrumentos de cosmología:\n\n- **Miden la masa de los cúmulos**: la distorsión revela masa invisible (materia oscura)\n- **Amplifican galaxias distantes**: permiten ver el universo temprano\n- **Detección de exoplanetas**: microlentes que revelan planetas\n- **Miden H₀**: el retraso temporal entre imágenes mide la expansión\n\nLa fotografía del cúmulo SMACS 0723 (JWST) muestra lentes gravitacionales en acción, revelando galaxias del universo temprano.\n\n> **💡 Nota de frontera**\n> Las lentes gravitacionales son una de las principales herramientas para estudiar la materia oscura: comparando la luz distorsionada con la masa visible, se revela que la mayor parte de la masa del universo es invisible. Es evidencia directa de que la gravedad curva el espacio-tiempo a escalas cósmicas.\n\n\n<Transfer targetDomain=\"Astronomía observacional\" title=\"Transfiere: mapea la materia oscura\">\nUsa las lentes gravitacionales como herramienta: un cúmulo de galaxias distorsiona la luz de las galaxias detrás. Comparando la distorsión (que revela la masa total) con la masa visible, se revela que la mayor parte es invisible. Investiga cómo los mapas de materia oscura se construyen con lentes gravitacionales y qué implican para nuestra imagen del universo.\n</Transfer>\n"
       },
       "acciones": []
     },
     {
-      "id": "4-predicciones-comprobadas-cuando-la-teora-supera-a-la-intuicin",
-      "titulo": "4. Predicciones comprobadas: cuando la teoría supera a la intuición",
+      "id": "agujeros-negros",
+      "titulo": "Los agujeros negros",
       "niveles": {
-        "principiante": "La grandeza de la relatividad general no está solo en lo elegante de sus ecuaciones, sino en que **todas sus predicciones han sido confirmadas experimentalmente**:\n\n### 4.1 La órbita de Mercurio: el primer triunfo\n\nMercurio es el planeta más cercano al Sol, y su órbita tiene un comportamiento extraño: su eje de rotación gira lentamente (un efecto llamado **precesión del perihelio**).\n\nNewton predecía una cierta cantidad de precesión, pero las observaciones mostraban un **exceso de 43 segundos de arco por siglo**. Una cantidad diminuta, pero que durante décadas desconcertó a los astrónomos. Einstein lo explicó perfectamente con su teoría: la curvatura del espacio-tiempo cerca del Sol afecta la órbita de Mercurio de una manera que la mecánica newtoniana no puede capturar.\n\n### 4.2 La deflexión de la luz: las estrellas se curvan\n\nSi la gravedad curva el espacio-tiempo, y la luz viaja a través del espacio-tiempo, entonces **la luz también debe curvarse** cerca de objetos masivos.\n\n**En 1919**, Arthur Eddington organizó una expedición para observar un eclipse solar y medir si la luz de estrellas lejanas se desviaba al pasar cerca del Sol. El resultado coincidió **exactamente** con la predicción de Einstein: la luz se curvaba el doble de lo que predecía Newton (que trataba la luz como partículas con masa).\n\nEste fue el momento en que Einstein pasó de ser un científico conocido a ser una **leyenda mundial**.\n\n### 4.3 Dilatación gravitacional del tiempo: los relojes engañan\n\nSegún la relatividad general, **el tiempo pasa más despacio donde la gravedad es más fuerte**. No es una ilusión: es un efecto real y medible.\n\n**En 1971**, los científicos Hafele y Keating colocaron relojes atómicos en aviones y los hicieron volar alrededor del mundo. Al compararlos con relojes idénticos que se quedaron en el suelo, encontraron una diferencia de **unos pocos nanosegundos**, exactamente como predecía la relatividad general.\n\n**Aplicación cotidiana:** Tus dispositivos **GPS** necesitan corregir la dilatación del tiempo gravitacional para funcionar con precisión. Los satélites GPS están a unos 20.000 km de altura, donde la gravedad es más débil que en la superficie terrestre. Sus relojes marcan el tiempo **45 microsegundos más rápido al día** respecto a los relojes en tierra. Sin corregir este efecto, el GPS se equivocaría en **unos 10 kilómetros al día**. ¡Tu Google Maps te llevaría al océano!\n\n> **🌍 Dato cotidiano**\n>\n> > Cada vez que abres Google Maps y te guía hacia tu destino, estás usando una tecnología que **depende completamente** de que la relatividad general sea correcta. Einstein es, literalmente, el padre de la navegación por satélite.\n\n### 4.4 Las ondas gravitacionales: ondulaciones del tejido del universo\n\nSi el espacio-tiempo es como una tela, entonces los objetos masivos que se mueven deberían crear **ondas** en esa tela, igual que una piedra lanzada a un estanque crea ondas en el agua.\n\nEstas **ondas gravitacionales** son minúsculas ondulaciones que se expanden a la velocidad de la luz, estirando y comprimiendo el espacio a su paso. Son tan débiles que detectarlas requirió un esfuerzo colosal.\n\n**En 2015**, el observatorio **LIGO** detectó por primera vez ondas gravitacionales producidas por la **colisión de dos agujeros negros** a 1.300 millones de años luz de distancia. El anuncio se hizo en 2016 y los tres científicos principales recibieron el **Premio Nobel de Física en 2017**.\n\nEsto abrió una **nueva era de la astronomía**: la astronomía de ondas gravitacionales. Ahora podemos \"escuchar\" el universo, no solo verlo.\n\n---"
+        "principiante": "## Los agujeros negros\n\nSi comprimes suficiente masa en poco espacio, la curvatura del espacio-tiempo se vuelve tan extrema que ni la luz puede escapar. Es un **agujero negro**.\n\nCaracterísticas:\n- **Horizonte de sucesos**: el punto de no retorno\n- **Singularidad**: toda la masa concentrada en un punto\n- **Gravedad extrema**: la curvatura del espacio-tiempo colapsa\n\n> **Dato que rompe el cerebro**\n> Un agujero negro no es un 'agujero' en el espacio: es una región donde el espacio-tiempo está tan curvado que la geometría misma se cierra sobre sí. Nada, ni la luz, puede escapar.\n\n**[IMAGEN SUGERIDA: Un agujero negro con su disco de acreción brillante. Pie de foto: \"Ni la luz escapa del horizonte de sucesos.\"]**\n\n```graph-lab\nTITLE: Dilatación gravitacional del tiempo\nDESC: Los relojes marchan más lento cerca de una masa. El tiempo se ralentiza al acercarse a un agujero negro.\nX_LABEL: Distancia al agujero negro (en radios de Schwarzschild)\nY_LABEL: Factor de dilatación\nQUESTION: ¿Qué le ocurre al tiempo de un reloj al acercarse al horizonte de sucesos?\nXP: 50\nPOINT: 10 | 1.05 | Lejos\nPOINT: 3 | 1.22 | Medio\nPOINT: 1.1 | 3.16 | Cerca del horizonte\nOPTION_CORRECT: Se ralentiza y diverge en el horizonte | El tiempo se dilata más cerca de la masa y tiende a infinito en el horizonte de sucesos.\nOPTION_WRONG: Se acelera | El tiempo se ralentiza cerca de la masa, no se acelera.\nOPTION_WRONG: No cambia | La gravedad curva el tiempo: el efecto es real y medible (GPS).\n```\n\n\n### Estima como un físico: el radio de un agujero negro\n\nLa **estimación de orden de magnitud** del radio de Schwarzschild: rs = 2GM/c². Para el Sol (M = 2×10³⁰ kg): numerador 2×6.67×10⁻¹¹×2×10³⁰ ≈ 2.7×10²⁰; dividido por c² = 9×10¹⁶ da ≈ 3×10³ m —3 km. Estimar el orden de magnitud antes de calcular confirma la plausibilidad: un agujero negro solar cabría en una ciudad pequeña, no en un planeta.\n\n",
+        "intermedio": "## El horizonte de sucesos\n\nEl **horizonte de sucesos** es la frontera del agujero negro: dentro, ninguna trayectoria conduce hacia afuera.\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: El horizonte de sucesos\nPregunta: ¿Qué le ocurre a un astronauta que cruza el horizonte de sucesos de un agujero negro?\nNivel: avanzado\nXP: 45\nBotón: Comprobar\nRespuesta: Una vez cruzado el horizonte, todas las trayectorias apuntan hacia la singularidad: no hay escapatoria, ni siquiera para la luz. Desde lejos, parece congelarse (su tiempo se dilata infinitamente), y su luz se desplaza al rojo hasta desaparecer. El tiempo del astronauta, desde su propia perspectiva, transcurre normal hasta la singularidad.\n```\n\nEl **radio de Schwarzschild** (horizonte para un agujero negro sin rotación):\n\n$$ r_s = \\frac{2GM}{c^2} $$\n\nPara el Sol (si colapsara): rs ≈ 3 km. Para la Tierra: rs ≈ 9 mm.\n\n> **🔑 Concepto clave: El punto de no retorno**\n> El horizonte de sucesos es la frontera donde la velocidad de escape iguala la de la luz. Dentro, la curvatura es total: la geometría se colapsa y todas las trayectorias llevan a la singularidad.\n\n```graph-lab\nTITLE: Dilatación gravitacional del tiempo\nDESC: Los relojes marchan más lento cerca de una masa. El tiempo se ralentiza al acercarse a un agujero negro.\nX_LABEL: Distancia al agujero negro (en radios de Schwarzschild)\nY_LABEL: Factor de dilatación\nQUESTION: ¿Qué le ocurre al tiempo de un reloj al acercarse al horizonte de sucesos?\nXP: 50\nPOINT: 10 | 1.05 | Lejos\nPOINT: 3 | 1.22 | Medio\nPOINT: 1.1 | 3.16 | Cerca del horizonte\nOPTION_CORRECT: Se ralentiza y diverge en el horizonte | El tiempo se dilata más cerca de la masa y tiende a infinito en el horizonte de sucesos.\nOPTION_WRONG: Se acelera | El tiempo se ralentiza cerca de la masa, no se acelera.\nOPTION_WRONG: No cambia | La gravedad curva el tiempo: el efecto es real y medible (GPS).\n```\n\n\n### Estima como un físico: el radio de un agujero negro\n\nLa **estimación de orden de magnitud** del radio de Schwarzschild: rs = 2GM/c². Para el Sol (M = 2×10³⁰ kg): numerador 2×6.67×10⁻¹¹×2×10³⁰ ≈ 2.7×10²⁰; dividido por c² = 9×10¹⁶ da ≈ 3×10³ m —3 km. Estimar el orden de magnitud antes de calcular confirma la plausibilidad: un agujero negro solar cabría en una ciudad pequeña, no en un planeta.\n\n",
+        "avanzado": "## Agujeros negros reales\n\nLos agujeros negros no son solo teoría:\n\n- **Sagitario A***: agujero negro central de la Vía Láctea (4 millones de masas solares)\n- **M87***: primer agujero negro fotografiado (2019, Event Horizon Telescope)\n- **Fusión de agujeros negros**: detectada por ondas gravitacionales (2015)\n- **Relatividad extrema**: la foto de M87* muestra el anillo de fotones, luz en órbita alrededor del horizonte\n\nLos agujeros negros son los objetos donde la relatividad general se prueba en su régimen extremo.\n\n> **💡 Nota de frontera**\n> La radiación de Hawking: los agujeros negros emiten radiación y pueden evaporarse. Esto conecta la relatividad general con la mecánica cuántica —un puente que sigue siendo el problema abierto más profundo de la física. Los agujeros negros son el laboratorio donde ambas teorías se encuentran.\n\n```graph-lab\nTITLE: Dilatación gravitacional del tiempo\nDESC: Los relojes marchan más lento cerca de una masa. El tiempo se ralentiza al acercarse a un agujero negro.\nX_LABEL: Distancia al agujero negro (en radios de Schwarzschild)\nY_LABEL: Factor de dilatación\nQUESTION: ¿Qué le ocurre al tiempo de un reloj al acercarse al horizonte de sucesos?\nXP: 50\nPOINT: 10 | 1.05 | Lejos\nPOINT: 3 | 1.22 | Medio\nPOINT: 1.1 | 3.16 | Cerca del horizonte\nOPTION_CORRECT: Se ralentiza y diverge en el horizonte | El tiempo se dilata más cerca de la masa y tiende a infinito en el horizonte de sucesos.\nOPTION_WRONG: Se acelera | El tiempo se ralentiza cerca de la masa, no se acelera.\nOPTION_WRONG: No cambia | La gravedad curva el tiempo: el efecto es real y medible (GPS).\n```\n\n\n### Estima como un físico: el radio de un agujero negro\n\nLa **estimación de orden de magnitud** del radio de Schwarzschild: rs = 2GM/c². Para el Sol (M = 2×10³⁰ kg): numerador 2×6.67×10⁻¹¹×2×10³⁰ ≈ 2.7×10²⁰; dividido por c² = 9×10¹⁶ da ≈ 3×10³ m —3 km. Estimar el orden de magnitud antes de calcular confirma la plausibilidad: un agujero negro solar cabría en una ciudad pequeña, no en un planeta.\n\n"
       },
       "acciones": []
     },
     {
-      "id": "5-agujeros-negros-cuando-la-curvatura-se-vuelve-infinita",
-      "titulo": "5. Agujeros negros: cuando la curvatura se vuelve infinita",
+      "id": "ondas-gravitacionales",
+      "titulo": "Las ondas gravitacionales",
       "niveles": {
-        "principiante": "### 5.1 ¿Qué es un agujero negro?\n\nUn **agujero negro** es una región del espacio-tiempo donde la curvatura es tan extrema que **nada puede escapar**, ni siquiera la luz.\n\nSe forma cuando una estrella muy masiva (al menos 20-25 veces la masa del Sol) agota su combustible nuclear y colapsa bajo su propia gravedad. La masa se comprime en un volumen increíblemente pequeño, creando una curvatura tan intensa que el espacio-tiempo se \"dobla\" sobre sí mismo.\n\n### 5.2 La estructura de un agujero negro\n\n| Parte | Descripción |\n|:------|:-----------|\n| **Singularidad** | El punto central donde toda la masa está concentrada y la densidad se vuelve (teóricamente) infinita. Aquí las leyes de la física como las conocemos dejan de funcionar. |\n| **Horizonte de sucesos** | La \"frontera\" del agujero negro. Una vez que algo cruza este límite, no puede volver a salir. No es una superficie física, sino un punto sin retorno. |\n| **Ergosfera** | Región alrededor de un agujero negro en rotación donde el espacio-tiempo es arrastrado tan violentamente que nada puede permanecer estacionario. |\n\n### 5.3 ¿Son reales?\n\n**Sí, absolutamente.** En 2019, el **Event Horizon Telescope** publicó la **primera imagen** de un agujero negro, ubicado en la galaxia M87. En 2022, se publicó la imagen del agujero negro supermasivo en el centro de nuestra propia galaxia, **Sagitario A***.\n\nLa relatividad general predice con precisión las sombras, los anillos de luz y las órbitas de las estrellas cercanas a estos objetos. Nuestra comprensión de los agujeros negros es una de las **validaciones más espectaculares** de la teoría de Einstein.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > Si cayeras en un agujero negro (algo que, por cierto, **no** recomendamos), experimentarías un fenómeno llamado **espaguetificación**: la diferencia de gravedad entre tus pies y tu cabeza sería tan extrema que te estirarías como un fideo. Técnicamente fascinante. Prácticamente fatal.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
-      "niveles": {
-        "principiante": "> **🧠 Sistema Aeterna, paso 1: Desafía la intuición**\n>\n> > Tu cerebro está entrenado para pensar en la gravedad como una \"fuerza que tira hacia abajo\". La relatividad general te pide que abandones esa imagen y la reemplace por algo más abstracto: la gravedad es geometría. Es difícil, pero es una de las ideas más hermosas jamás concebidas.\n\n> **🧠 Sistema Aeterna, paso 2: Celebra las predicciones**\n>\n> > Una teoría no es solo bonita: debe funcionar. La relatividad general predijo la órbita de Mercurio, la curvatura de la luz, la dilatación del tiempo gravitacional, las ondas gravitacionales y los agujeros negros **antes** de que fueran observados. Cada confirmación experimental es un triunfo de la razón humana.\n\n> **🧠 Sistema Aeterna, paso 3: Conecta con tu vida cotidiana**\n>\n> > Cada vez que usas Google Maps, miras una imagen de un agujero negro o ves una peli de ciencia ficción con agujeros negros... estás interactuando con la relatividad general. La física más avanzada del siglo pasado **ya forma parte de tu vida diaria**.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-preguntas-frecuentes-sobre-relatividad-general",
-      "titulo": "❓ Preguntas frecuentes sobre Relatividad General",
-      "niveles": {
-        "principiante": "> **❓ ¿Cómo puede la gravedad \"ralentizar el tiempo\"?**\n>\n> Piensa en ello así: el tiempo no es un reloj cósmico universal que marca para todos a la vez. El tiempo es una propiedad local que depende del entorno. La masa y la energía \"estiran\" el tejido del espacio-tiempo, y el tiempo es parte de ese tejido. Donde hay más curvatura (más gravedad), el tiempo fluye más despacio. No lo notas en la vida diaria porque la diferencia es minúscula, pero es real y medible.\n\n> **❓ ¿Los agujeros negros \"absorben\" todo?**\n>\n> No exactamente. Un agujero negro tiene gravedad, como cualquier objeto masivo. Si reemplazaras nuestro Sol por un agujero negro de la misma masa, los planetas seguirían orbitando exactamente igual. La diferencia es que un agujero negro es **tan compacto** que te puedes acercar mucho más a su centro, y ahí la curvatura se vuelve extrema. Solo si cruzas el horizonte de sucesos, no puedes salir.\n\n> **❓ ¿Qué es la gravedad cuántica y por qué no la tenemos todavía?**\n>\n> La relatividad general describe la gravedad a escalas grandes (planetas, estrellas, galaxias). La mecánica cuántica describe las partículas a escalas diminutas. Cuando intentas combinar ambas para describir situaciones extremas (como el interior de un agujero negro o el Big Bang), obtienes **resultados absurdos** (infinidades infinitas). Necesitamos una teoría de **gravedad cuántica** que funcione en ambos extremos. ¡Ese es uno de los mayores desafíos abiertos de la física!\n\n> **❓ ¿Qué es la energía oscura y cómo se relaciona con la relatividad general?**\n>\n> Einstein introdujo una constante cosmológica (el término **Λ** en su ecuación) porque pensaba que el universo era estático. Cuando se descubrió que el universo se está **expandiendo aceleradamente**, esa constante cobró nuevo significado: podría representar la **energía oscura**, una forma misteriosa de energía que impulsa la expansión acelerada del universo. Aún no sabemos exactamente qué es, pero la relatividad general nos da el marco matemático para describirla.\n\n---",
-        "intermedio": "> **❓ ¿Cómo puede la gravedad \"ralentizar el tiempo\"?**\n>\n> Piensa en ello así: el tiempo no es un reloj cósmico universal que marca para todos a la vez. El tiempo es una propiedad local que depende del entorno. La masa y la energía \"estiran\" el tejido del espacio-tiempo, y el tiempo es parte de ese tejido. Donde hay más curvatura (más gravedad), el tiempo fluye más despacio. No lo notas en la vida diaria porque la diferencia es minúscula, pero es real y medible.\n\n> **❓ ¿Los agujeros negros \"absorben\" todo?**\n>\n> No exactamente. Un agujero negro tiene gravedad, como cualquier objeto masivo. Si reemplazaras nuestro Sol por un agujero negro de la misma masa, los planetas seguirían orbitando exactamente igual. La diferencia es que un agujero negro es **tan compacto** que te puedes acercar mucho más a su centro, y ahí la curvatura se vuelve extrema. Solo si cruzas el horizonte de sucesos, no puedes salir.\n\n> **❓ ¿Qué es la gravedad cuántica y por qué no la tenemos todavía?**\n>\n> La relatividad general describe la gravedad a escalas grandes (planetas, estrellas, galaxias). La mecánica cuántica describe las partículas a escalas diminutas. Cuando intentas combinar ambas para describir situaciones extremas (como el interior de un agujero negro o el Big Bang), obtienes **resultados absurdos** (infinidades infinitas). Necesitamos una teoría de **gravedad cuántica** que funcione en ambos extremos. ¡Ese es uno de los mayores desafíos abiertos de la física!\n\n> **❓ ¿Qué es la energía oscura y cómo se relaciona con la relatividad general?**\n>\n> Einstein introdujo una constante cosmológica (el término **Λ** en su ecuación) porque pensaba que el universo era estático. Cuando se descubrió que el universo se está **expandiendo aceleradamente**, esa constante cobró nuevo significado: podría representar la **energía oscura**, una forma misteriosa de energía que impulsa la expansión acelerada del universo. Aún no sabemos exactamente qué es, pero la relatividad general nos da el marco matemático para describirla.\n\n---",
-        "avanzado": "> **❓ ¿Cómo puede la gravedad \"ralentizar el tiempo\"?**\n>\n> Piensa en ello así: el tiempo no es un reloj cósmico universal que marca para todos a la vez. El tiempo es una propiedad local que depende del entorno. La masa y la energía \"estiran\" el tejido del espacio-tiempo, y el tiempo es parte de ese tejido. Donde hay más curvatura (más gravedad), el tiempo fluye más despacio. No lo notas en la vida diaria porque la diferencia es minúscula, pero es real y medible.\n\n> **❓ ¿Los agujeros negros \"absorben\" todo?**\n>\n> No exactamente. Un agujero negro tiene gravedad, como cualquier objeto masivo. Si reemplazaras nuestro Sol por un agujero negro de la misma masa, los planetas seguirían orbitando exactamente igual. La diferencia es que un agujero negro es **tan compacto** que te puedes acercar mucho más a su centro, y ahí la curvatura se vuelve extrema. Solo si cruzas el horizonte de sucesos, no puedes salir.\n\n> **❓ ¿Qué es la gravedad cuántica y por qué no la tenemos todavía?**\n>\n> La relatividad general describe la gravedad a escalas grandes (planetas, estrellas, galaxias). La mecánica cuántica describe las partículas a escalas diminutas. Cuando intentas combinar ambas para describir situaciones extremas (como el interior de un agujero negro o el Big Bang), obtienes **resultados absurdos** (infinidades infinitas). Necesitamos una teoría de **gravedad cuántica** que funcione en ambos extremos. ¡Ese es uno de los mayores desafíos abiertos de la física!\n\n> **❓ ¿Qué es la energía oscura y cómo se relaciona con la relatividad general?**\n>\n> Einstein introdujo una constante cosmológica (el término **Λ** en su ecuación) porque pensaba que el universo era estático. Cuando se descubrió que el universo se está **expandiendo aceleradamente**, esa constante cobró nuevo significado: podría representar la **energía oscura**, una forma misteriosa de energía que impulsa la expansión acelerada del universo. Aún no sabemos exactamente qué es, pero la relatividad general nos da el marco matemático para describirla.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-siguiente-parada-en-la-ruta",
-      "titulo": "⚠️ Siguiente parada en la ruta",
-      "niveles": {
-        "principiante": "> **⚠️ Siguiente parada: Mecánica Cuántica**\n>\n> Acabas de entender cómo la gravedad curva el espacio-tiempo a escalas cósmicas. Ahora prepárate para el mundo opuesto: las escalas más pequeñas del universo, donde las reglas de la física cotidiana dejan de aplicarse. Donde una partícula puede estar en dos lugares a la vez, donde observar algo cambia lo que observas, y donde la realidad es fundamentalmente probabilística. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando:**\n- *\"La estructura del espacio-tiempo\"* de Stephen Hawking — Una introducción rigurosa pero accesible a la relatividad general.\n- *\"Gravity: An Introduction to Einstein's General Relativity\"* de James Hartle — El libro de texto más claro para aprender la teoría con profundidad.\n- *\"El tejido del cosmos\"* de Brian Greene — Divulgación excelente sobre la naturaleza del espacio-tiempo."
+        "principiante": "## Las ondas gravitacionales\n\nCuando una masa acelera, la curvatura del espacio-tiempo se propaga como una onda: son las **ondas gravitacionales**.\n\nSon 'arrugas' en el espacio-tiempo que viajan a la velocidad de la luz.\n\nEinstein las predijo en 1916. Se detectaron por primera vez en 2015: la fusión de dos agujeros negros a 1.3 mil millones de años-luz.\n\n> **Dato que rompe el cerebro**\n> Las ondas gravitacionales estiran y comprimen el espacio mismo en diminutas cantidades. La onda de 2015 estiró los detectores LIGO en menos de la milésima del diámetro de un protón.\n\n**[IMAGEN SUGERIDA: Dos agujeros negros fusionándose, con ondas en el espacio-tiempo. Pie de foto: \"Las colisiones cósmicas crean ondas gravitacionales.\"]**\n",
+        "intermedio": "## Detectando las ondas\n\nLa detección de 2015 (LIGO) abrió una nueva ventana al universo.\n\n```aeterna-exercise\nTITLE: Explicar las ondas gravitacionales\nHINT: Son arrugas del espacio-tiempo.\nXP: 40\n¿Qué son las ondas gravitacionales y por qué su detección fue revolucionaria?\nSOLUTION: Son ondas en la curvatura del espacio-tiempo, predichas por Einstein en 1916, que viajan a c. Su detección en 2015 (fusión de dos agujeros negros) fue revolucionaria porque: confirmó la relatividad general en su régimen extremo, demostró la existencia de agujeros negros binarios, y abrió la 'astronomía de ondas gravitacionales' —una forma nueva de observar el universo, complementaria a la luz.\n```\n\nLos detectores (LIGO, Virgo) miden el estiramiento del espacio con interferómetros láser de kilómetros de longitud. Detectan estiramientos de 10⁻²¹ —la escala subatómica.\n\n> **🔑 Concepto clave: Una nueva astronomía**\n> Hasta 2015, observábamos el universo con luz. Las ondas gravitacionales permiten 'escuchar' eventos que no emiten luz: fusiones de agujeros negros, estrellas de neutrones, el eco del Big Bang.\n",
+        "avanzado": "## La astronomía multimessenger\n\nLas ondas gravitacionales inauguraron la **astronomía multimessenger**: combinar ondas gravitacionales con luz.\n\n- **GW170817 (2017)**: fusión de estrellas de neutrones detectada por ondas gravitacionales Y por luz (kilonova, rayos gamma)\n- Permitió medir la velocidad de las ondas = c con precisión\n- Explicó el origen de los elementos pesados (oro, platino) en estas colisiones\n\nCada nueva detección abre preguntas: ¿qué son las fusiones de agujeros negros? ¿Cómo se forman? ¿Qué más 'oye' la gravedad?\n\n> **💡 Nota de frontera**\n> Las ondas gravitacionales del Big Bang (fondo estocástico) podrían revelar la física del universo primordísimo, inaccesible con luz. Futuros detectores (LISA, espacial) buscarán este eco del origen del universo.\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "La relatividad general es la teoría de la gravedad de Einstein: la masa y la energía curvan el espacio-tiempo, y los objetos —incluida la luz— siguen las geodésicas de ese espacio curvo. Has recorrido sus pilares: el principio de equivalencia (gravedad y aceleración son localmente indistinguibles), la curvatura del espacio-tiempo descrita por las ecuaciones de campo, y sus predicciones extraordinarias —la desviación de la luz verificada en 1919, las lentes gravitacionales que hoy mapean la materia oscura, los agujeros negros cuyo horizonte atrapa hasta la luz, y las ondas gravitacionales detectadas un siglo después de su predicción. Cada una de estas predicciones fue confirmada, y cada confirmación abrió nuevos horizontes: la fotografía del agujero negro M87*, la fusión detectada por LIGO, la astronomía multimessenger. La relatividad general es también la teoría que gobierna el cosmos: el GPS que corrige la dilatación gravitacional, la expansión del universo y la energía oscura. Su límite —conciliarla con la mecánica cuántica— es el mayor problema abierto de la física, el territorio donde nacen las teorías de cuerdas y la gravedad cuántica de lazos. Ahora sabes que la gravedad no es una fuerza: es el tejido mismo del universo curvándose, y has aprendido a leer su geometría.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "La idea central",
+        "enunciado": "¿Cómo describe la relatividad general la gravedad?",
+        "solucion": "La gravedad es la curvatura del espacio-tiempo producida por la masa y la energía. Los objetos siguen las geodésicas (trayectorias más rectas) en ese espacio curvo. No es una fuerza que actúa a distancia: es geometría.",
+        "xp": 35,
+        "pistas": [
+          "¿Qué hace la masa al espacio-tiempo?",
+          "¿Qué siguen los objetos?"
+        ],
+        "opciones": [
+          {
+            "label": "Curvatura del espacio-tiempo",
+            "correcta": true
+          },
+          {
+            "label": "Una fuerza a distancia",
+            "correcta": false
+          },
+          {
+            "label": "Aceleración del éter",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "La masa curva el espacio-tiempo",
+          "Los objetos siguen la curvatura"
+        ]
+      },
+      {
+        "titulo": "Principio de equivalencia",
+        "enunciado": "En un ascensor cerrado sientes que pesas. ¿Qué dos situaciones son localmente indistinguibles?",
+        "solucion": "Estar en un campo gravitatorio (Tierra) y estar acelerando (ascensor o nave que acelera). No puedes distinguirlos sin ventanas: el principio de equivalencia.",
+        "xp": 35,
+        "pistas": [
+          "¿Qué dos situaciones producen el mismo efecto?",
+          "¿Qué experimento mental lo demuestra?"
+        ],
+        "opciones": [
+          {
+            "label": "Gravedad y aceleración",
+            "correcta": true
+          },
+          {
+            "label": "Gravedad y velocidad constante",
+            "correcta": false
+          },
+          {
+            "label": "Reposo y gravedad cero",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce el ascensor de Einstein",
+          "Gravedad = aceleración"
+        ]
+      },
+      {
+        "titulo": "Agujeros negros",
+        "enunciado": "¿Qué es el horizonte de sucesos de un agujero negro?",
+        "solucion": "Es el punto de no retorno: la frontera donde la velocidad de escape iguala la de la luz. Dentro, ni la luz puede escapar, y todas las trayectorias llevan a la singularidad.",
+        "xp": 35,
+        "pistas": [
+          "¿Qué pasa con la luz?",
+          "¿Qué hay dentro?"
+        ],
+        "opciones": [
+          {
+            "label": "El punto de no retorno",
+            "correcta": true
+          },
+          {
+            "label": "El centro del agujero",
+            "correcta": false
+          },
+          {
+            "label": "La órbita más cercana",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica el horizonte",
+          "Ni la luz escapa"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Radio de Schwarzschild",
+        "enunciado": "Calcula el radio de Schwarzschild del Sol (M = 2×10³⁰ kg, G = 6.67×10⁻¹¹, c = 3×10⁸ m/s).",
+        "solucion": "rs = 2GM/c² = 2×6.67×10⁻¹¹×2×10³⁰/(9×10¹⁶) = 2.67×10²⁰/9×10¹⁶ ≈ 3000 m = 3 km. Si el Sol colapsara, su horizonte estaría a 3 km.",
+        "xp": 50,
+        "pistas": [
+          "rs = 2GM/c²",
+          "Calcula el numerador y divide"
+        ],
+        "opciones": [
+          {
+            "label": "3 km",
+            "correcta": true
+          },
+          {
+            "label": "300 km",
+            "correcta": false
+          },
+          {
+            "label": "3 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica rs = 2GM/c²",
+          "Calcula el resultado"
+        ]
+      },
+      {
+        "titulo": "La luz y la gravedad",
+        "enunciado": "¿Por qué la luz, que no tiene masa, se curva en los campos gravitatorios?",
+        "solucion": "Porque en la relatividad general la gravedad no actúa sobre la masa sino sobre la geometría del espacio-tiempo. La luz sigue las geodésicas del espacio-tiempo curvo, igual que una canica en una tela elástica hundida. No hay fuerza sobre la luz: hay curvatura del camino que recorre.",
+        "xp": 50,
+        "pistas": [
+          "¿Qué curva la masa?",
+          "¿Qué sigue la luz?"
+        ],
+        "opciones": [
+          {
+            "label": "Sigue la curvatura del espacio-tiempo",
+            "correcta": true
+          },
+          {
+            "label": "Tiene masa oculta",
+            "correcta": false
+          },
+          {
+            "label": "No se curva realmente",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "La luz sigue geodésicas",
+          "La curvatura reemplaza la fuerza"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "La primera confirmación",
+        "enunciado": "¿Qué confirmó el eclipse de 1919 y por qué fue tan importante?",
+        "solucion": "Confirmó la desviación de la luz de las estrellas al pasar cerca del Sol, tal como predecía Einstein (1.75 segundos de arco, el doble que Newton). Fue la primera verificación experimental de la relatividad general y catapultó a Einstein a la fama mundial.",
+        "xp": 55,
+        "pistas": [
+          "¿Qué midió Eddington?",
+          "¿Coincidía con Einstein o Newton?"
+        ],
+        "opciones": [
+          {
+            "label": "La desviación de la luz (Einstein)",
+            "correcta": true
+          },
+          {
+            "label": "La órbita de Mercurio",
+            "correcta": false
+          },
+          {
+            "label": "Las ondas gravitacionales",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce la predicción",
+          "Eddington midió la desviación"
+        ]
+      },
+      {
+        "titulo": "Ondas gravitacionales",
+        "enunciado": "¿Qué detectó LIGO en 2015 y por qué fue revolucionario?",
+        "solucion": "LIGO detectó ondas gravitacionales de la fusión de dos agujeros negros a 1.3 mil millones de años-luz. Revolucionario: confirmó la predicción de Einstein (1916), probó la relatividad general en su régimen extremo, demostró que los agujeros negros binarios existen y abrió la astronomía de ondas gravitacionales —una nueva forma de observar el universo sin luz.",
+        "xp": 60,
+        "pistas": [
+          "¿Qué evento lo generó?",
+          "¿Qué nueva astronomía abrió?"
+        ],
+        "opciones": [
+          {
+            "label": "Fusión de agujeros negros",
+            "correcta": true
+          },
+          {
+            "label": "La formación de un planeta",
+            "correcta": false
+          },
+          {
+            "label": "Un terremoto en la Tierra",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica el evento de 2015",
+          "Nueva astronomía sin luz"
+        ]
+      }
+    ]
+  }
 }

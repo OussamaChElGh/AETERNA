@@ -1,130 +1,310 @@
 {
   "metadata": {
-    "title": "Mecánica Cuántica: El Extraño Mundo de lo Muy Pequeño",
-    "description": "Descubre la mecánica cuántica desde cero: dualidad onda-partícula, principio de incertidumbre, gato de Schrödinger, entrelazamiento y efecto túnel. La guía más completa.",
+    "title": "Mecánica Cuántica",
+    "description": "Guía completa de la mecánica cuántica: la dualidad onda-partícula, el experimento de la doble rendija, el principio de incertidumbre, la superposición, el entrelazamiento, el efecto túnel y sus aplicaciones.",
     "slug": "mecanica-cuantica",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "mecánica cuántica",
       "dualidad onda-partícula",
       "principio de incertidumbre",
-      "gato de Schrödinger",
-      "entrelazamiento cuántico",
-      "efecto túnel"
+      "superposición",
+      "entrelazamiento",
+      "efecto túnel",
+      "doble rendija",
+      "fotones"
     ],
-    "image": "https://images.unsplash.com/photo-1628595351029-c2bf17511435?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-10",
-    "nivel": "3",
-    "orden": "3",
-    "nivel_titulo": "Las Fronteras de la Realidad",
-    "insignia": "Explorador de lo Oculto",
-    "tipo": "theory"
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 3,
+    "nivel_titulo": "Física Moderna",
+    "orden": 4,
+    "insignia": "Navegante Cuántico",
+    "tipo": "theory",
+    "prerequisites": [
+      "electromagnetismo-avanzado",
+      "mecanica-clasica"
+    ],
+    "breadcrumb": "Física / Física Moderna / Mecánica Cuántica"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  A escala atómica, la realidad se comporta de forma que nuestra intuición no puede imaginar: las partículas son ondas, la incertidumbre es fundamental, y el gato puede estar vivo y muerto a la vez.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La mecánica cuántica describe el mundo a escala atómica. Sus ideas centrales: la **dualidad onda-partícula** (todo es onda y partícula a la vez), el **principio de incertidumbre** (no puedes conocer posición y momento con precisión simultánea), la **superposición** (los estados se combinan hasta medir), el **entrelazamiento** (partículas correlacionadas sin importar la distancia), y el **efecto túnel** (las partículas atraviesan barreras). Todo esto es contraintuitivo, pero está verificado experimentalmente y es la base de los láseres, los transistores, la resonancia magnética y los futuros ordenadores cuánticos.\n\n**[IMAGEN SUGERIDA: La doble rendija, con electrones formando un patrón de interferencia. Pie de foto: \"Un electrón es onda y partícula a la vez.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-donde-la-lgica-se-despide",
-      "titulo": "▶️ Bienvenida: Donde la lógica se despide",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: donde la lógica se despide",
       "niveles": {
-        "principiante": "Imagina que lanzas una piedra contra una pared. Lo normal es que rebote. Ahora imagina que, durante un instante infinitesimal, la piedra atraviesa la pared como un fantasma y aparece al otro lado. No es magia. Es física. Es el **efecto túnel cuántico**, y ocurre constantemente dentro de las estrellas que iluminan el cielo nocturno.\n\nBienvenido al mundo cuántico. Un lugar donde una partícula puede estar en dos sitios a la vez, donde dos objetos separados por años luz pueden influirse mutuamente de forma instantánea, y donde el simple hecho de observar algo cambia lo observado. Si la relatividad de Einstein te pareció extraña, prepárate: aquí la lógica cotidiana se despide en la primera página.\n\nLa mecánica cuántica es, probablemente, la teoría más exitosa y más contraintuitiva jamás concebida. Explica el comportamiento de los átomos, la luz, los electrones y todo lo que es demasiado pequeño para ser visto. Y aunque desafíe tu sentido común, cada predicción suya ha sido confirmada experimentalmente con una precisión que roza lo sobrenatural.\n\n> **💡 La clave en 10 segundos**\n>\n> En el mundo cuántico, las partículas son también ondas, la realidad es probabilística hasta que se mide, y dos objetos pueden compartir un destino común aunque estén separados por galaxias. No es que \"todo sea posible\": es que las reglas son radicalmente distintas a las de nuestro mundo macroscópico.\n\n---",
-        "intermedio": "Imagina que lanzas una piedra contra una pared. Lo normal es que rebote. Ahora imagina que, durante un instante infinitesimal, la piedra atraviesa la pared como un fantasma y aparece al otro lado. No es magia. Es física. Es el **efecto túnel cuántico**, y ocurre constantemente dentro de las estrellas que iluminan el cielo nocturno.\n\nBienvenido al mundo cuántico. Un lugar donde una partícula puede estar en dos sitios a la vez, donde dos objetos separados por años luz pueden influirse mutuamente de forma instantánea, y donde el simple hecho de observar algo cambia lo observado. Si la relatividad de Einstein te pareció extraña, prepárate: aquí la lógica cotidiana se despide en la primera página.\n\nLa mecánica cuántica es, probablemente, la teoría más exitosa y más contraintuitiva jamás concebida. Explica el comportamiento de los átomos, la luz, los electrones y todo lo que es demasiado pequeño para ser visto. Y aunque desafíe tu sentido común, cada predicción suya ha sido confirmada experimentalmente con una precisión que roza lo sobrenatural.\n\n> **💡 La clave en 10 segundos**\n>\n> En el mundo cuántico, las partículas son también ondas, la realidad es probabilística hasta que se mide, y dos objetos pueden compartir un destino común aunque estén separados por galaxias. No es que \"todo sea posible\": es que las reglas son radicalmente distintas a las de nuestro mundo macroscópico.\n\n---",
-        "avanzado": "Imagina que lanzas una piedra contra una pared. Lo normal es que rebote. Ahora imagina que, durante un instante infinitesimal, la piedra atraviesa la pared como un fantasma y aparece al otro lado. No es magia. Es física. Es el **efecto túnel cuántico**, y ocurre constantemente dentro de las estrellas que iluminan el cielo nocturno.\n\nBienvenido al mundo cuántico. Un lugar donde una partícula puede estar en dos sitios a la vez, donde dos objetos separados por años luz pueden influirse mutuamente de forma instantánea, y donde el simple hecho de observar algo cambia lo observado. Si la relatividad de Einstein te pareció extraña, prepárate: aquí la lógica cotidiana se despide en la primera página.\n\nLa mecánica cuántica es, probablemente, la teoría más exitosa y más contraintuitiva jamás concebida. Explica el comportamiento de los átomos, la luz, los electrones y todo lo que es demasiado pequeño para ser visto. Y aunque desafíe tu sentido común, cada predicción suya ha sido confirmada experimentalmente con una precisión que roza lo sobrenatural.\n\n> **💡 La clave en 10 segundos**\n>\n> En el mundo cuántico, las partículas son también ondas, la realidad es probabilística hasta que se mide, y dos objetos pueden compartir un destino común aunque estén separados por galaxias. No es que \"todo sea posible\": es que las reglas son radicalmente distintas a las de nuestro mundo macroscópico.\n\n---"
+        "principiante": "## Bienvenida: donde la lógica se despide\n\nImagina que lanzas una pelota y esta atraviesa la pared. O que está en dos sitios a la vez. En el mundo cuántico, esto es normal.\n\nLa **mecánica cuántica** describe el comportamiento de la materia a escalas atómicas y subatómicas. A esa escala, las reglas cambian:\n\n- Las partículas son también ondas\n- No puedes medir todo con precisión\n- Los objetos pueden estar en varios estados a la vez\n\nEstas ideas son contraintuitivas, pero la física cuántica es la teoría más exitosa de la historia: explica átomos, estrellas, láseres y transistores.\n\n> **🔑 Concepto clave: El mundo a escala atómica**\n> A escalas atómicas, la realidad se comporta con reglas propias: dualidad onda-partícula, cuantización de la energía, incertidumbre y superposición. La física clásica (bolas, fuerzas, trayectorias) no se aplica ahí.\n\n**[IMAGEN SUGERIDA: Un átomo con electrones como nubes de probabilidad. Pie de foto: \"A escala atómica, las reglas cambian.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** a escala atómica, la energía está cuantizada, la materia es onda y partícula (λ = h/p), los sistemas están en superposición hasta medirse, y la incertidumbre Δx·Δp ≥ ℏ/2 es fundamental. El efecto túnel permite lo 'imposible'. Es la teoría más precisa de la historia y la base de transistores, láseres, RM y ordenadores cuánticos.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: el nacimiento de la cuántica\n\nA finales del siglo XIX, la física clásica enfrentaba crisis:\n\n- **Cuerpo negro**: la radiación de un objeto caliente no encajaba con la teoría\n- **Efecto fotoeléctrico**: la luz expulsaba electrones de forma inexplicable\n- **Átomos estables**: según Maxwell, los electrones orbitando deberían colapsar\n\nLa solución (Planck, Einstein, Bohr, Heisenberg, Schrödinger) fue radical: la energía está **cuantizada** —solo toma valores discretos.\n\nPlanck (1900): la energía viene en paquetes (cuantos): E = hν. Einstein (1905): la luz son cuantos (fotones). Así nació la mecánica cuántica.\n\n> **Dato que rompe el cerebro**\n> La constante de Planck h ≈ 6.626×10⁻³⁴ J·s es diminuta: por eso no notamos la cuantización en la vida diaria. Pero gobierna todo el mundo atómico.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** a escala atómica, la energía está cuantizada, la materia es onda y partícula (λ = h/p), los sistemas están en superposición hasta medirse, y la incertidumbre Δx·Δp ≥ ℏ/2 es fundamental. El efecto túnel permite lo 'imposible'. Es la teoría más precisa de la historia y la base de transistores, láseres, RM y ordenadores cuánticos.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la revolución conceptual\n\nLa mecánica cuántica no es solo 'física rara': es un cambio en nuestra concepción de la realidad.\n\n- **El estado de un sistema** se describe con una función de onda ψ\n- **La medida** colapsa la función de onda a un estado definido\n- **La probabilidad**: no sabes dónde está el electrón, sino su distribución de probabilidad\n- **La incertidumbre es fundamental**, no un límite instrumental\n\nEsta revolución conceptual sigue abierta: el significado de la función de onda (interpretaciones de Copenhague, muchos mundos, variables ocultas) se debate desde hace un siglo.\n\n> **💡 Nota avanzada**\n> La mecánica cuántica es el ejemplo de que la física describe lo que podemos predecir, no lo que 'es'. Su éxito predictivo (precisión de 12 dígitos en la QED) es el mayor de la historia, aunque el 'significado' siga en debate. La naturaleza, a escala atómica, es probabilística.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** a escala atómica, la energía está cuantizada, la materia es onda y partícula (λ = h/p), los sistemas están en superposición hasta medirse, y la incertidumbre Δx·Δp ≥ ℏ/2 es fundamental. El efecto túnel permite lo 'imposible'. Es la teoría más precisa de la historia y la base de transistores, láseres, RM y ordenadores cuánticos.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "1-qu-es-la-mecnica-cuntica-el-fin-de-la-fsica-clsica",
-      "titulo": "1. ¿Qué es la mecánica cuántica? El fin de la física clásica",
+      "id": "que-es-cuantica",
+      "titulo": "¿Qué es la mecánica cuántica?",
       "niveles": {
-        "intermedio": "A finales del siglo XIX, la física parecía un edificio terminado. La mecánica de Newton explicaba el movimiento de los planetas y los proyectiles. El electromagnetismo de Maxwell unificaba electricidad, magnetismo y luz. Lord Kelvin, uno de los físicos más respetados de su tiempo, llegó a decir que solo quedaban \"dos pequeñas nubes en el horizonte\".\n\nEsas dos nubes —el espectro de la radiación del cuerpo negro y el experimento de Michelson-Morley— desataron la mayor tormenta intelectual de la historia. Una de ellas dio origen a la relatividad. La otra, a la mecánica cuántica.\n\nEl problema que inició todo fue aparentemente modesto: ¿por qué un objeto caliente brilla con un color determinado? Cuando calientas un hierro, primero se vuelve rojo, luego naranja, luego blanco. La física clásica predecía que un objeto muy caliente debería emitir una cantidad infinita de energía ultravioleta —la llamada **catástrofe ultravioleta**—, algo que obviamente no ocurre.\n\nEn 1900, Max Planck encontró la solución, pero a un precio altísimo: tuvo que aceptar que la energía no se emite de forma continua, como un chorro de agua, sino en paquetes discretos, como monedas. Llamó a esos paquetes **cuantos**. Fue el nacimiento de la física cuántica.\n\n| Concepto | Física Clásica | Mecánica Cuántica |\n| :--- | :--- | :--- |\n| **Energía** | Continua (como una rampa) | Discreta, en cuantos (como escalones) |\n| **Realidad** | Independiente del observador | Depende de la medición |\n| **Predicción** | Determinista (A causa B) | Probabilística (A puede causar B, C o D) |\n| **Partículas** | Objetos con posición y velocidad definidas | Entidades difusas con propiedades borrosas |\n\n> **🤔 La pregunta que nadie te hizo**\n>\n> Si la energía está empaquetada en cuantos, ¿significa que hay una cantidad mínima de energía que no se puede dividir? La respuesta es sí, y ese \"átomo de energía\" es una de las ideas más profundas de la física.\n\n---"
+        "principiante": "## ¿Qué es la mecánica cuántica?\n\nLa mecánica cuántica estudia la materia a escalas atómicas. Sus dos ideas fundacionales:\n\n1. **La energía está cuantizada**: solo toma valores discretos\n2. **La materia tiene propiedades ondulatorias**: electrones, protones y hasta moléculas se comportan como ondas\n\nEn el átomo, los electrones no orbitan como planetas: están en 'niveles de energía' definidos.\n\nCuando un electrón salta entre niveles, emite o absorbe un fotón de energía exacta. Esto explica los espectros de los átomos.\n\n> **Dato que rompe el cerebro**\n> Los electrones en un átomo solo pueden tener ciertas energías, como los peldaños de una escalera: no pueden 'estar entre' dos niveles. Esto es la cuantización. De ahí viene el nombre 'cuántica'.\n\n```aeterna-exercise\nTITLE: Explicar la cuantización\nHINT: Piensa en los peldaños de una escalera.\nXP: 30\nExplica con tus palabras qué significa que la energía está 'cuantizada' y por qué es revolucionario.\nSOLUTION: Significa que la energía solo toma valores discretos (como los peldaños de una escalera), no cualquier valor continuo. Es revolucionario porque la física clásica asumía que la energía podía tomar cualquier valor. La cuantización explica los espectros atómicos, los láseres y los transistores.\n```\n\n> **🔑 Concepto clave: Cuantos de energía**\n> La energía no es continua: viene en paquetes (cuantos). Un electrón salta entre niveles discretos emitiendo fotones de energía E = hν. Esta idea de Planck y Einstein fundó la mecánica cuántica.\n",
+        "intermedio": "## El modelo cuántico del átomo\n\nEl modelo de Bohr (1913) introduce niveles discretos para el hidrógeno:\n\n$$ E_n = -\\frac{13.6\\text{ eV}}{n^2} $$\n\nLos electrones saltan entre niveles absorbiendo o emitiendo fotones:\n\n$$ E_{fotón} = h\\nu = E_i - E_f $$\n\nEl modelo de Bohr es correcto para el hidrógeno pero incompleto: la mecánica cuántica moderna (Schrödinger) describe electrones con funciones de onda y orbitales (nubes de probabilidad), no órbitas.\n\n> **🔑 Concepto clave: Los saltos cuánticos**\n> Los electrones cambian de nivel de energía emitiendo o absorbiendo fotones de energía exacta. Esto produce los espectros característicos de cada elemento —la 'huella digital' de los átomos usada en astronomía y medicina.\n",
+        "avanzado": "## Del modelo de Bohr a la función de onda\n\nEl modelo de Bohr es la primera versión cuántica; la mecánica cuántica moderna (Schrödinger, Heisenberg, 1925-26) es completa:\n\n- El estado del sistema: función de onda ψ\n- Su evolución: ecuación de Schrödinger\n- Los observables: operadores\n- Los resultados: valores propios\n\n$$ i\\hbar\\frac{\\partial\\psi}{\\partial t} = \\hat{H}\\psi $$\n\nLa función de onda no es una partícula en un punto: es una distribución de probabilidad. El electrón 'está' en todas partes con cierta probabilidad hasta que se mide.\n\n> **💡 Nota de frontera**\n> La ecuación de Schrödinger no es relativista. Dirac la relativizó (1928), prediciendo la antimateria. La mecánica cuántica relativista y la teoría cuántica de campos (QED) describen el mundo subatómico con precisión asombrosa.\n"
       },
       "acciones": []
     },
     {
-      "id": "2-la-dualidad-onda-partcula-lo-que-newton-y-huygens-no-pudieron-resolver",
-      "titulo": "2. La dualidad onda-partícula: lo que Newton y Huygens no pudieron resolver",
+      "id": "dualidad-onda-particula",
+      "titulo": "La dualidad onda-partícula",
       "niveles": {
-        "intermedio": "Durante siglos, la naturaleza de la luz fue un campo de batalla. Newton defendía que la luz estaba hecha de corpúsculos (partículas). Christiaan Huygens sostenía que era una onda. Ambos tenían pruebas a su favor. Ambos estaban convencidos de tener razón.\n\nLa mecánica cuántica resolvió el debate de la forma más inesperada: **ambos tenían razón, y ambos estaban equivocados**. La luz no es ni partícula ni onda: es algo que puede manifestarse como cualquiera de las dos cosas según cómo la mires.\n\nEsta **dualidad onda-partícula** es uno de los pilares más desconcertantes de la física cuántica. La luz se comporta como una onda cuando atraviesa una doble rendija (creando patrones de interferencia), pero se comporta como una partícula cuando golpea un detector (llegando en paquetes discretos llamados fotones).\n\nY lo más inquietante es que esto no solo se aplica a la luz. Los electrones, los protones, incluso átomos enteros como los de carbono-60 muestran el mismo comportamiento dual. La frontera entre \"cosa\" y \"vibración\" se ha desvanecido.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> En 1999, un equipo de la Universidad de Viena demostró que moléculas de fullereno —pelotas microscópicas de 60 átomos de carbono— también se comportaban como ondas al atravesar una doble rendija. Son los objetos más grandes jamás observados mostrando dualidad onda-partícula.\n\n---"
+        "principiante": "## La dualidad onda-partícula\n\n¿Es la luz una onda o un conjunto de partículas? Ambas cosas.\n\nLa **dualidad onda-partícula**: toda la materia y la radiación se comportan como onda en unos experimentos y como partícula en otros.\n\n- La luz: difracta e interfiere (onda) pero viene en fotones (partícula)\n- Los electrones: son partículas pero también interfieren (onda)\n\nLa **relación de De Broglie**: toda partícula tiene una longitud de onda asociada\n\n$$ \\lambda = \\frac{h}{mv} $$\n\n> **Dato que rompe el cerebro**\n> Un electrón tiene una longitud de onda de onda de ~10⁻¹⁰ m (tamaño atómico): por eso importa en los átomos. Una pelota tiene una onda de ~10⁻³⁵ m: por eso la física clásica funciona en nuestra escala.\n\n**[IMAGEN SUGERIDA: La luz como onda y como fotón a la vez. Pie de foto: \"Onda o partícula: depende del experimento.\"]**\n\n\n### Estima como un físico: ¿por qué no notamos la cuántica?\n\nLa **estimación de orden de magnitud** de la longitud de onda de De Broglie: para una pelota de fútbol (m = 0.4 kg, v = 20 m/s): λ = h/(mv) = 6.6×10⁻³⁴/(0.4×20) ≈ 8×10⁻³⁵ m —la longitud de Planck. Para un electrón (9×10⁻³¹ kg, 10⁶ m/s): λ ≈ 7×10⁻¹⁰ m —tamaño atómico. Esta estimación muestra por qué la cuántica domina en los átomos y es invisible en nuestra escala.\n\n",
+        "intermedio": "## Onda y partícula a la vez\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: Dualidad\nPregunta: ¿La luz es una onda o una partícula?\nNivel: intermedio\nXP: 35\nBotón: Comprobar\nRespuesta: Ambas, según el experimento. En la interferencia y difracción se comporta como onda; en el efecto fotoeléctrico (expulsar electrones) como partículas (fotones). La dualidad onda-partícula es fundamental: la naturaleza es ambas cosas, no elegimos una. De Broglie extendió la idea a toda la materia: λ = h/(mv).\n```\n\nLa dualidad se manifiesta en experimentos clave:\n- **Efecto fotoeléctrico** (Einstein, 1905): la luz es fotones → Nobel 1921\n- **Difracción de electrones** (Davisson-Germer, 1927): los electrones son ondas → Nobel 1937\n- **Microscopio electrónico**: usa la onda de los electrones para ver a escala atómica\n\n> **🔑 Concepto clave: Ambas, no una**\n> La materia y la radiación son onda Y partícula. El experimento determina cuál aspecto se manifiesta. La longitud de onda de De Broglie λ = h/(mv) conecta ambos mundos.\n\n\n### Estima como un físico: ¿por qué no notamos la cuántica?\n\nLa **estimación de orden de magnitud** de la longitud de onda de De Broglie: para una pelota de fútbol (m = 0.4 kg, v = 20 m/s): λ = h/(mv) = 6.6×10⁻³⁴/(0.4×20) ≈ 8×10⁻³⁵ m —la longitud de Planck. Para un electrón (9×10⁻³¹ kg, 10⁶ m/s): λ ≈ 7×10⁻¹⁰ m —tamaño atómico. Esta estimación muestra por qué la cuántica domina en los átomos y es invisible en nuestra escala.\n\n",
+        "avanzado": "## La onda de materia\n\nLa longitud de onda de De Broglie λ = h/(mv) es la clave de la estructura atómica:\n\n- Los electrones en el átomo forman **ondas estacionarias** (solo ciertas ondas 'caben' → niveles discretos)\n- La cuantización de los niveles de energía es una consecuencia de la onda de los electrones\n\n```aeterna-formula\ntitle=\"Longitud de onda de De Broglie\"\nformula=\"\\\\lambda = \\\\frac{h}{mv} = \\\\frac{h}{p}\"\nvariables={[{\"symbol\":\"λ\",\"name\":\"Longitud de onda\",\"unit\":\"m\"},{\"symbol\":\"h\",\"name\":\"Constante de Planck\",\"unit\":\"J·s\"},{\"symbol\":\"m\",\"name\":\"Masa\",\"unit\":\"kg\"},{\"symbol\":\"v\",\"name\":\"Velocidad\",\"unit\":\"m/s\"}]}\nnote=\"Toda partícula tiene una onda asociada. Para objetos macroscópicos, λ es indetectable; para electrones, es del tamaño atómico.\"\n```\n\n> **💡 Nota de frontera**\n> Los microscopios electrónicos usan la onda de De Broglie de los electrones acelerados: con λ ~ picómetros, resuelven estructuras atómicas y moleculares, superando el límite de difracción de la luz. La biología estructural (proteínas, virus) depende de esta física.\n\n\n### Estima como un físico: ¿por qué no notamos la cuántica?\n\nLa **estimación de orden de magnitud** de la longitud de onda de De Broglie: para una pelota de fútbol (m = 0.4 kg, v = 20 m/s): λ = h/(mv) = 6.6×10⁻³⁴/(0.4×20) ≈ 8×10⁻³⁵ m —la longitud de Planck. Para un electrón (9×10⁻³¹ kg, 10⁶ m/s): λ ≈ 7×10⁻¹⁰ m —tamaño atómico. Esta estimación muestra por qué la cuántica domina en los átomos y es invisible en nuestra escala.\n\n"
       },
       "acciones": []
     },
     {
-      "id": "3-el-experimento-de-la-doble-rendija-la-prueba-ms-inquietante",
-      "titulo": "3. El experimento de la doble rendija: la prueba más inquietante",
+      "id": "superposicion",
+      "titulo": "La superposición y el gato de Schrödinger",
       "niveles": {
-        "intermedio": "El experimento de la doble rendija es, según Richard Feynman, \"el corazón de la mecánica cuántica\". Es tan simple de describir como profundo en sus implicaciones. Y si no lo conoces, prepárate.\n\nImagina una pared con dos rendijas verticales muy estrechas. Frente a ella, una fuente de luz. Detrás, una pantalla. Si la luz fuera una partícula, esperarías ver en la pantalla dos franjas brillantes, una frente a cada rendija. Pero lo que ves es un **patrón de interferencia**: muchas franjas alternas, brillantes y oscuras, como las ondas de un estanque que se cruzan. La luz se comporta como una onda.\n\nAhora, reduce la intensidad de la luz hasta emitir un solo fotón cada vez. Si pones un detector junto a cada rendija para saber por cuál pasó, el patrón de interferencia **desaparece**. Ves dos franjas, como si fueran partículas. Pero si apagas los detectores, el patrón de interferencia **reaparece**.\n\n> **❌ Error común**\n>\n> **[El error]:** Pensar que el fotón es una partícula diminuta que \"elige\" una rendija y luego interfiere consigo misma porque \"sabe\" que hay dos rendijas.\n> **[La realidad]:** El fotón no es ni partícula ni onda hasta que lo mides. Viaja como una onda de probabilidad que atraviesa ambas rendijas simultáneamente, interfiere consigo misma, y solo al llegar a la pantalla se \"materializa\" en un punto concreto. La medición fuerza a la naturaleza a tomar una decisión.\n\n**[IMAGEN SUGERIDA: Diagrama del experimento de la doble rendija: fuente de luz, dos rendijas, pantalla con patrón de interferencia. Superpuesto, un detector en una rendija con el patrón de interferencia colapsado en dos franjas. Pie de foto: \"El simple acto de observar por dónde pasa el fotón destruye el patrón de interferencia. La realidad cambia al ser medida.\"]**\n\n<AeternaDecisionBox\n  question=\"En el experimento de la doble rendija con electrones, ¿qué ocurre si disparas un solo electrón y no pones ningún detector?\"\n  options={[\n    { id: 0, text: \"El electrón pasa por una sola rendija y aparece como un punto en la pantalla.\" },\n    { id: 1, text: \"El electrón atraviesa ambas rendijas como una onda de probabilidad e interfiere consigo mismo.\" },\n    { id: 2, text: \"El electrón rebota y no atraviesa ninguna rendija.\" },\n    { id: 3, text: \"El electrón se divide en dos partículas que atraviesan cada una una rendija.\" },\n  ]}\n  correctIndex={1}\n  progress={1}\n  totalDecisions={2}\n/>\n\n---"
+        "principiante": "## La superposición\n\nAntes de medir, un sistema cuántico puede estar en **varios estados a la vez**: es la **superposición**.\n\nUn electrón puede estar 'aquí y allí' simultáneamente. Un fotón puede estar polarizado de dos formas a la vez. Al medir, la superposición colapsa a un estado definido.\n\nLa famosa **paradoja del gato de Schrödinger**: un gato en una caja con un mecanismo cuántico está 'vivo y muerto' a la vez hasta que abres la caja.\n\n> **Dato que rompe el cerebro**\n> Schrödinger propuso el gato como crítica al absurdo de la superposición aplicada a lo macroscópico. Pero la superposición cuántica es real a escala atómica: es la base de los ordenadores cuánticos (qubits).\n\n**[IMAGEN SUGERIDA: El gato de Schrödinger en la caja, con el símbolo de superposición. Pie de foto: \"¿Vivo o muerto? En superposición, ambos.\"]**\n",
+        "intermedio": "## Los qubits y la superposición\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: El gato de Schrödinger\nPregunta: ¿Por qué el gato de Schrödinger está 'vivo y muerto' a la vez? ¿Es real o una paradoja?\nNivel: avanzado\nXP: 40\nBotón: Comprobar\nRespuesta: La paradoja ilustra la superposición cuántica: el estado del sistema (núcleo + gato) es una superposición de 'núcleo decayó + gato muerto' y 'núcleo intacto + gato vivo' hasta que se mide (se abre la caja). A escala atómica la superposición es real; el debate es si se aplica a objetos macroscópicos como un gato (colapso, decoherencia, muchos mundos). Es un problema de interpretación de la mecánica cuántica, no una contradicción interna.\n```\n\nLa superposición tiene una aplicación práctica: los **qubits** de los ordenadores cuánticos.\n\n- Un bit clásico: 0 o 1\n- Un qubit: 0, 1 o superposición de ambos\n\nCon superposición y entrelazamiento, un ordenador cuántico procesa información de forma exponencialmente más eficiente en ciertos problemas.\n\n> **🔑 Concepto clave: Estados hasta medir**\n> La superposición significa que un sistema cuántico es una combinación de estados hasta que se mide, momento en que colapsa a uno. Los qubits explotan esto para computar en paralelo.\n",
+        "avanzado": "## Superposición y ordenadores cuánticos\n\nLos ordenadores cuánticos explotan superposición y entrelazamiento:\n\n- **Qubits**: superposición de 0 y 1\n- **Puertas cuánticas**: transforman los estados\n- **Medida**: colapsa al resultado\n\nAlgoritmos cuánticos (Shor para factorización, Grover para búsqueda) superan a los clásicos exponencialmente. La criptografía y la simulación de moléculas son sus aplicaciones.\n\nEl problema principal: la **decoherencia** —la superposición se destruye al interactuar con el entorno. Mantener qubits aislados requiere frío extremo (~millikelvin).\n\n> **💡 Nota de frontera**\n> Los ordenadores cuánticos actuales (IBM, Google) tienen decenas a cientos de qubits 'ruidosos' (NISQ). Los futuros ordenadores tolerantes a fallos requerirán corrección cuántica de errores, un desafío enorme. Pero la superposición y el entrelazamiento ya están en producción en computación cuántica, sensores y criptografía.\n"
       },
       "acciones": []
     },
     {
-      "id": "4-principio-de-incertidumbre-de-heisenberg-el-lmite-del-conocimiento",
-      "titulo": "4. Principio de Incertidumbre de Heisenberg: el límite del conocimiento",
+      "id": "incertidumbre",
+      "titulo": "El principio de incertidumbre",
       "niveles": {
-        "intermedio": "En 1927, Werner Heisenberg formuló una de las ideas más revolucionarias de la ciencia: hay un límite fundamental a lo que podemos saber. No es un límite tecnológico, no es que nuestros instrumentos no sean lo bastante buenos. Es un límite inscrito en la naturaleza misma de la realidad.\n\nEl **principio de incertidumbre** afirma que no puedes conocer simultáneamente, con precisión absoluta, la posición y el momento (la velocidad) de una partícula. Cuanto más exactamente mides una, más borrosa se vuelve la otra.\n\nLa fórmula es: **Δx · Δp ≥ ℏ/2**. Donde Δx es la incertidumbre en la posición y Δp la incertidumbre en el momento. El producto de ambas nunca puede ser inferior a una constante minúscula (la constante de Planck dividida por 4π).\n\nEsto no significa que la partícula \"tenga\" una posición y una velocidad definidas y nosotros no podamos medirlas. Significa que la partícula en sí misma **no tiene** una posición y una velocidad perfectamente definidas antes de la medición. La precisión no se pierde al medir: no existía antes de medir.\n\n> **🌌 Imagina que...**\n>\n> Intentas fotografiar un colibrí en vuelo. Si usas una velocidad de obturación muy rápida, congelas el movimiento (posición precisa) pero no sabes hacia dónde iba (momento borroso). Si usas una exposición larga, ves la trayectoria (momento claro) pero el colibrí aparece como una mancha borrosa (posición imprecisa). La naturaleza funciona así, pero con una diferencia crucial: no es una limitación de la cámara. El colibrí cuántico no tiene una posición definida hasta que lo fotografías.\n\n---"
+        "principiante": "## El principio de incertidumbre\n\n**Heisenberg (1927)**: no puedes conocer simultáneamente la posición y el momento de una partícula con precisión absoluta.\n\n$$ \\Delta x \\cdot \\Delta p \\geq \\frac{\\hbar}{2} $$\n\nSi sabes dónde está (Δx pequeño), no sabes cuánto se mueve (Δp grande) y viceversa.\n\n> **Dato que rompe el cerebro**\n> La incertidumbre no es un límite de tus instrumentos: es una propiedad fundamental de la naturaleza. No existe experimento que mida ambos con precisión total. La física clásica asumía que sí se podía; la cuántica dice que no.\n\n**[IMAGEN SUGERIDA: Una pelota desenfocada, simbolizando la incertidumbre. Pie de foto: \"No puedes conocer todo a la vez.\"]**\n",
+        "intermedio": "## Incertidumbre en la práctica\n\n```aeterna-formula\ntitle=\"Principio de incertidumbre\"\nformula=\"\\\\Delta x \\\\cdot \\\\Delta p \\\\geq \\\\frac{\\hbar}{2}\"\nvariables={[{\"symbol\":\"Δx\",\"name\":\"Incertidumbre de posición\",\"unit\":\"m\"},{\"symbol\":\"Δp\",\"name\":\"Incertidumbre de momento\",\"unit\":\"kg·m/s\"},{\"symbol\":\"ℏ\",\"name\":\"Constante de Planck reducida\",\"unit\":\"J·s\"}]}\nnote=\"La incertidumbre es fundamental: no es limitación instrumental. Cuanto más precisión de posición, menos de momento.\"\n```\n\nTambién hay incertidumbre energía-tiempo:\n\n$$ \\Delta E \\cdot \\Delta t \\geq \\frac{\\hbar}{2} $$\n\nEsta relación explica fenómenos sorprendentes: las partículas virtuales 'prestan' energía del vacío por tiempos cortísimos.\n\nConsecuencias:\n- Los electrones no colapsan al núcleo (la incertidumbre lo impide)\n- El tamaño del átomo está fijado por la incertidumbre\n- Las partículas virtuales existen temporalmente (interacciones)\n\n> **🔑 Concepto clave: El límite del conocimiento**\n> Δx·Δp ≥ ℏ/2 es un límite fundamental de la naturaleza. No es falta de precisión instrumental: es una propiedad cuántica. Determina el tamaño de los átomos y permite las fluctuaciones del vacío.\n",
+        "avanzado": "## Incertidumbre y estructura de la materia\n\nLa incertidumbre explica propiedades fundamentales:\n\n- **Estabilidad del átomo**: si el electrón estuviera en el núcleo (Δx ≈ 0), su momento (Δp) sería enorme y la energía gigantesca. El equilibrio entre incertidumbre y atracción fija el tamaño atómico (~10⁻¹⁰ m).\n- **Energía del punto cero**: incluso a temperatura cero, la materia tiene energía (oscilaciones del vacío).\n- **Partículas virtuales**: prestadas del vacío por ΔE·Δt ~ ℏ.\n\n> **💡 Nota de frontera**\n> El efecto Casimir (fuerzas entre placas por fluctuaciones del vacío) es una consecuencia medible de la incertidumbre. En la cosmología, las fluctuaciones cuánticas del vacío primordial se amplificaron y dieron origen a la estructura del universo (galaxias, cúmulos).\n"
       },
       "acciones": []
     },
     {
-      "id": "5-superposicin-y-el-gato-de-schrdinger-la-paradoja-ms-famosa",
-      "titulo": "5. Superposición y el gato de Schrödinger: la paradoja más famosa",
+      "id": "funcion-onda",
+      "titulo": "La función de onda y el efecto túnel",
       "niveles": {
-        "intermedio": "Si la posición de una partícula no está definida hasta que se mide, ¿dónde está antes de la medición? La respuesta cuántica es tan extraña como fascinante: está en todos los estados posibles a la vez. Es lo que se llama **superposición cuántica**.\n\nUn electrón en un átomo no orbita alrededor del núcleo como un planeta en miniatura, a pesar de lo que digan los dibujos de los libros de texto. Existe como una nube de probabilidad —un \"orbital\"— que describe dónde es más probable encontrarlo si lo buscas. Solo cuando realizas una medición, el electrón \"elige\" un punto concreto.\n\nErwin Schrödinger, uno de los padres de la mecánica cuántica, estaba tan incómodo con esta idea que propuso una paradoja para ridiculizarla. Imaginó un gato encerrado en una caja con un mecanismo mortal: un átomo radiactivo que, si se desintegra, activa un martillo que rompe un frasco de veneno. Según la interpretación estándar de la física cuántica, hasta que no abras la caja, el átomo está en una superposición de \"desintegrado\" y \"no desintegrado\". Por tanto, el gato estaría **vivo y muerto al mismo tiempo**.\n\nSchrödinger quería demostrar lo absurda que era esta interpretación al aplicarla a objetos macroscópicos. Pero décadas después, los físicos han confirmado que la superposición es real. El gato es una paradoja, sí, pero la naturaleza, a nivel microscópico, funciona exactamente así.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> En 2010, un equipo de la Universidad de California logró poner un objeto visible a simple vista —una pequeña paleta de unos 30 micrómetros de largo— en un estado de superposición cuántica. El objeto vibraba y no vibraba al mismo tiempo. La frontera entre lo cuántico y lo clásico se desdibuja cada año.\n\n---"
+        "principiante": "## La función de onda y el efecto túnel\n\nEl estado de una partícula se describe con la **función de onda** ψ. No te dice dónde está la partícula, sino la **probabilidad** de encontrarla en cada lugar.\n\nLa probabilidad es |ψ|²: la partícula puede estar en cualquier punto donde la función de onda sea distinta de cero.\n\nEsto lleva al **efecto túnel**: una partícula puede atravesar una barrera de energía aunque no tenga suficiente energía para superarla clásicamente.\n\n> **Dato que rompe el cerebro**\n> La pelota atraviesa la pared porque su función de onda se extiende al otro lado. En la física clásica es imposible; en la cuántica, la probabilidad es pequeña pero real. Por eso el Sol brilla: la fusión nuclear ocurre por efecto túnel.\n\n**[IMAGEN SUGERIDA: Una partícula 'tunelando' a través de una barrera de energía. Pie de foto: \"El efecto túnel: atravesar lo imposible.\"]**\n",
+        "intermedio": "## El efecto túnel en acción\n\nEl efecto túnel explica fenómenos esenciales:\n\n1. **La fusión en el Sol**: los protones se repelen (barrera eléctrica) pero tunelan y se fusionan\n2. **Microscopio de efecto túnel (STM)**: usa la corriente por túnel para ver átomos\n3. **Desintegración radiactiva alfa**: el núcleo emite partículas por túnel\n4. **Diodos y transistores**: la corriente por túnel en semiconductores\n\n```aeterna-exercise\nTITLE: Explicar el efecto túnel\nHINT: La función de onda se extiende más allá de la barrera.\nXP: 40\n¿Por qué el Sol puede fusionar hidrógeno si los protones se repelen eléctricamente? Relaciónalo con el efecto túnel.\nSOLUTION: Los protones se repelen (barrera culombiana), pero su función de onda se extiende a través de la barrera con probabilidad pequeña pero no nula. A la temperatura del Sol (~15 millones K), una fracción de protones tunela la barrera y se fusiona. Sin efecto túnel, el Sol no brillaría.\n```\n\n> **🔑 Concepto clave: La probabilidad atraviesa**\n> La función de onda ψ da la probabilidad |ψ|² de encontrar la partícula. Aunque la energía clásica no alcanza para superar una barrera, la probabilidad de 'tunelar' es pequeña pero real. El efecto túnel es esencial en el Sol, la radiactividad y la nanotecnología.\n",
+        "avanzado": "## Túnel y nanotecnología\n\nEl **microscopio de efecto túnel (STM)** —Nobel 1986— usa el efecto túnel:\n\n- Una punta metálica muy fina se acerca a una superficie\n- Los electrones tunelan entre la punta y la muestra\n- La corriente por túnel depende exponencialmente de la distancia\n- Midiendo la corriente, se mapea la superficie átomo por átomo\n\nEl STM permitió escribir átomos (logotipo de IBM) y manipular la materia a escala atómica —el origen de la nanotecnología.\n\n> **💡 Nota de frontera**\n> La probabilidad de tunelar cae exponencialmente con el ancho de la barrera. Los transistores modernos (escala nanométrica) tienen fuga por túnel: un límite físico de la miniaturización que obliga a rediseñar la electrónica. La cuántica define tanto las posibilidades como los límites de la tecnología.\n"
       },
       "acciones": []
     },
     {
-      "id": "6-entrelazamiento-cuntico-la-accin-fantasmal-a-distancia",
-      "titulo": "6. Entrelazamiento cuántico: la \"acción fantasmal a distancia\"",
+      "id": "ecuacion-schrodinger",
+      "titulo": "Aplicaciones: del láser al ordenador cuántico",
       "niveles": {
-        "intermedio": "Einstein odiaba la mecánica cuántica. Le parecía incompleta, una teoría provisional que no podía ser la descripción final de la realidad. Su objeción más famosa fue el **entrelazamiento cuántico**, un fenómeno que él mismo calificó como \"spukhafte Fernwirkung\": acción fantasmal a distancia.\n\nDos partículas entrelazadas comparten un vínculo invisible. Si mides una propiedad de una de ellas (por ejemplo, su espín), instantáneamente conoces la propiedad correspondiente de la otra, esté donde esté: al otro lado de la habitación o en una galaxia a millones de años luz. Y lo inquietante no es solo la correlación, sino que antes de la medición, ninguna de las dos partículas tenía esa propiedad definida.\n\nEinstein creía que esto violaba la relatividad especial (nada puede viajar más rápido que la luz). Pero experimentos posteriores —especialmente los de Alain Aspect en 1982— demostraron que el entrelazamiento es real y que no transmite información útil más rápido que la luz. Las partículas comparten un destino, pero no puedes usar ese vínculo para enviar un mensaje.\n\n**[IMAGEN SUGERIDA: Dos partículas representadas como esferas brillantes conectadas por un hilo ondulante de luz que atraviesa el espacio. Una está siendo medida por un instrumento; la otra, en una galaxia lejana, reacciona instantáneamente. Pie de foto: \"El entrelazamiento cuántico no transmite información, pero demuestra que dos partículas pueden ser un solo sistema aunque estén separadas por el universo.\"]**\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "7-efecto-tnel-atravesando-paredes",
-      "titulo": "7. Efecto túnel: atravesando paredes",
-      "niveles": {
-        "intermedio": "¿Recuerdas la piedra que mencionamos al principio? El **efecto túnel cuántico** es el fenómeno por el cual una partícula puede atravesar una barrera que, según la física clásica, sería infranqueable. No la rompe, no la rodea: la atraviesa.\n\nEsto ocurre porque la partícula no está en un único lugar, sino que existe como una onda de probabilidad que se extiende en el espacio. Cuando esa onda choca con una barrera, parte de ella se refleja, pero una pequeña porción logra filtrarse al otro lado, como un susurro que atraviesa una pared.\n\nEl efecto túnel no es una curiosidad teórica. Sin él, el Sol no brillaría: los núcleos de hidrógeno necesitan atravesar la barrera de repulsión electromagnética para fusionarse, y solo pueden hacerlo gracias al efecto túnel. También es el principio de funcionamiento de los microscopios de efecto túnel, capaces de \"ver\" átomos individuales, y de las memorias flash que guardan los datos en tu teléfono.\n\n| Fenómeno cotidiano | ¿Qué lo hace posible? |\n| :--- | :--- |\n| El Sol brilla | El efecto túnel permite la fusión del hidrógeno |\n| Tu teléfono guarda datos | Las memorias flash usan efecto túnel para almacenar bits |\n| Los microscopios ven átomos | El microscopio de efecto túnel detecta electrones que \"tunelean\" desde la superficie |\n\n> **⏱️ En 30 segundos**\n>\n> - El efecto túnel permite que una partícula atraviese una barrera que clásicamente no podría superar.\n> - Sin él, el Sol no existiría tal como lo conocemos.\n> - Es una consecuencia directa de la naturaleza ondulatoria de la materia.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "8-aplicaciones-reales-del-lser-al-ordenador-cuntico",
-      "titulo": "8. Aplicaciones reales: del láser al ordenador cuántico",
-      "niveles": {
-        "intermedio": "La mecánica cuántica no es una teoría abstracta confinada a pizarras y aceleradores de partículas. Está en tu vida diaria, escondida dentro de la tecnología que usas cada día.\n\n**Láseres y LEDs:** La emisión estimulada, el principio detrás del láser, es un fenómeno puramente cuántico. Los electrones de un material saltan entre niveles de energía y emiten fotones exactamente iguales, creando un haz de luz coherente. Tu lector de códigos de barras, tu puntero láser y la fibra óptica que lleva internet a tu casa funcionan gracias a esto.\n\n**Transistores y chips:** Cada transistor de tu ordenador o teléfono —y hay miles de millones en un solo chip— funciona porque los electrones atraviesan barreras de potencial mediante efecto túnel. Sin mecánica cuántica, no existiría la electrónica moderna.\n\n**Resonancia magnética:** Los escáneres de resonancia magnética (IRM) manipulan los espines de los protones en tu cuerpo mediante campos magnéticos y pulsos de radiofrecuencia. Es una aplicación directa de la superposición y el entrelazamiento cuántico.\n\n**Ordenadores cuánticos:** A diferencia de un ordenador clásico, que opera con bits (0 o 1), un ordenador cuántico usa **cúbits**, que pueden estar en superposición de 0 y 1 simultáneamente. Esto permite realizar ciertos cálculos —como la simulación de moléculas para diseñar fármacos o la factorización de números enormes para romper cifrados— en minutos, frente a los miles de años que tardaría un superordenador clásico.\n\n<AeternaDecisionBox\n  question=\"¿Cuál de estas tecnologías NO depende directamente de la mecánica cuántica para funcionar?\"\n  options={[\n    { id: 0, text: \"Un escáner de resonancia magnética en un hospital\" },\n    { id: 1, text: \"Un reloj de péndulo en una torre\" },\n    { id: 2, text: \"Un lector de códigos de barras láser en un supermercado\" },\n    { id: 3, text: \"Un transistor en el chip de un teléfono móvil\" },\n  ]}\n  correctIndex={1}\n  progress={2}\n  totalDecisions={2}\n/>\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
-      "niveles": {
-        "intermedio": "> **🧠 Sistema Aeterna, paso 1: Acepta la incertidumbre**\n>\n> La naturaleza no está oculta por un velo que podamos descorrer con mejores instrumentos. La incertidumbre es constitutiva de la realidad. Aceptar que hay cosas que no podemos saber no es una derrota: es el principio de la sabiduría cuántica.\n\n> **🧠 Sistema Aeterna, paso 2: Cuestiona lo evidente**\n>\n> La dualidad onda-partícula no es una contradicción: es una ampliación de nuestras categorías. ¿Cuántas otras dualidades de tu vida —razón y emoción, orden y caos— podrían ser complementarias en lugar de opuestas?\n\n> **🧠 Sistema Aeterna, paso 3: Busca la conexión invisible**\n>\n> El entrelazamiento demuestra que el universo es más interdependiente de lo que parece. Dos partículas que una vez interactuaron permanecen vinculadas para siempre. ¿Qué vínculos invisibles te conectan con personas, lugares y momentos que creías separados de ti?\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-preguntas-frecuentes-sobre-mecnica-cuntica",
-      "titulo": "❓ Preguntas frecuentes sobre Mecánica Cuántica",
-      "niveles": {
-        "principiante": "> **❓ Preguntas frecuentes**\n>\n> **¿Qué es la mecánica cuántica?**\n> Es la teoría que describe el comportamiento de la materia y la energía a escala atómica y subatómica. Se basa en la idea de que la energía se emite en paquetes discretos (cuantos), que las partículas se comportan también como ondas, y que la realidad es probabilística hasta que se mide. Imagina que el universo, en su nivel más pequeño, no es una máquina de relojería, sino un jazz improvisado donde cada nota es una probabilidad.\n>\n> **¿Qué es la dualidad onda-partícula?**\n> Es el principio que afirma que cualquier partícula cuántica —un fotón, un electrón, un átomo— puede manifestar propiedades de onda o de partícula según el experimento que realices. No es que \"se transforme\": es que su naturaleza es más profunda que ambas categorías. Como una moneda que solo muestra \"cara\" o \"cruz\" cuando la miras, pero que existe en un estado distinto cuando no la observas.\n>\n> **¿El gato de Schrödinger está realmente vivo y muerto?**\n> En el experimento mental, sí, hasta que se abre la caja. Schrödinger ideó esta paradoja para mostrar lo absurda que parecía la superposición aplicada a objetos cotidianos. Hoy sabemos que la superposición es real a nivel microscópico, pero no se ha observado un gato en ese estado. La paradoja sigue siendo una herramienta para reflexionar sobre la frontera entre lo cuántico y lo clásico.\n>\n> **¿Qué es el entrelazamiento cuántico?**\n> Es una correlación entre dos partículas que han interactuado, de forma que medir una propiedad de una determina instantáneamente la propiedad de la otra, sin importar la distancia que las separe. Es como si dos dados, lanzados en planetas distintos, mostraran siempre el mismo número. No puedes usar esto para enviar mensajes, pero sí para cifrar información de forma segura o para teleportar estados cuánticos.\n>\n> **¿Qué diferencia hay entre un ordenador cuántico y uno clásico?**\n> Un ordenador clásico trabaja con bits que solo pueden estar en estado 0 o 1. Un ordenador cuántico usa cúbits que pueden estar en superposición de ambos estados a la vez. Esto le permite explorar múltiples soluciones simultáneamente para ciertos problemas muy específicos, como la simulación de moléculas para diseñar fármacos o la optimización de rutas logísticas. Es como si tuvieras que encontrar la salida de un laberinto: el clásico prueba un camino cada vez; el cuántico explora todos los caminos a la vez.\n>\n> **¿Cómo funciona el efecto túnel cuántico?**\n> Una partícula cuántica, al ser también una onda de probabilidad, tiene una pequeña posibilidad de filtrarse a través de una barrera que clásicamente no podría superar. No la destruye ni la rodea: la atraviesa como un fantasma. Sin este fenómeno, el Sol no brillaría —porque los núcleos de hidrógeno no podrían fusionarse— y tu teléfono móvil no podría almacenar datos en su memoria flash.\n\n---",
-        "intermedio": "> **❓ Preguntas frecuentes**\n>\n> **¿Qué es la mecánica cuántica?**\n> Es la teoría que describe el comportamiento de la materia y la energía a escala atómica y subatómica. Se basa en la idea de que la energía se emite en paquetes discretos (cuantos), que las partículas se comportan también como ondas, y que la realidad es probabilística hasta que se mide. Imagina que el universo, en su nivel más pequeño, no es una máquina de relojería, sino un jazz improvisado donde cada nota es una probabilidad.\n>\n> **¿Qué es la dualidad onda-partícula?**\n> Es el principio que afirma que cualquier partícula cuántica —un fotón, un electrón, un átomo— puede manifestar propiedades de onda o de partícula según el experimento que realices. No es que \"se transforme\": es que su naturaleza es más profunda que ambas categorías. Como una moneda que solo muestra \"cara\" o \"cruz\" cuando la miras, pero que existe en un estado distinto cuando no la observas.\n>\n> **¿El gato de Schrödinger está realmente vivo y muerto?**\n> En el experimento mental, sí, hasta que se abre la caja. Schrödinger ideó esta paradoja para mostrar lo absurda que parecía la superposición aplicada a objetos cotidianos. Hoy sabemos que la superposición es real a nivel microscópico, pero no se ha observado un gato en ese estado. La paradoja sigue siendo una herramienta para reflexionar sobre la frontera entre lo cuántico y lo clásico.\n>\n> **¿Qué es el entrelazamiento cuántico?**\n> Es una correlación entre dos partículas que han interactuado, de forma que medir una propiedad de una determina instantáneamente la propiedad de la otra, sin importar la distancia que las separe. Es como si dos dados, lanzados en planetas distintos, mostraran siempre el mismo número. No puedes usar esto para enviar mensajes, pero sí para cifrar información de forma segura o para teleportar estados cuánticos.\n>\n> **¿Qué diferencia hay entre un ordenador cuántico y uno clásico?**\n> Un ordenador clásico trabaja con bits que solo pueden estar en estado 0 o 1. Un ordenador cuántico usa cúbits que pueden estar en superposición de ambos estados a la vez. Esto le permite explorar múltiples soluciones simultáneamente para ciertos problemas muy específicos, como la simulación de moléculas para diseñar fármacos o la optimización de rutas logísticas. Es como si tuvieras que encontrar la salida de un laberinto: el clásico prueba un camino cada vez; el cuántico explora todos los caminos a la vez.\n>\n> **¿Cómo funciona el efecto túnel cuántico?**\n> Una partícula cuántica, al ser también una onda de probabilidad, tiene una pequeña posibilidad de filtrarse a través de una barrera que clásicamente no podría superar. No la destruye ni la rodea: la atraviesa como un fantasma. Sin este fenómeno, el Sol no brillaría —porque los núcleos de hidrógeno no podrían fusionarse— y tu teléfono móvil no podría almacenar datos en su memoria flash.\n\n---",
-        "avanzado": "> **❓ Preguntas frecuentes**\n>\n> **¿Qué es la mecánica cuántica?**\n> Es la teoría que describe el comportamiento de la materia y la energía a escala atómica y subatómica. Se basa en la idea de que la energía se emite en paquetes discretos (cuantos), que las partículas se comportan también como ondas, y que la realidad es probabilística hasta que se mide. Imagina que el universo, en su nivel más pequeño, no es una máquina de relojería, sino un jazz improvisado donde cada nota es una probabilidad.\n>\n> **¿Qué es la dualidad onda-partícula?**\n> Es el principio que afirma que cualquier partícula cuántica —un fotón, un electrón, un átomo— puede manifestar propiedades de onda o de partícula según el experimento que realices. No es que \"se transforme\": es que su naturaleza es más profunda que ambas categorías. Como una moneda que solo muestra \"cara\" o \"cruz\" cuando la miras, pero que existe en un estado distinto cuando no la observas.\n>\n> **¿El gato de Schrödinger está realmente vivo y muerto?**\n> En el experimento mental, sí, hasta que se abre la caja. Schrödinger ideó esta paradoja para mostrar lo absurda que parecía la superposición aplicada a objetos cotidianos. Hoy sabemos que la superposición es real a nivel microscópico, pero no se ha observado un gato en ese estado. La paradoja sigue siendo una herramienta para reflexionar sobre la frontera entre lo cuántico y lo clásico.\n>\n> **¿Qué es el entrelazamiento cuántico?**\n> Es una correlación entre dos partículas que han interactuado, de forma que medir una propiedad de una determina instantáneamente la propiedad de la otra, sin importar la distancia que las separe. Es como si dos dados, lanzados en planetas distintos, mostraran siempre el mismo número. No puedes usar esto para enviar mensajes, pero sí para cifrar información de forma segura o para teleportar estados cuánticos.\n>\n> **¿Qué diferencia hay entre un ordenador cuántico y uno clásico?**\n> Un ordenador clásico trabaja con bits que solo pueden estar en estado 0 o 1. Un ordenador cuántico usa cúbits que pueden estar en superposición de ambos estados a la vez. Esto le permite explorar múltiples soluciones simultáneamente para ciertos problemas muy específicos, como la simulación de moléculas para diseñar fármacos o la optimización de rutas logísticas. Es como si tuvieras que encontrar la salida de un laberinto: el clásico prueba un camino cada vez; el cuántico explora todos los caminos a la vez.\n>\n> **¿Cómo funciona el efecto túnel cuántico?**\n> Una partícula cuántica, al ser también una onda de probabilidad, tiene una pequeña posibilidad de filtrarse a través de una barrera que clásicamente no podría superar. No la destruye ni la rodea: la atraviesa como un fantasma. Sin este fenómeno, el Sol no brillaría —porque los núcleos de hidrógeno no podrían fusionarse— y tu teléfono móvil no podría almacenar datos en su memoria flash.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-siguiente-parada-en-la-ruta",
-      "titulo": "⚠️ Siguiente parada en la ruta",
-      "niveles": {
-        "intermedio": "> **⚠️ Siguiente parada: Física Atómica y Nuclear**\n>\n> Has explorado el extraño reino donde las partículas son ondas y la realidad depende de quién mira. Ahora es el momento de aplicar estas reglas al interior del átomo. Descubrirás cómo se organizan los electrones alrededor del núcleo, qué mantiene unidos a protones y neutrones, y por qué una cantidad minúscula de materia puede liberar la energía de una estrella. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando:** Si quieres sumergirte en la mecánica cuántica con el mejor divulgador que ha existido, *\"El carácter de la ley física\"* de Richard Feynman es una obra maestra que explica lo inexplicable con una claridad deslumbrante. [Consíguelo aquí](enlace-afiliado)."
+        "principiante": "## Aplicaciones de la cuántica\n\nLa mecánica cuántica no es solo teoría: está en la tecnología que usas cada día.\n\n- **Láser**: funciona por emisión estimulada, una idea cuántica\n- **Transistores**: la base de todos los chips\n- **LEDs**: luz por saltos cuánticos de electrones\n- **Resonancia magnética (RM)**: espín de los núcleos\n- **GPS**: relojes atómicos\n\nSin mecánica cuántica, no existiría la electrónica moderna.\n\n> **Dato que rompe el cerebro**\n> El transistor —el componente más fabricado de la historia (billones por segundo)— funciona por la mecánica cuántica de los semiconductores. Tu móvil es una máquina cuántica que no podría existir sin la física que estudias aquí.\n\n**[IMAGEN SUGERIDA: Un chip de silicio, con electrones como nubes cuánticas. Pie de foto: \"El transistor es cuántico.\"]**\n\n\n<Connect title=\"De la cuántica a la tecnología del siglo XX\" sourceConcept=\"Salto cuántico de electrones\" targetConcept=\"Láser y transistores\">\nLos saltos de electrones entre niveles emiten fotones exactos —el principio del láser (emisión estimulada). Las bandas de energía de los semiconductores gobiernan los transistores. La mecánica cuántica, la teoría más abstracta, es literalmente el hardware de tu móvil.\n</Connect>\n\n\n<Transfer targetDomain=\"Medicina\" title=\"Transfiere: la resonancia magnética cuántica\">\nLa RM usa el espín de los núcleos de hidrógeno: en un campo magnético, los espines se alinean y absorben fotones de radiofrecuencia (resonancia). Al relajarse, emiten señales que forman imágenes. Investiga cómo la mecánica cuántica del espín produce las imágenes médicas y por qué el hidrógeno (agua del cuerpo) es el objetivo.\n</Transfer>\n",
+        "intermedio": "## El láser y los estados cuánticos\n\n```parameter-lab\nTITLE: Niveles de energía del hidrógeno\nDESC: Los electrones solo ocupan niveles discretos. La energía del fotón emitido es la diferencia entre niveles.\nOUTPUT_LABEL: Energía del fotón\nOUTPUT_UNIT: eV\nQUESTION: Un electrón salta del nivel n = 2 (E = −3.4 eV) al n = 1 (E = −13.6 eV). ¿Cuál es la energía del fotón emitido?\nANSWER: E_fotón = E_i − E_f = −3.4 − (−13.6) = 10.2 eV. El fotón tiene exactamente la energía de la diferencia entre niveles.\nXP: 50\nPARAM: nivel_final | Nivel final (n) | '' | 1 | 5 | 1 | 1\nPARAM: nivel_inicial | Nivel inicial (n) | '' | 1 | 5 | 1 | 2\n```\n\nAplicaciones cuánticas en medicina y tecnología:\n- **RM**: alinea los espines nucleares en un campo magnético\n- **PET**: detecta la aniquilación de positrones\n- **Microscopía cuántica**: sensores de espín\n\n> **🔑 Concepto clave: La cuántica es tecnología**\n> Los saltos cuánticos de los electrones producen los fotones de los láseres y LEDs. Los semiconductores funcionan por bandas de energía cuántica. La RM usa el espín. La cuántica está en toda la tecnología moderna.\n\n\n<Connect title=\"De la cuántica a la tecnología del siglo XX\" sourceConcept=\"Salto cuántico de electrones\" targetConcept=\"Láser y transistores\">\nLos saltos de electrones entre niveles emiten fotones exactos —el principio del láser (emisión estimulada). Las bandas de energía de los semiconductores gobiernan los transistores. La mecánica cuántica, la teoría más abstracta, es literalmente el hardware de tu móvil.\n</Connect>\n\n\n<Transfer targetDomain=\"Medicina\" title=\"Transfiere: la resonancia magnética cuántica\">\nLa RM usa el espín de los núcleos de hidrógeno: en un campo magnético, los espines se alinean y absorben fotones de radiofrecuencia (resonancia). Al relajarse, emiten señales que forman imágenes. Investiga cómo la mecánica cuántica del espín produce las imágenes médicas y por qué el hidrógeno (agua del cuerpo) es el objetivo.\n</Transfer>\n",
+        "avanzado": "## La frontera: computación cuántica\n\nLa computación cuántica usa superposición y entrelazamiento:\n\n- **Qubits** (IBM, Google): hasta cientos hoy\n- **Supremacía cuántica**: Google (2019) resolvió en segundos un problema que a un clásico le tomaría miles de años\n- **Aplicaciones**: criptografía (Shor), simulación de moléculas, optimización\n\nLos retos:\n- **Decoherencia**: los qubits pierden superposición\n- **Corrección de errores**: necesaria para la escala\n- **Frío extremo**: los qubits requieren millikelvin\n\nEl futuro: ordenadores cuánticos tolerantes a fallos que revolucionen la simulación, la química y la inteligencia artificial.\n\n> **💡 Nota de frontera**\n> La mecánica cuántica y la relatividad general son incompatibles en el régimen extremo (agujeros negros, Big Bang). La gravedad cuántica —cuerdas, lazos— busca unificarlas. Es el problema abierto más profundo de la física, y la computación cuántica es un paso práctico hacia entender la cuántica en profundidad.\n\n\n<Connect title=\"De la cuántica a la tecnología del siglo XX\" sourceConcept=\"Salto cuántico de electrones\" targetConcept=\"Láser y transistores\">\nLos saltos de electrones entre niveles emiten fotones exactos —el principio del láser (emisión estimulada). Las bandas de energía de los semiconductores gobiernan los transistores. La mecánica cuántica, la teoría más abstracta, es literalmente el hardware de tu móvil.\n</Connect>\n\n\n<Transfer targetDomain=\"Medicina\" title=\"Transfiere: la resonancia magnética cuántica\">\nLa RM usa el espín de los núcleos de hidrógeno: en un campo magnético, los espines se alinean y absorben fotones de radiofrecuencia (resonancia). Al relajarse, emiten señales que forman imágenes. Investiga cómo la mecánica cuántica del espín produce las imágenes médicas y por qué el hidrógeno (agua del cuerpo) es el objetivo.\n</Transfer>\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "La mecánica cuántica describe la realidad a escala atómica, y sus reglas son radicalmente distintas de la física clásica. Has recorrido sus pilares: la cuantización de la energía que fundó la teoría, la dualidad onda-partícula que revela que toda la materia tiene una onda asociada, la superposición que permite a los sistemas estar en varios estados a la vez, el principio de incertidumbre que fija un límite fundamental al conocimiento, la función de onda que gobierna las probabilidades, y el efecto túnel que permite lo 'imposible'. Aunque todo esto contradice la intuición —el gato vivo y muerto, la partícula que atraviesa paredes, la incertidumbre fundamental—, la mecánica cuántica es la teoría más exitosa de la historia: su precisión predictiva es asombrosa, y su tecnología está en tus manos: los transistores de tu móvil, el láser, la resonancia magnética, el GPS. Y su frontera sigue abierta: los ordenadores cuánticos, la física de materiales, y el desafío de reconciliarla con la gravedad. La lección más profunda de la cuántica es que la naturaleza no es como la imaginamos: es como la medimos. En el mundo atómico, la intuición clásica falla, y las matemáticas —no los sentidos— son la guía fiable. Ese es el mayor regalo de la mecánica cuántica: enseñarnos a escuchar lo que el universo dice, aunque no sea lo que esperábamos oír.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Cuantización",
+        "enunciado": "¿Qué significa que la energía está cuantizada?",
+        "solucion": "Que la energía solo toma valores discretos (como peldaños de escalera), no continuos. Un electrón en un átomo solo puede tener ciertos niveles de energía, y salta entre ellos emitiendo fotones de energía exacta E = hν.",
+        "xp": 30,
+        "pistas": [
+          "¿Es continua o discreta?",
+          "¿Qué salta el electrón?"
+        ],
+        "opciones": [
+          {
+            "label": "Valores discretos",
+            "correcta": true
+          },
+          {
+            "label": "Cualquier valor continuo",
+            "correcta": false
+          },
+          {
+            "label": "Solo valores negativos",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce la cuantización",
+          "Saltos entre niveles discretos"
+        ]
+      },
+      {
+        "titulo": "Dualidad",
+        "enunciado": "¿Qué dice la dualidad onda-partícula sobre la luz?",
+        "solucion": "Que la luz es onda y partícula a la vez: interfiere y difracta (onda), pero también viene en fotones (partículas, efecto fotoeléctrico). De Broglie extendió esto a toda la materia: λ = h/(mv).",
+        "xp": 35,
+        "pistas": [
+          "¿Qué experimento muestra la onda?",
+          "¿Cuál muestra las partículas?"
+        ],
+        "opciones": [
+          {
+            "label": "Onda y partícula a la vez",
+            "correcta": true
+          },
+          {
+            "label": "Solo onda",
+            "correcta": false
+          },
+          {
+            "label": "Solo partícula",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica ambos comportamientos",
+          "La naturaleza es ambas cosas"
+        ]
+      },
+      {
+        "titulo": "Incertidumbre",
+        "enunciado": "¿Qué limita el principio de incertidumbre de Heisenberg?",
+        "solucion": "El conocimiento simultáneo de posición y momento: Δx·Δp ≥ ℏ/2. No es limitación instrumental, es propiedad fundamental de la naturaleza. Determina el tamaño de los átomos y permite las fluctuaciones del vacío.",
+        "xp": 35,
+        "pistas": [
+          "¿Qué dos cantidades?",
+          "¿Es instrumental o fundamental?"
+        ],
+        "opciones": [
+          {
+            "label": "Posición y momento",
+            "correcta": true
+          },
+          {
+            "label": "Masa y carga",
+            "correcta": false
+          },
+          {
+            "label": "Velocidad y energía",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce Δx y Δp",
+          "Es un límite fundamental"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Fotón de transición",
+        "enunciado": "Un electrón salta del nivel E = −1.5 eV al E = −3.4 eV. ¿Cuál es la energía del fotón emitido o absorbido?",
+        "solucion": "E_fotón = E_i − E_f = −1.5 − (−3.4) = 1.9 eV emitido (el electrón cae a menor energía y emite un fotón).",
+        "xp": 45,
+        "pistas": [
+          "E_fotón = E_i − E_f",
+          "¿Emite o absorbe?"
+        ],
+        "opciones": [
+          {
+            "label": "1.9 eV emitido",
+            "correcta": true
+          },
+          {
+            "label": "4.9 eV absorbido",
+            "correcta": false
+          },
+          {
+            "label": "1.9 eV absorbido",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica E = E_i − E_f",
+          "Identifica si emite o absorbe"
+        ]
+      },
+      {
+        "titulo": "Longitud de onda de De Broglie",
+        "enunciado": "¿Cuál es la longitud de onda de un electrón de 2×10⁻³¹ kg... no, calcula la de un electrón (9.1×10⁻³¹ kg) que viaja a 10⁶ m/s? (h = 6.63×10⁻³⁴ J·s)",
+        "solucion": "λ = h/(mv) = 6.63×10⁻³⁴/(9.1×10⁻³¹×10⁶) = 6.63×10⁻³⁴/9.1×10⁻²⁵ ≈ 7.3×10⁻¹⁰ m —tamaño atómico. Por eso la cuántica importa en los átomos.",
+        "xp": 50,
+        "pistas": [
+          "λ = h/(mv)",
+          "Multiplica masa × velocidad, luego divide h"
+        ],
+        "opciones": [
+          {
+            "label": "7.3×10⁻¹⁰ m",
+            "correcta": true
+          },
+          {
+            "label": "7.3×10⁻³⁵ m",
+            "correcta": false
+          },
+          {
+            "label": "10⁻¹⁰ m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica λ = h/(mv)",
+          "Calcula el cociente"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Efecto túnel en el Sol",
+        "enunciado": "¿Por qué la fusión en el Sol ocurre a pesar de que los protones se repelen eléctricamente?",
+        "solucion": "Por el efecto túnel: la función de onda de cada protón se extiende a través de la barrera culombiana con probabilidad pequeña pero no nula. A 15 millones K, una fracción tunela y se fusiona. Sin túnel, el Sol no brillaría. La probabilidad depende exponencialmente del ancho de la barrera.",
+        "xp": 55,
+        "pistas": [
+          "¿Qué hace la función de onda en la barrera?",
+          "¿La probabilidad es cero?"
+        ],
+        "opciones": [
+          {
+            "label": "Efecto túnel",
+            "correcta": true
+          },
+          {
+            "label": "La gravedad atrae los protones",
+            "correcta": false
+          },
+          {
+            "label": "No hay repulsión real",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce la barrera culombiana",
+          "La probabilidad tunela"
+        ]
+      },
+      {
+        "titulo": "Qubits y superposición",
+        "enunciado": "¿Qué diferencia un bit clásico de un qubit y por qué es importante para la computación?",
+        "solucion": "Un bit es 0 o 1. Un qubit es 0, 1 o una superposición de ambos. Con n qubits superpuestos, se representan 2ⁿ estados a la vez, permitiendo computar en paralelo. Esto da ventajas exponenciales en factorización (Shor) y búsqueda (Grover). El reto: la decoherencia destruye la superposición.",
+        "xp": 55,
+        "pistas": [
+          "¿Qué estados puede tener un qubit?",
+          "¿Qué permite la superposición?"
+        ],
+        "opciones": [
+          {
+            "label": "Superposición de 0 y 1",
+            "correcta": true
+          },
+          {
+            "label": "Es lo mismo que un bit",
+            "correcta": false
+          },
+          {
+            "label": "Solo 0 o solo 1",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Define el qubit",
+          "Explica el paralelismo cuántico"
+        ]
+      }
+    ]
+  }
 }
