@@ -19,9 +19,9 @@ interface Home2ClientProps {
 }
 
 const ORBITS = [
-  { id: "inner", radius: 30, duration: 30, phase: 0.35, categories: ["ciencias_naturales", "ciencias_formales"] },
-  { id: "mid", radius: 44, duration: 42, phase: 1.1, categories: ["ciencias_sociales", "humanidades", "artes"] },
-  { id: "outer", radius: 58, duration: 56, phase: 0.75, categories: ["aplicadas", "idiomas"] },
+  { id: "inner", radius: 35, duration: 30, phase: 0.35, categories: ["ciencias_naturales", "ciencias_formales"] },
+  { id: "mid", radius: 50, duration: 42, phase: 1.1, categories: ["ciencias_sociales", "humanidades", "artes"] },
+  { id: "outer", radius: 65, duration: 56, phase: 0.75, categories: ["aplicadas", "idiomas"] },
 ];
 
 const LIVE_CATEGORIES = new Set(["ciencias_naturales"]);
