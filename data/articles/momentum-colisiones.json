@@ -1,127 +1,308 @@
 {
   "metadata": {
-    "title": "Momentum y Colisiones: Por qué un camión no se detiene como una bicicleta",
-    "description": "Qué es el momentum (cantidad de movimiento), cómo se conserva y por qué las colisiones entre un mosquito y un camión tienen sorpresas. Impulso, colisiones elásticas e inelásticas explicadas desde cero.",
+    "title": "Momento y Colisiones",
+    "description": "Guía completa del momento lineal: qué es, el impulso, la conservación del momento, colisiones elásticas e inelásticas, centro de masa y sistemas de masa variable.",
     "slug": "momentum-colisiones",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
-      "momentum",
-      "cantidad de movimiento",
+      "momento lineal",
       "impulso",
       "colisiones",
       "conservación",
-      "elástica",
-      "inelástica",
-      "energía cinética",
-      "fuerza",
-      "tiempo"
+      "centro de masa",
+      "cohetes"
     ],
-    "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-11",
-    "nivel": "2",
-    "orden": "7",
-    "nivel_titulo": "El Reino de lo Clásico",
-    "insignia": "Señor de lo Clásico",
+    "image": "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 2,
+    "nivel_titulo": "Profundización Mecánica",
+    "orden": 4,
+    "insignia": "Guardián del Momento",
     "tipo": "theory",
     "prerequisites": [
-      "cinematica",
       "leyes-newton-movimiento",
-      "vectores"
+      "mecanica-clasica"
     ],
-    "breadcrumb": [
-      "El Reino de lo Clásico",
-      "Momentum y Colisiones"
-    ]
+    "breadcrumb": "Física / Profundización Mecánica / Momento y Colisiones"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  Un mosquito choca contra el parabrisas de un camión. El camión apenas lo nota... pero el mosquito sí nota al camión. ¿Y si te digo que el momento del mosquito era igual y opuesto al del camión?\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **momento lineal** es p = mv —masa por velocidad. La segunda ley se escribe F = Δp/Δt: la fuerza cambia el momento. En un sistema aislado, el **momento total se conserva** (tercera ley): en cualquier colisión, lo que un cuerpo gana, otro lo pierde. En colisiones **elásticas** se conserva también la energía cinética; en **inelásticas** se pierde en calor y deformación. Con esta ley, analizas choques, retrocesos, cohetes y explosiones.\n\n**[IMAGEN SUGERIDA: Dos bolas de billar chocando, con flechas de momento. Pie de foto: \"El momento se conserva en cada choque.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-el-mosquito-que-destruy-un-camin-metafricamente",
-      "titulo": "▶️ Bienvenida: El mosquito que destruyó un camión (metafóricamente)",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: el mosquito que detuvo un camión",
       "niveles": {
-        "principiante": "Imagina esto: un mosquito choca contra el parabrisas de un camión a 80 km/h.\n\nPregunta: ¿Quién sale peor parado?\n\nLa respuesta obvia es el mosquito. Pero hay algo mucho más profundo aquí. Ese mosquito, que pesa **2 miligramos**, genera la **misma fuerza** sobre el camión que el camión genera sobre él. Sí, has leído bien: la misma.\n\nEntonces, si las fuerzas son iguales... ¿por qué el mosquito se hace puré y el camión ni se entera?\n\nLa respuesta está en una cantidad que la gente confunde constantemente con la fuerza: el **momentum** (o **cantidad de movimiento**). Y una vez que lo entiendas, verás el mundo de una forma completamente diferente. Podrás predecir el resultado de choques, entender por qué los airbags salvan vidas y hasta calcular qué pasaría si un asteroide golpeara la Tierra.\n\n> **💡 La clave en 10 segundos**\n>\n> > El **momentum** ($p = m \\cdot v$) mide \"cuánto movimiento tiene un objeto\". No depende solo de su masa ni solo de su velocidad, sino de **ambas cosas multiplicadas**. Un camión lento puede tener el mismo momentum que una bala rápida. Lo revolucionario es que **el momentum total de un sistema siempre se conserva**: no aparece ni desaparece, solo se transfiere.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — QUÉ ES EL MOMENTUM -->\n<!-- ============================================ -->",
-        "intermedio": "Imagina esto: un mosquito choca contra el parabrisas de un camión a 80 km/h.\n\nPregunta: ¿Quién sale peor parado?\n\nLa respuesta obvia es el mosquito. Pero hay algo mucho más profundo aquí. Ese mosquito, que pesa **2 miligramos**, genera la **misma fuerza** sobre el camión que el camión genera sobre él. Sí, has leído bien: la misma.\n\nEntonces, si las fuerzas son iguales... ¿por qué el mosquito se hace puré y el camión ni se entera?\n\nLa respuesta está en una cantidad que la gente confunde constantemente con la fuerza: el **momentum** (o **cantidad de movimiento**). Y una vez que lo entiendas, verás el mundo de una forma completamente diferente. Podrás predecir el resultado de choques, entender por qué los airbags salvan vidas y hasta calcular qué pasaría si un asteroide golpeara la Tierra.\n\n> **💡 La clave en 10 segundos**\n>\n> > El **momentum** ($p = m \\cdot v$) mide \"cuánto movimiento tiene un objeto\". No depende solo de su masa ni solo de su velocidad, sino de **ambas cosas multiplicadas**. Un camión lento puede tener el mismo momentum que una bala rápida. Lo revolucionario es que **el momentum total de un sistema siempre se conserva**: no aparece ni desaparece, solo se transfiere.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — QUÉ ES EL MOMENTUM -->\n<!-- ============================================ -->",
-        "avanzado": "Imagina esto: un mosquito choca contra el parabrisas de un camión a 80 km/h.\n\nPregunta: ¿Quién sale peor parado?\n\nLa respuesta obvia es el mosquito. Pero hay algo mucho más profundo aquí. Ese mosquito, que pesa **2 miligramos**, genera la **misma fuerza** sobre el camión que el camión genera sobre él. Sí, has leído bien: la misma.\n\nEntonces, si las fuerzas son iguales... ¿por qué el mosquito se hace puré y el camión ni se entera?\n\nLa respuesta está en una cantidad que la gente confunde constantemente con la fuerza: el **momentum** (o **cantidad de movimiento**). Y una vez que lo entiendas, verás el mundo de una forma completamente diferente. Podrás predecir el resultado de choques, entender por qué los airbags salvan vidas y hasta calcular qué pasaría si un asteroide golpeara la Tierra.\n\n> **💡 La clave en 10 segundos**\n>\n> > El **momentum** ($p = m \\cdot v$) mide \"cuánto movimiento tiene un objeto\". No depende solo de su masa ni solo de su velocidad, sino de **ambas cosas multiplicadas**. Un camión lento puede tener el mismo momentum que una bala rápida. Lo revolucionario es que **el momentum total de un sistema siempre se conserva**: no aparece ni desaparece, solo se transfiere.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — QUÉ ES EL MOMENTUM -->\n<!-- ============================================ -->"
+        "principiante": "## Bienvenida: el mosquito que detuvo un camión\n\nUn mosquito choca contra el parabrisas de un camión a 100 km/h. El camión no se inmuta. Pero si midieras con precisión, el momento que el mosquito le transfiere al camión es exactamente el que pierde el mosquito.\n\nEl **momento lineal** (p) es la cantidad de movimiento:\n\n$$ p = mv $$\n\nUn camión tiene mucho momento por su enorme masa; un mosquito, por su pequeña masa, tiene poco. Por eso el impacto del mosquito apenas afecta al camión.\n\n> **🔑 Concepto clave: Momento**\n> El momento lineal p = mv mide la 'cantidad de movimiento'. Es vectorial: tiene dirección. Cuanto más masivo o más rápido un objeto, mayor su momento. Se mide en kg·m/s.\n\n**[IMAGEN SUGERIDA: Un camión y un mosquito, con la comparación de sus momentos. Pie de foto: \"El momento del camión es enorme; el del mosquito, diminuto.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Momento y Colisiones\">\n**La clave:** los **Fundamentos de Momento y Colisiones** se resumen en tres ideas: el momento p = mv es la cantidad de movimiento; el impulso J = F·Δt cambia el momento; y en un sistema aislado el momento total se conserva —elástica (se conserva la energía) o inelástica (solo el momento). El centro de masa reduce sistemas complejos a un punto, y la ecuación del cohete explica la propulsión.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: la conservación que gobierna los choques\n\nEl momento lineal p = mv es una de las cantidades más fundamentales de la física. Su conservación se deduce directamente de la tercera ley de Newton:\n\nEn una colisión, los cuerpos intercambian fuerzas iguales y opuestas. El cambio de momento de cada uno es igual y opuesto, así que el **momento total no cambia**:\n\n$$ m_1\\vec{v}_1 + m_2\\vec{v}_2 = \\text{constante} $$\n\nEsta ley es universal: vale para bolas de billar, moléculas, planetas y partículas subatómicas. De hecho, se cumple incluso donde la tercera ley de Newton falla (en la fuerza de Lorentz), porque el momento se transfiere a los campos.\n\n> **Dato que rompe el cerebro**\n> Cuando disparas un arma, el retroceso que sientes es la conservación del momento: la bala sale hacia adelante con el mismo momento que el arma y tu mano reciben hacia atrás. El momento total antes y después es cero.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Momento y Colisiones\">\n**La clave:** los **Fundamentos de Momento y Colisiones** se resumen en tres ideas: el momento p = mv es la cantidad de movimiento; el impulso J = F·Δt cambia el momento; y en un sistema aislado el momento total se conserva —elástica (se conserva la energía) o inelástica (solo el momento). El centro de masa reduce sistemas complejos a un punto, y la ecuación del cohete explica la propulsión.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: el momento como invariante\n\nEl momento lineal es un ejemplo de una cantidad conservada ligada a una simetría: el **teorema de Noether** dice que a cada simetría del sistema le corresponde una ley de conservación. La conservación del momento es consecuencia de la simetría de **traslación espacial** —las leyes de la física son las mismas en cualquier punto del espacio.\n\nEsta conexión entre simetría y conservación es uno de los principios más profundos de la física. Se repite: la conservación de la energía proviene de la simetría temporal, y la del momento angular de la simetría rotacional.\n\n> **💡 Nota de frontera**\n> En mecánica cuántica y relatividad, el momento se generaliza (operadores, cuadrivectores), pero su conservación persiste. En el colisionador de partículas, los físicos reconstruyen partículas invisibles justamente usando la conservación del momento: si el momento 'falta', algo se escapó.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Fundamentos de Momento y Colisiones\">\n**La clave:** los **Fundamentos de Momento y Colisiones** se resumen en tres ideas: el momento p = mv es la cantidad de movimiento; el impulso J = F·Δt cambia el momento; y en un sistema aislado el momento total se conserva —elástica (se conserva la energía) o inelástica (solo el momento). El centro de masa reduce sistemas complejos a un punto, y la ecuación del cohete explica la propulsión.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-capa-i-intuicin--ms-que-masa--velocidad",
-      "titulo": "🌱 Capa I: Intuición — Más que \"masa × velocidad\"",
+      "id": "que-es-momentum",
+      "titulo": "¿Qué es el momento?",
       "niveles": {
-        "principiante": "### 1.1 ¿Por qué \"cantidad de movimiento\"?\n\nPiensa en esto:\n- Un niño de 30 kg corriendo a 3 m/s\n- Un futbolista de 80 kg corriendo a 3 m/s\n\nAmbos van a la **misma velocidad**. Pero si chocas con el futbolista, vas a volar. ¿Por qué?\n\nPorque el futbolista tiene **más movimiento** que transferir. Eso es el momentum:\n\n$$p = m \\cdot v$$\n\n| Objeto | Masa (kg) | Velocidad (m/s) | Momentum (kg·m/s) |\n|:------:|:---------:|:----------------:|:------------------:|\n| Niño corriendo | 30 | 3 | **90** |\n| Futbolista corriendo | 80 | 3 | **240** |\n| Mosquito volando | 0,000002 | 2 | **0,000004** |\n| Coche en autopista | 1.500 | 30 | **45.000** |\n| Asteroide (pequeño) | 1.000.000.000 | 15.000 | **15.000.000.000.000** |\n\n**El momentum es un vector** (como todo lo que involucra velocidad). Tiene magnitud **y** dirección. Si un objeto va al norte a 10 m/s, su momentum apunta al norte. Si frena y va al sur a 10 m/s, su momentum es **opuesto**.\n\n### 1.2 El impulso: la fuerza × el tiempo\n\nImagina que estás de pie y alguien te empuja suavemente durante 10 segundos. Ahora imagina que alguien te empuja con la **misma fuerza** durante solo 0,1 segundos (un golpe seco).\n\nEn ambos casos, la fuerza es igual. Pero el **efecto** es completamente diferente.\n\nEl **impulso** ($J$) captura esta diferencia:\n\n$$J = F \\cdot \\Delta t$$\n\n| Situación | Fuerza | Tiempo | Impulso | Resultado |\n|:---------:|:------:|:------:|:-------:|:---------:|\n| Empujón suave | 50 N | 10 s | **500 N·s** | Te desplazas lentamente |\n| Golpe seco | 50 N | 0,1 s | **5 N·s** | Te tambaleas |\n| Airbag | 5.000 N | 0,05 s | **250 N·s** | Te detienes \"suavemente\" |\n| Sin airbag | 5.000 N | 0,005 s | **25 N·s** | Te detienes bruscamente 💀 |\n\n**El truco:** el impulso es exactamente igual al **cambio de momentum**:\n\n$$J = \\Delta p = m \\cdot v_f - m \\cdot v_i$$\n\nEsto se llama el **Teorema Impulso-Momentum**, y es una de las ecuaciones más poderosas de toda la física:\n\n$$F \\cdot \\Delta t = m \\cdot \\Delta v$$\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > Un airbag **no reduce la fuerza** que actúa sobre ti. La fuerza del impacto sigue siendo enorme. Lo que hace el airbag es **aumentar el tiempo** de parada. En vez de detenerte en 0,005 segundos (golpe contra el volante), te detiene en 0,05 segundos (hundirte en la bolsa). Eso reduce la fuerza **10 veces**. Literalmente la diferencia entre vida y muerte.\n\n### 1.3 Unidad del momentum\n\n| Magnitud | Unidad en SI | Unidad \"humana\" |\n|:--------:|:-----------:|:---------------:|\n| Momentum | kg·m/s | — |\n| Impulso | N·s | — |\n\n**Nota curiosa:** kg·m/s y N·s son **la misma unidad** expresada de forma diferente:\n\n$$1 \\text{ N·s} = 1 \\frac{\\text{kg·m}}{\\text{s²}} \\times \\text{s} = 1 \\text{ kg·m/s}$$\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 2: HERRAMIENTAS — CONSERVACIÓN DEL MOMENTUM -->\n<!-- ============================================ -->"
+        "principiante": "## ¿Qué es el momento?\n\nEl momento lineal p = mv es el producto de la masa por la velocidad.\n\nDos objetos pueden tener el mismo momento con masas distintas: una pelota de 2 kg a 10 m/s (p = 20 kg·m/s) y un camión de 2000 kg a 0.01 m/s (p = 20 kg·m/s) tienen el mismo momento.\n\nEl momento es **vectorial**: su dirección es la de la velocidad. Detener un objeto con momento requiere aplicar una fuerza durante un tiempo (impulso).\n\n> **Dato que rompe el cerebro**\n> Un camión lento puede tener más momento que una bala rápida. El momento no es lo mismo que la energía: un objeto con mucha energía cinética pero poca masa (una bala) puede tener poco momento.\n\n```aeterna-exercise\nTITLE: Momento de dos objetos\nHINT: p = mv. Compara masa y velocidad.\nXP: 30\nUn elefante de 3000 kg camina a 2 m/s. Una bala de 0.03 kg vuela a 500 m/s. ¿Cuál tiene más momento?\nSOLUTION: Elefante: p = 3000×2 = 6000 kg·m/s. Bala: p = 0.03×500 = 15 kg·m/s. El elefante tiene 400 veces más momento, a pesar de ser mucho más lento.\n```\n\n> **🔑 Concepto clave: Masa × velocidad**\n> El momento p = mv combina masa y velocidad. Un objeto masivo y lento puede tener el mismo momento que uno ligero y rápido. La dirección del momento es la de la velocidad.\n",
+        "intermedio": "## El momento como cantidad vectorial\n\nEl momento es un vector:\n\n$$ \\vec{p} = m\\vec{v} $$\n\nSus componentes:\n\n$$ p_x = mv_x, \\quad p_y = mv_y, \\quad p_z = mv_z $$\n\nLa conservación del momento se aplica **por componentes**: el momento x se conserva independientemente del momento y. Esto es crucial en colisiones en 2D (billar, partículas).\n\n> **Dato que rompe el cerebro**\n> En una colisión en 2D, la componente x del momento total se conserva por separado de la componente y. Por eso el análisis de choques en el billar se descompone en dos ecuaciones independientes.\n",
+        "avanzado": "## Momento y segunda ley\n\nNewton formuló su segunda ley originalmente en términos de momento:\n\n$$ F = \\frac{d\\vec{p}}{dt} $$\n\nLa fuerza es la tasa de cambio del momento. Esta formulación es más general que F = ma:\n\n- Si la masa es constante, F = ma (se recupera la forma clásica)\n- Si la masa cambia (cohete), F = ma no basta: hay que usar dp/dt\n- En relatividad, el momento se generaliza y esta ley persiste\n\n> **💡 Nota de frontera**\n> La formulación F = dp/dt es la que sobrevive en la relatividad: el momento relativista p = γmv, donde γ es el factor de Lorentz. A velocidades cercanas a la luz, el momento crece sin límite, lo que hace imposible alcanzar c.\n"
       },
       "acciones": []
     },
     {
-      "id": "21-la-ley-de-conservacin-del-momentum",
-      "titulo": "2.1 La ley de conservación del momentum",
+      "id": "impulso",
+      "titulo": "Impulso y fuerza",
       "niveles": {
-        "principiante": "> **La ley más importante de esta sección:**\n>\n> *En un sistema aislado (sin fuerzas externas), el momentum total antes de una interacción es **igual** al momentum total después.*\n\n$$\\vec{p}_{total, antes} = \\vec{p}_{total, después}$$\n\n$$m_1 \\vec{v}_{1i} + m_2 \\vec{v}_{2i} = m_1 \\vec{v}_{1f} + m_2 \\vec{v}_{2f}$$\n\n### ¿Por qué se conserva?\n\nEs una consecuencia directa de la **Tercera Ley de Newton**: si el objeto A empuja al objeto B con fuerza $F$, el objeto B empuja al A con fuerza $-F$. Las fuerzas internas se cancelan, así que el momentum total **no cambia**.\n\n> **❌ Error común**\n>\n> > **[El error]:** \"El momentum se conserva siempre.\"\n> >\n> > **[La realidad]:** El momentum se conserva **solo en sistemas aislados** (sin fuerzas externas netas). Un coche chocando contra un muro **no** conserva momentum (el muro ejerce una fuerza externa). Pero dos hielos chocando sobre hielo sin fricción **sí** conservan momentum.\n\n---"
+        "principiante": "## Impulso y fuerza\n\nEl **impulso** (J) es la fuerza aplicada durante un tiempo:\n\n$$ J = F \\cdot \\Delta t $$\n\nY el teorema del impulso-momento:\n\n$$ J = \\Delta p $$\n\nLa fuerza aplicada durante un tiempo cambia el momento. Lo interesante: para cambiar el mismo momento, puedes usar fuerza grande en poco tiempo o fuerza pequeña en mucho tiempo.\n\nEsto explica por qué los airbags salvan vidas: extienden el tiempo del impacto, reduciendo la fuerza.\n\n> **Dato que rompe el cerebro**\n> Al caer, si doblas las rodillas, aumentas el tiempo del impacto y reduces la fuerza. El impulso (cambio de momento) es el mismo, pero la fuerza es menor. Los parachoques, los cascos y los colchones funcionan igual.\n\n**[IMAGEN SUGERIDA: Un airbag desplegado, con la explicación del impulso. Pie de foto: \"El airbag extiende el tiempo del impacto.\"]**\n\n\n<Transfer targetDomain=\"Seguridad en accidentes\" title=\"Transfiere: el impulso que salva vidas\">\nCompara dos coches que chocan contra un muro a la misma velocidad: uno con parachoques rígido y otro con zona de deformación. Usando el teorema del impulso-momento (J = F·Δt = Δp), explica por qué la zona deformable reduce la fuerza sobre los ocupantes. ¿Cómo cambiaría el impulso si el airbag no se desplegara?\n</Transfer>\n",
+        "intermedio": "## El teorema impulso-momento\n\n```aeterna-formula\ntitle=\"Teorema del impulso-momento\"\nformula=\"J = F \\\\Delta t = \\\\Delta p\"\nvariables={[{\"symbol\":\"J\",\"name\":\"Impulso\",\"unit\":\"N·s\"},{\"symbol\":\"F\",\"name\":\"Fuerza\",\"unit\":\"N\"},{\"symbol\":\"Δt\",\"name\":\"Tiempo de contacto\",\"unit\":\"s\"},{\"symbol\":\"Δp\",\"name\":\"Cambio de momento\",\"unit\":\"kg·m/s\"}]}\nnote=\"La fuerza aplicada durante un tiempo produce un cambio de momento. Extender el tiempo reduce la fuerza para el mismo impulso.\"\n```\n\nEl área bajo la curva F-t es el impulso. Para fuerzas variables:\n\n$$ J = \\int F \\, dt $$\n\nAplicaciones de la seguridad:\n- **Airbags y cascos**: extienden Δt, reducen F\n- **Parachoques**: deformables, absorben energía\n- **Saltadores**: doblan rodillas al aterrizar\n\n> **🔑 Concepto clave: Mismo impulso, distinta fuerza**\n> El impulso (cambio de momento) está fijado por la situación. La fuerza depende del tiempo: F = Δp/Δt. Extender el tiempo es la forma de reducir la fuerza en impactos. Es la física detrás de toda la seguridad pasiva.\n\n\n<Transfer targetDomain=\"Seguridad en accidentes\" title=\"Transfiere: el impulso que salva vidas\">\nCompara dos coches que chocan contra un muro a la misma velocidad: uno con parachoques rígido y otro con zona de deformación. Usando el teorema del impulso-momento (J = F·Δt = Δp), explica por qué la zona deformable reduce la fuerza sobre los ocupantes. ¿Cómo cambiaría el impulso si el airbag no se desplegara?\n</Transfer>\n",
+        "avanzado": "## Impulso y fuerzas variables\n\nCuando la fuerza varía (como en un martillazo), el impulso es la integral:\n\n$$ J = \\int_{t_1}^{t_2} F(t) \\, dt $$\n\nY el cambio de momento:\n\n$$ \\Delta p = \\int F(t) \\, dt $$\n\nLa fuerza media es F_media = J/Δt. En deportes (golpe de béisbol, tiro en fútbol), la fuerza media determina la velocidad de salida de la pelota.\n\n> **💡 Nota avanzada**\n> En choques con duración finita, la fuerza instantánea puede ser enorme: golpes, impactos y explosiones producen picos de fuerza muy superiores a la fuerza media. El diseño de materiales y estructuras analiza estos picos.\n\n\n<Transfer targetDomain=\"Seguridad en accidentes\" title=\"Transfiere: el impulso que salva vidas\">\nCompara dos coches que chocan contra un muro a la misma velocidad: uno con parachoques rígido y otro con zona de deformación. Usando el teorema del impulso-momento (J = F·Δt = Δp), explica por qué la zona deformable reduce la fuerza sobre los ocupantes. ¿Cómo cambiaría el impulso si el airbag no se desplegara?\n</Transfer>\n"
       },
       "acciones": []
     },
     {
-      "id": "22-colisiones-elsticas-la-perfeccin-conservadora",
-      "titulo": "2.2 Colisiones elásticas: la perfección conservadora",
+      "id": "conservacion-momentum",
+      "titulo": "Conservación del momento",
       "niveles": {
-        "principiante": "Una **colisión elástica** conserva **tanto el momentum como la energía cinética**:\n\n$$m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f} \\quad \\text{(momentum)}$$\n\n$$\\frac{1}{2}m_1 v_{1i}^2 + \\frac{1}{2}m_2 v_{2i}^2 = \\frac{1}{2}m_1 v_{1f}^2 + \\frac{1}{2}m_2 v_{2f}^2 \\quad \\text{(energía cinética)}$$\n\n### ¿Cuándo ocurre?\n\nEn la realidad, **nunca de forma perfecta**. Pero se aproxima bastante en:\n- Choques entre billar (muy poca deformación, poco calor)\n- Interacciones entre átomos y moléculas\n- Pelotas de golf con el driver (con \"efecto de resorte\" del material)\n\n### Resultados de una colisión elástica (una dimensión)\n\nSi un objeto de masa $m_1$ choca con $m_2$ (en reposo), las velocidades finales son:\n\n$$v_{1f} = \\frac{m_1 - m_2}{m_1 + m_2} \\cdot v_{1i}$$\n\n$$v_{2f} = \\frac{2m_1}{m_1 + m_2} \\cdot v_{1i}$$\n\n**Casos especiales que debes memorizar:**\n\n| Situación | ¿Qué pasa? | Ejemplo |\n|:---------:|:-----------:|:-------:|\n| $m_1 = m_2$ | El primero se **detiene** y el segundo sale con $v_{1i}$ | Bolas de billar: una choca a otra en reposo → la primera se para, la segunda sale |\n| $m_1 \\gg m_2$ | El pesado **sigue igual**, el liviano sale a $\\approx 2v_{1i}$ | Un camión chocando una pelota de tenis |\n| $m_1 \\ll m_2$ | El liviano **rebota** con velocidad $\\approx -v_{1i}$ | Una pelota de tenis contra una pared |\n\n> **🏓 Ejemplo resuelto: Billar**\n>\n> Una bola blanca (0,17 kg) viaja a 2 m/s y golpea una bola roja (0,17 kg) en reposo. ¿Con qué velocidad sale cada una?\n>\n> Como $m_1 = m_2$:\n> - La blanca se **detiene**: $v_{1f} = 0$ m/s\n> - La roja sale a **2 m/s**: $v_{2f} = 2$ m/s\n>\n> Esto es exactamente lo que ves cuando juegas billar. La bola blanca \"transfiere\" todo su momentum a la otra.\n\n---"
+        "principiante": "## Conservación del momento\n\nEn un sistema aislado (sin fuerzas externas), el momento total no cambia. Esta es la **ley de conservación del momento**:\n\n$$ p_{total\\, antes} = p_{total\\, después} $$\n\nAplicaciones:\n- **Retroceso**: un arma retrocede cuando dispara\n- **Colisiones**: la suma de momentos se conserva\n- **Explosiones**: los fragmentos se reparten el momento\n\n> **Dato que rompe el cerebro**\n> Cuando dos patinadores quietos se empujan mutuamente, ambos salen en direcciones opuestas con momentos iguales y opuestos. El momento total era cero y sigue siendo cero.\n\n```aeterna-exercise\nTITLE: Retroceso de un cañón\nHINT: El momento antes es cero, así que el momento total después también debe serlo.\nXP: 40\nUn cañón de 500 kg dispara una bala de 5 kg a 300 m/s. ¿A qué velocidad retrocede el cañón?\nSOLUTION: 0 = 500·v_cañón + 5×300 → v_cañón = −1500/500 = −3 m/s. El cañón retrocede a 3 m/s en dirección opuesta.\n```\n\n> **🔑 Concepto clave: Ley de conservación**\n> En un sistema aislado, el momento total es constante. La tercera ley de Newton garantiza que las fuerzas internas se cancelan: solo las fuerzas externas cambian el momento total.\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"Error común: momento y energía son lo mismo\">\nConfundir el momento con la energía cinética es un error habitual. Un objeto puede tener mucha energía y poco momento (una bala ligera y rápida), o mucho momento y poca energía (un camión lento). El momento es vectorial (masa × velocidad), la energía escalar (½mv²): se conservan por razones distintas y en colisiones inelásticas el momento se conserva pero la energía se disipa en calor y deformación.\n</PedagogicalContentBlock>\n\n\n<Connect title=\"De la conservación del momento a la física de partículas\" sourceConcept=\"Conservación del momento\" targetConcept=\"Física de partículas\">\nEn el LHC, los físicos reconstruyen partículas invisibles usando la conservación del momento: el momento que 'falta' en el detector revela qué se escapó. La misma ley que explica el retroceso de un cañón es la herramienta para descubrir el bosón de Higgs.\n</Connect>\n",
+        "intermedio": "## La conservación como ley universal\n\nLa conservación del momento se deduce de la tercera ley. Para dos cuerpos que colisionan:\n\n$$ m_1\\vec{v}_{1i} + m_2\\vec{v}_{2i} = m_1\\vec{v}_{1f} + m_2\\vec{v}_{2f} $$\n\nEn un sistema aislado, la suma vectorial de momentos es idéntica antes y después.\n\n```aeterna-formula\ntitle=\"Conservación del momento en 1D\"\nformula=\"m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f}\"\nvariables={[{\"symbol\":\"m1, m2\",\"name\":\"Masas\",\"unit\":\"kg\"},{\"symbol\":\"v1i, v2i\",\"name\":\"Velocidades iniciales\",\"unit\":\"m/s\"},{\"symbol\":\"v1f, v2f\",\"name\":\"Velocidades finales\",\"unit\":\"m/s\"}]}\nnote=\"El momento total antes de la colisión es igual al momento total después. Se aplica por componentes.\"\n```\n\nEsta ley es más robusta que las leyes de fuerza: se cumple incluso si no conoces los detalles de la interacción. Es la base del análisis de colisiones, reactores, propulsión y física de partículas.\n\n> **🔑 Concepto clave: No importa el detalle**\n> La conservación del momento es tan poderosa porque no requiere conocer los detalles de la interacción. Solo necesitas los momentos antes y después. Por eso es la primera herramienta del análisis de choques.\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"Error común: momento y energía son lo mismo\">\nConfundir el momento con la energía cinética es un error habitual. Un objeto puede tener mucha energía y poco momento (una bala ligera y rápida), o mucho momento y poca energía (un camión lento). El momento es vectorial (masa × velocidad), la energía escalar (½mv²): se conservan por razones distintas y en colisiones inelásticas el momento se conserva pero la energía se disipa en calor y deformación.\n</PedagogicalContentBlock>\n\n\n<Connect title=\"De la conservación del momento a la física de partículas\" sourceConcept=\"Conservación del momento\" targetConcept=\"Física de partículas\">\nEn el LHC, los físicos reconstruyen partículas invisibles usando la conservación del momento: el momento que 'falta' en el detector revela qué se escapó. La misma ley que explica el retroceso de un cañón es la herramienta para descubrir el bosón de Higgs.\n</Connect>\n",
+        "avanzado": "## Conservación y simetría\n\nEl teorema de Noether conecta la conservación del momento con la simetría de traslación: si las leyes físicas son las mismas en todos los puntos del espacio (simetría traslacional), el momento se conserva.\n\n$$ \\frac{d\\vec{p}}{dt} = \\vec{F}_{ext} = -\\frac{\\partial U}{\\partial \\vec{r}} $$\n\nSi el potencial no depende de la posición (U constante en el espacio), la fuerza es cero y el momento se conserva.\n\n> **💡 Nota de frontera**\n> En la mecánica cuántica, la conservación del momento se manifiesta en las ondas de materia: una partícula libre tiene momento definido y su función de onda es una onda plana. El principio de incertidumbre de Heisenberg limita la simultaneidad de posición y momento.\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"Error común: momento y energía son lo mismo\">\nConfundir el momento con la energía cinética es un error habitual. Un objeto puede tener mucha energía y poco momento (una bala ligera y rápida), o mucho momento y poca energía (un camión lento). El momento es vectorial (masa × velocidad), la energía escalar (½mv²): se conservan por razones distintas y en colisiones inelásticas el momento se conserva pero la energía se disipa en calor y deformación.\n</PedagogicalContentBlock>\n\n\n<Connect title=\"De la conservación del momento a la física de partículas\" sourceConcept=\"Conservación del momento\" targetConcept=\"Física de partículas\">\nEn el LHC, los físicos reconstruyen partículas invisibles usando la conservación del momento: el momento que 'falta' en el detector revela qué se escapó. La misma ley que explica el retroceso de un cañón es la herramienta para descubrir el bosón de Higgs.\n</Connect>\n"
       },
       "acciones": []
     },
     {
-      "id": "23-colisiones-inelsticas-se-pierde-energa-pero-no-momentum",
-      "titulo": "2.3 Colisiones inelásticas: se pierde energía, pero no momentum",
+      "id": "tipos-colisiones",
+      "titulo": "Tipos de colisiones",
       "niveles": {
-        "principiante": "En una **colisión inelástica**, el momentum se conserva, pero **la energía cinética NO**. Parte se convierte en calor, sonido, deformación, etc.\n\n$$m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f}$$\n\n### Colisión perfectamente inelástica: se pegan\n\nEl caso extremo es cuando los dos objetos **se pegan** y se mueven juntos:\n\n$$m_1 v_{1i} + m_2 v_{2i} = (m_1 + m_2) \\cdot v_f$$\n\n$$v_f = \\frac{m_1 v_{1i} + m_2 v_{2i}}{m_1 + m_2}$$\n\n**Ejemplo resuelto: Choque de trenes de juguete**\n\nUn tren de 5 kg viaja a 4 m/s y choca con otro de 3 kg que viene en sentido opuesto a 2 m/s. Se pegan. ¿A qué velocidad se mueven?\n\n**Planteamiento:** Tomamos \"derecha\" como positiva.\n- $p_{antes} = 5 \\times 4 + 3 \\times (-2) = 20 - 6 = 14 \\text{ kg·m/s}$\n- $p_{después} = (5+3) \\cdot v_f = 8 \\cdot v_f$\n- $v_f = \\frac{14}{8} = 1{,}75 \\text{ m/s (hacia la derecha)}$\n\n**¿Cuánta energía se \"perdió\"?**\n\n| Energía | Valor |\n|:-------:|:-----:|\n| Cinética antes | $\\frac{1}{2}(5)(4^2) + \\frac{1}{2}(3)(2^2) = 40 + 6 = 46$ J |\n| Cinética después | $\\frac{1}{2}(8)(1{,}75^2) = 12{,}25$ J |\n| **Energía \"perdida\"** | **33,75 J** → calor + deformación + sonido |\n\n> **🌍 Dato cotidiano**\n>\n> > Un **accidente de coche** es una colisión inelástica. Los coches están diseñados para **deformarse** (absorber energía), alargando el tiempo de impacto y reduciendo la fuerza sobre los ocupantes. Un coche rígido que no se deformara sería **más peligroso**, no menos, porque toda la energía iría directamente a tus órganos. Los parachoques arrugados después de un choque no son un defecto: son la prueba de que hicieron su trabajo.\n\n---"
+        "principiante": "## Tipos de colisiones\n\nHay dos tipos principales de colisiones:\n\n**Elásticas**: se conserva el momento Y la energía cinética. Las bolas de billar ideales. Los cuerpos rebotan sin deformarse.\n\n**Inelásticas**: se conserva el momento pero se pierde energía cinética (en calor, sonido, deformación). Un coche que choca y se deforma.\n\nEn una colisión **perfectamente inelástica**, los cuerpos quedan pegados y se mueven juntos.\n\n> **Dato que rompe el cerebro**\n> Dos bolas de masa igual en colisión elástica frontal intercambian velocidades: la primera se detiene y la segunda sale con la velocidad de la primera. Es lo que ves en el péndulo de Newton.\n\n**[IMAGEN SUGERIDA: El péndulo de Newton, con las bolas intercambiando momento. Pie de foto: \"En colisiones elásticas, el momento y la energía se conservan.\"]**\n\n```graph-lab\nTITLE: Momento en una colisión elástica\nDESC: Dos bolas de igual masa intercambian velocidades. Visualiza la conservación del momento.\nX_LABEL: Tiempo (s)\nY_LABEL: Momento (kg·m/s)\nQUESTION: Antes del choque la bola A tiene p = 6 kg·m/s y B está en reposo. Tras el choque elástico con masas iguales, ¿cuál es el momento de A?\nXP: 50\nPOINT: 0 | 6 | Momento de A antes\nPOINT: 1 | 0 | Momento de A después\nPOINT: 0 | 0 | Momento de B antes\nPOINT: 1 | 6 | Momento de B después\nOPTION_CORRECT: 0 | En masas iguales y colisión elástica, las velocidades se intercambian: A queda en reposo (p = 0) y B sale con el momento de A.\nOPTION_WRONG: 6 | Eso sería si no hubiera chocado; la colisión elástica transfiere el momento.\nOPTION_WRONG: 3 | El momento se transfiere completo, no a medias.\n```\n",
+        "intermedio": "## Colisiones elásticas e inelásticas\n\n```parameter-lab\nTITLE: Colisión perfectamente inelástica\nDESC: Dos cuerpos chocan y quedan pegados. Varía las masas y velocidades.\nOUTPUT_LABEL: Velocidad final\nOUTPUT_UNIT: m/s\nQUESTION: Un cuerpo de 2 kg a 3 m/s choca contra otro de 1 kg en reposo y quedan pegados. ¿Cuál es la velocidad final?\nANSWER: v = (m1v1 + m2v2)/(m1+m2) = (2×3 + 0)/(3) = 2 m/s. El momento se conserva: 6 kg·m/s antes y después. La energía cinética disminuye (se pierde en deformación y calor).\nXP: 50\nPARAM: m1 | Masa 1 | kg | 1 | 10 | 0.5 | 2\nPARAM: v1 | Velocidad 1 | m/s | 0 | 10 | 0.5 | 3\n```\n\n**Colisión elástica** (misma masa, 1D): las velocidades se intercambian.\n\n$$ v_{1f} = \\frac{m_1-m_2}{m_1+m_2}v_1, \\quad v_{2f} = \\frac{2m_1}{m_1+m_2}v_1 $$\n\nEn colisiones elásticas se conservan ambas cantidades: momento y energía cinética.\n\n> **🔑 Concepto clave: Qué se conserva en cada tipo**\n> Elástica: momento Y energía cinética. Inelástica: solo momento (la energía se disipa). Perfectamente inelástica: los cuerpos quedan pegados y se mueven a la velocidad del centro de masa.\n\n```graph-lab\nTITLE: Momento en una colisión elástica\nDESC: Dos bolas de igual masa intercambian velocidades. Visualiza la conservación del momento.\nX_LABEL: Tiempo (s)\nY_LABEL: Momento (kg·m/s)\nQUESTION: Antes del choque la bola A tiene p = 6 kg·m/s y B está en reposo. Tras el choque elástico con masas iguales, ¿cuál es el momento de A?\nXP: 50\nPOINT: 0 | 6 | Momento de A antes\nPOINT: 1 | 0 | Momento de A después\nPOINT: 0 | 0 | Momento de B antes\nPOINT: 1 | 6 | Momento de B después\nOPTION_CORRECT: 0 | En masas iguales y colisión elástica, las velocidades se intercambian: A queda en reposo (p = 0) y B sale con el momento de A.\nOPTION_WRONG: 6 | Eso sería si no hubiera chocado; la colisión elástica transfiere el momento.\nOPTION_WRONG: 3 | El momento se transfiere completo, no a medias.\n```\n",
+        "avanzado": "## Análisis cuantitativo de colisiones\n\nPara resolver una colisión elástica, usas dos ecuaciones:\n\n1. Conservación del momento: m₁v₁i + m₂v₂i = m₁v₁f + m₂v₂f\n2. Conservación de la energía cinética: ½m₁v₁i² + ½m₂v₂i² = ½m₁v₁f² + ½m₂v₂f²\n\nDe estas dos ecuaciones con dos incógnitas (v₁f, v₂f) se obtienen las fórmulas de la colisión elástica. En el caso especial de masas iguales, las velocidades se intercambian.\n\nEn colisiones **inelásticas**, la energía cinética perdida es:\n\n$$ \\Delta E = \\frac{1}{2}\\mu(v_1-v_2)^2 $$\n\nDonde μ = m₁m₂/(m₁+m₂) es la masa reducida.\n\n> **💡 Nota de frontera**\n> En física de partículas, las colisiones elásticas revelan estructuras internas: los experimentos de dispersión (como el experimento de Rutherford) usan colisiones para 'ver' el interior del átomo. Cada tipo de colisión —elástica, inelástica, reactiva— da información distinta.\n\n```graph-lab\nTITLE: Momento en una colisión elástica\nDESC: Dos bolas de igual masa intercambian velocidades. Visualiza la conservación del momento.\nX_LABEL: Tiempo (s)\nY_LABEL: Momento (kg·m/s)\nQUESTION: Antes del choque la bola A tiene p = 6 kg·m/s y B está en reposo. Tras el choque elástico con masas iguales, ¿cuál es el momento de A?\nXP: 50\nPOINT: 0 | 6 | Momento de A antes\nPOINT: 1 | 0 | Momento de A después\nPOINT: 0 | 0 | Momento de B antes\nPOINT: 1 | 6 | Momento de B después\nOPTION_CORRECT: 0 | En masas iguales y colisión elástica, las velocidades se intercambian: A queda en reposo (p = 0) y B sale con el momento de A.\nOPTION_WRONG: 6 | Eso sería si no hubiera chocado; la colisión elástica transfiere el momento.\nOPTION_WRONG: 3 | El momento se transfiere completo, no a medias.\n```\n"
       },
       "acciones": []
     },
     {
-      "id": "24-el-diagrama-de-cuerpo-libre-del-momentum",
-      "titulo": "2.4 El diagrama de cuerpo libre del momentum",
+      "id": "centro-masa",
+      "titulo": "Centro de masa",
       "niveles": {
-        "principiante": "Cuando analizas colisiones, dibujar los momentums **antes y después** es esencial. Aquí una plantilla:\n\n```\nANTES:                          DESPUÉS:\n\n  m₁ ───→ v₁ᵢ                    m₁ ───→ v₁f\n                                \n  m₂ ───→ v₂ᵢ                    m₂ ───→ v₂f\n  \n  p_total = m₁v₁ᵢ + m₂v₂ᵢ      p_total = m₁v₁f + m₂v₂f\n  (misma dirección)              (conservado)\n```\n\n**Para 2D** (colisiones oblicuas), aplica la conservación **por separado** en X e Y:\n\n$$p_{ix,total} = p_{fx,total}$$\n$$p_{iy,total} = p_{fy,total}$$\n\nEsto te da **dos ecuaciones** para resolver **dos incógnitas** (normalmente las velocidades finales o los ángulos).\n\n---"
+        "principiante": "## Centro de masa\n\nEl **centro de masa** es el punto donde se concentra toda la masa de un sistema, como si fuera un único objeto.\n\n- Una pelota: centro de masa en su centro\n- Un martillo: cerca del extremo pesado\n- Dos patinadores: en el punto medio ponderado por masa\n\nEl movimiento del centro de masa sigue las leyes de Newton como si toda la masa estuviera ahí: las fuerzas internas no pueden moverlo.\n\n> **Dato que rompe el cerebro**\n> Si un bailarín gira con los brazos abiertos y los cierra, gira más rápido. Su centro de masa no cambia, pero la distribución de masa sí. El centro de masa de un objeto lanzado al aire sigue una parábola perfecta, aunque el objeto gire.\n\n**[IMAGEN SUGERIDA: Un martillo lanzado al aire, con su centro de masa siguiendo una parábola. Pie de foto: \"El centro de masa sigue una parábola.\"]**\n",
+        "intermedio": "## Calculando el centro de masa\n\n```model-builder\nTITLE: El centro de masa\nPROBLEM: Dos masas de 1 kg y 3 kg están en x = 0 y x = 4 m. Selecciona las variables relevantes para encontrar el centro de masa y descarta las irrelevantes.\nXP: 60\nVAR_RELEVANT: Posiciones de las masas | Determinan el centro de masa\nVAR_RELEVANT: Masas | Pesan la posición de cada masa\nVAR_RELEVANT: Número de masas | Dos masas, dos términos\nVAR_IRRELEVANT: Color de las masas | No afecta\nVAR_IRRELEVANT: Velocidad inicial | Irrelevante para el CM estático\n```\n\nPara un sistema de n partículas:\n\n$$ x_{CM} = \\frac{m_1x_1 + m_2x_2 + ...}{m_1 + m_2 + ...} $$\n\nEl centro de masa se mueve como si toda la masa estuviera concentrada y todas las fuerzas externas actuaran sobre él:\n\n$$ \\vec{a}_{CM} = \\frac{\\sum \\vec{F}_{ext}}{M_{total}} $$\n\n> **🔑 Concepto clave: El CM sigue las fuerzas externas**\n> El centro de masa se mueve como si concentrara toda la masa, bajo las fuerzas externas. Las fuerzas internas (acción-reacción) no afectan su movimiento. Es la razón por la que un proyectil que explota en vuelo: el CM sigue la parábola original.\n",
+        "avanzado": "## Centro de masa de sistemas continuos\n\nPara objetos continuos, la suma se convierte en integral:\n\n$$ \\vec{r}_{CM} = \\frac{\\int \\vec{r} \\, dm}{M} $$\n\nEl centro de masa puede estar fuera del cuerpo (un anillo, una herradura). Es un concepto geométrico: el punto promedio ponderado de la masa.\n\nEl **teorema del centro de masa**: el movimiento del CM de un sistema está gobernado solo por las fuerzas externas. Esto simplifica enormemente el análisis de sistemas de múltiples cuerpos.\n\n> **💡 Nota de frontera**\n> En mecánica celeste, la Tierra y la Luna orbitan alrededor de su centro de masa común (el baricentro). En física de partículas, el centro de masa de una colisión define el marco de referencia donde el momento total es cero —el marco más útil para analizar las partículas resultantes.\n"
       },
       "acciones": []
     },
     {
-      "id": "31-aplicaciones-el-momentum-en-el-mundo-real",
-      "titulo": "3.1 Aplicaciones: El momentum en el mundo real",
+      "id": "sistemas-variables",
+      "titulo": "Sistemas de masa variable",
       "niveles": {
-        "principiante": "### 3.1 Cohetes: empujarse uno a sí mismos\n\nUn cohete funciona **sin empujar nada externo**. Expulsa gases a alta velocidad hacia atrás, y por conservación del momentum, el cohete avanza hacia adelante.\n\n$$m_{cohete} \\cdot \\Delta v = v_{gas} \\cdot \\Delta m_{combustible}$$\n\nEsta es la **ecuación de Tsiolkovsky**, la que permite calcular cuánto puede acelerar un cohete según cuánto combustible lleve. Por eso los cohetes tienen **tantísimo combustible** y tan poca estructura útil.\n\n### 3.2 Carros de choque y atracciones\n\nLos carros de choque de las ferias miden deliberadamente la diferencia entre colisiones elásticas (con los parachoques de goma, que \"rebotan\") e inelásticas (cuando los carros quedan pegados por la inercia). Ambos son divertidos, pero físicamente son fenómenos completamente distintos.\n\n### 3.3 El efecto látigo\n\n¿Por qué un látigo produce un sonido tan fuerte (el \"crack\")? La punta del látigo se mueve **más rápido que el sonido** (~343 m/s). Cuando la punta frena bruscamente, genera una onda de choque. Esto es momentum en acción: la masa diminuta de la punta viaja a velocidades enormes, y al frenar transfiere su momentum al aire de forma explosiva.\n\n### 3.4 Deportes\n\n| Deporte | Momento clave del momentum |\n|:-------:|:--------------------------:|\n| Billar | Transferencia directa de momentum entre bolas |\n| Boxeo | Un golpe potente = mucha masa del brazo × alta velocidad |\n| Fútbol americano | Los bloqueos buscan transferir momentum al rival |\n| Tenis | El \"efecto\" de la raqueta cambia el momentum angular de la pelota |\n| Golf | El driver maximiza la transferencia de momentum al golpear |\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > Cuando bateas un balón de béisbol a 150 km/h, la pelota experimenta una **aceleración de ~5.000 g** durante los 0,001 segundos que dura el contacto con el bate. El cambio de momentum es tan violento que la pelota se deforma visiblemente en cámara lenta. Todo eso se rige por las mismas ecuaciones que acabamos de ver.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
-      "niveles": {
-        "principiante": "> **🧠 Sistema Aeterna, paso 1: Piensa en momentum, no solo en velocidad**\n>\n> > Un mosquito y un camión a la misma velocidad **no son lo mismo**. El momentum ($p = mv$) captura la \"cantidad de movimiento\" total. Siempre que analices un choque o una colisión, tu primer instinto debe ser: \"¿cuál es el momentum total del sistema?\"\n\n> **🧠 Sistema Aeterna, paso 2: El tiempo es tu amigo (o tu enemigo)**\n>\n> > El impulso ($F \\cdot \\Delta t$) te dice que la misma transferencia de momentum puede ser un golpe mortal o un empujón inofensivo, dependiendo del **tiempo**. Airbags, colchonetas, cascos... todos funcionan alargando el tiempo de impacto. Más tiempo = menos fuerza. Menos tiempo = más fuerza (¡peligro!).\n\n> **🧠 Sistema Aeterna, paso 3: El momentum no se crea ni se destruye**\n>\n> > En un sistema aislado, el momentum total **siempre** se conserva. Antes y después de cualquier colisión, el momentum es el mismo. Esta es la herramienta más poderosa para resolver problemas de choques sin conocer los detalles de la fuerza.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-preguntas-frecuentes-sobre-momentum-y-colisiones",
-      "titulo": "❓ Preguntas frecuentes sobre Momentum y Colisiones",
-      "niveles": {
-        "principiante": "> **❓ ¿Por qué el momentum se conserva si hay fuerzas en la colisión?**\n>\n> Porque las fuerzas **internas** entre los objetos que chocan son iguales y opuestas (Tercera Ley de Newton). Se cancelan mutuamente. Solo las **fuerzas externas** (como la fricción con el suelo o la gravedad) pueden cambiar el momentum total. Si ignoramos esas fuerzas (que suelen ser pequeñas durante el breve instante de la colisión), el momentum se conserva.\n\n> **❓ ¿Una colisión elástica ocurre en la vida real?**\n>\n> Casi nunca de forma perfecta. Pero algunas se acercan mucho: billar, péndulos de Newton (las bolitas de metal que rebotan), átomos chocando en un gas ideal, y protones en un acelerador de partículas. La clave es que la deformación y el calor generados sean mínimos comparados con la energía cinética.\n\n> **❓ ¿Qué pasa si un objeto está en reposo y otro choca contra él? ¿Se reparte el momentum?**\n>\n> Sí. El objeto en reposo tiene momentum inicial = 0. Después de la colisión, recibe parte (o todo) del momentum del objeto que chocó. En una colisión elástica entre iguales, el primero se detiene y el segundo sale volando con toda la velocidad. Si el objeto en reposo es **mucho más pesado**, el que choca simplemente rebota.\n\n> **❓ ¿Por qué los airbags salvan vidas si la fuerza del impacto sigue siendo la misma?**\n>\n> El airbag **no reduce el cambio de momentum** (tu cuerpo debe pasar de velocidad alta a cero de todas formas). Lo que hace es **aumentar el tiempo** durante el que ocurre ese cambio. En vez de detenerte en 0,005 segundos (contra el volante), te detienes en 0,05 segundos (hundido en la bolsa). F = Δp/Δt: si Δt crece 10 veces, la fuerza se reduce 10 veces. Eso es la diferencia entre sobrevivir y no hacerlo.\n\n> **❓ ¿El momentum se conserva en una explosión?**\n>\n> ¡Sí! Una explosión es una colisión \"al revés\": en vez de juntarse, los trozos se separan. Si una bomba en reposo estalla en 3 pedazos, el momentum vectorial de los 3 pedazos sumados es **cero** (el momentum antes era cero). Por eso los fragmentos salen en todas direcciones de forma que se \"compensan\" entre sí.\n\n---",
-        "intermedio": "> **❓ ¿Por qué el momentum se conserva si hay fuerzas en la colisión?**\n>\n> Porque las fuerzas **internas** entre los objetos que chocan son iguales y opuestas (Tercera Ley de Newton). Se cancelan mutuamente. Solo las **fuerzas externas** (como la fricción con el suelo o la gravedad) pueden cambiar el momentum total. Si ignoramos esas fuerzas (que suelen ser pequeñas durante el breve instante de la colisión), el momentum se conserva.\n\n> **❓ ¿Una colisión elástica ocurre en la vida real?**\n>\n> Casi nunca de forma perfecta. Pero algunas se acercan mucho: billar, péndulos de Newton (las bolitas de metal que rebotan), átomos chocando en un gas ideal, y protones en un acelerador de partículas. La clave es que la deformación y el calor generados sean mínimos comparados con la energía cinética.\n\n> **❓ ¿Qué pasa si un objeto está en reposo y otro choca contra él? ¿Se reparte el momentum?**\n>\n> Sí. El objeto en reposo tiene momentum inicial = 0. Después de la colisión, recibe parte (o todo) del momentum del objeto que chocó. En una colisión elástica entre iguales, el primero se detiene y el segundo sale volando con toda la velocidad. Si el objeto en reposo es **mucho más pesado**, el que choca simplemente rebota.\n\n> **❓ ¿Por qué los airbags salvan vidas si la fuerza del impacto sigue siendo la misma?**\n>\n> El airbag **no reduce el cambio de momentum** (tu cuerpo debe pasar de velocidad alta a cero de todas formas). Lo que hace es **aumentar el tiempo** durante el que ocurre ese cambio. En vez de detenerte en 0,005 segundos (contra el volante), te detienes en 0,05 segundos (hundido en la bolsa). F = Δp/Δt: si Δt crece 10 veces, la fuerza se reduce 10 veces. Eso es la diferencia entre sobrevivir y no hacerlo.\n\n> **❓ ¿El momentum se conserva en una explosión?**\n>\n> ¡Sí! Una explosión es una colisión \"al revés\": en vez de juntarse, los trozos se separan. Si una bomba en reposo estalla en 3 pedazos, el momentum vectorial de los 3 pedazos sumados es **cero** (el momentum antes era cero). Por eso los fragmentos salen en todas direcciones de forma que se \"compensan\" entre sí.\n\n---",
-        "avanzado": "> **❓ ¿Por qué el momentum se conserva si hay fuerzas en la colisión?**\n>\n> Porque las fuerzas **internas** entre los objetos que chocan son iguales y opuestas (Tercera Ley de Newton). Se cancelan mutuamente. Solo las **fuerzas externas** (como la fricción con el suelo o la gravedad) pueden cambiar el momentum total. Si ignoramos esas fuerzas (que suelen ser pequeñas durante el breve instante de la colisión), el momentum se conserva.\n\n> **❓ ¿Una colisión elástica ocurre en la vida real?**\n>\n> Casi nunca de forma perfecta. Pero algunas se acercan mucho: billar, péndulos de Newton (las bolitas de metal que rebotan), átomos chocando en un gas ideal, y protones en un acelerador de partículas. La clave es que la deformación y el calor generados sean mínimos comparados con la energía cinética.\n\n> **❓ ¿Qué pasa si un objeto está en reposo y otro choca contra él? ¿Se reparte el momentum?**\n>\n> Sí. El objeto en reposo tiene momentum inicial = 0. Después de la colisión, recibe parte (o todo) del momentum del objeto que chocó. En una colisión elástica entre iguales, el primero se detiene y el segundo sale volando con toda la velocidad. Si el objeto en reposo es **mucho más pesado**, el que choca simplemente rebota.\n\n> **❓ ¿Por qué los airbags salvan vidas si la fuerza del impacto sigue siendo la misma?**\n>\n> El airbag **no reduce el cambio de momentum** (tu cuerpo debe pasar de velocidad alta a cero de todas formas). Lo que hace es **aumentar el tiempo** durante el que ocurre ese cambio. En vez de detenerte en 0,005 segundos (contra el volante), te detienes en 0,05 segundos (hundido en la bolsa). F = Δp/Δt: si Δt crece 10 veces, la fuerza se reduce 10 veces. Eso es la diferencia entre sobrevivir y no hacerlo.\n\n> **❓ ¿El momentum se conserva en una explosión?**\n>\n> ¡Sí! Una explosión es una colisión \"al revés\": en vez de juntarse, los trozos se separan. Si una bomba en reposo estalla en 3 pedazos, el momentum vectorial de los 3 pedazos sumados es **cero** (el momentum antes era cero). Por eso los fragmentos salen en todas direcciones de forma que se \"compensan\" entre sí.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-siguiente-parada-en-la-ruta",
-      "titulo": "⚠️ Siguiente parada en la ruta",
-      "niveles": {
-        "principiante": "> **⚠️ Siguiente parada: Torque y Momento Angular**\n>\n> Acabas de aprender cómo el movimiento \"lineal\" se conserva en las colisiones. ¿Pero qué pasa con las **rotaciones**? Cuando una bailarina recoge los brazos durante un giro, gira más rápido. Cuando un planeta orbita el Sol, no cae hacia él. Todo esto se explica con el **momento angular** y el **torque**: las versiones rotacionales del momentum y la fuerza. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando:**\n- *\"Fundamentos de Física\"* de Halliday, Resnick y Walker — Capítulo 9 (Momentum) tiene la mejor secuencia de ejemplos progresivos que existe.\n- *\"Veritasium — What is Momentum?\"* (YouTube) — Explicación visual increíblemente intuitiva.\n- *\"3Blue1Brown — But what is a derivative?\"* — Para entender la relación entre impulso (F×t) y cambio de momentum desde el punto de vista del cálculo.\n- *\"PhET Simulation: Collision Lab\"* (phet.colorado.edu) — Laboratorio virtual donde puedes chocar objetos, ajustar masas y velocidades, y verificar la conservación del momentum en tiempo real.\n- *Física Universitaria de Young y Freedman* — Capítulo 8: Momentum, Impulso y Colisiones. Referencia estándar universitaria con cientos de problemas graduados."
+        "principiante": "## Sistemas de masa variable\n\nAlgunos sistemas cambian de masa mientras se mueven: un cohete que quema combustible, una manguera que expulsa agua, un tanque que pierde agua.\n\nEl momento del sistema no se conserva si la masa sale o entra, PERO el momento del sistema más lo expulsado sí se conserva.\n\nLa propulsión de cohetes funciona así: el cohete expulsa gas hacia atrás, y el gas empuja el cohete hacia adelante (tercera ley).\n\n> **Dato que rompe el cerebro**\n> Un cohete funciona mejor en el vacío que en la atmósfera: no necesita aire para empujar. Expulsa gas hacia atrás y el gas lo empuja hacia adelante, sin importar dónde esté. La conservación del momento es su motor.\n\n**[IMAGEN SUGERIDA: Un cohete despegando, con la expulsión de gas hacia abajo. Pie de foto: \"El cohete empuja el gas; el gas empuja el cohete.\"]**\n",
+        "intermedio": "## La ecuación del cohete\n\n```aeterna-exercise\nTITLE: El cohete y su impulso\nHINT: El momento del cohete más el del gas expulsado se conserva.\nXP: 40\nUn cohete expulsa 100 kg de gas a 2000 m/s. ¿Qué momento transfiere al cohete?\nSOLUTION: El gas lleva momento p = 100 × 2000 = 200,000 kg·m/s hacia atrás, así que el cohete gana 200,000 kg·m/s hacia adelante (conservación del momento).\n```\n\nLa **ecuación del cohete** (Tsiolkovsky):\n\n$$ \\Delta v = v_e \\ln\\left(\\frac{m_i}{m_f}\\right) $$\n\nDonde ve es la velocidad de escape del gas, mi la masa inicial y mf la final. El cambio de velocidad depende del logaritmo de la relación de masas: necesitas mucha masa de combustible para ganar velocidad.\n\n> **🔑 Concepto clave: Expulsar masa para acelerar**\n> Un cohete acelera expulsando masa hacia atrás. El momento total (cohete + gas) se conserva. La velocidad final depende logarítmicamente de la relación de masas: el combustible domina la masa del cohete.\n",
+        "avanzado": "## La dinámica de masa variable\n\nLa ecuación general para masa variable:\n\n$$ F_{ext} + v_{rel}\\frac{dm}{dt} = m\\frac{dv}{dt} $$\n\nDonde v_rel es la velocidad relativa de la masa expulsada. Para un cohete sin fuerzas externas:\n\n$$ m\\frac{dv}{dt} = v_e\\frac{dm}{dt} $$\n\nIntegrando se obtiene la ecuación de Tsiolkovsky. Aplicaciones: cohetes, propulsión de motores a reacción, lluvia que cae en un vagón, cintas transportadoras.\n\n> **💡 Nota de frontera**\n> Los cohetes de ionización eléctrica expulsan masa muy rápido (velocidad de escape enorme) pero poca cantidad: alta eficiencia, baja aceleración. El diseño de propulsión es un balance entre empuje (Δm/Δt grande) y eficiencia (v_e grande).\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "El momento lineal es una de las cantidades más poderosas de la física: p = mv, la conservación del momento en sistemas aislados, el teorema del impulso-momento que explica la seguridad pasiva (airbags, cascos, parachoques), y los dos tipos de colisiones —elásticas que conservan energía y momento, inelásticas que solo conservan momento. Has visto también el centro de masa, que reduce sistemas complejos a un punto, y los sistemas de masa variable, que explican los cohetes y la propulsión. La conservación del momento es más que una fórmula: es la manifestación de una simetría profunda del universo, el traslación espacial, ligada por el teorema de Noether. Y su poder es que no requiere conocer los detalles de las interacciones: basta con los momentos antes y después. Esta ley es la que los físicos de partículas usan para descubrir partículas invisibles en el LHC, la que los ingenieros usan para diseñar airbags y la que gobierna el movimiento de los cuerpos celestes. Con la conservación del momento, has añadido una de las herramientas más versátiles de la física —y una pista de que detrás de cada conservación hay una simetría esperando ser descubierta.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Momento de un objeto",
+        "enunciado": "¿Cuál es el momento de un objeto de 8 kg que se mueve a 3 m/s?",
+        "solucion": "p = mv = 8 × 3 = 24 kg·m/s.",
+        "xp": 30,
+        "pistas": [
+          "p = mv",
+          "Multiplica 8 × 3"
+        ],
+        "opciones": [
+          {
+            "label": "24 kg·m/s",
+            "correcta": true
+          },
+          {
+            "label": "11 kg·m/s",
+            "correcta": false
+          },
+          {
+            "label": "2.67 kg·m/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica p = mv",
+          "Calcula 8 × 3 = 24 kg·m/s"
+        ]
+      },
+      {
+        "titulo": "Retroceso",
+        "enunciado": "Una escopeta de 3 kg dispara un perdigón de 0.03 kg a 400 m/s. ¿A qué velocidad retrocede?",
+        "solucion": "0 = 3·v + 0.03×400 → v = −12/3 = −4 m/s. Retrocede a 4 m/s.",
+        "xp": 40,
+        "pistas": [
+          "El momento total se conserva (era cero)",
+          "v = −m_bala·v_bala/m_escopeta"
+        ],
+        "opciones": [
+          {
+            "label": "4 m/s",
+            "correcta": true
+          },
+          {
+            "label": "12 m/s",
+            "correcta": false
+          },
+          {
+            "label": "0.04 m/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Conservación del momento",
+          "Calcula 0.03×400/3 = 4 m/s"
+        ]
+      },
+      {
+        "titulo": "Impulso",
+        "enunciado": "Una fuerza de 100 N actúa durante 0.5 s. ¿Cuál es el impulso?",
+        "solucion": "J = F·Δt = 100 × 0.5 = 50 N·s.",
+        "xp": 30,
+        "pistas": [
+          "J = F·Δt",
+          "Multiplica 100 × 0.5"
+        ],
+        "opciones": [
+          {
+            "label": "50 N·s",
+            "correcta": true
+          },
+          {
+            "label": "200 N·s",
+            "correcta": false
+          },
+          {
+            "label": "100.5 N·s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica J = F·Δt",
+          "Calcula 100 × 0.5 = 50 N·s"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Colisión inelástica",
+        "enunciado": "Un vagón de 2000 kg a 5 m/s choca contra otro de 1000 kg en reposo y quedan pegados. ¿Cuál es su velocidad final?",
+        "solucion": "v = m₁v₁/(m₁+m₂) = 2000×5/3000 = 10000/3000 ≈ 3.33 m/s.",
+        "xp": 45,
+        "pistas": [
+          "Conservación del momento",
+          "v = m₁v₁/(m₁+m₂)"
+        ],
+        "opciones": [
+          {
+            "label": "3.33 m/s",
+            "correcta": true
+          },
+          {
+            "label": "5 m/s",
+            "correcta": false
+          },
+          {
+            "label": "2.5 m/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la conservación del momento",
+          "Calcula 2000×5/3000 = 3.33 m/s"
+        ]
+      },
+      {
+        "titulo": "Colisión elástica",
+        "enunciado": "Dos bolas de billar de igual masa: una a 2 m/s choca frontalmente con otra en reposo. ¿Qué pasa?",
+        "solucion": "Intercambian velocidades: la primera se detiene (v = 0) y la segunda sale a 2 m/s. Se conservan momento y energía cinética.",
+        "xp": 45,
+        "pistas": [
+          "Masas iguales en colisión elástica intercambian velocidades",
+          "La segunda bola sale con 2 m/s"
+        ],
+        "opciones": [
+          {
+            "label": "Se intercambian: sale la segunda",
+            "correcta": true
+          },
+          {
+            "label": "Quedan pegadas",
+            "correcta": false
+          },
+          {
+            "label": "Rebotan a la mitad",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce masas iguales",
+          "Aplica intercambio de velocidades"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Centro de masa",
+        "enunciado": "Dos masas de 2 kg y 3 kg están en x = 0 y x = 5 m. ¿Cuál es el centro de masa?",
+        "solucion": "x_CM = (2×0 + 3×5)/(2+3) = 15/5 = 3 m.",
+        "xp": 50,
+        "pistas": [
+          "x_CM = (m₁x₁+m₂x₂)/(m₁+m₂)",
+          "Sustituye"
+        ],
+        "opciones": [
+          {
+            "label": "3 m",
+            "correcta": true
+          },
+          {
+            "label": "2.5 m",
+            "correcta": false
+          },
+          {
+            "label": "5 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la fórmula del CM",
+          "Calcula 15/5 = 3 m"
+        ]
+      },
+      {
+        "titulo": "Ecuación del cohete",
+        "enunciado": "Un cohete expulsa gas a 3000 m/s y quema el 80% de su masa inicial. ¿Cuál es su Δv? (ln 5 ≈ 1.61)",
+        "solucion": "Δv = v_e·ln(mi/mf) = 3000 × ln(1/0.2) = 3000 × ln(5) = 3000 × 1.61 = 4830 m/s.",
+        "xp": 55,
+        "pistas": [
+          "Δv = v_e·ln(mi/mf)",
+          "mf = 0.2·mi, así que mi/mf = 5"
+        ],
+        "opciones": [
+          {
+            "label": "4830 m/s",
+            "correcta": true
+          },
+          {
+            "label": "6000 m/s",
+            "correcta": false
+          },
+          {
+            "label": "3000 m/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula la relación de masas",
+          "Aplica Δv = v_e·ln(5)"
+        ]
+      }
+    ]
+  }
 }

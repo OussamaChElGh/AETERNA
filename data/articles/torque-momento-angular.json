@@ -1,128 +1,310 @@
 {
   "metadata": {
-    "title": "Torque y Momento Angular: Por qué una bailarina gira más rápido al cerrar los brazos",
-    "description": "Qué es el torque, cómo se calcula el momento de una fuerza y por qué los objetos que giran se comportan de formas tan contraintuitivas. Desde abrir una puerta hasta el giro de una estrella de neutrones.",
+    "title": "Torque y Momento Angular",
+    "description": "Guía completa del torque, el equilibrio rotacional, el momento de inercia, la conservación del momento angular, la dinámica rotacional y la precesión de los giroscopios.",
     "slug": "torque-momento-angular",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "torque",
-      "momento de fuerza",
       "momento angular",
-      "rotación",
-      "inercia",
-      "equilibrio",
+      "momento de inercia",
+      "equilibrio rotacional",
       "giroscopio",
-      "bailarina",
-      "palanca",
-      "apalancamiento"
+      "precesión",
+      "rotación"
     ],
-    "image": "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-11",
-    "nivel": "2",
-    "orden": "8",
-    "nivel_titulo": "El Reino de lo Clásico",
-    "insignia": "Señor de lo Clásico",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 2,
+    "nivel_titulo": "Profundización Mecánica",
+    "orden": 6,
+    "insignia": "Maestro del Giro",
     "tipo": "theory",
     "prerequisites": [
-      "cinematica",
       "leyes-newton-movimiento",
-      "vectores",
-      "momentum-colisiones"
+      "momentum-colisiones",
+      "vectores"
     ],
-    "breadcrumb": [
-      "El Reino de lo Clásico",
-      "Torque y Momento Angular"
-    ]
+    "breadcrumb": "Física / Profundización Mecánica / Torque y Momento Angular"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  Una patinadora gira con los brazos abiertos y, al cerrarlos, gira muchísimo más rápido. Un trompo se inclina y, en vez de caerse, describe un círculo. Bienvenido a la rotación.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **torque** (τ = r × F) es la fuerza que hace girar: depende de la fuerza y de la distancia al eje. En **equilibrio**, la suma de torques es cero. El **momento de inercia** (I = Σmr²) es la 'masa rotacional' —depende de cómo se distribuye la masa. La segunda ley rotacional es τ = Iα. El **momento angular** (L = Iω) se conserva: por eso la patinadora acelera al cerrar los brazos. Y los **giroscopios** precesan porque el torque cambia la dirección del momento angular.\n\n**[IMAGEN SUGERIDA: Una patinadora girando con los brazos cerrados, acelerando su giro. Pie de foto: \"Al cerrar los brazos, el momento angular se conserva y gira más rápido.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-la-fuerza-que-hace-girar",
-      "titulo": "▶️ Bienvenida: La fuerza que hace girar",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: la física de girar",
       "niveles": {
-        "principiante": "¿Alguna vez has intentado aflojar una tuerca muy apretada? Empujas con todas tus fuerzas... y no se mueve. Entonces agarras la llave más larga, aplicas la misma fuerza y *crac*: la tuerca cede.\n\n¿Por qué? No empujaste más fuerte. Empujaste **más lejos** del punto de giro. Y eso lo cambia **todo**.\n\nBienvenido al mundo de la rotación. Aquí descubrirás que hay una fuerza \"escondida\" que no aparece cuando un objeto se mueve en línea recta pero que **domina** todo lo que gira, gira o se balancea. Desde las ruedas de tu bicicleta hasta los huracanes, los tornados y los agujeros negros en rotación: todo se entiende a través de dos conceptos: el **torque** y el **momento angular**.\n\n> **💡 La clave en 10 segundos**\n>\n> > El **torque** mide cuánto una fuerza *intenta* hacer girar un objeto. El **momento angular** mide cuánto *movimiento rotacional* tiene un objeto. Y la ley más poderosa de esta sección es: **el momento angular total se conserva**. Por eso una bailarina gira más rápido cuando cierra los brazos, y un patinador puede girar sobre un hielo casi sin fricción durante minutos.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — QUÉ HACE GIRAR LAS COSAS -->\n<!-- ============================================ -->",
-        "intermedio": "¿Alguna vez has intentado aflojar una tuerca muy apretada? Empujas con todas tus fuerzas... y no se mueve. Entonces agarras la llave más larga, aplicas la misma fuerza y *crac*: la tuerca cede.\n\n¿Por qué? No empujaste más fuerte. Empujaste **más lejos** del punto de giro. Y eso lo cambia **todo**.\n\nBienvenido al mundo de la rotación. Aquí descubrirás que hay una fuerza \"escondida\" que no aparece cuando un objeto se mueve en línea recta pero que **domina** todo lo que gira, gira o se balancea. Desde las ruedas de tu bicicleta hasta los huracanes, los tornados y los agujeros negros en rotación: todo se entiende a través de dos conceptos: el **torque** y el **momento angular**.\n\n> **💡 La clave en 10 segundos**\n>\n> > El **torque** mide cuánto una fuerza *intenta* hacer girar un objeto. El **momento angular** mide cuánto *movimiento rotacional* tiene un objeto. Y la ley más poderosa de esta sección es: **el momento angular total se conserva**. Por eso una bailarina gira más rápido cuando cierra los brazos, y un patinador puede girar sobre un hielo casi sin fricción durante minutos.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — QUÉ HACE GIRAR LAS COSAS -->\n<!-- ============================================ -->",
-        "avanzado": "¿Alguna vez has intentado aflojar una tuerca muy apretada? Empujas con todas tus fuerzas... y no se mueve. Entonces agarras la llave más larga, aplicas la misma fuerza y *crac*: la tuerca cede.\n\n¿Por qué? No empujaste más fuerte. Empujaste **más lejos** del punto de giro. Y eso lo cambia **todo**.\n\nBienvenido al mundo de la rotación. Aquí descubrirás que hay una fuerza \"escondida\" que no aparece cuando un objeto se mueve en línea recta pero que **domina** todo lo que gira, gira o se balancea. Desde las ruedas de tu bicicleta hasta los huracanes, los tornados y los agujeros negros en rotación: todo se entiende a través de dos conceptos: el **torque** y el **momento angular**.\n\n> **💡 La clave en 10 segundos**\n>\n> > El **torque** mide cuánto una fuerza *intenta* hacer girar un objeto. El **momento angular** mide cuánto *movimiento rotacional* tiene un objeto. Y la ley más poderosa de esta sección es: **el momento angular total se conserva**. Por eso una bailarina gira más rápido cuando cierra los brazos, y un patinador puede girar sobre un hielo casi sin fricción durante minutos.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — QUÉ HACE GIRAR LAS COSAS -->\n<!-- ============================================ -->"
+        "principiante": "## Bienvenida: la física de girar\n\nTodo lo que gira —una rueda, un trompo, la Tierra, los electrones— obedece a las mismas leyes que el movimiento en línea recta, pero 'rotadas'.\n\nHay un paralelismo perfecto entre el movimiento lineal y el rotacional:\n\n| Lineal | Rotacional |\n|--------|-----------|\n| Fuerza F | Torque τ |\n| Masa m | Momento de inercia I |\n| Aceleración a | Aceleración angular α |\n| Momento p = mv | Momento angular L = Iω |\n| F = ma | τ = Iα |\n\nLa fuerza que hace girar se llama **torque**. Y la cantidad que se conserva cuando nada externo actúa es el **momento angular**.\n\n> **🔑 Concepto clave: El paralelismo rotacional**\n> La rotación tiene su propia 'segunda ley' (τ = Iα) y su propio 'momento' (L = Iω). Lo que la fuerza es al movimiento lineal, el torque lo es a la rotación.\n\n**[IMAGEN SUGERIDA: Un trompo girando. Pie de foto: \"La rotación tiene sus propias leyes.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la rotación es la versión 'girada' del movimiento lineal. El torque τ = rF es la fuerza que gira; el momento de inercia I = Σmr² es la masa rotacional; la segunda ley rotacional es τ = Iα; y el momento angular L = Iω se conserva si no hay torque externo —por eso la patinadora acelera al cerrar los brazos y los pulsares giran rapidísimo.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: las variables rotacionales\n\nLas variables rotacionales son el análogo angular de las lineales:\n\n- **Desplazamiento angular** θ (radianes)\n- **Velocidad angular** ω = dθ/dt (rad/s)\n- **Aceleración angular** α = dω/dt (rad/s²)\n\nLa relación con las lineales: s = rθ, v = rω, a = rα (en el borde del círculo).\n\nLas ecuaciones cinemáticas rotacionales son análogas a las lineales con θ, ω, α sustituyendo x, v, a:\n\n$$ \\omega = \\omega_0 + \\alpha t $$\n\n$$ \\theta = \\theta_0 + \\omega_0 t + \\frac{1}{2}\\alpha t^2 $$\n\n> **Dato que rompe el cerebro**\n> Los radianes no tienen unidad: son una relación de arcos. Por eso ω = v/r funciona: ambos lados tienen unidades de s⁻¹. Las fórmulas rotacionales son las lineales 'rotadas', y todo el álgebra que aprendiste se transfiere.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la rotación es la versión 'girada' del movimiento lineal. El torque τ = rF es la fuerza que gira; el momento de inercia I = Σmr² es la masa rotacional; la segunda ley rotacional es τ = Iα; y el momento angular L = Iω se conserva si no hay torque externo —por eso la patinadora acelera al cerrar los brazos y los pulsares giran rapidísimo.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la rotación como geometría\n\nLa rotación se describe con vectores: la velocidad angular ω apunta a lo largo del eje de rotación (regla de la mano derecha).\n\nLa relación entre la velocidad lineal de un punto y la rotación es el producto vectorial:\n\n$$ \\vec{v} = \\vec{\\omega} \\times \\vec{r} $$\n\nEl momento angular es el producto vectorial de la posición y el momento:\n\n$$ \\vec{L} = \\vec{r} \\times \\vec{p} $$\n\nY el torque:\n\n$$ \\vec{\\tau} = \\vec{r} \\times \\vec{F} $$\n\nEstas definiciones vectoriales son esenciales: la dirección del momento angular define el eje de rotación, y la conservación de L es una de las leyes más fundamentales de la física.\n\n> **💡 Nota avanzada**\n> El momento angular se conserva en sistemas aislados, consecuencia de la simetría rotacional (teorema de Noether). Desde los electrones (spin) hasta las galaxias, la conservación del momento angular organiza el cosmos.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la rotación es la versión 'girada' del movimiento lineal. El torque τ = rF es la fuerza que gira; el momento de inercia I = Σmr² es la masa rotacional; la segunda ley rotacional es τ = Iα; y el momento angular L = Iω se conserva si no hay torque externo —por eso la patinadora acelera al cerrar los brazos y los pulsares giran rapidísimo.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-capa-i-intuicin--torque-la-fuerza-con-palanca",
-      "titulo": "🌱 Capa I: Intuición — Torque, la fuerza \"con palanca\"",
+      "id": "que-es-torque",
+      "titulo": "¿Qué es el torque?",
       "niveles": {
-        "principiante": "### 1.1 ¿Qué es el torque?\n\nYa sabes que una fuerza puede cambiar la velocidad de un objeto (aceleración lineal). Pero si la fuerza se aplica **fuera del centro de masa** del objeto, también lo hace **girar**.\n\nEl **torque** ($\\tau$, la letra griega \"tau\") mide la \"capacidad de giro\" de una fuerza:\n\n$$\\tau = r \\times F = r \\cdot F \\cdot \\sin(\\theta)$$\n\ndonde:\n- $r$ = distancia desde el punto de giro (o eje de rotación) hasta donde se aplica la fuerza\n- $F$ = magnitud de la fuerza\n- $\\theta$ = ángulo entre el brazo de palanca y la dirección de la fuerza\n\n**La unidad del torque** en el SI es el **Newton-metro (N·m)**. No es lo mismo que un Joule (J), aunque las unidades salgan iguales dimensionalmente. El torque es una cantidad **pseudo-vectorial** (tiene dirección según la regla de la mano derecha), mientras que la energía es un escalar.\n\n### 1.2 La regla de la mano derecha (de nuevo, pero para torque)\n\nCuando aplicas una fuerza que genera torque:\n\n1. **Apunta tus dedos** en la dirección de $r$ (desde el eje hacia el punto de aplicación)\n2. **Cierra los dedos** en la dirección de la fuerza $F$\n3. **Tu pulgar** apunta en la dirección del torque $\\tau$\n\n```\n     Eje\n      ●  ──→ τ (torque: \"sale del eje\")\n      │\n      │  F\n      │ ↙\n      ●───── r ────→\n```\n\n- Si el torque apunta **hacia arriba** (pulgar arriba): giro **antihorario** (visto desde arriba)\n- Si apunta **hacia abajo**: giro **horario**\n\n### 1.3 Apalancamiento: multiplicar fuerza con distancia\n\nEl torque es la razón por la cual funcionan las **palancas**. Arquímides dijo: *\"Dadme un punto de apoyo y moveré el mundo\"*. No era exageración.\n\n$$F_1 \\cdot r_1 = F_2 \\cdot r_2$$\n\nSi $r_1$ es 10 veces mayor que $r_2$, necesitas **10 veces menos fuerza** en ese lado para equilibrar.\n\n**Ejemplo: abrir una puerta**\n\n| Dónde empujas | Brazo de palanca | Fuerza necesaria |\n|:-------------:|:----------------:|:-----------------:|\n| En el pomo (cerca del eje) | ~0,1 m | **Mucha** |\n| En el borde de la puerta | ~0,8 m | **8 veces menos** |\n| Con el codo empujando a 0,2 m | ~0,2 m | **4 veces menos** |\n\nPor eso empujar una puerta por el pomo a veces parece imposible: ¡estás aplicando la fuerza en el peor lugar posible!\n\n> **🎮 Experimento mental**\n>\n> > Imagina que una fuerza de 100 N empuja perpendicularmente a un brazo de 0,5 m. El torque es: $\\tau = 0{,}5 \\times 100 = 50$ N·m. Ahora imagina que el mismo empuje ocurre a 2 m del eje (como en una llave de tuercas larga): $\\tau = 2 \\times 100 = 200$ N·m. **Mismo esfuerzo, 4 veces más torque.** Así funcionan las llaves de tuercas, los destornilladores y las palancas de freno de bicicleta.\n\n### 1.4 Momento de inercia: la \"masa\" de la rotación\n\nEn movimiento lineal, la masa ($m$) mide cuánto se resiste un objeto a cambiar su velocidad. En rotación, existe una cantidad análoga: el **momento de inercia** ($I$).\n\n$$I = \\sum m_i \\cdot r_i^2$$\n\nPara un objeto continuo:\n\n$$I = \\int r^2 \\, dm$$\n\n**¿Qué significa esto?** La masa *lejos del eje* cuenta **mucho más** que la masa *cerca del eje*. Específicamente, la contribución crece con el **cuadrado** de la distancia.\n\n| Momento de inercia | Fórmula | Objeto |\n|:-------------------:|:-------:|:------:|\n| Aro delgado | $I = MR^2$ | Toda la masa a distancia $R$ |\n| Disco sólido | $I = \\frac{1}{2}MR^2$ | Masa distribuida uniformemente |\n| Esfera sólida | $I = \\frac{2}{5}MR^2$ | Masa concentrada más hacia el centro |\n| Barra delgada (por centro) | $I = \\frac{1}{12}ML^2$ | Masa distribuida a lo largo |\n| Barra delgada (por un extremo) | $I = \\frac{1}{3}ML^2$ | Eje en el extremo |\n\n> **❌ Error común**\n>\n> > **[El error]:** \"Un objeto más pesado siempre tiene más momento de inercia.\"\n> >\n> > **[La realidad]:** Depende de **dónde** está la masa. Un aro delgado de 1 kg con radio 1 m tiene $I = 1$ kg·m². Una esfera sólida de 10 kg con radio 0,1 m tiene $I = 0{,}008$ kg·m². **El aro \"pesado\" de 1 kg tiene 125 veces más inercia rotacional que la esfera \"pesada\" de 10 kg** porque su masa está mucho más lejos del eje.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 2: HERRAMIENTAS — EL CORAZÓN DE LA ROTACIÓN -->\n<!-- ============================================ -->"
+        "principiante": "## ¿Qué es el torque?\n\nEl **torque** es la 'fuerza que hace girar'. Depende de dos cosas: la fuerza y la distancia desde el punto de giro (eje).\n\n$$ \\tau = F \\cdot r \\cdot \\sin\\theta $$\n\nDonde r es la distancia del eje a la fuerza y θ el ángulo.\n\nCuanto más lejos del eje apliques la fuerza, más torque. Por eso las llaves de rueda son largas: más brazo, menos esfuerzo.\n\n> **Dato curioso**\n> Abrir una puerta: la empujas lejos de las bisagras porque ahí produce más torque. Empujarla cerca de las bisagras requiere mucho más esfuerzo. El torque explica por qué las manijas están lejos del eje.\n\n```aeterna-exercise\nTITLE: Torque y brazo de palanca\nHINT: τ = F·r·sinθ. Cuanto más lejos del eje, más torque.\nXP: 30\n¿Por qué es más fácil abrir una puerta empujando el borde (lejos de las bisagras) que cerca de ellas?\nSOLUTION: El torque τ = F·r·sinθ depende de la distancia r al eje. En el borde, r es máximo, así que la misma fuerza produce más torque. Cerca de las bisagras, r es pequeño y se necesita mucha más fuerza para el mismo torque.\n```\n\n> **🔑 Concepto clave: Brazo de palanca**\n> El torque es fuerza × distancia perpendicular al eje (brazo de palanca). Es el análogo rotacional de la fuerza: la 'fuerza que gira'. Su unidad es el newton-metro (N·m).\n",
+        "intermedio": "## El torque como vector\n\nEl torque es un vector:\n\n$$ \\vec{\\tau} = \\vec{r} \\times \\vec{F} $$\n\nSu magnitud: τ = rF·sinθ. Su dirección: perpendicular al plano de r y F (regla de la mano derecha).\n\nEl brazo de palanca es la distancia perpendicular desde el eje hasta la línea de acción de la fuerza:\n\n$$ \\tau = F \\cdot r_\\perp $$\n\nDonde r⊥ = r·sinθ.\n\n> **Dato que rompe el cerebro**\n> Una fuerza que pasa exactamente por el eje no produce torque (r⊥ = 0). Empujar el centro de una rueda no la hace girar. Solo la componente perpendicular al brazo contribuye al giro.\n",
+        "avanzado": "## Torque y trabajo rotacional\n\nEl torque realiza trabajo rotacional:\n\n$$ W = \\tau \\cdot \\Delta\\theta $$\n\nY la potencia rotacional:\n\n$$ P = \\tau \\cdot \\omega $$\n\nEstas son análogas a W = F·d y P = F·v. El teorema trabajo-energía también se transfiere: el trabajo rotacional cambia la energía cinética rotacional ½Iω².\n\n> **💡 Nota avanzada**\n> El producto escalar τ·ω da la potencia: es la forma rotacional de F·v. Los motores se caracterizan por su torque y potencia: el torque determina la aceleración, la potencia la velocidad máxima.\n"
       },
       "acciones": []
     },
     {
-      "id": "21-segunda-ley-de-newton-para-rotacin",
-      "titulo": "2.1 Segunda ley de Newton para rotación",
+      "id": "equilibrio-rotacional",
+      "titulo": "Equilibrio rotacional",
       "niveles": {
-        "principiante": "Así como $F = ma$ gobierna el movimiento lineal, hay una ecuación equivalente para la rotación:\n\n$$\\tau_{neto} = I \\cdot \\alpha$$\n\ndonde:\n- $\\tau_{neto}$ = torque neto (suma de todos los torques)\n- $I$ = momento de inercia\n- $\\alpha$ = aceleración angular (rad/s²)\n\n| Lineal | Rotacional | Analogía |\n|:------:|:----------:|:--------:|\n| Fuerza ($F$) | Torque ($\\tau$) | Lo que \"causa\" el cambio |\n| Masa ($m$) | Momento de inercia ($I$) | Lo que \"se resiste\" al cambio |\n| Aceleración ($a$) | Aceleración angular ($\\alpha$) | La tasa de cambio |\n| $F = ma$ | $\\tau = I\\alpha$ | Segunda ley de Newton |\n\n### Ejemplo: Polea con peso\n\nUna polea de masa 2 kg y radio 0,1 m tiene un hilo enrollado. Cuelgas un peso de 5 kg del hilo. ¿Con qué aceleración angular gira la polea?\n\n1. Torque generado por el peso: $\\tau = r \\cdot F = 0{,}1 \\times (5 \\times 9{,}8) = 4{,}9$ N·m\n2. Momento de inercia de la polea (disco): $I = \\frac{1}{2} \\times 2 \\times 0{,}1^2 = 0{,}01$ kg·m²\n3. Aceleración angular: $\\alpha = \\frac{\\tau}{I} = \\frac{4{,}9}{0{,}01} = 490$ rad/s²\n\n¡En un segundo, la polea estará girando a casi 80 revoluciones por segundo! (Esto es idealizado, sin fricción.)\n\n---"
+        "principiante": "## Equilibrio rotacional\n\nUn objeto está en **equilibrio** cuando no acelera ni gira. Para eso se requieren dos condiciones:\n\n1. La suma de fuerzas es cero: ΣF = 0\n2. La suma de torques es cero: Στ = 0\n\nLa segunda condición es la clave: aunque las fuerzas se cancelen, los torques pueden no hacerlo.\n\n> **Dato curioso**\n> Un balancín está equilibrado cuando los torques se cancelan. Una persona pesada sentada cerca del centro puede equilibrar a una ligera sentada lejos: el producto fuerza × distancia es el mismo.\n\n**[IMAGEN SUGERIDA: Un balancín con dos personas de distinto peso en posiciones que equilibran los torques. Pie de foto: \"El equilibrio exige que los torques se cancelen.\"]**\n",
+        "intermedio": "## Las condiciones de equilibrio\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: Equilibrio y torques\nPregunta: Un balancín: una persona de 60 kg a 2 m del pivote y otra de 40 kg a 3 m. ¿Está equilibrado? ¿Se cumple ΣF = 0?\nNivel: intermedio\nXP: 35\nBotón: Comprobar\nRespuesta: Sí está equilibrado: τ₁ = 60×10×2 = 1200 N·m y τ₂ = 40×10×3 = 1200 N·m. Los torques se cancelan (Στ = 0). Las fuerzas (pesos) no se cancelan, pero el pivote ejerce la fuerza normal que equilibra ΣF = 0. El equilibrio exige ambas condiciones.\n```\n\nLas dos condiciones de equilibrio estático:\n\n1. ΣF = 0 (traslacional)\n2. Στ = 0 (rotacional)\n\nAmbas son independientes: un objeto puede estar en equilibrio de fuerzas pero girar (si los torques no se cancelan), o viceversa.\n\n> **🔑 Concepto clave: Dos condiciones**\n> El equilibrio completo exige que la suma de fuerzas Y la suma de torques sean cero. Resolver problemas de equilibrio (grúas, puentes, escaleras) es aplicar estas dos ecuaciones.\n",
+        "avanzado": "## Centro de gravedad y estabilidad\n\nEl **centro de gravedad** es el punto donde actúa el peso total. Para que un objeto sea estable, su centro de gravedad debe estar sobre su base de apoyo.\n\n- Un objeto es **estable** si su CG está dentro de la base\n- Se **vuelca** si el CG cae fuera de la base\n- Los coches tienen CG bajo para no volcarse en curvas\n\n> **💡 Nota de frontera**\n> La estabilidad es un problema de energías: el objeto es estable si su CG está en un mínimo de energía potencial. Las torres, los puentes y los robots caminantes resuelven este equilibrio en cada instante.\n"
       },
       "acciones": []
     },
     {
-      "id": "22-momento-angular-el-momentum-de-rotacin",
-      "titulo": "2.2 Momento angular: el \"momentum de rotación\"",
+      "id": "momento-inercia",
+      "titulo": "Momento de inercia",
       "niveles": {
-        "principiante": "Así como $p = mv$ es el momentum lineal, el **momento angular** ($L$) es su equivalente rotacional:\n\n$$L = I \\cdot \\omega$$\n\ndonde $\\omega$ es la velocidad angular (rad/s).\n\n### ¿Cuáles son las unidades?\n\n$$[L] = \\text{kg·m}^2/\\text{s}$$\n\nEs un poco raro, pero tiene sentido: inercia (kg·m²) × velocidad de giro (rad/s).\n\n### La relación entre torque y momento angular\n\nDel mismo modo que la fuerza cambia el momentum lineal ($F = \\frac{dp}{dt}$), el **torque cambia el momento angular**:\n\n$$\\tau = \\frac{dL}{dt}$$\n\n**Traducción:** Un torque neto distinto de cero **cambia** el momento angular. Si el torque neto es cero, el momento angular se **conserva**.\n\n---"
+        "principiante": "## Momento de inercia\n\nEl **momento de inercia** (I) es la 'masa rotacional': mide cómo se distribuye la masa respecto al eje de giro.\n\nCuanta más masa lejos del eje, mayor momento de inercia, más difícil es girar (o frenar el giro).\n\n> **Dato que rompe el cerebro**\n> Dos objetos con la misma masa pueden tener momentos de inercia muy distintos: un aro con toda su masa en el borde tiene mucho más que un disco con la masa repartida. La distribución de la masa es clave.\n\n**[IMAGEN SUGERIDA: Un aro y un disco con la misma masa, mostrando su distinto momento de inercia. Pie de foto: \"La distribución de la masa importa.\"]**\n\n\n### Estima como un físico: el momento de inercia de una rueda\n\nLa **estimación de Fermi** aplicada a la rotación: para estimar el momento de inercia de una rueda de bicicleta (m ≈ 2 kg, R ≈ 0.35 m), modelas la masa concentrada en el borde: I ≈ mR² ≈ 2 × 0.35² ≈ 0.25 kg·m². Un **modelo simplificado** (aro) es 2× mayor que uno de disco (½mR² ≈ 0.12), así que la respuesta real está en ese rango. Estimar el orden de magnitud antes de calcular te da un control de plausibilidad del resultado exacto.\n\n",
+        "intermedio": "## Calculando el momento de inercia\n\n```aeterna-formula\ntitle=\"Momento de inercia\"\nformula=\"I = \\\\sum m_i r_i^2\"\nvariables={[{\"symbol\":\"I\",\"name\":\"Momento de inercia\",\"unit\":\"kg·m²\"},{\"symbol\":\"mi\",\"name\":\"Cada masa\",\"unit\":\"kg\"},{\"symbol\":\"ri\",\"name\":\"Distancia al eje\",\"unit\":\"m\"}]}\nnote=\"La masa lejos del eje contribuye más (al cuadrado de la distancia). Por eso un aro (masa en el borde) tiene más inercia rotacional que un disco (masa repartida).\"\n```\n\nFormas comunes:\n- Aro (anillo): I = mR²\n- Disco sólido: I = ½mR²\n- Varilla (centro): I = ⅓mL² (extremo: 1/12 mL²)\n- Esfera sólida: I = ⅖mR²\n\n> **🔑 Concepto clave: Masa al cuadrado de la distancia**\n> El momento de inercia I = Σmr²: la masa contribuye proporcionalmente al cuadrado de su distancia al eje. Por eso la distribución de masa domina la resistencia al giro.\n\n\n### Estima como un físico: el momento de inercia de una rueda\n\nLa **estimación de Fermi** aplicada a la rotación: para estimar el momento de inercia de una rueda de bicicleta (m ≈ 2 kg, R ≈ 0.35 m), modelas la masa concentrada en el borde: I ≈ mR² ≈ 2 × 0.35² ≈ 0.25 kg·m². Un **modelo simplificado** (aro) es 2× mayor que uno de disco (½mR² ≈ 0.12), así que la respuesta real está en ese rango. Estimar el orden de magnitud antes de calcular te da un control de plausibilidad del resultado exacto.\n\n",
+        "avanzado": "## Inercia de cuerpos continuos\n\nPara cuerpos continuos, la suma se convierte en integral:\n\n$$ I = \\int r^2 \\, dm $$\n\nEl **teorema de los ejes paralelos**:\n\n$$ I = I_{CM} + Md^2 $$\n\nPermite calcular I respecto a cualquier eje paralelo al que pasa por el centro de masa.\n\nEl momento de inercia es un **tensor** en 3D: el cuerpo tiene inercias distintas según el eje (un libro gira fácil sobre su plano, difícil sobre su lomo).\n\n> **💡 Nota de frontera**\n> En mecánica cuántica, el momento de inercia de las moléculas determina sus espectros de rotación. La cuantización del momento angular (L = nℏ) da los niveles de energía rotacional de las moléculas, la base de la espectroscopía.\n\n\n### Estima como un físico: el momento de inercia de una rueda\n\nLa **estimación de Fermi** aplicada a la rotación: para estimar el momento de inercia de una rueda de bicicleta (m ≈ 2 kg, R ≈ 0.35 m), modelas la masa concentrada en el borde: I ≈ mR² ≈ 2 × 0.35² ≈ 0.25 kg·m². Un **modelo simplificado** (aro) es 2× mayor que uno de disco (½mR² ≈ 0.12), así que la respuesta real está en ese rango. Estimar el orden de magnitud antes de calcular te da un control de plausibilidad del resultado exacto.\n\n"
       },
       "acciones": []
     },
     {
-      "id": "23-conservacin-del-momento-angular-la-ley-ms-espectacular",
-      "titulo": "2.3 Conservación del momento angular: La ley más espectacular",
+      "id": "conservacion-momento-angular",
+      "titulo": "Conservación del momento angular",
       "niveles": {
-        "principiante": "> **Ley de conservación del momento angular:**\n>\n> *Si el torque neto externo sobre un sistema es cero, su momento angular total permanece constante:*\n>\n> $$L_{inicial} = L_{final}$$\n> $$I_i \\cdot \\omega_i = I_f \\cdot \\omega_f$$\n\n### ¡La bailarina mágica!\n\nImagina una patinadora/artista girando con los brazos extendidos:\n\n```\n   BRAZOS EXTENDIDOS            BRAZOS RECOGIDOS\n   \n      💃  ................           💃\n     /|\\  .  .  .   . .          /|\\\n    / | \\ . . . . . . .         / | \\\n   /  |  .  .    . . .         |  |  |\n            ↑ I grande                 ↑ I pequeño\n            ω pequeña                ω GRANDE\n```\n\n1. **Brazos extendidos:** $I$ es grande (la masa está lejos del eje) → $\\omega$ es pequeña\n2. **Brazos recogidos:** $I$ es pequeña (la masa está cerca del eje) → $\\omega$ **aumenta** para conservar $L$\n\n$$I_{grande} \\cdot \\omega_{lenta} = I_{pequeña} \\cdot \\omega_{rápida}$$\n\nNo se necesita ninguna fuerza extra. Simplemente redistribuyendo su masa, la bailarina gira **3-5 veces más rápido**.\n\n### Otros ejemplos asombrosos\n\n| Fenómeno | Explicación |\n|:--------:|:-----------|\n| **Tornados** | El aire que gira se concentra en un vórtice estrecho → $I$ disminuye → $\\omega$ aumenta → velocidades de hasta 500 km/h |\n| **Estrellas de neutrones** | Una estrella que muere colapsa de millones de km a ~10 km de radio → $I$ cae drásticamente → gira cientos de veces por segundo (pulsar) |\n| **Disco de hielo** | Un patinador extiende un brazo y gira lento; lo recoge y gira rápido |\n| **El planeta Tierra** | La caída de masa atmosférica hacia los polos (por redistribución de hielo) cambia muy ligeramente la velocidad de rotación de la Tierra. La NASA ha medido este efecto: los días se acortan unos microsegundos |\n| **Bicicleta estable a velocidad** | La rueda girando tiene un gran momento angular. Intentar inclinarla requiere un torque significativo, lo que da estabilidad direccional |\n\n> **🌌 Imagina que...**\n>\n> > Si el Sol se colapsara hasta convertirse en una estrella de neutrones (sin perder masa), su radio pasaría de 700.000 km a ~10 km. Eso es reducir el radio **70.000 veces**. Su momento de inercia bajaría como $r^2$, es decir, ~$70.000^2 = 5 \\times 10^9$ veces. Para conservar el momento angular, giraría **5.000 millones de veces más rápido**: de un giro cada ~25 días a ¡cientos de revoluciones por segundo! Eso es exactamente lo que observamos en los púlsares.\n\n---"
+        "principiante": "## Conservación del momento angular\n\nEl **momento angular** (L = Iω) se conserva en un sistema aislado: si nada externo ejerce torque, el momento angular no cambia.\n\nCuando la patinadora cierra los brazos, su momento de inercia I disminuye. Para que L = Iω se conserve, su velocidad angular ω debe aumentar. Por eso gira más rápido.\n\n> **Dato que rompe el cerebro**\n> Los bailarines de patinaje, los saltadores de trampolín y los clavadistas usan esta ley: encogen el cuerpo para girar rápido y lo estiran para frenar. Es la conservación del momento angular en acción.\n\n**[IMAGEN SUGERIDA: Una patinadora cerrando los brazos y girando más rápido. Pie de foto: \"L = Iω se conserva.\"]**\n\n\n<Connect title=\"De la rotación al electromagnetismo\" sourceConcept=\"Momento angular\" targetConcept=\"Momento angular de las partículas\">\nEl momento angular es universal: los electrones tienen spin (momento angular intrínseco) que estructura la tabla periódica y los espectros atómicos. El acoplamiento espín-órbita es la base de la resonancia magnética nuclear usada en medicina. La rotación clásica que estudias aquí persiste intacta en el mundo cuántico.\n</Connect>\n",
+        "intermedio": "## La patinadora y el clavadista\n\n```parameter-lab\nTITLE: Conservación del momento angular\nDESC: Una patinadora gira con los brazos abiertos. Al cerrarlos, su momento de inercia disminuye.\nOUTPUT_LABEL: Velocidad angular final\nOUTPUT_UNIT: rad/s\nQUESTION: Una patinadora gira a 2 rad/s con I = 4 kg·m² (brazos abiertos). Al cerrar los brazos, I = 2 kg·m². ¿Cuál es su nueva velocidad angular?\nANSWER: L se conserva: I₁ω₁ = I₂ω₂ → 4×2 = 2×ω₂ → ω₂ = 4 rad/s. Al reducir su inercia a la mitad, su velocidad angular se duplica.\nXP: 50\nPARAM: I1 | Inercia inicial | kg·m² | 2 | 8 | 0.5 | 4\nPARAM: w1 | Velocidad inicial | rad/s | 1 | 5 | 0.5 | 2\n```\n\nAplicaciones de la conservación del momento angular:\n- **Patinadora**: cierra brazos → gira más rápido\n- **Clavadista**: encoge cuerpo → más giros\n- **Tierra**: el sistema Tierra-Luna conserva su momento angular total\n- **Estrellas**: cuando colapsan, giran mucho más rápido (pulsares)\n\n> **🔑 Concepto clave: Iω constante**\n> En ausencia de torque externo, L = Iω es constante. Reducir I aumenta ω y viceversa. Es la ley detrás de patinadoras, pulsares, discos protoplanetarios y agujeros negros giratorios.\n\n\n<Connect title=\"De la rotación al electromagnetismo\" sourceConcept=\"Momento angular\" targetConcept=\"Momento angular de las partículas\">\nEl momento angular es universal: los electrones tienen spin (momento angular intrínseco) que estructura la tabla periódica y los espectros atómicos. El acoplamiento espín-órbita es la base de la resonancia magnética nuclear usada en medicina. La rotación clásica que estudias aquí persiste intacta en el mundo cuántico.\n</Connect>\n",
+        "avanzado": "## Momento angular y el cosmos\n\nLa conservación del momento angular organiza el universo:\n\n- Una nube de gas colapsa: su momento angular se conserva y acelera → disco protoplanetario que gira\n- El Sol y los planetas se forman de este disco\n- Cuando una estrella colapsa en una enana blanca o pulsar, su ω aumenta enormemente\n- Los agujeros negros giratorios (Kerr) tienen momento angular definido\n\n> **💡 Nota de frontera**\n> El momento angular está cuantizado en mecánica cuántica: L = ℏ√(l(l+1)). El **spin** es una forma intrínseca de momento angular sin análogo clásico: partículas como los electrones tienen spin ½, y esta propiedad estructura la tabla periódica.\n\n\n<Connect title=\"De la rotación al electromagnetismo\" sourceConcept=\"Momento angular\" targetConcept=\"Momento angular de las partículas\">\nEl momento angular es universal: los electrones tienen spin (momento angular intrínseco) que estructura la tabla periódica y los espectros atómicos. El acoplamiento espín-órbita es la base de la resonancia magnética nuclear usada en medicina. La rotación clásica que estudias aquí persiste intacta en el mundo cuántico.\n</Connect>\n"
       },
       "acciones": []
     },
     {
-      "id": "24-equilibrio-cuando-nada-gira-y-nada-se-mueve",
-      "titulo": "2.4 Equilibrio: cuando nada gira y nada se mueve",
+      "id": "dinamica-rotacional",
+      "titulo": "Dinámica rotacional",
       "niveles": {
-        "principiante": "Cuando un objeto está completamente en reposo (sin traslación ni rotación), decimos que está en **equilibrio**. Para que esto ocurra, se deben cumplir **dos condiciones simultáneamente**:\n\n### Condición 1: Equilibrio traslacional\n\n$$\\sum \\vec{F} = 0$$\n\nLa suma vectorial de todas las fuerzas es cero (primera ley de Newton).\n\n### Condición 2: Equilibrio rotacional\n\n$$\\sum \\tau = 0$$\n\nLa suma de todos los torques respecto a **cualquier punto** es cero.\n\n### Ejemplo: La barra y el balancín\n\nUna barra de 4 m y 20 kg descansa sobre un soporte (fulcro) a 1,5 m de su extremo izquierdo. ¿Dónde debes colocar un peso de 30 kg para que el sistema esté en equilibrio?\n\n```\n         × fulcro\n    |-------|---------------|\n    0      1.5 m             4 m\n    ↑      ↑                ↑\n    A      PUNTO DE GIRO     B\n\n    Peso de la barra actúa en su centro (2 m)\n```\n\n**Torques respecto al fulcro:**\n\n| Elemento | Fuerza | Brazo | Dirección | Torque |\n|:--------:|:------:|:-----:|:---------:|:------:|\n| Peso barra izquierda (0,9 m) | 88 N | 0,6 m (izq.) | Horario | -52,8 N·m |\n| Peso barra derecha (2,5 m) | 112 N | 1,0 m (der.) | Antihorario | +112 N·m |\n| Peso de 30 kg | 294 N | x (desconocido) | ? | ? |\n\nPara equilibrio: $-52{,}8 + 112 + \\tau_{peso} = 0$\n\nSi ponemos el peso a la izquierda del fulcro a distancia $d$:\n$59{,}8 = 294 \\times d \\Rightarrow d = 0{,}20$ m → **20 cm a la izquierda del fulcro**\n\n---"
+        "principiante": "## Dinámica rotacional\n\nLa segunda ley rotacional:\n\n$$ \\tau = I\\alpha $$\n\nEl torque neto produce aceleración angular, igual que la fuerza produce aceleración lineal.\n\nAplicaciones:\n- Un motor aplica torque → las ruedas giran\n- Frenar una rueda: el torque de fricción reduce su ω\n- Un péndulo: el torque de la gravedad produce su oscilación\n\n> **Dato curioso**\n> Las ruedas de los coches aceleran por el torque del motor. Más torque en las ruedas significa más aceleración angular y, por tanto, más aceleración lineal del vehículo.\n\n**[IMAGEN SUGERIDA: Una rueda acelerando por el torque del motor. Pie de foto: \"τ = Iα gobierna la aceleración de las ruedas.\"]**\n",
+        "intermedio": "## La segunda ley rotacional\n\n```aeterna-exercise\nTITLE: Torque neto y aceleración angular\nHINT: τ = Iα. Despeja α.\nXP: 40\nUn disco de momento de inercia I = 5 kg·m² recibe un torque de 20 N·m. ¿Cuál es su aceleración angular?\nSOLUTION: α = τ/I = 20/5 = 4 rad/s².\n```\n\nLa energía cinética rotacional:\n\n$$ E_{rot} = \\frac{1}{2}I\\omega^2 $$\n\nEl trabajo rotacional: W = τ·Δθ. En una rueda, la energía de rotación se convierte en movimiento lineal.\n\n> **🔑 Concepto clave: τ = Iα**\n> El torque neto produce aceleración angular proporcional e inversa a la inercia rotacional. Es el análogo exacto de F = ma, y rige ruedas, motores, péndulos y planetas en rotación.\n",
+        "avanzado": "## Rodadura: rotación + traslación\n\nUn objeto que rueda sin resbalar combina rotación y traslación. Su energía cinética total:\n\n$$ E = \\frac{1}{2}Mv^2 + \\frac{1}{2}I\\omega^2 $$\n\nCon la condición de rodadura v = Rω.\n\nLa aceleración de un objeto que rueda por un plano inclinado:\n\n$$ a = \\frac{g\\sin\\theta}{1 + I/MR^2} $$\n\nUna esfera (I = ⅖MR²) baja más rápido que un aro (I = MR²): menos energía 'atrapada' en rotación.\n\n> **💡 Nota de frontera**\n> En rodadura, la fricción estática (no la cinética) actúa en el punto de contacto. El problema de rodar sin resbalar es un ejemplo clásico de vínculo (constraint) en la mecánica de Lagrange: se resuelve con coordenadas generalizadas.\n"
       },
       "acciones": []
     },
     {
-      "id": "31-aplicaciones-reales-sorprendentes",
-      "titulo": "3.1 Aplicaciones reales sorprendentes",
+      "id": "precesion-giroscopio",
+      "titulo": "Precesión y giroscopios",
       "niveles": {
-        "principiante": "### 3.2 Giroscopios: la brújula del espacio\n\nUn giroscopio es un disco que gira muy rápido sobre un eje. Sus propiedades son extraordinarias:\n\n| Propiedad | Explicación | Aplicación |\n|:---------:|:-----------|:----------:|\n| **Rigidez direccional** | Un giroscopio que gira se resiste a cambiar la orientación de su eje | Brújulas en barcos, aviones (cuando no hay GPS) |\n| **Precesión** | Cuando aplicas un torque a un giroscopio, no se cae: **orbita** alrededor del punto de apoyo | Bicicletas estables, sistemas de navegación de la ISS |\n\n> **🍕 Experimento mental**\n>\n> > Sostén una rueda de bicicleta por el eje (con un mango en cada mano). Hazla girar rápido. Ahora intenta inclinarla. ¡Se resiste! Si empujas el eje hacia la izquierda, en vez de caerse, la rueda **orbita** hacia arriba (o abajo, dependiendo del sentido de giro). Eso es precesión, y es lo que mantiene tu bicicleta estable sin que te des cuenta.\n\n### 3.3 Atletas rotacionales: ciencia del espín\n\n| Deporte | Momento angular en acción |\n|:-------:|:-------------------------:|\n| **Patinaje artístico** | Brazos recogidos = giro rápido; brazos extendidos = giro lento |\n| **Gimnasia** | El \"doble twist\" en salto se logra recogiendo el cuerpo al máximo |\n| **Diving (clavados)** | Los clavadistas hacen giros imposibles recogiendo extremidades |\n| **Fútbol americano** | El efecto (spiral) estabiliza el balón en vuelo por conservación de L |\n| **Béisbol** | La rotación de la pelota (curveball, slider) genera fuerzas de Magnus |\n\n### 3.4 El péndulo de Foucault: la Tierra gira bajo tus pies\n\nEn 1851, Léon Foucault colgó un péndulo de 67 metros en el Panteón de París. Lo puso a oscilar en un plano fijo. Horas después, el plano de oscilación había **rotado**. ¿El péndulo cambió? **No.** Fue la **Tierra** la que giró debajo.\n\nEs la prueba más elegante de que la Tierra rota. Y funciona porque el momento angular del péndulo se conserva (en la dirección vertical): su plano permanece fijo en el espacio mientras la Tierra gira.\n\n- En el **ecuador**: el plano no rota (respecto al suelo)\n- En los **polos**: rota 360° en 24 horas\n- En **París** (49° latitud): rota ~270° en 24 horas\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
-      "niveles": {
-        "principiante": "> **🧠 Sistema Aeterna, paso 1: Si gira, piensa en torque**\n>\n> > Cada vez que veas algo girando o intentando girar, pregúntate: \"¿Dónde está el eje? ¿Dónde se aplica la fuerza? ¿A qué distancia?\" Porque la respuesta determina el torque, y el torque determina todo lo demás.\n\n> **🧠 Sistema Aeterna, paso 2: El momento de inercia lo es todo**\n>\n> > No es solo cuánta masa tienes, sino **dónde** está esa masa. Dos objetos con la misma masa pueden tener momentos de inercia radicalmente diferentes. Recuerda: la masa lejos del eje cuenta muchísimo más (¡al cuadrado!).\n\n> **🧠 Sistema Aeterna, paso 3: Conservar es la clave maestra**\n>\n> > Sin torque externo, el momento angular no cambia. Punto. Esta ley explica desde estrellas de neutrones hasta por qué una bailarina gira más rápido al cerrar los brazos. Cuando veas algo acelerar su rotación sin empuje externo, ya sabes: su momento de inercia disminuyó y la naturaleza \"conservó\" el momento angular.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-preguntas-frecuentes-sobre-torque-y-momento-angular",
-      "titulo": "❓ Preguntas frecuentes sobre Torque y Momento Angular",
-      "niveles": {
-        "principiante": "> **❓ ¿Por qué la puerta se abre más fácil cuanto más lejos empujo?**\n>\n> Porque el torque es $\\tau = r \\times F$. Si duplicas la distancia al eje ($r$), duplicas el torque con la misma fuerza. Empujar en el borde de la puerta (a 80 cm del eje) genera 8 veces más torque que empujar en el pomo (a 10 cm).\n\n> **❓ ¿Un objeto en rotación puede estar en equilibrio?**\n>\n> Sí, si gira a **velocidad angular constante** (sin aceleración angular) y no hay traslación. Un disco girando en el espacio sin fricción está en equilibrio rotacional: $\\tau_{neto} = 0$ porque no cambia su velocidad de giro.\n\n> **❓ ¿Por qué los ciclistas se inclinan en las curvas?**\n>\n> Para generar el torque necesario. La fuerza de fricción lateral (que empuja la bicicleta hacia el centro de la curva) actúa debajo del centro de gravedad. Eso genera un torque que tiende a tumbar al ciclista. Inclinándose, el ciclista equilibra ese torque con el de su propio peso. Es un equilibrio rotacional en movimiento.\n\n> **❓ ¿El momento angular es un vector?**\n>\n> Sí, es un **pseudo-vector** (o vector axial). Apunta a lo largo del eje de rotación según la regla de la mano derecha: si enrollas los dedos en la dirección del giro, el pulgar apunta en la dirección de $\\vec{L}$. En el caso de la Tierra, $\\vec{L}$ apunta hacia el Polo Norte.\n\n> **❓ ¿Puedo crear \"energía\" con el momento angular?**\n>\n> No. El momento angular y la energía son cantidades **diferentes** que se conservan de forma independiente. Puedes redistribuir el momento angular (cambiando tu momento de inercia), pero no puedes crear momento angular de la nada. Tampoco puedes crear energía: al recoger los brazos, la energía cinética rotacional **aumenta**, pero eso es porque hiciste **trabajo** con tus músculos al mover los brazos hacia dentro.\n\n---",
-        "intermedio": "> **❓ ¿Por qué la puerta se abre más fácil cuanto más lejos empujo?**\n>\n> Porque el torque es $\\tau = r \\times F$. Si duplicas la distancia al eje ($r$), duplicas el torque con la misma fuerza. Empujar en el borde de la puerta (a 80 cm del eje) genera 8 veces más torque que empujar en el pomo (a 10 cm).\n\n> **❓ ¿Un objeto en rotación puede estar en equilibrio?**\n>\n> Sí, si gira a **velocidad angular constante** (sin aceleración angular) y no hay traslación. Un disco girando en el espacio sin fricción está en equilibrio rotacional: $\\tau_{neto} = 0$ porque no cambia su velocidad de giro.\n\n> **❓ ¿Por qué los ciclistas se inclinan en las curvas?**\n>\n> Para generar el torque necesario. La fuerza de fricción lateral (que empuja la bicicleta hacia el centro de la curva) actúa debajo del centro de gravedad. Eso genera un torque que tiende a tumbar al ciclista. Inclinándose, el ciclista equilibra ese torque con el de su propio peso. Es un equilibrio rotacional en movimiento.\n\n> **❓ ¿El momento angular es un vector?**\n>\n> Sí, es un **pseudo-vector** (o vector axial). Apunta a lo largo del eje de rotación según la regla de la mano derecha: si enrollas los dedos en la dirección del giro, el pulgar apunta en la dirección de $\\vec{L}$. En el caso de la Tierra, $\\vec{L}$ apunta hacia el Polo Norte.\n\n> **❓ ¿Puedo crear \"energía\" con el momento angular?**\n>\n> No. El momento angular y la energía son cantidades **diferentes** que se conservan de forma independiente. Puedes redistribuir el momento angular (cambiando tu momento de inercia), pero no puedes crear momento angular de la nada. Tampoco puedes crear energía: al recoger los brazos, la energía cinética rotacional **aumenta**, pero eso es porque hiciste **trabajo** con tus músculos al mover los brazos hacia dentro.\n\n---",
-        "avanzado": "> **❓ ¿Por qué la puerta se abre más fácil cuanto más lejos empujo?**\n>\n> Porque el torque es $\\tau = r \\times F$. Si duplicas la distancia al eje ($r$), duplicas el torque con la misma fuerza. Empujar en el borde de la puerta (a 80 cm del eje) genera 8 veces más torque que empujar en el pomo (a 10 cm).\n\n> **❓ ¿Un objeto en rotación puede estar en equilibrio?**\n>\n> Sí, si gira a **velocidad angular constante** (sin aceleración angular) y no hay traslación. Un disco girando en el espacio sin fricción está en equilibrio rotacional: $\\tau_{neto} = 0$ porque no cambia su velocidad de giro.\n\n> **❓ ¿Por qué los ciclistas se inclinan en las curvas?**\n>\n> Para generar el torque necesario. La fuerza de fricción lateral (que empuja la bicicleta hacia el centro de la curva) actúa debajo del centro de gravedad. Eso genera un torque que tiende a tumbar al ciclista. Inclinándose, el ciclista equilibra ese torque con el de su propio peso. Es un equilibrio rotacional en movimiento.\n\n> **❓ ¿El momento angular es un vector?**\n>\n> Sí, es un **pseudo-vector** (o vector axial). Apunta a lo largo del eje de rotación según la regla de la mano derecha: si enrollas los dedos en la dirección del giro, el pulgar apunta en la dirección de $\\vec{L}$. En el caso de la Tierra, $\\vec{L}$ apunta hacia el Polo Norte.\n\n> **❓ ¿Puedo crear \"energía\" con el momento angular?**\n>\n> No. El momento angular y la energía son cantidades **diferentes** que se conservan de forma independiente. Puedes redistribuir el momento angular (cambiando tu momento de inercia), pero no puedes crear momento angular de la nada. Tampoco puedes crear energía: al recoger los brazos, la energía cinética rotacional **aumenta**, pero eso es porque hiciste **trabajo** con tus músculos al mover los brazos hacia dentro.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-siguiente-parada-en-la-ruta",
-      "titulo": "⚠️ Siguiente parada en la ruta",
-      "niveles": {
-        "principiante": "> **⚠️ Siguiente parada: Electromagnetismo Avanzado**\n>\n> Acabas de entender cómo los objetos que giran se comportan de formas contraintuitivas pero predecibles. Ahora vamos a explorar cómo la electricidad y el magnetismo están íntimamente conectados: cómo fluye la corriente, qué son los circuitos y por qué un imán en movimiento genera electricidad. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando:**\n- *\"Fundamentos de Física\"* de Halliday, Resnick y Walker — Capítulo 10-12 (Rotación, Momento Angular) — La mejor secuencia de ejemplos progresivos.\n- *\"Veritasium — The Bizarre Behavior of Rotating Bodies\"* (YouTube) — Explicación visual asombrosa de la precesión y el giroscopio.\n- *\"Practical Physics: Torque and Equilibrium\"* — Experimentos con materiales caseros para entender torque.\n- *\"MinutePhysics: How does a spinning top work?\"* — Explicación breve y elegante de la estabilidad rotacional.\n- *Física Universitaria de Young y Freedman* — Capítulos 10-11 (Rotación de un cuerpo rígido) y 12 (Estática y Elasticidad)."
+        "principiante": "## Precesión y giroscopios\n\nUn **giroscopio** es una rueda que gira rápido. Su momento angular lo hace resistente a cambiar de eje: por eso es estable.\n\nUn **trompo** inclinado no se cae de inmediato: su peso produce un torque perpendicular al momento angular, que cambia la dirección de L en vez de derribarlo. Esto es la **precesión**: el eje describe un círculo.\n\n> **Dato que rompe el cerebro**\n> Una rueda de bicicleta girando sostenida por un solo lado no cae: el torque de su peso hace precesar el eje en lugar de derribarlo. Es contraintuitivo pero real.\n\n**[IMAGEN SUGERIDA: Un trompo precesando, con su eje describiendo un círculo. Pie de foto: \"La precesión: el torque cambia la dirección de L.\"]**\n\n\n<Transfer targetDomain=\"Diseño de bicicletas y motos\" title=\"Transfiere: estabilidad al girar\">\nUn motorista se inclina hacia dentro al tomar una curva. Analiza los torques: su peso y la fuerza centrífuga crean un torque neto que, al inclinarse, se equilibra. Compara la estabilidad de una bicicleta con ruedas grandes vs pequeñas y cómo la conservación del momento angular mantiene las ruedas girando.\n</Transfer>\n",
+        "intermedio": "## Por qué precesan los giroscopios\n\nEl torque del peso τ = r × mg es perpendicular al momento angular L. Cambiar la dirección de L (sin cambiar su magnitud) produce la precesión:\n\n$$ \\omega_p = \\frac{\\tau}{L} = \\frac{mgr}{I\\omega} $$\n\nLa velocidad angular de precesión es inversamente proporcional a ω: cuanto más rápido gira, más lento precesa.\n\nAplicaciones de los giroscopios:\n- **Navegación**: giroscopios de inercia en aviones y barcos\n- **Estabilización**: drones, satélites (ruedas de reacción)\n- **Brújulas giroscópicas**: apuntan al norte verdadero\n- **Tecnología**: giroscopios MEMS en smartphones\n\n> **🔑 Concepto clave: El torque cambia L, no lo derriba**\n> Cuando el torque es perpendicular al momento angular, cambia la dirección de L → precesión. El giroscopio no cae porque el torque no puede derribar un L grande: lo hace girar.\n\n\n<Transfer targetDomain=\"Diseño de bicicletas y motos\" title=\"Transfiere: estabilidad al girar\">\nUn motorista se inclina hacia dentro al tomar una curva. Analiza los torques: su peso y la fuerza centrífuga crean un torque neto que, al inclinarse, se equilibra. Compara la estabilidad de una bicicleta con ruedas grandes vs pequeñas y cómo la conservación del momento angular mantiene las ruedas girando.\n</Transfer>\n",
+        "avanzado": "## Momento angular en el espacio\n\nLos satélites usan **ruedas de reacción**: giros que, al acelerarse, transfieren momento angular al satélite y lo rotan sin combustible.\n\nLa **Tierra precesa**: su eje describe un círculo completo cada 26,000 años (precesión de los equinoccios), por el torque de la Luna y el Sol sobre el abultamiento ecuatorial.\n\nEl giroscopio es la base de la **inercia de navegación**: con acelerómetros y giros, un sistema inercial calcula posición sin GPS.\n\n> **💡 Nota de frontera**\n> En mecánica cuántica, el spin y el momento angular orbital se acoplan (acoplamiento espín-órbita). En el mundo cuántico, la precesión de los momentos angulares produce fenómenos como la resonancia magnética nuclear (RMN), usada en medicina.\n\n\n<Transfer targetDomain=\"Diseño de bicicletas y motos\" title=\"Transfiere: estabilidad al girar\">\nUn motorista se inclina hacia dentro al tomar una curva. Analiza los torques: su peso y la fuerza centrífuga crean un torque neto que, al inclinarse, se equilibra. Compara la estabilidad de una bicicleta con ruedas grandes vs pequeñas y cómo la conservación del momento angular mantiene las ruedas girando.\n</Transfer>\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "La rotación completa el cuadro de la mecánica. Has aprendido que el torque es la fuerza que hace girar —depende de la fuerza y de la distancia al eje—, que el equilibrio exige que se cancelen tanto fuerzas como torques, y que el momento de inercia mide cómo la masa se reparte alrededor del eje. La segunda ley rotacional τ = Iα es el espejo exacto de F = ma, y la conservación del momento angular L = Iω explica desde la patinadora que acelera al cerrar los brazos hasta los pulsares que giran miles de veces por segundo. Los giroscopios y la precesión te mostraron la belleza contraintuitiva de la rotación: cuando el torque es perpendicular al momento angular, en lugar de derribar el objeto, hace que su eje describa círculos. Esta física rotacional no es solo teoría: está en los motores, los drones, los satélites, la navegación inercial y la estabilización de todo lo que gira. Y el momento angular, con su conservación ligada a la simetría rotacional, es una de las cantidades más fundamentales del universo —del spin de los electrones a la rotación de las galaxias. Ahora entiendes no solo cómo giran las cosas, sino por qué se resisten a cambiar su giro.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Torque de una fuerza",
+        "enunciado": "Una fuerza de 20 N actúa a 0.5 m del eje, perpendicularmente. ¿Cuál es el torque?",
+        "solucion": "τ = F·r·sin90° = 20 × 0.5 × 1 = 10 N·m.",
+        "xp": 30,
+        "pistas": [
+          "τ = F·r·sinθ",
+          "sin(90°) = 1"
+        ],
+        "opciones": [
+          {
+            "label": "10 N·m",
+            "correcta": true
+          },
+          {
+            "label": "20 N·m",
+            "correcta": false
+          },
+          {
+            "label": "0.5 N·m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica τ = F·r·sinθ",
+          "Calcula 20 × 0.5 = 10 N·m"
+        ]
+      },
+      {
+        "titulo": "Equilibrio del balancín",
+        "enunciado": "Una persona de 50 kg está a 2 m del pivote. ¿Dónde debe sentarse una de 25 kg para equilibrar?",
+        "solucion": "τ₁ = τ₂ → 50×2 = 25×d → d = 100/25 = 4 m.",
+        "xp": 35,
+        "pistas": [
+          "Los torques se cancelan",
+          "50×2 = 25×d"
+        ],
+        "opciones": [
+          {
+            "label": "4 m",
+            "correcta": true
+          },
+          {
+            "label": "2 m",
+            "correcta": false
+          },
+          {
+            "label": "1 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Iguala los torques",
+          "Calcula d = 100/25 = 4 m"
+        ]
+      },
+      {
+        "titulo": "Momento angular",
+        "enunciado": "Una patinadora con I = 3 kg·m² gira a 2 rad/s. ¿Cuál es su momento angular?",
+        "solucion": "L = Iω = 3 × 2 = 6 kg·m²/s.",
+        "xp": 30,
+        "pistas": [
+          "L = Iω",
+          "Multiplica 3 × 2"
+        ],
+        "opciones": [
+          {
+            "label": "6 kg·m²/s",
+            "correcta": true
+          },
+          {
+            "label": "1.5 kg·m²/s",
+            "correcta": false
+          },
+          {
+            "label": "9 kg·m²/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica L = Iω",
+          "Calcula 3 × 2 = 6 kg·m²/s"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Conservación del momento angular",
+        "enunciado": "Una patinadora gira a 1.5 rad/s con I = 6 kg·m². Cierra los brazos y su I baja a 3 kg·m². ¿Cuál es su nueva velocidad angular?",
+        "solucion": "L se conserva: 6×1.5 = 3×ω → ω = 9/3 = 3 rad/s.",
+        "xp": 45,
+        "pistas": [
+          "L = Iω se conserva",
+          "6×1.5 = 3×ω"
+        ],
+        "opciones": [
+          {
+            "label": "3 rad/s",
+            "correcta": true
+          },
+          {
+            "label": "1.5 rad/s",
+            "correcta": false
+          },
+          {
+            "label": "0.75 rad/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Iguala los momentos angulares",
+          "Calcula ω = 9/3 = 3 rad/s"
+        ]
+      },
+      {
+        "titulo": "Segunda ley rotacional",
+        "enunciado": "Un disco con I = 4 kg·m² recibe un torque de 12 N·m. ¿Cuál es su aceleración angular?",
+        "solucion": "α = τ/I = 12/4 = 3 rad/s².",
+        "xp": 40,
+        "pistas": [
+          "α = τ/I",
+          "Divide 12 entre 4"
+        ],
+        "opciones": [
+          {
+            "label": "3 rad/s²",
+            "correcta": true
+          },
+          {
+            "label": "0.33 rad/s²",
+            "correcta": false
+          },
+          {
+            "label": "48 rad/s²",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica α = τ/I",
+          "Calcula 12/4 = 3 rad/s²"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Energía de rodadura",
+        "enunciado": "Una esfera de 2 kg rueda a 3 m/s. ¿Cuál es su energía cinética total? (I = ⅖MR², condición de rodadura v = Rω)",
+        "solucion": "E = ½Mv² + ½Iω². Como I = ⅖MR² y ω = v/R: E = ½Mv² + ½·⅖MR²·v²/R² = ½Mv² + ⅕Mv² = (0.5+0.2)×2×9 = 12.6 J.",
+        "xp": 55,
+        "pistas": [
+          "E = ½Mv² + ½Iω²",
+          "ω = v/R, I = ⅖MR²"
+        ],
+        "opciones": [
+          {
+            "label": "12.6 J",
+            "correcta": true
+          },
+          {
+            "label": "9 J",
+            "correcta": false
+          },
+          {
+            "label": "18 J",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Sustituye ω = v/R",
+          "Suma traslación + rotación"
+        ]
+      },
+      {
+        "titulo": "Precesión",
+        "enunciado": "Un giroscopio de peso 10 N, brazo 0.2 m, momento angular 5 kg·m²/s. ¿Cuál es su velocidad angular de precesión?",
+        "solucion": "ωp = τ/L = (10×0.2)/5 = 2/5 = 0.4 rad/s.",
+        "xp": 50,
+        "pistas": [
+          "ωp = τ/L",
+          "τ = m·g·r = 10×0.2 = 2"
+        ],
+        "opciones": [
+          {
+            "label": "0.4 rad/s",
+            "correcta": true
+          },
+          {
+            "label": "0.2 rad/s",
+            "correcta": false
+          },
+          {
+            "label": "2.5 rad/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula el torque",
+          "Divide τ/L = 2/5 = 0.4 rad/s"
+        ]
+      }
+    ]
+  }
 }
