@@ -211,23 +211,27 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         {/* Halo circular difuminado alrededor de la imagen */}
         <img 
           src="/images/hero-fantasy-room.png"
-          className="absolute inset-0 w-full h-full object-contain object-center scale-110 blur-[80px] opacity-50 pointer-events-none"
+          className="absolute inset-0 w-full h-full object-contain object-center scale-110 blur-[100px] opacity-60 pointer-events-none"
           alt=""
           aria-hidden="true"
         />
 
-        {/* Fondo: estancia de fantasía — imagen completa */}
+        {/* Fondo: estancia de fantasía — imagen completa con bordes disueltos */}
         <img 
           src="/images/hero-fantasy-room.png"
-          className="absolute inset-0 w-full h-full object-contain object-center"
+          className="absolute inset-0 w-full h-full object-contain object-center pointer-events-none"
+          style={{
+            maskImage: 'radial-gradient(ellipse 62% 62% at center, black 45%, transparent 78%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 62% 62% at center, black 45%, transparent 78%)'
+          }}
           alt="Estancia del Sabio"
         />
 
-        {/* Viñetas de transición: starfield → imagen sin corte duro */}
-        <div className="absolute inset-y-0 left-0 w-[12%] bg-gradient-to-r from-brand-ink/80 via-brand-ink/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-[12%] bg-gradient-to-l from-brand-ink/80 via-brand-ink/20 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 top-0 h-[10%] bg-gradient-to-b from-brand-ink/80 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-[10%] bg-gradient-to-t from-brand-ink/80 to-transparent pointer-events-none" />
+        {/* Viñetas de transición suaves: starfield → halo */}
+        <div className="absolute inset-y-0 left-0 w-[8%] bg-gradient-to-r from-brand-ink/70 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-[8%] bg-gradient-to-l from-brand-ink/70 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-[6%] bg-gradient-to-b from-brand-ink/70 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[6%] bg-gradient-to-t from-brand-ink/70 to-transparent pointer-events-none" />
 
           <motion.div
             className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
