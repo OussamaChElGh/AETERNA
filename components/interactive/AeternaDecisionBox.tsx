@@ -85,7 +85,7 @@ export function AeternaDecisionBox({
         <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
           <div className="flex items-center gap-3">
             <div className={cn(
-              "w-11 h-11 rounded-full bg-purple-600 border-2 border-black flex items-center justify-center text-white shrink-0 shadow-[2px_2px_0px_0px_#000]",
+              "w-11 h-11 rounded-none bg-purple-600 border-2 border-black flex items-center justify-center text-white shrink-0 shadow-[2px_2px_0px_0px_#000]",
               isCompleted && "bg-emerald-500 text-black"
             )}>
               {isCompleted ? <ShieldCheck size={22} /> : <Sparkles size={22} />}
@@ -94,7 +94,7 @@ export function AeternaDecisionBox({
               <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-purple-700 dark:text-purple-300 block">
                 [{finalBadge.toUpperCase()}]
               </span>
-              <h3 className="font-serif text-xl md:text-2xl font-bold text-brand-ink dark:text-white leading-tight">
+              <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
                 {finalQuestion || "Reflexión Aeterna"}
               </h3>
             </div>

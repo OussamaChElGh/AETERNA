@@ -92,13 +92,13 @@ export function AeternaInteractiveQuestion({ content, onResult }: AeternaProps) 
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className={cn(
-            "relative overflow-hidden rounded-2xl border transition-all duration-700 shadow-md",
+            "relative overflow-hidden rounded-none border-4 transition-all duration-700 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#D4AF37]",
             fxClass,
             status === 'idle'
-              ? "bg-[#FDFBF7] dark:bg-[#121214] border-[#d4af37]/25 dark:border-white/8 hover:border-[#8B6914]/50 dark:hover:border-[#D4AF37]/40 hover:shadow-lg"
+              ? "bg-[#FAF6EC] dark:bg-[#1A1712] border-[#d4af37]"
               : status === 'correct'
-              ? "bg-[#FDFBF7] dark:bg-[#0d1a10] border-emerald-400/40 dark:border-emerald-600/30 shadow-lg"
-              : "bg-[#FDFBF7] dark:bg-[#1a0d0d] border-rose-400/40 dark:border-rose-600/30"
+              ? "bg-[#FAF6EC] dark:bg-[#1A1712] border-emerald-500"
+              : "bg-[#FAF6EC] dark:bg-[#1A1712] border-rose-600"
           )}
         >
           {/* Top accent line */}
@@ -108,17 +108,17 @@ export function AeternaInteractiveQuestion({ content, onResult }: AeternaProps) 
           <div className="absolute inset-0 opacity-[0.015] pointer-events-none bg-[radial-gradient(#8B6914_1px,transparent_1px)] bg-[size:24px_24px]" />
 
           {/* Header */}
-          <div className="relative z-10 flex items-center justify-between px-7 pt-7 pb-5 border-b border-black/5 dark:border-white/5">
+          <div className="relative z-10 flex items-center justify-between px-7 pt-7 pb-5 border-b-4 border-[#D4AF37]/30">
             <div className="flex items-center gap-4">
               <div className={cn(
-                "w-10 h-10 rounded-xl flex items-center justify-center border shadow-sm transition-all duration-700",
+                "w-10 h-10 rounded-none flex items-center justify-center border-2 border-black shadow-[2px_2px_0px_0px_#000] transition-all duration-700",
                 status === 'correct'
-                  ? "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800"
-                  : "bg-white dark:bg-[#1E1E22] border-[#d4af37]/20 dark:border-white/8"
+                  ? "bg-emerald-500 text-white"
+                  : "bg-[#D4AF37] text-black"
               )}>
                 {status === 'correct'
-                  ? <ShieldCheck className="text-emerald-600 dark:text-emerald-400 w-5 h-5" />
-                  : <Activity className="text-[#8B6914] dark:text-[#D4AF37] w-5 h-5 animate-pulse" />
+                  ? <ShieldCheck className="text-white w-5 h-5" />
+                  : <Activity className="text-black w-5 h-5 animate-pulse" />
                 }
               </div>
               <div>
@@ -131,17 +131,17 @@ export function AeternaInteractiveQuestion({ content, onResult }: AeternaProps) 
               </div>
             </div>
 
-            <div className="flex items-center gap-2 bg-white dark:bg-[#1E1E22] border border-[#d4af37]/20 dark:border-white/8 px-4 py-2 rounded-xl shadow-sm">
-              <Trophy className="w-3.5 h-3.5 text-[#8B6914] dark:text-[#D4AF37]" />
-              <span className="text-[11px] font-mono font-black text-neutral-800 dark:text-neutral-200">+{xp} XP</span>
+            <div className="flex items-center gap-2 bg-black text-[#D4AF37] dark:bg-white dark:text-black border-2 border-black dark:border-white px-4 py-2 rounded-none shadow-[2px_2px_0px_0px_#D4AF37]">
+              <Trophy className="w-3.5 h-3.5 text-[#D4AF37] dark:text-black" />
+              <span className="text-[11px] font-mono font-black">+{xp} XP</span>
             </div>
           </div>
 
           {/* Question */}
           <div className="relative z-10 px-7 py-7">
             <div className="flex gap-4 mb-7">
-              <div className="w-[3px] rounded-full bg-gradient-to-b from-[#D4AF37] via-[#8B6914]/50 to-transparent shrink-0 mt-1" />
-              <h3 className="font-sans text-[17px] md:text-[19px] font-semibold text-neutral-800 dark:text-neutral-100 leading-snug tracking-tight">
+              <div className="w-[3px] rounded-none bg-gradient-to-b from-[#D4AF37] via-[#8B6914]/50 to-transparent shrink-0 mt-1" />
+              <h3 className="font-mono text-[17px] md:text-[19px] font-bold uppercase text-neutral-800 dark:text-neutral-100 leading-snug tracking-tight">
                 {questionText}
               </h3>
             </div>
@@ -161,7 +161,7 @@ export function AeternaInteractiveQuestion({ content, onResult }: AeternaProps) 
                     disabled={status !== 'idle'}
                     onClick={() => handleSelect(idx)}
                     className={cn(
-                      "w-full group relative flex items-center gap-4 px-5 py-4 rounded-xl border transition-all duration-400 text-left cursor-pointer",
+                      "w-full group relative flex items-center gap-4 px-5 py-4 rounded-none border-2 transition-all duration-400 text-left cursor-pointer",
                       status === 'idle'
                         ? "bg-white dark:bg-[#1A1A1E] border-black/8 dark:border-white/6 hover:border-[#D4AF37]/60 dark:hover:border-[#D4AF37]/40 hover:bg-[#FFFDF5] dark:hover:bg-[#1E1C14] hover:translate-x-1 shadow-sm hover:shadow-md"
                         : "cursor-default",
@@ -172,7 +172,7 @@ export function AeternaInteractiveQuestion({ content, onResult }: AeternaProps) 
                   >
                     {/* Letter badge */}
                     <div className={cn(
-                      "w-7 h-7 rounded-lg flex items-center justify-center font-mono text-[11px] font-bold shrink-0 border transition-all duration-500",
+                      "w-7 h-7 rounded-none flex items-center justify-center font-mono text-[11px] font-bold shrink-0 border-2 transition-all duration-500",
                       showSuccess
                         ? "bg-emerald-500 text-white border-emerald-500 shadow"
                         : showError

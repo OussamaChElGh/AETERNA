@@ -114,14 +114,14 @@ export function ModelBuilder({
         {/* Header */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-full bg-[#D4AF37] border-2 border-black flex items-center justify-center text-black shrink-0 shadow-[2px_2px_0px_0px_#000]">
+            <div className="w-11 h-11 rounded-none bg-[#D4AF37] border-2 border-black flex items-center justify-center text-black shrink-0 shadow-[2px_2px_0px_0px_#000]">
               <Boxes size={22} />
             </div>
             <div>
               <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-[#8B6914] dark:text-[#D4AF37] block">
                 [{badgeText.toUpperCase()}]
               </span>
-              <h3 className="font-serif text-xl md:text-2xl font-bold text-brand-ink dark:text-white leading-tight">
+              <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
                 {parsedTitle}
               </h3>
             </div>
