@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "title": "Demo Interactiva: La Galería de Bloques",
+    "description": "Galería de demostración de todos los bloques interactivos y pedagógicos de Aeterna con estética pixel art. Úsala para visualizar los componentes antes de integrarlos en artículos reales.",
+    "slug": "demo-interactiva-bloques",
+    "author": "Aeterna",
+    "category": "ciencias_naturales",
+    "subcategory": "fisica",
+    "tags": [
+      "demo",
+      "bloques",
+      "interactivos"
+    ],
+    "image": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-08-01",
+    "nivel": 1,
+    "nivel_titulo": "Fundamentos del Cosmos",
+    "orden": 99,
+    "insignia": "Arquitecto del Conocimiento",
+    "tipo": "demo",
+    "prerequisites": [],
+    "breadcrumb": "Física / Demo / Galería de Bloques"
+  },
+  "introduccion": "<AeternaHeroWelcome>\n  Galería de demostración de los bloques interactivos y pedagógicos con estética pixel art.\n</AeternaHeroWelcome>\n\n> **💡 La clave:**\n> Esta guía no enseña física — enseña los componentes de Aeterna. Navega por cada bloque para ver su apariencia y comportamiento pixel art.",
+  "secciones": [
+    {
+      "id": "bloques-pedagogicos",
+      "titulo": "1. Bloques pedagógicos (no interactivos)",
+      "niveles": {
+        "principiante": "## Error común\n\n<PedagogicalContentBlock type=\"misconception\" title=\"El microondas calienta desde fuera\">\n**Idea errónea:** el microondas calienta la comida de fuera hacia dentro, como un horno.\n</PedagogicalContentBlock>\n\n## La clave en 10 segundos\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Las ramas de la física\">\n**La clave:** la física se organiza en ramas — mecánica, termodinámica, electromagnetismo, relatividad y cuántica — pero ninguna vive aislada.\n</PedagogicalContentBlock>\n\n## Conecta\n\n<Connect title=\"El mapa y el territorio\" sourceConcept=\"Física\" targetConcept=\"Cosmología\">\nLa física describe cómo funciona el universo. La cosmología aplica esas reglas a la totalidad del cosmos.\n</Connect>\n\n## Supuesto oculto\n\n<HiddenAssumption title=\"Las leyes son universales\">\n**Supuesto:** las leyes de la física son las mismas en todas partes y en todos los tiempos.\n</HiddenAssumption>\n\n## Transfiere\n\n<Transfer targetDomain=\"Tu propio campo\" title=\"Aplica el ciclo científico\">\nElige un área donde tengas opiniones firmes y aplica el ciclo: observación, hipótesis, modelo, predicción, comprobación.\n</Transfer>",
+        "intermedio": "## Error común\n\n<PedagogicalContentBlock type=\"misconception\" title=\"El microondas calienta desde fuera\">\n**Idea errónea:** el microondas calienta la comida de fuera hacia dentro, como un horno.\n</PedagogicalContentBlock>\n\n## La clave en 10 segundos\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Las ramas de la física\">\n**La clave:** la física se organiza en ramas — mecánica, termodinámica, electromagnetismo, relatividad y cuántica — pero ninguna vive aislada.\n</PedagogicalContentBlock>\n\n## Conecta\n\n<Connect title=\"El mapa y el territorio\" sourceConcept=\"Física\" targetConcept=\"Cosmología\">\nLa física describe cómo funciona el universo. La cosmología aplica esas reglas a la totalidad del cosmos.\n</Connect>\n\n## Supuesto oculto\n\n<HiddenAssumption title=\"Las leyes son universales\">\n**Supuesto:** las leyes de la física son las mismas en todas partes y en todos los tiempos.\n</HiddenAssumption>\n\n## Transfiere\n\n<Transfer targetDomain=\"Tu propio campo\" title=\"Aplica el ciclo científico\">\nElige un área donde tengas opiniones firmes y aplica el ciclo: observación, hipótesis, modelo, predicción, comprobación.\n</Transfer>",
+        "avanzado": "## Error común\n\n<PedagogicalContentBlock type=\"misconception\" title=\"El microondas calienta desde fuera\">\n**Idea errónea:** el microondas calienta la comida de fuera hacia dentro, como un horno.\n</PedagogicalContentBlock>\n\n## La clave en 10 segundos\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Las ramas de la física\">\n**La clave:** la física se organiza en ramas — mecánica, termodinámica, electromagnetismo, relatividad y cuántica — pero ninguna vive aislada.\n</PedagogicalContentBlock>\n\n## Conecta\n\n<Connect title=\"El mapa y el territorio\" sourceConcept=\"Física\" targetConcept=\"Cosmología\">\nLa física describe cómo funciona el universo. La cosmología aplica esas reglas a la totalidad del cosmos.\n</Connect>\n\n## Supuesto oculto\n\n<HiddenAssumption title=\"Las leyes son universales\">\n**Supuesto:** las leyes de la física son las mismas en todas partes y en todos los tiempos.\n</HiddenAssumption>\n\n## Transfiere\n\n<Transfer targetDomain=\"Tu propio campo\" title=\"Aplica el ciclo científico\">\nElige un área donde tengas opiniones firmes y aplica el ciclo: observación, hipótesis, modelo, predicción, comprobación.\n</Transfer>"
+      },
+      "acciones": []
+    },
+    {
+      "id": "bloques-interactivos-decision",
+      "titulo": "2. Bloques de decisión y predicción",
+      "niveles": {
+        "principiante": "## Decisión\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: La física fundamenta a las demás ciencias\nPregunta: ¿Por qué se dice que la física fundamenta a la química y a la biología?\nNivel: principiante\nXP: 20\nBotón: Comprobar\nRespuesta: Respuesta: Porque la física estudia las reglas que están POR DEBAJO de todo lo demás. La química estudia cómo se combinan los átomos; la física estudia por qué existen.\n```\n\n## Predicción\n\n```prediction-box\nTITLE: El microondas y el agua\nQUESTION: ¿Por qué un plato de cerámica se queda frío mientras la comida se calienta?\nXP: 30\nOPTION_CORRECT: La cerámica no contiene moléculas de agua libres que puedan resonar | El microondas calienta principalmente agua y otras moléculas polares.\nOPTION_WRONG: La cerámica absorbe las microondas pero las transforma en luz | Los materiales transparentes a las microondas no las absorben.\nEXPLANATION: El microondas calienta selectivamente las moléculas con dipolo eléctrico (como el agua).\n```",
+        "intermedio": "## Decisión\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: La física fundamenta a las demás ciencias\nPregunta: ¿Por qué se dice que la física fundamenta a la química y a la biología?\nNivel: principiante\nXP: 20\nBotón: Comprobar\nRespuesta: Respuesta: Porque la física estudia las reglas que están POR DEBAJO de todo lo demás. La química estudia cómo se combinan los átomos; la física estudia por qué existen.\n```\n\n## Predicción\n\n```prediction-box\nTITLE: El microondas y el agua\nQUESTION: ¿Por qué un plato de cerámica se queda frío mientras la comida se calienta?\nXP: 30\nOPTION_CORRECT: La cerámica no contiene moléculas de agua libres que puedan resonar | El microondas calienta principalmente agua y otras moléculas polares.\nOPTION_WRONG: La cerámica absorbe las microondas pero las transforma en luz | Los materiales transparentes a las microondas no las absorben.\nEXPLANATION: El microondas calienta selectivamente las moléculas con dipolo eléctrico (como el agua).\n```",
+        "avanzado": "## Decisión\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: La física fundamenta a las demás ciencias\nPregunta: ¿Por qué se dice que la física fundamenta a la química y a la biología?\nNivel: principiante\nXP: 20\nBotón: Comprobar\nRespuesta: Respuesta: Porque la física estudia las reglas que están POR DEBAJO de todo lo demás. La química estudia cómo se combinan los átomos; la física estudia por qué existen.\n```\n\n## Predicción\n\n```prediction-box\nTITLE: El microondas y el agua\nQUESTION: ¿Por qué un plato de cerámica se queda frío mientras la comida se calienta?\nXP: 30\nOPTION_CORRECT: La cerámica no contiene moléculas de agua libres que puedan resonar | El microondas calienta principalmente agua y otras moléculas polares.\nOPTION_WRONG: La cerámica absorbe las microondas pero las transforma en luz | Los materiales transparentes a las microondas no las absorben.\nEXPLANATION: El microondas calienta selectivamente las moléculas con dipolo eléctrico (como el agua).\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "bloques-error-y-mapa",
+      "titulo": "3. Cazador de errores y mapas",
+      "niveles": {
+        "principiante": "## Cazador de errores\n\n```error-hunter\nTITLE: El error de Aristóteles\nCONTEXT: Un estudiante afirma: \"Aristóteles tenía razón en casi todo, así que su rechazo del átomo debe ser correcto.\"\nXP: 40\nSTEP_CORRECT: 1 | La autoridad no sustituye a la evidencia | Aristóteles fue brillante pero se equivocó sobre el átomo durante 2000 años.\nSTEP_ERROR: 2 | Por lo tanto, si una autoridad fue fiable, acepta sus afirmaciones | La fiabilidad pasada no garantiza la verdad presente.\n```\n\n## Mapa conceptual\n\n```concept-map\nTITLE: Las grandes ramas de la física\nDESC: Conecta cada rama con su objeto de estudio\nXP: 40\nNODE: Mecánica | Movimiento y fuerzas\nNODE: Termodinámica | Calor y entropía\nNODE: Electromagnetismo | Luz y campos\nVALID_RELATION: Mecánica | Termodinámica\n```",
+        "intermedio": "## Cazador de errores\n\n```error-hunter\nTITLE: El error de Aristóteles\nCONTEXT: Un estudiante afirma: \"Aristóteles tenía razón en casi todo, así que su rechazo del átomo debe ser correcto.\"\nXP: 40\nSTEP_CORRECT: 1 | La autoridad no sustituye a la evidencia | Aristóteles fue brillante pero se equivocó sobre el átomo durante 2000 años.\nSTEP_ERROR: 2 | Por lo tanto, si una autoridad fue fiable, acepta sus afirmaciones | La fiabilidad pasada no garantiza la verdad presente.\n```\n\n## Mapa conceptual\n\n```concept-map\nTITLE: Las grandes ramas de la física\nDESC: Conecta cada rama con su objeto de estudio\nXP: 40\nNODE: Mecánica | Movimiento y fuerzas\nNODE: Termodinámica | Calor y entropía\nNODE: Electromagnetismo | Luz y campos\nVALID_RELATION: Mecánica | Termodinámica\n```",
+        "avanzado": "## Cazador de errores\n\n```error-hunter\nTITLE: El error de Aristóteles\nCONTEXT: Un estudiante afirma: \"Aristóteles tenía razón en casi todo, así que su rechazo del átomo debe ser correcto.\"\nXP: 40\nSTEP_CORRECT: 1 | La autoridad no sustituye a la evidencia | Aristóteles fue brillante pero se equivocó sobre el átomo durante 2000 años.\nSTEP_ERROR: 2 | Por lo tanto, si una autoridad fue fiable, acepta sus afirmaciones | La fiabilidad pasada no garantiza la verdad presente.\n```\n\n## Mapa conceptual\n\n```concept-map\nTITLE: Las grandes ramas de la física\nDESC: Conecta cada rama con su objeto de estudio\nXP: 40\nNODE: Mecánica | Movimiento y fuerzas\nNODE: Termodinámica | Calor y entropía\nNODE: Electromagnetismo | Luz y campos\nVALID_RELATION: Mecánica | Termodinámica\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "bloques-construccion",
+      "titulo": "4. Bloques de construcción (secuencia, modelo, argumento)",
+      "niveles": {
+        "principiante": "## Secuencia\n\n```sequence-builder\nTITLE: Ordena el ciclo del método\nDESC: El ciclo científico tiene cinco etapas.\nXP: 40\nSTEP: Observación | Algo no encaja con lo esperado\nSTEP: Hipótesis | Una explicación tentativa\nSTEP: Modelo | La hipótesis en lenguaje matemático\nSTEP: Comprobación | El experimento que confirma o refuta\nCORRECT_ORDER: Observación | Hipótesis | Modelo | Comprobación\n```\n\n## Modelo\n\n```model-builder\nTITLE: Diseña una predicción\nPROBLEM: ¿Qué variables determinan el tiempo de caída de un objeto?\nXP: 40\nVAR_RELEVANT: Altura | La altura determina la distancia de caída\nVAR_RELEVANT: Gravedad | Acelera el objeto\nVAR_IRRELEVANT: Color del objeto | No afecta la caída\n```\n\n## Argumento\n\n```argument-builder\nTITLE: El método científico\nCONCLUSION: La física avanza por evidencia, no por autoridad.\nJUSTIFICATION: Cada teoría sobrevive al intento de refutarla.\nPREMISE: Michelson-Morley refutó el éter\nPREMISE: El eclipse de 1919 confirmó la relatividad\nCORRECT_ORDER: Premise | Premise | Justification | Conclusion\n```",
+        "intermedio": "## Secuencia\n\n```sequence-builder\nTITLE: Ordena el ciclo del método\nDESC: El ciclo científico tiene cinco etapas.\nXP: 40\nSTEP: Observación | Algo no encaja con lo esperado\nSTEP: Hipótesis | Una explicación tentativa\nSTEP: Modelo | La hipótesis en lenguaje matemático\nSTEP: Comprobación | El experimento que confirma o refuta\nCORRECT_ORDER: Observación | Hipótesis | Modelo | Comprobación\n```\n\n## Modelo\n\n```model-builder\nTITLE: Diseña una predicción\nPROBLEM: ¿Qué variables determinan el tiempo de caída de un objeto?\nXP: 40\nVAR_RELEVANT: Altura | La altura determina la distancia de caída\nVAR_RELEVANT: Gravedad | Acelera el objeto\nVAR_IRRELEVANT: Color del objeto | No afecta la caída\n```\n\n## Argumento\n\n```argument-builder\nTITLE: El método científico\nCONCLUSION: La física avanza por evidencia, no por autoridad.\nJUSTIFICATION: Cada teoría sobrevive al intento de refutarla.\nPREMISE: Michelson-Morley refutó el éter\nPREMISE: El eclipse de 1919 confirmó la relatividad\nCORRECT_ORDER: Premise | Premise | Justification | Conclusion\n```",
+        "avanzado": "## Secuencia\n\n```sequence-builder\nTITLE: Ordena el ciclo del método\nDESC: El ciclo científico tiene cinco etapas.\nXP: 40\nSTEP: Observación | Algo no encaja con lo esperado\nSTEP: Hipótesis | Una explicación tentativa\nSTEP: Modelo | La hipótesis en lenguaje matemático\nSTEP: Comprobación | El experimento que confirma o refuta\nCORRECT_ORDER: Observación | Hipótesis | Modelo | Comprobación\n```\n\n## Modelo\n\n```model-builder\nTITLE: Diseña una predicción\nPROBLEM: ¿Qué variables determinan el tiempo de caída de un objeto?\nXP: 40\nVAR_RELEVANT: Altura | La altura determina la distancia de caída\nVAR_RELEVANT: Gravedad | Acelera el objeto\nVAR_IRRELEVANT: Color del objeto | No afecta la caída\n```\n\n## Argumento\n\n```argument-builder\nTITLE: El método científico\nCONCLUSION: La física avanza por evidencia, no por autoridad.\nJUSTIFICATION: Cada teoría sobrevive al intento de refutarla.\nPREMISE: Michelson-Morley refutó el éter\nPREMISE: El eclipse de 1919 confirmó la relatividad\nCORRECT_ORDER: Premise | Premise | Justification | Conclusion\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "bloques-analisis",
+      "titulo": "5. Bloques de análisis (causal, evidencia, contraejemplo, evaluación)",
+      "niveles": {
+        "principiante": "## Mapa causal\n\n```causal-map\nTITLE: Causas del calentamiento\nDESC: Conecta causas con efectos\nXP: 40\nNODE: Combustibles fósiles | Emiten CO2\nNODE: Efecto invernadero | Aumenta la temperatura\nVALID_EDGE: Combustibles fósiles | Efecto invernadero\n```\n\n## Empareja evidencia\n\n```evidence-matcher\nTITLE: Evidencia del átomo\nDESC: Empareja cada evidencia con su conclusión\nXP: 40\nCLAIM: La materia es discontinua\nEVIDENCE: Movimiento browniano | Confirma la existencia de partículas\n```\n\n## Contraejemplo\n\n```counterexample\nTITLE: ¿Siempre se conserva la energía?\nSTATEMENT: La energía siempre se conserva\nREGULAR_CASE: La energía total de un sistema aislado se conserva\nCOUNTEREXAMPLE: En expansión del universo, la energía oscura parece crearla\n```\n\n## Evalúa el argumento\n\n```argument-evaluation\nTITLE: ¿Es sólido?\nARGUMENT: Newton fue la verdad durante dos siglos, por lo que es correcto.\nCRITERION_CORRECT: La evidencia vence a la autoridad | La ciencia avanza por verificación\nCRITERION_WRONG: La antigüedad garantiza la verdad | Newton fue corregido por Einstein\n```",
+        "intermedio": "## Mapa causal\n\n```causal-map\nTITLE: Causas del calentamiento\nDESC: Conecta causas con efectos\nXP: 40\nNODE: Combustibles fósiles | Emiten CO2\nNODE: Efecto invernadero | Aumenta la temperatura\nVALID_EDGE: Combustibles fósiles | Efecto invernadero\n```\n\n## Empareja evidencia\n\n```evidence-matcher\nTITLE: Evidencia del átomo\nDESC: Empareja cada evidencia con su conclusión\nXP: 40\nCLAIM: La materia es discontinua\nEVIDENCE: Movimiento browniano | Confirma la existencia de partículas\n```\n\n## Contraejemplo\n\n```counterexample\nTITLE: ¿Siempre se conserva la energía?\nSTATEMENT: La energía siempre se conserva\nREGULAR_CASE: La energía total de un sistema aislado se conserva\nCOUNTEREXAMPLE: En expansión del universo, la energía oscura parece crearla\n```\n\n## Evalúa el argumento\n\n```argument-evaluation\nTITLE: ¿Es sólido?\nARGUMENT: Newton fue la verdad durante dos siglos, por lo que es correcto.\nCRITERION_CORRECT: La evidencia vence a la autoridad | La ciencia avanza por verificación\nCRITERION_WRONG: La antigüedad garantiza la verdad | Newton fue corregido por Einstein\n```",
+        "avanzado": "## Mapa causal\n\n```causal-map\nTITLE: Causas del calentamiento\nDESC: Conecta causas con efectos\nXP: 40\nNODE: Combustibles fósiles | Emiten CO2\nNODE: Efecto invernadero | Aumenta la temperatura\nVALID_EDGE: Combustibles fósiles | Efecto invernadero\n```\n\n## Empareja evidencia\n\n```evidence-matcher\nTITLE: Evidencia del átomo\nDESC: Empareja cada evidencia con su conclusión\nXP: 40\nCLAIM: La materia es discontinua\nEVIDENCE: Movimiento browniano | Confirma la existencia de partículas\n```\n\n## Contraejemplo\n\n```counterexample\nTITLE: ¿Siempre se conserva la energía?\nSTATEMENT: La energía siempre se conserva\nREGULAR_CASE: La energía total de un sistema aislado se conserva\nCOUNTEREXAMPLE: En expansión del universo, la energía oscura parece crearla\n```\n\n## Evalúa el argumento\n\n```argument-evaluation\nTITLE: ¿Es sólido?\nARGUMENT: Newton fue la verdad durante dos siglos, por lo que es correcto.\nCRITERION_CORRECT: La evidencia vence a la autoridad | La ciencia avanza por verificación\nCRITERION_WRONG: La antigüedad garantiza la verdad | Newton fue corregido por Einstein\n```"
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": "Esta galería demuestra la estética pixel art unificada de los bloques de Aeterna. Cada bloque — pedagógico o interactivo — comparte el mismo lenguaje visual: iconos cuadrados, títulos mono, bordes duros y sombras desplazadas.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Prueba el cuaderno",
+        "enunciado": "Este es un ejercicio de demostración del cuaderno.",
+        "solucion": "El cuaderno funciona correctamente.",
+        "xp": 10,
+        "pistas": [
+          "El cuaderno está operativo"
+        ],
+        "opciones": [
+          {
+            "label": "OK",
+            "correcta": true
+          }
+        ],
+        "pasos": [
+          "Paso demo"
+        ]
+      }
+    ],
+    "intermedio": [],
+    "avanzado": []
+  }
+}
