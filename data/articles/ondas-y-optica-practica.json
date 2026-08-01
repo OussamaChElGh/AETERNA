@@ -1,97 +1,301 @@
 {
   "metadata": {
-    "title": "Ondas y Óptica: Problemas Resueltos y Ejercicios Prácticos",
-    "description": "Pon a prueba tu comprensión de ondas y óptica con 7 problemas resueltos paso a paso y 12 ejercicios propuestos con soluciones. Reflexión, refracción, interferencia, efecto Doppler y más.",
+    "title": "Ondas y Óptica: Problemas Resueltos",
+    "description": "Taller práctico de ondas y óptica: problemas resueltos de frecuencia y velocidad, reflexión y espejos, refracción y ley de Snell, interferencia y difracción, y efecto Doppler.",
     "slug": "ondas-y-optica-practica",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "ondas",
       "óptica",
       "problemas resueltos",
       "reflexión",
       "refracción",
+      "ley de Snell",
       "interferencia",
       "efecto Doppler",
-      "ejercicios de física"
+      "frecuencia"
     ],
-    "image": "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-08",
-    "nivel": "2",
-    "nivel_titulo": "El Reino de lo Clásico",
-    "orden": "5",
-    "insignia": "Señor de lo Clásico",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 2,
+    "nivel_titulo": "Profundización Mecánica",
+    "orden": 12,
+    "insignia": "Domador de Ondas",
     "tipo": "practice",
-    "## 🧪 Bienvenida": "El laboratorio de ondas"
+    "prerequisites": [
+      "ondas-y-optica",
+      "electromagnetismo"
+    ],
+    "breadcrumb": "Física / Profundización Mecánica / Ondas y Óptica: Problemas Resueltos"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  La teoría de ondas y óptica ya la conoces. Ahora viene lo divertido: usarla para resolver problemas reales.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Este taller te entrena en las herramientas de las ondas: la relación **v = λ·f** (velocidad, longitud de onda, frecuencia), la **reflexión** (ángulo de incidencia = ángulo de reflexión), la **refracción** con la **ley de Snell** (n₁sinθ₁ = n₂sinθ₂), la **interferencia** (d·sinθ = mλ) y la **difracción**, y el **efecto Doppler** (el cambio de frecuencia por el movimiento de fuente u observador). Cada sección combina problemas resueltos con ejercicios para que practiques.\n\n**[IMAGEN SUGERIDA: Un prisma descomponiendo la luz blanca en el espectro. Pie de foto: \"La refracción separa los colores.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "1-problemas-de-ondas-frecuencia-longitud-y-velocidad",
-      "titulo": "1. Problemas de ondas: frecuencia, longitud y velocidad",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: el taller de ondas",
       "niveles": {
-        "intermedio": "```aeterna-resueltos\r\nLABEL: 1. Energía de un fotón\r\n\r\n**Enunciado:**\r\nUn fotón tiene una frecuencia de $5 \\times 10^{14}$ Hz. Sabiendo que la constante de Planck es $h = 6.63 \\times 10^{-34} \\text{ J}\\cdot\\text{s}$, calcula su energía.\r\n\r\n1. **Identificación de los datos**\r\nLa frecuencia es $f = 5 \\times 10^{14}$ Hz.\r\nLa constante es planck.\r\n\r\n2. **Aplicación de la fórmula**\r\nUtilizando $E = h \\cdot f$:\r\n$E = (6.63 \\times 10^{-34} \\text{ J}\\cdot\\text{s}) \\times (5 \\times 10^{14} \\text{ s}^{-1})$\r\n\r\n**Respuesta:**\r\nLa energía del fotón es de $3.315 \\times 10^{-19}$ J.\r\n```\r\n\r\n```aeterna-resueltos\r\n### Problema resuelto 1.1: La radio FM\r\n\r\n**Enunciado:** Una emisora de radio FM emite en la frecuencia de 100 MHz (100 × 10⁶ Hz). Las ondas de radio viajan a la velocidad de la luz (c = 3 × 10⁸ m/s). ¿Cuál es su longitud de onda?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Identifica los datos:\r\n   - `f = 100 × 10⁶ Hz = 10⁸ Hz`\r\n   - `v = c = 3 × 10⁸ m/s`\r\n   - `λ = ?`\r\n\r\n2. Usa la ecuación fundamental de las ondas: `v = λ · f`, por tanto `λ = v / f`.\r\n\r\n3. Sustituye: `λ = (3 × 10⁸) / (10⁸) = 3 metros`.\r\n\r\n**Respuesta:** La longitud de onda de una emisora de FM a 100 MHz es de **3 metros**. Las antenas de los coches suelen medir alrededor de 75 cm, que es un cuarto de esa longitud de onda.\r\n```\r\n---\r\n\r\n```aeterna-resueltos\r\n### ✅ Problema resuelto 1.2: El sonido de un trueno\r\n\r\n**Enunciado:** Ves el destello de un rayo y, 6 segundos después, oyes el trueno. La velocidad del sonido en el aire es de aproximadamente 343 m/s. ¿A qué distancia ha caído el rayo?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Durante esos 6 segundos, la luz te ha llegado casi instantáneamente. El sonido, sin embargo, ha tardado en recorrer la distancia.\r\n\r\n2. Usa la relación: `distancia = velocidad × tiempo`.\r\n\r\n3. Sustituye: `d = 343 m/s × 6 s = 2.058 metros`.\r\n\r\n**Respuesta:** El rayo ha caído aproximadamente a **2 kilómetros** de ti.\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 1)\r\n\r\nResuelve estos ejercicios por tu cuenta antes de consultar las soluciones al final del artículo.\r\n\r\n```aeterna-exercise\r\n**Ejercicio 1:** Una ola en el mar tiene una longitud de onda de 20 metros y un periodo de 8 segundos. ¿Cuál es su velocidad de propagación?\r\nPISTA: Puedes usar la fórmula de la velocidad: v = λ / T. ¡No olvides indicar las unidades de tu respuesta (m/s)!\r\nRESPUESTA_CORRECTA: 2.5 m/s\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 2:** Un diapasón vibra a 440 Hz (la nota La). El sonido viaja por el agua a 1.480 m/s. ¿Cuál es la longitud de onda de este sonido en el agua?\r\nPISTA: Recuerda que aquí la velocidad cambia. Usa la fórmula v = λ · f y despeja la longitud de onda (λ). ¡Sé cuidadoso indicando las unidades (m)!\r\nRESPUESTA_CORRECTA: 3.36 m\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 3:** Un terremoto genera ondas sísmicas que viajan a 6 km/s. Si la frecuencia de la onda es de 0.2 Hz, ¿cuál es su longitud de onda?\r\nPISTA: Mucho cuidado con las unidades. 6 km/s son 6000 m/s. Aplica v = λ · f y cerciórate de poner \"m\" de metros.\r\nRESPUESTA_CORRECTA: 30000 m\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 4:** Una cuerda de guitarra vibra con una frecuencia de 50 Hz y una longitud de onda de 0.4 metros. ¿A qué velocidad se propaga la onda por la cuerda?\r\nPISTA: Solo tienes que multiplicar la longitud de onda por la frecuencia. Asegúrate de añadir (m/s) en el resultado.\r\nRESPUESTA_CORRECTA: 20 m/s\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 5:** Una onda de radio de AM viaja a la velocidad de la luz (c = 3 × 10⁸ m/s) y tiene una longitud de onda de 500 metros. ¿Cuál es su frecuencia en kHz?\r\nPISTA: Primero calcula f = v / λ para obtener la frecuencia en Hz. Luego divide entre 1000 para pasar a kHz. Recuerda que la respuesta debe dar las unidades (kHz).\r\nRESPUESTA_CORRECTA: 600 kHz\r\n```\r\n\r\n---"
+        "principiante": "## Bienvenida: el taller de ondas\n\nLas ondas están en todas partes: el sonido que oyes, la luz que ves, las ondas sísmicas, las del mar. Este taller te da las herramientas para **resolver problemas** con ellas.\n\nTres herramientas fundamentales:\n\n1. **v = λ·f**: velocidad = longitud de onda × frecuencia\n2. **Reflexión**: ángulo de entrada = ángulo de salida\n3. **Refracción**: la onda cambia de dirección al cambiar de medio\n\nCon estas tres, resuelves la mayoría de problemas básicos.\n\n> **🔑 Concepto clave: El método**\n> Para resolver problemas de ondas: (1) identifica qué tipo de fenómeno es (propagación, reflexión, refracción, interferencia, Doppler), (2) escribe la fórmula correspondiente, (3) sustituye los datos, (4) verifica unidades y plausibilidad.\n\n**[IMAGEN SUGERIDA: Olas en el mar, con la fórmula v = λf superpuesta. Pie de foto: \"v = λf conecta las tres variables.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Relaciones de Problemas Resueltos\">\n**Las Relaciones de Problemas Resueltos:** en ondas y óptica todo se conecta con v = λf (velocidad = longitud de onda × frecuencia). La reflexión cumple θi = θr; la refracción sigue la ley de Snell n₁sinθ₁ = n₂sinθ₂; la interferencia sitúa máximos en d·sinθ = mλ; y el efecto Doppler cambia la frecuencia con f' = f(v±vo)/(v∓vs). Identificar cuál relación usar es el primer paso de cada problema.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: estrategias de resolución\n\nCada tipo de problema tiene su estrategia:\n\n- **Propagación**: v = λf. Con dos datos, hallas el tercero.\n- **Reflexión**: θi = θr. Geometría simple.\n- **Refracción**: n₁sinθ₁ = n₂sinθ₂. Cuidado con el índice.\n- **Interferencia**: d·sinθ = mλ. Máximos y mínimos.\n- **Doppler**: f' = f(v ± vo)/(v ∓ vs). Signos según el movimiento.\n\nEl error más común: usar la fórmula equivocada o los signos equivocados en Doppler.\n\n> **Dato que rompe el cerebro**\n> La velocidad del sonido en el aire es ~343 m/s y casi no cambia con la frecuencia: por eso todas las notas viajan juntas. Pero la luz en un prisma SÍ depende de la frecuencia: por eso la luz blanca se separa en colores.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Relaciones de Problemas Resueltos\">\n**Las Relaciones de Problemas Resueltos:** en ondas y óptica todo se conecta con v = λf (velocidad = longitud de onda × frecuencia). La reflexión cumple θi = θr; la refracción sigue la ley de Snell n₁sinθ₁ = n₂sinθ₂; la interferencia sitúa máximos en d·sinθ = mλ; y el efecto Doppler cambia la frecuencia con f' = f(v±vo)/(v∓vs). Identificar cuál relación usar es el primer paso de cada problema.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: del problema al fenómeno\n\nEl reto de los problemas avanzados es identificar el fenómeno antes de aplicar la fórmula. Preguntas guía:\n\n- ¿La onda cambia de medio? → Refracción (Snell)\n- ¿Hay dos fuentes o rendijas? → Interferencia\n- ¿Hay movimiento relativo? → Doppler\n- ¿La onda bordea un obstáculo? → Difracción\n\nUn buen físico clasifica el problema antes de calcular. La mayoría de errores vienen de aplicar una fórmula a un fenómeno equivocado.\n\n> **💡 Nota avanzada**\n> Los problemas reales combinan fenómenos: un barco que emite sonido hacia el fondo (reflexión) mientras se mueve (Doppler) requiere descomponer el problema en etapas. Descomponer problemas complejos en sub-problemas es la habilidad central.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"Relaciones de Problemas Resueltos\">\n**Las Relaciones de Problemas Resueltos:** en ondas y óptica todo se conecta con v = λf (velocidad = longitud de onda × frecuencia). La reflexión cumple θi = θr; la refracción sigue la ley de Snell n₁sinθ₁ = n₂sinθ₂; la interferencia sitúa máximos en d·sinθ = mλ; y el efecto Doppler cambia la frecuencia con f' = f(v±vo)/(v∓vs). Identificar cuál relación usar es el primer paso de cada problema.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "2-problemas-de-reflexin-y-espejos",
-      "titulo": "2. Problemas de reflexión y espejos",
+      "id": "ejercicios-basicos",
+      "titulo": "Problemas básicos: frecuencia y velocidad",
       "niveles": {
-        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 2.1: La altura mínima de un espejo\r\n\r\n**Enunciado:** Una persona de 1.80 m de altura quiere comprar un espejo plano para verse de cuerpo entero. ¿Cuál es la altura mínima del espejo? ¿A qué altura del suelo debe colocarse?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Para ver tus pies en el espejo, el rayo que sale de tus pies debe reflejarse y llegar a tus ojos. Ese rayo incide en el espejo a una altura igual a la **mitad** de la distancia entre tus pies y tus ojos.\r\n\r\n2. Para ver la parte superior de tu cabeza, el rayo incide en el espejo a una altura que es la mitad de la distancia entre tus ojos y la coronilla.\r\n\r\n3. La altura mínima del espejo es **la mitad de la altura de la persona**: `1.80 m / 2 = 0.90 m`.\r\n\r\n4. Si los ojos están aproximadamente a 1.70 m del suelo, el borde inferior debe estar a `1.70 m / 2 = 0.85 m` del suelo.\r\n\r\n**Respuesta:** Un espejo de **90 cm** de altura colocado a **85 cm** del suelo permite a una persona de 1.80 m verse de cuerpo entero. La distancia a la que te pongas no importa: la altura mínima siempre es la mitad de tu altura.\r\n```\r\n\r\n---\r\n\r\n```aeterna-resueltos\r\n### ✅ Problema resuelto 2.2: Imagen en un espejo cóncavo\r\n\r\n**Enunciado:** Un espejo cóncavo tiene un radio de curvatura de 40 cm. Se coloca un objeto a 30 cm del vértice del espejo. ¿Dónde se forma la imagen? ¿Es real o virtual?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. La distancia focal es la mitad del radio de curvatura: `f = R / 2 = 40 cm / 2 = 20 cm`.\r\n\r\n2. Usa la ecuación de los espejos: `1/f = 1/s + 1/s'`, donde `s` es la distancia del objeto al espejo y `s'` la distancia de la imagen.\r\n\r\n3. Sustituye: `1/20 = 1/30 + 1/s'`.\r\n\r\n4. Despeja: `1/s' = 1/20 - 1/30 = (3 - 2) / 60 = 1/60`.\r\n\r\n5. Por tanto: `s' = 60 cm`. Como `s'` es positiva, la imagen es **real** y se forma delante del espejo.\r\n\r\n**Respuesta:** La imagen se forma a **60 cm** delante del espejo y es **real** (se puede proyectar en una pantalla).\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 2)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 6:** Una persona de 1.65 m de altura se sitúa frente a un espejo plano. ¿Cuál es la altura mínima que debe tener el espejo para que pueda verse de cuerpo entero?\r\nPISTA: Igual que en el problema resuelto 2.1, la altura de la persona manda. ¡Y no olvides qué estás midiendo, añade metros (m)!\r\nRESPUESTA_CORRECTA: 0.825 m\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 7:** Un espejo cóncavo tiene una distancia focal de 15 cm. Se coloca un objeto a 45 cm del espejo. ¿Dónde se forma la imagen? ¿Es real o virtual? ¿Cuál es el factor de ampliación?\r\nPISTA: Usa la fórmula 1/f = 1/s + 1/s'. Recuerda que las longitudes van en cm y así debes mostrar la respuesta (cm).\r\nRESPUESTA_CORRECTA: 22.5 cm\r\n```\r\n\r\n---"
+        "principiante": "## Frecuencia, longitud de onda y velocidad\n\nEl problema más básico usa la relación fundamental de las ondas:\n\n$$ v = \\lambda f $$\n\nSi conoces dos variables, hallas la tercera.\n\n**Ejemplo resuelto:** una onda sonora tiene frecuencia de 440 Hz y la velocidad del sonido es 343 m/s. ¿Cuál es su longitud de onda?\n\nλ = v/f = 343/440 ≈ 0.78 m.\n\n> **Dato curioso**\n> La nota la (440 Hz) es el tono de afinación de las orquestas. Su longitud de onda en el aire es de unos 78 cm —una escala humana.\n\n```aeterna-exercise\nTITLE: Calcular la longitud de onda\nHINT: λ = v/f.\nXP: 30\nCalcula la longitud de onda del sonar: un barco emite 3000 Hz y el sonido viaja a 1500 m/s en el agua.\nSOLUTION: λ = v/f = 1500/3000 = 0.5 m.\n```\n\n\n### Tabla comparativa: qué relación usar\n\n| Fenómeno | Señal | Relación |\n|---|---|---|\n| Propagación | La onda viaja | v = λf |\n| Reflexión | Cambia de dirección en una superficie | θi = θr |\n| Refracción | Cambia de medio | n₁sinθ₁ = n₂sinθ₂ |\n| Interferencia | Dos fuentes o rendijas | d·sinθ = mλ |\n| Doppler | Movimiento fuente/observador | f' = f(v±vo)/(v∓vs) |\n| Difracción | La onda bordea un borde | a·sinθ = mλ |\n\n\n### Estima como un físico: ¿es plausible tu resultado?\n\nLa **estimación de orden de magnitud** es tu control de calidad. Si calculas la longitud de onda del sonido audible (20 Hz a 20 kHz): v = 343 m/s, λ entre 343/20000 = 1.7 cm y 343/20 = 17 m. Si tu problema de sonido da λ = 500 m, algo está mal (esa es una onda de radio). Estimar el orden de magnitud antes de calcular te dice si tu resultado es plausible.\n\n",
+        "intermedio": "## Problemas de propagación\n\n```aeterna-exercise\nTITLE: Calcular distancia por el trueno\nHINT: La luz llega casi instantáneamente; el sonido tarda. d = v·t.\nXP: 40\nCalcula la distancia a la tormenta: ves un rayo y oyes el trueno 3 segundos después (sonido ≈ 343 m/s).\nSOLUTION: La luz llega en microsegundos (despreciable). El sonido tarda 3 s: d = v·t = 343×3 ≈ 1029 m ≈ 1 km. Regla práctica: cada 3 segundos ≈ 1 km.\n```\n\n```aeterna-decision\nBadge: Estrategia\nTítulo: Elegir la fórmula\nPregunta: Conoces la frecuencia y la velocidad de una onda. ¿Qué fórmula usas para la longitud de onda?\nNivel: principiante\nXP: 30\nBotón: Comprobar\nRespuesta: λ = v/f. Despejamos λ de v = λf dividiendo por f: λ = v/f. La frecuencia f = 1/T es la inversa del periodo.\n```\n\n> **🔑 Concepto clave: El triángulo v-λ-f**\n> v = λf relaciona las tres variables. Con dos, obtienes la tercera: λ = v/f, f = v/λ. Es la herramienta más usada en problemas de ondas.\n\n\n### Tabla comparativa: qué relación usar\n\n| Fenómeno | Señal | Relación |\n|---|---|---|\n| Propagación | La onda viaja | v = λf |\n| Reflexión | Cambia de dirección en una superficie | θi = θr |\n| Refracción | Cambia de medio | n₁sinθ₁ = n₂sinθ₂ |\n| Interferencia | Dos fuentes o rendijas | d·sinθ = mλ |\n| Doppler | Movimiento fuente/observador | f' = f(v±vo)/(v∓vs) |\n| Difracción | La onda bordea un borde | a·sinθ = mλ |\n\n\n### Estima como un físico: ¿es plausible tu resultado?\n\nLa **estimación de orden de magnitud** es tu control de calidad. Si calculas la longitud de onda del sonido audible (20 Hz a 20 kHz): v = 343 m/s, λ entre 343/20000 = 1.7 cm y 343/20 = 17 m. Si tu problema de sonido da λ = 500 m, algo está mal (esa es una onda de radio). Estimar el orden de magnitud antes de calcular te dice si tu resultado es plausible.\n\n",
+        "avanzado": "## Ondas en distintos medios\n\nCuando una onda cambia de medio, la **frecuencia no cambia** (la fuente la determina), pero la velocidad y la longitud de onda sí.\n\nLa luz al pasar del aire (n = 1) al vidrio (n = 1.5):\n\n$$ v_{vidrio} = \\frac{c}{n} = \\frac{3\\times10^8}{1.5} = 2\\times10^8 \\text{ m/s} $$\n\nLa frecuencia se mantiene; la longitud de onda se reduce en el vidrio.\n\n> **💡 Nota avanzada**\n> La frecuencia es la única variable que se conserva al cambiar de medio. Es la 'identidad' de la onda. Este principio es la base de cómo los prismas separan colores: la velocidad depende de la frecuencia (dispersión), pero cada color mantiene su frecuencia.\n\n\n### Tabla comparativa: qué relación usar\n\n| Fenómeno | Señal | Relación |\n|---|---|---|\n| Propagación | La onda viaja | v = λf |\n| Reflexión | Cambia de dirección en una superficie | θi = θr |\n| Refracción | Cambia de medio | n₁sinθ₁ = n₂sinθ₂ |\n| Interferencia | Dos fuentes o rendijas | d·sinθ = mλ |\n| Doppler | Movimiento fuente/observador | f' = f(v±vo)/(v∓vs) |\n| Difracción | La onda bordea un borde | a·sinθ = mλ |\n\n\n### Estima como un físico: ¿es plausible tu resultado?\n\nLa **estimación de orden de magnitud** es tu control de calidad. Si calculas la longitud de onda del sonido audible (20 Hz a 20 kHz): v = 343 m/s, λ entre 343/20000 = 1.7 cm y 343/20 = 17 m. Si tu problema de sonido da λ = 500 m, algo está mal (esa es una onda de radio). Estimar el orden de magnitud antes de calcular te dice si tu resultado es plausible.\n\n\n```aeterna-exercise\nTITLE: Calcular la longitud de onda del sonido\nHINT: λ = v/f. Usa v = 343 m/s.\nXP: 35\nCalcula la longitud de onda de un tono grave de 100 Hz (v = 343 m/s).\nSOLUTION: λ = 343/100 = 3.43 m. Los tonos graves tienen longitudes de onda grandes —del orden de metros.\n```\n"
       },
       "acciones": []
     },
     {
-      "id": "3-problemas-de-refraccin-y-ley-de-snell",
-      "titulo": "3. Problemas de refracción y ley de Snell",
+      "id": "problemas-ondas",
+      "titulo": "Reflexión y refracción",
       "niveles": {
-        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 3.1: El lápiz que se \"rompe\"\r\n\r\n**Enunciado:** Un rayo de luz viaja por el aire (n₁ = 1.00) e incide sobre la superficie del agua (n₂ = 1.33) con un ángulo de 45° respecto a la normal. ¿Con qué ángulo se refracta dentro del agua?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Aplica la ley de Snell: `n₁ · sen(θ₁) = n₂ · sen(θ₂)`.\r\n\r\n2. Sustituye: `1.00 · sen(45°) = 1.33 · sen(θ₂)`.\r\n\r\n3. `sen(45°) ≈ 0.7071`. Por tanto: `0.7071 = 1.33 · sen(θ₂)`.\r\n\r\n4. Despeja: `sen(θ₂) = 0.7071 / 1.33 ≈ 0.5316`.\r\n\r\n5. Aplica el arcoseno: `θ₂ = arcsen(0.5316) ≈ 32.1°`.\r\n\r\n**Respuesta:** El rayo se refracta con un ángulo de aproximadamente **32°** respecto a la normal. La luz se desvía hacia la normal al entrar en un medio más denso.\r\n```\r\n\r\n**[IMAGEN SUGERIDA: Diagrama con un rayo de luz incidiendo en la superficie del agua a 45° y refractándose a 32°. Línea punteada para la normal. Pie de foto: \"Al pasar del aire al agua, la luz se frena y se desvía hacia la normal.\"]**\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 3)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 8:** Un rayo de luz viaja por el agua (n₁ = 1.33) e incide sobre la superficie del aire (n₂ = 1.00) con un ángulo de 30° respecto a la normal. ¿Con qué ángulo emerge al aire?\r\nPISTA: Usa la Ley de Snell (n1 * sen(a1) = n2 * sen(a2)). Fíjate que el dato te lo piden en grados, indica la unidad (° o grados).\r\nRESPUESTA_CORRECTA: 41.7°\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 9:** ¿Cuál es el ángulo crítico para la reflexión total interna en la frontera entre agua (n = 1.33) y aire (n = 1.00)? Si un buceador dirige un haz de luz hacia la superficie con un ángulo de 55°, ¿logrará que la luz salga al aire?\r\nPISTA: El ángulo crítico se da cuando el ángulo de refracción es de 90°. Recuerda indicar los grados en la respuesta (° o grados).\r\nRESPUESTA_CORRECTA: 48.8°\r\n```\r\n\r\n---"
+        "principiante": "## Reflexión: espejos\n\nLa **ley de reflexión**: el ángulo de incidencia es igual al ángulo de reflexión.\n\n$$ \\theta_i = \\theta_r $$\n\nEn un espejo plano, la imagen es virtual, derecha y a la misma distancia detrás del espejo que el objeto delante.\n\n**Ejemplo resuelto:** un rayo incide sobre un espejo a 30° de la normal. Sale reflejado a 30° al otro lado.\n\n> **Dato curioso**\n> Los espejos cambian la izquierda y la derecha pero no arriba y abajo. Esto se debe a que invierten el eje perpendicular al espejo, no a un intercambio de lados.\n\n**[IMAGEN SUGERIDA: Un rayo reflejado en un espejo plano, con ángulos iguales. Pie de foto: \"θi = θr.\"]**\n\n\n### El método de resolución paso a paso\n\n<PedagogicalContentBlock type=\"process\" title=\"Flujo de resolución de un problema de ondas\">\n1. **Lee** el enunciado e identifica el fenómeno (propagación, reflexión, refracción, interferencia, Doppler)\n2. **Escribe** la relación correspondiente (v = λf, Snell, d·sinθ = mλ, Doppler)\n3. **Sustituye** los datos en el sistema de unidades correcto\n4. **Calcula** despejando la incógnita\n5. **Verifica** la plausibilidad del resultado (magnitud y unidades)\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Refracción y la ley de Snell\n\nCuando la luz pasa de un medio a otro, cambia de dirección. La **ley de Snell**:\n\n$$ n_1 \\sin\\theta_1 = n_2 \\sin\\theta_2 $$\n\nDonde n es el índice de refracción (n = c/v).\n\n**Ejemplo resuelto:** la luz pasa del aire (n₁ = 1) al agua (n₂ = 1.33) con ángulo de incidencia 45°.\n\nsinθ₂ = (1×sin45°)/1.33 = 0.707/1.33 = 0.532 → θ₂ ≈ 32°.\n\n> **Dato que rompe el cerebro**\n> La luz se desvía hacia la normal al entrar en un medio más denso (agua). Por eso un palo sumergido en agua parece doblado: la luz que viene de la parte sumergida cambia de dirección al salir al aire.\n\n```aeterna-exercise\nTITLE: Calcular el ángulo de refracción\nHINT: n₁·sinθ₁ = n₂·sinθ₂.\nXP: 45\nCalcula el ángulo de refracción: un rayo pasa del aire (n = 1) al vidrio (n = 1.5) con ángulo de incidencia 30° (sin 30° = 0.5).\nSOLUTION: sinθ₂ = (1×0.5)/1.5 = 0.333 → θ₂ ≈ 19.5°. La luz se acerca a la normal al entrar al vidrio.\n```\n\n> **🔑 Concepto clave: La ley de Snell**\n> n₁sinθ₁ = n₂sinθ₂. Al pasar a un medio más denso (n mayor), la luz se acerca a la normal. Es la base de lentes, prismas, fibra óptica y del arcoíris.\n\n\n### El método de resolución paso a paso\n\n<PedagogicalContentBlock type=\"process\" title=\"Flujo de resolución de un problema de ondas\">\n1. **Lee** el enunciado e identifica el fenómeno (propagación, reflexión, refracción, interferencia, Doppler)\n2. **Escribe** la relación correspondiente (v = λf, Snell, d·sinθ = mλ, Doppler)\n3. **Sustituye** los datos en el sistema de unidades correcto\n4. **Calcula** despejando la incógnita\n5. **Verifica** la plausibilidad del resultado (magnitud y unidades)\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Reflexión total interna\n\nCuando la luz va de un medio denso a uno menos denso (agua → aire) con ángulo mayor que el **ángulo crítico**, ocurre la **reflexión total interna**: toda la luz se refleja.\n\nEl ángulo crítico (cuando θ₂ = 90°):\n\n$$ \\sin\\theta_c = \\frac{n_2}{n_1} $$\n\nPara agua (n = 1.33) al aire: θc ≈ 48.8°.\n\n> **💡 Nota de frontera**\n> La reflexión total interna es el principio de la **fibra óptica**: la luz queda atrapada dentro del núcleo reflejándose sin perder energía. Internet y las telecomunicaciones dependen de esta física. Es también el efecto detrás de los brillos de los diamantes.\n\n\n### El método de resolución paso a paso\n\n<PedagogicalContentBlock type=\"process\" title=\"Flujo de resolución de un problema de ondas\">\n1. **Lee** el enunciado e identifica el fenómeno (propagación, reflexión, refracción, interferencia, Doppler)\n2. **Escribe** la relación correspondiente (v = λf, Snell, d·sinθ = mλ, Doppler)\n3. **Sustituye** los datos en el sistema de unidades correcto\n4. **Calcula** despejando la incógnita\n5. **Verifica** la plausibilidad del resultado (magnitud y unidades)\n</PedagogicalContentBlock>\n\n```aeterna-exercise\nTITLE: Calcular el ángulo crítico\nHINT: sinθc = n₂/n₁. El diamante tiene n = 2.42.\nXP: 50\nEl diamante (n = 2.42) al aire (n = 1). ¿Cuál es el ángulo crítico?\nSOLUTION: sinθc = 1/2.42 = 0.413 → θc ≈ 24°. El ángulo crítico pequeño del diamante produce los brillos espectaculares: la luz queda atrapada reflejándose internamente.\n```\n"
       },
       "acciones": []
     },
     {
-      "id": "4-problemas-de-interferencia-y-difraccin",
-      "titulo": "4. Problemas de interferencia y difracción",
+      "id": "desafios-optica",
+      "titulo": "Interferencia y difracción",
       "niveles": {
-        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 4.1: Las dos rendijas de Young\r\n\r\n**Enunciado:** En un experimento de Young, la distancia entre las dos rendijas es de 0.2 mm. Se ilumina con luz monocromática de longitud de onda 600 nm. La pantalla está situada a 2 metros de las rendijas. ¿Cuál es la distancia entre dos franjas brillantes consecutivas?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Datos: `d = 0.2 mm = 2 × 10⁻⁴ m`, `λ = 600 nm = 6 × 10⁻⁷ m`, `D = 2 m`.\r\n\r\n2. La fórmula para la distancia entre franjas brillantes consecutivas es: `Δy = (λ · D) / d`.\r\n\r\n3. Sustituye: `Δy = (6 × 10⁻⁷ m × 2 m) / (2 × 10⁻⁴ m)`.\r\n\r\n4. Calcula: `Δy = (12 × 10⁻⁷) / (2 × 10⁻⁴) = 6 × 10⁻³ m = 6 mm`.\r\n\r\n**Respuesta:** La distancia entre dos franjas brillantes consecutivas es de **6 milímetros**.\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicio propuesto (sección 4)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 10:** En un experimento de Young, la separación entre rendijas es de 0.1 mm, la longitud de onda de la luz es de 500 nm y la pantalla está a 1.5 metros. ¿Cuál es la distancia entre franjas brillantes consecutivas? Si se usa luz roja (λ = 700 nm) en lugar de verde, ¿la distancia entre franjas aumenta o disminuye? Compruébalo calculándolo.\r\nPISTA: La fórmula para las franjas es Δy = (λ · D) / d. Fíjate bien en el orden de magnitud de la longitud de onda, que te lo piden en mm (mm).\r\nRESPUESTA_CORRECTA: 7.5 mm\r\n```\r\n\r\n---"
+        "principiante": "## Interferencia: dos ondas que se suman\n\nCuando dos ondas se superponen, se suman: esto es la **interferencia**.\n\n- **Constructiva**: crestas con crestas → onda más grande (máximo)\n- **Destructiva**: cresta con valle → se cancelan (mínimo)\n\nEl experimento de la doble rendija de Young mostró que la luz interfiere —prueba de que es una onda.\n\n> **Dato que rompe el cerebro**\n> La interferencia destructiva produce oscuridad: dos luces que se anulan. No es que 'falte' luz: es que las ondas llegan desfasadas y se cancelan mutuamente.\n\n**[IMAGEN SUGERIDA: El patrón de interferencia de doble rendija, con franjas claras y oscuras. Pie de foto: \"La luz interfiere: es una onda.\"]**\n",
+        "intermedio": "## La doble rendija\n\nPara dos rendijas separadas d, los **máximos** de interferencia aparecen en ángulos:\n\n$$ d\\sin\\theta = m\\lambda $$\n\nDonde m = 0, 1, 2... es el orden del máximo.\n\n**Ejemplo resuelto:** rendijas separadas 0.5 mm, luz de 600 nm. ¿Ángulo del primer máximo (m = 1)?\n\nsinθ = λ/d = 600×10⁻⁹/0.5×10⁻³ = 1.2×10⁻³ → θ ≈ 0.07°.\n\nLos ángulos son pequeños: por eso el patrón se ve a cierta distancia.\n\n```error-hunter\nTITLE: Interferencia o difracción\nCONTEXT: Un estudiante afirma: «La luz de una sola rendija produce el mismo patrón que la de doble rendija, porque la interferencia es interferencia.»\nXP: 60\nSTEP_CORRECT: La doble rendija produce interferencia | Dos fuentes coherentes interfieren constructiva y destructivamente en franjas.\nSTEP_CORRECT: La rendija simple produce difracción | La luz se dobla al bordear cada borde de la rendija, produciendo franjas por difracción.\nSTEP_ERROR: Son exactamente el mismo fenómeno | La doble rendija es interferencia entre dos fuentes; la rendija simple es difracción (flexión en bordes). Ambos dan franjas, pero el patrón y la causa difieren.\n```\n\n> **🔑 Concepto clave: Máximos de interferencia**\n> d·sinθ = mλ. Los máximos ocurren donde la diferencia de caminos es un múltiplo entero de λ. Es la base de los espectrómetros y del análisis de luz.\n",
+        "avanzado": "## Difracción y límite de resolución\n\nLa **difracción** es la flexión de las ondas al bordear obstáculos o pasar por aberturas. En una rendija de ancho a, los mínimos aparecen en:\n\n$$ a\\sin\\theta = m\\lambda $$\n\nLa difracción limita la resolución de los instrumentos ópticos. El **criterio de Rayleigh**: dos puntos son resolubles si su separación angular supera\n\n$$ \\theta_{min} = 1.22\\frac{\\lambda}{D} $$\n\nDonde D es el diámetro del instrumento.\n\n> **💡 Nota de frontera**\n> La difracción limita los telescopios: un telescopio mayor resuelve más detalles (menor θ_min). Pero hay un límite absoluto: el límite de difracción. Los microscopios ópticos no pueden ver detalles menores que ~λ/2, por eso se inventaron los microscopios electrónicos (electrones con λ mucho menor).\n\n```aeterna-exercise\nTITLE: Calcular el orden del máximo\nHINT: d·sinθ = mλ. Despeja m.\nXP: 50\nCalcula el orden del máximo: rendijas separadas 2 mm, luz de 600 nm, ángulo de 0.017° (sin 0.017° ≈ 3×10⁻⁴).\nSOLUTION: m = d·sinθ/λ = 2×10⁻³×3×10⁻⁴/600×10⁻⁹ = 6×10⁻⁷/6×10⁻⁷ = 1. El primer máximo (m = 1).\n```\n"
       },
       "acciones": []
     },
     {
-      "id": "5-problemas-de-efecto-doppler",
-      "titulo": "5. Problemas de efecto Doppler",
+      "id": "doppler",
+      "titulo": "El efecto Doppler",
       "niveles": {
-        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 5.1: La ambulancia que se acerca\r\n\r\n**Enunciado:** Una ambulancia viaja hacia ti a 108 km/h (30 m/s) con la sirena encendida, que emite un sonido de 800 Hz. La velocidad del sonido en el aire es de 343 m/s. ¿Qué frecuencia escuchas tú?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Datos: `f₀ = 800 Hz`, `v_sonido = 343 m/s`, `v_fuente = 30 m/s`, `v_observador = 0 m/s`.\r\n\r\n2. La fórmula del efecto Doppler cuando la fuente se acerca al observador quieto es:\r\n   `f = f₀ × [v / (v - v_fuente)]`.\r\n\r\n3. Sustituye: `f = 800 × [343 / (343 - 30)] = 800 × (343 / 313)`.\r\n\r\n4. Calcula: `f ≈ 800 × 1.0958 ≈ 876.7 Hz`.\r\n\r\n**Respuesta:** Escuchas un sonido de aproximadamente **877 Hz**, más agudo que los 800 Hz originales.\r\n```\r\n\r\n---\r\n\r\n```aeterna-resueltos\r\n### ✅ Problema resuelto 5.2: La ambulancia se aleja\r\n\r\n**Enunciado:** La misma ambulancia, tras pasar de largo, se aleja de ti a 30 m/s. ¿Qué frecuencia escuchas ahora?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Ahora la fuente se aleja: `f = f₀ × [v / (v + v_fuente)]`.\r\n\r\n2. Sustituye: `f = 800 × [343 / (343 + 30)] = 800 × (343 / 373)`.\r\n\r\n3. Calcula: `f ≈ 800 × 0.9196 ≈ 735.7 Hz`.\r\n\r\n**Respuesta:** Escuchas un sonido de aproximadamente **736 Hz**, más grave.\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 5)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 11:** Un tren se acerca a ti a 144 km/h (40 m/s) haciendo sonar un silbato de 1.000 Hz. La velocidad del sonido es 343 m/s. ¿Qué frecuencia percibes?\r\nPISTA: Efecto doppler. f = f₀ × [v / (v - v_fuente)] cuando se acerca. Deberás añadir la unidad de frecuencia (Hz).\r\nRESPUESTA_CORRECTA: 1132 Hz\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 12:** El mismo tren, tras pasar, se aleja de ti a la misma velocidad. ¿Qué frecuencia percibes ahora? ¿Cuál es la diferencia entre la frecuencia de acercamiento y la de alejamiento?\r\nPISTA: Ahora la fuente se aleja: f = f₀ × [v / (v + v_fuente)]. Luego resta ambas frecuencias. Recuerda indicar la frecuencia en Hz.\r\nRESPUESTA_CORRECTA: 236 Hz\r\n```\r\n\r\n---"
+        "principiante": "## El efecto Doppler\n\nCuando una ambulancia se acerca, la sirena suena más aguda; cuando se aleja, más grave. Es el **efecto Doppler**: el movimiento de la fuente cambia la frecuencia percibida.\n\n- Fuente se acerca → frecuencia mayor (sonido más agudo)\n- Fuente se aleja → frecuencia menor (sonido más grave)\n\n> **Dato que rompe el cerebro**\n> La sirena de la ambulancia NO cambia: la fuente emite siempre la misma frecuencia. Lo que cambia es lo que TÚ percibes por el movimiento. Las ondas se comprimen delante y se estiran detrás.\n\n**[IMAGEN SUGERIDA: Una ambulancia con las ondas de sonido comprimidas delante y estiradas detrás. Pie de foto: \"El movimiento comprime las ondas.\"]**\n\n\n<Connect title=\"De las ondas al wifi\" sourceConcept=\"Frecuencia y longitud de onda\" targetConcept=\"Tecnología inalámbrica\">\nLa relación v = λf no es abstracta: el wifi usa 2.4 GHz (λ ≈ 12.5 cm) y 5 GHz (λ ≈ 6 cm). Las frecuencias más altas transmiten más datos pero atraviesan peor las paredes. La física de ondas que practicas aquí es la ingeniería de tus comunicaciones diarias.\n</Connect>\n\n\n<Transfer targetDomain=\"Medicina diagnóstica\" title=\"Transfiere: el ultrasonido\">\nLa ecografía usa el efecto Doppler para medir la velocidad de la sangre en las arterias. Explica: si el eco de los glóbulos rojos vuelve con mayor frecuencia, ¿se acercan o se alejan del sensor? ¿Cómo calcularías la velocidad del flujo sanguíneo con la fórmula de Doppler?\n</Transfer>\n",
+        "intermedio": "## La fórmula de Doppler\n\n```aeterna-exercise\nTITLE: Calcular la frecuencia percibida\nHINT: f' = f·v/(v − vs). Observador quieto, fuente que se acerca.\nXP: 45\nCalcula la frecuencia percibida: una ambulancia emite a 700 Hz y se acerca a 30 m/s (sonido = 343 m/s).\nSOLUTION: f' = f·v/(v − vs) = 700×343/(343−30) = 700×343/313 ≈ 767 Hz. Más aguda al acercarse.\n```\n\nLa fórmula general:\n\n$$ f' = f\\frac{v \\pm v_o}{v \\mp v_s} $$\n\n- v₀: velocidad del observador (+, hacia la fuente)\n- vs: velocidad de la fuente (−, hacia el observador)\n\nAplicaciones del Doppler:\n- **Radar de velocidad**: policía, deportes\n- **Ecografía Doppler**: flujo de sangre, latido fetal\n- **Astronomía**: el desplazamiento al rojo revela que el universo se expande\n\n> **🔑 Concepto clave: Comprimir y estirar ondas**\n> El movimiento de la fuente comprime las ondas delante (frecuencia mayor) y las estira detrás (menor). La fórmula de Doppler cuantifica el cambio con los signos según quien se mueve.\n\n\n<Connect title=\"De las ondas al wifi\" sourceConcept=\"Frecuencia y longitud de onda\" targetConcept=\"Tecnología inalámbrica\">\nLa relación v = λf no es abstracta: el wifi usa 2.4 GHz (λ ≈ 12.5 cm) y 5 GHz (λ ≈ 6 cm). Las frecuencias más altas transmiten más datos pero atraviesan peor las paredes. La física de ondas que practicas aquí es la ingeniería de tus comunicaciones diarias.\n</Connect>\n\n\n<Transfer targetDomain=\"Medicina diagnóstica\" title=\"Transfiere: el ultrasonido\">\nLa ecografía usa el efecto Doppler para medir la velocidad de la sangre en las arterias. Explica: si el eco de los glóbulos rojos vuelve con mayor frecuencia, ¿se acercan o se alejan del sensor? ¿Cómo calcularías la velocidad del flujo sanguíneo con la fórmula de Doppler?\n</Transfer>\n",
+        "avanzado": "## Doppler en la luz y el universo\n\nEl efecto Doppler se aplica a TODAS las ondas, incluida la luz. En astronomía:\n\n- **Desplazamiento al azul**: el objeto se acerca\n- **Desplazamiento al rojo**: el objeto se aleja\n\nEl **desplazamiento al rojo** de las galaxias lejanas reveló que el universo se expande (ley de Hubble). En general, la fórmula relativista para la luz:\n\n$$ \\frac{\\lambda'}{\\lambda} = \\sqrt{\\frac{1 + v/c}{1 - v/c}} $$\n\n> **💡 Nota de frontera**\n> El desplazamiento al rojo cosmológico no es un Doppler clásico sino el estiramiento de la luz por la expansión del espacio-tiempo. Aun así, la idea del Doppler —movimiento → cambio de frecuencia— es el origen conceptual del descubrimiento de la expansión del universo.\n\n\n<Connect title=\"De las ondas al wifi\" sourceConcept=\"Frecuencia y longitud de onda\" targetConcept=\"Tecnología inalámbrica\">\nLa relación v = λf no es abstracta: el wifi usa 2.4 GHz (λ ≈ 12.5 cm) y 5 GHz (λ ≈ 6 cm). Las frecuencias más altas transmiten más datos pero atraviesan peor las paredes. La física de ondas que practicas aquí es la ingeniería de tus comunicaciones diarias.\n</Connect>\n\n\n<Transfer targetDomain=\"Medicina diagnóstica\" title=\"Transfiere: el ultrasonido\">\nLa ecografía usa el efecto Doppler para medir la velocidad de la sangre en las arterias. Explica: si el eco de los glóbulos rojos vuelve con mayor frecuencia, ¿se acercan o se alejan del sensor? ¿Cómo calcularías la velocidad del flujo sanguíneo con la fórmula de Doppler?\n</Transfer>\n"
       },
       "acciones": []
     },
     {
-      "id": "6-experimento-prctico-mide-la-velocidad-del-sonido-en-casa",
-      "titulo": "6. Experimento práctico: mide la velocidad del sonido en casa",
+      "id": "experimento-practico",
+      "titulo": "Experimento práctico: la velocidad del sonido",
       "niveles": {
-        "intermedio": "Puedes medir la velocidad del sonido con materiales sencillos. Aquí tienes un método:\r\n\r\n**Materiales:**\r\n- Un recipiente profundo con agua (un cubo o la bañera)\r\n- Un tubo de cartón (como el de un rollo de papel de cocina)\r\n- Una cuchara metálica grande y algo duro para golpearla\r\n- Una cinta métrica o regla\r\n\r\n**Procedimiento:**\r\n1. Llena el recipiente con agua hasta unos 20-30 cm de altura.\r\n2. Golpea la cuchara contra un objeto duro y escucha el sonido.\r\n3. Mientras golpeas, acerca el extremo del tubo al agua y muévelo hacia arriba y hacia abajo lentamente.\r\n4. En ciertas posiciones, el sonido se amplificará notablemente por resonancia. Esa posición ocurre cuando la longitud del tubo sobre el agua es un cuarto de la longitud de onda del sonido.\r\n5. Mide la distancia desde el extremo superior del tubo hasta la superficie del agua. Llámala `L`.\r\n\r\n**Cálculo:**\r\n- La longitud de onda del sonido es `λ = 4L`.\r\n- El sonido de la cuchara golpeada suele tener una frecuencia dominante entre 400 y 800 Hz.\r\n- Si asumimos `f = 600 Hz` y medimos `L = 14.3 cm`, entonces `λ = 4 × 0.143 m = 0.572 m` y `v = λ × f = 0.572 × 600 ≈ 343 m/s`.\r\n\r\nCompara tu resultado con los 343 m/s teóricos y calcula el porcentaje de error.\r\n\r\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-autoevaluacin-qu-tal-lo-has-hecho",
-      "titulo": "🧠 Autoevaluación: ¿Qué tal lo has hecho?",
-      "niveles": {
-        "intermedio": "| Ejercicios resueltos correctamente | Diagnóstico |\r\n| :--- | :--- |\r\n| 0-3 | Vuelve a la parada teórica de [Ondas y Óptica](#) y repasa los conceptos fundamentales. |\r\n| 4-7 | Buen trabajo. Has comprendido los fundamentos, pero aún hay detalles que afinar. Repasa los problemas que fallaste. |\r\n| 8-10 | Excelente. Tienes una comprensión sólida de las ondas y la óptica clásica. |\r\n| 11-12 | Sobresaliente. Estás listo para las fronteras de la física: relatividad y cuántica te esperan. |\r\n\r\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-soluciones-a-los-ejercicios-propuestos",
-      "titulo": "📝 Soluciones a los ejercicios propuestos",
-      "niveles": {
-        "intermedio": "**Ejercicio 1:** `v = λ / T = 20 m / 8 s = 2.5 m/s`.\r\n\r\n**Ejercicio 2:** `λ = v / f = 1.480 m/s / 440 Hz ≈ 3.36 m`.\r\n\r\n**Ejercicio 3:** `λ = v / f = 6.000 m/s / 0.2 Hz = 30.000 m = 30 km`.\r\n\r\n**Ejercicio 4:** `v = λ · f = 0.4 m × 50 Hz = 20 m/s`.\r\n\r\n**Ejercicio 5:** `f = v / λ = (3 × 10⁸ m/s) / 500 m = 600.000 Hz = 600 kHz`.\r\n\r\n**Ejercicio 6:** `h_espejo = 1.65 m / 2 = 0.825 m = 82.5 cm`.\r\n\r\n**Ejercicio 7:** `1/15 = 1/45 + 1/s'` → `1/s' = 1/15 - 1/45 = (3-1)/45 = 2/45` → `s' = 22.5 cm`. La imagen es **real** (s' > 0). Ampliación: `A = -s'/s = -22.5/45 = -0.5`. La imagen está **invertida** (A negativo) y tiene **la mitad de tamaño**.\r\n\r\n**Ejercicio 8:** `1.33 × sen(30°) = 1.00 × sen(θ₂)` → `sen(θ₂) = 0.665` → `θ₂ ≈ 41.7°`. El rayo se aleja de la normal.\r\n\r\n**Ejercicio 9:** Ángulo crítico: `θ_c = arcsen(n₂/n₁) = arcsen(1.00/1.33) ≈ arcsen(0.7519) ≈ 48.8°`. Con 55° (> 48.8°), el haz **no saldrá** al aire: sufrirá **reflexión total interna** y volverá al agua. Es lo que hace que la superficie del agua parezca un espejo desde abajo.\r\n\r\n**Ejercicio 10:** Con λ = 500 nm: `Δy = (500 × 10⁻⁹ × 1.5) / (0.1 × 10⁻³) = 7.5 × 10⁻³ m = 7.5 mm`. Con λ = 700 nm: `Δy = (700 × 10⁻⁹ × 1.5) / (0.1 × 10⁻³) = 10.5 mm`. La distancia **aumenta** con la longitud de onda. La luz roja produce franjas más separadas.\r\n\r\n**Ejercicio 11:** `f = 1.000 × [343 / (343 - 40)] = 1.000 × (343 / 303) ≈ 1.132 Hz`.\r\n\r\n**Ejercicio 12:** `f = 1.000 × [343 / (343 + 40)] = 1.000 × (343 / 383) ≈ 895.6 Hz`. Diferencia: `1.132 - 896 ≈ 236 Hz`. Tu oído percibe perfectamente esa diferencia como un cambio notable de tono.\r\n\r\n---\r\n\r\n> **⚠️ Siguiente parada: Relatividad Especial**\r\n>\r\n> Has completado el Nivel 2: El Reino de lo Clásico. Ahora te espera un salto a las fronteras de la realidad. Descubrirás por qué el tiempo se dilata, por qué nada supera la velocidad de la luz y cómo Einstein cambió para siempre nuestra comprensión del espacio y el tiempo. [Sigue la ruta →](#)\r\n\r\n---\r\n\r\n**📚 Para seguir explorando:** *\"Física para la ciencia y la tecnología\"* de Tipler y Mosca contiene cientos de problemas resueltos de física universitaria, con un nivel de detalle excelente para seguir practicando. [Consíguelo aquí](enlace-afiliado)."
+        "principiante": "## Mide la velocidad del sonido en casa\n\nExperimento simple: mide el eco.\n\n1. Ve a un lugar con un muro grande y alejado\n2. Date palmadas rítmicas\n3. Ajusta el ritmo para que el eco coincida entre palmadas\n4. Mide la distancia al muro y el tiempo entre palmadas\n\nv = 2·distancia/tiempo\n\n> **Dato curioso**\n> El factor 2: el sonido va al muro y vuelve (ida y vuelta). Medir distancias por eco es el principio del SONAR y de la ecografía.\n\n**[IMAGEN SUGERIDA: Una persona aplaudiendo frente a un muro, con la onda yendo y viniendo. Pie de foto: \"El eco mide la distancia.\"]**\n",
+        "intermedio": "## Experimento de resonancia\n\nCon un tubo y un diapasón puedes medir la velocidad del sonido por **resonancia**:\n\n- Llena un tubo con agua y sumerge un diapasón vibrando en la boca\n- Ajusta la columna de aire hasta que el sonido se amplifique (resonancia)\n- En la primera resonancia, la columna de aire es λ/4\n\nv = 4·L·f\n\n**Ejemplo:** con un diapasón de 512 Hz, la primera resonancia ocurre a L ≈ 16.7 cm → v = 4×0.167×512 ≈ 342 m/s.\n\n> **🔑 Concepto clave: Resonancia**\n> La resonancia ocurre cuando la frecuencia de la fuente coincide con la natural del sistema (la columna de aire). En la primera resonancia de un tubo cerrado, L = λ/4. Es el principio de los instrumentos de viento.\n",
+        "avanzado": "## Análisis del experimento\n\nInterpretación rigurosa del experimento de resonancia:\n\n1. La primera resonancia confirma L = λ/4\n2. La velocidad calculada v = 4Lf debe aproximarse a 343 m/s\n3. La temperatura del aire afecta: v ≈ 331 + 0.6T (m/s, T en °C)\n4. Errores de medición: incertidumbre en L (regla) y en la posición de resonancia (auditiva)\n\n> **💡 Nota de frontera**\n> En física, un experimento 'simple' esconde toda la metodología: variables, errores, modelos y plausibilidad. La velocidad del sonido medida con un tubo y un diapasón es un experimento clásico de laboratorio que combina resonancia, ondas estacionarias y análisis de errores.\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "Has completado el taller de ondas y óptica. La herramienta fundamental es v = λf, que conecta velocidad, longitud de onda y frecuencia —y que, al cambiar de medio, conserva la frecuencia mientras velocidad y longitud de onda se ajustan. Dominas la reflexión (θi = θr) de los espejos y la refracción de la ley de Snell (n₁sinθ₁ = n₂sinθ₂), con su límite fascinante: la reflexión total interna de la fibra óptica. La interferencia (d·sinθ = mλ) y la difracción te mostraron que la luz es una onda, y el efecto Doppler transformó el sonido en herramienta —del radar a la cosmología. Lo más importante de este taller no son las fórmulas: es el método. Identificar el fenómeno antes de calcular, elegir la fórmula correcta, sustituir con cuidado de unidades y verificar la plausibilidad del resultado. Ese proceso —clasificar, modelar, calcular, comprobar— es lo que separa a quien memoriza fórmulas de quien resuelve problemas. Practica con los ejercicios, haz los experimentos en casa, y las ondas —que están en tu voz, tu vista y tu wifi— empezarán a hablarte en su idioma.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Longitud de onda",
+        "enunciado": "Una onda sonora tiene frecuencia 1000 Hz y viaja a 343 m/s. ¿Cuál es su longitud de onda?",
+        "solucion": "λ = v/f = 343/1000 = 0.343 m.",
+        "xp": 30,
+        "pistas": [
+          "λ = v/f",
+          "Divide 343 entre 1000"
+        ],
+        "opciones": [
+          {
+            "label": "0.343 m",
+            "correcta": true
+          },
+          {
+            "label": "343 m",
+            "correcta": false
+          },
+          {
+            "label": "3.43 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica λ = v/f",
+          "Calcula 343/1000 = 0.343 m"
+        ]
+      },
+      {
+        "titulo": "Reflexión",
+        "enunciado": "Un rayo de luz incide sobre un espejo a 25° de la normal. ¿A qué ángulo se refleja?",
+        "solucion": "Por la ley de reflexión, θr = θi = 25°.",
+        "xp": 25,
+        "pistas": [
+          "θi = θr",
+          "El ángulo se mide desde la normal"
+        ],
+        "opciones": [
+          {
+            "label": "25°",
+            "correcta": true
+          },
+          {
+            "label": "50°",
+            "correcta": false
+          },
+          {
+            "label": "90°",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la ley de reflexión",
+          "θr = 25°"
+        ]
+      },
+      {
+        "titulo": "Doppler básico",
+        "enunciado": "¿Qué ocurre con el tono de una sirena cuando la ambulancia se acerca?",
+        "solucion": "El tono es más agudo: las ondas se comprimen delante de la fuente en movimiento, aumentando la frecuencia percibida.",
+        "xp": 30,
+        "pistas": [
+          "Las ondas se comprimen delante",
+          "Frecuencia mayor → tono agudo"
+        ],
+        "opciones": [
+          {
+            "label": "Más agudo",
+            "correcta": true
+          },
+          {
+            "label": "Más grave",
+            "correcta": false
+          },
+          {
+            "label": "No cambia",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Reconoce la compresión de ondas",
+          "Frecuencia mayor = tono agudo"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Refracción",
+        "enunciado": "Luz del aire (n = 1) al agua (n = 1.33) con ángulo de incidencia de 30° (sin 30° = 0.5). ¿Cuál es el ángulo de refracción?",
+        "solucion": "sinθ₂ = (1×0.5)/1.33 = 0.376 → θ₂ ≈ 22°. La luz se acerca a la normal al entrar en el agua.",
+        "xp": 45,
+        "pistas": [
+          "n₁sinθ₁ = n₂sinθ₂",
+          "sinθ₂ = 0.5/1.33"
+        ],
+        "opciones": [
+          {
+            "label": "22°",
+            "correcta": true
+          },
+          {
+            "label": "30°",
+            "correcta": false
+          },
+          {
+            "label": "41°",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la ley de Snell",
+          "Calcula el arcoseno de 0.376"
+        ]
+      },
+      {
+        "titulo": "Doppler de aproximación",
+        "enunciado": "Un coche de policía emite a 1000 Hz y se acerca a 20 m/s. ¿Qué frecuencia percibes? (v = 343 m/s)",
+        "solucion": "f' = f·v/(v−vs) = 1000×343/(343−20) = 343000/323 ≈ 1062 Hz. Más agudo.",
+        "xp": 45,
+        "pistas": [
+          "f' = f·v/(v−vs)",
+          "Fuente se acerca: resta vs"
+        ],
+        "opciones": [
+          {
+            "label": "1062 Hz",
+            "correcta": true
+          },
+          {
+            "label": "1000 Hz",
+            "correcta": false
+          },
+          {
+            "label": "944 Hz",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la fórmula de Doppler",
+          "Calcula 343000/323"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Reflexión total interna",
+        "enunciado": "¿Cuál es el ángulo crítico para luz que pasa del vidrio (n = 1.5) al aire (n = 1)?",
+        "solucion": "sinθc = n₂/n₁ = 1/1.5 = 0.667 → θc ≈ 42°. A mayor ángulo, toda la luz se refleja internamente (fibra óptica).",
+        "xp": 55,
+        "pistas": [
+          "sinθc = n₂/n₁",
+          "arcsen(0.667)"
+        ],
+        "opciones": [
+          {
+            "label": "42°",
+            "correcta": true
+          },
+          {
+            "label": "90°",
+            "correcta": false
+          },
+          {
+            "label": "30°",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica sinθc = n₂/n₁",
+          "Calcula el arcoseno"
+        ]
+      },
+      {
+        "titulo": "Máximo de interferencia",
+        "enunciado": "Rendijas separadas 1 mm reciben luz de 500 nm. ¿En qué ángulo está el primer máximo (m = 1)?",
+        "solucion": "sinθ = mλ/d = 1×500×10⁻⁹/1×10⁻³ = 5×10⁻⁴ → θ ≈ 0.029°. Un ángulo muy pequeño, típico de interferencia.",
+        "xp": 55,
+        "pistas": [
+          "d·sinθ = mλ",
+          "Convierte nm a m"
+        ],
+        "opciones": [
+          {
+            "label": "0.029°",
+            "correcta": true
+          },
+          {
+            "label": "0.5°",
+            "correcta": false
+          },
+          {
+            "label": "30°",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica d·sinθ = mλ",
+          "Calcula λ/d"
+        ]
+      }
+    ]
+  }
 }

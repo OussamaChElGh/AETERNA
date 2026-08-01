@@ -1,105 +1,298 @@
 {
   "metadata": {
-    "title": "Relatividad Especial: Problemas Resueltos y Ejercicios Prácticos",
-    "description": "Pon a prueba tu comprensión de la relatividad especial con 9 problemas resueltos paso a paso y 12 ejercicios propuestos. Dilatación del tiempo, contracción de longitudes, E=mc² y la paradoja de los gemelos.",
+    "title": "Relatividad Especial: Problemas Resueltos",
+    "description": "Taller práctico de relatividad especial: factor de Lorentz, dilatación del tiempo, contracción de longitudes, E = mc² y la paradoja de los gemelos con problemas resueltos.",
     "slug": "relatividad-especial-practica",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
-      "relatividad especial",
-      "Einstein",
-      "dilatación del tiempo",
-      "contracción de longitudes",
-      "E=mc²",
-      "paradoja de los gemelos",
+      "relatividad",
       "problemas resueltos",
-      "ejercicios de física"
+      "factor de Lorentz",
+      "dilatación del tiempo",
+      "contracción",
+      "E = mc²",
+      "paradoja de los gemelos"
     ],
-    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-09",
-    "nivel": "3",
-    "orden": "2",
-    "insignia": "Explorador de lo Oculto",
-    "tipo": "practice"
+    "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 3,
+    "nivel_titulo": "Física Moderna",
+    "orden": 2,
+    "insignia": "Calculista del Espacio-Tiempo",
+    "tipo": "practice",
+    "prerequisites": [
+      "relatividad-especial"
+    ],
+    "breadcrumb": "Física / Física Moderna / Relatividad Especial: Problemas Resueltos"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  La teoría ya la conoces: la dilatación del tiempo, la contracción de longitudes, E = mc². Ahora aprende a calcularla.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Todo problema relativista usa el **factor de Lorentz** γ = 1/√(1−v²/c²). Con él: la dilatación del tiempo (Δt = γΔt₀), la contracción de longitudes (L = L₀/γ) y la energía (E = γmc²). El método: (1) identifica si pides tiempo, longitud o energía, (2) calcula γ, (3) aplica la fórmula, (4) verifica que γ ≥ 1 y que los efectos son mayores cuanto más cerca de c.\n\n**[IMAGEN SUGERIDA: Un reloj atómico y una nave a alta velocidad. Pie de foto: \"γ es la llave de todos los cálculos relativistas.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "ndice",
-      "titulo": "Índice",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: calculando lo imposible",
       "niveles": {
-        "intermedio": "- [🧪 Bienvenida: Calculando lo imposible](#-bienvenida-calculando-lo-imposible)\n- [1. El factor de Lorentz: la llave de la relatividad](#1-el-factor-de-lorentz-la-llave-de-la-relatividad)\n- [2. Problemas de dilatación del tiempo](#2-problemas-de-dilatación-del-tiempo)\n- [3. Problemas de contracción de longitudes](#3-problemas-de-contracción-de-longitudes)\n- [4. Problemas de masa y energía (E=mc²)](#4-problemas-de-masa-y-energía-emc)\n- [5. La paradoja de los gemelos](#5-la-paradoja-de-los-gemelos)\n- [6. Ejercicios propuestos](#6-ejercicios-propuestos)\n- [🧠 Autoevaluación: ¿Qué tal lo has hecho?](#-autoevaluación-qué-tal-lo-has-hecho)\n\n---"
+        "principiante": "## Bienvenida: calculando lo imposible\n\nLa relatividad parece imposible de calcular: tiempos que se dilatan, naves que se encogen. Pero los cálculos son sorprendentemente simples. Solo necesitas una herramienta:\n\n$$ \\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}} $$\n\nCon γ calculas todo lo demás. Este taller te entrena en los cálculos relativistas, paso a paso.\n\n> **🔑 Concepto clave: El método**\n> (1) Identifica qué pide el problema (tiempo, longitud, energía). (2) Calcula γ con la velocidad. (3) Aplica la fórmula correspondiente. (4) Comprueba que el resultado es plausible (γ ≥ 1 siempre).\n\n**[IMAGEN SUGERIDA: La fórmula γ destacada sobre un fondo estelar. Pie de foto: \"γ es la llave.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** todos los cálculos relativistas usan el factor γ = 1/√(1−v²/c²). La dilatación del tiempo: Δt = γΔt₀. La contracción: L = L₀/γ. La energía: E = γmc². El método: calcula γ, identifica el tiempo propio, aplica la fórmula, verifica que γ ≥ 1.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: las herramientas\n\nLas tres fórmulas esenciales del taller:\n\n- **Factor de Lorentz**: γ = 1/√(1−v²/c²)\n- **Dilatación**: Δt = γΔt₀\n- **Contracción**: L = L₀/γ\n- **Energía**: E = γmc²\n\nTrucos de cálculo:\n- Si te dan v/c directamente, escribe v = (v/c)·c\n- (v/c)² se usa directamente en γ\n- γ crece lentamente al inicio y explota cerca de c\n\n> **Dato que rompe el cerebro**\n> A 0.5c, γ = 1.155 (solo 15% más). A 0.9c, γ = 2.29. A 0.99c, γ = 7.09. A 0.999c, γ = 22.4. La dilatación se dispara exponencialmente cerca de la velocidad de la luz.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** todos los cálculos relativistas usan el factor γ = 1/√(1−v²/c²). La dilatación del tiempo: Δt = γΔt₀. La contracción: L = L₀/γ. La energía: E = γmc². El método: calcula γ, identifica el tiempo propio, aplica la fórmula, verifica que γ ≥ 1.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la estrategia avanzada\n\nPara problemas complejos (como la paradoja de los gemelos), la estrategia es:\n\n1. Define claramente los marcos de referencia\n2. Identifica cuál es el 'tiempo propio' (el del reloj que acompaña al evento)\n3. Calcula γ para cada tramo\n4. Suma los efectos de los tramos\n5. Verifica con la simetría esperada\n\n> **💡 Nota avanzada**\n> En problemas con aceleración (ida y vuelta), el viajero acumula menos tiempo. Se resuelve sumando tramos inerciales. La relatividad especial con tramos uniformes da la misma respuesta que la relatividad general con aceleración —una coincidencia que simplifica los cálculos.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** todos los cálculos relativistas usan el factor γ = 1/√(1−v²/c²). La dilatación del tiempo: Δt = γΔt₀. La contracción: L = L₀/γ. La energía: E = γmc². El método: calcula γ, identifica el tiempo propio, aplica la fórmula, verifica que γ ≥ 1.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-bienvenida-calculando-lo-imposible",
-      "titulo": "🧪 Bienvenida: Calculando lo imposible",
+      "id": "ejercicios-postulados",
+      "titulo": "Problemas del factor de Lorentz",
       "niveles": {
-        "principiante": "La relatividad especial es una teoría que desafía el sentido común. Pero sus matemáticas son sorprendentemente accesibles. Con una calculadora, un poco de álgebra y las fórmulas adecuadas, puedes calcular exactamente cuánto envejece el gemelo viajero, cuánto se contrae una nave espacial y cuánta energía contiene un simple terrón de azúcar.\n\nEn esta parada vas a ensuciarte las manos. Todos los problemas están resueltos paso a paso, y al final encontrarás ejercicios propuestos para practicar por tu cuenta.\n\n> **💡 Cómo usar esta parada**\n>\n> No leas las soluciones directamente. Intenta resolver cada problema antes de mirar la respuesta. La física se aprende con el lápiz, no con los ojos.\n\n---",
-        "intermedio": "La relatividad especial es una teoría que desafía el sentido común. Pero sus matemáticas son sorprendentemente accesibles. Con una calculadora, un poco de álgebra y las fórmulas adecuadas, puedes calcular exactamente cuánto envejece el gemelo viajero, cuánto se contrae una nave espacial y cuánta energía contiene un simple terrón de azúcar.\n\nEn esta parada vas a ensuciarte las manos. Todos los problemas están resueltos paso a paso, y al final encontrarás ejercicios propuestos para practicar por tu cuenta.\n\n> **💡 Cómo usar esta parada**\n>\n> No leas las soluciones directamente. Intenta resolver cada problema antes de mirar la respuesta. La física se aprende con el lápiz, no con los ojos.\n\n---",
-        "avanzado": "La relatividad especial es una teoría que desafía el sentido común. Pero sus matemáticas son sorprendentemente accesibles. Con una calculadora, un poco de álgebra y las fórmulas adecuadas, puedes calcular exactamente cuánto envejece el gemelo viajero, cuánto se contrae una nave espacial y cuánta energía contiene un simple terrón de azúcar.\n\nEn esta parada vas a ensuciarte las manos. Todos los problemas están resueltos paso a paso, y al final encontrarás ejercicios propuestos para practicar por tu cuenta.\n\n> **💡 Cómo usar esta parada**\n>\n> No leas las soluciones directamente. Intenta resolver cada problema antes de mirar la respuesta. La física se aprende con el lápiz, no con los ojos.\n\n---"
+        "principiante": "## El factor de Lorentz\n\nEl factor γ es la herramienta básica:\n\n$$ \\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}} $$\n\nSiempre cumple γ ≥ 1. Para v = 0, γ = 1. Para v → c, γ → ∞.\n\n**Ejemplo resuelto:** ¿γ para v = 0.6c?\n\nv²/c² = 0.36 → γ = 1/√(1−0.36) = 1/√0.64 = 1/0.8 = 1.25.\n\n> **Dato curioso**\n> γ se llama 'factor de Lorentz' por Hendrik Lorentz, que ya había propuesto las transformaciones. Einstein les dio su significado físico.\n\n```graph-lab\nTITLE: El factor de Lorentz vs la velocidad\nDESC: γ crece lentamente al principio y explota cerca de la velocidad de la luz.\nX_LABEL: v/c\nY_LABEL: γ\nQUESTION: ¿En qué punto empieza a dispararse el factor γ?\nXP: 50\nPOINT: 0 | 1 | En reposo\nPOINT: 0.5 | 1.15 | 0.5c\nPOINT: 0.9 | 2.29 | 0.9c\nPOINT: 0.99 | 7.09 | 0.99c\nOPTION_CORRECT: A partir de ~0.9c | γ apenas crece hasta 0.5c (1.15) pero explota exponencialmente cerca de c (7.09 a 0.99c).\nOPTION_WRONG: Es lineal | γ no es lineal: es una función que diverge cuando v → c.\nOPTION_WRONG: Solo cerca de 0.9999c | Ya a 0.9c el efecto es notable (2.29×).\n```\n",
+        "intermedio": "## Calcular el factor de Lorentz\n\n```aeterna-exercise\nTITLE: Calcular el factor de Lorentz\nHINT: γ = 1/√(1−v²/c²). Convierte v en fracción de c.\nXP: 40\nUn cohete viaja a 0.8c. Calcula su factor de Lorentz γ. (√0.36 = 0.6)\nSOLUTION: v²/c² = 0.64. γ = 1/√(1−0.64) = 1/√0.36 = 1/0.6 ≈ 1.667.\n```\n\n```aeterna-exercise\nTITLE: Calcular la velocidad desde γ\nHINT: Despeja v/c de γ = 1/√(1−v²/c²).\nXP: 45\nSi γ = 2, ¿a qué fracción de c viaja la nave?\nSOLUTION: γ² = 4 → 1−v²/c² = 1/4 → v²/c² = 3/4 → v/c = √3/2 ≈ 0.866c.\n```\n\n> **🔑 Concepto clave: γ crece con la velocidad**\n> γ = 1/√(1−v²/c²) crece lentamente al principio y explota cerca de c. Es la medida de cuánto se dilata el tiempo y se contraen las longitudes.\n\n```graph-lab\nTITLE: El factor de Lorentz vs la velocidad\nDESC: γ crece lentamente al principio y explota cerca de la velocidad de la luz.\nX_LABEL: v/c\nY_LABEL: γ\nQUESTION: ¿En qué punto empieza a dispararse el factor γ?\nXP: 50\nPOINT: 0 | 1 | En reposo\nPOINT: 0.5 | 1.15 | 0.5c\nPOINT: 0.9 | 2.29 | 0.9c\nPOINT: 0.99 | 7.09 | 0.99c\nOPTION_CORRECT: A partir de ~0.9c | γ apenas crece hasta 0.5c (1.15) pero explota exponencialmente cerca de c (7.09 a 0.99c).\nOPTION_WRONG: Es lineal | γ no es lineal: es una función que diverge cuando v → c.\nOPTION_WRONG: Solo cerca de 0.9999c | Ya a 0.9c el efecto es notable (2.29×).\n```\n",
+        "avanzado": "## El límite de la velocidad de la luz\n\nPara v = 0.99c: γ ≈ 7.09. Para v = 0.999c: γ ≈ 22.4. Para v = c: γ = ∞.\n\nLa energía necesaria para acelerar crece como γmc²: cerca de c, necesitas energía infinita. Por eso es imposible alcanzar la velocidad de la luz con masa.\n\n> **💡 Nota de frontera**\n> En el LHC, los protones se aceleran hasta v = 0.99999999c (γ ≈ 7000). Su energía es 7000 veces su masa en reposo. Ese factor γ explica la energía necesaria para crear partículas pesadas en colisiones.\n\n```graph-lab\nTITLE: El factor de Lorentz vs la velocidad\nDESC: γ crece lentamente al principio y explota cerca de la velocidad de la luz.\nX_LABEL: v/c\nY_LABEL: γ\nQUESTION: ¿En qué punto empieza a dispararse el factor γ?\nXP: 50\nPOINT: 0 | 1 | En reposo\nPOINT: 0.5 | 1.15 | 0.5c\nPOINT: 0.9 | 2.29 | 0.9c\nPOINT: 0.99 | 7.09 | 0.99c\nOPTION_CORRECT: A partir de ~0.9c | γ apenas crece hasta 0.5c (1.15) pero explota exponencialmente cerca de c (7.09 a 0.99c).\nOPTION_WRONG: Es lineal | γ no es lineal: es una función que diverge cuando v → c.\nOPTION_WRONG: Solo cerca de 0.9999c | Ya a 0.9c el efecto es notable (2.29×).\n```\n"
       },
       "acciones": []
     },
     {
-      "id": "1-el-factor-de-lorentz-la-llave-de-la-relatividad",
-      "titulo": "1. El factor de Lorentz: la llave de la relatividad",
+      "id": "problemas-dilatacion",
+      "titulo": "Problemas de dilatación del tiempo",
       "niveles": {
-        "intermedio": "Antes de lanzarnos a los problemas, necesitas dominar una herramienta matemática que aparece en casi todas las ecuaciones de la relatividad especial: el **factor de Lorentz**, representado por la letra griega γ (gamma).\n\n### La fórmula\n\n**γ = 1 / √(1 - v²/c²)**\n\nDonde:\n- `v` es la velocidad relativa del objeto o del observador.\n- `c` es la velocidad de la luz en el vacío (c ≈ 3 × 10⁸ m/s).\n\n### ¿Para qué sirve γ?\n\nEl factor de Lorentz es el \"multiplicador mágico\" de la relatividad. Te dice cuánto se dilata el tiempo, cuánto se contrae el espacio y cuánto aumenta la masa con la velocidad.\n\n| Valor de v (fracción de c) | γ ≈ | ¿Qué significa? |\n| :--- | :--- | :--- |\n| 0.1c (10% de c) | 1.005 | Efectos relativistas casi imperceptibles |\n| 0.5c (50% de c) | 1.155 | Empiezan a notarse |\n| 0.9c (90% de c) | 2.294 | El tiempo se dilata al doble |\n| 0.99c (99% de c) | 7.089 | El tiempo se dilata 7 veces |\n| 0.999c (99.9% de c) | 22.37 | El tiempo se dilata 22 veces |\n\n### ✅ Problema resuelto 1.1: Calcular γ para v = 0.8c\n\n**Enunciado:** Una nave viaja al 80% de la velocidad de la luz (v = 0.8c). Calcula el factor de Lorentz γ.\n\n**Solución paso a paso:**\n\n1. La fórmula es: `γ = 1 / √(1 - v²/c²)`.\n2. Como `v = 0.8c`, entonces `v/c = 0.8`, y `v²/c² = (0.8)² = 0.64`.\n3. Calculamos el interior de la raíz: `1 - 0.64 = 0.36`.\n4. La raíz cuadrada: `√0.36 = 0.6`.\n5. Finalmente: `γ = 1 / 0.6 ≈ 1.667`.\n\n**Respuesta:** Para v = 0.8c, el factor de Lorentz es **γ ≈ 1.667**. Esto significa que el tiempo se dilata aproximadamente 1.67 veces y las longitudes se contraen en la misma proporción.\n\n---"
+        "principiante": "## Dilatación del tiempo\n\nLa fórmula:\n\n$$ \\Delta t = \\gamma \\Delta t_0 $$\n\nΔt₀ es el tiempo propio (medido por el reloj que acompaña al objeto), Δt el medido por un observador que lo ve moverse. Siempre Δt > Δt₀.\n\n**Ejemplo resuelto:** un reloj en una nave a 0.6c (γ = 1.25) marca 10 s. ¿Cuánto transcurre en la Tierra?\n\nΔt = 1.25 × 10 = 12.5 s.\n\n> **Dato curioso**\n> El 'tiempo propio' es el menor de todos los tiempos medidos. El reloj que acompaña al objeto en movimiento marca el tiempo real vivido por ese objeto.\n",
+        "intermedio": "## Problemas resueltos de dilatación\n\n```aeterna-exercise\nTITLE: Calcular el tiempo dilatado\nHINT: Δt = γ·Δt₀. Calcula γ con la velocidad primero.\nXP: 50\nUn astronauta viaja a 0.9c durante 2 años (tiempo propio). ¿Cuántos años transcurren en la Tierra? (γ ≈ 2.29)\nSOLUTION: Δt = γ·Δt₀ = 2.29 × 2 = 4.58 años en la Tierra. El astronauta envejece 2 años mientras la Tierra envejece 4.58.\n```\n\n```aeterna-exercise\nTITLE: Calcular el tiempo propio\nHINT: Δt₀ = Δt/γ.\nXP: 50\nUn observador en la Tierra mide 10 años para el viaje de un cohete a 0.8c (γ ≈ 1.667). ¿Cuánto envejece el tripulante?\nSOLUTION: Δt₀ = Δt/γ = 10/1.667 ≈ 6 años. El tripulante envejece 6 años mientras la Tierra envejece 10.\n```\n\n> **🔑 Concepto clave: Quién mide cada tiempo**\n> El tiempo propio Δt₀ lo mide el reloj que acompaña al evento (el viajero). El observador externo mide Δt = γΔt₀. Identificar cuál es cuál es la clave de estos problemas.\n",
+        "avanzado": "## Muones y GPS\n\nAplicaciones reales de la dilatación:\n\n**Muones**: viven 2.2 μs en reposo. Al atravesar la atmósfera a 0.998c (γ ≈ 15), su vida medida desde la Tierra es Δt = 15 × 2.2 = 33 μs —tiempo suficiente para llegar al suelo. Sin relatividad, no llegarían.\n\n> **💡 Nota de frontera**\n> El GPS combina dilatación por velocidad (−7 μs/día) y por gravedad (+45 μs/día). La relatividad no es una curiosidad: es ingeniería que se corrige en cada satélite. Un reloj atómico volando da la confirmación directa.\n"
       },
       "acciones": []
     },
     {
-      "id": "2-problemas-de-dilatacin-del-tiempo",
-      "titulo": "2. Problemas de dilatación del tiempo",
+      "id": "transformaciones-lorentz",
+      "titulo": "Problemas de contracción de longitudes",
       "niveles": {
-        "intermedio": "La fórmula de la **dilatación del tiempo** es:\n\n**Δt = γ · Δt₀**\n\nDonde:\n- `Δt₀` es el **tiempo propio**: el intervalo medido por un observador en reposo respecto al reloj.\n- `Δt` es el tiempo medido por un observador que ve el reloj moverse a velocidad `v`.\n\n### ✅ Problema resuelto 2.1: El vuelo del muón\n\n**Enunciado:** Los muones son partículas subatómicas que se crean en la alta atmósfera cuando los rayos cósmicos chocan con los átomos del aire. En reposo, un muón tiene una vida media de solo 2.2 microsegundos (2.2 × 10⁻⁶ s) antes de desintegrarse. Sin la relatividad, viajando casi a la velocidad de la luz, recorrerían apenas unos 660 metros antes de desaparecer. Sin embargo, los detectamos en la superficie terrestre, ¡a más de 10 km de altura! Esto es posible porque viajan a 0.999c (γ ≈ 22.4). ¿Cuál es su vida media desde nuestro punto de vista?\n\n**Solución paso a paso:**\n\n1. Datos: `Δt₀ = 2.2 × 10⁻⁶ s`, `γ ≈ 22.4`, `Δt = ?`.\n2. Aplica la fórmula: `Δt = γ · Δt₀`.\n3. Sustituye: `Δt = 22.4 × (2.2 × 10⁻⁶ s) = 4.928 × 10⁻⁵ s ≈ 49.3 µs`.\n4. ¿Qué distancia pueden recorrer a 0.999c en 49.3 µs? `d = v × t ≈ (3 × 10⁸ m/s) × (4.93 × 10⁻⁵ s) ≈ 14.800 m ≈ 15 km`.\n\n**Respuesta:** Desde nuestro punto de vista, los muones viven **49.3 µs** (22 veces más) y pueden recorrer **15 km**, suficiente para llegar a la superficie terrestre. Sin relatividad, no detectaríamos muones al nivel del mar. Es una de las confirmaciones más elegantes de la dilatación temporal.\n\n### ✅ Problema resuelto 2.2: El astronauta y su reloj\n\n**Enunciado:** Un astronauta viaja al 90% de la velocidad de la luz (v = 0.9c). Según su reloj, el viaje dura 5 años. ¿Cuánto tiempo ha transcurrido en la Tierra?\n\n**Solución paso a paso:**\n\n1. Datos: `v = 0.9c`, `Δt₀ = 5 años`, `Δt = ?`.\n2. Primero calculamos γ: `γ = 1 / √(1 - 0.9²) = 1 / √(1 - 0.81) = 1 / √0.19 ≈ 1 / 0.4359 ≈ 2.294`.\n3. Aplica la fórmula: `Δt = γ · Δt₀ = 2.294 × 5 años ≈ 11.47 años`.\n4. Diferencia: `11.47 - 5 = 6.47 años`. El astronauta ha \"saltado\" casi 6 años y medio hacia el futuro terrestre.\n\n**Respuesta:** En la Tierra han transcurrido **11.47 años** mientras que para el astronauta solo pasaron 5 años. El astronauta ha viajado 6.47 años al futuro.\n\n### ✅ Problema resuelto 2.3: Viaje al centro de la galaxia\n\n**Enunciado:** Una nave viaja al 99.9% de la velocidad de la luz (v = 0.999c) hacia el centro de la Vía Láctea. Para los astronautas, el viaje dura 10 años. ¿Cuánto tiempo pasa en la Tierra?\n\n**Solución paso a paso:**\n\n1. Datos: `v = 0.999c`, `Δt₀ = 10 años`, `Δt = ?`.\n2. Calculamos γ: `γ = 1 / √(1 - 0.999²) = 1 / √(1 - 0.998001) = 1 / √0.001999 ≈ 1 / 0.04471 ≈ 22.37`.\n3. Aplica la fórmula: `Δt = γ · Δt₀ = 22.37 × 10 años = 223.7 años`.\n\n**Respuesta:** En la Tierra han pasado **224 años**. Los astronautas regresarían a un mundo completamente distinto, aunque para ellos solo habría sido una década.\n\n---"
+        "principiante": "## Contracción de longitudes\n\n$$ L = \\frac{L_0}{\\gamma} $$\n\nL₀ es la longitud propia (medida en reposo), L la medida por un observador que la ve moverse. Siempre L < L₀.\n\n**Ejemplo resuelto:** una nave de 100 m en reposo viaja a 0.8c (γ = 1.667). ¿Qué longitud mide un observador en la Tierra?\n\nL = 100/1.667 ≈ 60 m.\n\n> **Dato curioso**\n> La contracción solo ocurre en la dirección del movimiento. La altura y el ancho de la nave no cambian.\n",
+        "intermedio": "## Problemas resueltos de contracción\n\n```aeterna-exercise\nTITLE: Calcular la longitud contraída\nHINT: L = L₀/γ. Divide la longitud propia entre γ.\nXP: 50\nUn tren de 1000 m en reposo viaja a 0.6c (γ = 1.25). ¿Cuál es su longitud para un observador en el andén?\nSOLUTION: L = 1000/1.25 = 800 m. El tren se ve 20% más corto.\n```\n\n```error-hunter\nTITLE: Contracción o dilatación\nCONTEXT: Un estudiante afirma: «La contracción de longitudes y la dilatación del tiempo son efectos independientes: una acorta las naves y la otra estira los relojes, sin relación entre sí.»\nXP: 60\nSTEP_CORRECT: Ambas usan el mismo factor γ | Δt = γΔt₀ y L = L₀/γ son dos caras de la misma geometría del espacio-tiempo.\nSTEP_CORRECT: Ambas derivan de la relatividad de la simultaneidad | Medir el largo de un objeto en movimiento requiere medir sus extremos 'al mismo tiempo', y la simultaneidad es relativa.\nSTEP_ERROR: Son efectos independientes | Son manifestaciones del mismo fenómeno: el espacio-tiempo de Minkowski. El factor γ conecta ambas.\n```\n\n> **🔑 Concepto clave: Dos caras del mismo γ**\n> Dilatación (Δt = γΔt₀) y contracción (L = L₀/γ) usan el mismo factor γ y derivan de la misma causa: la relatividad de la simultaneidad en el espacio-tiempo.\n",
+        "avanzado": "## El intervalo invariante\n\nAunque Δt y L cambian, el intervalo:\n\n$$ \\Delta s^2 = c^2\\Delta t^2 - \\Delta x^2 $$\n\nes el mismo para todos los observadores. Es la 'distancia' del espacio-tiempo de Minkowski.\n\n> **💡 Nota de frontera**\n> El intervalo invariante es la analogía relativista de la distancia euclidiana: todos los observadores coinciden en él. Esta geometría del espacio-tiempo es la base sobre la que Einstein construirá la relatividad general: la gravedad como curvatura de esta geometría.\n"
       },
       "acciones": []
     },
     {
-      "id": "3-problemas-de-contraccin-de-longitudes",
-      "titulo": "3. Problemas de contracción de longitudes",
+      "id": "masa-energia",
+      "titulo": "Problemas de E = mc²",
       "niveles": {
-        "intermedio": "La fórmula de la **contracción de longitudes** es:\n\n**L = L₀ / γ**\n\nDonde:\n- `L₀` es la **longitud propia**: la medida por un observador en reposo respecto al objeto.\n- `L` es la longitud medida por un observador que ve el objeto moverse a velocidad `v`.\n\n### ✅ Problema resuelto 3.1: La nave que se encoge\n\n**Enunciado:** Una nave espacial mide 200 metros en reposo. Viaja al 80% de la velocidad de la luz (v = 0.8c, γ ≈ 1.667). ¿Cuánto mide para un observador en la Tierra?\n\n**Solución paso a paso:**\n\n1. Datos: `L₀ = 200 m`, `γ ≈ 1.667`, `L = ?`.\n2. Aplica la fórmula: `L = L₀ / γ`.\n3. Sustituye: `L = 200 m / 1.667 ≈ 120 metros`.\n\n**Respuesta:** Para el observador terrestre, la nave mide **120 metros** en la dirección del movimiento. Para los astronautas sigue midiendo 200 metros. La contracción solo se da en la dirección del movimiento y no es una ilusión: es una consecuencia real de la geometría del espacio-tiempo.\n\n### ✅ Problema resuelto 3.2: El tubo del acelerador de partículas\n\n**Enunciado:** En el acelerador de partículas del CERN, los protones viajan a una velocidad de 0.999999c. Su factor de Lorentz es γ ≈ 707. Si un tubo del acelerador mide 1 km en el laboratorio, ¿cuánto mide desde la perspectiva del protón?\n\n**Solución paso a paso:**\n\n1. Datos: `L₀ = 1.000 m = 1 km`, `γ ≈ 707`, `L = ?`.\n2. Aplica la fórmula: `L = L₀ / γ`.\n3. Sustituye: `L = 1.000 m / 707 ≈ 1.41 metros`.\n\n**Respuesta:** Desde la perspectiva del protón, el tubo de 1 km mide poco más de **1.4 metros**. Para el protón, recorrer esos 1.4 metros a una velocidad casi igual a c es casi instantáneo. Para nosotros, recorre 1 km en 3.3 microsegundos.\n\n---"
+        "principiante": "## E = mc²\n\n$$ E = mc^2 $$\n\nLa energía contenida en la masa. Con c² = 9×10¹⁶ m²/s², un poco de masa es mucha energía.\n\n**Ejemplo resuelto:** energía de 1 gramo.\n\nE = 0.001 × 9×10¹⁶ = 9×10¹³ J.\n\n> **Dato curioso**\n> 9×10¹³ J es suficiente para un coche eléctrico... durante miles de años. Es la energía de ~2000 toneladas de TNT.\n\n\n<Connect title=\"De la relatividad a la energía nuclear\" sourceConcept=\"E = mc²\" targetConcept=\"Fisión y fusión\">\nLa diferencia de masa en las reacciones nucleares se convierte en energía según E = mc². La fisión (uranio) alimenta centrales nucleares; la fusión (hidrógeno) alimenta el Sol. Cada reacción convierte una fracción de la masa en energía —la misma ecuación que calculas en este taller.\n</Connect>\n",
+        "intermedio": "## Problemas resueltos de E = mc²\n\n```aeterna-exercise\nTITLE: Calcular la energía de la masa\nHINT: E = mc². Convierte la masa a kg.\nXP: 45\nCalcula la energía contenida en 0.1 gramos de masa (c = 3×10⁸ m/s).\nSOLUTION: m = 0.0001 kg. E = 0.0001 × 9×10¹⁶ = 9×10¹² J.\n```\n\nLa energía relativista total:\n\n$$ E = \\gamma mc^2 $$\n\nPara una partícula en movimiento, incluye la energía cinética relativista. Para v = 0, γ = 1 y E = mc².\n\n> **🔑 Concepto clave: La masa encierra energía**\n> E = mc² relaciona masa y energía con la constante c². En reacciones nucleares, la diferencia de masa se convierte en energía. Cada gramo de masa es 9×10¹³ J de energía.\n\n\n<Connect title=\"De la relatividad a la energía nuclear\" sourceConcept=\"E = mc²\" targetConcept=\"Fisión y fusión\">\nLa diferencia de masa en las reacciones nucleares se convierte en energía según E = mc². La fisión (uranio) alimenta centrales nucleares; la fusión (hidrógeno) alimenta el Sol. Cada reacción convierte una fracción de la masa en energía —la misma ecuación que calculas en este taller.\n</Connect>\n",
+        "avanzado": "## Fisión y fusión\n\n**Fisión**: un núcleo de uranio se divide, y la masa faltante se convierte en energía. ~200 MeV por fisión.\n\n**Fusión**: núcleos ligeros se unen. El Sol convierte 4 millones de toneladas de masa en energía por segundo.\n\nEn el Sol: E = mc² es el motor de la vida. Cada fotón que nos llega nació de masa convertida en energía.\n\n> **💡 Nota de frontera**\n> La energía de enlace nuclear (el defecto de masa) es la diferencia entre la masa del núcleo y la de sus componentes. E = mc² explica por qué los núcleos ligeros (fusión) y pesados (fisión) liberan energía: los más estables están en el medio de la curva de energía de enlace.\n\n\n<Connect title=\"De la relatividad a la energía nuclear\" sourceConcept=\"E = mc²\" targetConcept=\"Fisión y fusión\">\nLa diferencia de masa en las reacciones nucleares se convierte en energía según E = mc². La fisión (uranio) alimenta centrales nucleares; la fusión (hidrógeno) alimenta el Sol. Cada reacción convierte una fracción de la masa en energía —la misma ecuación que calculas en este taller.\n</Connect>\n"
       },
       "acciones": []
     },
     {
-      "id": "4-problemas-de-masa-y-energa-emc",
-      "titulo": "4. Problemas de masa y energía (E=mc²)",
+      "id": "paradoja-gemelos",
+      "titulo": "La paradoja de los gemelos resuelta",
       "niveles": {
-        "intermedio": "La fórmula de la **equivalencia masa-energía** es:\n\n**E = m · c²**\n\nDonde:\n- `E` es la energía equivalente a la masa `m`.\n- `c` es la velocidad de la luz (c ≈ 3 × 10⁸ m/s).\n\n### ✅ Problema resuelto 4.1: Energía contenida en un terrón de azúcar\n\n**Enunciado:** Un terrón de azúcar tiene una masa de 4 gramos (0.004 kg). Si toda esa masa pudiera convertirse en energía, ¿cuánta energía se liberaría? Compárala con el consumo eléctrico anual de un hogar medio español (unos 3.500 kWh, equivalentes a 1.26 × 10¹⁰ J).\n\n**Solución paso a paso:**\n\n1. Datos: `m = 0.004 kg`, `c = 3 × 10⁸ m/s`, `E = ?`.\n2. Aplica la fórmula: `E = m · c²`.\n3. Sustituye: `E = 0.004 kg × (3 × 10⁸ m/s)² = 0.004 × 9 × 10¹⁶ = 3.6 × 10¹⁴ julios`.\n4. Compáralo con el consumo anual del hogar: `(3.6 × 10¹⁴ J) / (1.26 × 10¹⁰ J) ≈ 28.571`.\n\n**Respuesta:** Un terrón de azúcar contiene **360 billones de julios**, suficiente para alimentar casi **29.000 hogares** durante un año.\n\n### ✅ Problema resuelto 4.2: La energía del Sol\n\n**Enunciado:** El Sol convierte aproximadamente 4.3 millones de toneladas de masa en energía cada segundo (4.3 × 10⁹ kg/s). ¿Cuánta energía produce el Sol por segundo?\n\n**Solución paso a paso:**\n\n1. Datos: `m = 4.3 × 10⁹ kg`, `c = 3 × 10⁸ m/s`, `E = ?`.\n2. Aplica la fórmula: `E = m · c²`.\n3. Sustituye: `E = (4.3 × 10⁹ kg) × (3 × 10⁸ m/s)² = 4.3 × 10⁹ × 9 × 10¹⁶ = 3.87 × 10²⁶ W`.\n\n**Respuesta:** El Sol produce **3.87 × 10²⁶ vatios** cada segundo. Esa energía bastaría para alimentar a la humanidad durante medio millón de años.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "5-la-paradoja-de-los-gemelos",
-      "titulo": "5. La paradoja de los gemelos",
-      "niveles": {
-        "intermedio": "### ✅ Problema resuelto 5.1: El reencuentro\n\n**Enunciado:** Dos gemelos, Ana y Luis, tienen 25 años. Ana viaja a una estrella situada a 20 años luz de la Tierra en una nave que viaja al 80% de la velocidad de la luz (v = 0.8c). Al llegar, da la vuelta y regresa a la misma velocidad. ¿Qué edad tiene cada uno cuando se reencuentran?\n\n**Solución paso a paso:**\n\n1. Datos: `v = 0.8c`, distancia total = 40 años luz (ida y vuelta), `γ = 1 / √(1 - 0.8²) = 1 / 0.6 ≈ 1.667`.\n2. Tiempo en la Tierra (Δt): `Δt = distancia / velocidad = 40 años luz / 0.8c = 50 años`. Luis tendrá 25 + 50 = **75 años**.\n3. Tiempo para Ana (Δt₀): `Δt₀ = Δt / γ = 50 años / 1.667 ≈ 30 años`. Ana tendrá 25 + 30 = **55 años**.\n4. Diferencia de edad: Ana ha rejuvenecido 20 años respecto a su gemelo.\n\n**Respuesta:** Cuando se reencuentran, **Luis tiene 75 años y Ana tiene 55 años**. Ana ha vivido 20 años menos que su gemelo terrestre.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "6-ejercicios-propuestos",
-      "titulo": "6. Ejercicios propuestos",
-      "niveles": {
-        "intermedio": "Intenta resolver estos ejercicios por tu cuenta y pon a prueba todo lo aprendido en la guía. Recuerda que el factor de Lorentz (γ) debes calcularlo en cada caso a partir de la velocidad dada.\n\n### ✏️ Dilatación del tiempo\n\n```aeterna-exercise\n**Ejercicio 1:** Una nave viaja al 85% de la velocidad de la luz (v = 0.85c). Según el reloj de la nave, el viaje dura 4 años. ¿Cuánto tiempo transcurre en la Tierra?\nPISTA: Calcula primero el factor gamma (γ = 1 / √(1 - v²/c²)) y luego aplícalo para hallar el tiempo dilatado en la Tierra (Δt = γ · Δt₀).\nRESPUESTA_CORRECTA: 7.59 años\n```\n\n```aeterna-exercise\n**Ejercicio 2:** Un astronauta quiere viajar a una estrella situada a 50 años luz y regresar. Si dispone de 20 años de tiempo propio (según su reloj), ¿a qué velocidad constante (en fracción de c) debe viajar?\nPISTA: Usa la fórmula de la dilatación del tiempo e itera probando velocidades, o despeja v de Δt₀ = (distancia / v) / γ.\nRESPUESTA_CORRECTA: 0.981c\n```\n\n```aeterna-exercise\n**Ejercicio 3:** Un reloj atómico en un satélite GPS viaja a 14.000 km/h (~3.888 m/s). Si el reloj en tierra mide un intervalo de 24 horas exactas, ¿cuánto tiempo menos mide el reloj del satélite debido a la relatividad especial?\nPISTA: Usa la aproximación γ ≈ 1 + v²/(2c²) para velocidades bajas, calcula el tiempo dilatado Δt = γ · Δt₀ y obtén la diferencia Δt - Δt₀.\nRESPUESTA_CORRECTA: 7.3 microsegundos\n```\n\n### ✏️ Contracción de longitudes\n\n```aeterna-exercise\n**Ejercicio 4:** Una barra metálica de 10 metros en reposo se mueve al 60% de la velocidad de la luz. ¿Qué longitud mide un observador en reposo?\nPISTA: Calcula el factor gamma para v = 0.6c y aplica la fórmula de la contracción de longitudes: L = L₀ / γ.\nRESPUESTA_CORRECTA: 8 metros\n```\n\n```aeterna-exercise\n**Ejercicio 5:** Desde la Tierra, una nave espacial mide 80 metros de largo cuando viaja al 95% de c. ¿Cuál es su longitud en reposo?\nPISTA: Despeja la longitud propia (L₀) de la fórmula de la contracción de longitudes: L₀ = L · γ.\nRESPUESTA_CORRECTA: 256 metros\n```\n\n```aeterna-exercise\n**Ejercicio 6:** Un electrón se mueve a 0.9999c. ¿Cuánto se contrae un objeto de 1 metro en su dirección de movimiento?\nPISTA: Calcula el factor γ para 0.9999c y aplica la contracción a 1 metro.\nRESPUESTA_CORRECTA: 1.41 cm\n```\n\n### ✏️ Equivalencia masa-energía\n\n```aeterna-exercise\n**Ejercicio 7:** Una central nuclear consume 1 kg de uranio en un día. Si solo el 0.1% de esa masa se convierte en energía, ¿cuánta energía se libera?\nPISTA: Calcula el 0.1% de 1 kg y usa la ecuación E = mc².\nRESPUESTA_CORRECTA: 9 × 10¹³ J\n```\n\n```aeterna-exercise\n**Ejercicio 8:** ¿Cuánta masa se convierte en energía en una bomba atómica que libera 8.4 × 10¹³ J?\nPISTA: Despeja la masa de la ecuación de Einstein: m = E / c².\nRESPUESTA_CORRECTA: 0.93 gramos\n```\n\n```aeterna-exercise\n**Ejercicio 9:** El Sol pierde 4.3 millones de toneladas por segundo. ¿Cuánta masa perderá en 5 mil millones de años? Exprésala en porciento de masa solar de pérdida (Masa del Sol ≈ 2 × 10³⁰ kg y 1 año ≈ 3.15 × 10⁷ s).\nPISTA: Multiplica la pérdida de masa por segundo por el total de segundos en 5 mil millones de años, y divídelo entre la masa total del Sol.\nRESPUESTA_CORRECTA: 0.034% de la masa solar\n```\n\n### ✏️ Paradoja de los gemelos y viajes interestelares\n\n```aeterna-exercise\n**Ejercicio 10:** Un gemelo viaja a 0.8c a una estrella a 30 años luz y vuelve. ¿Cuánto envejece cada uno durante el viaje de ida y vuelta?\nPISTA: El viaje total es 60 años luz ida y vuelta. Calcula el tiempo en la Tierra (distancia / velocidad) y el tiempo del viajero dividiendo por el factor γ.\nRESPUESTA_CORRECTA: Terrestre: 75 años, Viajero: 45 años\n```\n\n```aeterna-exercise\n**Ejercicio 11:** Una nave viaja al 99% de c hacia la galaxia de Andrómeda, situada a 2.5 millones de años luz. ¿Cuánto tiempo experimentan los tripulantes?\nPISTA: La distancia a Andrómeda es 2.5 millones de años luz. Calcula el tiempo del viaje terrestre asumiendo que solo es ida y divídelo por γ.\nRESPUESTA_CORRECTA: 356 mil años\n```\n\n```aeterna-exercise\n**Ejercicio 12:** Un astronauta de 40 años viaja a 0.7c durante 15 años según su reloj. Al regresar, su hijo tiene 50 años. ¿Qué edad tenía el hijo cuando el astronauta partió?\nPISTA: Calcula el tiempo transcurrido en la Tierra (Δt = Δt₀ · γ) donde Δt₀ es 15 años. Resta este valor a la edad actual del hijo para saber cuántos años tenía cuando el viaje inició.\nRESPUESTA_CORRECTA: 29 años\n\n```\n\n### Soluciones a los ejercicios propuestos\n\n**Ejercicio 1:**\n- `γ = 1 / √(1 - 0.85²) ≈ 1.898`. `Δt = γ × 4 años ≈ 7.59 años`. **Respuesta:** 7.59 años.\n\n**Ejercicio 2:**\n- Método iterativo: Δt = 100 años luz / v. Debe cumplirse Δt₀ = 20 = Δt / γ. Se prueba con v = 0.98c (γ ≈ 5.0): Δt = 100/0.98 ≈ 102 años, Δt₀ = 102/5 ≈ 20.4 años (cercano). Con v = 0.981c (γ ≈ 5.1): Δt ≈ 101.9, Δt₀ ≈ 19.98. **Respuesta:** v ≈ 0.981c.\n\n**Ejercicio 3:**\n- v²/c² ≈ 1.68 × 10⁻¹⁰; γ ≈ 1 + 8.4 × 10⁻¹¹; Δt₀ ≈ 24 h × 3600 s/h = 86.400 s; Δt = γ × Δt₀ ≈ 86.400 + 7.26 × 10⁻⁶ s. Diferencia: ~7.3 microsegundos. **Respuesta:** El reloj del satélite atrasa unos 7.3 µs por día (solo por relatividad especial; en realidad, el efecto gravitatorio lo adelanta más).\n\n**Ejercicio 4:**\n- γ = 1 / √(1 - 0.36) = 1.25; L = 10 m / 1.25 = 8 m. **Respuesta:** 8 metros.\n\n**Ejercicio 5:**\n- γ = 1 / √(1 - 0.95²) ≈ 3.202; L₀ = L × γ = 80 m × 3.202 ≈ 256 m. **Respuesta:** 256 metros.\n\n**Ejercicio 6:**\n- γ = 1 / √(1 - 0.9999²) ≈ 70.71; L = 1 m / 70.71 ≈ 0.0141 m = 1.41 cm. **Respuesta:** Mide 1.41 cm.\n\n**Ejercicio 7:**\n- masa convertida: 0.001 kg; E = 0.001 × (3×10⁸)² = 9 × 10¹³ J. **Respuesta:** 9 × 10¹³ J.\n\n**Ejercicio 8:**\n- m = E / c² = (8.4 × 10¹³) / (9 × 10¹⁶) ≈ 0.00093 kg = 0.93 gramos. **Respuesta:** Aproximadamente 0.93 gramos.\n\n**Ejercicio 9:**\n- Pérdida total = (4.3×10⁹ kg/s) × (1.577×10¹⁷ s) ≈ 6.78×10²⁶ kg. En masas solares: 6.78×10²⁶ / 2×10³⁰ ≈ 0.00034 masas solares. **Respuesta:** ~0.034% de la masa solar.\n\n**Ejercicio 10:**\n- γ = 1.667; Δt = 60/0.8 = 75 años (Tierra); Δt₀ = 75/1.667 ≈ 45 años (viajero). **Respuesta:** El terrestre suma 75 años; el viajero, 45 años.\n\n**Ejercicio 11:**\n- γ para 0.99c ≈ 7.09; Δt (Tierra) ≈ 2.5×10⁶ / 0.99 ≈ 2.525×10⁶ años; Δt₀ = 2.525×10⁶ / 7.09 ≈ 356.000 años. **Respuesta:** Los tripulantes envejecen 356 mil años.\n\n**Ejercicio 12:**\n- γ = 1 / √(1 - 0.7²) ≈ 1.4; Δt (Tierra) = 15 × 1.4 = 21 años. Si el hijo tiene ahora 50 años, al partir tenía 50 - 21 = 29 años. **Respuesta:** El hijo tenía 29 años cuando el astronauta partió.\n\n---\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-autoevaluacin-qu-tal-lo-has-hecho",
-      "titulo": "🧠 Autoevaluación: ¿Qué tal lo has hecho?",
-      "niveles": {
-        "intermedio": "| Ejercicios correctos | Diagnóstico |\n| :--- | :--- |\n| 0-4 | Repasa la parada teórica de relatividad especial. |\n| 5-8 | Buen trabajo. Conceptos generales claros, pero afina los detalles. |\n| 9-11 | Excelente. Dominas la relatividad especial cuantitativa. |\n| 12 | Sobresaliente. Listo para relatividad general. |\n\n---\n\n> **⚠️ Siguiente parada: Relatividad General**\n>\n> Has dominado la relatividad especial. Ahora prepárate para la relatividad general: la gravedad como curvatura del espacio-tiempo, los agujeros negros, las ondas gravitacionales y la expansión del universo. [Sigue la ruta →](#)\n\n---\n\n```aeterna-affiliate\nTITLE: Física para la ciencia y la tecnología\nAUTHOR: Tipler y Mosca\nIMAGE: https://m.media-amazon.com/images/I/81gLKAAE0rL._SL1500_.jpg\nLINK: https://amzn.to/4wjkLdf\nRATING: 4.8\nDESCRIPTION: Contiene capítulos enteros dedicados a la relatividad especial con decenas de problemas resueltos. Es una referencia imprescindible si quieres seguir practicando y profundizar en la física moderna.\n```"
+        "principiante": "## La paradoja de los gemelos\n\nUn gemelo viaja a alta velocidad y vuelve más joven. La paradoja: ¿no es el movimiento relativo?\n\nLa clave: el viajero **acelera** (para salir y regresar), el de la Tierra no. Esa asimetría rompe la simetría.\n\n**Ejemplo resuelto:** viaje a 0.8c de ida y vuelta a una estrella a 4 años-luz.\n\n- Distancia: 4 años-luz\n- Tiempo de viaje (Tierra): 2 × 4/0.8 = 10 años\n- γ = 1.667 → tiempo del viajero: 10/1.667 ≈ 6 años\n\nEl gemelo viajero regresa 4 años más joven.\n\n> **Dato que rompe el cerebro**\n> La paradoja no es una contradicción: está verificada. Relojes atómicos en aviones confirman que el que se mueve envejece menos, con precisión de nanosegundos.\n\n\n<Transfer targetDomain=\"Tecnología de navegación\" title=\"Transfiere: el GPS relativista\">\nLos satélites GPS necesitan corregir 38 μs/día de efectos relativistas. Investiga cómo se combinan la dilatación por velocidad (−7 μs/día) y la gravitatoria (+45 μs/día), y por qué el GPS sería inútil sin estas correcciones de relatividad.\n</Transfer>\n\n\n### Estima como un físico: ¿cómo de rápido para notar la relatividad?\n\nLa **estimación de orden de magnitud**: queremos que Δt = γΔt₀ difiera en un 1% (γ = 1.01). Entonces 1/(1−v²/c²) = 1.0201 → v²/c² ≈ 0.0198 → v/c ≈ 0.14 → v ≈ 42,000 km/s. ¡Casi 1/7 de la velocidad de la luz! Este cálculo muestra por qué no notamos la relatividad en la vida diaria: hace falta viajar a decenas de miles de km/s.\n\n",
+        "intermedio": "## El cálculo completo de la paradoja\n\n```aeterna-exercise\nTITLE: Calcular la edad de los gemelos\nHINT: Divide el tiempo terrestre entre γ para el viajero.\nXP: 55\nLos gemelos tienen 30 años. Uno viaja a una estrella a 5 años-luz a 0.9c y regresa. ¿Qué edad tiene cada uno al regreso? (γ ≈ 2.29)\nSOLUTION: Tiempo terrestre: 2×5/0.9 = 11.1 años. El gemelo de la Tierra tiene 30+11.1 = 41.1 años. El viajero: 11.1/2.29 = 4.85 años → 30+4.85 = 34.85 años. El viajero vuelve 6.25 años más joven.\n```\n\n```error-hunter\nTITLE: La asimetría de los gemelos\nCONTEXT: Un estudiante afirma: «Como el movimiento es relativo, cada gemelo ve al otro envejecer más lento. Al regresar, no hay forma de saber quién es mayor.»\nXP: 60\nSTEP_CORRECT: Los marcos no son equivalentes | El viajero experimenta aceleración; el que se queda no. Los marcos no inerciales no son simétricos.\nSTEP_CORRECT: El resultado es medible y único | El reloj que acelera marca menos tiempo. Es un efecto físico real.\nSTEP_ERROR: No hay forma de saber quién es mayor | Sí la hay: el viajero acelera y envejece menos. El resultado está confirmado por experimentos.\n```\n\n> **🔑 Concepto clave: La aceleración rompe la simetría**\n> La paradoja se resuelve porque el viajero acelera (marcos no inerciales), rompiendo la simetría. El gemelo que acelera envejece menos. No es una contradicción: es un efecto real medido.\n\n\n<Transfer targetDomain=\"Tecnología de navegación\" title=\"Transfiere: el GPS relativista\">\nLos satélites GPS necesitan corregir 38 μs/día de efectos relativistas. Investiga cómo se combinan la dilatación por velocidad (−7 μs/día) y la gravitatoria (+45 μs/día), y por qué el GPS sería inútil sin estas correcciones de relatividad.\n</Transfer>\n\n\n### Estima como un físico: ¿cómo de rápido para notar la relatividad?\n\nLa **estimación de orden de magnitud**: queremos que Δt = γΔt₀ difiera en un 1% (γ = 1.01). Entonces 1/(1−v²/c²) = 1.0201 → v²/c² ≈ 0.0198 → v/c ≈ 0.14 → v ≈ 42,000 km/s. ¡Casi 1/7 de la velocidad de la luz! Este cálculo muestra por qué no notamos la relatividad en la vida diaria: hace falta viajar a decenas de miles de km/s.\n\n",
+        "avanzado": "## El cálculo con tramos inerciales\n\nEl viaje de ida y vuelta se modela con tres tramos inerciales:\n\n1. Salida (alejándose a velocidad constante)\n2. Frenada y giro (aceleración instantánea idealizada)\n3. Regreso (acercándose a velocidad constante)\n\nCada tramo es un marco inercial; el giro es la asimetría. Sumando los tiempos propios de los tramos, el viajero acumula menos tiempo que el terrestre.\n\n> **💡 Nota de frontera**\n> El tratamiento riguroso usa la relatividad general (aceleración) o el análisis de marcos inerciales intermedios. Ambas coinciden. La paradoja de los gemelos es la puerta a preguntas profundas: el 'ahora' es relativo, pero el envejecimiento es real e inequívoco.\n\n\n<Transfer targetDomain=\"Tecnología de navegación\" title=\"Transfiere: el GPS relativista\">\nLos satélites GPS necesitan corregir 38 μs/día de efectos relativistas. Investiga cómo se combinan la dilatación por velocidad (−7 μs/día) y la gravitatoria (+45 μs/día), y por qué el GPS sería inútil sin estas correcciones de relatividad.\n</Transfer>\n\n\n### Estima como un físico: ¿cómo de rápido para notar la relatividad?\n\nLa **estimación de orden de magnitud**: queremos que Δt = γΔt₀ difiera en un 1% (γ = 1.01). Entonces 1/(1−v²/c²) = 1.0201 → v²/c² ≈ 0.0198 → v/c ≈ 0.14 → v ≈ 42,000 km/s. ¡Casi 1/7 de la velocidad de la luz! Este cálculo muestra por qué no notamos la relatividad en la vida diaria: hace falta viajar a decenas de miles de km/s.\n\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "Has completado el taller de relatividad especial. La herramienta maestra es el factor de Lorentz γ = 1/√(1−v²/c²), con el que calculas la dilatación del tiempo (Δt = γΔt₀), la contracción de longitudes (L = L₀/γ) y la energía relativista (E = γmc²). Dominas el método: identificar el marco de referencia, calcular γ, aplicar la fórmula correcta y verificar la plausibilidad (γ ≥ 1, efectos crecientes con la velocidad). Los problemas resueltos —muones que llegan a la Tierra, GPS que se corrige, gemelos que envejecen distinto, el Sol que convierte masa en energía— te mostraron que la relatividad no es abstracta: es la física que mantiene funcionando tu GPS y explica el motor del universo. La lección más importante del taller es metodológica: en relatividad, la intuición engaña y la matemática guía. Cada resultado aparentemente absurdo (un tiempo que se dilata, una nave que se encoge) es una predicción exacta verificada experimentalmente. Con estas herramientas, el espacio-tiempo dejó de ser un escenario: es un lugar con geometría, donde el tiempo y el espacio se transforman. Y esa geometría está a punto de curvarse —con la relatividad general, la gravedad se convertirá en la curvatura misma del espacio-tiempo.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Calcular el factor de Lorentz",
+        "enunciado": "Calcula γ para v = 0.5c. (√0.75 ≈ 0.866)",
+        "solucion": "v²/c² = 0.25. γ = 1/√(1−0.25) = 1/√0.75 = 1/0.866 ≈ 1.155.",
+        "xp": 40,
+        "pistas": [
+          "v²/c² = 0.25",
+          "γ = 1/√(0.75)"
+        ],
+        "opciones": [
+          {
+            "label": "1.155",
+            "correcta": true
+          },
+          {
+            "label": "2",
+            "correcta": false
+          },
+          {
+            "label": "0.866",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula v²/c²",
+          "Aplica la fórmula de γ"
+        ]
+      },
+      {
+        "titulo": "Dilatación básica",
+        "enunciado": "Un reloj en una nave a 0.6c (γ = 1.25) marca 8 s. ¿Cuánto tiempo pasa en la Tierra?",
+        "solucion": "Δt = γ·Δt₀ = 1.25 × 8 = 10 s.",
+        "xp": 40,
+        "pistas": [
+          "Δt = γ·Δt₀",
+          "Multiplica 1.25 × 8"
+        ],
+        "opciones": [
+          {
+            "label": "10 s",
+            "correcta": true
+          },
+          {
+            "label": "8 s",
+            "correcta": false
+          },
+          {
+            "label": "6.4 s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica Δt = γ·Δt₀",
+          "Calcula 1.25×8 = 10 s"
+        ]
+      },
+      {
+        "titulo": "Energía de un gramo",
+        "enunciado": "¿Cuánta energía contiene 1 gramo de masa? (c = 3×10⁸ m/s)",
+        "solucion": "E = mc² = 0.001 × 9×10¹⁶ = 9×10¹³ J.",
+        "xp": 35,
+        "pistas": [
+          "E = mc²",
+          "1 g = 0.001 kg"
+        ],
+        "opciones": [
+          {
+            "label": "9×10¹³ J",
+            "correcta": true
+          },
+          {
+            "label": "9×10⁸ J",
+            "correcta": false
+          },
+          {
+            "label": "3×10⁸ J",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Convierte a kg",
+          "Aplica E = mc²"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Contracción de longitudes",
+        "enunciado": "Una nave de 200 m en reposo viaja a 0.8c (γ = 1.667). ¿Qué longitud mide un observador externo?",
+        "solucion": "L = L₀/γ = 200/1.667 ≈ 120 m.",
+        "xp": 45,
+        "pistas": [
+          "L = L₀/γ",
+          "Divide 200 entre 1.667"
+        ],
+        "opciones": [
+          {
+            "label": "120 m",
+            "correcta": true
+          },
+          {
+            "label": "200 m",
+            "correcta": false
+          },
+          {
+            "label": "333 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica L = L₀/γ",
+          "Calcula 200/1.667 = 120 m"
+        ]
+      },
+      {
+        "titulo": "Tiempo propio",
+        "enunciado": "La Tierra mide 8 años para el viaje de una nave a 0.6c (γ = 1.25). ¿Cuánto envejece el tripulante?",
+        "solucion": "Δt₀ = Δt/γ = 8/1.25 = 6.4 años.",
+        "xp": 45,
+        "pistas": [
+          "Δt₀ = Δt/γ",
+          "Divide 8 entre 1.25"
+        ],
+        "opciones": [
+          {
+            "label": "6.4 años",
+            "correcta": true
+          },
+          {
+            "label": "8 años",
+            "correcta": false
+          },
+          {
+            "label": "10 años",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica Δt₀ = Δt/γ",
+          "Calcula 8/1.25 = 6.4 años"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "La paradoja de los gemelos",
+        "enunciado": "Un gemelo de 25 años viaja a una estrella a 3 años-luz a 0.6c (γ = 1.25) y regresa. ¿Qué edad tiene cada uno al volver?",
+        "solucion": "Tiempo terrestre: 2×3/0.6 = 10 años → el de la Tierra tiene 35. El viajero: 10/1.25 = 8 años → tiene 33. El viajero vuelve 2 años más joven.",
+        "xp": 55,
+        "pistas": [
+          "Tiempo terrestre = 2d/v",
+          "Tiempo del viajero = tiempo terrestre/γ"
+        ],
+        "opciones": [
+          {
+            "label": "Tierra 35, viajero 33",
+            "correcta": true
+          },
+          {
+            "label": "Ambos 35",
+            "correcta": false
+          },
+          {
+            "label": "Tierra 33, viajero 35",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula el tiempo terrestre",
+          "Divide entre γ para el viajero"
+        ]
+      },
+      {
+        "titulo": "Energía relativista",
+        "enunciado": "¿Cuál es la energía total de una partícula de 1 kg a 0.5c? (γ = 1.155, c = 3×10⁸ m/s)",
+        "solucion": "E = γmc² = 1.155 × 1 × 9×10¹⁶ ≈ 1.04×10¹⁷ J. La masa en reposo aporta 9×10¹⁶ J; el exceso es la energía cinética relativista.",
+        "xp": 55,
+        "pistas": [
+          "E = γmc²",
+          "Sustituye γ y c²"
+        ],
+        "opciones": [
+          {
+            "label": "1.04×10¹⁷ J",
+            "correcta": true
+          },
+          {
+            "label": "9×10¹⁶ J",
+            "correcta": false
+          },
+          {
+            "label": "1.5×10¹⁶ J",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica E = γmc²",
+          "Calcula 1.155×9×10¹⁶"
+        ]
+      }
+    ]
+  }
 }
