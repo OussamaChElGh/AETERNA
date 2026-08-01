@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
 import { getRoomAsset } from '@/data/roomEngineAssets';
 import { PlacedRoomItem, RoomCatalogItem } from '@/types/roomEngine';
-import { BookOpen, Plus, ChevronUp, ChevronDown } from 'lucide-react';
+import { BookOpen, Plus, ChevronUp, ChevronDown, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface InventoryDrawerProps {
@@ -12,13 +12,15 @@ interface InventoryDrawerProps {
   onToggle: () => void;
   onSpawnItem: (item: RoomCatalogItem) => void;
   placedItems: PlacedRoomItem[];
+  unlockedIds?: Set<string>;
 }
 
 export function InventoryDrawer({
   isOpen,
   onToggle,
   onSpawnItem,
-  placedItems
+  placedItems,
+  unlockedIds
 }: InventoryDrawerProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
@@ -46,16 +48,16 @@ export function InventoryDrawer({
 
   const getRarityBadge = (rarity: string) => {
     switch (rarity) {
-      case 'epic': return { text: 'Épico', color: 'bg-amber-500/10 text-amber-600 border-amber-500/30' };
-      case 'rare': return { text: 'Raro', color: 'bg-purple-500/10 text-purple-600 border-purple-500/30' };
-      case 'uncommon': return { text: 'Poco Común', color: 'bg-blue-500/10 text-blue-600 border-blue-500/30' };
-      default: return { text: 'Común', color: 'bg-emerald-500/10 text-emerald-600 border-emerald-500/30' };
+      case 'epic': return { text: 'Épico', color: 'bg-amber-500/10 text-amber-400 border-amber-500/30' };
+      case 'rare': return { text: 'Raro', color: 'bg-purple-500/10 text-purple-400 border-purple-500/30' };
+      case 'uncommon': return { text: 'Poco Común', color: 'bg-blue-500/10 text-blue-400 border-blue-500/30' };
+      default: return { text: 'Común', color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' };
     }
   };
 
   return (
     <div className={cn(
-      "fixed bottom-4 left-1/2 -translate-x-1/2 z-[900] bg-[#FAF8F5]/95 dark:bg-[#16161F]/95 backdrop-blur-md border-2 border-brand-gold/60 rounded-3xl shadow-2xl transition-all duration-300 font-sans max-w-4xl w-[92vw]",
+      "fixed bottom-4 left-1/2 -translate-x-1/2 z-[900] bg-brand-ink/95 backdrop-blur-md border-2 border-brand-gold/40 rounded-3xl shadow-[0_0_60px_rgba(212,175,55,0.15)] transition-all duration-300 font-sans max-w-4xl w-[92vw]",
       isOpen ? "p-5 max-h-[340px]" : "p-3 max-h-[58px] overflow-hidden"
     )}>
       {/* Header Bar */}
@@ -65,7 +67,7 @@ export function InventoryDrawer({
       >
         <div className="flex items-center gap-2.5">
           <BookOpen className="text-brand-gold" size={17} />
-          <h3 className="font-serif font-bold text-sm text-brand-ink dark:text-white uppercase tracking-wider">
+          <h3 className="font-serif font-bold text-sm text-brand-offwhite uppercase tracking-wider">
             Colección del Conocimiento
           </h3>
           <span className="text-[10px] text-brand-gold font-mono font-bold bg-brand-gold/10 px-2.5 py-0.5 rounded-full border border-brand-gold/30">
@@ -94,7 +96,7 @@ export function InventoryDrawer({
                   "px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider rounded-xl transition-all border shrink-0 select-none",
                   activeCategory === cat.id
                     ? "bg-brand-gold text-brand-ink border-brand-gold font-black shadow-sm"
-                    : "bg-white dark:bg-white/5 text-brand-ink/70 dark:text-brand-offwhite/70 border-black/10 dark:border-white/10 hover:text-brand-gold"
+                    : "bg-white/5 text-brand-offwhite/70 border-white/10 hover:text-brand-gold"
                 )}
               >
                 {cat.label}
@@ -108,16 +110,27 @@ export function InventoryDrawer({
               const instanceCount = placedItems.filter(p => p.catalogItemId === item.id).length;
               const asset = getRoomAsset(item.assetId);
               const badge = getRarityBadge(item.rarity);
+              const isLocked = unlockedIds ? !unlockedIds.has(item.id) : false;
 
               return (
                 <div
                   key={item.id}
                   onClick={(e) => {
                     e.stopPropagation();
-                    onSpawnItem(item);
+                    if (!isLocked) onSpawnItem(item);
                   }}
-                  className="p-3 rounded-2xl border border-brand-gold/30 bg-white dark:bg-white/5 hover:border-brand-gold hover:shadow-xl transition-all cursor-pointer flex items-center gap-3 relative group select-none active:scale-98"
+                  className={cn(
+                    "p-3 rounded-2xl border transition-all flex items-center gap-3 relative group select-none",
+                    isLocked
+                      ? "border-white/5 bg-black/20 cursor-not-allowed opacity-50 grayscale"
+                      : "border-brand-gold/30 bg-white/5 hover:border-brand-gold hover:shadow-xl cursor-pointer active:scale-98"
+                  )}
                 >
+                  {isLocked && (
+                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-[1px]">
+                      <Lock size={20} className="text-brand-gold/60" />
+                    </div>
+                  )}
                   <div className="w-12 h-12 relative shrink-0 bg-brand-gold/10 rounded-xl p-1 border border-brand-gold/20 flex items-center justify-center">
                     <Image
                       src={asset?.src || '/images/aeterna_master_sofa.png'}
@@ -127,7 +140,7 @@ export function InventoryDrawer({
                     />
                   </div>
 
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-1.5 mb-0.5">
                       <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-brand-gold">
                         {getDisciplineLabel(item.discipline)}
@@ -137,13 +150,17 @@ export function InventoryDrawer({
                       </span>
                     </div>
 
-                    <h4 className="font-serif font-bold text-xs text-brand-ink dark:text-white leading-tight mb-1">
+                    <h4 className="font-serif font-bold text-xs text-brand-offwhite leading-tight mb-1">
                       {item.name}
                     </h4>
 
-                    <div className="flex items-center justify-between text-[9px] text-brand-muted font-mono">
-                      <span>{instanceCount > 0 ? `En habitación: ${instanceCount}` : 'Disponible'}</span>
-                      <Plus size={12} className="text-brand-gold group-hover:scale-125 transition-transform" />
+                    <div className="flex items-center justify-between text-[9px] text-brand-offwhite/40 font-mono">
+                      {isLocked ? (
+                        <span>Bloqueado · Completar para desbloquear</span>
+                      ) : (
+                        <span>{instanceCount > 0 ? `En habitación: ${instanceCount}` : 'Disponible'}</span>
+                      )}
+                      {!isLocked && <Plus size={12} className="text-brand-gold group-hover:scale-125 transition-transform" />}
                     </div>
                   </div>
                 </div>

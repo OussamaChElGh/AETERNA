@@ -1,9 +1,48 @@
-import { UserRoomData, PlacedRoomItem, PlacementValidationResult } from '@/types/roomEngine';
-import { getCatalogItem } from '@/data/roomEngineCatalog';
+import { UserRoomData, PlacedRoomItem, PlacementValidationResult, RoomCatalogItem } from '@/types/roomEngine';
+import { getCatalogItem, ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
 import { getRoomAsset } from '@/data/roomEngineAssets';
 import { AETERNA_ROOM_LAYOUT, isTileOnFloor, isTileOnWall } from '@/data/roomLayoutData';
 import { db } from '@/lib/firebase';
 import { doc, setDoc } from 'firebase/firestore';
+
+export interface RoomUnlockContext {
+  completedPaths: string[];
+  completedLayers?: Record<string, string[]>;
+}
+
+export function isCatalogItemUnlocked(item: RoomCatalogItem, ctx: RoomUnlockContext): boolean {
+  const cond = item.unlockCondition;
+  if (!cond || cond.type === 'default') return true;
+
+  if (cond.type === 'article_completed' && cond.targetId) {
+    return ctx.completedPaths.some(p =>
+      p.endsWith(cond.targetId!) || cond.targetId!.endsWith(p)
+    );
+  }
+
+  if (cond.type === 'layer_completed' && cond.targetId) {
+    const layers = ctx.completedLayers?.[cond.targetId] || [];
+    return layers.includes(cond.layer || '');
+  }
+
+  return false;
+}
+
+export function evaluateRoomUnlocks(
+  ctx: RoomUnlockContext
+): { unlockedIds: Set<string>; lockedIds: Set<string> } {
+  const unlockedIds = new Set<string>();
+  const lockedIds = new Set<string>();
+  for (const item of ROOM_ENGINE_CATALOG) {
+    if (isCatalogItemUnlocked(item, ctx)) {
+      unlockedIds.add(item.id);
+    } else {
+      lockedIds.add(item.id);
+    }
+  }
+  return { unlockedIds, lockedIds };
+}
+
 
 export const GRID_SIZE_X = 32;
 export const GRID_SIZE_Y = 32;

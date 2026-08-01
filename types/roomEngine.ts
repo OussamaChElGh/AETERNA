@@ -25,6 +25,11 @@ export interface RoomCatalogItem {
   assetId: string;
   placementSurface: 'floor' | 'wall' | 'desk';
   canRotate: boolean;
+  unlockCondition?: {
+    type: 'article_completed' | 'layer_completed' | 'default';
+    targetId?: string;
+    layer?: string;
+  };
 }
 
 export interface PlacedRoomItem {

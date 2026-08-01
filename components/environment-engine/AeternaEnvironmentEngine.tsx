@@ -1,10 +1,15 @@
 'use client';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { EnvironmentLayout, EnvironmentTheme, EnvironmentPlacedItem } from '@/types/environmentEngine';
 import { Room } from './Room';
 import { RoomEngineHUD } from '../room-engine/RoomEngineHUD';
 import { InventoryDrawer } from '../room-engine/InventoryDrawer';
+import { RelicWall } from './RelicWall';
 import { RoomCatalogItem as LegacyCatalogItem } from '@/types/roomEngine';
+import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
+import { useAuth } from '@/context/AuthContext';
+import { useGamification } from '@/context/GamificationContext';
+import { Starfield } from '@/components/Starfield';
 import { ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -20,18 +25,42 @@ export function AeternaEnvironmentEngine({
   initialItems = []
 }: AeternaEnvironmentEngineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(initialItems);
+  const { user } = useAuth();
+  const { progress } = useGamification();
+  const userId = user?.uid || 'anonymous';
+
+  const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(() => {
+    const loaded = loadRoomEngineState();
+    return loaded.placedItems.length > 0 ? loaded.placedItems : initialItems;
+  });
   const [editMode, setEditMode] = useState<boolean>(false);
   const [showGrid, setShowGrid] = useState<boolean>(true);
   const [showDebugMode, setShowDebugMode] = useState<boolean>(false);
   const [selectedInstanceId, setSelectedInstanceId] = useState<string | null>(null);
   const [inventoryOpen, setInventoryOpen] = useState<boolean>(true);
+  const [relicWallOpen, setRelicWallOpen] = useState<boolean>(false);
 
   const [scaleFactor, setScaleFactor] = useState(1.0);
   const [zoom, setZoom] = useState(1.0);
   const [pan, setPan] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [isPanning, setIsPanning] = useState(false);
   const panStartRef = useRef<{ startX: number; startY: number; initialPanX: number; initialPanY: number } | null>(null);
+
+  // Gamification unlock evaluation
+  const unlockCtx = {
+    completedPaths: progress.completedPaths || [],
+    completedLayers: progress.completedLayers || {}
+  };
+  const { unlockedIds } = evaluateRoomUnlocks(unlockCtx);
+
+  const mountedRef = useRef(false);
+  useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
+
+  // Auto-save on placedItems change (debounced to localStorage + Firestore)
+  useEffect(() => {
+    if (!mountedRef.current) return;
+    saveRoomEngineStateDebounced({ roomId: 'main_2d_room', theme: 'academic_library', gridSizeX: layout.gridSizeX, gridSizeY: layout.gridSizeY, placedItems }, userId);
+  }, [placedItems, userId, layout]);
 
   useEffect(() => {
     const updateScale = () => {
@@ -47,7 +76,6 @@ export function AeternaEnvironmentEngine({
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
-    // Furniture items call e.stopPropagation(), so any event reaching here is background
     setSelectedInstanceId(null);
     setIsPanning(true);
     panStartRef.current = {
@@ -86,6 +114,7 @@ export function AeternaEnvironmentEngine({
   };
 
   const handleSpawnItem = (item: LegacyCatalogItem) => {
+    if (!unlockedIds.has(item.id)) return;
     const newInstanceId = `inst_${item.id}_${Date.now()}`;
     const isWallItem = item.placementSurface === 'wall';
     const newItem: EnvironmentPlacedItem = {
@@ -142,7 +171,8 @@ export function AeternaEnvironmentEngine({
   };
 
   const handleReset = () => {
-    setPlacedItems(initialItems);
+    const loaded = loadRoomEngineState();
+    setPlacedItems(loaded.placedItems);
     setSelectedInstanceId(null);
     setPan({ x: 0, y: 0 });
     setZoom(1.0);
@@ -154,8 +184,15 @@ export function AeternaEnvironmentEngine({
   };
 
   return (
-    <div className="min-h-screen bg-[#F4F1EA] dark:bg-[#0E0E12] p-4 sm:p-6 md:p-8 font-sans text-brand-ink dark:text-white transition-colors duration-500 relative">
-      <div className="max-w-6xl mx-auto pb-24">
+    <div className="min-h-screen bg-brand-ink p-4 sm:p-6 md:p-8 font-sans text-brand-offwhite relative overflow-x-hidden selection:bg-brand-gold selection:text-brand-ink">
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute inset-0 bg-brand-ink/40" />
+        <div className="absolute inset-0 bg-engraving opacity-[0.03]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.02)_1px,transparent_1px)] bg-[size:100px_100px]" />
+      </div>
+
+      <div className="max-w-6xl mx-auto pb-24 relative z-10">
         {/* HUD Navigation Header */}
         <RoomEngineHUD
           editMode={editMode}
@@ -166,6 +203,9 @@ export function AeternaEnvironmentEngine({
           setShowDebugMode={setShowDebugMode}
           onReset={handleReset}
           itemCount={placedItems.length}
+          unlockedCount={unlockedIds.size}
+          onToggleRelicWall={() => setRelicWallOpen(!relicWallOpen)}
+          relicWallOpen={relicWallOpen}
         />
 
         {/* ENVIRONMENT ENGINE VIEWPORT */}
@@ -176,10 +216,13 @@ export function AeternaEnvironmentEngine({
           onPointerUp={handlePointerUp}
           onWheel={handleWheel}
           className={cn(
-            "relative w-full aspect-[16/10] min-h-[500px] bg-[#1E1712] rounded-3xl border-2 border-brand-gold/50 shadow-2xl overflow-hidden select-none transition-all duration-300 environment-viewport",
+            "relative w-full aspect-[16/10] min-h-[500px] bg-[#14110D] rounded-3xl border-2 border-brand-gold/30 shadow-[0_0_60px_rgba(212,175,55,0.1)] overflow-hidden select-none transition-all duration-300 environment-viewport",
             isPanning ? "cursor-grabbing" : "cursor-grab"
           )}
         >
+          {/* Starfield atmospheric layer */}
+          <Starfield className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
+
           {/* CAMERA PAN & ZOOM WRAPPER */}
           <div 
             style={{
@@ -210,13 +253,13 @@ export function AeternaEnvironmentEngine({
           </div>
 
           {/* CAMERA ZOOM & PAN CONTROLS */}
-          <div className="absolute top-4 right-4 z-40 flex items-center gap-1.5 bg-[#FAF8F5]/80 dark:bg-[#16161D]/80 backdrop-blur-md p-1.5 rounded-2xl border border-brand-gold/30 shadow-lg">
+          <div className="absolute top-4 right-4 z-40 flex items-center gap-1.5 bg-brand-ink/80 backdrop-blur-md p-1.5 rounded-2xl border border-brand-gold/30 shadow-lg">
             <span className="text-[10px] text-brand-gold font-mono font-bold px-2 py-1 bg-brand-gold/10 rounded-lg border border-brand-gold/20">
               Cámara Pan
             </span>
             <button
               onClick={() => setZoom(prev => Math.min(1.4, prev + 0.1))}
-              className="p-2 hover:bg-brand-gold/20 text-brand-ink dark:text-white rounded-xl transition-colors"
+              className="p-2 hover:bg-brand-gold/20 text-brand-offwhite rounded-xl transition-colors"
               title="Acercar Cámara"
             >
               <ZoomIn size={15} />
@@ -226,7 +269,7 @@ export function AeternaEnvironmentEngine({
             </span>
             <button
               onClick={() => setZoom(prev => Math.max(0.7, prev - 0.1))}
-              className="p-2 hover:bg-brand-gold/20 text-brand-ink dark:text-white rounded-xl transition-colors"
+              className="p-2 hover:bg-brand-gold/20 text-brand-offwhite rounded-xl transition-colors"
               title="Alejar Cámara"
             >
               <ZoomOut size={15} />
@@ -239,6 +282,9 @@ export function AeternaEnvironmentEngine({
               <Maximize2 size={14} />
             </button>
           </div>
+
+          {/* Relic Wall Overlay */}
+          <RelicWall open={relicWallOpen} onClose={() => setRelicWallOpen(false)} />
         </div>
 
         {/* Inventory Drawer (Only in Edit Mode) */}
@@ -248,6 +294,7 @@ export function AeternaEnvironmentEngine({
             onToggle={() => setInventoryOpen(!inventoryOpen)}
             onSpawnItem={handleSpawnItem}
             placedItems={placedItems}
+            unlockedIds={unlockedIds}
           />
         )}
       </div>

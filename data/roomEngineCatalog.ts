@@ -10,7 +10,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'rare',
     assetId: 'asset_telescope_brass',
     placementSurface: 'floor',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'layer_completed', targetId: 'ondas-y-optica', layer: 'principiante' }
   },
   {
     id: 'sofa_leather',
@@ -32,7 +33,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'epic',
     assetId: 'asset_bookshelf_wood',
     placementSurface: 'floor',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'guia-maestra-de-fisica' }
   },
   {
     id: 'desk_academic',
@@ -65,7 +67,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'rare',
     assetId: 'asset_globe_brass',
     placementSurface: 'floor',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'cosmologia' }
   },
   {
     id: 'window_gothic',
@@ -76,7 +79,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'epic',
     assetId: 'asset_window_gothic',
     placementSurface: 'wall',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'metodo-cientifico' }
   },
   {
     id: 'ivy_wall',
@@ -98,7 +102,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'uncommon',
     assetId: 'asset_clock_wall',
     placementSurface: 'wall',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'termodinamica' }
   },
   {
     id: 'fireplace_gothic',
@@ -120,7 +125,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'rare',
     assetId: 'asset_astrolabe_stand',
     placementSurface: 'floor',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'movimiento-circular-satelites' }
   },
   {
     id: 'rug_persian',
@@ -142,7 +148,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'uncommon',
     assetId: 'asset_tapestry_alchemy',
     placementSurface: 'wall',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'mecanica-cuantica' }
   },
   {
     id: 'sconce_candelabra',
@@ -164,7 +171,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'rare',
     assetId: 'asset_window_arched_sunlight',
     placementSurface: 'wall',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'materia-y-energia' }
   },
   {
     id: 'window_stained_rose',
@@ -175,7 +183,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'epic',
     assetId: 'asset_window_gothic_tight',
     placementSurface: 'wall',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'relatividad-especial' }
   },
   {
     id: 'window_stone_arch_gothic',
@@ -186,7 +195,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'legendary',
     assetId: 'asset_window_stone_arch_gothic',
     placementSurface: 'wall',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'leyes-newton-movimiento' }
   },
   {
     id: 'door_gothic_double',
@@ -208,7 +218,8 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'legendary',
     assetId: 'asset_chair_baroque_royal',
     placementSurface: 'floor',
-    canRotate: true
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'fisica-particulas' }
   }
 ];
 
