@@ -476,10 +476,10 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 > La física busca los principios más fundamentales — los que aplican a todo el universo, siempre, sin excepción. La química estudia cómo se combinan los átomos; la física estudia por qué los átomos existen y por qué tienen las propiedades que tienen. La física fundamenta a las demás ciencias, aunque la relación no siempre es evidente.
 
 > **¿Necesito matemáticas para entender física?**
-> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar poesía no hace falta ser lingüista.
+> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
 
 > **¿Cuál es el mayor problema sin resolver en física?**
-> La incompatibilidad entre relatividad general y mecánica cuántica. Las dos teorías más verificadas de la historia son matemáticamente incompatibles cuando se aplican juntas. En los agujeros negros y el Big Bang, donde deberían funcionar simultáneamente, producen absurdos matemáticos. Resolverlo — la Teoría del Todo — es el mayor desafío de la física teórica.
+> La incompatibilidad entre relatividad general y mecánica cuántica. Son las dos teorías de mayor éxito de la historia de la ciencia, pero sus matemáticas chocan de frente en los extremos del cosmos: en los agujeros negros y en el instante inicial del Big Bang producen resultados sin sentido. Resolver esa contradicción — la Teoría del Todo — es el mayor desafío de la física teórica.
 
 > **¿Por qué importa la física en la vida cotidiana?**
 > Porque toda tecnología moderna es física aplicada. El GPS (relatividad), el microondas (electromagnetismo), la resonancia magnética (mecánica cuántica), el transistor de tu teléfono (física del estado sólido). Y porque la física enseña a pensar: a distinguir evidencia de opinión, a hacer preguntas precisas, a aceptar la incertidumbre como punto de partida en lugar de como fracaso.
@@ -995,10 +995,10 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 > La física busca los principios más fundamentales — los que aplican a todo el universo, siempre, sin excepción. La química estudia cómo se combinan los átomos; la física estudia por qué los átomos existen y por qué tienen las propiedades que tienen. La física fundamenta a las demás ciencias, aunque la relación no siempre es evidente.
 
 > **¿Necesito matemáticas para entender física?**
-> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar poesía no hace falta ser lingüista.
+> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
 
 > **¿Cuál es el mayor problema sin resolver en física?**
-> La incompatibilidad entre relatividad general y mecánica cuántica. Las dos teorías más verificadas de la historia son matemáticamente incompatibles cuando se aplican juntas. En los agujeros negros y el Big Bang, donde deberían funcionar simultáneamente, producen absurdos matemáticos. Resolverlo — la Teoría del Todo — es el mayor desafío de la física teórica.
+> La incompatibilidad entre relatividad general y mecánica cuántica. Son las dos teorías de mayor éxito de la historia de la ciencia, pero sus matemáticas chocan de frente en los extremos del cosmos: en los agujeros negros y en el instante inicial del Big Bang producen resultados sin sentido. Resolver esa contradicción — la Teoría del Todo — es el mayor desafío de la física teórica.
 
 > **¿Por qué importa la física en la vida cotidiana?**
 > Porque toda tecnología moderna es física aplicada. El GPS (relatividad), el microondas (electromagnetismo), la resonancia magnética (mecánica cuántica), el transistor de tu teléfono (física del estado sólido). Y porque la física enseña a pensar: a distinguir evidencia de opinión, a hacer preguntas precisas, a aceptar la incertidumbre como punto de partida en lugar de como fracaso.
@@ -1459,10 +1459,10 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 > La física busca los principios más fundamentales — los que aplican a todo el universo, siempre, sin excepción. La química estudia cómo se combinan los átomos; la física estudia por qué los átomos existen y por qué tienen las propiedades que tienen. La física fundamenta a las demás ciencias, aunque la relación no siempre es evidente.
 
 > **¿Necesito matemáticas para entender física?**
-> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar poesía no hace falta ser lingüista.
+> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
 
 > **¿Cuál es el mayor problema sin resolver en física?**
-> La incompatibilidad entre relatividad general y mecánica cuántica. Las dos teorías más verificadas de la historia son matemáticamente incompatibles cuando se aplican juntas. En los agujeros negros y el Big Bang, donde deberían funcionar simultáneamente, producen absurdos matemáticos. Resolverlo — la Teoría del Todo — es el mayor desafío de la física teórica.
+> La incompatibilidad entre relatividad general y mecánica cuántica. Son las dos teorías de mayor éxito de la historia de la ciencia, pero sus matemáticas chocan de frente en los extremos del cosmos: en los agujeros negros y en el instante inicial del Big Bang producen resultados sin sentido. Resolver esa contradicción — la Teoría del Todo — es el mayor desafío de la física teórica.
 
 > **¿Por qué importa la física en la vida cotidiana?**
 > Porque toda tecnología moderna es física aplicada. El GPS (relatividad), el microondas (electromagnetismo), la resonancia magnética (mecánica cuántica), el transistor de tu teléfono (física del estado sólido). Y porque la física enseña a pensar: a distinguir evidencia de opinión, a hacer preguntas precisas, a aceptar la incertidumbre como punto de partida en lugar de como fracaso.
