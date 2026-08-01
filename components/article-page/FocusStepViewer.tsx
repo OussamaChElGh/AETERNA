@@ -94,12 +94,33 @@ export function FocusStepViewer({
 
   const isFirstLevel = currentLevel === 'principiante' || (availableLevels && availableLevels[0] === currentLevel);
   const showIntroStep = isFirstLevel;
-  const totalSteps = displaySecciones.length + (showIntroStep ? 2 : 1);
+
+  // Dividir cada sección larga en sub-hitos por sus encabezados "###" para
+  // que cada tarjeta sea corta y enfocada (evita muros de texto densos).
+  const flattenedSteps = useMemo(() => {
+    const out: any[] = [];
+    for (const sec of displaySecciones) {
+      const content = sec.activeContent || "";
+      const parts = content.split(/(?=^###\s+)/m).filter((p: string) => p.trim().length > 0);
+      if (parts.length <= 1) {
+        out.push({ ...sec, activeTitle: sec.activeTitle, activeContent: content });
+      } else {
+        parts.forEach((part: string, i: number) => {
+          const h = part.match(/^###\s+(.+)$/m);
+          const title = h ? h[1].trim() : (i === 0 ? sec.activeTitle : `${sec.activeTitle} · continuación`);
+          out.push({ ...sec, activeTitle: title, activeContent: part.trim() });
+        });
+      }
+    }
+    return out;
+  }, [displaySecciones]);
+
+  const totalSteps = flattenedSteps.length + (showIntroStep ? 2 : 1);
   const isIntro = showIntroStep && currentStep === 0;
   const isCompletion = currentStep === totalSteps - 1;
 
   const sectionIndex = showIntroStep ? currentStep - 1 : currentStep;
-  const activeSection = (!isIntro && !isCompletion) ? displaySecciones[sectionIndex] : null;
+  const activeSection = (!isIntro && !isCompletion) ? flattenedSteps[sectionIndex] : null;
 
   useEffect(() => {
     setCurrentStep(0);
@@ -183,7 +204,7 @@ export function FocusStepViewer({
       <div className="flex items-center justify-between border-b border-black/10 dark:border-white/10 pb-4">
         <div className="flex items-center gap-3">
           <span className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] text-[#8B6914] dark:text-brand-gold">
-            HITO {String(sectionIndex + 1).padStart(2, '0')} / {String(displaySecciones.length).padStart(2, '0')}
+            HITO {String(sectionIndex + 1).padStart(2, '0')} / {String(flattenedSteps.length).padStart(2, '0')}
           </span>
         </div>
         <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-brand-ink/60 dark:text-brand-muted">
@@ -417,14 +438,14 @@ export function FocusStepViewer({
                     {currentStep > 0 && <CheckCircle2 size={14} className="text-emerald-500" />}
                   </button>
 
-                  {displaySecciones.map((sec, idx) => {
+                  {flattenedSteps.map((sec, idx) => {
                     const stepNum = idx + 1;
                     const isCurrent = currentStep === stepNum;
                     const isDone = currentStep > stepNum;
 
                     return (
                       <button
-                        key={sec.id}
+                        key={`${sec.id}-${idx}`}
                         onClick={() => { setCurrentStep(stepNum); setShowDrawer(false); }}
                         className={cn(
                           "w-full text-left p-3.5 rounded-xl border text-xs transition-all flex items-start gap-3",
