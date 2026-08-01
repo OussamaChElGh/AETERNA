@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { CATEGORIES_DATA } from '@/data/categories';
-import { GuidePageClient } from '@/components/GuidePageClient';
+import { BranchPageClient } from '@/components/BranchPageClient';
+import { getAllArticles } from '@/lib/server-content';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -30,10 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-import { getAllArticles } from '@/lib/server-content';
-
 export default async function CategoryGuidePage({ params }: Props) {
   const { category } = await params;
   const articles = getAllArticles();
-  return <GuidePageClient overrideCategory={category} initialArticles={articles} />;
+  return <BranchPageClient overrideCategory={category} initialArticles={articles} />;
 }
