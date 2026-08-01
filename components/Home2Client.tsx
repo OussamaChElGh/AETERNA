@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useMotionTemplate } from 'motion/react';
-import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, X } from 'lucide-react';
+import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, Lock, Clock, ChevronDown } from 'lucide-react';
 import { useGamification } from '@/context/GamificationContext';
 import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/components/LearningPath';
 import { NexusNode3D } from '@/components/NexusNode3D';
@@ -22,7 +22,18 @@ const ORBITS = [
   { id: "outer", radius: 48, duration: 56, phase: 0.75, categories: ["aplicadas", "idiomas"] },
 ];
 
-function OrbitalNode({ category, angle, radius, duration, active, delay = 0, onClick }: any) {
+const LIVE_CATEGORIES = new Set(["ciencias_naturales"]);
+
+const SPARKLES = Array.from({ length: 10 }, (_, i) => {
+  const angle = (i / 10) * Math.PI * 2;
+  return {
+    x: Math.cos(angle) * 30,
+    y: Math.sin(angle) * 30,
+    delay: Math.random() * 0.15,
+  };
+});
+
+function OrbitalNode({ category, angle, radius, duration, live, active, delay = 0, onClick, onHover, onLeave }: any) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0 }}
@@ -41,22 +52,57 @@ function OrbitalNode({ category, angle, radius, duration, active, delay = 0, onC
       >
         <button
           onClick={onClick}
-          className="group pointer-events-auto relative w-full h-full cursor-pointer"
+          onMouseEnter={onHover}
+          onMouseLeave={onLeave}
+          className={cn(
+            "group pointer-events-auto relative w-full h-full cursor-pointer transition-all",
+            live ? "" : "cursor-default"
+          )}
         >
+          {/* Nodo visual */}
           <div className={cn(
-            "w-full h-full rounded-full flex items-center justify-center transition-all duration-300 p-1.5",
-            active
-              ? "bg-brand-cosmic/10 border-2 border-brand-cosmic shadow-[0_0_50px_rgba(14,165,233,0.5)] scale-110"
-              : "bg-brand-ink/50 backdrop-blur-md border border-brand-gold/30 hover:border-brand-cosmic hover:shadow-[0_0_35px_rgba(14,165,233,0.3)]"
+            "w-full h-full rounded-full flex items-center justify-center transition-all duration-300 p-1.5 relative",
+            live
+              ? active
+                ? "bg-brand-cosmic/10 border-2 border-brand-cosmic shadow-[0_0_50px_rgba(14,165,233,0.5)] scale-110"
+                : "bg-brand-ink/50 backdrop-blur-md border border-brand-gold/40 hover:border-brand-cosmic hover:shadow-[0_0_35px_rgba(14,165,233,0.3)]"
+              : "bg-brand-ink/30 border border-brand-offwhite/10 opacity-50 saturate-0 hover:opacity-80 hover:saturate-50"
           )}>
-            <NexusNode3D id={category.id} active={active} />
+            <NexusNode3D id={category.id} active={active && live} />
+            {!live && (
+              <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-brand-ink border border-brand-gold/30 flex items-center justify-center z-20">
+                <Lock size={10} className="text-brand-gold/60" />
+              </div>
+            )}
           </div>
+
+          {/* Destello de partículas al hacer hover (solo nodos vivos) */}
+          {live && active && (
+            <motion.div className="absolute inset-0 pointer-events-none">
+              {SPARKLES.map((s, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ x: 0, y: 0, opacity: 1, scale: 0 }}
+                  animate={{ x: s.x, y: s.y, opacity: [1, 1, 0], scale: [0, 1, 0.3] }}
+                  transition={{ duration: 0.8, delay: s.delay, repeat: Infinity, repeatDelay: 1.2, ease: "easeOut" }}
+                  className="absolute left-1/2 top-1/2 w-1 h-1 rounded-full bg-brand-gold shadow-[0_0_6px_rgba(212,175,55,0.8)]"
+                />
+              ))}
+            </motion.div>
+          )}
+
+          {/* Label */}
           <div className={cn(
             "absolute top-full mt-4 left-1/2 -translate-x-1/2 flex flex-col items-center transition-all duration-500 pointer-events-none",
             active ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
           )}>
-            <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.35em] text-brand-cosmic whitespace-nowrap bg-brand-ink/80 px-3 py-1 backdrop-blur-md border border-brand-cosmic/30">
-              {category.name}
+            <span className={cn(
+              "text-[9px] md:text-[10px] font-bold uppercase tracking-[0.35em] whitespace-nowrap px-3 py-1 backdrop-blur-md border",
+              live
+                ? "text-brand-cosmic bg-brand-ink/80 border-brand-cosmic/30"
+                : "text-brand-gold/60 bg-brand-ink/80 border-brand-gold/20"
+            )}>
+              {live ? category.name : "Próximamente"}
             </span>
           </div>
         </button>
@@ -93,7 +139,7 @@ function pickDailyFragment(content: Record<string, { introduccion?: string; secc
 export function Home2Client({ levels, articles, articleContent }: Home2ClientProps) {
   const { progress } = useGamification();
   const [mounted, setMounted] = useState(false);
-  const [activeNode, setActiveNode] = useState<string | null>(null);
+  const [hoverNode, setHoverNode] = useState<string | null>(null);
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -123,7 +169,8 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
   }
 
   const dailyFragment = mounted ? pickDailyFragment(articleContent, articles) : null;
-  const selectedCategory = CATEGORIES_DATA.find(c => c.id === activeNode);
+  const focusedCategory = hoverNode ? CATEGORIES_DATA.find(c => c.id === hoverNode) : null;
+  const focusedIsLive = focusedCategory ? LIVE_CATEGORIES.has(focusedCategory.id) : false;
 
   return (
     <div className="home-page-container bg-brand-ink min-h-screen relative selection:bg-brand-gold selection:text-brand-ink overflow-x-hidden">
@@ -146,8 +193,6 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         <Starfield className="absolute inset-0 w-full h-full pointer-events-none" />
 
         <motion.div
-          animate={{ x: activeNode ? "-15%" : "0%" }}
-          transition={{ duration: 0.8, ease: "circOut" }}
           className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
         >
           {/* Sistema de anillos 3D */}
@@ -193,6 +238,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                     const cat = CATEGORIES_DATA.find((c) => c.id === catId);
                     if (!cat) return null;
                     const angle = orbit.phase + (i / orbit.categories.length) * Math.PI * 2;
+                    const live = LIVE_CATEGORIES.has(catId);
                     return (
                       <OrbitalNode
                         key={catId}
@@ -200,9 +246,16 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                         angle={angle}
                         radius={orbit.radius}
                         duration={orbit.duration}
-                        active={activeNode === catId}
+                        live={live}
+                        active={hoverNode === catId}
                         delay={0.8 + i * 0.15}
-                        onClick={() => setActiveNode(activeNode === catId ? null : catId)}
+                        onHover={() => setHoverNode(catId)}
+                        onLeave={() => setHoverNode(null)}
+                        onClick={() => {
+                          if (live && cat.path) {
+                            window.location.href = cat.path;
+                          }
+                        }}
                       />
                     );
                   })}
@@ -216,12 +269,12 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
               animate={{ scale: 1, rotate: 0 }}
               className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none"
             >
-              <div className="relative group cursor-pointer pointer-events-auto" onClick={() => setActiveNode(null)}>
+              <div className="relative group pointer-events-none">
                 <div className="absolute inset-0 rounded-full bg-brand-gold opacity-20 blur-[60px] animate-pulse group-hover:opacity-40 transition-opacity" />
                 <div className="absolute inset-0 rounded-full bg-brand-cosmic opacity-20 blur-[80px] animate-pulse scale-125 mix-blend-screen group-hover:opacity-50 transition-opacity" />
-                <div className="w-40 h-40 md:w-56 md:h-56 border-2 border-brand-gold hover:border-brand-cosmic flex items-center justify-center bg-brand-ink/80 backdrop-blur-3xl shadow-[0_0_80px_rgba(14,165,233,0.15)] group-hover:shadow-[0_0_100px_rgba(14,165,233,0.3)] transition-all p-5 relative">
+                <div className="w-40 h-40 md:w-56 md:h-56 border-2 border-brand-gold flex items-center justify-center bg-brand-ink/80 backdrop-blur-3xl shadow-[0_0_80px_rgba(14,165,233,0.15)] transition-all p-5 relative">
                   <div className="absolute inset-0 z-0 overflow-hidden opacity-40">
-                    <NexusNode3D id="core" active={!!activeNode} />
+                    <NexusNode3D id="core" active={!!hoverNode} />
                   </div>
                   <div className="absolute inset-2 border border-brand-gold/20 pointer-events-none" />
                   <div className="text-center relative z-10 w-full">
@@ -241,76 +294,70 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                     </div>
                   </div>
                 </div>
+
+                {/* Holograma central - información del nodo enfocado */}
+                <AnimatePresence>
+                  {focusedCategory && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 16 }}
+                      transition={{ duration: 0.4, ease: "circOut" }}
+                      className="absolute top-full mt-8 left-1/2 -translate-x-1/2 w-[320px] md:w-[420px] text-center"
+                    >
+                      {focusedIsLive ? (
+                        <div className="relative border border-brand-gold/40 bg-brand-ink/80 backdrop-blur-xl px-6 py-5">
+                          <div className="absolute top-0 left-0 w-2 h-2 border-l border-t border-brand-gold" />
+                          <div className="absolute top-0 right-0 w-2 h-2 border-r border-t border-brand-gold" />
+                          <div className="absolute bottom-0 left-0 w-2 h-2 border-l border-b border-brand-gold" />
+                          <div className="absolute bottom-0 right-0 w-2 h-2 border-r border-b border-brand-gold" />
+                          <div className="flex items-center justify-center gap-3 mb-3">
+                            <focusedCategory.icon size={16} className="text-brand-gold" />
+                            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-brand-gold">
+                              {focusedCategory.name}
+                            </span>
+                          </div>
+                          <p className="font-serif text-2xl text-brand-offwhite mb-2 italic">Portal abierto</p>
+                          <p className="text-[10px] text-brand-offwhite/50 mb-5 leading-relaxed">
+                            {articles.length} guías disponibles · Física completa
+                          </p>
+                          {focusedCategory.path && (
+                            <a
+                              href={focusedCategory.path}
+                              onClick={(e) => {
+                                if (!LIVE_CATEGORIES.has(focusedCategory.id)) return;
+                              }}
+                              className="inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.4em] text-brand-gold border border-brand-gold/40 px-6 py-3 hover:bg-brand-gold hover:text-brand-ink transition-all"
+                            >
+                              Entrar <ArrowRight size={12} />
+                            </a>
+                          )}
+                        </div>
+                      ) : (
+                        <div className="inline-flex items-center gap-3 border border-brand-offwhite/10 bg-brand-ink/70 backdrop-blur-md px-6 py-3">
+                          <Clock size={12} className="text-brand-offwhite/40" />
+                          <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-brand-offwhite/40">
+                            {focusedCategory.name} · Próximamente
+                          </span>
+                        </div>
+                      )}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </motion.div>
           </motion.div>
         </motion.div>
 
-        {/* LATERAL BRANCH PANEL */}
-        <AnimatePresence>
-          {activeNode && selectedCategory && (
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute right-0 top-0 h-full w-full md:w-[500px] lg:w-[700px] bg-brand-ink border-l border-brand-gold/30 z-50 overflow-hidden flex flex-col"
-            >
-              <div className="absolute inset-0 bg-engraving opacity-10 pointer-events-none" />
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="p-12 flex items-center justify-between border-b border-brand-gold/10 bg-brand-ink/50 backdrop-blur-xl">
-                  <div className="flex items-center gap-6">
-                    <div className="w-12 h-12 rounded-full border border-brand-gold/40 flex items-center justify-center text-brand-gold">
-                      <selectedCategory.icon size={20} />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-brand-gold">Navegador del Nexo</span>
-                  </div>
-                  <button
-                    onClick={() => setActiveNode(null)}
-                    className="w-12 h-12 rounded-full border border-brand-gold/10 flex items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-ink transition-all"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-
-                <div className="flex-1 overflow-y-auto p-12 custom-scrollbar">
-                  <div className="mb-16">
-                    <Link href={selectedCategory.path || `/guias/${selectedCategory.id}`}
-                      className="group relative flex flex-col items-center text-center bg-brand-ink border border-brand-gold/20 p-16 hover:border-brand-gold/50 transition-all shadow-2xl overflow-hidden backdrop-blur-sm">
-                      <div className="w-20 h-20 rounded-full bg-brand-gold text-brand-ink flex items-center justify-center mb-8 shadow-[0_0_30px_rgba(212,175,55,0.3)] group-hover:scale-110 transition-transform duration-500">
-                        <Sparkles size={32} />
-                      </div>
-                      <h2 className="text-4xl font-serif text-brand-offwhite mb-4 group-hover:text-brand-gold transition-colors italic">Guía Maestra de {selectedCategory.name}</h2>
-                      <div className="flex items-center gap-4 text-brand-gold text-[10px] font-bold uppercase tracking-[0.5em] border-t border-brand-gold/10 pt-8 w-full justify-center">
-                        <span>Establecer Sincronización</span>
-                        <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                      </div>
-                    </Link>
-                  </div>
-
-                  <div className="grid grid-cols-1 gap-4">
-                    {selectedCategory.subcategories.map((sub, idx) => (
-                      <motion.div key={sub.id} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 + (idx * 0.05) }}>
-                        <Link href={`${selectedCategory.path || `/guias/${selectedCategory.id}`}/${sub.id}`}
-                          className="group flex flex-col gap-6 bg-brand-ink border border-white/[0.05] p-8 hover:bg-white/[0.03] hover:border-brand-gold/30 transition-all shadow-inner">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-6">
-                              <div className="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-brand-ink transition-colors">
-                                <sub.icon size={18} />
-                              </div>
-                              <h3 className="text-2xl font-serif text-brand-offwhite group-hover:text-brand-gold transition-colors">{sub.name}</h3>
-                            </div>
-                            <ArrowRight size={16} className="text-brand-gold/20 group-hover:text-brand-gold transition-colors" />
-                          </div>
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Indicador de scroll */}
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
+        >
+          <span className="text-[8px] font-bold uppercase tracking-[0.5em] text-brand-gold/60">Explorar</span>
+          <ChevronDown size={16} className="text-brand-gold/60" />
+        </motion.div>
       </section>
 
       {/* EL CAMINO DEL SABIO — metro map */}
