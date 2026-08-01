@@ -208,24 +208,35 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         {/* Starfield base — llena las bandas donde la imagen no llega */}
         <Starfield className="absolute inset-0 w-full h-full pointer-events-none" />
 
-        {/* Halo luminoso detrás de la imagen — funde con el espacio */}
-        <img 
-          src="/images/hero-fantasy-room.png"
-          className="absolute inset-0 w-full h-full object-contain object-center scale-115 blur-[110px] opacity-70 pointer-events-none"
-          alt=""
-          aria-hidden="true"
-        />
+        {/* Contenedor con el aspect ratio exacto de la imagen — centrado */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            className="relative"
+            style={{
+              width: 'min(92vw, 1000px, calc(100vh * 1.328))',
+              aspectRatio: '1445 / 1088'
+            }}
+          >
+            {/* Halo luminoso detrás — funde con el espacio */}
+            <img 
+              src="/images/hero-fantasy-room.png"
+              className="absolute inset-0 w-full h-full object-contain object-center scale-[1.2] blur-[110px] opacity-70"
+              alt=""
+              aria-hidden="true"
+            />
 
-        {/* Estancia de fantasía — bordes rectos difuminados, fusionados con el espacio */}
-        <img 
-          src="/images/hero-fantasy-room.png"
-          className="absolute inset-0 w-full h-full object-contain object-center pointer-events-none"
-          style={{
-            maskImage: 'radial-gradient(ellipse 62% 62% at center, black 38%, transparent 78%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 62% 62% at center, black 38%, transparent 78%)'
-          }}
-          alt="Estancia del Sabio"
-        />
+            {/* Estancia de fantasía — bordes difuminados, fusionados con el espacio */}
+            <img 
+              src="/images/hero-fantasy-room.png"
+              className="absolute inset-0 w-full h-full object-contain object-center"
+              style={{
+                maskImage: 'radial-gradient(ellipse 62% 62% at center, black 35%, transparent 75%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 62% 62% at center, black 35%, transparent 75%)'
+              }}
+              alt="Estancia del Sabio"
+            />
+          </div>
+        </div>
 
           <motion.div
             className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
