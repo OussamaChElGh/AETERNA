@@ -37,16 +37,28 @@ export function AeternaFormula({
 
   const rawFormula = formula || expression || '';
 
+  // Normalizar backslashes: el contenido puede llegar con doble escape desde el
+  // pipeline JSON→markdown→parser. KaTeX necesita un solo backslash por comando.
+  // Colapsamos repetidamente los pares \\ → \ hasta que no queden (las fórmulas
+  // LaTeX usan \frac, \sqrt... con un solo backslash; los saltos de matriz \\ se
+  // pierden, pero Aeterna no usa matrices en sus bloques de fórmula).
+  let normalizedFormula = rawFormula;
+  let prev = '';
+  while (normalizedFormula !== prev) {
+    prev = normalizedFormula;
+    normalizedFormula = normalizedFormula.replace(/\\\\/g, '\\');
+  }
+
   // Render KaTeX HTML safely
   let renderedHtml = '';
-  if (rawFormula) {
+  if (normalizedFormula) {
     try {
-      renderedHtml = katex.renderToString(rawFormula, {
+      renderedHtml = katex.renderToString(normalizedFormula, {
         displayMode: true,
         throwOnError: false
       });
     } catch (err) {
-      renderedHtml = rawFormula;
+      renderedHtml = normalizedFormula;
     }
   }
 
