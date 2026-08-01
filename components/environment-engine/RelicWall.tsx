@@ -29,7 +29,12 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
 
   const completedLayerTotal = Object.values(completedLayers).reduce((s, arr) => s + (Array.isArray(arr) ? arr.length : 0), 0);
   const unlockedCount = posterEntries.filter(p => p.unlocked).length;
-  const emptyPosterCount = Math.max(0, completedLayerTotal - unlockedCount);
+
+  // Rellena la grilla con recuadros vacíos reales para que el contador
+  // corresponda a lo que se ve en pantalla.
+  const MIN_SLOTS = 6;
+  const emptySlots = Math.max(0, MIN_SLOTS - posterEntries.length);
+  const slots = [...posterEntries, ...Array.from({ length: emptySlots }, (_, i) => ({ id: `empty-${i}`, name: 'Reliquia por descubrir', unlocked: false, unlocksOn: { article: '', layer: '' }, icon: null as string | null }))];
 
   return (
     <AnimatePresence>
@@ -61,11 +66,11 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
               <h3 className="font-serif text-3xl text-brand-offwhite">Muro de Reliquias</h3>
             </div>
             <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-gold mb-6">
-              {unlockedCount} desbloqueadas {emptyPosterCount > 0 && `· ${emptyPosterCount} recuadros vacíos`}
+              {unlockedCount} de {posterEntries.length} desbloqueadas {emptySlots > 0 && `· ${emptySlots} recuadros vacíos`}
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {posterEntries.map((poster) => (
+              {slots.map((poster) => (
                 <div
                   key={poster.id}
                   title={poster.unlocked ? `${poster.name}: desbloqueada en ${poster.unlocksOn.article} (${poster.unlocksOn.layer})` : 'Bloqueada'}

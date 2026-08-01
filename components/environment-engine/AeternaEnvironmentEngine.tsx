@@ -6,7 +6,7 @@ import { RoomEngineHUD } from '../room-engine/RoomEngineHUD';
 import { InventoryDrawer } from '../room-engine/InventoryDrawer';
 import { RelicWall } from './RelicWall';
 import { RoomCatalogItem as LegacyCatalogItem } from '@/types/roomEngine';
-import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
+import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks, hasRoomEngineState } from '@/lib/roomEngineStorage';
 import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
 import { Starfield } from '@/components/Starfield';
@@ -30,8 +30,12 @@ export function AeternaEnvironmentEngine({
   const userId = user?.uid || 'anonymous';
 
   const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(() => {
-    const loaded = loadRoomEngineState();
-    return loaded.placedItems.length > 0 ? loaded.placedItems : initialItems;
+    const hasSaved = hasRoomEngineState();
+    if (hasSaved) {
+      const loaded = loadRoomEngineState();
+      return loaded.placedItems.length > 0 ? loaded.placedItems : initialItems;
+    }
+    return initialItems;
   });
   const [editMode, setEditMode] = useState<boolean>(false);
   const [showGrid, setShowGrid] = useState<boolean>(true);
@@ -206,6 +210,7 @@ export function AeternaEnvironmentEngine({
           unlockedCount={unlockedIds.size}
           onToggleRelicWall={() => setRelicWallOpen(!relicWallOpen)}
           relicWallOpen={relicWallOpen}
+          showDebugToggle={false}
         />
 
         {/* ENVIRONMENT ENGINE VIEWPORT */}
@@ -222,6 +227,21 @@ export function AeternaEnvironmentEngine({
         >
           {/* Starfield atmospheric layer */}
           <Starfield className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
+
+          {/* Isometric grid overlay (guide) */}
+          {showGrid && (
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                backgroundImage:
+                  'linear-gradient(60deg, rgba(212,175,55,0.08) 1px, transparent 1px), linear-gradient(120deg, rgba(212,175,55,0.08) 1px, transparent 1px)',
+                backgroundSize: '56px 97px',
+                backgroundPosition: 'center center',
+                maskImage: 'radial-gradient(ellipse 45% 40% at 50% 55%, black 30%, transparent 75%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 45% 40% at 50% 55%, black 30%, transparent 75%)'
+              }}
+            />
+          )}
 
           {/* CAMERA PAN & ZOOM WRAPPER */}
           <div 

@@ -100,14 +100,11 @@ export interface AssetMetadata {
   hasDedicatedShadowAsset: boolean;
 }
 
-export interface EnvironmentPlacedItem {
-  instanceId: string;
-  catalogItemId: string;
-  tileX: number;
-  tileY: number;
-  tileZ: number;
-  rotation: 0 | 90 | 180 | 270;
-}
+// Unificado: EnvironmentPlacedItem es un alias de PlacedRoomItem (types/roomEngine.ts)
+// para evitar la duplicación de tipos estructuralmente idénticos.
+import type { PlacedRoomItem } from './roomEngine';
+
+export type EnvironmentPlacedItem = PlacedRoomItem;
 
 export interface PlacementValidationResult {
   isValid: boolean;

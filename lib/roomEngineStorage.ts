@@ -15,8 +15,12 @@ export function isCatalogItemUnlocked(item: RoomCatalogItem, ctx: RoomUnlockCont
   if (!cond || cond.type === 'default') return true;
 
   if (cond.type === 'article_completed' && cond.targetId) {
+    const target = cond.targetId;
     return ctx.completedPaths.some(p =>
-      p.endsWith(cond.targetId!) || cond.targetId!.endsWith(p)
+      p === target ||
+      p.endsWith(`/${target}`) ||
+      p.endsWith(`article_read_${target}`) ||
+      p.endsWith(`_${target}`)
     );
   }
 
@@ -186,6 +190,8 @@ export function validatePlacement(
   const invalidTiles: { tileX: number; tileY: number }[] = [];
   const occupancyGrid = buildOccupancyGrid(placedItems, currentInstanceId || undefined);
 
+  let failureReason: 'out_of_floor' | 'wall_mismatch' | 'collision' | 'invalid_elevation' | 'blocked' | undefined;
+
   for (let dx = 0; dx < effectiveW; dx++) {
     for (let dy = 0; dy < (isTargetWall ? 1 : effectiveH); dy++) {
       for (let dz = 0; dz < targetZSpan; dz++) {
@@ -197,10 +203,12 @@ export function validatePlacement(
         if (isTargetWall) {
           if (!isTileOnWall(cx, cy)) {
             invalidTiles.push({ tileX: cx, tileY: cy });
+            failureReason = failureReason || 'wall_mismatch';
           }
         } else {
           if (!isTileOnFloor(cx, cy)) {
             invalidTiles.push({ tileX: cx, tileY: cy });
+            failureReason = failureReason || 'out_of_floor';
           }
         }
 
@@ -222,6 +230,7 @@ export function validatePlacement(
 
           if (!hasSupportTable) {
             invalidTiles.push({ tileX: cx, tileY: cy });
+            failureReason = failureReason || 'invalid_elevation';
           }
         }
 
@@ -231,6 +240,7 @@ export function validatePlacement(
           const collisionKey = `${cx}_${cy}_${cz}`;
           if (occupancyGrid.has(collisionKey)) {
             invalidTiles.push({ tileX: cx, tileY: cy });
+            failureReason = failureReason || 'collision';
           }
         }
       }
@@ -240,7 +250,7 @@ export function validatePlacement(
   if (invalidTiles.length > 0) {
     return {
       isValid: false,
-      reason: catalogItem.placementSurface === 'wall' ? 'wall_mismatch' : 'out_of_floor',
+      reason: failureReason || (catalogItem.placementSurface === 'wall' ? 'wall_mismatch' : 'out_of_floor'),
       invalidTiles
     };
   }
@@ -358,6 +368,18 @@ export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
   }
 ];
 
+export function hasRoomEngineState(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    return !!(parsed && Array.isArray(parsed.placedItems) && parsed.placedItems.length > 0);
+  } catch {
+    return false;
+  }
+}
+
 export function loadRoomEngineState(): UserRoomData {
   const defaultState: UserRoomData = {
     roomId: 'main_2d_room',
@@ -441,7 +463,9 @@ export function saveRoomEngineStateDebounced(state: UserRoomData, userId: string
 
     if (userId && userId !== 'anonymous' && db) {
       try {
-        const roomRef = doc(db, 'users', userId, 'knowledge_room', 'main');
+        // Ruta dedicada del Room Engine. Separada de la del sistema legacy
+        // (RoomRepository escribe a knowledge_room/main con otro esquema).
+        const roomRef = doc(db, 'users', userId, 'knowledge_room', 'engine_main');
         setDoc(roomRef, cleanState, { merge: true }).catch(err => {
           console.warn('Firestore sync failed:', err);
         });

@@ -41,7 +41,7 @@ export function InventoryDrawer({
       case 'mathematics': return 'Matemáticas';
       case 'philosophy': return 'Filosofía';
       case 'biology': return 'Biología';
-      case 'computer_science': return 'Humanidades';
+      case 'computer_science': return 'Computación';
       default: return 'General';
     }
   };

@@ -3,9 +3,7 @@ import React from 'react';
 import { EnvironmentLayout, EnvironmentTheme, EnvironmentPlacedItem } from '@/types/environmentEngine';
 import { FloorRenderer } from './FloorRenderer';
 import { WallRenderer } from './WallRenderer';
-import { ArchitectureRenderer } from './ArchitectureRenderer';
 import { FurnitureRenderer } from './FurnitureRenderer';
-import { LightingRenderer } from './renderers/LightingRenderer';
 import { ParticleRenderer } from './renderers/ParticleRenderer';
 
 interface RoomProps {
@@ -56,10 +54,7 @@ export function Room({
       {/* 2. WallRenderer (WallNorth, WallWest, Corner, Window) */}
       <WallRenderer layout={layout} theme={theme} placedItems={placedItems} />
 
-      {/* 3. ArchitectureRenderer (Fireplace, Beam, Stair) */}
-      <ArchitectureRenderer layout={layout} theme={theme} />
-
-      {/* 4. FurnitureRenderer (Placed User Items with Contact Shadows & Depth Sorting) */}
+      {/* 3. FurnitureRenderer (Placed User Items with Contact Shadows & Depth Sorting) */}
       <FurnitureRenderer
         placedItems={placedItems}
         editMode={editMode}
@@ -73,10 +68,7 @@ export function Room({
         scaleFactor={scaleFactor}
       />
 
-      {/* 5. LightingRenderer (Volumetric Sunlight Rays & Warm Thermal Ambient Pass) */}
-      <LightingRenderer theme={theme} />
-
-      {/* 6. ParticleRenderer (Floating Dust Motes Pass) */}
+      {/* 4. ParticleRenderer (Floating Dust Motes Pass) */}
       <ParticleRenderer theme={theme} />
     </div>
   );

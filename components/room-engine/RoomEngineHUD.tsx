@@ -16,6 +16,7 @@ interface RoomEngineHUDProps {
   unlockedCount?: number;
   onToggleRelicWall?: () => void;
   relicWallOpen?: boolean;
+  showDebugToggle?: boolean;
 }
 
 export function RoomEngineHUD({
@@ -29,7 +30,8 @@ export function RoomEngineHUD({
   itemCount,
   unlockedCount = 0,
   onToggleRelicWall,
-  relicWallOpen = false
+  relicWallOpen = false,
+  showDebugToggle = true
 }: RoomEngineHUDProps) {
   return (
     <div className="bg-brand-ink/80 backdrop-blur-md border border-brand-gold/30 rounded-2xl p-3.5 mb-4 shadow-xl flex flex-wrap items-center justify-between gap-4 font-sans transition-all duration-300">
@@ -104,19 +106,21 @@ export function RoomEngineHUD({
             </button>
 
             {/* DEBUG GEOMETRY TOGGLE */}
-            <button
-              onClick={() => setShowDebugMode(!showDebugMode)}
-              className={cn(
-                "p-2 rounded-xl border text-xs transition-all flex items-center gap-1.5 font-mono font-bold select-none",
-                showDebugMode
-                  ? "bg-emerald-500/20 border-emerald-500 text-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]"
-                  : "bg-white/5 border-white/10 text-brand-offwhite/60 hover:text-emerald-500"
-              )}
-              title="Alternar Debug Geometría Lógica (Verde = Suelo, Azul = Pared, Rojo = Fuera)"
-            >
-              <Wrench size={15} />
-              <span className="hidden sm:inline text-[11px]">Debug Geometría</span>
-            </button>
+            {showDebugToggle && (
+              <button
+                onClick={() => setShowDebugMode(!showDebugMode)}
+                className={cn(
+                  "p-2 rounded-xl border text-xs transition-all flex items-center gap-1.5 font-mono font-bold select-none",
+                  showDebugMode
+                    ? "bg-emerald-500/20 border-emerald-500 text-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]"
+                    : "bg-white/5 border-white/10 text-brand-offwhite/60 hover:text-emerald-500"
+                )}
+                title="Alternar Debug Geometría Lógica (Verde = Suelo, Azul = Pared, Rojo = Fuera)"
+              >
+                <Wrench size={15} />
+                <span className="hidden sm:inline text-[11px]">Debug Geometría</span>
+              </button>
+            )}
 
             {/* Reset Layout */}
             <button
