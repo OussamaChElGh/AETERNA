@@ -6,7 +6,6 @@ import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, Lock, Clock, Ch
 import { useGamification } from '@/context/GamificationContext';
 import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/components/LearningPath';
 import { NexusNode3D } from '@/components/NexusNode3D';
-import { HeroRoomScene } from '@/components/home2/HeroRoomScene';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
@@ -189,11 +188,17 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         onMouseMove={handleMouseMove}
         className="relative h-[80vh] min-h-[600px] flex items-center justify-center p-4 overflow-hidden"
       >
-        {/* Habitación isométrica de fondo */}
-        <HeroRoomScene>
+        {/* Fondo: estancia de fantasía */}
+        <img 
+          src="/images/hero-fantasy-room.png"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          alt="Estancia del Sabio"
+        />
+        <div className="absolute inset-0 bg-brand-ink/35 pointer-events-none" />
+
           <motion.div
             className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
-            style={{ paddingTop: "8%" }}
+            style={{ paddingTop: "6%" }}
           >
             {/* Sistema de anillos 3D */}
             <motion.div
@@ -348,7 +353,6 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
             </motion.div>
           </motion.div>
           </motion.div>
-        </HeroRoomScene>
 
         {/* CTA — Personalizar Estancia */}
         <motion.div
