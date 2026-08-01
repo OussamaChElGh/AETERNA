@@ -1,110 +1,318 @@
 {
   "metadata": {
-    "title": "Movimiento Circular y Satélites: El Baile de los Cuerpos en el Espacio",
-    "description": "De la aceleración centrípeta a la gravedad orbital. Por qué la Luna no cae, qué mantiene a los satélites en órbita y cómo entender el movimiento circular desde el punto de vista de las fuerzas reales.",
+    "title": "Movimiento Circular y Satélites: La Danza de las Órbitas",
+    "description": "Guía completa del movimiento circular: aceleración centrípeta, fuerza centrípeta, órbitas y satélites, gravedad orbital, leyes de Kepler y velocidad de escape. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "movimiento-circular-satelites",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "movimiento circular",
       "aceleración centrípeta",
       "fuerza centrípeta",
-      "gravedad",
-      "satélites",
       "órbitas",
-      "velocidad orbital",
+      "satélites",
+      "gravedad",
       "leyes de Kepler",
-      "fuerza centrífuga"
+      "velocidad de escape"
     ],
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
-    "date": "2026-05-11",
-    "nivel": "2",
-    "orden": "5.1",
+    "image": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-09",
+    "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
-    "insignia": "Señor de lo Clásico",
+    "orden": 5,
+    "insignia": "Orbitador de Estrellas",
     "tipo": "theory",
     "prerequisites": [
       "cinematica",
-      "leyes-newton-movimiento",
-      "vectores"
+      "leyes-newton-movimiento"
     ],
-    "breadcrumb": [
-      "El Reino de lo Clásico",
-      "Movimiento Circular y Satélites"
-    ]
+    "breadcrumb": "Física / El Reino de lo Clásico / Movimiento Circular y Satélites"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  La Luna no cae sobre nosotros, y los satélites no se pierden en el espacio. Una sola fuerza —la gravedad— coreografía la danza de las órbitas.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> En el movimiento circular uniforme, la velocidad es constante pero la dirección cambia constantemente — eso es aceleración. La **aceleración centrípeta** apunta hacia el centro y es producida por una **fuerza centrípeta** (en órbitas, la gravedad). Newton descubrió que la Luna 'cae' hacia la Tierra continuamente, pero nunca llega: cae alrededor de ella. Ese es el secreto de las órbitas, los satélites y las leyes de Kepler.\n\n**[IMAGEN SUGERIDA: Ilustración de la Tierra con un satélite en órbita, mostrando la trayectoria circular y la fuerza centrípeta apuntando al centro. Pie de foto: \"Un satélite cae alrededor de la Tierra.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-por-qu-la-luna-no-cae-sobre-nosotros",
-      "titulo": "▶️ Bienvenida: ¿Por qué la Luna no cae sobre nosotros?",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: la Luna que cae sin caer",
       "niveles": {
-        "principiante": "A lo largo de la historia, la humanidad pensó que los cielos eran perfectos y que el movimiento en la Tierra era diferente al movimiento de las estrellas. Isaac Newton rompió esa idea con una manzana.\n\nNewton se dio cuenta de que la fuerza que hace caer una manzana de un árbol es la **misma** que mantiene a la Luna orbitando alrededor de la Tierra. La Luna está \"cayendo\" constantemente hacia la Tierra, pero su velocidad lateral es tan alta que siempre \"falla\" al intentar chocar con nosotros. Ese es el secreto de las órbitas.\n\nEl **movimiento circular** es el puente entre la caída libre y el viaje interplanetario. Es la física de las rotondas, de los lavarropas y de la vida misma, que orbita alrededor de un sol en una galaxia que gira en un universo en expansión.\n\n> **💡 La clave en 10 segundos**\n>\n> > Un objeto en movimiento circular uniforme **siempre está acelerando**, aunque su rapidez no cambie. ¿Por qué? Porque su dirección cambia constantemente. Esta **aceleración centrípeta** ($a_c = v^2/r$) requiere una **fuerza centrípeta** (hacia el centro). En la Tierra, puede ser la fricción de los neumáticos o la tensión de un hilo; en el espacio, es la **gravedad**.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LA ACELERACIÓN QUE NO CAMBIA LA RAPIDEZ -->\n<!-- ============================================ -->",
-        "intermedio": "A lo largo de la historia, la humanidad pensó que los cielos eran perfectos y que el movimiento en la Tierra era diferente al movimiento de las estrellas. Isaac Newton rompió esa idea con una manzana.\n\nNewton se dio cuenta de que la fuerza que hace caer una manzana de un árbol es la **misma** que mantiene a la Luna orbitando alrededor de la Tierra. La Luna está \"cayendo\" constantemente hacia la Tierra, pero su velocidad lateral es tan alta que siempre \"falla\" al intentar chocar con nosotros. Ese es el secreto de las órbitas.\n\nEl **movimiento circular** es el puente entre la caída libre y el viaje interplanetario. Es la física de las rotondas, de los lavarropas y de la vida misma, que orbita alrededor de un sol en una galaxia que gira en un universo en expansión.\n\n> **💡 La clave en 10 segundos**\n>\n> > Un objeto en movimiento circular uniforme **siempre está acelerando**, aunque su rapidez no cambie. ¿Por qué? Porque su dirección cambia constantemente. Esta **aceleración centrípeta** ($a_c = v^2/r$) requiere una **fuerza centrípeta** (hacia el centro). En la Tierra, puede ser la fricción de los neumáticos o la tensión de un hilo; en el espacio, es la **gravedad**.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LA ACELERACIÓN QUE NO CAMBIA LA RAPIDEZ -->\n<!-- ============================================ -->",
-        "avanzado": "A lo largo de la historia, la humanidad pensó que los cielos eran perfectos y que el movimiento en la Tierra era diferente al movimiento de las estrellas. Isaac Newton rompió esa idea con una manzana.\n\nNewton se dio cuenta de que la fuerza que hace caer una manzana de un árbol es la **misma** que mantiene a la Luna orbitando alrededor de la Tierra. La Luna está \"cayendo\" constantemente hacia la Tierra, pero su velocidad lateral es tan alta que siempre \"falla\" al intentar chocar con nosotros. Ese es el secreto de las órbitas.\n\nEl **movimiento circular** es el puente entre la caída libre y el viaje interplanetario. Es la física de las rotondas, de los lavarropas y de la vida misma, que orbita alrededor de un sol en una galaxia que gira en un universo en expansión.\n\n> **💡 La clave en 10 segundos**\n>\n> > Un objeto en movimiento circular uniforme **siempre está acelerando**, aunque su rapidez no cambie. ¿Por qué? Porque su dirección cambia constantemente. Esta **aceleración centrípeta** ($a_c = v^2/r$) requiere una **fuerza centrípeta** (hacia el centro). En la Tierra, puede ser la fricción de los neumáticos o la tensión de un hilo; en el espacio, es la **gravedad**.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LA ACELERACIÓN QUE NO CAMBIA LA RAPIDEZ -->\n<!-- ============================================ -->"
+        "principiante": "## Bienvenida: la Luna que cae sin caer\n\n¿Por qué la Luna no cae sobre nosotros? Esa pregunta ha fascinado a la humanidad durante siglos, y su respuesta cambió la física para siempre.\n\nLa respuesta de Newton es genial: la Luna **sí cae** hacia la Tierra. Pero su movimiento horizontal es tan rápido que, mientras cae, la Tierra se curva debajo de ella. La Luna cae eternamente alrededor de la Tierra sin llegar nunca a ella.\n\nImagina lanzar una piedra horizontalmente. Cae al suelo. Lánzala más rápido: cae más lejos. Si pudieras lanzarla tan rápido que la curvatura de la Tierra compensara su caída, la piedra nunca tocaría el suelo. Se convertiría en un satélite.\n\n> **🔑 Concepto clave: Órbita**\n> Una órbita es una caída libre perpetua. Un objeto en órbita cae continuamente hacia el cuerpo central, pero su velocidad tangencial hace que 'falle' la caída y describa una trayectoria circular.\n\n**[IMAGEN SUGERIDA: Animación conceptual de Newton: una montaña muy alta lanzando piedras con velocidades crecientes, una de las cuales orbita la Tierra. Pie de foto: \"El experimento mental de la montaña de Newton.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** una órbita es una caída libre perpetua. La gravedad mantiene a la Luna y a los satélites cayendo continuamente hacia el cuerpo central, pero su velocidad tangencial hace que la superficie se curve debajo de ellos. Es la misma gravedad que hace caer una manzana.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: la Luna que cae sin caer\n\nLa pregunta '¿por qué la Luna no cae?' esconde la clave de toda la mecánica celeste. Newton respondió con un experimento mental brillante: imagina una montaña altísima en la Tierra, desde cuya cima lanzas una piedra horizontalmente.\n\n- Si la lanzas despacio, cae al suelo.\n- Si la lanzas más rápido, cae más lejos.\n- Si la lanzas lo suficientemente rápido, la curvatura de la Tierra compensa su caída: la piedra orbita para siempre.\n\nLa Luna es exactamente esa piedra. Cae hacia la Tierra a cada instante, pero su velocidad tangencial (~1 km/s) hace que nunca llegue. Esta idea unificó el cielo y la Tierra: la fuerza que hace caer una manzana es la misma que mantiene la Luna en órbita.\n\nLa aceleración centrípeta de la Luna hacia la Tierra se puede calcular y comparar con la gravedad en la superficie:\n\n$$ a = \\frac{v^2}{r} $$\n\nPara la Luna, a ≈ 0.0027 m/s², unas 3600 veces menor que g = 9.8 m/s² en la superficie. Como la Luna está a 60 radios terrestres, y 60² = 3600, la gravedad cae como 1/r².\n\n> **Dato que rompe el cerebro**\n> La Luna se aleja de la Tierra unos 3.8 cm cada año, y su órbita se hace un poco más grande. Dentro de miles de millones de años, dejará de eclipsar completamente al Sol.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** una órbita es una caída libre perpetua. La gravedad mantiene a la Luna y a los satélites cayendo continuamente hacia el cuerpo central, pero su velocidad tangencial hace que la superficie se curve debajo de ellos. Es la misma gravedad que hace caer una manzana.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la unificación del cielo y la Tierra\n\nEl experimento mental de Newton tiene una profundidad que a menudo se pasa por alto: estableció que la misma ley —la gravitación— gobierna lo que ocurre en la superficie terrestre y en el espacio.\n\nLa comparación cuantitativa es elegante. La aceleración de la Luna es:\n\n$$ a_{Luna} = \\frac{v^2}{r} = \\frac{(2\\pi r / T)^2}{r} = \\frac{4\\pi^2 r}{T^2} $$\n\nCon r = 3.84×10⁸ m y T = 27.3 días = 2.36×10⁶ s, obtenemos a ≈ 0.0027 m/s².\n\nLa relación con g en la superficie:\n\n$$ \\frac{g}{a_{Luna}} = \\frac{9.8}{0.0027} \\approx 3600 = 60^2 $$\n\nComo la Luna está a 60 radios terrestres, esto demuestra la ley del inverso del cuadrado: F ∝ 1/r². Newton no 'descubrió' la gravedad: la derivó de la observación de que la Luna y una manzana obedecen la misma regla.\n\n> **💡 Nota avanzada**\n> Este razonamiento es el origen de la ley de gravitación universal. Newton mostró que la fuerza entre dos masas es proporcional a su producto e inversamente proporcional al cuadrado de la distancia: F = G·m₁·m₂/r².\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** una órbita es una caída libre perpetua. La gravedad mantiene a la Luna y a los satélites cayendo continuamente hacia el cuerpo central, pero su velocidad tangencial hace que la superficie se curve debajo de ellos. Es la misma gravedad que hace caer una manzana.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-capa-i-intuicin--acelerar-sin-ir-ms-rpido",
-      "titulo": "🌱 Capa I: Intuición — ¿Acelerar sin ir más rápido?",
+      "id": "movimiento-circular",
+      "titulo": "Movimiento circular uniforme: acelerar sin ir más rápido",
       "niveles": {
-        "principiante": "Si vas en un coche a 50 km/h y el velocímetro no se mueve, ¿estás acelerando? Si vas en línea recta, no. Pero si tomas una curva cerrada, **sí**.\n\n### 1.1 La Aceleración Centrípeta\n\nLa velocidad es un **vector**. Para cambiar un vector, tienes dos opciones:\n1. Cambiar su magnitud (ir más rápido o lento)\n2. Cambiar su dirección (girar)\n\nEn el movimiento circular uniforme, la rapidez es constante, pero la dirección del vector velocidad cambia en cada instante. Esa tasa de cambio de dirección es la **aceleración centrípeta** ($a_c$).\n\n$$a_c = \\frac{v^2}{r}$$\n\n- $v$ = rapidez tangencial (m/s)\n- $r$ = radio de la trayectoria (m)\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > La aceleración centrípeta **siempre apunta al centro** del círculo. Si estás girando a la derecha, tu aceleración apunta hacia el centro de la curva. Si, por un milagro, la fuerza desapareciera de repente en ese instante, no saldrías disparado hacia afuera, sino que seguirías en **línea recta tangencial** al punto donde estabas. La fuerza centrípeta es lo único que te impide \"escapar\" por la tangente.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 2: LAS FUERZAS REALES -->\n<!-- ============================================ -->"
+        "principiante": "## Movimiento circular uniforme\n\nPiensa en una lavadora centrifugando, en una noria, en la Luna. Todos se mueven en círculo a velocidad constante. Pero hay una paradoja: **están acelerando constantemente**, aunque no van más rápido.\n\nLa velocidad tiene dos aspectos: **cuánto** (magnitud) y **hacia dónde** (dirección). En un círculo, la magnitud de la velocidad no cambia, pero la dirección cambia en cada instante. Cambiar la dirección también es aceleración.\n\nEsa aceleración se llama **aceleración centrípeta** (hacia el centro) y su fórmula es:\n\n$$ a_c = \\frac{v^2}{r} $$\n\nCuanto más rápido gires, o cuanto más pequeño sea el círculo, mayor será la aceleración.\n\n> **Dato que rompe el cerebro**\n> Cuando giras en un círculo, tu cuerpo 'siente' que algo te empuja hacia afuera (fuerza centrífuga). Pero esa fuerza no existe: es tu inercia, que te hace querer seguir en línea recta. La única fuerza real es la centrípeta, que te tira hacia el centro.\n\n**[IMAGEN SUGERIDA: Un coche girando en una curva, con una flecha mostrando la aceleración centrípeta hacia el centro del círculo. Pie de foto: \"En la curva, la aceleración apunta al centro.\"]**\n",
+        "intermedio": "## Movimiento circular uniforme: la cinemática\n\nEn el movimiento circular uniforme (MCU), un objeto recorre ángulos iguales en tiempos iguales. Las variables angulares son:\n\n- **Velocidad angular** ω (rad/s): el ángulo recorrido por segundo\n- **Período T** (s): tiempo de una vuelta completa\n- **Frecuencia f** (Hz): vueltas por segundo\n\nRelaciones fundamentales:\n\n$$ \\omega = \\frac{2\\pi}{T} = 2\\pi f $$\n\n$$ v = \\omega r $$\n\nLa aceleración centrípeta, aunque el módulo de la velocidad no cambie, es:\n\n$$ a_c = \\frac{v^2}{r} = \\omega^2 r $$\n\n```aeterna-exercise\nTITLE: Aceleración centrípeta de una noria\nHINT: Usa a_c = v²/r. Convierte la velocidad a m/s si es necesario.\nXP: 30\nUna noria de 20 m de radio gira con un período de 40 s. Calcula la aceleración centrípeta en el borde.\nSOLUTION: v = 2πr/T = 2π×20/40 = 3.14 m/s. a_c = v²/r = 3.14²/20 ≈ 0.49 m/s². Es una aceleración pequeña, como se espera de una noria tranquila.\n```\n\n> **🔑 Concepto clave: Aceleración centrípeta**\n> La aceleración centrípeta cambia la dirección de la velocidad, no su magnitud. Siempre apunta hacia el centro del círculo y su magnitud es v²/r. Es lo que mantiene al objeto 'en la curva'.\n",
+        "avanzado": "## Movimiento circular: el vector aceleración\n\nFormalmente, la aceleración en movimiento circular se descompone en dos componentes:\n\n- **Centrípeta (radial)**: a_c = v²/r, perpendicular a la velocidad\n- **Tangencial**: a_t = dv/dt, paralela a la velocidad (cero en MCU)\n\nLa aceleración total es:\n\n$$ \\vec{a} = \\frac{v^2}{r}\\hat{r} + \\frac{dv}{dt}\\hat{t} $$\n\nEn el movimiento circular **uniformemente acelerado** (MCUA), la velocidad angular cambia a ritmo constante con aceleración angular α:\n\n$$ \\omega = \\omega_0 + \\alpha t $$\n\n$$ \\theta = \\omega_0 t + \\frac{1}{2}\\alpha t^2 $$\n\nEstas ecuaciones son análogas a las del movimiento rectilíneo, con las variables angulares.\n\n> **💡 Nota avanzada**\n> La descripción vectorial revela que la aceleración centrípeta es la segunda derivada de la posición. Aunque el objeto 'se mueve en círculo', matemáticamente está acelerando porque su vector velocidad rota. Esta distinción entre magnitud y dirección es esencial para entender la fuerza centrípeta.\n"
       },
       "acciones": []
     },
     {
-      "id": "21-la-fuerza-centrpeta-no-es-una-fuerza-nueva",
-      "titulo": "2.1 La fuerza centrípeta no es una fuerza nueva",
+      "id": "fuerza-centripeta",
+      "titulo": "La fuerza centrípeta: no es una fuerza nueva",
       "niveles": {
-        "principiante": "¡Cuidado! Aquí es donde casi todo el mundo se confunde. **La fuerza centrípeta NO existe como fuerza fundamental.**\n\nNo verás \"fuerza centrípeta\" en una lista de fuerzas (junto con la gravedad, fricción, tensión). La fuerza centrípeta es solo un **papel** que una fuerza real juega.\n\n| Situación | ¿Qué fuerza actúa como centrípeta? |\n|:---------:|:----------------------------------:|\n| Coche en una curva | Fricción estática entre neumáticos y asfalto |\n| Piedra en un hilo | Tensión del hilo |\n| Satélite en órbita | Gravedad terrestre |\n| Electrón en átomo | Atracción eléctrica (Coulomb) |\n\nSiempre que veas un objeto girando, pregúntate: **\"¿Qué fuerza está tirando de este objeto hacia el centro?\"**. Esa es tu fuerza centrípeta.\n\n$$F_c = m \\cdot a_c = \\frac{m \\cdot v^2}{r}$$\n\n### 2.2 ¿Y la \"fuerza centrífuga\"?\n\nLa \"fuerza centrífuga\" es lo que sientes cuando el coche gira a la derecha y te pegas contra la puerta izquierda.\n\nEs una **fuerza ficticia** (o fuerza de inercia). Aparece solo si tú intentas analizar el movimiento **desde dentro del objeto que gira**.\n\nPara un observador externo (un policía mirando desde la carretera), no hay fuerza centrífuga. Solo hay un coche que gira porque la fricción lo empuja hacia el centro y un pasajero que **tiende a seguir en línea recta** (inercia) debido a su propia masa. La puerta golpea al pasajero, no al revés.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 3: GRAVEDAD Y SATÉLITES -->\n<!-- ============================================ -->"
+        "principiante": "## La fuerza centrípeta\n\nSi un objeto acelera hacia el centro, algo debe producir esa aceleración. Ese algo es la **fuerza centrípeta**.\n\nPunto clave: la fuerza centrípeta **no es un tipo nuevo de fuerza**. Es la etiqueta que damos a la fuerza real que tira de un objeto hacia el centro de su trayectoria circular:\n\n- La tensión de una cuerda al hacer girar una pelota\n- La fricción de los neumáticos en una curva\n- La gravedad que mantiene la Luna en órbita\n- La normal en una noria\n\nSu fórmula:\n\n$$ F_c = m \\frac{v^2}{r} $$\n\n> **❌ Error común**\n> [El error]: 'Cuando un coche gira, una fuerza centrífuga lo empuja hacia afuera.'\n> [La realidad]: La fuerza centrífuga es una fuerza ficticia que aparece solo en sistemas de referencia rotatorios. En un sistema inercial, la única fuerza real es la centrípeta (la fricción del neumático), que tira del coche hacia el centro. Tu cuerpo 'siente' que lo empujan hacia afuera por inercia: quiere seguir en línea recta.\n\n**[IMAGEN SUGERIDA: Pelota atada a una cuerda girando, con la tensión de la cuerda como fuerza centrípeta apuntando al centro. Pie de foto: \"La tensión de la cuerda es la fuerza centrípeta.\"]**\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"La fuerza centrífuga existe\">\n**Idea errónea:** la fuerza centrífuga empuja hacia afuera a los objetos que giran.\n\n**Realidad:** la centrífuga es una fuerza ficticia que solo aparece en marcos rotatorios. En un sistema inercial, la única fuerza real es la centrípeta, que tira hacia el centro. Lo que sientes hacia afuera es tu inercia.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## La fuerza centrípeta en acción\n\nLa fuerza centrípeta no es independiente: es cualquier fuerza (o combinación) que produzca aceleración radial. Los casos clásicos:\n\n- **Cuerda**: T = mv²/r\n- **Coche en curva plana**: la fricción estática f = mv²/r. Si v es demasiado alta, la fricción no basta y el coche derrapa\n- **Coche en curva peraltada**: la normal contribuye con una componente horizontal\n- **Satélite**: la gravedad F = G·M·m/r² es la centrípeta\n\n```aeterna-formula\ntitle=\"Fuerza centrípeta\"\nformula=\"F_c = \\\\frac{mv^2}{r}\"\nvariables={[{\"symbol\":\"Fc\",\"name\":\"Fuerza centrípeta\",\"unit\":\"N\"},{\"symbol\":\"m\",\"name\":\"Masa\",\"unit\":\"kg\"},{\"symbol\":\"v\",\"name\":\"Velocidad tangencial\",\"unit\":\"m/s\"},{\"symbol\":\"r\",\"name\":\"Radio\",\"unit\":\"m\"}]}\nnote=\"La fuerza centrípeta es la fuerza neta que apunta al centro: puede ser tensión, fricción, gravedad o la normal.\"\n```\n\n> **Dato que rompe el cerebro**\n> En el punto más alto de una noria, la fuerza normal puede ser menor que el peso o incluso cero. Si la noria gira lo bastante rápido, la gravedad sola puede proporcionar toda la fuerza centrípeta necesaria y tus pies apenas tocan el suelo.\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"La fuerza centrífuga existe\">\n**Idea errónea:** la fuerza centrífuga empuja hacia afuera a los objetos que giran.\n\n**Realidad:** la centrífuga es una fuerza ficticia que solo aparece en marcos rotatorios. En un sistema inercial, la única fuerza real es la centrípeta, que tira hacia el centro. Lo que sientes hacia afuera es tu inercia.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Fuerza centrípeta y marcos no inerciales\n\nEn un marco de referencia rotatorio, aparece una **fuerza ficticia centrífuga** F_cf = mω²r que apunta hacia afuera. Es real en el marco rotatorio (lo sientes) pero no es una fuerza real de la física.\n\nEstas fuerzas ficticias —centrífuga, Coriolis, Euler— son términos que surgen al describir la física en marcos acelerados:\n\n- **Centrífuga**: mω²r, hacia afuera\n- **Coriolis**: 2mω×v, perpendicular a la velocidad (desvía misiles, afecta los huracanes)\n- **Euler**: ma_angular, por cambios en la velocidad angular\n\nLa **fuerza de Coriolis** es responsable de que los huracanes roten en sentido antihorario en el hemisferio norte y horario en el sur, y de que las corrientes oceánicas se desvíen.\n\n> **💡 Nota de frontera**\n> El principio de equivalencia de Einstein conecta las fuerzas ficticias con la gravedad: en un ascensor acelerando, no puedes distinguir si la 'gravedad' que sientes es real o una fuerza ficticia. Esta idea es el punto de partida de la relatividad general.\n\n\n<PedagogicalContentBlock type=\"misconception\" title=\"La fuerza centrífuga existe\">\n**Idea errónea:** la fuerza centrífuga empuja hacia afuera a los objetos que giran.\n\n**Realidad:** la centrífuga es una fuerza ficticia que solo aparece en marcos rotatorios. En un sistema inercial, la única fuerza real es la centrípeta, que tira hacia el centro. Lo que sientes hacia afuera es tu inercia.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "31-newton-y-la-rbita-terrestre",
-      "titulo": "3.1 Newton y la órbita terrestre",
+      "id": "orbita-satelite",
+      "titulo": "Órbitas y satélites: caer alrededor de la Tierra",
       "niveles": {
-        "principiante": "Newton imaginó un cañón en la cima de una montaña altísima:\n1. Si disparas suave, la bala cae cerca (trayectoria parabólica).\n2. Si disparas más rápido, cae más lejos.\n3. Si disparas a una velocidad tan alta que **la curvatura de la caída de la bala coincide con la curvatura de la Tierra**... la bala nunca toca el suelo. Está en órbita.\n\n### 3.2 ¿A qué velocidad debe ir un satélite?\n\nPara una órbita circular, la fuerza de gravedad debe ser **exactamente igual** a la fuerza centrípeta necesaria:\n\n$$F_g = F_c$$\n$$\\frac{G \\cdot M \\cdot m}{r^2} = \\frac{m \\cdot v^2}{r}$$\n\nDespejando la velocidad orbital $v$:\n\n$$v = \\sqrt{\\frac{G \\cdot M}{r}}$$\n\n- $G \\approx 6{,}67 \\times 10^{-11} \\text{ N·m²/kg²}$\n- $M$ = masa del planeta (ej: Tierra $5{,}97 \\times 10^{24}$ kg)\n- $r$ = distancia del centro del planeta al satélite\n\n**Dato clave:** La masa del satélite ($m$) **se cancela**. No importa si el satélite es un grano de arena o la Estación Espacial: para una órbita dada ($r$), deben ir a la misma velocidad.\n\n**Ejemplo: La ISS**\nA 400 km de altura ($r \\approx 6770$ km):\n$$v \\approx \\sqrt{\\frac{(6{,}67 \\times 10^{-11})(5{,}97 \\times 10^{24})}{6{,}77 \\times 10^6}} \\approx 7670 \\text{ m/s} \\approx 27.600 \\text{ km/h}$$\n\n---"
+        "principiante": "## Órbitas y satélites\n\nUn **satélite** es cualquier objeto que orbita otro: la Luna, la Estación Espacial Internacional, los satélites de GPS.\n\nPara que un satélite permanezca en órbita, necesita la velocidad correcta. Si va demasiado lento, cae a la Tierra. Si va demasiado rápido, se escapa al espacio.\n\nLa **velocidad orbital** para una órbita circular a distancia r del centro de la Tierra:\n\n$$ v = \\sqrt{\\frac{GM}{r}} $$\n\nA 400 km de altura (la ISS), esa velocidad es de unos 7.7 km/s — más de 27.000 km/h.\n\n> **Dato que rompe el cerebro**\n> Los astronautas de la ISS 'flotan' no porque no haya gravedad: a 400 km de altura la gravedad es ~90% de la de la superficie. Flotan porque están en caída libre constante, junto con la nave. Están cayendo eternamente alrededor de la Tierra.\n\n**[IMAGEN SUGERIDA: La Estación Espacial Internacional en órbita sobre la Tierra. Pie de foto: \"La ISS cae alrededor de la Tierra a 27.000 km/h.\"]**\n",
+        "intermedio": "## Órbitas: la física de los satélites\n\nPara una órbita circular, la gravedad proporciona la fuerza centrípeta:\n\n$$ \\frac{GMm}{r^2} = \\frac{mv^2}{r} $$\n\nDespejando la velocidad orbital:\n\n$$ v = \\sqrt{\\frac{GM}{r}} $$\n\nEl período orbital:\n\n$$ T = \\frac{2\\pi r}{v} = 2\\pi \\sqrt{\\frac{r^3}{GM}} $$\n\n**Órbita geosíncrona**: si un satélite orbita a 35.786 km de altura, su período es exactamente 24 horas, y parece 'flotar' sobre el mismo punto de la Tierra. Estos satélites de comunicación permanecen fijos respecto al suelo.\n\n```parameter-lab\nTITLE: Laboratorio de órbitas\nDESC: Ajusta la altitud del satélite para ver cómo cambia su velocidad y período orbital.\nOUTPUT_LABEL: Período orbital\nOUTPUT_UNIT: horas\nQUESTION: ¿Qué ocurre con el período si aumentas la altitud del satélite?\nANSWER: El período aumenta. Por la tercera ley de Kepler (T² ∝ r³), a mayor radio de órbita, mayor período. Los satélites lejanos tardan más en dar la vuelta.\nXP: 50\nPARAM: altitud | Altitud | km | 200 | 36000 | 100 | 400\nPARAM: masa | Masa del satélite | kg | 100 | 5000 | 100 | 1000\n```\n\n> **🔑 Concepto clave: Órbita geosíncrona**\n> Una órbita geosíncrona tiene un período de 24 horas, coincidiendo con la rotación terrestre. El satélite parece estacionario sobre la Tierra, ideal para comunicaciones y meteorología. Para lograrlo, debe estar a ~35.786 km de altura.\n",
+        "avanzado": "## Tipos de órbitas y mecánica orbital\n\nLas órbitas pueden ser circulares o elípticas. Las **órbitas elípticas** se describen con las leyes de Kepler:\n\n- El cuerpo central está en uno de los focos de la elipse\n- El objeto viaja más rápido en el periastro (punto más cercano) y más lento en el apoastro\n- La energía orbital es: E = -GMm/(2a), donde a es el semieje mayor\n\nLa **energía de una órbita**:\n\n$$ E = K + U = \\frac{1}{2}mv^2 - \\frac{GMm}{r} $$\n\nPara una órbita circular, E = -GMm/(2r): la energía es negativa porque la órbita es un estado ligado. Para escapar, la energía debe ser ≥ 0.\n\nLas **maniobras de transferencia de Hohmann** se usan para mover satélites entre órbitas: dos impulsos de empuje en los puntos adecuados.\n\n> **💡 Nota de frontera**\n> Los satélites de órbita baja (LEO) necesitan correcciones periódicas porque la fricción residual de la atmósfera los frena lentamente. La ISS recibe impulsos de sus propulsores para mantener su altitud.\n"
       },
       "acciones": []
     },
     {
-      "id": "33-las-leyes-de-kepler-el-baile-planetario",
-      "titulo": "3.3 Las leyes de Kepler: el baile planetario",
+      "id": "gravedad-centripeta",
+      "titulo": "La gravedad como fuerza centrípeta",
       "niveles": {
-        "principiante": "Antes de Newton, Johannes Kepler descubrió cómo se mueven los planetas observando los datos de Tycho Brahe.\n\n1. **Ley de las órbitas:** Los planetas siguen órbitas **elípticas** con el Sol en uno de los focos.\n2. **Ley de las áreas:** Una línea que conecta un planeta con el Sol barre **áreas iguales en tiempos iguales**. (Cuando el planeta está cerca del Sol, va más rápido; cuando está lejos, más lento).\n3. **Ley de los periodos:** El cuadrado del periodo orbital ($T$) es proporcional al cubo de la distancia media al Sol ($a$):\n   $$\\frac{T^2}{a^3} = \\text{constante}$$\n\n### El significado profundo\n\nNewton demostró que las leyes de Kepler son consecuencias matemáticas directas de la **Ley de Gravitación Universal**. Las leyes de Kepler son la \"descripción\" (cinemática), y la ley de Newton es la \"causa\" (dinámica).\n\n---"
+        "principiante": "## La gravedad como fuerza centrípeta\n\n¿Qué mantiene a la Luna en órbita? La **gravedad**. En las órbitas, la gravedad hace el papel de fuerza centrípeta.\n\nNewton descubrió que la fuerza entre dos masas es:\n\n$$ F = G \\frac{m_1 m_2}{r^2} $$\n\nDonde G = 6.67 × 10⁻¹¹ N·m²/kg² es la constante de gravitación universal. Esta misma ley explica la caída de una manzana, la órbita de la Luna y el movimiento de los planetas.\n\n> **Dato que rompe el cerebro**\n> La fuerza de gravedad entre tú y tu teléfono es diminuta (menos que un miligramo de fuerza). Pero la de la Tierra sobre ti es enorme. La gravedad parece 'fuerte' solo porque la Tierra es gigantesca.\n\n**[IMAGEN SUGERIDA: La Tierra y la Luna, con una flecha de gravedad entre ambas. Pie de foto: \"La gravedad es la fuerza centrípeta de la órbita lunar.\"]**\n",
+        "intermedio": "## Gravedad orbital\n\nPara un satélite en órbita circular, la gravedad es la fuerza centrípeta:\n\n$$ \\frac{GMm}{r^2} = \\frac{mv^2}{r} $$\n\nEsto conecta la velocidad orbital con la masa del cuerpo central (la masa del satélite se cancela):\n\n$$ v = \\sqrt{\\frac{GM}{r}} $$\n\nLa masa del satélite no importa: todos los satélites a la misma altura orbitan a la misma velocidad, sin importar su masa. Esto es análogo a que dos objetos de distinta masa caen igual en el vacío.\n\n```aeterna-exercise\nTITLE: Velocidad orbital de la Luna\nHINT: Usa v = √(GM/r). G = 6.67×10⁻¹¹, M_Tierra = 5.97×10²⁴ kg, r = 3.84×10⁸ m.\nXP: 40\nCalcula la velocidad orbital de la Luna alrededor de la Tierra.\nSOLUTION: v = √(GM/r) = √(6.67×10⁻¹¹ × 5.97×10²⁴ / 3.84×10⁸) = √(1.04×10⁶) ≈ 1020 m/s. La Luna orbita a ~1 km/s.\n```\n\n> **🔑 Concepto clave: La masa del satélite se cancela**\n> En órbita, la masa del satélite desaparece de las ecuaciones: la velocidad y el período solo dependen de la masa del cuerpo central y del radio de la órbita. Una piedra y un satélite gigante a la misma altura orbitan igual.\n",
+        "avanzado": "## Gravedad orbital: desde la Luna a los exoplanetas\n\nLa relación entre la masa del cuerpo central, el período y el semieje mayor permite 'pesar' objetos cósmicos sin tocarlos. Esta es la base de la **astronomía de exoplanetas**: al observar cómo una estrella 'baila' (oscile) por la atracción gravitatoria de su planeta, se deduce la masa del planeta.\n\nLa masa de la Vía Láctea se estima a partir de las órbitas de sus estrellas. La masa de los agujeros negros supermasivos se deduce de las estrellas que orbitan a su alrededor.\n\nLa **gravedad como fuerza centrípeta** es la herramienta más versátil de la astrofísica: con una órbita observada, puedes calcular la masa de lo invisible.\n\n> **💡 Nota de frontera**\n> Las observaciones de la velocidad de rotación de las galaxias no coinciden con la masa visible: las estrellas del borde orbitan demasiado rápido. Este 'problema de la masa faltante' es la evidencia más fuerte de la existencia de materia oscura.\n"
       },
       "acciones": []
     },
     {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
+      "id": "leyes-kepler",
+      "titulo": "Las leyes de Kepler: el baile planetario",
       "niveles": {
-        "principiante": "> **🧠 Sistema Aeterna, paso 1: La fuerza centrípeta es un rol, no un actor**\n>\n> > La fuerza centrípeta es solo el papel que juega la gravedad, la fricción o la tensión. Si ves algo girando, busca quién está haciendo ese trabajo. No es una fuerza nueva que añadir a tu lista.\n\n> **🧠 Sistema Aeterna, paso 2: La inercia es la \"fuerza\" centrífuga**\n>\n> > Esa sensación de \"ser empujado hacia afuera\" es solo tu cuerpo intentando seguir en línea recta mientras el vehículo gira. Tu inercia lucha contra la fuerza centrípeta que intenta desviarte.\n\n> **🧠 Sistema Aeterna, paso 3: Orbitar es caer con estilo**\n>\n> > Un satélite está en **caída libre continua**. No flota porque \"no haya gravedad\" en el espacio, sino porque su velocidad lateral es tan grande que siempre \"falla\" al chocar con el planeta.\n\n---"
+        "principiante": "## Las leyes de Kepler\n\nAntes de Newton, Johannes Kepler estudió las órbitas de los planetas y descubrió tres leyes que describen su movimiento. Son el resultado de años de análisis de las observaciones de Tycho Brahe.\n\n**Primera ley (elipses)**: los planetas orbitan el Sol en elipses, con el Sol en uno de los focos. Las órbitas no son círculos perfectos.\n\n**Segunda ley (velocidades)**: el planeta barre áreas iguales en tiempos iguales. Se mueve más rápido cerca del Sol (perihelio) y más lento lejos (afelio).\n\n**Tercera ley (relación)**: el cuadrado del período es proporcional al cubo del semieje mayor: T² ∝ a³.\n\n> **Dato curioso**\n> Kepler descubrió estas leyes usando solo papel, lápiz y las meticulosas observaciones de Tycho Brahe, sin saber todavía que la gravedad explicaba su porqué. Newton lo demostró décadas después.\n\n**[IMAGEN SUGERIDA: Diagrama de una órbita elíptica con el Sol en un foco, mostrando áreas iguales barridas en tiempos iguales. Pie de foto: \"Las tres leyes de Kepler en un diagrama.\"]**\n\n\n<Connect title=\"De Kepler a Newton\" sourceConcept=\"Leyes de Kepler\" targetConcept=\"Gravitación universal\">\nLas leyes empíricas de Kepler, deducidas de observaciones, fueron explicadas por la ley de gravitación de Newton. Este salto de la descripción a la explicación es el corazón del método científico: las leyes de Kepler describen cómo se mueven los planetas; la gravedad de Newton explica por qué.\n</Connect>\n",
+        "intermedio": "## Las leyes de Kepler en detalle\n\n**Primera ley (1609)**: la órbita de cada planeta es una elipse con el Sol en uno de los focos. La excentricidad mide cuán 'aplastada' es: la Tierra tiene e ≈ 0.017 (casi circular), mientras que Mercurio e ≈ 0.206.\n\n**Segunda ley (1609)**: el radio vector barre áreas iguales en tiempos iguales. En el perihelio (cerca del Sol) el planeta va más rápido; en el afelio, más lento. Esto es una consecuencia de la conservación del momento angular.\n\n**Tercera ley (1619)**: para todos los planetas,\n\n$$ \\frac{T^2}{a^3} = \\frac{4\\pi^2}{GM_{Sol}} = \\text{constante} $$\n\nEsta ley permite calcular el período de un planeta conociendo su distancia al Sol, y viceversa.\n\n> **🔑 Concepto clave: Momento angular**\n> La segunda ley de Kepler es la conservación del momento angular (L = mvr). Cuando el planeta se acerca al Sol (r menor), su velocidad aumenta para mantener L constante. Es el mismo principio que hace girar más rápido a una patinadora al encoger los brazos.\n\n\n<Connect title=\"De Kepler a Newton\" sourceConcept=\"Leyes de Kepler\" targetConcept=\"Gravitación universal\">\nLas leyes empíricas de Kepler, deducidas de observaciones, fueron explicadas por la ley de gravitación de Newton. Este salto de la descripción a la explicación es el corazón del método científico: las leyes de Kepler describen cómo se mueven los planetas; la gravedad de Newton explica por qué.\n</Connect>\n",
+        "avanzado": "## De Kepler a Newton: la derivación\n\nNewton demostró que las tres leyes de Kepler son consecuencias de la ley de gravitación universal. La tercera ley se deriva directamente:\n\nPara una órbita circular:\n\n$$ \\frac{GMm}{r^2} = \\frac{mv^2}{r} $$\n\n$$ v = \\frac{2\\pi r}{T} $$\n\nSustituyendo y despejando:\n\n$$ T^2 = \\frac{4\\pi^2}{GM} r^3 $$\n\nQue es exactamente la tercera ley de Kepler, con la constante 4π²/(GM) determinada por la masa del Sol.\n\nEste es un ejemplo clásico de unificación: las leyes empíricas de Kepler (observacionales) fueron deducidas a partir de una única ley teórica (la gravedad de Newton).\n\n> **💡 Nota de frontera**\n> Las leyes de Kepler son una aproximación: suponen que el Sol está quieto y que los planetas no se atraen entre sí. En el sistema solar real, las perturbaciones mutuas de los planetas causan desviaciones que permitieron descubrir Neptuno (por las irregularidades en la órbita de Urano).\n\n\n<Connect title=\"De Kepler a Newton\" sourceConcept=\"Leyes de Kepler\" targetConcept=\"Gravitación universal\">\nLas leyes empíricas de Kepler, deducidas de observaciones, fueron explicadas por la ley de gravitación de Newton. Este salto de la descripción a la explicación es el corazón del método científico: las leyes de Kepler describen cómo se mueven los planetas; la gravedad de Newton explica por qué.\n</Connect>\n"
       },
       "acciones": []
     },
     {
-      "id": "-preguntas-frecuentes",
-      "titulo": "❓ Preguntas frecuentes",
+      "id": "velocidad-escape",
+      "titulo": "Velocidad de escape: romper las cadenas de la gravedad",
       "niveles": {
-        "principiante": "> **❓ ¿Si la gravedad es tan fuerte en la ISS, por qué los astronautas flotan?**\n>\n> Porque están en **caída libre**. Si tú y tu silla caen juntos desde un edificio, tú flotas respecto a la silla. La ISS y los astronautas caen hacia la Tierra a la misma aceleración. Como caen juntos, parece que no hay gravedad, pero es solo el efecto de la caída libre.\n\n> **❓ ¿Hay gravedad en el espacio?**\n>\n> ¡Mucha! A 400 km de altura, la gravedad es el **90%** de la que sentimos en la superficie. La gravedad no se apaga; simplemente la distancia hace que debas ir mucho más rápido para no chocar contra el planeta.\n\n> **❓ ¿Por qué un satélite geosincrónico siempre está sobre el mismo punto?**\n>\n> Porque orbita exactamente a la misma velocidad que la Tierra gira sobre su eje. Si lo pones a una altura específica (~35.786 km), su periodo de órbita es exactamente **24 horas**. Como se mueve con el planeta, parece quieto.\n\n---",
-        "intermedio": "> **❓ ¿Si la gravedad es tan fuerte en la ISS, por qué los astronautas flotan?**\n>\n> Porque están en **caída libre**. Si tú y tu silla caen juntos desde un edificio, tú flotas respecto a la silla. La ISS y los astronautas caen hacia la Tierra a la misma aceleración. Como caen juntos, parece que no hay gravedad, pero es solo el efecto de la caída libre.\n\n> **❓ ¿Hay gravedad en el espacio?**\n>\n> ¡Mucha! A 400 km de altura, la gravedad es el **90%** de la que sentimos en la superficie. La gravedad no se apaga; simplemente la distancia hace que debas ir mucho más rápido para no chocar contra el planeta.\n\n> **❓ ¿Por qué un satélite geosincrónico siempre está sobre el mismo punto?**\n>\n> Porque orbita exactamente a la misma velocidad que la Tierra gira sobre su eje. Si lo pones a una altura específica (~35.786 km), su periodo de órbita es exactamente **24 horas**. Como se mueve con el planeta, parece quieto.\n\n---",
-        "avanzado": "> **❓ ¿Si la gravedad es tan fuerte en la ISS, por qué los astronautas flotan?**\n>\n> Porque están en **caída libre**. Si tú y tu silla caen juntos desde un edificio, tú flotas respecto a la silla. La ISS y los astronautas caen hacia la Tierra a la misma aceleración. Como caen juntos, parece que no hay gravedad, pero es solo el efecto de la caída libre.\n\n> **❓ ¿Hay gravedad en el espacio?**\n>\n> ¡Mucha! A 400 km de altura, la gravedad es el **90%** de la que sentimos en la superficie. La gravedad no se apaga; simplemente la distancia hace que debas ir mucho más rápido para no chocar contra el planeta.\n\n> **❓ ¿Por qué un satélite geosincrónico siempre está sobre el mismo punto?**\n>\n> Porque orbita exactamente a la misma velocidad que la Tierra gira sobre su eje. Si lo pones a una altura específica (~35.786 km), su periodo de órbita es exactamente **24 horas**. Como se mueve con el planeta, parece quieto.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-siguiente-parada",
-      "titulo": "⚠️ Siguiente parada",
-      "niveles": {
-        "principiante": "> **⚠️ Siguiente parada: Mecánica Cuántica (Ampliada)**\n>\n> Ahora que entiendes cómo se mueven los planetas, vamos a ir al otro extremo: cómo se mueven las partículas subatómicas. Prepárate para abandonar la intuición de \"posición\" y \"velocidad\" clásica y entrar en un mundo donde nada es seguro hasta que lo miras. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando:**\n- *\"Principia Mathematica\"* de Isaac Newton (versión comentada) — La obra que unificó el cielo y la tierra.\n- *\"PhET Simulation: My Solar System\"* — Para construir tus propios sistemas solares y ver órbitas estables.\n- *\"Khan Academy — Gravity and Orbits\"* — Excelente serie sobre la mecánica de los satélites.\n- *\"Physics Classroom — Circular Motion and Satellite Motion\"* — La mejor guía paso a paso para ejercicios prácticos."
+        "principiante": "## Velocidad de escape\n\n¿Qué velocidad necesita un cohete para dejar la Tierra y no volver jamás? Esa velocidad se llama **velocidad de escape**.\n\nPara la Tierra, es de unos **11.2 km/s** (40.000 km/h). Cualquier objeto lanzado con esa velocidad desde la superficie escapará para siempre de la gravedad terrestre.\n\nEs la misma física que lanzar una pelota: si la lanzas despacio, vuelve; si la lanzas con suficiente velocidad, se va.\n\n> **Dato que rompe el cerebro**\n> En la Luna, la velocidad de escape es solo 2.4 km/s — unas 5 veces menor que en la Tierra. Por eso la Luna no puede retener atmósfera: los gases se mueven más rápido que la velocidad de escape lunar y se pierden en el espacio.\n\n**[IMAGEN SUGERIDA: Un cohete despegando de la Tierra, con una flecha mostrando la velocidad de escape de 11.2 km/s. Pie de foto: \"11.2 km/s para romper las cadenas de la gravedad.\"]**\n\n\n```error-hunter\nTITLE: Confundir velocidad de escape y órbita\nCONTEXT: Un estudiante afirma: \"Si un cohete alcanza la velocidad orbital de la Tierra, puede escapar al espacio infinito.\"\nXP: 60\nSTEP_CORRECT: La velocidad orbital mantiene al objeto en órbita circular | v_orbital = √(GM/r): el objeto cae alrededor, no escapa.\nSTEP_CORRECT: Escapar requiere la velocidad de escape | v_escape = √(2GM/R) ≈ 1.41 × v_orbital. Necesita √2 veces más velocidad.\nSTEP_ERROR: Por lo tanto, la velocidad orbital permite escapar | Confunde dos conceptos distintos: orbitar (quedar atrapado) vs escapar (romper las cadenas).\n```\n",
+        "intermedio": "## Velocidad de escape: la física\n\nLa velocidad de escape se obtiene igualando la energía cinética con la energía potencial gravitatoria:\n\n$$ \\frac{1}{2}mv_{esc}^2 = \\frac{GMm}{R} $$\n\nDespejando:\n\n$$ v_{esc} = \\sqrt{\\frac{2GM}{R}} $$\n\nNota la relación con la velocidad orbital: v_escape = √2 × v_orbital. Escapar requiere √2 ≈ 1.41 veces la velocidad de una órbita circular.\n\n```aeterna-formula\ntitle=\"Velocidad de escape\"\nformula=\"v_{esc} = \\\\sqrt{\\\\frac{2GM}{R}}\"\nvariables={[{\"symbol\":\"v_esc\",\"name\":\"Velocidad de escape\",\"unit\":\"m/s\"},{\"symbol\":\"G\",\"name\":\"Constante gravitacional\",\"unit\":\"6.67×10⁻¹¹ N·m²/kg²\"},{\"symbol\":\"M\",\"name\":\"Masa del cuerpo\",\"unit\":\"kg\"},{\"symbol\":\"R\",\"name\":\"Radio del cuerpo\",\"unit\":\"m\"}]}\nnote=\"La velocidad de escape es independiente de la masa del objeto: solo depende del cuerpo central.\"\n```\n\n> **🔑 Concepto clave: Escapar es energético**\n> Escapar de la gravedad no requiere mantener un empuje constante: solo una vez alcanzada la velocidad de escape, la energía cinética es suficiente para vencer la energía potencial en todo el camino hasta el infinito. La gravedad frena el cohete, pero nunca llega a detenerlo.\n\n\n```error-hunter\nTITLE: Confundir velocidad de escape y órbita\nCONTEXT: Un estudiante afirma: \"Si un cohete alcanza la velocidad orbital de la Tierra, puede escapar al espacio infinito.\"\nXP: 60\nSTEP_CORRECT: La velocidad orbital mantiene al objeto en órbita circular | v_orbital = √(GM/r): el objeto cae alrededor, no escapa.\nSTEP_CORRECT: Escapar requiere la velocidad de escape | v_escape = √(2GM/R) ≈ 1.41 × v_orbital. Necesita √2 veces más velocidad.\nSTEP_ERROR: Por lo tanto, la velocidad orbital permite escapar | Confunde dos conceptos distintos: orbitar (quedar atrapado) vs escapar (romper las cadenas).\n```\n",
+        "avanzado": "## Velocidad de escape y agujeros negros\n\nLa velocidad de escape tiene una consecuencia extrema: si un cuerpo es lo bastante compacto, su velocidad de escape supera la velocidad de la luz. De él no puede escapar ni la luz: es un **agujero negro**.\n\nEl radio en el que la velocidad de escape iguala a c se llama **radio de Schwarzschild**:\n\n$$ R_s = \\frac{2GM}{c^2} $$\n\nPara la Tierra, R_s ≈ 9 mm (la Tierra tendría que comprimirse a 9 mm de radio para ser un agujero negro). Para el Sol, R_s ≈ 3 km.\n\nEste concepto conecta la mecánica clásica con la relatividad: la idea de velocidad de escape, aunque derivada clásicamente, anticipa el horizonte de sucesos de los agujeros negros.\n\n> **💡 Nota de frontera**\n> El radio de Schwarzschild fue derivado por Karl Schwarzschild en 1916, justo después de que Einstein publicara la relatividad general. Es la solución más simple de las ecuaciones de campo y describe el agujero negro 'clásico' sin carga ni rotación.\n\n\n```error-hunter\nTITLE: Confundir velocidad de escape y órbita\nCONTEXT: Un estudiante afirma: \"Si un cohete alcanza la velocidad orbital de la Tierra, puede escapar al espacio infinito.\"\nXP: 60\nSTEP_CORRECT: La velocidad orbital mantiene al objeto en órbita circular | v_orbital = √(GM/r): el objeto cae alrededor, no escapa.\nSTEP_CORRECT: Escapar requiere la velocidad de escape | v_escape = √(2GM/R) ≈ 1.41 × v_orbital. Necesita √2 veces más velocidad.\nSTEP_ERROR: Por lo tanto, la velocidad orbital permite escapar | Confunde dos conceptos distintos: orbitar (quedar atrapado) vs escapar (romper las cadenas).\n```\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "El movimiento circular y las órbitas revelan una de las ideas más elegantes de la física: la Luna cae alrededor de la Tierra, y los satélites no se pierden en el espacio porque la gravedad los mantiene en una caída perpetua. Has aprendido que la aceleración centrípeta (v²/r) no cambia la rapidez sino la dirección, que la fuerza centrípeta no es una fuerza nueva sino la tensión, la fricción o la gravedad que tira hacia el centro, y que en las órbitas esa fuerza es la gravedad de Newton. Las leyes de Kepler describen la danza de los planetas, y la velocidad de escape define el límite entre estar atrapado y liberarse. Y en el extremo, esa misma velocidad de escape apunta hacia algo asombroso: cuando supera la velocidad de la luz, aparece un agujero negro. Del péndulo de Newton a los exoplanetas, la misma física del círculo y la gravedad gobierna el cosmos. Ahora sabes por qué la Luna no cae: porque ya está cayendo —alrededor de nosotros, para siempre.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Aceleración centrípeta",
+        "enunciado": "Un coche toma una curva de radio 50 m a 20 m/s. ¿Cuál es su aceleración centrípeta?",
+        "solucion": "a_c = v²/r = 20²/50 = 400/50 = 8 m/s². La aceleración apunta hacia el centro de la curva.",
+        "xp": 30,
+        "pistas": [
+          "a_c = v²/r",
+          "Sustituye v = 20 m/s y r = 50 m"
+        ],
+        "opciones": [
+          {
+            "label": "8 m/s²",
+            "correcta": true
+          },
+          {
+            "label": "0.4 m/s²",
+            "correcta": false
+          },
+          {
+            "label": "80 m/s²",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica a_c = v²/r",
+          "Calcula 20²/50 = 8 m/s²"
+        ]
+      },
+      {
+        "titulo": "La Luna cae alrededor",
+        "enunciado": "Explica con tus palabras por qué la Luna no cae sobre la Tierra aunque la gravedad la atrae.",
+        "solucion": "La Luna cae continuamente hacia la Tierra, pero su velocidad tangencial (~1 km/s) hace que la superficie terrestre se curve debajo de ella. Está en caída libre perpetua: cae alrededor, no hacia.",
+        "xp": 30,
+        "pistas": [
+          "La Luna sí cae, pero con velocidad horizontal",
+          "La curvatura de la Tierra compensa la caída"
+        ],
+        "opciones": [
+          {
+            "label": "Cae alrededor por su velocidad tangencial",
+            "correcta": true
+          },
+          {
+            "label": "No hay gravedad en el espacio",
+            "correcta": false
+          },
+          {
+            "label": "La Luna es demasiado ligera",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica que la gravedad actúa",
+          "Explica la caída perpetua alrededor"
+        ]
+      },
+      {
+        "titulo": "Fuerza centrífuga",
+        "enunciado": "Cuando un coche gira, ¿existe una fuerza centrífuga que empuja el coche hacia afuera?",
+        "solucion": "No. La fuerza centrífuga es ficticia (aparece solo en marcos rotatorios). La única fuerza real es la centrípeta (la fricción del neumático hacia el centro). Tu cuerpo 'siente' el empuje hacia afuera por inercia.",
+        "xp": 30,
+        "pistas": [
+          "¿Qué marco de referencia usas?",
+          "La fricción del neumático apunta al centro"
+        ],
+        "opciones": [
+          {
+            "label": "No, es ficticia; la real es centrípeta",
+            "correcta": true
+          },
+          {
+            "label": "Sí, empuja el coche hacia afuera",
+            "correcta": false
+          },
+          {
+            "label": "Solo existe a altas velocidades",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Recuerda que la centrífuga es ficticia",
+          "Identifica la fricción como centrípeta"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Velocidad orbital",
+        "enunciado": "Un satélite orbita a 400 km de altura (r = 6.77×10⁶ m). Calcula su velocidad orbital. (G = 6.67×10⁻¹¹, M_Tierra = 5.97×10²⁴ kg)",
+        "solucion": "v = √(GM/r) = √(6.67×10⁻¹¹ × 5.97×10²⁴ / 6.77×10⁶) = √(5.88×10⁷) ≈ 7670 m/s ≈ 7.7 km/s.",
+        "xp": 45,
+        "pistas": [
+          "v = √(GM/r)",
+          "r = radio terrestre + altitud",
+          "Sustituye los valores"
+        ],
+        "opciones": [
+          {
+            "label": "≈ 7.7 km/s",
+            "correcta": true
+          },
+          {
+            "label": "≈ 7.7 m/s",
+            "correcta": false
+          },
+          {
+            "label": "≈ 77 km/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula r = 6.77×10⁶ m",
+          "Aplica v = √(GM/r)",
+          "Resultado ≈ 7.7 km/s"
+        ]
+      },
+      {
+        "titulo": "Tercera ley de Kepler",
+        "enunciado": "La distancia Tierra-Sol es 1 UA. El período de la Tierra es 1 año. Si un planeta está a 4 UA, ¿cuál es su período orbital?",
+        "solucion": "Por T² ∝ a³: (T/1)² = 4³ = 64 → T = 8 años. Un planeta a 4 veces la distancia tarda 8 veces más.",
+        "xp": 40,
+        "pistas": [
+          "T² ∝ a³",
+          "a = 4 UA → a³ = 64",
+          "T = √64 = 8"
+        ],
+        "opciones": [
+          {
+            "label": "8 años",
+            "correcta": true
+          },
+          {
+            "label": "4 años",
+            "correcta": false
+          },
+          {
+            "label": "16 años",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la tercera ley",
+          "Calcula 4³ = 64",
+          "T = √64 = 8 años"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Velocidad de escape",
+        "enunciado": "Calcula la velocidad de escape de la Tierra. (G = 6.67×10⁻¹¹, M = 5.97×10²⁴ kg, R = 6.37×10⁶ m)",
+        "solucion": "v_esc = √(2GM/R) = √(2 × 6.67×10⁻¹¹ × 5.97×10²⁴ / 6.37×10⁶) = √(1.25×10⁸) ≈ 11,200 m/s = 11.2 km/s.",
+        "xp": 55,
+        "pistas": [
+          "v_esc = √(2GM/R)",
+          "Sustituye los valores",
+          "Convierte a km/s"
+        ],
+        "opciones": [
+          {
+            "label": "11.2 km/s",
+            "correcta": true
+          },
+          {
+            "label": "7.9 km/s",
+            "correcta": false
+          },
+          {
+            "label": "1.12 km/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica v_esc = √(2GM/R)",
+          "Calcula ≈ 11,200 m/s",
+          "Convierte a 11.2 km/s"
+        ]
+      },
+      {
+        "titulo": "Radio de Schwarzschild",
+        "enunciado": "Calcula el radio de Schwarzschild del Sol. (G = 6.67×10⁻¹¹, M_Sol = 2×10³⁰ kg, c = 3×10⁸ m/s)",
+        "solucion": "R_s = 2GM/c² = 2 × 6.67×10⁻¹¹ × 2×10³⁰ / (3×10⁸)² = 2.67×10²⁰ / 9×10¹⁶ = 2967 m ≈ 3 km.",
+        "xp": 60,
+        "pistas": [
+          "R_s = 2GM/c²",
+          "Sustituye los valores",
+          "Divide las potencias de 10"
+        ],
+        "opciones": [
+          {
+            "label": "≈ 3 km",
+            "correcta": true
+          },
+          {
+            "label": "≈ 30 km",
+            "correcta": false
+          },
+          {
+            "label": "≈ 300 m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica R_s = 2GM/c²",
+          "Calcula 2.67×10²⁰ / 9×10¹⁶",
+          "Resultado ≈ 3 km"
+        ]
+      }
+    ]
+  }
 }
