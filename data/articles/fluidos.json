@@ -1,141 +1,316 @@
 {
   "metadata": {
-    "title": "Estática y Dinámica de Fluidos: La Física del Agua, el Aire y Todo lo que Fluye",
-    "description": "Por qué flotan los barcos, cómo vuelan los aviones, y por qué la ducha succiona la cortina. Todo sobre fluidos: presión, flotación, continuidad y Bernoulli.",
+    "title": "Fluidos: La Física de lo que Fluye",
+    "description": "Guía completa de fluidos: presión, hidrostática, principio de Pascal, principio de Arquímedes, hidrodinámica, ecuación de Bernoulli y viscosidad. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "fluidos",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "fluidos",
       "presión",
-      "flotación",
+      "hidrostática",
+      "Pascal",
       "Arquímedes",
       "Bernoulli",
-      "dinámica de fluidos",
-      "estática de fluidos",
-      "densidad",
+      "hidrodinámica",
       "viscosidad",
-      "atmósfera"
+      "flotabilidad"
     ],
-    "image": "https://images.unsplash.com/photo-1535585209827-a15fcdbc4d2a?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-11",
-    "nivel": "2",
-    "orden": "6",
+    "image": "https://images.unsplash.com/photo-1509233725247-49e657c54213?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-09",
+    "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
-    "insignia": "Señor de lo Clásico",
+    "orden": 7,
+    "insignia": "Navegante de los Fluidos",
     "tipo": "theory",
     "prerequisites": [
-      "mecanica-clasica"
+      "materia-y-energia",
+      "leyes-newton-movimiento"
     ],
-    "breadcrumb": [
-      "El Reino de lo Clásico",
-      "Fluidos"
-    ]
+    "breadcrumb": "Física / El Reino de lo Clásico / Fluidos"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  El agua, el aire, la sangre de tus venas: todo lo que fluye obedece unas pocas leyes elegantes. La física de los fluidos explica por qué los barcos flotan y los aviones vuelan.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Un fluido es cualquier materia que puede fluir (líquidos y gases). Dos principios lo gobiernan todo: la **presión** (fuerza por unidad de área) se transmite y se acumula con la profundidad; el **principio de Arquímedes** explica por qué las cosas flotan (el empuje es el peso del fluido desalojado); y la **ecuación de Bernoulli** conecta velocidad, presión y altura en fluidos en movimiento —es la razón de que los aviones vuelen. Con estas tres ideas entiendes ríos, océanos, sangre y aviación.\n\n**[IMAGEN SUGERIDA: Una mano sosteniendo un vaso de agua con ondas, reflejando la luz. Pie de foto: \"Los fluidos fluyen, pero siguen leyes precisas.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-por-qu-no-te-hundes",
-      "titulo": "▶️ Bienvenida: ¿Por qué no te hundes?",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: ¿por qué no te hundes?",
       "niveles": {
-        "principiante": "En este preciso instante, hay **más de 10 toneladas de aire** empujando tu cuerpo desde todas direcciones. Sí, 10 toneladas. Y sin embargo, no te aplasta.\n\nAl mismo tiempo, un barco de acero de 200.000 toneladas flota sobre el agua como si fuera corcho. Y un avión de aluminio de 400 toneladas vuela a 10.000 metros de altura, sostenido por el aire que apenas podemos ver.\n\nLos **fluidos** (líquidos y gases) son los protagonistas silenciosos de la mayoría de fenómenos cotidianos. Desde que te duchas por la mañana hasta que respiras mientras duermes, los fluidos están actuando sobre ti de formas que probablemente nunca has pensado.\n\nLa buena noticia: con solo unas pocas ideas clave, podrás entender **por qué flotas en una piscina**, **por qué la cortina de la ducha te chupa hacia dentro**, y **por qué los huracanes arrancan techos**.\n\n> **💡 La clave en 10 segundos**\n>\n> > Un **fluido** es cualquier sustancia que fluye: agua, aire, aceite, sangre, incluso la lava. La física de fluidos se divide en dos: la **estática** (fluidos en reposo, donde descubrimos por qué flotamos) y la **dinámica** (fluidos en movimiento, donde descubrimos por qué los aviones vuelan). Todo se reduce a tres ideas: **presión**, **densidad** y **conservación de la energía**.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LO QUE YA SABES (PERO NO SABES QUE SABES) -->\n<!-- ============================================ -->",
-        "intermedio": "En este preciso instante, hay **más de 10 toneladas de aire** empujando tu cuerpo desde todas direcciones. Sí, 10 toneladas. Y sin embargo, no te aplasta.\n\nAl mismo tiempo, un barco de acero de 200.000 toneladas flota sobre el agua como si fuera corcho. Y un avión de aluminio de 400 toneladas vuela a 10.000 metros de altura, sostenido por el aire que apenas podemos ver.\n\nLos **fluidos** (líquidos y gases) son los protagonistas silenciosos de la mayoría de fenómenos cotidianos. Desde que te duchas por la mañana hasta que respiras mientras duermes, los fluidos están actuando sobre ti de formas que probablemente nunca has pensado.\n\nLa buena noticia: con solo unas pocas ideas clave, podrás entender **por qué flotas en una piscina**, **por qué la cortina de la ducha te chupa hacia dentro**, y **por qué los huracanes arrancan techos**.\n\n> **💡 La clave en 10 segundos**\n>\n> > Un **fluido** es cualquier sustancia que fluye: agua, aire, aceite, sangre, incluso la lava. La física de fluidos se divide en dos: la **estática** (fluidos en reposo, donde descubrimos por qué flotamos) y la **dinámica** (fluidos en movimiento, donde descubrimos por qué los aviones vuelan). Todo se reduce a tres ideas: **presión**, **densidad** y **conservación de la energía**.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LO QUE YA SABES (PERO NO SABES QUE SABES) -->\n<!-- ============================================ -->",
-        "avanzado": "En este preciso instante, hay **más de 10 toneladas de aire** empujando tu cuerpo desde todas direcciones. Sí, 10 toneladas. Y sin embargo, no te aplasta.\n\nAl mismo tiempo, un barco de acero de 200.000 toneladas flota sobre el agua como si fuera corcho. Y un avión de aluminio de 400 toneladas vuela a 10.000 metros de altura, sostenido por el aire que apenas podemos ver.\n\nLos **fluidos** (líquidos y gases) son los protagonistas silenciosos de la mayoría de fenómenos cotidianos. Desde que te duchas por la mañana hasta que respiras mientras duermes, los fluidos están actuando sobre ti de formas que probablemente nunca has pensado.\n\nLa buena noticia: con solo unas pocas ideas clave, podrás entender **por qué flotas en una piscina**, **por qué la cortina de la ducha te chupa hacia dentro**, y **por qué los huracanes arrancan techos**.\n\n> **💡 La clave en 10 segundos**\n>\n> > Un **fluido** es cualquier sustancia que fluye: agua, aire, aceite, sangre, incluso la lava. La física de fluidos se divide en dos: la **estática** (fluidos en reposo, donde descubrimos por qué flotamos) y la **dinámica** (fluidos en movimiento, donde descubrimos por qué los aviones vuelan). Todo se reduce a tres ideas: **presión**, **densidad** y **conservación de la energía**.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: INTUICIÓN — LO QUE YA SABES (PERO NO SABES QUE SABES) -->\n<!-- ============================================ -->"
+        "principiante": "## Bienvenida: ¿por qué no te hundes?\n\nTe metes en una piscina y flotas. Un barco de miles de toneladas de acero flota. Una piedra se hunde. ¿Qué decide si una cosa flota o se hunde?\n\nLa respuesta está en la **física de los fluidos**: el estudio de cómo se comportan los líquidos y los gases. El agua, el aire, la sangre, el petróleo —todo lo que fluye es un fluido, y todos siguen las mismas leyes.\n\nLos fluidos nos rodean. El aire que respiras es un fluido. La sangre que bombea tu corazón es un fluido. El agua que bebes es un fluido. Entender los fluidos es entender una parte enorme de tu vida diaria.\n\n> **🔑 Concepto clave: Fluido**\n> Un fluido es cualquier sustancia que puede fluir y deformarse al aplicar una fuerza. Incluye a los líquidos (incompresibles) y a los gases (compresibles). A diferencia de los sólidos, los fluidos no tienen forma propia: adoptan la del recipiente.\n\n**[IMAGEN SUGERIDA: Un barco flotando en el mar al atardecer. Pie de foto: \"Un barco de acero flota gracias a la física de los fluidos.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la física de fluidos se resume en tres ideas: la presión aumenta con la profundidad (P = P₀ + ρgh), el empuje de Arquímedes iguala el peso del fluido desalojado (por eso flotan los barcos), y Bernoulli conecta velocidad y presión (por eso vuelan los aviones). Con estas tres, entiendes ríos, océanos, sangre y aviación.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: el mundo de los fluidos\n\nLa física de fluidos se divide en dos ramas:\n\n- **Hidrostática**: fluidos en reposo. Estudia la presión, el empuje y la flotabilidad.\n- **Hidrodinámica**: fluidos en movimiento. Estudia el flujo, la continuidad y la ecuación de Bernoulli.\n\nLos conceptos clave:\n\n- **Presión**: fuerza por unidad de área. Se mide en pascales (Pa).\n- **Densidad**: masa por unidad de volumen (kg/m³).\n- **Empuje**: la fuerza hacia arriba que ejerce un fluido sobre un objeto sumergido.\n\nLa presión es un concepto central: es la fuerza distribuida sobre un área. La presión del aire sobre tu cuerpo es enorme (~100.000 Pa), pero no la sientes porque es uniforme —actúa por igual en todas direcciones.\n\n> **Dato que rompe el cerebro**\n> A nivel del mar, la presión atmosférica es de unos 100.000 Pa. Sobre tu mano de 100 cm² actúa una fuerza de 1.000 N —el peso de una persona. No la sientes porque el aire de dentro de tu cuerpo ejerce la misma presión hacia afuera.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la física de fluidos se resume en tres ideas: la presión aumenta con la profundidad (P = P₀ + ρgh), el empuje de Arquímedes iguala el peso del fluido desalojado (por eso flotan los barcos), y Bernoulli conecta velocidad y presión (por eso vuelan los aviones). Con estas tres, entiendes ríos, océanos, sangre y aviación.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: los fluidos como sistemas continuos\n\nEn su formulación moderna, la mecánica de fluidos trata los fluidos como **medios continuos**: se ignoran las moléculas individuales y se describen propiedades macroscópicas (presión, densidad, velocidad) en cada punto.\n\nEsta aproximación es válida cuando la escala de interés es mucho mayor que el camino libre medio de las moléculas. En el aire a nivel del mar, el camino libre medio es ~68 nm: para problemas de aviación u océanos, la aproximación continua es excelente.\n\nLas ecuaciones fundamentales son la **ecuación de continuidad** (conservación de masa), la **ecuación de Bernoulli** (conservación de energía) y, para fluidos viscosos, las **ecuaciones de Navier-Stokes**.\n\n> **💡 Nota avanzada**\n> Las ecuaciones de Navier-Stokes describen el flujo de fluidos viscosos y son tan complejas que su solución general es uno de los problemas del milenio del Clay Institute (1 millón de dólares para quien la resuelva). La turbulencia sigue siendo un misterio sin resolver.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** la física de fluidos se resume en tres ideas: la presión aumenta con la profundidad (P = P₀ + ρgh), el empuje de Arquímedes iguala el peso del fluido desalojado (por eso flotan los barcos), y Bernoulli conecta velocidad y presión (por eso vuelan los aviones). Con estas tres, entiendes ríos, océanos, sangre y aviación.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-capa-i-intuicin---fluidos-en-tu-vida-diaria",
-      "titulo": "🌱 Capa I: Intuición - Fluidos en tu vida diaria",
+      "id": "que-es-fluido",
+      "titulo": "Fluidos en tu vida diaria",
       "niveles": {
-        "principiante": "### 1.1 ¿Qué es un fluido?\n\nAntes de empezar, aclaremos un concepto:\n\n> Un **fluido** es cualquier sustancia que **no tiene forma propia** y se adapta a la forma del recipiente que la contiene.\n\n| Estado | ¿Es fluido? | Ejemplo |\n|:------:|:-----------:|:-------:|\n| Sólido (hielo) | ❌ | Tiene forma propia |\n| Líquido (agua) | ✅ | Se adapta al vaso |\n| Gas (vapor de agua) | ✅ | Se adapta a toda la habitación |\n| Plasma (fuego, sol) | ✅ | Se adapta a su contenedor magnético |\n\nLa diferencia clave entre sólidos y fluidos es cómo responden a una **fuerza**:\n- Un sólido se **deforma** (y recupera su forma si la fuerza no es muy grande).\n- Un fluido **fluye**: cambia de forma de forma permanente, sin importar cuán pequeña sea la fuerza.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > La mantequilla de cacahuete es técnicamente un fluido. Si le aplicas suficiente tiempo y una fuerza pequeña, fluye. Por eso los jarrones de cristal antiguos parecen \"solidificados\" pero el vidrio realmente **fluye** (muy lentamente) y las ventanas de las catedrales medievales son ligeramente más gruesas en la parte inferior que en la superior, después de 700 años de \"fluir\".\n\n### 1.2 Densidad: cuánta masa hay en un espacio\n\nLa **densidad** ($\\rho$, la letra griega \"rho\") es la cantidad de masa que hay en cada unidad de volumen:\n\n$$\\rho = \\frac{m}{V}$$\n\n| Sustancia | Densidad (kg/m³) | Hecho curioso |\n|:---------:|:----------------:|:--------------|\n| Aire (a nivel del mar) | ~1,2 | Tan ligero que \"no pesa\" |\n| Agua | 1.000 | Referencia universal |\n| Sangre | ~1.060 | Ligeramente más densa que el agua |\n| Aceite de oliva | ~920 | Por eso flota sobre el agua |\n| Hielo | ~917 | Por eso los icebergs flotan |\n| Aluminio | 2.700 | Lo que hace que las latas \"pesen\" |\n| Plomo | 11.340 | Extremadamente denso |\n| Núcleo de la Tierra | ~13.000 | Tan denso como el plomo |\n\n**Intuición clave:** Un objeto \"pesado\" (como un barco de acero) puede flotar si logra desplazar suficiente agua. Pero un clavo de acero del mismo metal se hunde. La diferencia no es el material, sino **la forma**. Un barco es una cáscara hueca que contiene aire, así que su densidad **promedio** (acero + aire) es menor que la del agua.\n\n---"
+        "principiante": "## Fluidos en tu vida diaria\n\nLos fluidos están en todas partes. El agua que sale del grifo, el aire que respiras, la sangre en tus venas, el aceite del coche, el vapor de la ducha. Todos son fluidos.\n\nUna forma de distinguirlos:\n\n- **Líquidos**: tienen volumen fijo pero forma variable (el agua en un vaso)\n- **Gases**: no tienen volumen ni forma fijos (el aire llena la habitación)\n\nAmbos son fluidos porque pueden fluir. La diferencia está en la compresibilidad: los líquidos son prácticamente incompresibles, los gases se comprimen fácilmente.\n\n> **Dato curioso**\n> El agua es un fluido, pero también lo es el aire. Ambos se mueven, ambos ejercen presión, ambos siguen las leyes de los fluidos. Por eso la misma física explica una burbuja en el agua y una nube en el cielo.\n\n**[IMAGEN SUGERIDA: Collage de fluidos cotidianos: agua de grifo, vapor, sangre, aceite. Pie de foto: \"Los fluidos nos rodean.\"]**\n",
+        "intermedio": "## Densidad y presión\n\nLa **densidad** (ρ) es una propiedad clave de los fluidos: la masa por unidad de volumen.\n\n$$ \\rho = \\frac{m}{V} $$\n\nUnidades: kg/m³. El agua tiene ρ = 1000 kg/m³; el aire ρ ≈ 1.2 kg/m³. La densidad del agua es ~800 veces mayor que la del aire.\n\nLa **presión** es la fuerza perpendicular por unidad de área:\n\n$$ P = \\frac{F}{A} $$\n\nUnidades: pascales (Pa) = N/m².\n\n> **🔑 Concepto clave: Presión**\n> La presión es la fuerza distribuida sobre un área. El mismo peso sobre un área pequeña produce más presión que sobre un área grande. Por eso un cuchillo afilado corta mejor: concentra la fuerza en un área mínima.\n",
+        "avanzado": "## Fluidos ideales vs reales\n\nEn física de fluidos se distingue entre:\n\n- **Fluido ideal**: incompresible y sin viscosidad (sin fricción interna). Simplifica enormemente los problemas.\n- **Fluido real**: tiene viscosidad y puede comprimirse.\n\nLa aproximación de fluido ideal funciona bien para describir la presión, la flotabilidad y el flujo de Bernoulli. La viscosidad es importante cuando hay superficies, tuberías estrechas o movimiento rápido.\n\n> **💡 Nota avanzada**\n> El número de Reynolds (Re) clasifica el flujo: laminar (Re < 2000), transitorio y turbulento (Re > 4000). Es un número adimensional que compara fuerzas de inercia y viscosas. La transición a la turbulencia es uno de los grandes problemas abiertos de la física.\n"
       },
       "acciones": []
     },
     {
-      "id": "21-presin-la-fuerza-invisible",
-      "titulo": "2.1 Presión: la fuerza invisible",
+      "id": "presion",
+      "titulo": "Presión: la fuerza invisible",
       "niveles": {
-        "principiante": "### ¿Qué es la presión?\n\nLa **presión** es la fuerza que ejerce un fluido **repartida** sobre una superficie:\n\n$$P = \\frac{F}{A}$$\n\nDonde $F$ es la fuerza perpendicular a la superficie y $A$ es el área de esa superficie.\n\n**Unidad:** Pascal (Pa) = 1 Newton por metro cuadrado (N/m²).\n\n**Intuición:** Imagina que sostienes un globo de fiesta inflado. La presión del aire dentro empuja en **todas las direcciones** por igual. Si pinchas un lado, el aire escapa porque la presión interna es mayor que la externa.\n\n### La presión atmosférica: el elefante invisible\n\nEn el nivel del mar, la atmósfera ejerce una presión de aproximadamente:\n\n$$P_{atm} \\approx 101.325 \\text{ Pa} = 1 \\text{ atm}$$\n\n¿Sabes qué significa eso en la práctica? Sobre **cada centímetro cuadrado** de tu piel hay una fuerza de aproximadamente **1 kilogramo**. Tu palma de la mano tiene unos 50 cm², así que sobre ella hay **50 kg de fuerza** empujando hacia dentro.\n\n**¿Por qué no te aplasta?** Porque hay la **misma presión por dentro** de tu cuerpo que por fuera. Las presiones se equilibran. Es como un huevo: puedes apretarlo con fuerza desde todos los lados sin romperlo, porque la presión se distribuye uniformemente.\n\n> **🏠 Experimento casero**\n>\n> Llena un vaso de agua hasta el borde. Coloca un trozo de cartón sobre la abertura. Sostén el cartón y **dale la vuelta**. Ahora suelta el cartón. **No cae.** La presión atmosférica desde abajo empuja el cartón con más fuerza que el peso del agua empujándolo hacia abajo. Es la misma idea que los succionos de ventosa.\n\n---"
+        "principiante": "## Presión: la fuerza invisible\n\nSi te tumbas en un colchón de pinchos, la misma fuerza se reparte en muchos puntos y no te duele. Si te sientas en un clavo, toda la fuerza se concentra en un punto. La diferencia es la **presión**.\n\nLa presión es la fuerza aplicada sobre un área:\n\n$$ P = \\frac{F}{A} $$\n\nUnidades: pascales (Pa). 1 Pa = 1 N/m².\n\n- Mismo peso, área pequeña → mucha presión (el clavo)\n- Mismo peso, área grande → poca presión (el colchón de pinchos)\n\n> **Dato que rompe el cerebro**\n> Una bailarina de flamenco con tacones ejerce más presión sobre el suelo que un elefante. Aunque pesa mucho menos, su peso se concentra en el área diminuta del tacón. La presión depende tanto de la fuerza como del área.\n\n**[IMAGEN SUGERIDA: Una bailarina de tacones y un elefante, con las presiones que ejercen comparadas. Pie de foto: \"El área determina la presión.\"]**\n",
+        "intermedio": "## Presión en fluidos\n\nEn un fluido, la presión actúa en todas direcciones y aumenta con la profundidad. La **presión hidrostática** a una profundidad h:\n\n$$ P = P_{atm} + \\rho g h $$\n\nDonde ρ es la densidad del fluido, g la gravedad y h la profundidad. La presión depende de la profundidad, no del volumen ni de la forma del recipiente.\n\n```aeterna-formula\ntitle=\"Presión hidrostática\"\nformula=\"P = P_0 + \\\\rho g h\"\nvariables={[{\"symbol\":\"P\",\"name\":\"Presión a profundidad h\",\"unit\":\"Pa\"},{\"symbol\":\"P₀\",\"name\":\"Presión en la superficie\",\"unit\":\"Pa\"},{\"symbol\":\"ρ\",\"name\":\"Densidad del fluido\",\"unit\":\"kg/m³\"},{\"symbol\":\"g\",\"name\":\"Gravedad\",\"unit\":\"m/s²\"},{\"symbol\":\"h\",\"name\":\"Profundidad\",\"unit\":\"m\"}]}\nnote=\"La presión aumenta linealmente con la profundidad. Es la razón de que los oídos duelan al bucear.\"\n```\n\n> **Dato que rompe el cerebro**\n> A 10 m de profundidad en el agua, la presión es el doble de la atmosférica. A 100 m, es 10 veces mayor. Por eso los buceadores deben ascender lentamente: el cambio de presión puede ser peligroso.\n",
+        "avanzado": "## Paradoja hidrostática\n\nLa presión en un fluido depende solo de la profundidad y la densidad, no de la forma del recipiente. Un recipiente en forma de embudo ancho y otro estrecho, ambos con el agua a la misma altura, ejercen la misma presión en el fondo.\n\nEsto se conoce como la **paradoja hidrostática**. La fuerza sobre el fondo no es el peso del agua (que puede diferir entre recipientes), sino P × A.\n\n> **💡 Nota avanzada**\n> Los vasos comunicantes: si conectas varios recipientes de distinta forma, el líquido alcanza la misma altura en todos, porque la presión en la superficie (atmosférica) es igual y la gravedad equilibra. Es el principio de los niveles de agua y los acueductos romanos.\n"
       },
       "acciones": []
     },
     {
-      "id": "22-presin-en-un-fluido-en-reposo",
-      "titulo": "2.2 Presión en un fluido en reposo",
+      "id": "hidrostatica",
+      "titulo": "Hidrostática: el principio de Pascal",
       "niveles": {
-        "principiante": "Cuando un fluido está **quieto**, la presión varía con la profundidad. Es lógico: cuanto más abajo estás, más fluido tienes encima \"pesando\" sobre ti.\n\nLa fórmula fundamental es:\n\n$$P = P_0 + \\rho \\cdot g \\cdot h$$\n\n| Símbolo | Significado | Unidad |\n|:-------:|:-----------|:------:|\n| $P$ | Presión a la profundidad $h$ | Pascal (Pa) |\n| $P_0$ | Presión en la superficie (presión atmosférica) | Pascal (Pa) |\n| $\\rho$ | Densidad del fluido | kg/m³ |\n| $g$ | Aceleración gravitatoria | 9,8 m/s² |\n| $h$ | Profundidad medida desde la superficie | metros (m) |\n\n### Implicaciones sorprendentes\n\n**1. La presión depende solo de la profundidad, NO del volumen total de fluido.**\n\nImagina un embalse gigante y un vaso de agua. Si ambos tienen 10 cm de profundidad, la presión en el fondo es la **misma** (salvo por la presión atmosférica de arriba). Los elefantes nadando debajo no cambian la presión en el fondo de una piscina.\n\n**2. La presión actúa en TODAS las direcciones.**\n\nEn un punto dentro del agua, la presión empuja hacia arriba, hacia abajo, hacia la izquierda y hacia la derecha con la misma intensidad. Por eso las presas deben ser más gruesas en la base que en la cima: la presión aumenta con la profundidad.\n\n**3. Estás \"apretado\" igual por todos lados.**\n\nSi estás sumergido a 10 metros de profundidad, la presión adicional sobre tu cuerpo es:\n\n$$\\Delta P = 1000 \\times 9{,}8 \\times 10 = 98.000 \\text{ Pa} \\approx 1 \\text{ atm extra}$$\n\nEs como si tuvieras **todo el peso de la atmósfera** adicional empujándote desde todas las direcciones. Por eso los buzos necesitan \"ecualizar\" sus oídos: la presión en sus tímpanos es diferente por dentro y por fuera.\n\n> **❌ Error común**\n>\n> > **[El error]:** \"A mayor volumen de líquido, mayor presión en el fondo.\"\n> >\n> > **[La realidad]:** La presión en el fondo de un vaso de agua de 10 cm de profundidad es **idéntica** a la del fondo del océano a 10 metros de profundidad (en ambos casos $h = 10$ cm y $h = 10$ m respectivamente). Lo que importa es la profundidad, no cuánto líquido hay en total.\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 2: PRINCIPIOS PODEROSOS -->\n<!-- ============================================ -->"
+        "principiante": "## Hidrostática y el principio de Pascal\n\nBlaise Pascal descubrió algo asombroso: si ejerces presión sobre un líquido encerrado, esa presión se transmite **por igual a todo el fluido**. Un cambio de presión en un punto se transmite íntegramente a todos los puntos.\n\nEste es el **principio de Pascal**, y es la base de la prensa hidráulica:\n\n- Presionas con una fuerza pequeña sobre un pistón pequeño\n- La presión se transmite a un pistón grande\n- La fuerza se multiplica\n\nEs la física detrás de los frenos de un coche, las grúas hidráulicas y las sillas de dentista.\n\n> **Dato curioso**\n> Con una prensa hidráulica, puedes levantar un coche entero aplicando una fuerza pequeña. Es la misma física que usa el gato hidráulico de un taller: una fuerza pequeña sobre un pistón pequeño multiplica la fuerza sobre un pistón grande.\n\n**[IMAGEN SUGERIDA: Diagrama de una prensa hidráulica con dos pistones de distinto tamaño. Pie de foto: \"El principio de Pascal multiplica la fuerza.\"]**\n",
+        "intermedio": "## El principio de Pascal en detalle\n\nSi aplicas una presión adicional ΔP a un fluido encerrado, la presión en todos los puntos aumenta en ΔP. En la prensa hidráulica:\n\n$$ F_2 = F_1 \\frac{A_2}{A_1} $$\n\nDonde A₁ y A₂ son las áreas de los pistones. Si A₂ es 100 veces mayor que A₁, la fuerza se multiplica por 100.\n\n```aeterna-exercise\nTITLE: Prensa hidráulica\nHINT: F₂ = F₁·(A₂/A₁). El área del pistón grande es la que multiplica la fuerza.\nXP: 40\nEn una prensa hidráulica, el pistón pequeño tiene área 0.01 m² y el grande 0.5 m². Si aplicas 100 N al pequeño, ¿qué fuerza obtienes en el grande?\nSOLUTION: F₂ = F₁·(A₂/A₁) = 100 × (0.5/0.01) = 100 × 50 = 5000 N. La fuerza se multiplicó por 50.\n```\n\n> **🔑 Concepto clave: Multiplicación de fuerza**\n> La prensa hidráulica multiplica la fuerza en la misma proporción que las áreas de los pistones. No crea energía: el pistón grande recorre menos distancia. El trabajo (fuerza × distancia) se conserva.\n",
+        "avanzado": "## Pascal y la conservación de la energía\n\nLa prensa hidráulica no multiplica la energía, solo la fuerza. El trabajo de entrada (F₁ × d₁) es igual al trabajo de salida (F₂ × d₂). Como F₂ > F₁, entonces d₂ < d₁: el pistón grande se mueve menos.\n\nSi F₁×d₁ = F₂×d₂ y F₂ = F₁·(A₂/A₁), entonces d₂ = d₁·(A₁/A₂). La distancia se divide en la misma proporción que la fuerza se multiplica.\n\n> **💡 Nota de frontera**\n> Los sistemas hidráulicos son ubicuos: frenos de coche, excavadoras, elevadores, dirección asistida. Todos se basan en el principio de Pascal y en la incompresibilidad de los líquidos. Los frenos de un coche usan líquido de frenos para transmitir la presión del pedal a las pastillas.\n"
       },
       "acciones": []
     },
     {
-      "id": "31-principio-de-pascal-multiplicar-fuerzas-con-fluidos",
-      "titulo": "3.1 Principio de Pascal: multiplicar fuerzas con fluidos",
+      "id": "principio-arquimedes",
+      "titulo": "El principio de Arquímedes: la física detrás de ¡Eureka!",
       "niveles": {
-        "principiante": "**Enunciado:** *Un cambio de presión aplicado en cualquier punto de un fluido encerrado se transmite **íntegramente** en todas las direcciones.*\n\n$$\\Delta P = \\frac{F_1}{A_1} = \\frac{F_2}{A_2}$$\n\n**Traducción práctica:** Si aplicas una fuerza pequeña sobre un área pequeña, se genera una fuerza **enorme** sobre un área grande.\n\n### El gato hidráulico: multiplicar tu fuerza\n\nImagina dos pistones conectados por un tubo lleno de aceite:\n\n```\n    Fuerza pequeña (F₁)          Fuerza grande (F₂)\n    ┌──────────────┐             ┌────────────────────┐\n    │   PISTÓN 1  │─────────────│      PISTÓN 2      │\n    │  (área A₁)  │  FLUIDO     │     (área A₂)      │\n    │  Pequeño    │  ENCERRADO  │     Grande          │\n    └──────────────┘             └────────────────────┘\n```\n\nSi $A_2 = 100 \\times A_1$, entonces $F_2 = 100 \\times F_1$.\n\nEmpujas con **10 N** en el pistón pequeño → obtienes **1.000 N** en el pistón grande.\n\n**El truco:** el pistón grande se mueve **100 veces menos** que el pequeño (se conserva la energía: $F_1 \\cdot d_1 = F_2 \\cdot d_2$).\n\n**¿Dónde lo ves cada día?**\n- Frenos de tu coche (tu pie empuja un pistón pequeño → las pastillas aprietan los discos con fuerza enorme)\n- Gatos hidráulicos que levantan coches en el taller\n- Sistemas de dirección asistida\n- Excavadoras hidráulicas\n\n> **🌍 Dato cotidiano**\n>\n> > Cuando pisas el freno de tu coche, tu pie genera una fuerza de unos 50 N. Gracias a la hidráulica, las pastillas de freno ejercen hasta **5.000 N** sobre el disco. Diez veces más fuerza que tu pierna podría generar sola. El fluido es tu **amplificador de fuerza**.\n\n---"
+        "principiante": "## El principio de Arquímedes\n\nCuenta la leyenda que Arquímedes descubrió este principio mientras se bañaba, y salió corriendo desnudo gritando '¡Eureka!' (¡lo encontré!).\n\nEl **principio de Arquímedes** dice algo simple y poderoso:\n\n> Todo cuerpo sumergido en un fluido experimenta un **empuje** hacia arriba igual al peso del fluido desalojado.\n\nPor eso:\n- Un objeto menos denso que el fluido flota\n- Un objeto más denso se hunde\n- Un objeto de igual densidad queda en suspensión\n\nEl barco de acero flota porque, aunque el acero es denso, el barco en su conjunto (con el aire dentro) tiene densidad media menor que la del agua.\n\n> **Dato que rompe el cerebro**\n> Un barco de acero de 100.000 toneladas flota porque desaloja 100.000 toneladas de agua. El empuje es igual al peso del agua desalojada, que a su vez es igual al peso del barco. Es un equilibrio perfecto.\n\n**[IMAGEN SUGERIDA: Un barco flotando, con una flecha hacia arriba del empuje y hacia abajo del peso. Pie de foto: \"El empuje equilibra el peso.\"]**\n",
+        "intermedio": "## El empuje en detalle\n\nEl empuje (E) es el peso del fluido desalojado:\n\n$$ E = \\rho_{fluido} \\cdot V_{sumergido} \\cdot g $$\n\nLa condición de flotación:\n\n- E > P (peso) → el objeto sube\n- E = P → flota en equilibrio\n- E < P → se hunde\n\nEn términos de densidad: un objeto flota si su densidad media es menor que la del fluido.\n\n```parameter-lab\nTITLE: Laboratorio de flotabilidad\nDESC: Ajusta la densidad del objeto y del fluido para ver si flota o se hunde.\nOUTPUT_LABEL: Empuje neto\nOUTPUT_UNIT: N\nQUESTION: ¿Qué ocurre si la densidad del objeto es exactamente igual a la del fluido?\nANSWER: El objeto queda en suspensión, en equilibrio neutro: el empuje es exactamente igual al peso, y el objeto ni sube ni baja. Es lo que ocurre con un pez que controla su densidad con la vejiga natatoria.\nXP: 50\nPARAM: dens_objeto | Densidad del objeto | kg/m³ | 100 | 5000 | 10 | 500\nPARAM: dens_fluido | Densidad del fluido | kg/m³ | 100 | 3000 | 10 | 1000\n```\n\n> **🔑 Concepto clave: Densidad media**\n> Lo que decide si un objeto flota es su **densidad media** (masa total / volumen total), no la densidad del material. Un barco de acero flota porque su volumen incluye el aire interior, bajando su densidad media por debajo de la del agua.\n",
+        "avanzado": "## Arquímedes y la densidad relativa\n\nEl principio de Arquímedes permite medir densidades con precisión: sumergiendo un objeto y midiendo el empuje, se determina su volumen y, con la masa, su densidad.\n\nUn **hidrómetro** es un instrumento que flota a distinta altura según la densidad del líquido. Se usa para medir la densidad de baterías, vinos y leche.\n\n> **💡 Nota de frontera**\n> Los submarinos controlan su flotabilidad ajustando el agua que toman en sus tanques: más agua → más densidad media → se hunden; expulsan agua → se elevan. Los peces usan la vejiga natatoria con el mismo principio.\n"
       },
       "acciones": []
     },
     {
-      "id": "41-principio-de-arqumedes-la-fsica-detrs-de-eureka",
-      "titulo": "4.1 Principio de Arquímedes: la física detrás de \"¡Eureka!\"",
+      "id": "hidrodinamica",
+      "titulo": "Hidrodinámica: fluidos en movimiento",
       "niveles": {
-        "principiante": "**Enunciado:** *Todo cuerpo sumergido total o parcialmente en un fluido experimenta una **fuerza hacia arriba** (empuje) igual al **peso del fluido que desaloja**.*\n\n$$F_{empuje} = \\rho_{fluido} \\cdot V_{sumergido} \\cdot g$$\n\n### ¿Por qué? La presión es la culpable\n\nUn objeto sumergido tiene más presión en la parte **inferior** que en la **superior** (porque está más profundo). Esa **diferencia de presión** neta genera una fuerza hacia arriba: la fuerza de empuje.\n\n```\n      ▲ Presión menor (menos fluido encima)\n      │\n      ●─────── Objeto sumergido\n      │\n      ▼ Presión mayor (más fluido encima)\n         ↑ F empuje resultante\n```\n\n### Las tres leyes de la flotación\n\n| Situación | Condición | Ejemplo |\n|:---------:|:---------:|:-------:|\n| **Flota** | $\\rho_{objeto} < \\rho_{fluido}$ | Madera en agua, barco de acero (con aire dentro) |\n| **Suspendido** | $\\rho_{objeto} = \\rho_{fluido}$ | Submarino ajustando lastre |\n| **Se hunde** | $\\rho_{objeto} > \\rho_{fluido}$ | Clavo en agua, piedra en agua |\n\n**Ejemplo resuelto: ¿Flota un cubo de madera?**\n\nDensidad de la madera: $\\rho_m = 700$ kg/m³\nDensidad del agua: $\\rho_w = 1000$ kg/m³\n\nComo $\\rho_m < \\rho_w$, el cubo **flota**. ¿Qué fracción queda fuera del agua?\n\n$$\\frac{V_{sumergido}}{V_{total}} = \\frac{\\rho_{madera}}{\\rho_{agua}} = \\frac{700}{1000} = 0{,}7$$\n\nEl **70%** del cubo está bajo el agua. Solo ves el **30%**.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > Un barco de acero de 100.000 toneladas **flota** porque es una cáscara hueca llena de aire. Su densidad promedio (acero + aire + carga) es menor que la del agua de mar. Si lo comprimieras hasta eliminar el aire y lo convirtieras en una bola sólida de acero... se **hundiría** instantáneamente.\n\n### Experimento mental: el barco y la piedra\n\nEstás en un bote en una piscina. Tienes una piedra en el bote. Lanzas la piedra al agua. **¿Sube o baja el nivel del agua de la piscina?**\n\n**Respuesta:** **Baja.** Cuando la piedra está en el bote, el bote desplaza agua equivalente al **peso** de la piedra (Arquímedes). Cuando la piedra está en el fondo de la piscina, solo desplaza agua equivalente a su **volumen**. Como la piedra es más densa que el agua, su peso es mayor que el peso del mismo volumen de agua. Conclusión: al lanzar la piedra, el nivel **baja**.\n\n---"
+        "principiante": "## Hidrodinámica: fluidos en movimiento\n\nCuando los fluidos se mueven, aparecen nuevos fenómenos. La **hidrodinámica** estudia el flujo de líquidos y gases.\n\nUn concepto clave es el **caudal**: cuánto fluido pasa por una sección por segundo.\n\nSi un río se estrecha, el agua fluye más rápido. Si una manguera se estrecha al final, el agua sale con más fuerza. Esto es la **ecuación de continuidad**: la cantidad de fluido que entra es igual a la que sale.\n\n> **Dato curioso**\n> Un río que se estrecha acelera su corriente. Una tubería que se estrecha hace que el líquido se mueva más rápido. Es la ecuación de continuidad: la masa de fluido que pasa por cualquier sección por segundo es constante.\n\n**[IMAGEN SUGERIDA: Un río que se estrecha entre rocas, acelerando la corriente. Pie de foto: \"Al estrecharse, el fluido acelera.\"]**\n",
+        "intermedio": "## Ecuación de continuidad\n\nPara un flujo estacionario de un fluido incompresible:\n\n$$ A_1 v_1 = A_2 v_2 $$\n\nEl producto área × velocidad (el caudal Q) es constante:\n\n$$ Q = A v = \\text{constante} $$\n\n```aeterna-formula\ntitle=\"Ecuación de continuidad\"\nformula=\"A_1 v_1 = A_2 v_2\"\nvariables={[{\"symbol\":\"A\",\"name\":\"Área de la sección\",\"unit\":\"m²\"},{\"symbol\":\"v\",\"name\":\"Velocidad del fluido\",\"unit\":\"m/s\"}]}\nnote=\"Si el área se reduce a la mitad, la velocidad se duplica. La masa que entra debe igualar la que sale.\"\n```\n\n> **🔑 Concepto clave: Caudal**\n> El caudal Q = Av es la cantidad de volumen que pasa por una sección por segundo. En un tubo cerrado, el caudal es el mismo en todas las secciones. Por eso al estrechar un tubo, el fluido acelera.\n",
+        "avanzado": "## Flujo laminar y turbulento\n\nEl flujo de fluidos se clasifica con el **número de Reynolds**:\n\n$$ Re = \\frac{\\rho v L}{\\eta} $$\n\nDonde L es una longitud característica y η la viscosidad.\n\n- Re < 2000: flujo **laminar** (ordenado, en capas)\n- Re > 4000: flujo **turbulento** (caótico, con remolinos)\n- Entre ambos: transición\n\nEl humo de una vela sube laminarmente y luego se vuelve turbulento: esa transición es uno de los problemas más difíciles de la física.\n\n> **💡 Nota de frontera**\n> La turbulencia es el problema sin resolver más famoso de la mecánica de fluidos. Las ecuaciones de Navier-Stokes que la describen tienen una solución general desconocida —es uno de los 7 problemas del milenio.\n"
       },
       "acciones": []
     },
     {
-      "id": "51-fluidos-en-movimiento-dinmica-de-fluidos",
-      "titulo": "5.1 Fluidos en movimiento: dinámica de fluidos",
+      "id": "bernoulli",
+      "titulo": "La ecuación de Bernoulli: por qué vuelan los aviones",
       "niveles": {
-        "principiante": "Ahora entramos en terreno donde los fluidos **se mueven**, y aquí las cosas se ponen fascinantes.\n\n### 5.2 Flujo laminar vs. turbulento\n\n**Flujo laminar:** Las capas de fluido se deslizan unas sobre otras de forma ordenada, como cartas de una baraja que se deslizan.\n\n```\n─────────────────────────────  → dirección del flujo\n─────────────────────────────\n────  → →  más rápido en el centro\n─────────────────────────────\n─────────────────────────────\n```\n\n**Flujo turbulento:** Remolinos, caos, mezcla. El flujo se vuelve impredecible.\n\nEl número que determina cuál tenemos se llama **número de Reynolds** ($Re$):\n\n$$Re = \\frac{\\rho \\cdot v \\cdot d}{\\mu}$$\n\n| $Re$ | Tipo de flujo | Ejemplo |\n|:----:|:-------------:|:-------:|\n| < 2.000 | Laminar | Miel fluyendo, aceite |\n| 2.000 – 4.000 | Transición | — |\n| > 4.000 | Turbulento | Agua en una tubería rápida, río con rocas |\n\n**Ejemplo visual:** Abre lentamente un grifo. El agua fluye en un chorro liso (laminar). Abre más. En cierto punto, el chorro se vuelve irregular, espumoso y caótico (turbulento). Acabas de cruzar el **umbral de Reynolds**.\n\n---\n\n### 5.3 Ecuación de continuidad: el río que se estrecha\n\nUn principio de **conservación de la masa** aplicado a fluidos:\n\n$$A_1 \\cdot v_1 = A_2 \\cdot v_2$$\n\n**Donde:**\n- $A$ = sección transversal del conducto\n- $v$ = velocidad del fluido\n\n**Traducción simple:** Si el conducto se estrecha, el fluido se **acelera**. Si se ensancha, se **frena**.\n\n```\n  Tubo ancho (A₁)        Tubo estrecho (A₂)\n  ──────────────────→    ═══════→══════ (más rápido)\n  v₁ lento               v₂ rápido\n```\n\n**Ejemplo cotidiano:** Cuando pones tu **pulgar** sobre la manguera del jardín, reduces el área. El agua sale **mucho más rápido** (y llega más lejos). La misma cantidad de agua tiene que pasar por un hueco menor, así que se acelera.\n\n**Otro ejemplo:** En una autopista, si el carril se reduce de 3 a 1, los coches tienen que ir más rápido por el espacio reducido (o se producen atascos, que es la versión turbulenta del mismo principio).\n\n---\n\n### 5.4 El teorema de Bernoulli: la ecuación más bella de la fluidodinámica\n\nDaniel Bernoulli (1738) descubrió una relación que conecta **presión**, **velocidad** y **altura** en un fluido en movimiento:\n\n$$P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{constante}$$\n\n| Término | Significado | Aumenta cuando... |\n|:-------:|:-----------|:------------------:|\n| $P$ | Presión estática | Hay más \"empuje\" del fluido |\n| $\\frac{1}{2}\\rho v^2$ | Energía cinética | El fluido va más rápido |\n| $\\rho g h$ | Energía potencial | El fluido está más alto |\n\n**La versión simplificada (misma altura):**\n\n$$P_1 + \\frac{1}{2}\\rho v_1^2 = P_2 + \\frac{1}{2}\\rho v_2^2$$\n\n**La moraleja de Bernoulli:**\n\n> **Donde el fluido va más rápido, la presión es MENOR.**\n\n**Y donde va más lento, la presión es MAYOR.**\n\nEsto parece contraintuitivo, pero es la clave de fenómenos que ves todos los días.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "61-aplicaciones-de-bernoulli-por-fin-entiendes-por-qu-vuelan-los-aviones",
-      "titulo": "6.1 Aplicaciones de Bernoulli: por fin entiendes por qué vuelan los aviones",
-      "niveles": {
-        "principiante": "### ¡El avión no vuela por la forma del ala! (Bueno, no solo por eso)\n\nLa explicación clásica dice que el ala tiene forma curvada arriba y plana abajo, lo que hace que el aire arriba viaje más rápido, generando menor presión arriba que abajo. **Esto es parcialmente correcto, pero incompleto.**\n\nLa verdad completa involucra:\n1. **Curvatura del flujo:** El ala deflecta el aire hacia abajo (Newton: tercera ley, el ala empuja aire abajo → el aire empuja el ala arriba).\n2. **Diferencia de velocidad:** El aire efectivamente va más rápido arriba (Bernoulli: menor presión arriba).\n3. **Ángulo de ataque:** Incluso un ala plana puede generar sustentación si se inclina lo suficiente.\n\nAmbas explicaciones (Newton y Bernoulli) describen el **mismo fenómeno** desde perspectivas diferentes. La fuerza de sustentación es el resultado de **ambos efectos combinados**.\n\n### La cortina de la ducha: el misterio resuelto\n\nEstás bajo la ducha. Hay una cortina que cuelga hacia dentro de la bañera. ¿Por qué?\n\n1. El agua cae **dentro** de la bañera, arrastrando aire consigo.\n2. El aire dentro de la bañera se mueve hacia abajo (arrastrado por el agua) y sale por abajo.\n3. Esto crea una zona de **menor presión** dentro de la bañera.\n4. El aire de mayor presión **fuera** de la bañera empuja la cortina **hacia dentro**.\n\n**¡Bernoulli en acción!** No es un misterio: es física de fluidos.\n\n### Otros ejemplos cotidianos de Bernoulli\n\n| Fenómeno | Explicación |\n|:--------:|:-----------|\n| **Ventanas que se abren hacia fuera con viento fuerte** | El viento rápido afuera genera menor presión; la presión mayor del interior empuja la ventana hacia fuera |\n| **Bola de ping-pong en un secador de pelo** | El aire rápido alrededor de la bola genera menor presión; la presión mayor la mantiene \"flotando\" en el chorro |\n| **Trenes que se atraves en la estación** | El aire comprimido entre los dos trenes rápidos tiene menor presión; la presión atmosférica los empuja uno contra otro (**peligro real**) |\n| **Efecto Venturi en carburadores** | Un tubo estrecho acelera el aire, reduciendo la presión y succionando combustible |\n\n> **🧠 Dato que rompe el cerebro**\n>\n> > El viento no \"saca\" las ventanas. Es la presión **del interior** de tu casa (donde el aire está quieto y a mayor presión) la que empuja la ventana hacia fuera. La diferencia de presión entre un viento de 100 km/h y el aire en reposo puede generar **más de 1.500 N** de fuerza sobre una ventana normal. Esos son 150 kg empujando.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "71-viscosidad-cuando-la-friccin-importa-en-fluidos",
-      "titulo": "7.1 Viscosidad: cuando la fricción importa en fluidos",
-      "niveles": {
-        "principiante": "No todos los fluidos fluyen igual. La **viscosidad** ($\\mu$) mide la resistencia interna de un fluido a fluir:\n\n| Fluidos | Viscosidad | Comportamiento |\n|:-------:|:----------:|:--------------:|\n| Agua | Baja | Fluye fácilmente |\n| Aceite | Media | Fluye, pero más lento |\n| Miel | Alta | Fluye muy lentamente |\n| Pepto-Bismol | Muy alta | Prácticamente sólido hasta que lo agitas |\n\n### Ley de Poiseuille: caudal en un tubo\n\nPara flujo laminar en un tubo cilíndrico:\n\n$$Q = \\frac{\\pi \\cdot r^4 \\cdot \\Delta P}{8 \\mu L}$$\n\n**¿Por qué el radio a la cuarta potencia?** Esto significa que **duplicar el radio de un tubo aumenta el caudal 16 veces**. Es por eso que una pequeña obstrucción en una arteria (aunque sea de solo unos milímetros) puede tener efectos devastadores: el flujo sanguíneo se reduce drásticamente.\n\n> **🌍 Dato médico cotidiano**\n>\n> > La acumulación de placa en las arterias (aterosclerosis) reduce el radio del vaso. Según la ley de Poiseuille, una reducción del 20% en el radio produce una reducción del **60%** en el flujo sanguíneo. Es por eso que los médicos se preocupan tanto por el colesterol: incluso pequeños depósitos tienen un efecto enorme.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
-      "niveles": {
-        "principiante": "> **🧠 Sistema Aeterna, paso 1: Los fluidos no son \"cosas que fluyen\"**\n>\n> > Un fluido es aire, agua, sangre, aceite, lava, incluso gases en estrellas. La física de fluidos unifica todos estos fenómenos con solo unas pocas ideas: presión, densidad y conservación de la energía.\n\n> **🧠 Sistema Aeterna, paso 2: La presión lo gobierna todo**\n>\n> > Desde por qué flotas en el mar hasta por qué la cortina de la ducha te atrapa, la presión es el hilo conductor. Aprende a pensar en términos de presiones diferenciales (¿dónde hay más y dónde menos?) y entenderás fenómenos que parecen mágicos.\n\n> **🧠 Sistema Aeterna, paso 3: Conservar es predecir**\n>\n> > La ecuación de continuidad y el teorema de Bernoulli son aplicaciones directas de la **conservación de masa** y la **conservación de energía**. Una vez que entiendes qué se conserva y qué cambia, puedes predecir el comportamiento de cualquier fluido sin memorizar fórmulas.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-preguntas-frecuentes-sobre-fluidos",
-      "titulo": "❓ Preguntas frecuentes sobre Fluidos",
-      "niveles": {
-        "principiante": "> **❓ ¿Por qué un barco de hierro flota pero un clavo de hierro se hunde?**\n>\n> No es el material, es la **forma**. Un clavo es compacto y denso (más de 7.000 kg/m³, mucho más que el agua). Un barco es una estructura hueca que contiene aire, reduciendo su densidad promedio por debajo de 1.000 kg/m³. Si aplastas el barco hasta eliminar el aire (imagenos un barco hundido), se hunde porque su densidad aumenta por encima de la del agua.\n\n> **❓ ¿La gravedad afecta la presión de un fluido?**\n>\n> ¡Por supuesto! La presión hidrostática ($\\rho g h$) depende directamente de $g$. En la Luna ($g \\approx 1{,}6$ m/s²), la presión a 10 metros de profundidad sería **6 veces menor** que en la Tierra. En el espacio (microgravedad), un fluido en reposo no tiene variación de presión con la profundidad.\n\n> **❓ ¿Puede un fluido ejercer fuerza lateral?**\n>\n> Sí. La presión actúa en **todas las direcciones**. Por eso las presas (como la de Itaipú o las Tres Gargantas) deben ser más gruesas en la base: la presión del agua empuja lateralmente contra la pared, y esa fuerza aumenta con la profundidad.\n\n> **❓ ¿Por qué se me nubla la visión bajo el agua sin gafas?**\n>\n> Porque tus ojos están diseñados para enfocar luz que pasa del **aire** (menos denso) al **cristalino** (más denso). Cuando sumerges tu ojo en agua, la luz pasa del agua (densidad óptica similar al cristalino) al ojo, y se refracta muy poco. El resultado: visión borrosa. Las gafas de buceo crean una burbuja de aire que restaura la diferencia de densidad óptica.\n\n---",
-        "intermedio": "> **❓ ¿Por qué un barco de hierro flota pero un clavo de hierro se hunde?**\n>\n> No es el material, es la **forma**. Un clavo es compacto y denso (más de 7.000 kg/m³, mucho más que el agua). Un barco es una estructura hueca que contiene aire, reduciendo su densidad promedio por debajo de 1.000 kg/m³. Si aplastas el barco hasta eliminar el aire (imagenos un barco hundido), se hunde porque su densidad aumenta por encima de la del agua.\n\n> **❓ ¿La gravedad afecta la presión de un fluido?**\n>\n> ¡Por supuesto! La presión hidrostática ($\\rho g h$) depende directamente de $g$. En la Luna ($g \\approx 1{,}6$ m/s²), la presión a 10 metros de profundidad sería **6 veces menor** que en la Tierra. En el espacio (microgravedad), un fluido en reposo no tiene variación de presión con la profundidad.\n\n> **❓ ¿Puede un fluido ejercer fuerza lateral?**\n>\n> Sí. La presión actúa en **todas las direcciones**. Por eso las presas (como la de Itaipú o las Tres Gargantas) deben ser más gruesas en la base: la presión del agua empuja lateralmente contra la pared, y esa fuerza aumenta con la profundidad.\n\n> **❓ ¿Por qué se me nubla la visión bajo el agua sin gafas?**\n>\n> Porque tus ojos están diseñados para enfocar luz que pasa del **aire** (menos denso) al **cristalino** (más denso). Cuando sumerges tu ojo en agua, la luz pasa del agua (densidad óptica similar al cristalino) al ojo, y se refracta muy poco. El resultado: visión borrosa. Las gafas de buceo crean una burbuja de aire que restaura la diferencia de densidad óptica.\n\n---",
-        "avanzado": "> **❓ ¿Por qué un barco de hierro flota pero un clavo de hierro se hunde?**\n>\n> No es el material, es la **forma**. Un clavo es compacto y denso (más de 7.000 kg/m³, mucho más que el agua). Un barco es una estructura hueca que contiene aire, reduciendo su densidad promedio por debajo de 1.000 kg/m³. Si aplastas el barco hasta eliminar el aire (imagenos un barco hundido), se hunde porque su densidad aumenta por encima de la del agua.\n\n> **❓ ¿La gravedad afecta la presión de un fluido?**\n>\n> ¡Por supuesto! La presión hidrostática ($\\rho g h$) depende directamente de $g$. En la Luna ($g \\approx 1{,}6$ m/s²), la presión a 10 metros de profundidad sería **6 veces menor** que en la Tierra. En el espacio (microgravedad), un fluido en reposo no tiene variación de presión con la profundidad.\n\n> **❓ ¿Puede un fluido ejercer fuerza lateral?**\n>\n> Sí. La presión actúa en **todas las direcciones**. Por eso las presas (como la de Itaipú o las Tres Gargantas) deben ser más gruesas en la base: la presión del agua empuja lateralmente contra la pared, y esa fuerza aumenta con la profundidad.\n\n> **❓ ¿Por qué se me nubla la visión bajo el agua sin gafas?**\n>\n> Porque tus ojos están diseñados para enfocar luz que pasa del **aire** (menos denso) al **cristalino** (más denso). Cuando sumerges tu ojo en agua, la luz pasa del agua (densidad óptica similar al cristalino) al ojo, y se refracta muy poco. El resultado: visión borrosa. Las gafas de buceo crean una burbuja de aire que restaura la diferencia de densidad óptica.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-siguiente-parada-en-la-ruta",
-      "titulo": "⚠️ Siguiente parada en la ruta",
-      "niveles": {
-        "principiante": "> **⚠️ Siguiente parada: Electromagnetismo**\n>\n> Acabas de entender cómo se comportan los fluidos en reposo y en movimiento. Estos principios explican desde el vuelo de aviones hasta la circulación sanguínea. Ahora vamos a una fuerza completamente diferente: la que se esconde detrás de los rayos, los imanes, la luz y toda la tecnología moderna. Prepárate para descubrir que la electricidad y el magnetismo son **dos caras de la misma moneda**. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando:**\n- *\"Mecánica de Fluidos\"* de Frank White — El libro de texto universitario más usado, excelente equilibrio entre teoría y ejemplos prácticos.\n- *\"The Everyday Physics of Helicopter Flight\"* y videos similares en YouTube — Para ver fluidodinámica en acción con explicaciones visuales.\n- *\"SmarterEveryDay\"* (YouTube) — Destin Sandlin explica fenómenos de fluidos con experimentos reales y cámaras de alta velocidad. Increíblemente entretenido y educativo.\n- *PhET Simulation: \"Estado de la materia\"* (phet.colorado.edu) — Simulador interactivo donde puedes experimentar con fluidos, gases y cambios de fase."
+        "principiante": "## La ecuación de Bernoulli\n\nDaniel Bernoulli descubrió en el siglo XVIII una relación sorprendente: en un fluido en movimiento, cuando la velocidad aumenta, la presión disminuye.\n\nEsto explica fenómenos cotidianos:\n- Por qué el viento fuerte levanta los tejados\n- Por qué dos barcos cercanos se atraen\n- Por qué una ducha con agua caliente 'chupa' la cortina\n- Por qué vuelan los aviones\n\n> **Dato que rompe el cerebro**\n> Sopla por encima de una hoja de papel: la hoja se levanta. El aire que sopla se mueve rápido (menos presión) sobre la hoja, mientras el aire quieto (más presión) debajo la empuja hacia arriba. Es Bernoulli en acción.\n\n**[IMAGEN SUGERIDA: Una hoja de papel que se levanta al soplar por encima, con flechas de presión. Pie de foto: \"El aire rápido tiene menos presión.\"]**\n\n\n<Connect title=\"De los fluidos a la sangre\" sourceConcept=\"Ecuación de Bernoulli\" targetConcept=\"Sistema circulatorio\">\nEl corazón bombea sangre que fluye por arterias, venas y capilares siguiendo las mismas leyes de los fluidos: la presión cae a lo largo del recorrido, los vasos se estrechan (continuidad) y la sangre tiene viscosidad. La física de fluidos explica la hipertensión, la velocidad de la sangre en las arterias y el diseño de los stents.\n</Connect>\n\n\n<Transfer targetDomain=\"Ingeniería aeronáutica\" title=\"Transfiere: diseña un ala\">\nLa sustentación de un avión combina Bernoulli (mayor velocidad, menor presión sobre el ala) y la deflexión del flujo (ángulo de ataque). Investiga cómo el perfil de un ala y su ángulo de ataque contribuyen al empuje vertical, y propón cómo cambiarías el diseño para un avión de carga pesada que necesita más sustentación a baja velocidad.\n</Transfer>\n",
+        "intermedio": "## La ecuación de Bernoulli\n\nPara un fluido ideal en movimiento estacionario:\n\n$$ P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{constante} $$\n\nLa suma de presión, energía cinética por unidad de volumen y energía potencial por unidad de volumen es constante a lo largo del flujo.\n\n```error-hunter\nTITLE: ¿Por qué vuela un avión?\nCONTEXT: Un estudiante afirma: «Los aviones vuelan porque el aire recorre una distancia mayor por encima del ala, así que va más rápido y la presión baja —esto es lo único que explica la sustentación.»\nXP: 60\nSTEP_CORRECT: Bernoulli explica parte de la sustentación | La mayor velocidad del aire sobre el ala reduce la presión, contribuyendo al empuje vertical.\nSTEP_CORRECT: La sustentación es más compleja | El ángulo de ataque del ala desvía el aire hacia abajo, y por la tercera ley de Newton el aire empuja el ala hacia arriba (sustentación por deflexión).\nSTEP_ERROR: Por lo tanto el recorrido mayor es la única causa | La explicación del 'recorrido igual tiempo' es una simplificación incorrecta. La sustentación real combina Bernoulli, ángulo de ataque y deflexión del flujo.\n```\n\n> **🔑 Concepto clave: Bernoulli y la energía**\n> La ecuación de Bernoulli es una forma de la conservación de la energía: la presión almacena energía, la velocidad la lleva como cinética, y la altura como potencial. Su suma es constante a lo largo del flujo.\n\n\n<Connect title=\"De los fluidos a la sangre\" sourceConcept=\"Ecuación de Bernoulli\" targetConcept=\"Sistema circulatorio\">\nEl corazón bombea sangre que fluye por arterias, venas y capilares siguiendo las mismas leyes de los fluidos: la presión cae a lo largo del recorrido, los vasos se estrechan (continuidad) y la sangre tiene viscosidad. La física de fluidos explica la hipertensión, la velocidad de la sangre en las arterias y el diseño de los stents.\n</Connect>\n\n\n<Transfer targetDomain=\"Ingeniería aeronáutica\" title=\"Transfiere: diseña un ala\">\nLa sustentación de un avión combina Bernoulli (mayor velocidad, menor presión sobre el ala) y la deflexión del flujo (ángulo de ataque). Investiga cómo el perfil de un ala y su ángulo de ataque contribuyen al empuje vertical, y propón cómo cambiarías el diseño para un avión de carga pesada que necesita más sustentación a baja velocidad.\n</Transfer>\n",
+        "avanzado": "## Aplicaciones de Bernoulli\n\nLa ecuación de Bernoulli tiene aplicaciones sorprendentes:\n\n- **Venturi**: un tubo que se estrecha produce baja presión en la constricción, usada para medir caudal y aspirar fluidos (perfumador, carburador)\n- **Sustentación de aviones**: combinación de Bernoulli y deflexión del flujo\n- **Ala de los barcos**: el mástil acelera el viento, creando baja presión que empuja el barco\n\nEl **teorema de Torricelli** deriva de Bernoulli: la velocidad de salida de un líquido por un orificio es v = √(2gh), como una caída libre desde la superficie libre.\n\n> **💡 Nota de frontera**\n> La ecuación de Bernoulli asume fluido ideal (sin viscosidad, incompresible, flujo estacionario). En fluidos reales, la viscosidad disipa energía y la ecuación se modifica. Aun así, es una aproximación excelente para muchos problemas de ingeniería.\n\n\n<Connect title=\"De los fluidos a la sangre\" sourceConcept=\"Ecuación de Bernoulli\" targetConcept=\"Sistema circulatorio\">\nEl corazón bombea sangre que fluye por arterias, venas y capilares siguiendo las mismas leyes de los fluidos: la presión cae a lo largo del recorrido, los vasos se estrechan (continuidad) y la sangre tiene viscosidad. La física de fluidos explica la hipertensión, la velocidad de la sangre en las arterias y el diseño de los stents.\n</Connect>\n\n\n<Transfer targetDomain=\"Ingeniería aeronáutica\" title=\"Transfiere: diseña un ala\">\nLa sustentación de un avión combina Bernoulli (mayor velocidad, menor presión sobre el ala) y la deflexión del flujo (ángulo de ataque). Investiga cómo el perfil de un ala y su ángulo de ataque contribuyen al empuje vertical, y propón cómo cambiarías el diseño para un avión de carga pesada que necesita más sustentación a baja velocidad.\n</Transfer>\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "La física de los fluidos explica una enorme parte del mundo que te rodea. Has aprendido que un fluido es cualquier materia que fluye, que la presión se transmite por igual en un fluido (Pascal), que la presión aumenta con la profundidad (hidrostática), y que el empuje de Arquímedes —igual al peso del fluido desalojado— decide si las cosas flotan o se hunden. En movimiento, la ecuación de continuidad dice que el caudal se conserva, y la ecuación de Bernoulli revela que velocidad y presión son inversamente proporcionales —la razón por la que vuelan los aviones y por la que el viento levanta los tejados. Desde la sangre en tus venas hasta los océanos y la atmósfera, los fluidos siguen estas pocas leyes elegantes. La próxima vez que veas un barco flotar o un avión despegar, sabrás que estás viendo la física de los fluidos en acción: la ciencia de todo lo que fluye.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Presión de un clavo",
+        "enunciado": "Una fuerza de 50 N se aplica sobre un área de 0.001 m². ¿Cuál es la presión?",
+        "solucion": "P = F/A = 50/0.001 = 50.000 Pa = 50 kPa.",
+        "xp": 30,
+        "pistas": [
+          "P = F/A",
+          "Divide 50 entre 0.001"
+        ],
+        "opciones": [
+          {
+            "label": "50.000 Pa",
+            "correcta": true
+          },
+          {
+            "label": "0.05 Pa",
+            "correcta": false
+          },
+          {
+            "label": "500 Pa",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica P = F/A",
+          "Calcula 50/0.001 = 50.000 Pa"
+        ]
+      },
+      {
+        "titulo": "Presión hidrostática",
+        "enunciado": "¿Cuál es la presión a 5 m de profundidad en el agua? (ρ = 1000 kg/m³, g = 10 m/s², P_atm = 100.000 Pa)",
+        "solucion": "P = P_atm + ρgh = 100.000 + 1000×10×5 = 100.000 + 50.000 = 150.000 Pa.",
+        "xp": 35,
+        "pistas": [
+          "P = P₀ + ρgh",
+          "ρgh = 1000×10×5 = 50.000",
+          "Suma la presión atmosférica"
+        ],
+        "opciones": [
+          {
+            "label": "150.000 Pa",
+            "correcta": true
+          },
+          {
+            "label": "50.000 Pa",
+            "correcta": false
+          },
+          {
+            "label": "100.000 Pa",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula ρgh = 50.000",
+          "Suma P₀: 150.000 Pa"
+        ]
+      },
+      {
+        "titulo": "¿Flota o se hunde?",
+        "enunciado": "Un objeto de 3 kg y volumen 0.002 m³ se sumerge en agua (ρ = 1000 kg/m³). ¿Cuál es su densidad y flota o se hunde?",
+        "solucion": "ρ = m/V = 3/0.002 = 1500 kg/m³. Como 1500 > 1000 (agua), el objeto se hunde.",
+        "xp": 30,
+        "pistas": [
+          "ρ = m/V",
+          "Compara con la densidad del agua (1000)"
+        ],
+        "opciones": [
+          {
+            "label": "1500 kg/m³, se hunde",
+            "correcta": true
+          },
+          {
+            "label": "1500 kg/m³, flota",
+            "correcta": false
+          },
+          {
+            "label": "500 kg/m³, flota",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Calcula ρ = 3/0.002 = 1500",
+          "Compara con 1000: se hunde"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Prensa hidráulica",
+        "enunciado": "El pistón pequeño de una prensa hidráulica tiene área 0.02 m² y el grande 1 m². Si aplicas 200 N al pequeño, ¿qué fuerza obtienes en el grande?",
+        "solucion": "F₂ = F₁·(A₂/A₁) = 200 × (1/0.02) = 200 × 50 = 10.000 N.",
+        "xp": 40,
+        "pistas": [
+          "F₂ = F₁·(A₂/A₁)",
+          "A₂/A₁ = 1/0.02 = 50",
+          "Multiplica 200 × 50"
+        ],
+        "opciones": [
+          {
+            "label": "10.000 N",
+            "correcta": true
+          },
+          {
+            "label": "1.000 N",
+            "correcta": false
+          },
+          {
+            "label": "4 N",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica F₂ = F₁·(A₂/A₁)",
+          "Calcula 200 × 50 = 10.000 N"
+        ]
+      },
+      {
+        "titulo": "Empuje de Arquímedes",
+        "enunciado": "Un objeto de 0.01 m³ se sumerge completamente en agua (ρ = 1000 kg/m³). ¿Cuál es el empuje? (g = 10 m/s²)",
+        "solucion": "E = ρ·V·g = 1000 × 0.01 × 10 = 100 N.",
+        "xp": 40,
+        "pistas": [
+          "E = ρ·V·g",
+          "Sustituye: 1000 × 0.01 × 10",
+          "Resultado: 100 N"
+        ],
+        "opciones": [
+          {
+            "label": "100 N",
+            "correcta": true
+          },
+          {
+            "label": "10 N",
+            "correcta": false
+          },
+          {
+            "label": "1000 N",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica E = ρ·V·g",
+          "Calcula 1000 × 0.01 × 10 = 100 N"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Velocidad de salida (Torricelli)",
+        "enunciado": "Un tanque tiene agua hasta 2 m de altura. ¿A qué velocidad sale el agua por un orificio en el fondo? (g = 10 m/s²)",
+        "solucion": "v = √(2gh) = √(2×10×2) = √40 ≈ 6.3 m/s. El agua sale como si cayera desde la superficie libre.",
+        "xp": 50,
+        "pistas": [
+          "v = √(2gh)",
+          "Sustituye h = 2 m",
+          "Calcula √40"
+        ],
+        "opciones": [
+          {
+            "label": "≈ 6.3 m/s",
+            "correcta": true
+          },
+          {
+            "label": "≈ 20 m/s",
+            "correcta": false
+          },
+          {
+            "label": "≈ 4.5 m/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica v = √(2gh)",
+          "Calcula √(40) ≈ 6.3 m/s"
+        ]
+      },
+      {
+        "titulo": "Caudal y continuidad",
+        "enunciado": "Un tubo de 0.02 m² de sección lleva agua a 2 m/s. ¿A qué velocidad fluye el agua si el tubo se estrecha a 0.01 m²?",
+        "solucion": "A₁v₁ = A₂v₂ → v₂ = A₁v₁/A₂ = 0.02×2/0.01 = 4 m/s. Al estrecharse a la mitad, la velocidad se duplica.",
+        "xp": 50,
+        "pistas": [
+          "A₁v₁ = A₂v₂",
+          "Despeja v₂",
+          "Calcula 0.02×2/0.01"
+        ],
+        "opciones": [
+          {
+            "label": "4 m/s",
+            "correcta": true
+          },
+          {
+            "label": "2 m/s",
+            "correcta": false
+          },
+          {
+            "label": "8 m/s",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica A₁v₁ = A₂v₂",
+          "v₂ = 0.02×2/0.01 = 4 m/s"
+        ]
+      }
+    ]
+  }
 }
