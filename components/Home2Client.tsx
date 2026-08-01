@@ -208,53 +208,24 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         {/* Starfield base — llena las bandas donde la imagen no llega */}
         <Starfield className="absolute inset-0 w-full h-full pointer-events-none" />
 
-        {/* SVG filter: distorsión ondulada para bordes */}
-        <svg className="absolute w-0 h-0" aria-hidden="true">
-          <defs>
-            <filter id="edge-warp" x="-20%" y="-20%" width="140%" height="140%">
-              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="noise" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="45" xChannelSelector="R" yChannelSelector="G" />
-            </filter>
-          </defs>
-        </svg>
-
-        {/* Halo circular difuminado alrededor de la imagen */}
+        {/* Halo luminoso detrás de la imagen — funde con el espacio */}
         <img 
           src="/images/hero-fantasy-room.png"
-          className="absolute inset-0 w-full h-full object-contain object-center scale-110 blur-[100px] opacity-60 pointer-events-none"
+          className="absolute inset-0 w-full h-full object-contain object-center scale-115 blur-[110px] opacity-70 pointer-events-none"
           alt=""
           aria-hidden="true"
         />
 
-        {/* Fondo: estancia de fantasía — centro nítido */}
+        {/* Estancia de fantasía — bordes rectos difuminados, fusionados con el espacio */}
         <img 
           src="/images/hero-fantasy-room.png"
           className="absolute inset-0 w-full h-full object-contain object-center pointer-events-none"
           style={{
-            maskImage: 'radial-gradient(ellipse 58% 58% at center, black 42%, transparent 60%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 58% 58% at center, black 42%, transparent 60%)'
-          }}
-          alt=""
-          aria-hidden="true"
-        />
-
-        {/* Capa de bordes distorsionados — solo el anillo exterior con warp */}
-        <img 
-          src="/images/hero-fantasy-room.png"
-          className="absolute inset-0 w-full h-full object-contain object-center pointer-events-none"
-          style={{
-            filter: 'url(#edge-warp)',
-            maskImage: 'radial-gradient(ellipse 58% 58% at center, transparent 40%, black 55%, black 100%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 58% 58% at center, transparent 40%, black 55%, black 100%)'
+            maskImage: 'radial-gradient(ellipse 62% 62% at center, black 38%, transparent 78%)',
+            WebkitMaskImage: 'radial-gradient(ellipse 62% 62% at center, black 38%, transparent 78%)'
           }}
           alt="Estancia del Sabio"
         />
-
-        {/* Viñetas de transición suaves: starfield → halo */}
-        <div className="absolute inset-y-0 left-0 w-[8%] bg-gradient-to-r from-brand-ink/70 to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-[8%] bg-gradient-to-l from-brand-ink/70 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 top-0 h-[6%] bg-gradient-to-b from-brand-ink/70 to-transparent pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-[6%] bg-gradient-to-t from-brand-ink/70 to-transparent pointer-events-none" />
 
           <motion.div
             className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
