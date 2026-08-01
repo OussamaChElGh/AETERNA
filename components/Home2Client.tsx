@@ -220,18 +220,18 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
             {/* Halo luminoso detrás — funde con el espacio */}
             <img 
               src="/images/hero-fantasy-room.png"
-              className="absolute inset-0 w-full h-full object-contain object-center scale-[1.2] blur-[110px] opacity-70"
+              className="absolute inset-0 w-full h-full object-contain object-center scale-[1.35] blur-[140px] opacity-80"
               alt=""
               aria-hidden="true"
             />
 
-            {/* Estancia de fantasía — bordes difuminados, fusionados con el espacio */}
+            {/* Estancia de fantasía — bordes totalmente difuminados */}
             <img 
               src="/images/hero-fantasy-room.png"
               className="absolute inset-0 w-full h-full object-contain object-center"
               style={{
-                maskImage: 'radial-gradient(ellipse 80% 80% at center, black 62%, transparent 96%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at center, black 62%, transparent 96%)'
+                maskImage: 'radial-gradient(ellipse 130% 90% at center, black 45%, transparent 68%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 130% 90% at center, black 45%, transparent 68%)'
               }}
               alt="Estancia del Sabio"
             />
