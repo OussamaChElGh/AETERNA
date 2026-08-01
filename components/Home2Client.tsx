@@ -213,7 +213,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
           <div
             className="relative"
             style={{
-              width: 'min(92vw, 1000px, calc(100vh * 1.328))',
+              width: 'min(96vw, 1300px, calc(100vh * 1.6))',
               aspectRatio: '1445 / 1088'
             }}
           >
