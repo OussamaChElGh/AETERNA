@@ -19,3 +19,14 @@ Stop: "stop caveman" or "normal mode"
 Auto-Clarity: drop caveman for security warnings, irreversible actions, user confused. Resume after.
 
 Boundaries: code/commits/PRs written normal.
+
+## Git Backup Convention (obligatorio)
+
+Siempre commitear los cambios para tener puntos de restauración:
+
+- **Antes y después** de cada cambio sustancial: `git add -A && git commit -m "<descripción>"`
+- Mensajes de commit: descriptivos, en el idioma de la sesión (español o inglés), estilo normal (no caveman)
+- `.env` está en `.gitignore` — nunca commitear API keys
+- Para revertir: `git checkout -- <archivo>` (último commit) o `git reset --hard HEAD~1` (commit anterior)
+- Ver estado: `git status` / `git log --oneline`
+- Si el usuario pide volver a un estado anterior: usar git para restaurar ANTES de hacer cambios nuevos
