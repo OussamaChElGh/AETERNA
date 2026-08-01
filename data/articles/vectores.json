@@ -1,59 +1,290 @@
 {
   "metadata": {
-    "title": "Vectores en Física: Las Flechas que Describen el Mundo",
-    "description": "Un viaje de tres niveles: de la intuición básica de las flechas a la matemática vectorial avanzada y sus aplicaciones en la ingeniería.",
+    "title": "Vectores: El Lenguaje de la Física",
+    "description": "Guía completa de vectores: qué son, suma y resta, descomposición en componentes, producto escalar y vectorial. La herramienta matemática que la física usa para describir cantidades con dirección.",
     "slug": "vectores",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "física",
       "vectores",
-      "magnitud",
-      "dirección",
+      "álgebra vectorial",
       "descomposición",
-      "álgebra vectorial"
+      "producto escalar",
+      "producto vectorial",
+      "componentes"
     ],
-    "date": "2026-05-11",
-    "nivel": "1",
-    "orden": "5",
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 1,
     "nivel_titulo": "Fundamentos del Cosmos",
-    "insignia": "Aprendiz del Cosmos",
+    "orden": 5,
+    "insignia": "Cartógrafo de Fuerzas",
     "tipo": "theory",
     "prerequisites": [
-      "metodo-de-la-fisica"
+      "materia-y-energia"
     ],
-    "breadcrumb": [
-      "Fundamentos del Cosmos",
-      "Vectores"
-    ]
+    "breadcrumb": "Física / Fundamentos del Cosmos / Vectores"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  La velocidad, la fuerza, el campo eléctrico: cantidades que no bastan con un número —necesitan dirección. Eso es un vector.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Un **vector** es una cantidad con magnitud y dirección (como la velocidad o la fuerza), a diferencia de un **escalar** que solo tiene magnitud (como la masa o la temperatura). Los vectores se suman, restan y descomponen en componentes perpendiculares. El **producto escalar** da un número (trabajo), el **producto vectorial** da otro vector (torque). Con los vectores, la física puede describir el mundo en dos y tres dimensiones.\n\n**[IMAGEN SUGERIDA: Flechas de distintos colores apuntando en distintas direcciones sobre un fondo oscuro. Pie de foto: \"Los vectores llevan dirección.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-nivel-1-conceptos-fundamentales-la-intuicin",
-      "titulo": "🟢 Nivel 1: Conceptos Fundamentales (La Intuición)",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: más que un número",
       "niveles": {
-        "intermedio": "### 1.1 El problema de los \"números solos\"\nImagina que te piden caminar 10 metros. ¿Sabes a dónde llegarás? No. Te falta información crucial. En física, los números solos (escalares) no son suficientes para describir el mundo. La temperatura (20°C) o la masa (5kg) no necesitan una dirección, pero el movimiento sí.\n\nCuando necesitas especificar **cuánto** y **hacia dónde**, usas un vector. Un vector es simplemente una flecha que nos dice el camino.\n\n### 1.2 Anatomía de una flecha\nCada vector tiene tres componentes básicos que definen su personalidad:\n*   **Magnitud:** El tamaño de la flecha (la intensidad).\n*   **Dirección:** La inclinación (el ángulo respecto a un eje).\n*   **Sentido:** La punta de la flecha (hacia dónde apunta exactamente).\n\nSi cambias cualquiera de estos tres, cambias el vector. Si dos personas caminan a la misma velocidad pero en direcciones opuestas, sus vectores velocidad son diferentes.\n\n### 1.3 Escalares vs. Vectores: El mapa de tu vida\n*   **Escalares:** Cosas que solo tienen \"cantidad\" (tiempo, masa, energía). Se suman como números comunes.\n*   **Vectores:** Cosas que tienen \"cantidad\" y \"dirección\" (velocidad, fuerza, desplazamiento). Se suman como flechas.\n\n---"
+        "principiante": "## Bienvenida: más que un número\n\n\"El viento sopla a 30 km/h\". ¿Basta para saber si te va a derribar? No: necesitas saber **hacia dónde** sopla. Un viento de 30 km/h hacia el norte no es lo mismo que uno de 30 km/h hacia el sur.\n\nAlgunas cantidades necesitan dirección: velocidad, fuerza, desplazamiento. Son **vectores**. Otras no la necesitan: masa, temperatura, tiempo. Son **escalares**.\n\nEsta distinción parece simple, pero es la base de toda la física. Sin vectores, no podríamos describir cómo caen las cosas, cómo vuelan los aviones ni cómo se mueven los planetas.\n\n> **🔑 Concepto clave: Vector y escalar**\n> Un **escalar** tiene solo magnitud (un número y su unidad: 5 kg, 20 °C). Un **vector** tiene magnitud y dirección (50 km/h hacia el norte, 10 N hacia abajo). La física usa vectores para describir el espacio en varias dimensiones.\n\n**[IMAGEN SUGERIDA: Un termómetro (escalar) y una flecha de viento (vector), contrastados. Pie de foto: \"Escalares y vectores.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** los vectores tienen magnitud y dirección. Se descomponen en componentes (vx = v·cosθ, vy = v·sinθ), se suman por componentes, y tienen dos productos: el escalar (A·B = |A||B|cosθ, base del trabajo) y el vectorial (A×B, base del torque). Con ellos, la física describe el mundo en 2D y 3D.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: la estructura de los vectores\n\nUn vector se representa como una flecha: la **longitud** es la magnitud y la **dirección** es hacia dónde apunta. Matemáticamente, un vector en 2D se escribe con sus componentes:\n\n$$ \\vec{v} = (v_x, v_y) $$\n\nO en notación con vectores unitarios:\n\n$$ \\vec{v} = v_x \\hat{i} + v_y \\hat{j} $$\n\nDonde î y ĵ son los vectores unitarios en los ejes x e y.\n\nLa **magnitud** (o módulo) se calcula con el teorema de Pitágoras:\n\n$$ |\\vec{v}| = \\sqrt{v_x^2 + v_y^2} $$\n\nLa dirección se da con el ángulo respecto al eje x:\n\n$$ \\theta = \\tan^{-1}\\left(\\frac{v_y}{v_x}\\right) $$\n\n> **Dato que rompe el cerebro**\n> Un vector es el mismo objeto físico aunque lo representes en distintos sistemas de coordenadas. Girar el sistema de referencia cambia las componentes (vx, vy) pero no el vector en sí. La física busca descripciones que no dependan del observador.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** los vectores tienen magnitud y dirección. Se descomponen en componentes (vx = v·cosθ, vy = v·sinθ), se suman por componentes, y tienen dos productos: el escalar (A·B = |A||B|cosθ, base del trabajo) y el vectorial (A×B, base del torque). Con ellos, la física describe el mundo en 2D y 3D.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: vectores como entidades geométricas\n\nLos vectores son objetos geométricos con dos operaciones fundamentales: la suma (que satisface la propiedad del paralelogramo) y la multiplicación por un escalar. Estas dos operaciones definen un **espacio vectorial**.\n\nUn espacio vectorial es un conjunto con reglas de suma y multiplicación escalar que cumplen ciertos axiomas (conmutatividad, asociatividad, distributividad...). Los vectores de la física son elementos de un espacio vectorial de dimensión 2, 3 o más.\n\nEsta abstracción permite generalizar el concepto: funciones, matrices y estados cuánticos forman espacios vectoriales. El formalismo vectorial es el puente entre la física clásica y la cuántica.\n\n> **💡 Nota avanzada**\n> Los vectores transforman de forma específica al cambiar el sistema de coordenadas (transformaciones ortogonales). Esta propiedad de transformación es lo que distingue a un vector de un simple conjunto de números. En relatividad, los cuadrivectores transforman con las transformaciones de Lorentz.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** los vectores tienen magnitud y dirección. Se descomponen en componentes (vx = v·cosθ, vy = v·sinθ), se suman por componentes, y tienen dos productos: el escalar (A·B = |A||B|cosθ, base del trabajo) y el vectorial (A×B, base del torque). Con ellos, la física describe el mundo en 2D y 3D.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-nivel-2-profundidad-tcnica-la-herramienta",
-      "titulo": "🟡 Nivel 2: Profundidad Técnica (La Herramienta)",
+      "id": "que-es-vector",
+      "titulo": "¿Qué es un vector?",
       "niveles": {
-        "intermedio": "### 2.1 Descomposición: Proyectando sombras\nPara operar con vectores en cálculos reales, usamos un sistema de coordenadas (usualmente el plano cartesiano). Cualquier vector puede descomponerse en sus sombras sobre los ejes X e Y:\n*   $V_x = V \\cdot \\cos(\\theta)$\n*   $V_y = V \\cdot \\sin(\\theta)$\n\nEsto nos permite convertir un problema complejo en dos problemas simples en una dimensión.\n\n### 2.2 Álgebra Vectorial: Suma y Resta\nPara sumar vectores, nunca sumes sus magnitudes directamente (a menos que vayan en la misma dirección). Debes sumar sus componentes:\n*   $\\vec{R}_x = A_x + B_x$\n*   $\\vec{R}_y = A_y + B_y$\n\nLa magnitud resultante se obtiene con Pitágoras: $|\\vec{R}| = \\sqrt{R_x^2 + R_y^2}$.\n\n### 2.3 Operaciones Avanzadas\n*   **Producto Escalar ($\\vec{A} \\cdot \\vec{B}$):** Nos da un número. Es una medida de cuánto \"coinciden\" dos vectores. Si son perpendiculares, el resultado es 0.\n*   **Producto Vectorial ($\\vec{A} \\times \\vec{B}$):** Nos da un **nuevo vector** perpendicular a los otros dos. Es la clave para entender el torque y el magnetismo.\n\n---"
+        "principiante": "## ¿Qué es un vector?\n\nUn vector tiene tres características:\n\n- **Punto de aplicación**: dónde empieza\n- **Magnitud**: qué tan grande es (la longitud de la flecha)\n- **Dirección y sentido**: hacia dónde apunta\n\nLa velocidad, el desplazamiento, la fuerza, la aceleración y el momento son vectores. La masa, el tiempo, la temperatura, la energía y la rapidez son escalares.\n\nUn truco para distinguirlos: si tiene sentido preguntar '¿hacia dónde?', es un vector. '¿A qué velocidad vas?' → escalar (rapidez). '¿En qué dirección?' → vector (velocidad).\n\n> **Dato curioso**\n> La velocidad y la rapidez se confunden: la rapidez solo dice qué tan rápido (un escalar), la velocidad añade dirección (un vector). Un coche que da vueltas en una rotonda a rapidez constante tiene velocidad cambiante, porque su dirección cambia.\n\n**[IMAGEN SUGERIDA: Flechas de distinta longitud y dirección. Pie de foto: \"Magnitud, dirección y sentido.\"]**\n",
+        "intermedio": "## Vectores en componentes\n\nRepresentar un vector con sus componentes facilita las operaciones. Dado un vector con magnitud v y ángulo θ:\n\n$$ v_x = v \\cos \\theta $$\n\n$$ v_y = v \\sin \\theta $$\n\n```aeterna-exercise\nTITLE: Componentes de un vector\nHINT: vx = v·cosθ, vy = v·sinθ.\nXP: 30\nUn vector de 10 N forma un ángulo de 30° con el eje x. ¿Cuáles son sus componentes?\nSOLUTION: vx = 10·cos(30°) = 10×0.866 = 8.66 N. vy = 10·sin(30°) = 10×0.5 = 5 N. El vector es (8.66, 5) N.\n```\n\n> **🔑 Concepto clave: Componentes**\n> Las componentes (vx, vy) son las proyecciones del vector sobre los ejes. Conociéndolas, puedes reconstruir la magnitud (Pitágoras) y la dirección (tangente). Son dos representaciones equivalentes del mismo vector.\n",
+        "avanzado": "## El vector como transformación\n\nEn su definición más rigurosa, un vector es un objeto que se transforma de una forma específica al cambiar de sistema de coordenadas. Si rotas el sistema un ángulo α, las nuevas componentes son:\n\n$$ v_x' = v_x \\cos \\alpha - v_y \\sin \\alpha $$\n\n$$ v_y' = v_x \\sin \\alpha + v_y \\cos \\alpha $$\n\nEsta es una **transformación de rotación**. Los vectores se transforman así; los escalares no cambian; los tensores tienen sus propias reglas.\n\n> **💡 Nota de frontera**\n> Esta propiedad de transformación es lo que define un vector de forma invariante. Es la base de la relatividad general, donde el espacio-tiempo curvo requiere generalizar los vectores a vectores tangentes en cada punto (campos vectoriales).\n"
       },
       "acciones": []
     },
     {
-      "id": "-nivel-3-aplicaciones-avanzadas-el-desafo",
-      "titulo": "🔴 Nivel 3: Aplicaciones Avanzadas (El Desafío)",
+      "id": "operaciones",
+      "titulo": "Suma y resta de vectores",
       "niveles": {
-        "intermedio": "### 3.1 La regla de la mano derecha en el espacio\nEl producto vectorial no es solo una operación; es la base de cómo el universo gestiona las rotaciones. La regla de la mano derecha nos permite predecir el comportamiento de ejes de giro en 3D, algo esencial para la ingeniería de motores y la mecánica celeste.\n\n### 3.2 Problema de reto: Navegación aérea con viento cruzado\nUn avión quiere volar hacia el norte a 200 km/h, pero hay un viento cruzado desde el este a 50 km/h. \n*   **Desafío:** ¿En qué dirección debe apuntar su nariz el piloto para que su vector velocidad resultante respecto al suelo sea exactamente hacia el norte? \n*   *Análisis:* Debes realizar una suma vectorial donde la velocidad del avión respecto al aire más la velocidad del viento iguale la velocidad deseada respecto al suelo.\n\n### 3.3 El límite de los vectores\nEn niveles avanzados, los vectores son casos particulares de objetos llamados **Tensores**. Mientras que un vector describe una magnitud en una dirección, un tensor puede describir esfuerzos en materiales, deformaciones o la curvatura del espacio-tiempo en la Relatividad General de Einstein. Si dominas los vectores hoy, estás abriendo la puerta a la física de alto nivel."
+        "principiante": "## Suma y resta de vectores\n\nSi caminas 3 km al este y luego 4 km al norte, ¿a qué distancia estás del inicio? No es 7 km: es 5 km (el teorema de Pitágoras). Los vectores no se suman como números simples.\n\nLa **suma de vectores** se hace con la regla del paralelogramo: colocas las flechas una tras otra (punta con cola) y el resultado va del inicio de la primera al final de la última.\n\nLa **resta** de vectores es sumar el opuesto: A − B = A + (−B).\n\n> **Dato que rompe el cerebro**\n> Dos vectores de 5 N y 5 N pueden sumar 10 N (si van en la misma dirección), 0 N (si van en direcciones opuestas) o cualquier valor entre 0 y 10 (según el ángulo). La suma de vectores depende del ángulo entre ellos.\n\n**[IMAGEN SUGERIDA: Dos flechas sumándose con la regla del paralelogramo. Pie de foto: \"La suma depende del ángulo.\"]**\n\n\n<Transfer targetDomain=\"Navegación marítima\" title=\"Transfiere: vectores en el mar\">\nUn capitán navega 30 km al este y luego 40 km al norte. Usando vectores, calcula su desplazamiento resultante y el rumbo (ángulo) respecto al norte. ¿Cómo cambiaría si hubiera una corriente que empuja 10 km al sur?\n</Transfer>\n",
+        "intermedio": "## Suma por componentes\n\nLa forma más fácil de sumar vectores es sumar sus componentes por separado:\n\n$$ \\vec{A} + \\vec{B} = (A_x + B_x, A_y + B_y) $$\n\n```graph-lab\nTITLE: Suma de vectores\nDESC: Dos vectores A y B se suman por componentes. Visualiza la resultante.\nX_LABEL: x\nY_LABEL: y\nQUESTION: Si A = (3,4) y B = (1,−2), ¿cuál es la resultante A+B?\nXP: 45\nPOINT: 0 | 0 | Origen\nPOINT: 3 | 4 | A\nPOINT: 4 | 2 | A+B\nOPTION_CORRECT: (4,2) | Sumas componentes: x = 3+1 = 4, y = 4+(−2) = 2.\nOPTION_WRONG: (3,2) | Olvidaste sumar la componente x de B.\nOPTION_WRONG: (4,6) | Confundiste el signo de la componente y de B.\n```\n\n> **🔑 Concepto clave: La regla del paralelogramo**\n> La suma de vectores sigue la regla del paralelogramo o la del polígono (punta con cola). La resultante va del origen del primero al extremo del último. La resta A−B es A + (−B).\n\n\n<Transfer targetDomain=\"Navegación marítima\" title=\"Transfiere: vectores en el mar\">\nUn capitán navega 30 km al este y luego 40 km al norte. Usando vectores, calcula su desplazamiento resultante y el rumbo (ángulo) respecto al norte. ¿Cómo cambiaría si hubiera una corriente que empuja 10 km al sur?\n</Transfer>\n",
+        "avanzado": "## El espacio vectorial de las operaciones\n\nLa suma vectorial y la multiplicación escalar cumplen axiomas que definen un espacio vectorial. Propiedades clave:\n\n- Conmutativa: A + B = B + A\n- Asociativa: (A+B)+C = A+(B+C)\n- Elemento neutro: A + 0 = A\n- Distributiva: k(A+B) = kA + kB\n\nEstos axiomas son los mismos que cumplen los números, pero generalizados. Por eso podemos aplicar el álgebra lineal completa a los vectores físicos.\n\n> **💡 Nota avanzada**\n> La base canónica {î, ĵ, k̂} genera todo el espacio 3D: cualquier vector se escribe como combinación lineal de estos tres. Elegir otra base (por ejemplo, esférica o cilíndrica) es cambiar de representación, no de vector.\n\n\n<Transfer targetDomain=\"Navegación marítima\" title=\"Transfiere: vectores en el mar\">\nUn capitán navega 30 km al este y luego 40 km al norte. Usando vectores, calcula su desplazamiento resultante y el rumbo (ángulo) respecto al norte. ¿Cómo cambiaría si hubiera una corriente que empuja 10 km al sur?\n</Transfer>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "descomposicion",
+      "titulo": "Descomposición en componentes",
+      "niveles": {
+        "principiante": "## Descomposición en componentes\n\nDividir un vector en sus componentes horizontal y vertical es como separar una pelota lanzada en diagonal: parte del movimiento va hacia adelante, parte hacia arriba.\n\nLa **descomposición** es la operación inversa de la composición: dado un vector con magnitud y ángulo, obtienes sus componentes:\n\n- Componente x: vx = v·cosθ\n- Componente y: vy = v·sinθ\n\n> **Dato curioso**\n> Al lanzar una pelota a 45°, la mitad de la velocidad va hacia adelante y la mitad hacia arriba. Por eso 45° da el alcance máximo. La descomposición revela cómo se reparte el movimiento.\n\n**[IMAGEN SUGERIDA: Una flecha diagonal descompuesta en sus componentes horizontal y vertical, formando un triángulo rectángulo. Pie de foto: \"Un vector se descompone en x e y.\"]**\n\n\n<Connect title=\"De los vectores al tiro parabólico\" sourceConcept=\"Descomposición vectorial\" targetConcept=\"Cinemática\">\nDescomponer una velocidad inicial en componentes horizontal y vertical es exactamente lo que necesitas para analizar un tiro parabólico: el movimiento x es uniforme y el y es acelerado, independientes entre sí. La descomposición vectorial que aprendes aquí es la herramienta que usarás en cinemática 2D.\n</Connect>\n",
+        "intermedio": "## Descomposición: de magnitud y ángulo a componentes\n\n```aeterna-formula\ntitle=\"Descomposición de un vector\"\nformula=\"v_x = v \\\\cos \\\\theta, \\\\quad v_y = v \\\\sin \\\\theta\"\nvariables={[{\"symbol\":\"v\",\"name\":\"Magnitud del vector\",\"unit\":\"u\"},{\"symbol\":\"θ\",\"name\":\"Ángulo con el eje x\",\"unit\":\"grados\"},{\"symbol\":\"vx\",\"name\":\"Componente horizontal\",\"unit\":\"u\"},{\"symbol\":\"vy\",\"name\":\"Componente vertical\",\"unit\":\"u\"}]}\nnote=\"La descomposición es la clave para trabajar con vectores en 2D: separa el movimiento en ejes independientes.\"\n```\n\nLa descomposición es especialmente útil en física porque los movimientos en x e y son independientes (como viste en el tiro parabólico).\n\n> **🔑 Concepto clave: Independencia de ejes**\n> Descomponer un vector en componentes perpendiculares permite tratar cada eje por separado. Esta es la base del análisis de fuerzas, del tiro parabólico y de la descomposición de la gravedad en planos inclinados.\n\n\n<Connect title=\"De los vectores al tiro parabólico\" sourceConcept=\"Descomposición vectorial\" targetConcept=\"Cinemática\">\nDescomponer una velocidad inicial en componentes horizontal y vertical es exactamente lo que necesitas para analizar un tiro parabólico: el movimiento x es uniforme y el y es acelerado, independientes entre sí. La descomposición vectorial que aprendes aquí es la herramienta que usarás en cinemática 2D.\n</Connect>\n",
+        "avanzado": "## Componentes y producto punto\n\nLa descomposición en una base ortogonal permite calcular el **producto escalar** de forma simple:\n\n$$ \\vec{A} \\cdot \\vec{B} = A_x B_x + A_y B_y + A_z B_z $$\n\nTambién se define como:\n\n$$ \\vec{A} \\cdot \\vec{B} = |A||B| \\cos \\theta $$\n\nEl producto escalar proyecta un vector sobre otro. Es la base del concepto de **trabajo**: W = F·d·cosθ —solo la componente de la fuerza en la dirección del desplazamiento hace trabajo.\n\n> **💡 Nota avanzada**\n> El producto escalar mide la 'cantidad de un vector que apunta en la dirección del otro'. Si son perpendiculares, su producto escalar es cero. Esta propiedad se usa para verificar ortogonalidad y para descomponer vectores en bases generales.\n\n\n<Connect title=\"De los vectores al tiro parabólico\" sourceConcept=\"Descomposición vectorial\" targetConcept=\"Cinemática\">\nDescomponer una velocidad inicial en componentes horizontal y vertical es exactamente lo que necesitas para analizar un tiro parabólico: el movimiento x es uniforme y el y es acelerado, independientes entre sí. La descomposición vectorial que aprendes aquí es la herramienta que usarás en cinemática 2D.\n</Connect>\n"
+      },
+      "acciones": []
+    },
+    {
+      "id": "productos-vectoriales",
+      "titulo": "Producto escalar y vectorial",
+      "niveles": {
+        "principiante": "## Producto escalar y vectorial\n\nHay dos formas de multiplicar vectores, y cada una da un resultado distinto:\n\n- **Producto escalar** (·): da un número (escalar). Mide cuánto apuntan dos vectores en la misma dirección.\n- **Producto vectorial** (×): da otro vector. Mide cuánto son perpendiculares y apunta perpendicular a ambos.\n\nEl producto escalar se usa para el trabajo (W = F·d). El producto vectorial para el torque (τ = r × F).\n\n> **Dato curioso**\n> El producto vectorial tiene dirección determinada por la regla de la mano derecha: apunta perpendicular al plano que forman los dos vectores, en el sentido que indica tu pulgar derecho.\n\n**[IMAGEN SUGERIDA: Dos vectores A y B, con su producto vectorial perpendicular al plano. Pie de foto: \"El producto vectorial es perpendicular a ambos.\"]**\n\n\n### Estima como un físico: la resultante de dos vectores\n\nLa **estimación de Fermi** aplicada a vectores: si caminas 3 km al este y 4 km al norte, el desplazamiento es √(9+16) = 5 km —un **modelo simplificado** del problema. Si los vectores forman un ángulo distinto de 90°, el resultado está entre la diferencia y la suma de las magnitudes. Estimar el resultado antes de calcular te da un control de plausibilidad: un resultado de 8 km cuando los vectores suman 7 máximo es un error claro.\n\n",
+        "intermedio": "## Producto escalar\n\nEl producto escalar de dos vectores:\n\n$$ \\vec{A} \\cdot \\vec{B} = |A||B| \\cos \\theta $$\n\nDa un número. Si son perpendiculares (θ = 90°), el producto es cero. Si son paralelos, es el producto de sus magnitudes.\n\n```aeterna-formula\ntitle=\"Producto escalar\"\nformula=\"\\\\vec{A} \\\\cdot \\\\vec{B} = |A||B| \\\\cos \\\\theta\"\nvariables={[{\"symbol\":\"A·B\",\"name\":\"Producto escalar\",\"unit\":\"u²\"},{\"symbol\":\"|A|,|B|\",\"name\":\"Magnitudes\",\"unit\":\"u\"},{\"symbol\":\"θ\",\"name\":\"Ángulo entre vectores\",\"unit\":\"grados\"}]}\nnote=\"El producto escalar es máximo cuando son paralelos y cero cuando son perpendiculares.\"\n```\n\n**El producto vectorial:**\n\n$$ \\vec{A} \\times \\vec{B} = |A||B| \\sin \\theta \\, \\hat{n} $$\n\nDonde n̂ es el vector unitario perpendicular al plano (regla de la mano derecha). El resultado es un vector cuya magnitud es el área del paralelogramo que forman A y B.\n\n> **🔑 Concepto clave: Trabajo y torque**\n> El producto escalar define el trabajo: W = F·d·cosθ —solo la componente de la fuerza en la dirección del movimiento hace trabajo. El producto vectorial define el torque: τ = r×F —mide la eficacia de una fuerza para hacer girar.\n\n\n### Estima como un físico: la resultante de dos vectores\n\nLa **estimación de Fermi** aplicada a vectores: si caminas 3 km al este y 4 km al norte, el desplazamiento es √(9+16) = 5 km —un **modelo simplificado** del problema. Si los vectores forman un ángulo distinto de 90°, el resultado está entre la diferencia y la suma de las magnitudes. Estimar el resultado antes de calcular te da un control de plausibilidad: un resultado de 8 km cuando los vectores suman 7 máximo es un error claro.\n\n",
+        "avanzado": "## Productos vectoriales en el espacio\n\nEn componentes, el producto vectorial se calcula con el determinante:\n\n$$ \\vec{A} \\times \\vec{B} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ A_x & A_y & A_z \\\\ B_x & B_y & B_z \\end{vmatrix} $$\n\nPropiedades:\n- Anticonmutativo: A×B = −(B×A)\n- Distributivo sobre la suma\n- El producto de un vector consigo mismo es cero (A×A = 0)\n\n> **💡 Nota de frontera**\n> Los productos vectoriales son la base del electromagnetismo (fuerza de Lorentz F = qv×B) y de la rotación (L = r×p, momento angular). En dimensiones superiores a 3, el producto vectorial no existe como tal —se generaliza con el álgebra exterior.\n\n\n### Estima como un físico: la resultante de dos vectores\n\nLa **estimación de Fermi** aplicada a vectores: si caminas 3 km al este y 4 km al norte, el desplazamiento es √(9+16) = 5 km —un **modelo simplificado** del problema. Si los vectores forman un ángulo distinto de 90°, el resultado está entre la diferencia y la suma de las magnitudes. Estimar el resultado antes de calcular te da un control de plausibilidad: un resultado de 8 km cuando los vectores suman 7 máximo es un error claro.\n\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "Los vectores son el lenguaje en el que la física describe el mundo en varias dimensiones. Has aprendido que un vector tiene magnitud y dirección —a diferencia de un escalar—, que se puede descomponer en componentes perpendiculares, que la suma vectorial sigue la regla del paralelogramo, y que hay dos productos con significados profundos: el escalar (trabajo) y el vectorial (torque). Esta herramienta matemática no es un fin en sí misma: es el puente hacia todo lo que viene. Con los vectores puedes describir el tiro parabólico, descomponer fuerzas en planos inclinados, entender el movimiento circular y, más adelante, los campos eléctricos y magnéticos. La física habla el idioma de los vectores: ahora tienes el vocabulario. Cada flecha que veas de aquí en adelante —una fuerza, una velocidad, un campo— será un vector pidiendo ser descompuesto, sumado y entendido.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "¿Vector o escalar?",
+        "enunciado": "Clasifica cada cantidad: (a) temperatura, (b) velocidad, (c) masa, (d) fuerza, (e) rapidez, (f) desplazamiento.",
+        "solucion": "(a) escalar, (b) vector, (c) escalar, (d) vector, (e) escalar, (f) vector. Los vectores tienen dirección: velocidad, fuerza, desplazamiento. Los escalares solo magnitud: temperatura, masa, rapidez.",
+        "xp": 25,
+        "pistas": [
+          "¿Tiene dirección?",
+          "La velocidad es vector; la rapidez es escalar"
+        ],
+        "opciones": [
+          {
+            "label": "a=e, b=v, c=e, d=v, e=e, f=v",
+            "correcta": true
+          },
+          {
+            "label": "Todos son vectores",
+            "correcta": false
+          },
+          {
+            "label": "Temperatura y fuerza son vectores",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica si la cantidad tiene dirección",
+          "La velocidad, fuerza y desplazamiento son vectores"
+        ]
+      },
+      {
+        "titulo": "Componentes de un vector",
+        "enunciado": "Un vector de 10 m forma 60° con el eje x. ¿Cuáles son sus componentes? (cos 60° = 0.5, sin 60° = 0.866)",
+        "solucion": "vx = 10·cos(60°) = 10×0.5 = 5 m. vy = 10·sin(60°) = 10×0.866 = 8.66 m. Vector (5, 8.66).",
+        "xp": 30,
+        "pistas": [
+          "vx = v·cosθ",
+          "vy = v·sinθ",
+          "Sustituye"
+        ],
+        "opciones": [
+          {
+            "label": "(5, 8.66) m",
+            "correcta": true
+          },
+          {
+            "label": "(8.66, 5) m",
+            "correcta": false
+          },
+          {
+            "label": "(10, 10) m",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica vx = v·cosθ",
+          "Aplica vy = v·sinθ",
+          "Vector (5, 8.66)"
+        ]
+      },
+      {
+        "titulo": "Suma de vectores",
+        "enunciado": "A = (3, 4) y B = (1, 2). ¿Cuál es A + B?",
+        "solucion": "A+B = (3+1, 4+2) = (4, 6).",
+        "xp": 25,
+        "pistas": [
+          "Suma componentes x",
+          "Suma componentes y"
+        ],
+        "opciones": [
+          {
+            "label": "(4, 6)",
+            "correcta": true
+          },
+          {
+            "label": "(3, 2)",
+            "correcta": false
+          },
+          {
+            "label": "(5, 5)",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "x: 3+1 = 4",
+          "y: 4+2 = 6",
+          "Resultado (4, 6)"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Magnitud de un vector",
+        "enunciado": "¿Cuál es la magnitud del vector (6, 8)?",
+        "solucion": "|v| = √(6² + 8²) = √(36+64) = √100 = 10.",
+        "xp": 30,
+        "pistas": [
+          "|v| = √(vx² + vy²)",
+          "6² = 36, 8² = 64"
+        ],
+        "opciones": [
+          {
+            "label": "10",
+            "correcta": true
+          },
+          {
+            "label": "14",
+            "correcta": false
+          },
+          {
+            "label": "48",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica Pitágoras",
+          "√(36+64) = √100 = 10"
+        ]
+      },
+      {
+        "titulo": "Producto escalar",
+        "enunciado": "A = (1, 2) y B = (3, 4). ¿Cuál es su producto escalar?",
+        "solucion": "A·B = 1×3 + 2×4 = 3 + 8 = 11.",
+        "xp": 35,
+        "pistas": [
+          "A·B = Ax·Bx + Ay·By",
+          "Sustituye"
+        ],
+        "opciones": [
+          {
+            "label": "11",
+            "correcta": true
+          },
+          {
+            "label": "7",
+            "correcta": false
+          },
+          {
+            "label": "10",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Multiplica componentes",
+          "Suma: 3 + 8 = 11"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Trabajo como producto escalar",
+        "enunciado": "Una fuerza de 20 N actúa a 30° de la dirección del desplazamiento de 5 m. ¿Cuál es el trabajo? (cos 30° = 0.866)",
+        "solucion": "W = F·d·cosθ = 20 × 5 × 0.866 = 86.6 J.",
+        "xp": 45,
+        "pistas": [
+          "W = F·d·cosθ",
+          "Solo la componente de la fuerza en la dirección del movimiento hace trabajo"
+        ],
+        "opciones": [
+          {
+            "label": "86.6 J",
+            "correcta": true
+          },
+          {
+            "label": "100 J",
+            "correcta": false
+          },
+          {
+            "label": "50 J",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica W = F·d·cosθ",
+          "Calcula 20×5×0.866 = 86.6 J"
+        ]
+      },
+      {
+        "titulo": "Producto vectorial",
+        "enunciado": "A = (1, 0, 0) y B = (0, 1, 0) (vectores unitarios x e y). ¿Cuál es A × B?",
+        "solucion": "A × B = (0, 0, 1) —el vector unitario z. El producto de î por ĵ es k̂. Es la base de la regla de la mano derecha.",
+        "xp": 45,
+        "pistas": [
+          "Usa la regla de la mano derecha",
+          "î × ĵ = k̂"
+        ],
+        "opciones": [
+          {
+            "label": "(0, 0, 1)",
+            "correcta": true
+          },
+          {
+            "label": "(1, 1, 0)",
+            "correcta": false
+          },
+          {
+            "label": "(0, 0, 0)",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la regla de la mano derecha",
+          "î × ĵ = k̂ = (0, 0, 1)"
+        ]
+      }
+    ]
+  }
 }

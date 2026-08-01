@@ -1,201 +1,309 @@
 {
   "metadata": {
-    "title": "Leyes de Newton y Movimiento: Las Reglas del Juego del Universo",
-    "description": "Descubre las tres leyes que gobiernan el movimiento de todo lo que existe, desde una pelota que rueda hasta los planetas que orbitan. De la intuición cotidiana a la formulación matemática avanzada.",
+    "title": "Las Leyes de Newton del Movimiento",
+    "description": "Guía completa de las leyes de Newton: la inercia, F = ma, acción y reacción, diagramas de cuerpo libre, formulación diferencial y sistemas no inerciales. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "leyes-newton-movimiento",
     "author": "Aeterna",
-    "category": "ciencias",
+    "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
-      "mecánica clásica",
-      "leyes de Newton",
-      "fuerza",
-      "movimiento",
-      "inercia",
+      "Newton",
+      "fuerzas",
       "dinámica",
-      "física básica"
+      "inercia",
+      "F = ma",
+      "acción y reacción",
+      "diagramas de cuerpo libre",
+      "sistemas no inerciales"
     ],
-    "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop",
-    "date": "2026-05-11",
-    "nivel": "1",
-    "orden": "2",
-    "insignia": "Guardián del Movimiento",
-    "tipo": "theory"
+    "image": "https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-12",
+    "nivel": 1,
+    "nivel_titulo": "Fundamentos del Cosmos",
+    "orden": 6,
+    "insignia": "Amo de la Dinámica",
+    "tipo": "theory",
+    "prerequisites": [
+      "vectores"
+    ],
+    "breadcrumb": "Física / Fundamentos del Cosmos / Las Leyes de Newton"
   },
-  "introduccion": "",
+  "introduccion": "<AeternaHeroWelcome>\n  Una manzana cae, la Luna orbita, tu coche frena. Tres leyes simples explican por qué se mueve todo lo que se mueve.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Las tres leyes de Newton son: **primera** (inercia): un objeto sigue en reposo o con movimiento uniforme salvo que actúe una fuerza; **segunda**: F = ma —la fuerza neta es masa por aceleración; **tercera**: acción y reacción —toda fuerza tiene una igual y opuesta. Con estas tres y los diagramas de cuerpo libre, puedes analizar cualquier situación dinámica, desde un bloque en un plano inclinado hasta una órbita planetaria.\n\n**[IMAGEN SUGERIDA: Una manzana cayendo de un árbol, con flechas de fuerza. Pie de foto: \"La gravedad acelera la manzana: F = ma.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
-      "id": "-bienvenida-por-qu-se-mueven-las-cosas",
-      "titulo": "▶️ Bienvenida: ¿Por qué se mueven las cosas?",
+      "id": "bienvenida",
+      "titulo": "Bienvenida: por qué se mueven las cosas",
       "niveles": {
-        "principiante": "Cada vez que empujas una silla, lanzas una pelota o frenas en bicicleta, estás interactuando con las mismas reglas que gobiernan el movimiento de los planetas, los cohetes y las galaxias. En 1687, Isaac Newton publicó *Principia Mathematica*, un libro que cambió para siempre nuestra comprensión del universo. En él, formuló tres leyes simples pero profundas que describen cómo y por qué se mueve cualquier objeto.\n\nEn esta parada exploraremos esas tres leyes, desde ejemplos cotidianos hasta sus implicaciones más profundas. No necesitas ser un genio de las matemáticas para empezar: basta con observar el mundo que te rodea.\n\n> **💡 La clave en 10 segundos**\n>\n> 1️⃣ Un objeto en reposo tiende a quedarse en reposo, y uno en movimiento tiende a seguir moviéndose, a menos que una fuerza actúe sobre él (Inercia).\n> 2️⃣ La aceleración de un objeto depende de la fuerza aplicada y de su masa: **F = m·a**.\n> 3️⃣ Toda acción tiene una reacción igual y opuesta: las fuerzas siempre vienen en pares.\n\n**[IMAGEN SUGERIDA: Ilustración estilizada de Isaac Newton bajo un manzano, con una manzana cayendo y, en el fondo, la órbita de la Luna alrededor de la Tierra. Pie de foto: \"La misma fuerza que hace caer una manzana mantiene a la Luna en órbita.\"]**\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: FUNDAMENTOS (Principiante)           -->\n<!-- ============================================ -->",
-        "intermedio": "Cada vez que empujas una silla, lanzas una pelota o frenas en bicicleta, estás interactuando con las mismas reglas que gobiernan el movimiento de los planetas, los cohetes y las galaxias. En 1687, Isaac Newton publicó *Principia Mathematica*, un libro que cambió para siempre nuestra comprensión del universo. En él, formuló tres leyes simples pero profundas que describen cómo y por qué se mueve cualquier objeto.\n\nEn esta parada exploraremos esas tres leyes, desde ejemplos cotidianos hasta sus implicaciones más profundas. No necesitas ser un genio de las matemáticas para empezar: basta con observar el mundo que te rodea.\n\n> **💡 La clave en 10 segundos**\n>\n> 1️⃣ Un objeto en reposo tiende a quedarse en reposo, y uno en movimiento tiende a seguir moviéndose, a menos que una fuerza actúe sobre él (Inercia).\n> 2️⃣ La aceleración de un objeto depende de la fuerza aplicada y de su masa: **F = m·a**.\n> 3️⃣ Toda acción tiene una reacción igual y opuesta: las fuerzas siempre vienen en pares.\n\n**[IMAGEN SUGERIDA: Ilustración estilizada de Isaac Newton bajo un manzano, con una manzana cayendo y, en el fondo, la órbita de la Luna alrededor de la Tierra. Pie de foto: \"La misma fuerza que hace caer una manzana mantiene a la Luna en órbita.\"]**\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: FUNDAMENTOS (Principiante)           -->\n<!-- ============================================ -->",
-        "avanzado": "Cada vez que empujas una silla, lanzas una pelota o frenas en bicicleta, estás interactuando con las mismas reglas que gobiernan el movimiento de los planetas, los cohetes y las galaxias. En 1687, Isaac Newton publicó *Principia Mathematica*, un libro que cambió para siempre nuestra comprensión del universo. En él, formuló tres leyes simples pero profundas que describen cómo y por qué se mueve cualquier objeto.\n\nEn esta parada exploraremos esas tres leyes, desde ejemplos cotidianos hasta sus implicaciones más profundas. No necesitas ser un genio de las matemáticas para empezar: basta con observar el mundo que te rodea.\n\n> **💡 La clave en 10 segundos**\n>\n> 1️⃣ Un objeto en reposo tiende a quedarse en reposo, y uno en movimiento tiende a seguir moviéndose, a menos que una fuerza actúe sobre él (Inercia).\n> 2️⃣ La aceleración de un objeto depende de la fuerza aplicada y de su masa: **F = m·a**.\n> 3️⃣ Toda acción tiene una reacción igual y opuesta: las fuerzas siempre vienen en pares.\n\n**[IMAGEN SUGERIDA: Ilustración estilizada de Isaac Newton bajo un manzano, con una manzana cayendo y, en el fondo, la órbita de la Luna alrededor de la Tierra. Pie de foto: \"La misma fuerza que hace caer una manzana mantiene a la Luna en órbita.\"]**\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 1: FUNDAMENTOS (Principiante)           -->\n<!-- ============================================ -->"
+        "principiante": "## Bienvenida: por qué se mueven las cosas\n\n¿Por qué se mueven las cosas? Durante siglos, la respuesta fue: \"porque algo las empuja\". Aristóteles pensaba que un objeto solo se mueve mientras hay algo que lo empuje, y que al dejar de empujarlo se detiene.\n\nNewton lo cambió todo. Su respuesta es la base de la física moderna: las cosas cambian su movimiento **solo cuando actúa una fuerza neta**. Sin fuerzas, un objeto en reposo sigue en reposo, y un objeto en movimiento sigue moviéndose en línea recta para siempre.\n\nEsto contradice la intuición cotidiana: si empujas un coche y lo sueltas, se detiene. Pero no es porque 'le guste' parar: es porque el rozamiento y el aire lo frenan. Sin esas fuerzas, rodaría eternamente.\n\n> **🔑 Concepto clave: Fuerza**\n> Una fuerza es un empujón o un tirón que cambia el movimiento de un objeto. Se mide en newtons (N). No es una propiedad del objeto: es una interacción entre objetos.\n\n**[IMAGEN SUGERIDA: Una manzana cayendo, con la gravedad como fuerza. Pie de foto: \"Las fuerzas cambian el movimiento.\"]**\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** las tres leyes de Newton: inercia (sin fuerza neta no hay cambio de movimiento), F = ma (la fuerza neta produce aceleración proporcional e inversa a la masa) y acción-reacción (las fuerzas van en pares sobre cuerpos distintos). Con los diagramas de cuerpo libre aplicas estas leyes a cualquier situación.\n</PedagogicalContentBlock>\n",
+        "intermedio": "## Bienvenida: la dinámica como puente\n\nLa cinemática describe el movimiento; la **dinámica** explica por qué ocurre. Las leyes de Newton son el puente: conectan la aceleración (cinemática) con las fuerzas (causa).\n\nLas tres leyes:\n\n1. **Inercia**: un objeto mantiene su estado (reposo o MRU) salvo que actúe una fuerza neta.\n2. **F = ma**: la fuerza neta es proporcional a la aceleración e inversamente a la masa.\n3. **Acción-reacción**: si A ejerce fuerza sobre B, B ejerce una igual y opuesta sobre A.\n\nEstas leyes son la base de toda la mecánica clásica. Con ellas, Newton explicó tanto la caída de una manzana como la órbita de los planetas.\n\n> **Dato que rompe el cerebro**\n> Las leyes de Newton son válidas en sistemas de referencia inerciales (no acelerados). Si estás en un coche que frena bruscamente, te 'lanzas' hacia adelante: eso no viola la primera ley, es tu inercia manifestándose. La física no depende del observador solo en marcos inerciales.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** las tres leyes de Newton: inercia (sin fuerza neta no hay cambio de movimiento), F = ma (la fuerza neta produce aceleración proporcional e inversa a la masa) y acción-reacción (las fuerzas van en pares sobre cuerpos distintos). Con los diagramas de cuerpo libre aplicas estas leyes a cualquier situación.\n</PedagogicalContentBlock>\n",
+        "avanzado": "## Bienvenida: la revolución newtoniana\n\nLos Principia de Newton (1687) unificaron el cielo y la Tierra: la misma física explica una manzana cayendo y la Luna orbitando. Esta unificación es el modelo de toda la física posterior.\n\nMatemáticamente, las leyes de Newton son un sistema de ecuaciones diferenciales:\n\n$$ m \\vec{a} = \\sum \\vec{F} $$\n\nResolver estas ecuaciones para una fuerza dada produce la trayectoria completa del objeto. Este enfoque —de la fuerza a la trayectoria— es el corazón de la mecánica clásica.\n\n> **💡 Nota avanzada**\n> La segunda ley F = ma es válida para masa constante. En relatividad, la masa efectiva aumenta con la velocidad, y la ley se generaliza a F = dp/dt (cambio de momento). A velocidades cotidianas, F = ma es una aproximación excelente.\n\n\n<PedagogicalContentBlock type=\"key-insight\" title=\"La clave en 10 segundos\">\n**La clave:** las tres leyes de Newton: inercia (sin fuerza neta no hay cambio de movimiento), F = ma (la fuerza neta produce aceleración proporcional e inversa a la masa) y acción-reacción (las fuerzas van en pares sobre cuerpos distintos). Con los diagramas de cuerpo libre aplicas estas leyes a cualquier situación.\n</PedagogicalContentBlock>\n"
       },
       "acciones": []
     },
     {
-      "id": "-capa-i-fundamentos---intuicin-del-movimiento",
-      "titulo": "🌱 Capa I: Fundamentos - Intuición del Movimiento",
+      "id": "primera-ley",
+      "titulo": "Primera ley: la inercia",
       "niveles": {
-        "principiante": "### Índice\n- [1. ¿Qué es una fuerza?](#1-qué-es-una-fuerza)\n- [2. Primera ley: La inercia o por qué las cosas no cambian solas](#2-primera-ley-la-inercia)\n- [3. Segunda ley: F = m·a, la ecuación que lo explica (casi) todo](#3-segunda-ley-f-ma)\n- [4. Tercera ley: Acción y reacción, el equilibrio del universo](#4-tercera-ley-accion-y-reaccion)\n- [5. Ejemplos en tu día a día](#5-ejemplos-en-tu-día-a-día)"
+        "principiante": "## La primera ley: la inercia\n\nLa **primera ley de Newton** (o ley de la inercia) dice: un objeto en reposo permanece en reposo, y un objeto en movimiento permanece en movimiento uniforme en línea recta, a menos que una fuerza neta actúe sobre él.\n\nParece simple, pero es revolucionaria: significa que no se necesita fuerza para mantener el movimiento. Se necesita fuerza para **cambiar** el movimiento.\n\nLa tendencia de un objeto a resistir cambios en su movimiento se llama **inercia**. Cuanta más masa tiene un objeto, más inercia —más difícil es cambiar su movimiento.\n\n> **Dato que rompe el cerebro**\n> Un camión y una pelota de ping-pong tienen la misma inercia relativa... no, no: el camión tiene mucha más masa, así que mucha más inercia. Empujar el camión requiere mucha más fuerza para lograr la misma aceleración. La inercia es proporcional a la masa.\n\n```aeterna-exercise\nTITLE: El cinturón de seguridad\nHINT: La primera ley explica qué te pasa al frenar bruscamente.\nXP: 30\n¿Por qué el cinturón de seguridad es esencial al frenar bruscamente? Relaciónalo con la primera ley de Newton.\nSOLUTION: Al frenar bruscamente, el coche se detiene pero tu cuerpo, por inercia, tiende a seguir en movimiento hacia adelante. El cinturón aplica una fuerza que te detiene junto con el coche. Sin él, saldrías despedido por la inercia (primera ley).\n```\n\n> **🔑 Concepto clave: Inercia**\n> La inercia es la tendencia de un objeto a resistir cambios en su movimiento, proporcional a su masa. La primera ley establece que sin fuerza neta, no hay cambio de movimiento —ni aceleración.\n",
+        "intermedio": "## La primera ley en detalle\n\nLa primera ley define los **sistemas de referencia inerciales**: aquellos donde un objeto sin fuerzas netas mantiene su velocidad constante. Es el punto de partida de toda la dinámica.\n\nEn un sistema inercial, la primera ley se cumple exactamente. En un sistema acelerado (como un coche frenando), aparecen 'fuerzas ficticias' porque el marco no es inercial.\n\nLa masa es la medida de la inercia: mide la resistencia al cambio de movimiento. Dos objetos con la misma fuerza neta: el de mayor masa acelera menos.\n\n> **Dato que rompe el cerebro**\n> En el espacio, lejos de toda fuerza, un objeto lanzado se mueve en línea recta para siempre. Sin rozamiento ni gravedad, la primera ley se manifiesta pura: no se necesita fuerza para mantener el movimiento.\n",
+        "avanzado": "## Inercia y marcos de referencia\n\nLa primera ley distingue entre marcos inerciales y no inerciales. En un marco inercial, las leyes de Newton son válidas. En un marco acelerado, aparecen fuerzas ficticias:\n\n- **Centrífuga**: en un marco rotatorio\n- **Coriolis**: en marcos giratorios, desvía los objetos\n- **de Euler**: por cambios en la velocidad angular\n\nLa Tierra es un marco aproximadamente inercial (su rotación introduce pequeñas fuerzas de Coriolis que afectan huracanes y misiles).\n\n> **💡 Nota de frontera**\n> Einstein generalizó la inercia con el principio de equivalencia: en un marco acelerado, los efectos de la fuerza ficticia son indistinguibles de la gravedad. Esto llevó a la relatividad general: la gravedad como curvatura del espacio-tiempo.\n"
       },
       "acciones": []
     },
     {
-      "id": "1-qu-es-una-fuerza",
-      "titulo": "1. ¿Qué es una fuerza?",
+      "id": "segunda-ley",
+      "titulo": "Segunda ley: F = ma",
       "niveles": {
-        "principiante": "Imagina que estás empujando un carrito de la compra vacío. Es fácil acelerarlo, ¿verdad? Ahora imagina que el carrito está lleno de bolsas pesadas. Necesitas empujar mucho más fuerte para lograr la misma aceleración. Esa \"empujada\" es lo que en física llamamos **fuerza**.\n\nUna fuerza es cualquier interacción que puede cambiar el estado de movimiento de un objeto: puede ponerlo en movimiento, detenerlo, acelerarlo, frenarlo o cambiar su dirección. Las fuerzas tienen tres características clave:\n\n- **Magnitud**: ¿Cuánto empujas? (se mide en Newtons, N)\n- **Dirección**: ¿Hacia dónde empujas? (izquierda, derecha, arriba...)\n- **Sentido**: ¿En qué sentido dentro de esa dirección? (hacia adelante o hacia atrás)\n\n> **🧠 Dato que rompe el cerebro**\n>\n> Cuando caminas, tus pies empujan el suelo hacia atrás. El suelo, a su vez, te empuja a ti hacia adelante. ¡Estás usando la tercera ley de Newton en cada paso!"
+        "principiante": "## La segunda ley: F = ma\n\nLa **segunda ley de Newton** es la más famosa de la física:\n\n$$ F = ma $$\n\nLa fuerza neta sobre un objeto es igual a su masa por su aceleración. Es decir:\n\n- Más fuerza → más aceleración\n- Más masa → menos aceleración (misma fuerza)\n\nSi empujas un carrito vacío, acelera rápido. Si lo llenas de libros (más masa), acelera más lento con la misma fuerza.\n\n> **Dato que rompe el cerebro**\n> La fuerza se mide en newtons (N): 1 N = 1 kg·m/s². Una manzana pesa unos 1 N en la Tierra (masa ~0.1 kg × gravedad 10). La unidad honra a Newton, que la formuló.\n\n**[IMAGEN SUGERIDA: Un carrito siendo empujado, con la fórmula F = ma y flechas. Pie de foto: \"La fuerza produce aceleración.\"]**\n\n\n<Connect title=\"De Newton a la gravedad\" sourceConcept=\"Segunda ley de Newton\" targetConcept=\"Gravitación universal\">\nNewton usó F = ma para derivar la ley de gravitación: la fuerza entre dos masas es F = GMm/r². Igualando con la fuerza centrípeta mv²/r, obtuvo las órbitas de Kepler. La segunda ley no solo describe caídas: unifica la dinámica terrestre y la celeste.\n</Connect>\n",
+        "intermedio": "## La segunda ley en detalle\n\nLa segunda ley es vectorial:\n\n$$ \\sum \\vec{F} = m \\vec{a} $$\n\nEs la **fuerza neta** (suma de todas las fuerzas) la que produce la aceleración. Las fuerzas individuales pueden cancelarse: si dos fuerzas iguales y opuestas actúan, la neta es cero y no hay aceleración.\n\n```aeterna-formula\ntitle=\"Segunda ley de Newton\"\nformula=\"\\\\sum \\\\vec{F} = m \\\\vec{a}\"\nvariables={[{\"symbol\":\"ΣF\",\"name\":\"Fuerza neta\",\"unit\":\"N\"},{\"symbol\":\"m\",\"name\":\"Masa\",\"unit\":\"kg\"},{\"symbol\":\"a\",\"name\":\"Aceleración\",\"unit\":\"m/s²\"}]}\nnote=\"La aceleración tiene la misma dirección que la fuerza neta. Es la suma vectorial de todas las fuerzas la que importa.\"\n```\n\nEl **peso** es la fuerza que la gravedad ejerce sobre una masa: P = mg. No es lo mismo que la masa: el peso cambia con la gravedad (en la Luna pesas menos), la masa no.\n\n> **🔑 Concepto clave: Fuerza neta**\n> La segunda ley usa la fuerza **neta** —la suma vectorial de todas las fuerzas. Si las fuerzas se cancelan, la aceleración es cero (primera ley). La masa es la constante de proporcionalidad entre fuerza neta y aceleración.\n\n\n<Connect title=\"De Newton a la gravedad\" sourceConcept=\"Segunda ley de Newton\" targetConcept=\"Gravitación universal\">\nNewton usó F = ma para derivar la ley de gravitación: la fuerza entre dos masas es F = GMm/r². Igualando con la fuerza centrípeta mv²/r, obtuvo las órbitas de Kepler. La segunda ley no solo describe caídas: unifica la dinámica terrestre y la celeste.\n</Connect>\n",
+        "avanzado": "## F = ma como ecuación diferencial\n\nLa segunda ley se escribe como una ecuación diferencial:\n\n$$ m \\frac{d^2 \\vec{r}}{dt^2} = \\sum \\vec{F} $$\n\nDada la fuerza, la trayectoria r(t) se obtiene resolviendo esta ecuación. Para fuerzas constantes, es integrable directamente:\n\n- a = F/m (constante)\n- v = v₀ + at\n- x = x₀ + v₀t + ½at²\n\nPara fuerzas variables (como la gravedad F = GMm/r²), la ecuación es más compleja pero el principio es el mismo.\n\n> **💡 Nota avanzada**\n> La formulación diferencial de Newton es el origen de la mecánica analítica. Formulaciones equivalentes —Lagrangiana y Hamiltoniana— son las bases de la mecánica cuántica y la relatividad. La fuerza como causa se reemplaza por la energía y la acción.\n\n\n<Connect title=\"De Newton a la gravedad\" sourceConcept=\"Segunda ley de Newton\" targetConcept=\"Gravitación universal\">\nNewton usó F = ma para derivar la ley de gravitación: la fuerza entre dos masas es F = GMm/r². Igualando con la fuerza centrípeta mv²/r, obtuvo las órbitas de Kepler. La segunda ley no solo describe caídas: unifica la dinámica terrestre y la celeste.\n</Connect>\n"
       },
       "acciones": []
     },
     {
-      "id": "2-primera-ley-la-inercia-o-por-qu-las-cosas-no-cambian-solas",
-      "titulo": "2. Primera ley: La inercia o por qué las cosas no cambian solas",
+      "id": "tercera-ley",
+      "titulo": "Tercera ley: acción y reacción",
       "niveles": {
-        "principiante": "**Enunciado sencillo**: *Un objeto en reposo permanece en reposo, y un objeto en movimiento permanece en movimiento con velocidad constante, a menos que una fuerza neta actúe sobre él.*\n\nEsta ley se llama **ley de la inercia**. La inercia es la \"resistencia\" que opone un objeto a cambiar su estado de movimiento. Cuanta más masa tiene un objeto, más inercia tiene.\n\n**Ejemplos cotidianos**:\n- Cuando un autobús frena bruscamente, tu cuerpo tiende a seguir avanzando. ¡Esa es la inercia!\n- Una pelota rodando sobre césped se detiene porque la fricción (una fuerza) actúa contra su movimiento. En el espacio, sin fricción, seguiría rodando para siempre.\n- Los astronautas en la Estación Espacial flotan no porque no haya gravedad, sino porque están en caída libre constante: no hay fuerza neta que los \"empuje\" contra una superficie."
+        "principiante": "## La tercera ley: acción y reacción\n\nLa **tercera ley de Newton** dice: si un objeto A ejerce una fuerza sobre B, entonces B ejerce una fuerza igual y opuesta sobre A.\n\n- Tú empujas la pared → la pared te empuja a ti\n- La Tierra atrae la manzana → la manzana atrae la Tierra\n- El cohete expulsa gas hacia abajo → el gas empuja el cohete hacia arriba\n\nLas fuerzas siempre vienen en pares. Nunca hay una fuerza aislada.\n\n> **Dato que rompe el cerebro**\n> Cuando caminas, empujas el suelo hacia atrás, y el suelo te empuja hacia adelante. Sin fricción (suelo resbaladizo), no podrías caminar: necesitas empujar algo para que te empuje.\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: Acción y reacción\nPregunta: Un caballo tira de una carreta. El caballo ejerce una fuerza sobre la carreta, y la carreta una igual y opuesta sobre el caballo. Si son iguales, ¿cómo se mueve el sistema?\nNivel: principiante\nXP: 30\nBotón: Comprobar\nRespuesta: Respuesta: Las fuerzas acción-reacción actúan sobre objetos DISTINTOS (una sobre la carreta, otra sobre el caballo), así que no se cancelan. El caballo también empuja el suelo hacia atrás, y el suelo lo empuja hacia adelante —esa fuerza neta sobre el caballo lo hace avanzar con la carreta.\n```\n\n> **🔑 Concepto clave: Pares de acción-reacción**\n> Las fuerzas de acción y reacción siempre actúan sobre cuerpos distintos, tienen la misma magnitud y direcciones opuestas. Por eso no se cancelan: se aplican a objetos diferentes.\n",
+        "intermedio": "## La tercera ley en detalle\n\nLa tercera ley es esencial para el **momento**: la fuerza neta interna de un sistema aislado es cero, porque las acciones-reacciones se cancelan. Esto lleva a la **conservación del momento**:\n\n$$ m_1 v_1 + m_2 v_2 = \\text{constante} $$\n\nAplicaciones:\n- Retroceso de un arma al disparar\n- Propulsión de cohetes (expulsan masa hacia atrás)\n- Colisiones: el momento se conserva\n\n> **Dato que rompe el cerebro**\n> Cuando un cohete despega, no empuja contra el aire ni contra el suelo: empuja contra el gas que expulsa hacia atrás, y el gas lo empuja hacia adelante. Funciona igual en el vacío del espacio. La tercera ley es la razón de que los cohetes funcionen.\n",
+        "avanzado": "## Acción-reacción y conservación\n\nLa tercera ley es la manifestación de la **conservación del momento lineal**. En un sistema aislado, el momento total es constante:\n\n$$ \\frac{d}{dt}(m_1\\vec{v}_1 + m_2\\vec{v}_2) = 0 $$\n\nEsto conecta con el teorema de Noether: la conservación del momento es consecuencia de la simetría de traslación espacial.\n\nLa tercera ley es válida en sistemas inerciales. En relatividad, la simultaneidad es relativa, lo que complica la 'acción a distancia instantánea' —la interacción se propaga por campos a velocidad finita.\n\n> **💡 Nota de frontera**\n> La fuerza de Lorentz F = qv×B no siempre satisface la tercera ley en su forma simple (la fuerza sobre dos cargas no es siempre igual y opuesta si se mueven), porque el momento se transfiere al campo electromagnético. La conservación del momento total (partículas + campos) sí se cumple.\n"
       },
       "acciones": []
     },
     {
-      "id": "3-segunda-ley-f--ma-la-ecuacin-que-lo-explica-casi-todo",
-      "titulo": "3. Segunda ley: F = m·a, la ecuación que lo explica (casi) todo",
+      "id": "diagramas-cuerpo-libre",
+      "titulo": "Diagramas de cuerpo libre",
       "niveles": {
-        "principiante": "**Enunciado sencillo**: *La aceleración de un objeto es directamente proporcional a la fuerza neta que actúa sobre él e inversamente proporcional a su masa.*\n\nEn fórmula: **F = m · a**\n\nDonde:\n- **F** = fuerza neta (en Newtons, N)\n- **m** = masa del objeto (en kilogramos, kg)\n- **a** = aceleración (en metros por segundo al cuadrado, m/s²)\n\n**¿Qué significa esto en la práctica?**\n- Si aplicas la misma fuerza a dos objetos, el más ligero acelerará más. (Empujar una bicicleta vs. empujar un coche).\n- Si quieres que un objeto pesado acelere igual que uno ligero, necesitas aplicar más fuerza.\n- Si no hay fuerza neta (F = 0), la aceleración es cero: el objeto mantiene su velocidad. ¡Esto incluye a la primera ley!\n\n> **❌ Error común**\n>\n> **[El error]:** \"Si un objeto se mueve, es porque hay una fuerza actuando sobre él.\"\n> **[La realidad]:** Un objeto puede moverse a velocidad constante sin que actúe ninguna fuerza neta sobre él (primera ley). Las fuerzas son necesarias para *cambiar* el movimiento, no para mantenerlo."
+        "principiante": "## Diagramas de cuerpo libre\n\nPara analizar fuerzas, los físicos dibujan un **diagrama de cuerpo libre**: un dibujo del objeto con todas las fuerzas que actúan sobre él, como flechas desde su centro.\n\nLas fuerzas típicas son:\n\n- **Peso (P = mg)**: hacia abajo\n- **Normal (N)**: perpendicular a la superficie\n- **Tensión (T)**: a lo largo de una cuerda\n- **Fricción (f)**: opuesta al movimiento\n\nDibujar el diagrama es el primer paso para resolver cualquier problema de fuerzas.\n\n> **Dato curioso**\n> En un plano inclinado, la gravedad se descompone en una componente perpendicular (equilibrada por la normal) y una paralela al plano (que hace deslizar el objeto). Por eso los objetos se deslizan cuesta abajo.\n\n**[IMAGEN SUGERIDA: Un bloque en un plano inclinado con sus fuerzas: peso, normal y componente paralela. Pie de foto: \"El diagrama de cuerpo libre revela las fuerzas.\"]**\n\n\n<Transfer targetDomain=\"Seguridad vial\" title=\"Transfiere: la física del accidente\">\nLa distancia de frenado de un coche depende de la fuerza de fricción (F = μmg) y la segunda ley: a = μg. Investiga cómo la velocidad duplica la distancia de frenado (porque la energía cinética crece con v²) y cómo el cinturón y el airbag aplican la primera y segunda leyes para protegerte.\n</Transfer>\n",
+        "intermedio": "## Analizando con diagramas de cuerpo libre\n\n```model-builder\nTITLE: Fuerzas en un plano inclinado\nPROBLEM: Un bloque de masa m está en un plano inclinado a ángulo θ. Selecciona las variables relevantes para calcular su aceleración y descarta las irrelevantes.\nXP: 60\nVAR_RELEVANT: Masa del bloque | Determina la fuerza neta y la aceleración\nVAR_RELEVANT: Ángulo del plano | La componente de la gravedad paralela al plano es mg·sinθ\nVAR_RELEVANT: Gravedad | La fuerza peso es mg\nVAR_RELEVANT: Coeficiente de fricción | Determina la fuerza de rozamiento si hay\nVAR_IRRELEVANT: Color del bloque | No afecta la dinámica\nVAR_IRRELEVANT: Forma exacta del bloque | Se modela como punto material\n```\n\nPasos para resolver:\n1. Dibuja el cuerpo libre con todas las fuerzas\n2. Descompón las fuerzas en componentes (x, y)\n3. Aplica ΣF = ma en cada eje\n4. Resuelve para la incógnita\n\n> **🔑 Concepto clave: El método**\n> El diagrama de cuerpo libre es el corazón del análisis dinámico. Dibujar correctamente las fuerzas, descomponerlas y aplicar F = ma en cada eje resuelve la gran mayoría de problemas de mecánica.\n\n\n<Transfer targetDomain=\"Seguridad vial\" title=\"Transfiere: la física del accidente\">\nLa distancia de frenado de un coche depende de la fuerza de fricción (F = μmg) y la segunda ley: a = μg. Investiga cómo la velocidad duplica la distancia de frenado (porque la energía cinética crece con v²) y cómo el cinturón y el airbag aplican la primera y segunda leyes para protegerte.\n</Transfer>\n",
+        "avanzado": "## Sistemas de cuerpos\n\nCuando varios cuerpos interactúan, se dibuja un diagrama de cuerpo libre para **cada** objeto por separado. Las fuerzas entre ellos son pares de acción-reacción.\n\nPara un sistema de dos masas conectadas por una cuerda sobre una polea (máquina de Atwood):\n\n$$ a = \\frac{m_1 - m_2}{m_1 + m_2} g $$\n\nLa tensión es la misma en ambos lados de la cuerda ideal (sin masa).\n\n> **💡 Nota de frontera**\n> La resolución de sistemas acoplados conduce a las ecuaciones de Lagrange, que generalizan el método de fuerzas usando energías y coordenadas generalizadas. Es la formulación moderna de la mecánica, válida también en cuántica.\n\n\n<Transfer targetDomain=\"Seguridad vial\" title=\"Transfiere: la física del accidente\">\nLa distancia de frenado de un coche depende de la fuerza de fricción (F = μmg) y la segunda ley: a = μg. Investiga cómo la velocidad duplica la distancia de frenado (porque la energía cinética crece con v²) y cómo el cinturón y el airbag aplican la primera y segunda leyes para protegerte.\n</Transfer>\n"
       },
       "acciones": []
     },
     {
-      "id": "4-tercera-ley-accin-y-reaccin-el-equilibrio-del-universo",
-      "titulo": "4. Tercera ley: Acción y reacción, el equilibrio del universo",
+      "id": "formulacion-diferencial",
+      "titulo": "Formulación diferencial",
       "niveles": {
-        "principiante": "**Enunciado sencillo**: *Cuando un objeto A ejerce una fuerza sobre un objeto B, el objeto B ejerce simultáneamente una fuerza igual en magnitud y opuesta en dirección sobre el objeto A.*\n\nEn otras palabras: **las fuerzas siempre vienen en pares**.\n\n**Ejemplos claros**:\n- **Caminar**: Tus pies empujan el suelo hacia atrás → el suelo te empuja a ti hacia adelante.\n- **Cohetes**: Los gases expulsados hacia abajo ejercen una fuerza sobre el cohete hacia arriba.\n- **Nadar**: Empujas el agua hacia atrás con tus brazos → el agua te empuja a ti hacia adelante.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> Cuando saltas, empujas la Tierra hacia abajo con tus pies. La Tierra te empuja a ti hacia arriba con la misma fuerza. ¿Por qué no vemos moverse a la Tierra? Porque su masa es enormemente mayor que la tuya: la misma fuerza produce una aceleración imperceptible en la Tierra, pero significativa en ti."
+        "principiante": "## Formulación diferencial\n\nLa segunda ley de Newton se puede escribir como una ecuación diferencial:\n\n$$ m \\frac{d^2x}{dt^2} = F $$\n\nEsto dice: la aceleración (segunda derivada de la posición) es proporcional a la fuerza. Es la forma matemática de la ley.\n\nPara fuerzas constantes, se resuelve fácilmente: la posición crece cuadráticamente con el tiempo.\n\n> **Dato curioso**\n> Las ecuaciones diferenciales son el lenguaje de la física: describen cómo cambian las cosas en el tiempo. La segunda ley es la primera ecuación diferencial que encuentras en física.\n\n**[IMAGEN SUGERIDA: Una gráfica mostrando una trayectoria calculada desde una ecuación diferencial. Pie de foto: \"De la fuerza a la trayectoria.\"]**\n",
+        "intermedio": "## De la fuerza a la trayectoria\n\n```aeterna-formula\ntitle=\"Formulación diferencial de la segunda ley\"\nformula=\"m \\\\frac{d^2\\\\vec{r}}{dt^2} = \\\\sum \\\\vec{F}\"\nvariables={[{\"symbol\":\"m\",\"name\":\"Masa\",\"unit\":\"kg\"},{\"symbol\":\"r\",\"name\":\"Posición\",\"unit\":\"m\"},{\"symbol\":\"F\",\"name\":\"Fuerza neta\",\"unit\":\"N\"}]}\nnote=\"Resolver esta ecuación diferencial para una fuerza dada produce la trayectoria completa del objeto.\"\n```\n\nPara una fuerza constante F:\n\n$$ x(t) = x_0 + v_0 t + \\frac{F}{2m} t^2 $$\n\nQue es la ecuación del MRUA, con a = F/m. La dinámica generaliza la cinemática: la aceleración ya no es un dato, es el resultado de la fuerza.\n\n> **🔑 Concepto clave: Condiciones iniciales**\n> Una ecuación diferencial de segundo orden necesita dos condiciones iniciales: la posición y la velocidad iniciales. Con ellas y la fuerza, la trayectoria queda completamente determinada.\n",
+        "avanzado": "## Fuerzas dependientes del tiempo y la posición\n\nSegún el tipo de fuerza, la ecuación diferencial tiene soluciones distintas:\n\n- **F = constante**: movimiento parabólico (tiro, caída)\n- **F = −kx** (ley de Hooke): movimiento armónico (oscilador)\n- **F = −bv** (fricción viscosa): caída con velocidad límite\n- **F = GMm/r²**: órbitas elípticas\n\nCada fuerza produce un tipo de movimiento. La formulación diferencial unifica todos estos casos: el problema se reduce a resolver la ecuación.\n\n> **💡 Nota de frontera**\n> Muchas ecuaciones diferenciales no tienen solución analítica y se resuelven numéricamente con ordenadores. La simulación numérica —integrar la fuerza paso a paso— es la base de la física computacional moderna.\n"
       },
       "acciones": []
     },
     {
-      "id": "5-ejemplos-en-tu-da-a-da",
-      "titulo": "5. Ejemplos en tu día a día",
+      "id": "sistemas-no-inerciales",
+      "titulo": "Sistemas no inerciales",
       "niveles": {
-        "principiante": "Las leyes de Newton están en todas partes:\n\n- **Cinturón de seguridad**: En una frenada brusca, tu cuerpo tiende a seguir avanzando (inercia). El cinturón aplica una fuerza para detenerte de forma segura.\n- **Deportes**: Al patear un balón, aplicas una fuerza que lo acelera. Cuanto más fuerte patees (más fuerza), más rápido irá (más aceleración).\n- **Frenado de vehículos**: Los frenos aplican una fuerza opuesta al movimiento. Los vehículos más pesados necesitan más distancia para detenerse porque tienen más inercia.\n- **Gravedad**: La fuerza que nos mantiene pegados al suelo es la atracción gravitatoria de la Tierra. Es la misma fuerza que mantiene a la Luna en órbita.\n\n**❓ Pregunta de comprensión:**\n\nSi empujas una caja sobre una superficie horizontal con fuerza constante y esta se mueve a velocidad constante, ¿qué puedes afirmar sobre las fuerzas que actúan sobre ella?\n\nA) No actúa ninguna fuerza sobre la caja.  \nB) La fuerza que aplicas es mayor que la fuerza de fricción.  \nC) La fuerza neta sobre la caja es cero porque tu empuje y la fricción se equilibran.  \nD) La caja no tiene inercia porque se mueve.\n\n<details>\n<summary><strong>Ver respuesta</strong></summary>\n<strong>Respuesta correcta: C</strong>. La fuerza neta es cero porque la caja se mueve a velocidad constante (primera ley). Tu empuje hacia adelante se equilibra exactamente con la fricción hacia atrás.\n</details>\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 2: PROFUNDIZACIÓN (Intermedio)          -->\n<!-- ============================================ -->"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-capa-ii-profundizacin---formalizacin-tcnica",
-      "titulo": "🌿 Capa II: Profundización - Formalización Técnica",
-      "niveles": {
-        "principiante": "### Índice\n- [1. Fuerzas como vectores: magnitud, dirección y sentido](#1-fuerzas-como-vectores)\n- [2. Diagramas de cuerpo libre: tu herramienta esencial](#2-diagramas-de-cuerpo-libre)\n- [3. Aplicación de F = m·a en problemas reales](#3-aplicación-de-f-ma)\n- [4. Sistemas de referencia: inerciales y no inerciales](#4-sistemas-de-referencia)\n- [5. Fricción, tensión y otras fuerzas comunes](#5-fricción-tensión-y-otras-fuerzas)"
-      },
-      "acciones": []
-    },
-    {
-      "id": "1-fuerzas-como-vectores",
-      "titulo": "1. Fuerzas como vectores",
-      "niveles": {
-        "principiante": "En el nivel anterior vimos que las fuerzas tienen dirección y sentido. En física, decimos que son **cantidades vectoriales**. Esto significa que para sumar fuerzas no basta con sumar sus valores numéricos: hay que considerar su dirección.\n\n**Suma de vectores**: Si dos fuerzas actúan sobre un objeto en la misma dirección y sentido, se suman. Si actúan en sentidos opuestos, se restan. Si actúan en direcciones diferentes, usamos el método del paralelogramo o descomposición en componentes.\n\n**Componentes de un vector**: Cualquier fuerza $\\vec{F}$ puede descomponerse en componentes horizontales y verticales:\n\n$$F_x = F \\cdot \\cos(\\theta)$$\n\n$$F_y = F \\cdot \\sin(\\theta)$$\n\nDonde $\\theta$ es el ángulo que forma la fuerza con el eje horizontal. Esta descomposición es esencial para resolver problemas en dos dimensiones."
-      },
-      "acciones": []
-    },
-    {
-      "id": "2-diagramas-de-cuerpo-libre",
-      "titulo": "2. Diagramas de cuerpo libre",
-      "niveles": {
-        "principiante": "Un **diagrama de cuerpo libre** es una representación esquemática donde aislamos un objeto y dibujamos todas las fuerzas que actúan sobre él. Es la herramienta más importante para resolver problemas de dinámica.\n\n**Pasos para dibujar uno**:\n1. Dibuja el objeto como un punto o una caja simple.\n2. Identifica todas las fuerzas que actúan: peso, normal, fricción, tensión, aplicada, etc.\n3. Dibuja cada fuerza como una flecha que sale del objeto, indicando dirección y sentido.\n4. Etiqueta cada fuerza claramente.\n\n**Ejemplo**: Una caja sobre una superficie horizontal, empujada hacia la derecha:\n- $\\vec{P}$: Peso, hacia abajo.\n- $\\vec{N}$: Fuerza normal, hacia arriba (perpendicular a la superficie).\n- $\\vec{F}_{app}$: Fuerza aplicada, hacia la derecha.\n- $\\vec{f}$: Fricción, hacia la izquierda (opuesta al movimiento)."
-      },
-      "acciones": []
-    },
-    {
-      "id": "3-aplicacin-de-f--ma-en-problemas-reales",
-      "titulo": "3. Aplicación de F = m·a en problemas reales",
-      "niveles": {
-        "principiante": "La segunda ley se aplica componente a componente. En dos dimensiones:\n\n$$\\sum F_x = m \\cdot a_x$$\n\n$$\\sum F_y = m \\cdot a_y$$\n\n**Procedimiento típico**:\n1. Dibujar el diagrama de cuerpo libre.\n2. Elegir un sistema de coordenadas (usualmente x horizontal, y vertical).\n3. Descomponer las fuerzas que no estén alineadas con los ejes.\n4. Aplicar $\\sum F = m \\cdot a$ en cada dirección.\n5. Resolver el sistema de ecuaciones para las incógnitas.\n\n**Ejemplo resuelto**: Un bloque de 5 kg es empujado con una fuerza de 20 N sobre una superficie sin fricción. ¿Cuál es su aceleración?\n\n- Diagrama: solo fuerza aplicada horizontal y peso/normal verticales (que se equilibran).\n- Eje x: $\\sum F_x = 20\\,\\text{N} = 5\\,\\text{kg} \\cdot a_x$\n- Resultado: $a_x = 4\\,\\text{m/s}^2$"
-      },
-      "acciones": []
-    },
-    {
-      "id": "4-sistemas-de-referencia-inerciales-y-no-inerciales",
-      "titulo": "4. Sistemas de referencia: inerciales y no inerciales",
-      "niveles": {
-        "principiante": "Las leyes de Newton son válidas solo en **sistemas de referencia inerciales**: aquellos que no están acelerados. Un coche que frena bruscamente NO es un sistema inercial.\n\n**En sistemas no inerciales** aparecen fuerzas ficticias (también llamadas fuerzas de inercia) que no provienen de interacciones reales, sino de la aceleración del sistema de referencia:\n\n- **Fuerza centrífuga**: La que \"sientes\" cuando tomas una curva en coche. En realidad, tu cuerpo tiende a seguir en línea recta (inercia), pero el coche gira.\n- **Fuerza de Coriolis**: Afecta a objetos en movimiento sobre la Tierra en rotación (vientos, proyectiles de largo alcance).\n\n> **❌ Error común**\n>\n> **[El error]:** \"La fuerza centrífuga empuja los objetos hacia afuera en una curva.\"\n> **[La realidad]:** No existe una fuerza real hacia afuera. Lo que ocurre es que los objetos tienden a mantener su movimiento rectilíneo (primera ley), y la pared del coche o la fricción de los neumáticos aplican la fuerza centrípeta que los obliga a girar."
-      },
-      "acciones": []
-    },
-    {
-      "id": "5-friccin-tensin-y-otras-fuerzas-comunes",
-      "titulo": "5. Fricción, tensión y otras fuerzas comunes",
-      "niveles": {
-        "principiante": "**Fricción cinética**: Actúa cuando dos superficies se deslizan entre sí. Su magnitud es:\n\n$$f_k = \\mu_k \\cdot N$$\n\nDonde $\\mu_k$ es el coeficiente de fricción cinética (adimensional) y $N$ es la fuerza normal.\n\n**Fricción estática**: Actúa cuando no hay deslizamiento. Puede tomar cualquier valor hasta un máximo:\n\n$$f_s \\leq \\mu_s \\cdot N$$\n\n**Tensión**: Fuerza transmitida a través de cuerdas, cables o cadenas. En una cuerda ideal (sin masa, inextensible), la tensión es la misma en todos sus puntos.\n\n**Fuerza normal**: Fuerza de contacto perpendicular a la superficie. No es siempre igual al peso: en un plano inclinado, $N = mg \\cdot \\cos(\\theta)$.\n\n**❓ Pregunta de comprensión:**\n\nUn bloque de masa m está en reposo sobre un plano inclinado con ángulo θ. ¿Cuál es la expresión correcta para la fuerza normal?\n\nA) N = m·g  \nB) N = m·g·sen(θ)  \nC) N = m·g·cos(θ)  \nD) N = 0 porque el bloque no se mueve verticalmente.\n\n<details>\n<summary><strong>Ver respuesta</strong></summary>\n<strong>Respuesta correcta: C</strong>. En un plano inclinado, la fuerza normal es la componente del peso perpendicular a la superficie: N = mg·cos(θ). La componente paralela (mg·sen(θ)) es la que tiende a hacer deslizar el bloque hacia abajo.\n</details>\n\n---\n\n<!-- ============================================ -->\n<!-- CAPA 3: FRONTERA (Avanzado)                  -->\n<!-- ============================================ -->"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-capa-iii-frontera---rigor-acadmico-y-lmites",
-      "titulo": "🌳 Capa III: Frontera - Rigor Académico y Límites",
-      "niveles": {
-        "principiante": "### Índice\n- [1. Formulación lagrangiana: de fuerzas a principios variacionales](#1-formulación-lagrangiana)\n- [2. Sistemas no inerciales y fuerzas ficticias en detalle](#2-sistemas-no-inerciales)\n- [3. Límites de la mecánica newtoniana: relatividad y cuántica](#3-límites-de-la-mecánica-newtoniana)\n- [4. Caos determinista y sensibilidad a condiciones iniciales](#4-caos-determinista)\n- [5. Problemas de N-cuerpos y la imposibilidad de soluciones cerradas](#5-problemas-de-n-cuerpos)"
-      },
-      "acciones": []
-    },
-    {
-      "id": "1-formulacin-lagrangiana-de-fuerzas-a-principios-variacionales",
-      "titulo": "1. Formulación lagrangiana: de fuerzas a principios variacionales",
-      "niveles": {
-        "principiante": "La mecánica newtoniana se basa en fuerzas y aceleraciones. La **mecánica lagrangiana**, desarrollada por Joseph-Louis Lagrange en 1788, reformula la dinámica en términos de energía y principios variacionales, ofreciendo ventajas en sistemas con restricciones o coordenadas generalizadas.\n\nEl **lagrangiano** se define como:\n\n$$\\mathcal{L} = T - V$$\n\nDonde $T$ es la energía cinética y $V$ la energía potencial. Las ecuaciones de movimiento se obtienen aplicando el **principio de mínima acción** (o principio de Hamilton):\n\n$$\\frac{d}{dt}\\left(\\frac{\\partial \\mathcal{L}}{\\partial \\dot{q}_i}\\right) - \\frac{\\partial \\mathcal{L}}{\\partial q_i} = 0$$\n\nEstas son las **ecuaciones de Euler-Lagrange**, donde $q_i$ son coordenadas generalizadas (no necesariamente posiciones cartesianas) y $\\dot{q}_i$ sus derivadas temporales.\n\n**Ventajas**:\n- Elimina la necesidad de calcular fuerzas de restricción explícitamente.\n- Es invariante ante cambios de coordenadas.\n- Proporciona un puente natural hacia la mecánica cuántica y la teoría de campos.\n\n**Ejemplo**: Para una partícula en caída libre, $T = \\frac{1}{2}m\\dot{y}^2$, $V = mgy$, entonces $\\mathcal{L} = \\frac{1}{2}m\\dot{y}^2 - mgy$. Aplicando Euler-Lagrange:\n\n$$\\frac{d}{dt}(m\\dot{y}) + mg = 0 \\quad \\Rightarrow \\quad \\ddot{y} = -g$$\n\nRecuperamos la aceleración gravitatoria constante, pero el método es mucho más potente en sistemas complejos."
-      },
-      "acciones": []
-    },
-    {
-      "id": "2-sistemas-no-inerciales-y-fuerzas-ficticias-en-detalle",
-      "titulo": "2. Sistemas no inerciales y fuerzas ficticias en detalle",
-      "niveles": {
-        "principiante": "En un sistema de referencia acelerado con aceleración $\\vec{A}$ respecto a un sistema inercial, la segunda ley se modifica:\n\n$$m\\vec{a}' = \\vec{F}_{real} - m\\vec{A} - 2m(\\vec{\\omega} \\times \\vec{v}') - m\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}')$$\n\nDonde:\n- $\\vec{a}'$ es la aceleración medida en el sistema no inercial.\n- $-m\\vec{A}$ es la **fuerza de inercia traslacional**.\n- $-2m(\\vec{\\omega} \\times \\vec{v}')$ es la **fuerza de Coriolis** (aparece en sistemas en rotación).\n- $-m\\vec{\\omega} \\times (\\vec{\\omega} \\times \\vec{r}')$ es la **fuerza centrífuga**.\n\nEstas fuerzas \"ficticias\" no provienen de interacciones físicas, sino de la elección del sistema de referencia. Sin embargo, sus efectos son medibles y deben incluirse para aplicar correctamente las leyes de Newton en sistemas acelerados.\n\n**Aplicación geofísica**: La fuerza de Coriolis explica la rotación de los sistemas de baja presión en la atmósfera (ciclones) y la desviación de proyectiles de largo alcance. En el hemisferio norte, los objetos en movimiento se desvían hacia la derecha; en el sur, hacia la izquierda."
-      },
-      "acciones": []
-    },
-    {
-      "id": "3-lmites-de-la-mecnica-newtoniana-relatividad-y-cuntica",
-      "titulo": "3. Límites de la mecánica newtoniana: relatividad y cuántica",
-      "niveles": {
-        "principiante": "La mecánica newtoniana es una aproximación extraordinariamente precisa en condiciones cotidianas, pero falla en dos regímenes extremos:\n\n**Altas velocidades (relatividad especial)**: Cuando $v \\sim c$, la segunda ley debe modificarse. El momento lineal relativista es:\n\n$$\\vec{p} = \\gamma m \\vec{v}, \\quad \\text{con} \\quad \\gamma = \\frac{1}{\\sqrt{1 - v^2/c^2}}$$\n\nLa fuerza sigue siendo $\\vec{F} = d\\vec{p}/dt$, pero la relación entre fuerza y aceleración ya no es lineal ni paralela en general.\n\n**Escalas atómicas (mecánica cuántica)**: A escalas del orden del átomo, el concepto de trayectoria definida pierde sentido. La dinámica se describe mediante la ecuación de Schrödinger:\n\n$$i\\hbar \\frac{\\partial \\Psi}{\\partial t} = \\hat{H} \\Psi$$\n\nDonde $\\Psi$ es la función de onda y $\\hat{H}$ el operador hamiltoniano. Las leyes de Newton emergen como límite clásico (principio de correspondencia) cuando $\\hbar \\to 0$ o para números cuánticos grandes."
-      },
-      "acciones": []
-    },
-    {
-      "id": "4-caos-determinista-y-sensibilidad-a-condiciones-iniciales",
-      "titulo": "4. Caos determinista y sensibilidad a condiciones iniciales",
-      "niveles": {
-        "principiante": "Sistemas gobernados por ecuaciones newtonianas pueden exhibir **comportamiento caótico**: evolución determinista pero impredecible a largo plazo debido a una sensibilidad extrema a las condiciones iniciales.\n\nEl ejemplo paradigmático es el **péndulo doble**. Sus ecuaciones de movimiento se derivan del lagrangiano, pero su solución analítica es imposible. Pequeñas diferencias en la posición inicial conducen a trayectorias radicalmente distintas tras unos segundos.\n\nLa cuantificación del caos se realiza mediante los **exponentes de Lyapunov** $\\lambda$. Si $\\lambda > 0$, las trayectorias cercanas divergen exponencialmente:\n\n$$|\\delta \\vec{r}(t)| \\approx |\\delta \\vec{r}(0)| e^{\\lambda t}$$\n\nEsto implica un **horizonte de predictibilidad**: más allá de un tiempo $t \\sim 1/\\lambda$, cualquier error de medición, por pequeño que sea, hace imposible predecir el estado futuro."
-      },
-      "acciones": []
-    },
-    {
-      "id": "5-problemas-de-n-cuerpos-y-la-imposibilidad-de-soluciones-cerradas",
-      "titulo": "5. Problemas de N-cuerpos y la imposibilidad de soluciones cerradas",
-      "niveles": {
-        "principiante": "El problema de dos cuerpos bajo gravitación tiene solución analítica completa (órbitas cónicas). Sin embargo, para $N \\geq 3$, no existe una solución general en términos de funciones elementales.\n\nEl **problema de los tres cuerpos** fue estudiado por Poincaré, quien descubrió que pequeñas perturbaciones podían llevar a comportamientos cualitativamente distintos, sentando las bases de la teoría del caos.\n\nEn la práctica, se recurre a:\n- **Integración numérica**: Métodos como Verlet o Runge-Kutta para simular trayectorias.\n- **Aproximaciones perturbativas**: Tratar el sistema como un problema de dos cuerpos más pequeñas correcciones.\n- **Métodos estadísticos**: En sistemas con muchos cuerpos (como galaxias), se estudian propiedades colectivas en lugar de trayectorias individuales.\n\n> **🧠 Dato que rompe el cerebro**\n>\n> La imposibilidad de resolver analíticamente el problema de los N-cuerpos no es una limitación matemática: refleja una propiedad profunda de la naturaleza. El universo es computacionalmente irreducible: la única forma de saber qué pasará es... dejar que pase.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-preguntas-frecuentes-sobre-leyes-de-newton-y-movimiento",
-      "titulo": "❓ Preguntas frecuentes sobre Leyes de Newton y Movimiento",
-      "niveles": {
-        "principiante": "> **❓ Preguntas frecuentes**\n>\n> **¿Por qué los objetos en el espacio no se detienen si no hay fuerzas?**\n> Porque, según la primera ley de Newton, un objeto en movimiento permanece en movimiento a menos que una fuerza neta actúe sobre él. En el espacio, lejos de atmósferas o campos gravitatorios significativos, no hay fricción ni resistencia, por lo que los objetos mantienen su velocidad indefinidamente.\n>\n> **¿La masa y el peso son lo mismo?**\n> No. La **masa** (kg) es una medida de la cantidad de materia y de la inercia de un objeto. El **peso** (N) es la fuerza gravitatoria que actúa sobre esa masa: $P = m \\cdot g$. En la Luna, tu masa es la misma, pero tu peso es aproximadamente 1/6 del terrestre porque la gravedad lunar es menor.\n>\n> **¿Por qué la tercera ley no impide que los objetos se muevan?**\n> Porque las fuerzas de acción y reacción actúan sobre **objetos diferentes**. Cuando empujas una pared, la pared te empuja a ti con la misma fuerza. Si estás sobre patines, tú te moverás (porque la fuerza actúa sobre ti), pero la pared no (porque está anclada al suelo y otras fuerzas la equilibran).\n>\n> **¿Qué pasa si aplico una fuerza constante a un objeto en el espacio?**\n> Según $F = m \\cdot a$, el objeto acelerará constantemente. A diferencia de la Tierra, donde la fricción eventualmente equilibra la fuerza aplicada, en el espacio vacío la aceleración continuaría indefinidamente, aumentando la velocidad sin límite (hasta que efectos relativistas se vuelvan relevantes).\n>\n> **¿Las leyes de Newton funcionan en la Tierra si hay fricción?**\n> Sí, pero debes incluir la fricción como una fuerza más en tu análisis. La segunda ley se aplica a la **fuerza neta** (suma vectorial de todas las fuerzas). Si empujas una caja a velocidad constante, tu fuerza aplicada y la fricción se equilibran: fuerza neta cero, aceleración cero.\n>\n> **¿Por qué los astronautas flotan si hay gravedad en órbita?**\n> Porque están en **caída libre continua**. La Estación Espacial y sus ocupantes caen hacia la Tierra con la misma aceleración, pero su velocidad horizontal es tan grande que \"fallan\" la Tierra constantemente, describiendo una órbita. Dentro de la nave, no hay fuerza normal que los empuje contra una superficie, por lo que experimentan ingravidez aparente.\n\n---",
-        "intermedio": "> **❓ Preguntas frecuentes**\n>\n> **¿Por qué los objetos en el espacio no se detienen si no hay fuerzas?**\n> Porque, según la primera ley de Newton, un objeto en movimiento permanece en movimiento a menos que una fuerza neta actúe sobre él. En el espacio, lejos de atmósferas o campos gravitatorios significativos, no hay fricción ni resistencia, por lo que los objetos mantienen su velocidad indefinidamente.\n>\n> **¿La masa y el peso son lo mismo?**\n> No. La **masa** (kg) es una medida de la cantidad de materia y de la inercia de un objeto. El **peso** (N) es la fuerza gravitatoria que actúa sobre esa masa: $P = m \\cdot g$. En la Luna, tu masa es la misma, pero tu peso es aproximadamente 1/6 del terrestre porque la gravedad lunar es menor.\n>\n> **¿Por qué la tercera ley no impide que los objetos se muevan?**\n> Porque las fuerzas de acción y reacción actúan sobre **objetos diferentes**. Cuando empujas una pared, la pared te empuja a ti con la misma fuerza. Si estás sobre patines, tú te moverás (porque la fuerza actúa sobre ti), pero la pared no (porque está anclada al suelo y otras fuerzas la equilibran).\n>\n> **¿Qué pasa si aplico una fuerza constante a un objeto en el espacio?**\n> Según $F = m \\cdot a$, el objeto acelerará constantemente. A diferencia de la Tierra, donde la fricción eventualmente equilibra la fuerza aplicada, en el espacio vacío la aceleración continuaría indefinidamente, aumentando la velocidad sin límite (hasta que efectos relativistas se vuelvan relevantes).\n>\n> **¿Las leyes de Newton funcionan en la Tierra si hay fricción?**\n> Sí, pero debes incluir la fricción como una fuerza más en tu análisis. La segunda ley se aplica a la **fuerza neta** (suma vectorial de todas las fuerzas). Si empujas una caja a velocidad constante, tu fuerza aplicada y la fricción se equilibran: fuerza neta cero, aceleración cero.\n>\n> **¿Por qué los astronautas flotan si hay gravedad en órbita?**\n> Porque están en **caída libre continua**. La Estación Espacial y sus ocupantes caen hacia la Tierra con la misma aceleración, pero su velocidad horizontal es tan grande que \"fallan\" la Tierra constantemente, describiendo una órbita. Dentro de la nave, no hay fuerza normal que los empuje contra una superficie, por lo que experimentan ingravidez aparente.\n\n---",
-        "avanzado": "> **❓ Preguntas frecuentes**\n>\n> **¿Por qué los objetos en el espacio no se detienen si no hay fuerzas?**\n> Porque, según la primera ley de Newton, un objeto en movimiento permanece en movimiento a menos que una fuerza neta actúe sobre él. En el espacio, lejos de atmósferas o campos gravitatorios significativos, no hay fricción ni resistencia, por lo que los objetos mantienen su velocidad indefinidamente.\n>\n> **¿La masa y el peso son lo mismo?**\n> No. La **masa** (kg) es una medida de la cantidad de materia y de la inercia de un objeto. El **peso** (N) es la fuerza gravitatoria que actúa sobre esa masa: $P = m \\cdot g$. En la Luna, tu masa es la misma, pero tu peso es aproximadamente 1/6 del terrestre porque la gravedad lunar es menor.\n>\n> **¿Por qué la tercera ley no impide que los objetos se muevan?**\n> Porque las fuerzas de acción y reacción actúan sobre **objetos diferentes**. Cuando empujas una pared, la pared te empuja a ti con la misma fuerza. Si estás sobre patines, tú te moverás (porque la fuerza actúa sobre ti), pero la pared no (porque está anclada al suelo y otras fuerzas la equilibran).\n>\n> **¿Qué pasa si aplico una fuerza constante a un objeto en el espacio?**\n> Según $F = m \\cdot a$, el objeto acelerará constantemente. A diferencia de la Tierra, donde la fricción eventualmente equilibra la fuerza aplicada, en el espacio vacío la aceleración continuaría indefinidamente, aumentando la velocidad sin límite (hasta que efectos relativistas se vuelvan relevantes).\n>\n> **¿Las leyes de Newton funcionan en la Tierra si hay fricción?**\n> Sí, pero debes incluir la fricción como una fuerza más en tu análisis. La segunda ley se aplica a la **fuerza neta** (suma vectorial de todas las fuerzas). Si empujas una caja a velocidad constante, tu fuerza aplicada y la fricción se equilibran: fuerza neta cero, aceleración cero.\n>\n> **¿Por qué los astronautas flotan si hay gravedad en órbita?**\n> Porque están en **caída libre continua**. La Estación Espacial y sus ocupantes caen hacia la Tierra con la misma aceleración, pero su velocidad horizontal es tan grande que \"fallan\" la Tierra constantemente, describiendo una órbita. Dentro de la nave, no hay fuerza normal que los empuje contra una superficie, por lo que experimentan ingravidez aparente.\n\n---"
-      },
-      "acciones": []
-    },
-    {
-      "id": "-sistema-aeterna-qu-acabas-de-aprender",
-      "titulo": "🧠 Sistema Aeterna: ¿Qué acabas de aprender?",
-      "niveles": {
-        "principiante": "> **🧠 Sistema Aeterna, paso 1: Visualiza las fuerzas invisibles**\n>\n> Cada movimiento que observas —una hoja cayendo, un coche acelerando, un planeta orbitando— es el resultado de fuerzas interactuando según reglas precisas. Las tres leyes de Newton no son fórmulas abstractas: son el lenguaje con el que el universo describe el cambio.\n>\n> **🧠 Sistema Aeterna, paso 2: Comprende la relación fuerza-masa-aceleración**\n>\n> La ecuación $F = m \\cdot a$ es mucho más que una herramienta de cálculo: revela que la masa no es solo \"cantidad de materia\", sino resistencia al cambio. Cuanto más masivo es un objeto, más fuerza necesitas para alterar su estado. Esta relación simple es la base de toda la ingeniería mecánica.\n>\n> **🧠 Sistema Aeterna, paso 3: Conecta lo cotidiano con lo cósmico**\n>\n> Las mismas leyes que explican por qué no te caes de la silla rigen el movimiento de las galaxias. Newton unificó lo terrestre y lo celeste: la manzana y la Luna obedecen a la misma física. Cada vez que aplicas estas leyes, estás usando el mismo marco conceptual que permitió a la humanidad enviar sondas a los confines del sistema solar.\n\n---\n\n> **⚠️ Siguiente parada: Energía y Conservación**\n>\n> Has dominado las reglas del movimiento: cómo las fuerzas cambian la velocidad de los objetos. Ahora descubrirás una idea aún más profunda: hay cantidades que **no cambian** en el universo. La energía se transforma, pero no se crea ni se destruye. [Sigue la ruta →](#)\n\n---\n\n**📚 Para seguir explorando**: *\"Six Easy Pieces\"* de Richard Feynman dedica un capítulo brillante a las leyes del movimiento, explicado con la claridad y el ingenio característicos del autor. Es la lectura perfecta para consolidar esta parada. [Consíguelo aquí](enlace-afiliado)."
+        "principiante": "## Sistemas no inerciales\n\nLas leyes de Newton son válidas en **sistemas inerciales** (no acelerados). Pero a veces observas desde un sistema acelerado: un coche que frena, una noria girando.\n\nEn esos marcos, aparecen **fuerzas ficticias** (o pseudo-fuerzas) que no son fuerzas reales:\n\n- Al frenar bruscamente, te 'lanzas' hacia adelante\n- Al girar, 'sientes' que algo te empuja hacia afuera (centrífuga)\n\nEstas fuerzas no las ejerce ningún objeto: son artefactos del marco acelerado.\n\n> **Dato que rompe el cerebro**\n> La fuerza centrífuga 'no existe' en un marco inercial: es la inercia del objeto queriendo seguir en línea recta. Pero en el marco giratorio, se siente real. La distinción depende del observador.\n\n**[IMAGEN SUGERIDA: Un coche girando, mostrando la sensación de fuerza hacia afuera. Pie de foto: \"En el marco giratorio, sientes la centrífuga.\"]**\n",
+        "intermedio": "## Fuerzas ficticias\n\n```parameter-lab\nTITLE: Marco no inercial\nDESC: En un ascensor que acelera, la 'gravedad' aparente cambia.\nOUTPUT_LABEL: Peso aparente\nOUTPUT_UNIT: N\nQUESTION: En un ascensor que acelera hacia arriba a 2 m/s², ¿qué pesa una persona de 60 kg? (g = 10 m/s²)\nANSWER: El peso aparente es m(g+a) = 60×(10+2) = 720 N, mayor que el peso real de 600 N. Al acelerar hacia arriba, 'pesas' más. Al bajar acelerando, pesas menos.\nXP: 50\nPARAM: aceleracion | Aceleración del ascensor | m/s² | -5 | 5 | 0.5 | 0\nPARAM: masa | Masa | kg | 40 | 120 | 5 | 60\n```\n\nLas fuerzas ficticias principales:\n- **Centrífuga**: mω²r (hacia afuera en marcos rotatorios)\n- **Coriolis**: 2mω×v (desvía objetos en marcos giratorios)\n- **de Euler**: por cambios en la velocidad angular\n\n> **🔑 Concepto clave: Fuerzas ficticias**\n> Son términos que aparecen al aplicar las leyes de Newton en marcos acelerados. No las ejerce ningún objeto: son consecuencias de la elección del sistema de referencia. En un marco inercial, desaparecen.\n",
+        "avanzado": "## Coriolis y el principio de equivalencia\n\nLa **fuerza de Coriolis** es real y observable en la Tierra (marco rotatorio): desvía huracanes, misiles y corrientes oceánicas. En el hemisferio norte, los huracanes giran en sentido antihorario.\n\nEl **principio de equivalencia de Einstein** generaliza las fuerzas ficticias: en un ascensor acelerado, la 'gravedad' aparente es indistinguible de una gravedad real. Esto es el punto de partida de la relatividad general: la gravedad como manifestación de la geometría del espacio-tiempo.\n\n> **💡 Nota de frontera**\n> En relatividad general, no hay 'fuerza de gravedad': los objetos siguen geodésicas (trayectorias de menor curvatura) en un espacio-tiempo curvo. La 'fuerza' que sentimos es nuestra resistencia a seguir esas geodésicas. La gravedad y las fuerzas ficticias son la misma cosa vista desde marcos distintos.\n"
       },
       "acciones": []
     }
   ],
-  "conclusion": ""
+  "conclusion": "Las leyes de Newton son la base de la mecánica clásica y una de las mayores hazañas del pensamiento humano. Has aprendido que la primera ley describe la inercia —los objetos resisten cambios en su movimiento—, que la segunda ley F = ma conecta la fuerza con la aceleración y la masa, y que la tercera ley revela que las fuerzas siempre vienen en pares de acción-reacción. Los diagramas de cuerpo libre son la herramienta práctica para aplicar estas leyes, y la formulación diferencial muestra que resolver F = ma produce la trayectoria completa. Has visto también los límites: las leyes valen en marcos inerciales, y en marcos acelerados aparecen fuerzas ficticias. Esta física que nació con Newton hace tres siglos sigue siendo la herramienta cotidiana de la ingeniería, y su límite —los marcos no inerciales y la equivalencia con la gravedad— apunta directamente a la relatividad que estudiarás más adelante. Con las leyes de Newton, por fin sabes no solo cómo se mueven las cosas, sino por qué.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Peso vs masa",
+        "enunciado": "Un objeto tiene 10 kg de masa. ¿Cuál es su peso en la Tierra? (g = 10 m/s²)",
+        "solucion": "P = mg = 10 × 10 = 100 N.",
+        "xp": 30,
+        "pistas": [
+          "P = mg",
+          "Multiplica 10 × 10"
+        ],
+        "opciones": [
+          {
+            "label": "100 N",
+            "correcta": true
+          },
+          {
+            "label": "10 N",
+            "correcta": false
+          },
+          {
+            "label": "1000 N",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica P = mg",
+          "Calcula 10 × 10 = 100 N"
+        ]
+      },
+      {
+        "titulo": "Fuerza neta",
+        "enunciado": "Dos fuerzas de 30 N y 20 N actúan sobre un objeto en direcciones opuestas. ¿Cuál es la fuerza neta?",
+        "solucion": "F_net = 30 − 20 = 10 N en la dirección de la fuerza mayor.",
+        "xp": 25,
+        "pistas": [
+          "Restas las fuerzas opuestas",
+          "La neta es 10 N"
+        ],
+        "opciones": [
+          {
+            "label": "10 N",
+            "correcta": true
+          },
+          {
+            "label": "50 N",
+            "correcta": false
+          },
+          {
+            "label": "0 N",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Restas 30 − 20",
+          "F_net = 10 N"
+        ]
+      },
+      {
+        "titulo": "Acción y reacción",
+        "enunciado": "Si la Tierra atrae una manzana con una fuerza de 1 N, ¿con qué fuerza atrae la manzana a la Tierra?",
+        "solucion": "Con 1 N también, pero en dirección opuesta (tercera ley). Aunque la Tierra es tan masiva que su aceleración es imperceptible.",
+        "xp": 30,
+        "pistas": [
+          "Tercera ley: fuerzas iguales y opuestas",
+          "La manzana atrae la Tierra con 1 N"
+        ],
+        "opciones": [
+          {
+            "label": "1 N, opuesta",
+            "correcta": true
+          },
+          {
+            "label": "0 N, no la atrae",
+            "correcta": false
+          },
+          {
+            "label": "Mucho menor",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la tercera ley",
+          "Fuerzas iguales y opuestas"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Aceleración de un bloque",
+        "enunciado": "Una fuerza de 50 N actúa sobre un bloque de 10 kg en una superficie sin fricción. ¿Cuál es su aceleración?",
+        "solucion": "a = F/m = 50/10 = 5 m/s².",
+        "xp": 40,
+        "pistas": [
+          "a = F/m",
+          "Divide 50 entre 10"
+        ],
+        "opciones": [
+          {
+            "label": "5 m/s²",
+            "correcta": true
+          },
+          {
+            "label": "0.2 m/s²",
+            "correcta": false
+          },
+          {
+            "label": "50 m/s²",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica a = F/m",
+          "Calcula 50/10 = 5 m/s²"
+        ]
+      },
+      {
+        "titulo": "Plano inclinado",
+        "enunciado": "Un bloque de 5 kg está en un plano inclinado a 30°. ¿Cuál es la componente de la gravedad paralela al plano? (g = 10 m/s², sin fricción)",
+        "solucion": "F_paralela = mg·sinθ = 5×10×0.5 = 25 N. La aceleración sería a = 25/5 = 5 m/s².",
+        "xp": 45,
+        "pistas": [
+          "F_paralela = mg·sinθ",
+          "sin(30°) = 0.5"
+        ],
+        "opciones": [
+          {
+            "label": "25 N",
+            "correcta": true
+          },
+          {
+            "label": "50 N",
+            "correcta": false
+          },
+          {
+            "label": "43.3 N",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica F = mg·sinθ",
+          "Calcula 5×10×0.5 = 25 N"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Máquina de Atwood",
+        "enunciado": "Dos masas de 6 kg y 4 kg cuelgan de una polea ideal. ¿Cuál es la aceleración del sistema? (g = 10 m/s²)",
+        "solucion": "a = (m₁−m₂)g/(m₁+m₂) = (6−4)×10/(6+4) = 20/10 = 2 m/s². La masa mayor acelera hacia abajo.",
+        "xp": 50,
+        "pistas": [
+          "a = (m₁−m₂)g/(m₁+m₂)",
+          "Sustituye"
+        ],
+        "opciones": [
+          {
+            "label": "2 m/s²",
+            "correcta": true
+          },
+          {
+            "label": "1 m/s²",
+            "correcta": false
+          },
+          {
+            "label": "10 m/s²",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la fórmula de Atwood",
+          "Calcula 2×10/10 = 2 m/s²"
+        ]
+      },
+      {
+        "titulo": "Fuerza de Coriolis",
+        "enunciado": "¿Por qué los huracanes giran en sentido antihorario en el hemisferio norte?",
+        "solucion": "Por la fuerza de Coriolis, una fuerza ficticia del marco rotatorio de la Tierra. El aire que se mueve hacia el centro de baja presión es desviado lateralmente: en el hemisferio norte, esa desviación produce rotación antihoraria.",
+        "xp": 50,
+        "pistas": [
+          "La Tierra es un marco no inercial rotatorio",
+          "Coriolis desvía el aire que se mueve"
+        ],
+        "opciones": [
+          {
+            "label": "Fuerza de Coriolis del marco rotatorio",
+            "correcta": true
+          },
+          {
+            "label": "La gravedad lo causa",
+            "correcta": false
+          },
+          {
+            "label": "El magnetismo terrestre",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Identifica Coriolis",
+          "Explica la desviación en el hemisferio norte"
+        ]
+      }
+    ]
+  }
 }
