@@ -6,7 +6,7 @@ import { ArrowRight, BookOpen, Quote, Target, Sparkles, Hexagon, Lock, Clock, Ch
 import { useGamification } from '@/context/GamificationContext';
 import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/components/LearningPath';
 import { NexusNode3D } from '@/components/NexusNode3D';
-import { Starfield } from '@/components/Starfield';
+import { HeroRoomScene } from '@/components/home2/HeroRoomScene';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
@@ -184,25 +184,25 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-brand-ink via-brand-ink/80 to-transparent" />
       </div>
 
-      {/* HERO — ANILLOS ORBITALES 3D */}
+      {/* HERO — LA HABITACIÓN COMO MAPA DEL SABER */}
       <section
         onMouseMove={handleMouseMove}
         className="relative h-[80vh] min-h-[600px] flex items-center justify-center p-4 overflow-hidden"
       >
-        {/* Starfield + polvo orbital */}
-        <Starfield className="absolute inset-0 w-full h-full pointer-events-none" />
-
-        <motion.div
-          className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
-        >
-          {/* Sistema de anillos 3D */}
+        {/* Habitación isométrica de fondo */}
+        <HeroRoomScene>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            style={{ perspective: "1400px", x: sceneX, y: sceneY }}
-            className="relative w-[min(88vw,620px)] md:w-[min(88vw,860px)] aspect-square"
+            className="relative w-full h-full max-w-5xl mx-auto flex items-center justify-center"
+            style={{ paddingTop: "8%" }}
           >
+            {/* Sistema de anillos 3D */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              style={{ perspective: "1400px", x: sceneX, y: sceneY }}
+              className="relative w-[min(88vw,620px)] md:w-[min(88vw,860px)] aspect-square"
+            >
             {/* Plano orbital inclinado */}
             <motion.div
               className="absolute inset-0 pointer-events-none"
@@ -347,6 +347,24 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
               </div>
             </motion.div>
           </motion.div>
+          </motion.div>
+        </HeroRoomScene>
+
+        {/* CTA — Personalizar Estancia */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-20 left-1/2 -translate-x-1/2 z-30"
+        >
+          <Link
+            href="/room-engine"
+            className="group inline-flex items-center gap-3 px-8 py-4 bg-brand-gold text-brand-ink text-[10px] font-bold uppercase tracking-[0.4em] shadow-[0_0_40px_rgba(212,175,55,0.4)] hover:bg-brand-offwhite transition-all"
+          >
+            <Hexagon size={14} className="group-hover:rotate-90 transition-transform duration-500" />
+            Personalizar Estancia
+            <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+          </Link>
         </motion.div>
 
         {/* Indicador de scroll */}
