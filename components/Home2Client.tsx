@@ -230,8 +230,8 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
               src="/images/hero-fantasy-room.png"
               className="absolute inset-0 w-full h-full object-contain object-center"
               style={{
-                maskImage: 'radial-gradient(ellipse 62% 62% at center, black 35%, transparent 75%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 62% 62% at center, black 35%, transparent 75%)'
+                maskImage: 'radial-gradient(ellipse 80% 80% at center, black 62%, transparent 96%)',
+                WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at center, black 62%, transparent 96%)'
               }}
               alt="Estancia del Sabio"
             />
