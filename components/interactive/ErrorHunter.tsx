@@ -1,10 +1,9 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ShieldAlert, CheckCircle2, AlertTriangle, Sparkles, RefreshCw, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { PixelFrame } from '@/components/blocks/PixelFrame';
 import { useGamification } from '@/context/GamificationContext';
 import { useExerciseFeedback } from '@/lib/useExerciseFeedback';
 
@@ -108,42 +107,42 @@ export function ErrorHunter({
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className={cn("relative space-y-6", fxClass)}
+        className={cn("bg-[#FAF6EC] dark:bg-[#1A1712] border-4 border-[#D4AF37] p-6 md:p-8 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#D4AF37] relative space-y-6", fxClass)}
       >
-        <PixelFrame accent="#D4AF37" bgClass="bg-[#FAF6EC] dark:bg-[#1A1712]" dense>
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-none bg-rose-600 border border-black flex items-center justify-center text-white shrink-0">
-                <ShieldAlert size={15} />
-              </div>
-              <div>
-                <span className="text-[8px] font-mono font-black uppercase tracking-[0.2em] text-rose-700 dark:text-rose-400 block">
-                  {badgeText.toUpperCase()}
-                </span>
-                <h3 className="font-mono text-sm md:text-base font-black uppercase text-brand-ink dark:text-white leading-tight">
-                  {parsedTitle}
-                </h3>
-              </div>
+        {/* Header */}
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-full bg-rose-600 border-2 border-black flex items-center justify-center text-white shrink-0 shadow-[2px_2px_0px_0px_#000]">
+              <ShieldAlert size={22} />
             </div>
-
-            <span className="px-2 py-1 bg-black text-[#D4AF37] dark:bg-white dark:text-black font-mono font-bold text-[10px] uppercase tracking-widest border border-black dark:border-white">
-              +{parsedXp} XP
-            </span>
+            <div>
+              <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-rose-700 dark:text-rose-400 block">
+                [{badgeText.toUpperCase()}]
+              </span>
+              <h3 className="font-serif text-xl md:text-2xl font-bold text-brand-ink dark:text-white leading-tight">
+                {parsedTitle}
+              </h3>
+            </div>
           </div>
 
+          <span className="px-3 py-1 bg-black text-[#D4AF37] dark:bg-white dark:text-black font-mono font-bold text-[11px] uppercase tracking-widest border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#D4AF37]">
+            +{parsedXp} XP
+          </span>
+        </div>
+
         {parsedContext && (
-          <div className="bg-white dark:bg-[#12100C] p-3 border-2 border-[#D4AF37]/50 font-mono">
-            <p className="font-sans text-[13px] font-semibold text-brand-ink dark:text-amber-100 leading-snug">
+          <div className="bg-white dark:bg-[#12100C] p-4 md:p-5 border-2 border-[#D4AF37]/60 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] font-mono">
+            <p className="font-sans text-base font-semibold text-brand-ink dark:text-amber-100 leading-relaxed">
               {parsedContext}
             </p>
           </div>
         )}
 
         {/* Reasoning Steps List */}
-        <div className="space-y-2 font-mono">
+        <div className="space-y-3 font-mono">
           {parsedSteps.map((step, idx) => {
             const isSelected = selectedStepId === step.id;
-            let stepClass = "border-2 border-[#D4AF37]/40 bg-white dark:bg-[#12100C] text-brand-ink dark:text-amber-100 hover:bg-rose-100 dark:hover:bg-rose-950/60";
+            let stepClass = "border-2 border-[#D4AF37]/50 bg-white dark:bg-[#12100C] text-brand-ink dark:text-amber-100 shadow-[3px_3px_0px_0px_#000] hover:bg-rose-100 dark:hover:bg-rose-950/60";
 
             if (isSelected) {
               stepClass = "border-2 border-black bg-rose-600 text-white font-bold shadow-[4px_4px_0px_0px_#000]";
@@ -165,22 +164,22 @@ export function ErrorHunter({
                 disabled={isRevealed}
                 onClick={() => handleSelectStep(step.id)}
                 className={cn(
-                  "w-full text-left p-3 font-mono font-bold transition-all flex items-start justify-between gap-3 text-[13px]",
+                  "w-full text-left p-4 font-mono font-bold transition-all flex items-start justify-between gap-4 text-sm md:text-base",
                   stepClass
                 )}
               >
-                <div className="flex items-start gap-2">
-                  <span className="w-5 h-5 bg-black text-white dark:bg-white dark:text-black border border-black flex items-center justify-center font-black text-[10px] shrink-0 mt-0.5">
+                <div className="flex items-start gap-3">
+                  <span className="w-6 h-6 bg-black text-white dark:bg-white dark:text-black border border-black flex items-center justify-center font-black text-xs shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
                   <span>{step.text}</span>
                 </div>
 
                 {isRevealed && step.hasError && (
-                  <AlertTriangle size={16} className="text-white shrink-0 mt-0.5" />
+                  <AlertTriangle size={20} className="text-white shrink-0 mt-0.5" />
                 )}
                 {isRevealed && !step.hasError && isSelected && (
-                  <XCircle size={16} className="text-black shrink-0 mt-0.5" />
+                  <XCircle size={20} className="text-black shrink-0 mt-0.5" />
                 )}
               </button>
             );
@@ -193,7 +192,7 @@ export function ErrorHunter({
             disabled={!selectedStepId}
             onClick={handleConfirmHunt}
             className={cn(
-              "w-full py-3 px-4 font-mono font-black text-[11px] uppercase tracking-[0.2em] border-2 border-black transition-all shadow-[3px_3px_0px_0px_#000] flex items-center justify-center gap-2",
+              "w-full py-4 px-6 font-mono font-black text-xs uppercase tracking-[0.2em] border-2 border-black transition-all shadow-[3px_3px_0px_0px_#000] flex items-center justify-center gap-2",
               selectedStepId
                 ? "bg-[#D4AF37] text-black hover:bg-yellow-400 cursor-pointer active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                 : "bg-gray-300 text-gray-600 dark:bg-gray-800 dark:text-gray-500 border-gray-700 cursor-not-allowed"
@@ -202,9 +201,9 @@ export function ErrorHunter({
             <span>▶ IDENTIFICAR PASO CON ERROR</span>
           </button>
         ) : (
-          <div className="space-y-3 pt-2 font-mono">
+          <div className="space-y-4 pt-2 font-mono">
             <div className={cn(
-              "p-3 border-2 border-black shadow-[3px_3px_0px_0px_#000]",
+              "p-4 border-2 border-black shadow-[3px_3px_0px_0px_#000]",
               selectedStep?.hasError
                 ? "bg-emerald-500 text-black font-bold"
                 : "bg-rose-600 text-white font-bold"
@@ -226,7 +225,6 @@ export function ErrorHunter({
             </button>
           </div>
         )}
-        </PixelFrame>
       </motion.div>
     </div>
   );
