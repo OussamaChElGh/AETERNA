@@ -241,8 +241,8 @@ export function IsoSpriteObject({
   const isDoorItem = item.catalogItemId.includes('door');
 
   const dropShadowClass = isWallItem
-    ? (isNwWall ? 'drop-shadow-[4px_4px_6px_rgba(0,0,0,0.4)]' : 'drop-shadow-[-4px_4px_6px_rgba(0,0,0,0.4)]')
-    : 'drop-shadow-[0_8px_14px_rgba(0,0,0,0.4)]';
+    ? (isNwWall ? 'drop-shadow-[5px_6px_8px_rgba(0,0,0,0.55)]' : 'drop-shadow-[-5px_6px_8px_rgba(0,0,0,0.55)]')
+    : 'drop-shadow-[0_10px_16px_rgba(0,0,0,0.5)]';
 
   return (
     <div
@@ -265,6 +265,23 @@ export function IsoSpriteObject({
       )}
     >
       <div className="relative w-full h-full" style={spriteTransformStyle}>
+        {/* CONTACT SHADOW — elipse oscura en el suelo para muebles de piso */}
+        {!isWallItem && (
+          <div
+            className="absolute pointer-events-none rounded-[50%]"
+            style={{
+              left: '50%',
+              bottom: '8%',
+              transform: 'translateX(-50%)',
+              width: `${Math.max(60, (asset?.footprintTileWidth || 1) * 60)}%`,
+              height: `${Math.max(18, (asset?.footprintTileWidth || 1) * 22)}%`,
+              background: 'radial-gradient(ellipse, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.25) 45%, transparent 70%)',
+              filter: 'blur(3px)',
+              zIndex: 0
+            }}
+          />
+        )}
+
         {/* RASTER PNG SPRITE */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -298,6 +315,7 @@ export function IsoSpriteObject({
       {editMode && isSelected && (
         <CompactObjectToolbar
           item={item}
+          isWallItem={isWallItem}
           onRotate={onRotate}
           onToggleElevation={onToggleElevation}
           onDelete={onDelete}

@@ -6,7 +6,7 @@ import { RoomEngineHUD } from '../room-engine/RoomEngineHUD';
 import { InventoryDrawer } from '../room-engine/InventoryDrawer';
 import { RelicWall } from './RelicWall';
 import { RoomCatalogItem as LegacyCatalogItem } from '@/types/roomEngine';
-import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks, hasRoomEngineState } from '@/lib/roomEngineStorage';
+import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks, hasRoomEngineState, validatePlacement } from '@/lib/roomEngineStorage';
 import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
 import { Starfield } from '@/components/Starfield';
@@ -165,12 +165,26 @@ export function AeternaEnvironmentEngine({
   };
 
   const handleToggleElevation = (instanceId: string) => {
-    setPlacedItems(prev => prev.map(item => {
-      if (item.instanceId === instanceId) {
-        return { ...item, tileZ: item.tileZ === 1 ? 0 : 1 };
+    setPlacedItems(prev => {
+      const target = prev.find(i => i.instanceId === instanceId);
+      if (!target) return prev;
+      const nextZ = target.tileZ === 1 ? 0 : 1;
+      if (nextZ === 1) {
+        // Elevar solo si hay una mesa de apoyo debajo (validación completa).
+        const validation = validatePlacement(
+          target.tileX, target.tileY, nextZ,
+          target.rotation, target.catalogItemId,
+          target.instanceId, prev
+        );
+        if (!validation.isValid) return prev;
       }
-      return item;
-    }));
+      return prev.map(item => {
+        if (item.instanceId === instanceId) {
+          return { ...item, tileZ: nextZ };
+        }
+        return item;
+      });
+    });
   };
 
   const handleDelete = (instanceId: string) => {

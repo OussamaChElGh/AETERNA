@@ -38,7 +38,18 @@ export const ROOM_WALL_SEGMENTS: WallSegment[] = [
   }
 ];
 
-export const ROOM_BLOCKED_TILES = new Set<string>([]);
+// Tiles de suelo "tapados" visualmente por muebles de pared grandes (puerta,
+// librería). Al bloquearlos, los muebles de suelo no pueden colocarse detrás
+// de la puerta u otros muebles altos de la pared.
+export const ROOM_BLOCKED_TILES = new Set<string>([
+  // Puerta gótica (tile(0,10) en pared NE) — bloquea los 4 tiles de suelo en frente
+  "1,10", "2,10",
+  "1,11", "2,11",
+  // Librería de caoba (tile(8,0) en pared NW) — bloquea los tiles de suelo en frente
+  "8,1", "9,1", "10,1",
+  // Ventanal gótico (tile(4,0)) — bloquea debajo
+  "4,1", "5,1",
+]);
 
 export const AETERNA_ROOM_LAYOUT: RoomLayout = {
   gridSizeX: GRID_SIZE,

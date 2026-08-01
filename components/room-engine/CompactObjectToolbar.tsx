@@ -5,6 +5,7 @@ import { PlacedRoomItem } from '@/types/roomEngine';
 
 interface CompactObjectToolbarProps {
   item: PlacedRoomItem;
+  isWallItem?: boolean;
   onRotate: (instanceId: string) => void;
   onToggleElevation: (instanceId: string) => void;
   onDelete: (instanceId: string) => void;
@@ -13,6 +14,7 @@ interface CompactObjectToolbarProps {
 
 export function CompactObjectToolbar({
   item,
+  isWallItem = false,
   onRotate,
   onToggleElevation,
   onDelete,
@@ -35,15 +37,22 @@ export function CompactObjectToolbar({
 
       <div className="w-[1px] h-4 bg-[#D4AF37]/30" />
 
-      {/* Toggle Floor / Surface Elevation */}
-      <button
-        onClick={() => onToggleElevation(item.instanceId)}
-        className="p-1.5 hover:bg-[#D4AF37]/20 rounded-lg text-[#FDE047] transition-all flex items-center gap-1 active:scale-95"
-        title="Alternar Elevación (Z:0 / Z:1)"
-      >
-        <ArrowUp size={13} />
-        <span className="text-[10px] font-bold">Z:{item.tileZ}</span>
-      </button>
+      {/* Toggle Floor / Surface Elevation (solo muebles de suelo) */}
+      {!isWallItem && (
+        <>
+          <div className="w-[1px] h-4 bg-[#D4AF37]/30" />
+          <button
+            onClick={() => onToggleElevation(item.instanceId)}
+            className="p-1.5 hover:bg-[#D4AF37]/20 rounded-lg text-[#FDE047] transition-all flex items-center gap-1 active:scale-95"
+            title={item.tileZ === 0
+              ? "Elevar: coloca el objeto sobre una superficie (escritorio)"
+              : "Bajar: coloca el objeto en el suelo"}
+          >
+            <ArrowUp size={13} />
+            <span className="text-[10px] font-bold">{item.tileZ === 0 ? 'Suelo' : 'Mesa'}</span>
+          </button>
+        </>
+      )}
 
       <div className="w-[1px] h-4 bg-[#D4AF37]/30" />
 
