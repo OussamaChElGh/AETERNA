@@ -101,8 +101,19 @@ export function PredictionBox({
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="bg-[#FAF6EC] dark:bg-[#1A1712] border-4 border-[#D4AF37] p-6 md:p-8 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#D4AF37] relative space-y-6"
+        className="bg-[#FAF6EC] dark:bg-[#1A1712] border-4 border-[#D4AF37] p-6 md:p-8 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#D4AF37] relative space-y-6 overflow-hidden"
       >
+        {/* Pixel checkerboard texture */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.07]"
+          style={{
+            backgroundImage:
+              'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
+            backgroundSize: '14px 14px',
+            backgroundPosition: '0 0, 7px 7px'
+          }}
+        />
+        <div className="relative z-10 space-y-6">
         {/* HEADER */}
         <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
           <div className="flex items-center gap-3">
@@ -234,6 +245,7 @@ export function PredictionBox({
             </button>
           </motion.div>
         )}
+        </div>
       </motion.div>
     </div>
   );

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ShieldAlert, CheckCircle2, AlertTriangle, Sparkles, RefreshCw, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { PixelFrame } from '@/components/blocks/PixelFrame';
 import { useGamification } from '@/context/GamificationContext';
 import { useExerciseFeedback } from '@/lib/useExerciseFeedback';
 
@@ -107,28 +108,28 @@ export function ErrorHunter({
         initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className={cn("bg-[#FAF6EC] dark:bg-[#1A1712] border-4 border-[#D4AF37] p-6 md:p-8 shadow-[6px_6px_0px_0px_#000] dark:shadow-[6px_6px_0px_0px_#D4AF37] relative space-y-6", fxClass)}
+        className={cn("relative space-y-6", fxClass)}
       >
-        {/* Header */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-none bg-rose-600 border-2 border-black flex items-center justify-center text-white shrink-0 shadow-[2px_2px_0px_0px_#000]">
-              <ShieldAlert size={22} />
+        <PixelFrame borderColor="#D4AF37" shadowColor="#000" accent="#8B6914" bgClass="bg-[#FAF6EC] dark:bg-[#1A1712]">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b-4 border-[#D4AF37]/40 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-11 h-11 rounded-none bg-rose-600 border-2 border-black flex items-center justify-center text-white shrink-0 shadow-[2px_2px_0px_0px_#000]">
+                <ShieldAlert size={22} />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-rose-700 dark:text-rose-400 block">
+                  [{badgeText.toUpperCase()}]
+                </span>
+                <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
+                  {parsedTitle}
+                </h3>
+              </div>
             </div>
-            <div>
-              <span className="text-[10px] font-mono font-black uppercase tracking-[0.25em] text-rose-700 dark:text-rose-400 block">
-                [{badgeText.toUpperCase()}]
-              </span>
-              <h3 className="font-mono text-lg md:text-xl font-bold uppercase text-brand-ink dark:text-white leading-tight">
-                {parsedTitle}
-              </h3>
-            </div>
-          </div>
 
-          <span className="px-3 py-1 bg-black text-[#D4AF37] dark:bg-white dark:text-black font-mono font-bold text-[11px] uppercase tracking-widest border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#D4AF37]">
-            +{parsedXp} XP
-          </span>
-        </div>
+            <span className="px-3 py-1 bg-black text-[#D4AF37] dark:bg-white dark:text-black font-mono font-bold text-[11px] uppercase tracking-widest border-2 border-black dark:border-white shadow-[2px_2px_0px_0px_#D4AF37]">
+              +{parsedXp} XP
+            </span>
+          </div>
 
         {parsedContext && (
           <div className="bg-white dark:bg-[#12100C] p-4 md:p-5 border-2 border-[#D4AF37]/60 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] font-mono">
@@ -225,6 +226,7 @@ export function ErrorHunter({
             </button>
           </div>
         )}
+        </PixelFrame>
       </motion.div>
     </div>
   );
