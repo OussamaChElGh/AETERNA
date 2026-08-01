@@ -1,0 +1,512 @@
+{
+  "metadata": {
+    "title": "Termodinámica: La Física del Calor, la Energía y el Tiempo",
+    "description": "Guía completa de termodinámica: desde las leyes del calor y la entropía hasta el ciclo de Carnot y el cero absoluto. Tres capas de profundidad con ejercicios, laboratorios interactivos, gráficos y experimentos mentales.",
+    "slug": "termodinamica",
+    "author": "Aeterna",
+    "category": "ciencias_naturales",
+    "subcategory": "fisica",
+    "tags": [
+      "termodinámica",
+      "calor",
+      "entropía",
+      "leyes de la termodinámica",
+      "máquinas térmicas",
+      "energía",
+      "ciclo de Carnot",
+      "cero absoluto",
+      "gases ideales",
+      "transferencia de calor"
+    ],
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-08",
+    "nivel": 2,
+    "nivel_titulo": "El Reino de lo Clásico",
+    "orden": 8,
+    "insignia": "Arquitecto del Calor",
+    "tipo": "theory",
+    "prerequisites": [
+      "materia-y-energia"
+    ],
+    "breadcrumb": "Física / El Reino de lo Clásico / Termodinámica"
+  },
+  "introduccion": "# Termodinámica: La Física del Calor, la Energía y el Tiempo\n\nImagina una taza de café humeante en una mañana fría. El vapor asciende en espirales. El líquido se enfría, la cucharilla se calienta. Nada te parece extraño. Pero escondida en esa escena está una de las preguntas más profundas de la física: **¿por qué el calor siempre fluye del café caliente al aire frío, y nunca al revés?**\n\nLas leyes de Newton funcionan igual hacia adelante que hacia atrás en el tiempo. Pero si filmas un cubito de hielo derritiéndose, sabes inmediatamente si la película va hacia adelante. La termodinámica nació para explicar esta asimetría fundamental. Y al hacerlo, descubrió por qué existe el tiempo mismo.\n\n**[IMAGEN SUGERIDA: Una taza de café humeante sobre una mesa de madera al amanecer, con vapor ascendiendo en espirales visibles contra la luz dorada. Pie de foto: \"En el vapor de una taza de café se esconde la física del tiempo.\"]**\n\n> La termodinámica es la física del calor, la energía y la flecha del tiempo. Cuatro leyes gobiernan todo: desde una taza de café hasta el destino del universo.\n\nElige tu capa de profundidad y sumérgete en el reino del calor.",
+  "secciones": [
+    {
+      "id": "bienvenida",
+      "titulo": "Bienvenida: El calor, el misterio que mueve el mundo",
+      "niveles": {
+        "principiante": "Imagina una taza de café humeante en una mañana fría. El vapor asciende en espirales perezosas. El líquido oscuro se enfría lentamente. La cucharilla de metal, que estaba fría, ahora quema al tocarla.\n\nNada de esto te parece extraño. Es el mundo funcionando como siempre. Pero escondida en esa escena cotidiana está una de las preguntas más profundas de la física: **¿por qué el calor siempre va del café caliente al aire frío, y nunca al revés?**\n\nSi filmas un cubito de hielo derritiéndose en agua tibia, sabes inmediatamente si la película va hacia adelante o hacia atrás. El calor nunca fluye espontáneamente del objeto frío al caliente. El huevo no se \"desfríe\". La taza no se calienta sola.\n\nLa termodinámica nació para explicar esta asimetría. Y al hacerlo, descubrió algo más grande: **por qué existe el tiempo**. En esta guía explorarás desde el vapor de una taza de café hasta el destino del cosmos.\n\n**[IMAGEN SUGERIDA: Un cubito de hielo derritiéndose en agua a cámara lenta, con ondas de calor visibles (termografía). Pie de foto: \"El hielo derritiéndose: la Segunda Ley en acción.\"]**",
+        "intermedio": "La termodinámica se construye sobre cuatro leyes que describen el comportamiento macroscópico de la energía. Nació en el siglo XIX durante la Revolución Industrial, impulsada por una pregunta práctica: ¿cómo construir máquinas de vapor más eficientes? Pero lo que empezó como ingeniería reveló verdades cósmicas.\n\nLas leyes de Newton son simétricas en el tiempo: funcionan igual hacia adelante que hacia atrás. Pero la termodinámica introduce una dirección privilegiada: el futuro es la dirección en la que la entropía aumenta. El universo avanza hacia estados de mayor desorden, y eso es lo que llamamos el paso del tiempo.\n\n| Concepto | Definición | Unidad (SI) |\n| :--- | :--- | :--- |\n| **Temperatura** | Energía cinética promedio de las partículas | Kelvin (K) |\n| **Calor** | Energía térmica en tránsito entre cuerpos | Julio (J) |\n| **Energía interna** | Suma de energías cinéticas y potenciales de las partículas | Julio (J) |\n| **Trabajo** | Energía transferida por una fuerza que desplaza | Julio (J) |\n| **Entropía** | Medida del desorden del sistema | J/K |\n\n<PedagogicalContentBlock type=\"key-insight\">\n**La clave en 10 segundos:** La termodinámica es la física de la energía y el tiempo. Primera Ley: la energía no se crea ni se destruye (ΔU=Q−W). Segunda Ley: la entropía siempre aumenta y define la dirección del tiempo. Tercera Ley: el cero absoluto es inalcanzable. Ley Cero: permite que existan los termómetros.\n</PedagogicalContentBlock>",
+        "avanzado": "La termodinámica es una teoría fenomenológica: no necesita un modelo microscópico para hacer predicciones exactas. Sus leyes emergen de consideraciones estadísticas sobre un número astronómico de partículas (NA = 6.022×10^23).\n\nLa mecánica estadística —desarrollada por Boltzmann, Gibbs y Maxwell— conecta el mundo microscópico (mecánica cuántica) con el macroscópico (termodinámica). La entropía S = kB ln Ω, donde Ω es el número de microestados accesibles, es el puente entre ambos mundos.\n\nLa pregunta filosófica subyacente es profunda: si las leyes microscópicas son reversibles, ¿de dónde emerge la irreversibilidad macroscópica? La respuesta está en las condiciones iniciales. El Big Bang creó un universo en un estado de entropía extraordinariamente baja. Toda la irreversibilidad que observamos —el café que se enfría, el huevo que se fríe, el tiempo que avanza— es una consecuencia de aquella condición inicial."
+      },
+      "acciones": []
+    },
+    {
+      "id": "temperatura-calor",
+      "titulo": "Temperatura y calor: no son lo mismo",
+      "niveles": {
+        "principiante": "**¿Qué es la temperatura?** Es una medida de qué tan rápido se mueven las partículas de un cuerpo. A más temperatura, más rápido vibran los átomos.\n\n**¿Qué es el calor?** Es energía que se transfiere de un cuerpo caliente a uno frío. El calor es energía en movimiento, no una propiedad que \"tienen\" los objetos.\n\nPiensa en una cerilla encendida y un iceberg. La cerilla tiene mucha temperatura (cientos de grados), pero poquísimo calor total. El iceberg está frío (bajo cero), pero contiene una cantidad inmensa de energía térmica porque su masa es enorme. Puedes apagar la cerilla con los dedos; no puedes detener un iceberg.\n\n**[IMAGEN SUGERIDA: Comparación lado a lado: cerilla encendida (primer plano) vs iceberg masivo (paisaje). Pie de foto: \"Alta temperatura no significa mucho calor. Un iceberg contiene más energía térmica total que mil cerillas.\"]**\n\n**Las tres formas de transferir calor:**\n- **Conducción**: el calor viaja a través de un material sólido (la cucharilla en el café)\n- **Convección**: el calor viaja con el movimiento de un fluido (el vapor que sube)\n- **Radiación**: el calor viaja en forma de ondas electromagnéticas (el Sol calentando la Tierra)\n\n```aeterna-exercise\nTITLE: ¿Cerilla o iceberg?\nHINT: Piensa en la cantidad total de energía, no solo en la temperatura de cada gramo.\nXP: 30\n¿Qué contiene más energía térmica total: una cerilla encendida a 600°C o un iceberg de 1000 toneladas a -5°C?\nSOLUTION: La cerilla tiene alta temperatura pero poca masa. El iceberg tiene baja temperatura pero masa enorme. El iceberg contiene mucha más energía térmica total (miles de millones de julios vs unos pocos julios).\n```\n```prediction-box\nTITLE: Conducción, convección o radiación\nQUESTION: Dejas una cuchara de metal dentro de una taza de café caliente durante 5 minutos. ¿Cómo se calentó el mango de la cuchara?\nXP: 30\nOPTION_CORRECT: Por conducción | El calor viajó a través del metal desde la parte sumergida hasta el mango. Los metales son excelentes conductores.\nOPTION_WRONG: Por convección | La convección mueve el fluido, no el sólido. El café caliente sí sube por convección, pero la cuchara se calienta por conducción.\nOPTION_WRONG: Por radiación | La radiación es ondas electromagnéticas. Sentirías el calor sin tocar la taza, pero la cuchara se calienta por contacto directo.\nEXPLANATION: La conducción transmite calor por contacto directo entre partículas. En los metales, los electrones libres transportan la energía térmica rápidamente.\n```\n\n<PedagogicalContentBlock type=\"misconception\">\n**Error común: \"El frío entra por la ventana.\"** En realidad, el frío no \"entra\": es el calor el que SALE. Lo que sentimos como frío es la pérdida de calor de nuestro cuerpo hacia el ambiente. El calor siempre fluye del cuerpo más caliente al más frío. Abrigarse no \"genera calor\": reduce la pérdida de calor corporal atrapando una capa de aire aislante.\n</PedagogicalContentBlock>",
+        "intermedio": "La temperatura T mide la energía cinética promedio de las partículas. Para un gas ideal monoatómico: $$ \\langle E_k \\rangle = \\frac{3}{2} k_B T $$ donde kB = 1.381×10−23 J/K es la constante de Boltzmann.\n\nEl calor Q no es una función de estado: depende del camino. No puedes decir \"este cuerpo contiene 500 J de calor\" como dices \"este cuerpo está a 300 K\". El calor es energía en tránsito.\n\n**Capacidad calorífica y calor específico**: La cantidad de calor necesaria para elevar la temperatura de un cuerpo en 1 K depende de su masa y del material: $$ Q = m c \\Delta T $$\nDonde c es el calor específico (J/kg·K). El agua tiene un calor específico excepcionalmente alto: 4184 J/kg·K. Por eso los océanos regulan el clima y el cuerpo humano mantiene su temperatura.\n\n| Material | Calor específico (J/kg·K) |\n| :--- | :--- |\n| Agua | 4184 |\n| Hielo | 2090 |\n| Aluminio | 900 |\n| Hierro | 450 |\n| Aire | 1005 |\n\n```aeterna-formula\ntitle=\"Calor necesario para calentar una sustancia\"\nformula=\"Q = m c \\Delta T\"\nvariables={[{\"symbol\":\"Q\",\"name\":\"Calor transferido\",\"unit\":\"J\"},{\"symbol\":\"m\",\"name\":\"Masa\",\"unit\":\"kg\"},{\"symbol\":\"c\",\"name\":\"Calor específico\",\"unit\":\"J/(kg·K)\"},{\"symbol\":\"ΔT\",\"name\":\"Cambio de temperatura\",\"unit\":\"K\"}]}\nnote=\"El calor específico del agua es excepcionalmente alto: 4184 J/(kg·K). Por eso se usa como refrigerante y regula el clima terrestre.\"\n```",
+        "avanzado": "La distinción entre calor y temperatura se formaliza en la termodinámica mediante el concepto de **diferencial inexacta**. El calor Q y el trabajo W no son diferenciales exactas (no son funciones de estado), mientras que la energía interna U sí lo es. Esto se indica con la notación δQ y δW en lugar de dQ y dW.\n\nLa primera ley se escribe entonces como: $$ dU = \\delta Q - \\delta W $$\n\nEl calor específico depende del proceso. Para un gas ideal:\n- A volumen constante: CV = (3/2)R (monoatómico), CV = (5/2)R (diatómico)\n- A presión constante: CP = CV + R (relación de Mayer)\n- El cociente γ = CP/CV = 5/3 (monoatómico), 7/5 (diatómico)\n\nLa ecuación de conducción del calor (Fourier): $$ \\vec{J} = -k \\nabla T $$ describe el flujo de calor J en función del gradiente de temperatura, donde k es la conductividad térmica del material."
+      },
+      "acciones": []
+    },
+    {
+      "id": "ley-cero",
+      "titulo": "Ley Cero: cuando dos cosas están a la misma temperatura",
+      "niveles": {
+        "principiante": "¿Alguna vez has usado un termómetro? Felicidades, has aplicado la Ley Cero de la termodinámica.\n\nLa Ley Cero dice algo tan obvio que parece tonto: **si A está a la misma temperatura que B, y B está a la misma temperatura que C, entonces A y C están a la misma temperatura**. El termómetro (B) toca tu cuerpo (A) y marca 37°C. Luego toca un vaso de agua (C) y marca 37°C. Puedes estar seguro de que tu cuerpo y el agua están a la misma temperatura.\n\nSe llama \"Ley Cero\" porque fue la última en formularse, aunque es la más fundamental. Sin ella no podrías medir temperaturas.\n\n```aeterna-decision\nBadge: Concepto clave\nTítulo: La Ley Cero\nPregunta: ¿Por qué la Ley Cero se llama así si es la más básica de todas?\nNivel: principiante\nXP: 20\nBotón: Comprobar\nRespuesta: Respuesta: Se llama \"Ley Cero\" porque fue la última en formularse (siglo XX), aunque es la más fundamental. Sin ella no se podrían construir termómetros. Es la base de toda medición de temperatura.\n```\n\n```concept-map\nTITLE: Las cuatro leyes de la termodinámica\nDESC: Conecta cada ley con lo que describe\nXP: 50\nNODE: Ley Cero | Equilibrio térmico | Es transitivo: si A=B y B=C entonces A=C\nNODE: Primera Ley | Conservación de energía | La energía no se crea ni se destruye\nNODE: Segunda Ley | Entropía | El desorden siempre aumenta en sistemas aislados\nNODE: Tercera Ley | Cero absoluto | Inalcanzable en pasos finitos\n```",
+        "intermedio": "La Ley Cero establece formalmente que el equilibrio térmico es una **relación de equivalencia**: transitiva, simétrica y reflexiva. Esto permite definir la temperatura como una función de estado que caracteriza el equilibrio térmico.\n\nMatemáticamente: si dos sistemas A y B están en equilibrio térmico con un tercer sistema T (el termómetro), entonces existe una función f tal que f(A) = f(B) en el equilibrio. Esa función es la temperatura empírica.\n\n**Escalas de temperatura históricas:**\n- **Kelvin (1848)**: escala absoluta, 0 K = cero absoluto\n- **Celsius (1742)**: 0°C = congelación del agua, 100°C = ebullición\n- **Fahrenheit (1724)**: 32°F = congelación, 212°F = ebullición\n\nLa escala Kelvin no depende de ninguna sustancia: se define a partir de la constante de Boltzmann: $$ T = \\frac{2}{3k_B} \\langle E_k \\rangle $$\n\n**[IMAGEN SUGERIDA: Tres termómetros de diferentes épocas (mercurio antiguo, digital moderno, termopar de laboratorio) alineados mostrando la misma temperatura. Pie de foto: \"Tres instrumentos, una misma ley: el equilibrio térmico es transitivo.\"]**",
+        "avanzado": "La Ley Cero tiene una sutileza que los libros de texto rara vez discuten: ¿qué sucede cuando los sistemas no están en equilibrio? La temperatura solo está definida en equilibrio termodinámico local. En sistemas fuera del equilibrio —plasmas, fluidos turbulentos, sistemas cuánticos abiertos— el concepto mismo de temperatura se vuelve problemático.\n\nEn mecánica estadística, la temperatura emerge como el multiplicador de Lagrange que maximiza la entropía dada una energía promedio fija: $$ \\frac{1}{T} = \\left( \\frac{\\partial S}{\\partial U} \\right)_{V,N} $$\n\nEsta definición es más profunda que la empírica: conecta directamente temperatura con la derivada de la entropía respecto a la energía. Implica que la temperatura puede ser **negativa** en sistemas con población invertida (como en láseres), donde añadir energía disminuye la entropía —un fenómeno puramente cuántico sin análogo clásico."
+      },
+      "acciones": []
+    },
+    {
+      "id": "primera-ley",
+      "titulo": "Primera Ley: la energía no se crea ni se destruye",
+      "niveles": {
+        "principiante": "La Primera Ley es la más intuitiva: **la energía no aparece de la nada ni desaparece**. Solo cambia de forma.\n\nSi calientas una olla con agua en la cocina, la energía química del gas se convierte en calor. Ese calor aumenta la temperatura del agua (energía interna) y hace que el vapor mueva la tapa (trabajo). La suma del aumento de temperatura más el movimiento de la tapa es exactamente igual al calor que entró. Ni un solo julio se pierde.\n\nEsto destruyó para siempre el sueño del **móvil perpetuo**: una máquina que genere energía sin consumir nada.\n\n```aeterna-exercise\nTITLE: Calentando agua para el mate\nHINT: Usa Q = m × c × ΔT. El calor específico del agua es 4184 J/(kg·K).\nXP: 40\n¿Cuánta energía necesitas para calentar 0.5 kg de agua desde 20°C hasta 100°C?\nSOLUTION: Q = 0.5 kg × 4184 J/(kg·K) × 80 K = 167,360 J ≈ 167 kJ. Equivale a la energía de una bombilla de 100 W durante 28 minutos.\n```\n```prediction-box\nTITLE: El experimento de Joule\nQUESTION: James Joule hizo girar paletas dentro de agua usando pesas que caían. La energía potencial de las pesas se convirtió en calor. Si una pesa de 10 kg cae 2 metros, ¿cuánto aumenta la temperatura de 0.5 kg de agua?\nXP: 40\nOPTION_CORRECT: Aproximadamente 0.094°C | La energía potencial mgh = 10×9.8×2 = 196 J. Con 0.5 kg de agua: ΔT = 196/(0.5×4184) ≈ 0.094°C. Joule necesitó instrumentos muy precisos.\nOPTION_WRONG: Aproximadamente 1°C | Sería necesario mucha más energía. 1°C en 0.5 kg requiere 2092 J, más de 10 veces lo disponible.\nOPTION_WRONG: Aproximadamente 10°C | Necesitarías 20920 J. Para eso la pesa tendría que caer más de 200 metros.\nEXPLANATION: El experimento de Joule demostró que hacen falta 4.184 J de trabajo mecánico para generar 1 caloría de calor. Por eso su experimento requería instrumentos de altísima precisión.\n```",
+        "intermedio": "La Primera Ley se expresa matemáticamente como: $$ \\Delta U = Q - W $$\n\nDonde:\n- ΔU es el cambio en la energía interna del sistema\n- Q es el calor añadido al sistema (positivo si entra)\n- W es el trabajo realizado POR el sistema (positivo si sale)\n\nSi calientas un gas encerrado en un pistón, el calor Q aumenta la energía interna U (las partículas se mueven más rápido) y además el gas se expande realizando trabajo W contra el pistón. La energía se reparte.\n\n```aeterna-formula\ntitle=\"Primera Ley de la Termodinámica\"\nformula=\"\\Delta U = Q - W\"\nvariables={[{\"symbol\":\"ΔU\",\"name\":\"Cambio de energía interna\",\"unit\":\"J\"},{\"symbol\":\"Q\",\"name\":\"Calor añadido al sistema\",\"unit\":\"J\"},{\"symbol\":\"W\",\"name\":\"Trabajo realizado por el sistema\",\"unit\":\"J\"}]}\nnote=\"Convención de signos: Q positivo entra al sistema, W positivo sale del sistema.\"\n```\n\n```parameter-lab\nTITLE: Explora la Primera Ley en acción\nDESC: Ajusta el calor añadido y el trabajo realizado para ver cómo cambia la energía interna de un gas ideal.\nOUTPUT_LABEL: ΔU (Energía Interna)\nOUTPUT_UNIT: J\nQUESTION: ¿Qué pasa con ΔU cuando Q = W?\nANSWER: Cuando Q = W, la energía interna no cambia (ΔU = 0). Esto ocurre en procesos isotérmicos para gases ideales: todo el calor entrante se convierte en trabajo.\nXP: 50\nPARAM: Q | Calor añadido | J | 0 | 500 | 10 | 200\nPARAM: W | Trabajo realizado | J | 0 | 500 | 10 | 100\n```",
+        "avanzado": "La Primera Ley se generaliza para sistemas abiertos mediante la ecuación de balance de energía:\n\n$$ \\frac{dE_{vc}}{dt} = \\dot{Q} - \\dot{W} + \\sum \\dot{m}_{in} h_{in} - \\sum \\dot{m}_{out} h_{out} $$\n\nDonde el término de flujo másico incluye la entalpía h = u + Pv. Esto es esencial para turbinas, compresores y toberas.\n\nEn forma diferencial para un sistema cerrado simple compresible: $$ dU = T dS - P dV $$\n\nQue revela que U es función natural de S y V. A partir de aquí, mediante transformadas de Legendre, se obtienen los potenciales termodinámicos: entalpía H = U + PV, energía libre de Helmholtz F = U − TS, energía libre de Gibbs G = U + PV − TS. Cada uno es útil para distintos tipos de procesos.\n\nEl teorema de equipartición: cada grado de libertad cuadrático contribuye (1/2)kBT a la energía. Gas monoatómico: U = (3/2)nRT. Diatómico: U = (5/2)nRT.\n\n```aeterna-exercise\nTITLE: Compresión adiabática en un motor diésel\nHINT: En un proceso adiabático Q = 0, por lo que ΔU = −W. Para un gas ideal diatómico, γ = 7/5 = 1.4.\nXP: 70\nUn motor diésel comprime aire (gas diatómico) desde V1 = 500 cm³ a V2 = 30 cm³. La temperatura inicial es 300 K. Calcula la temperatura final asumiendo compresión adiabática reversible.\nSOLUTION: Para compresión adiabática reversible: T₁V₁^(γ−1) = T₂V₂^(γ−1). Con γ = 1.4: T₂ = 300 × (500/30)^(0.4) ≈ 300 × 3.09 = 927 K ≈ 654°C. Suficiente para encender el combustible sin bujía.\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "gases-ideales",
+      "titulo": "Gases ideales: el modelo más simple del mundo",
+      "niveles": {
+        "principiante": "Un gas ideal es como una fiesta de pelotas de ping-pong en una habitación: cada molécula rebota contra las paredes y entre sí, sin pegarse ni deformarse.\n\nTres cosas definen el estado de un gas: su **presión** (qué tan fuerte empuja), su **volumen** (cuánto espacio ocupa) y su **temperatura** (qué tan rápido se mueven las moléculas).\n\nSi comprimes un gas (reduces volumen), la presión sube. Si lo calientas, también sube la presión. Es como una olla a presión: al calentar, el vapor empuja la válvula.\n\n```aeterna-exercise\nTITLE: El globo que se encoge en la nevera\nHINT: Piensa en qué pasa con el volumen si la temperatura baja y la presión se mantiene.\nXP: 25\nInflas un globo a temperatura ambiente (20°C) y lo metes en la nevera (4°C). ¿Qué le pasa al volumen si la presión dentro del globo es la misma que fuera?\nSOLUTION: A temperatura más baja, las moléculas se mueven más lento y ocupan menos espacio. El volumen disminuye aproximadamente un 5% (de 293 K a 277 K). El globo se encoge visiblemente.\n```",
+        "intermedio": "La ecuación de estado del gas ideal: $$ PV = nRT $$\n\nDonde P = presión (Pa), V = volumen (m³), n = moles, R = 8.314 J/(mol·K), T = temperatura (K).\n\n**Leyes particulares:**\n- **Boyle-Mariotte** (T cte): PV = cte → reducir V a la mitad duplica P\n- **Charles** (P cte): V ∝ T → al calentar, volumen aumenta\n- **Gay-Lussac** (V cte): P ∝ T → al calentar un recipiente cerrado, presión sube\n\n```aeterna-formula\ntitle=\"Ecuación del gas ideal\"\nformula=\"PV = nRT\"\nvariables={[{\"symbol\":\"P\",\"name\":\"Presión\",\"unit\":\"Pa\"},{\"symbol\":\"V\",\"name\":\"Volumen\",\"unit\":\"m³\"},{\"symbol\":\"n\",\"name\":\"Cantidad de sustancia\",\"unit\":\"mol\"},{\"symbol\":\"R\",\"name\":\"Constante de los gases\",\"unit\":\"8.314 J/(mol·K)\"},{\"symbol\":\"T\",\"name\":\"Temperatura absoluta\",\"unit\":\"K\"}]}\nnote=\"PV=nRT es válida para gases a bajas presiones y altas temperaturas. A condiciones extremas se requieren correcciones.\"\n```\n\n```parameter-lab\nTITLE: Laboratorio del gas ideal\nDESC: Manipula presión, volumen y temperatura para explorar la ley PV=nRT. Observa cómo cambia el producto PV al variar cada parámetro.\nOUTPUT_LABEL: PV (presión × volumen)\nOUTPUT_UNIT: J\nQUESTION: Manteniendo n y T constantes, duplica la presión. ¿Qué le ocurre al volumen?\nANSWER: El volumen se reduce a la mitad. La ley de Boyle-Mariotte (PV=constante a T constante) implica que P y V son inversamente proporcionales.\nXP: 50\nPARAM: P | Presión | Pa | 50000 | 400000 | 5000 | 101325\nPARAM: V | Volumen | m³ | 0.01 | 0.1 | 0.005 | 0.05\nPARAM: T | Temperatura | K | 200 | 600 | 10 | 300\n```",
+        "avanzado": "Los gases reales se desvían del comportamiento ideal. La ecuación de van der Waals: $$ \\left(P + a\\frac{n^2}{V^2}\\right)(V - nb) = nRT $$\n\nDonde a corrige las fuerzas de atracción intermolecular y b corrige el volumen finito de las moléculas.\n\n**Procesos termodinámicos del gas ideal:**\n- **Isotérmico** (T cte): PV = cte, ΔU = 0, Q = W, W = nRT·ln(V2/V1)\n- **Isobárico** (P cte): V ∝ T, W = P·ΔV, Q = nCP·ΔT\n- **Isocórico** (V cte): P ∝ T, W = 0, Q = ΔU = nCV·ΔT\n- **Adiabático** (Q = 0): PV^γ = cte, TV^(γ−1) = cte\n\nDonde γ = CP/CV.\n\n**[IMAGEN SUGERIDA: Diagrama PV con cuatro curvas de colores: isoterma (rojo, T cte), adiabática (azul, más inclinada), isóbara (verde, horizontal), isócora (naranja, vertical). Pie de foto: \"Cuatro procesos termodinámicos en un mismo diagrama PV.\"]**\n\n```aeterna-decision\nBadge: Desafío\nTítulo: Elige el proceso correcto\nPregunta: Tienes un gas en un cilindro con pistón. Quieres maximizar el trabajo realizado por el gas al expandirse desde V1 hasta V2, partiendo de la misma presión y temperatura inicial. ¿Qué proceso produce más trabajo?\nNivel: avanzado\nXP: 60\nBotón: Comprobar\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "segunda-ley-entropia",
+      "titulo": "Segunda Ley y entropía: la flecha del tiempo",
+      "niveles": {
+        "principiante": "¿Por qué un huevo revuelto no se \"desrevoluciona\"? ¿Por qué el café se enfría solo? La Segunda Ley.\n\nImagina tu habitación. Si no la ordenas, tiende al caos. Necesitas gastar energía para ordenarla. El universo funciona igual: **el desorden siempre aumenta**.\n\nEse desorden tiene nombre: **entropía**. Un castillo de arena tiene poca entropía. La arena esparcida tiene mucha. La Segunda Ley dice que, en un sistema aislado, la entropía nunca disminuye.\n\n¿Y los seres vivos? Son islas de orden. Pero no violan la ley: nosotros exportamos desorden al entorno. Respiramos, comemos, irradiamos calor. La Tierra recibe energía ordenada del Sol (luz visible) y emite energía desordenada (infrarrojo).\n\n```aeterna-exercise\nTITLE: El huevo y la entropía\nHINT: ¿Cuál de las dos situaciones tiene más formas posibles de ordenar las moléculas?\nXP: 30\n¿Por qué un huevo revuelto no vuelve espontáneamente a ser un huevo intacto, si las leyes de Newton no lo prohíben?\nSOLUTION: Las leyes de Newton son reversibles, pero la probabilidad importa. Un huevo intacto tiene MUY pocas configuraciones moleculares. El huevo revuelto tiene un número astronómico. Es estadísticamente imposible que vuelva espontáneamente al estado ordenado.\n```",
+        "intermedio": "La Segunda Ley tiene múltiples formulaciones equivalentes:\n\n- **Clausius**: \"El calor no puede fluir espontáneamente de un cuerpo frío a uno caliente\"\n- **Kelvin-Planck**: \"Es imposible extraer calor de un foco y convertirlo íntegramente en trabajo sin ceder calor a un foco frío\"\n- **Entropía**: \"En un sistema aislado, ΔS ≥ 0\"\n\nLa definición termodinámica de entropía: $$ \\Delta S = \\int \\frac{\\delta Q_{rev}}{T} $$\n\n**[IMAGEN SUGERIDA: Diagrama del demonio de Maxwell: una caja dividida con moléculas rojas (rápidas) y azules (lentas), un pequeño ser controlando una compuerta. Flechas mostrando la separación. Pie de foto: \"El demonio de Maxwell parecía violar la Segunda Ley, hasta que se descubrió que la información también genera entropía.\"]**\n\nEl demonio de Maxwell: en 1871, Maxwell propuso una criatura que separaría moléculas rápidas de lentas sin gastar energía. La resolución llegó con Landauer: **la información es física**. Borrar 1 bit disipa al menos kB·T·ln(2) de energía.\n\n```aeterna-formula\ntitle=\"Cambio de entropía en un proceso reversible\"\nformula=\"\\Delta S = \\int \\frac{\\delta Q_{rev}}{T}\"\nvariables={[{\"symbol\":\"ΔS\",\"name\":\"Cambio de entropía\",\"unit\":\"J/K\"},{\"symbol\":\"δQrev\",\"name\":\"Calor transferido reversiblemente\",\"unit\":\"J\"},{\"symbol\":\"T\",\"name\":\"Temperatura absoluta\",\"unit\":\"K\"}]}\nnote=\"La entropía es función de estado: ΔS no depende del camino, solo de estados inicial y final.\"\n```\n\n```graph-lab\nTITLE: Diagrama TS del ciclo de Carnot\nDESC: El área dentro del rectángulo en un diagrama T-S representa el trabajo neto del ciclo.\nX_LABEL: Entropía S (J/K)\nY_LABEL: Temperatura T (K)\nQUESTION: ¿Qué representa el área encerrada por el ciclo en un diagrama T-S?\nXP: 50\nPOINT: 10 | 400 | Inicio compresión\nPOINT: 10 | 600 | Inicio expansión isoterma\nPOINT: 30 | 600 | Fin expansión isoterma\nPOINT: 30 | 400 | Fin expansión adiabática\nOPTION_CORRECT: El trabajo neto del ciclo | El área en un diagrama T-S es Qneto = TΔS, que por la Primera Ley equivale al trabajo neto.\nOPTION_WRONG: El calor cedido al foco frío | El calor cedido es solo la porción inferior del área.\nOPTION_WRONG: La variación de energía interna | ΔU = 0 en un ciclo completo.\n```",
+        "avanzado": "La interpretación estadística de Boltzmann: $$ S = k_B \\ln \\Omega $$\n\nDonde Ω es el número de microestados accesibles. El Segundo Principio se convierte en un principio estadístico: los sistemas evolucionan hacia macroestados con mayor número de microestados simplemente porque son abrumadoramente más probables.\n\nUn sistema de N partículas tiene Ω ∝ V^N configuraciones. Si el volumen se duplica, Ω aumenta en 2^N ≈ 10^(10^23). La probabilidad de que vuelvan espontáneamente es astronómicamente pequeña.\n\n**Teorema H de Boltzmann**: $$ \\frac{\\partial f}{\\partial t} + \\vec{v} \\cdot \\nabla_{\\vec{r}} f + \\vec{F} \\cdot \\nabla_{\\vec{p}} f = \\left( \\frac{\\partial f}{\\partial t} \\right)_{col} $$\n\n**Producción de entropía**: $$ \\frac{dS}{dt} = \\Pi - \\Phi $$ donde Π ≥ 0 es producción interna y Φ es flujo a través de fronteras. Los sistemas vivos mantienen baja entropía exportándola: Φ > 0.\n\n```error-hunter\nTITLE: ¿Dónde está el error conceptual?\nCONTEXT: Un estudiante afirma: \"La Segunda Ley dice que el desorden siempre aumenta. Por lo tanto, es imposible que exista orden en el universo. El hecho de que existan seres vivos, cristales y planetas prueba que la Segunda Ley es falsa.\"\nXP: 70\nSTEP_CORRECT: La Segunda Ley aplica a sistemas aislados | Los seres vivos NO son sistemas aislados: intercambian materia y energía con el entorno.\nSTEP_CORRECT: Los seres vivos exportan entropía | Un organismo mantiene su baja entropía interna emitiendo calor, CO2 y desechos al ambiente.\nSTEP_CORRECT: La entropía total (organismo + entorno) sí aumenta | La disminución local de entropía se compensa con un aumento mayor en el entorno.\nSTEP_CORRECT: La Tierra no es un sistema aislado | Recibe energía de baja entropía del Sol (luz visible) y emite energía de alta entropía (infrarrojo).\n```\n\n<Connect title=\"La entropía y el cosmos\" sourceConcept=\"Entropía\" targetConcept=\"Cosmología\">\nLa Segunda Ley conecta directamente con la cosmología: el Big Bang creó un universo con entropía extraordinariamente baja, y desde entonces la entropía total no ha dejado de aumentar. La muerte térmica del universo es la consecuencia última de ΔS ≥ 0.\n</Connect>\n\n<HiddenAssumption assumption=\"El universo comenzó con entropía extremadamente baja\">\nLa Segunda Ley no explica POR QUÉ el universo comenzó en un estado de tan baja entropía. Es una condición inicial, no una consecuencia de las leyes. Si el universo hubiera comenzado en equilibrio térmico, no existirían estrellas, planetas ni vida.\n</HiddenAssumption>",
+        "conclusion": ""
+      },
+      "acciones": []
+    },
+    {
+      "id": "ciclos-maquinas",
+      "titulo": "Máquinas térmicas y el ciclo de Carnot",
+      "niveles": {
+        "principiante": "Una máquina térmica convierte calor en movimiento. El motor de un coche quema gasolina (calor) y gira las ruedas (trabajo). Una central eléctrica quema gas (calor) y genera electricidad. Tu cuerpo metaboliza comida y mueve tus músculos.\n\nPero ninguna máquina puede convertir TODO el calor en trabajo. Una parte siempre se pierde. El motor de un coche desperdicia más del 60% como calor por el escape. No es un defecto: es la Segunda Ley.\n\n**[IMAGEN SUGERIDA: Corte transversal de un motor de combustión interna con flechas de colores mostrando el flujo de energía: gasolina (entrada), movimiento (trabajo útil), escape y radiador (calor perdido). Pie de foto: \"Más del 60% de la energía de la gasolina se pierde como calor.\"]**\n\n**La nevera**: es una máquina térmica al revés. Toma electricidad (trabajo) y mueve calor del interior frío al exterior caliente. Por eso la parte de atrás está caliente.\n\n```aeterna-decision\nBadge: Vida cotidiana\nTítulo: ¿Máquina térmica o bomba de calor?\nPregunta: Tu nevera está enchufada a la corriente. ¿Está violando la Segunda Ley al mover calor del interior frío al exterior caliente?\nNivel: principiante\nXP: 20\nBotón: Comprobar\nRespuesta: Respuesta: La nevera NO viola la Segunda Ley. Usa electricidad (trabajo externo) para mover calor contra el gradiente natural. El calor total cedido al exterior (interior frío + trabajo) es mayor que el extraído. La entropía total AUMENTA.\n```",
+        "intermedio": "Sadi Carnot, en 1824, se preguntó: ¿cuál es el rendimiento máximo teórico de cualquier máquina térmica?\n\nEl **ciclo de Carnot** describe una máquina ideal reversible entre dos focos: caliente a Tc y frío a Tf. Cuatro etapas:\n1. Expansión isotérmica (absorbe Qc del foco caliente)\n2. Expansión adiabática (se enfría sin intercambiar calor)\n3. Compresión isotérmica (cede Qf al foco frío)\n4. Compresión adiabática (se calienta sin intercambiar calor)\n\n```sequence-builder\nTITLE: Ordena las etapas del ciclo de Carnot\nDESC: El ciclo de Carnot es la máquina térmica ideal reversible. Ordena sus cuatro etapas correctamente.\nXP: 50\nSTEP: Expansión isotérmica a Tc | El gas absorbe calor Qc del foco caliente y se expande a temperatura constante\nSTEP: Expansión adiabática | El gas se expande sin intercambiar calor, enfriándose de Tc a Tf\nSTEP: Compresión isotérmica a Tf | El gas cede calor Qf al foco frío mientras se comprime a temperatura constante\nSTEP: Compresión adiabática | El gas se comprime sin intercambiar calor, calentándose de Tf a Tc\n```\n\nEl rendimiento de Carnot: $$ \\eta_{max} = 1 - \\frac{T_f}{T_c} $$\n\nPara Tc = 500 K y Tf = 300 K: η = 40%. **Ninguna máquina real puede superarlo**.\n\n```aeterna-formula\ntitle=\"Rendimiento del ciclo de Carnot\"\nformula=\"\\eta_{max} = 1 - \\frac{T_f}{T_c}\"\nvariables={[{\"symbol\":\"ηmax\",\"name\":\"Rendimiento máximo\",\"unit\":\"adimensional\"},{\"symbol\":\"Tf\",\"name\":\"Temperatura del foco frío\",\"unit\":\"K\"},{\"symbol\":\"Tc\",\"name\":\"Temperatura del foco caliente\",\"unit\":\"K\"}]}\nnote=\"El rendimiento de Carnot es el máximo teórico. En la práctica los rendimientos son menores por irreversibilidades.\"\n```",
+        "avanzado": "**Teorema de Carnot**: todas las máquinas reversibles entre las mismas temperaturas tienen el mismo rendimiento. Ninguna irreversible puede superarlo.\n\nDemostración por contradicción: si existiera una máquina con η > η_Carnot, podríamos acoplarla a una de Carnot como refrigerador para transferir calor neto del foco frío al caliente sin trabajo externo — violando Clausius.\n\n$$ \\eta_{real} = \\frac{W_{neto}}{Q_{entra}} < \\eta_{Carnot} $$\n\n**Exergía** (disponibilidad): mide el trabajo máximo obtenible al llevar un sistema al equilibrio con el ambiente: $$ \\Psi = (U - U_0) - T_0(S - S_0) + P_0(V - V_0) $$\n\n**COP de refrigerador y bomba de calor:**\n- Refrigerador: COP_R_max = Tf / (Tc − Tf)\n- Bomba de calor: COP_BC_max = Tc / (Tc − Tf)\n\n```model-builder\nTITLE: Diseña una central térmica\nPROBLEM: Una central térmica opera entre una caldera a 600 K y un condensador a 300 K. ¿Qué variables puedes modificar para aumentar el rendimiento? Selecciona las variables relevantes y descarta las irrelevantes.\nXP: 70\nVAR_RELEVANT: Tc (temperatura de la caldera) | Aumentar Tc incrementa directamente η = 1 - Tf/Tc\nVAR_RELEVANT: Tf (temperatura del condensador) | Reducir Tf también mejora el rendimiento\nVAR_RELEVANT: Irreversibilidades internas | Reducir fricción y turbulencia acerca el rendimiento real al de Carnot\nVAR_IRRELEVANT: La sustancia de trabajo | El teorema de Carnot demuestra que el rendimiento NO depende del fluido usado\nVAR_IRRELEVANT: La velocidad de la turbina | No afecta al rendimiento termodinámico máximo, solo a la potencia\n```\n\n```aeterna-decision\nBadge: Ingeniería\nTítulo: Optimizando el rendimiento\nPregunta: Para maximizar el rendimiento de una central térmica, ¿conviene aumentar la temperatura de la caldera o reducir la temperatura del condensador?\nNivel: avanzado\nXP: 60\nBotón: Comprobar\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "tercera-ley",
+      "titulo": "Tercera Ley: la carrera hacia el cero absoluto",
+      "niveles": {
+        "principiante": "El cero absoluto es -273.15°C. Es la temperatura más fría posible en el universo. En ese punto, las partículas tendrían la mínima energía posible. Todo estaría... quieto.\n\nPero hay un problema: **no se puede llegar**. Por mucho que enfríes algo, por muchos pasos que des, nunca alcanzarás exactamente 0 K (−273.15°C). La Tercera Ley dice precisamente eso: el cero absoluto es inalcanzable en un número finito de pasos.\n\nLos científicos han llegado a enfriar átomos a milmillonésimas de grado por encima del cero absoluto. A esas temperaturas, los átomos forman un **condensado de Bose-Einstein**, donde cientos de átomos actúan como una sola partícula gigante.\n\n**[IMAGEN SUGERIDA: Representación artística de un condensado de Bose-Einstein: cientos de átomos superpuestos formando una única onda de materia, con colores fríos (azul/violeta). Pie de foto: \"A milmillonésimas de grado sobre el cero absoluto, los átomos pierden su identidad individual.\"]**\n\n```aeterna-decision\nBadge: Frontera de la física\nTítulo: Condensado de Bose-Einstein\nPregunta: ¿Por qué los átomos ultrafríos se comportan como una única partícula?\nNivel: principiante\nXP: 30\nBotón: Descubrir\nRespuesta: Respuesta: Cerca del cero absoluto, las longitudes de onda de De Broglie de los átomos se solapan. Los átomos pierden su identidad individual y ocupan el mismo estado cuántico, comportándose como una única onda de materia macroscópica.\n```",
+        "intermedio": "La Tercera Ley (Nernst, 1906): $$ \\lim_{T \\to 0} S(T) = 0 $$ para un cristal perfecto.\n\nConsecuencias:\n1. El cero absoluto es inalcanzable en pasos finitos\n2. Las capacidades caloríficas tienden a cero cuando T → 0\n\n**Aplicaciones prácticas:**\n- **Superconductividad**: materiales que pierden toda resistencia eléctrica\n- **Superfluidez**: helio-4 por debajo de 2.17 K fluye sin viscosidad\n- **Condensados de Bose-Einstein** (BEC): predichos en 1925, realizados en 1995 (Premio Nobel 2001)\n\nLa energía del punto cero: incluso a T = 0 K, el principio de incertidumbre prohíbe que una partícula esté completamente quieta: E₀ = ½ℏω.\n\n```aeterna-exercise\nTITLE: ¿Por qué no se puede alcanzar el cero absoluto?\nHINT: La Tercera Ley también implica que la capacidad calorífica tiende a cero.\nXP: 50\nExplica por qué, incluso sin limitaciones técnicas, el cero absoluto es inalcanzable según la Tercera Ley de la termodinámica.\nSOLUTION: Cada paso de enfriamiento reduce T en una fracción. ΔS necesaria para cada paso también se reduce. Matemáticamente se necesitan infinitos pasos para llegar exactamente a 0 K. Como Aquiles y la tortuga.\n```",
+        "avanzado": "La formulación rigurosa usa mecánica estadística cuántica:\n\nPara un sistema con estado fundamental no degenerado (Ω₀ = 1): $$ S(0) = k_B \\ln(1) = 0 $$\n\nPara sistemas con degeneración (Ω₀ > 1), la entropía residual es S(0) = kB ln(Ω₀) > 0. Ocurre en hielo (desorden configuracional de protones), vidrios de espín, sistemas frustrados.\n\n**Comportamiento a bajas temperaturas:** modelo de Debye predice C_V ∝ T³ para T ≪ θ_D. A temperaturas ultrabajas (mK), contribuciones electrónicas C_e ∝ T (gas de Fermi).\n\n**Técnicas de enfriamiento extremo:** desmagnetización adiabática (μK), enfriamiento por láser (μK/nK), enfriamiento evaporativo (nK, produce BEC). Menor temperatura registrada: ~100 pK (MIT, 2015).\n\n**Consecuencias cosmológicas:** en un escenario de muerte térmica, toda la materia alcanzaría temperatura uniforme cercana al cero absoluto, entropía máxima, ningún proceso termodinámico posible. Paradójicamente, la Tercera Ley impone que este estado nunca se alcanza completamente.\n\n```aeterna-decision\nBadge: Cosmología\nTítulo: Muerte térmica del universo\nPregunta: Si el universo se expande eternamente, ¿alcanzará eventualmente el cero absoluto?\nNivel: avanzado\nXP: 70\nBotón: Comprobar\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "vida-cotidiana",
+      "titulo": "Termodinámica en tu día a día",
+      "niveles": {
+        "principiante": "La termodinámica está en cada rincón de tu vida:\n\n- **La nevera**: extrae calor del interior y lo suelta en la cocina. Toca la parte trasera.\n- **El sudor**: te refresca porque al evaporarse absorbe calor de tu piel (~2400 J por gramo).\n- **La olla a presión**: al aumentar la presión, el agua hierve a más de 100°C.\n- **El café**: se enfría más rápido si soplas (convección). Más rápido en taza de metal que de cerámica (conducción).\n- **Inflar una rueda**: la bomba se calienta al comprimir el aire (proceso adiabático).\n- **Los copos de nieve**: baja entropía, pero al formarse liberan calor aumentando la entropía total.\n\n**[IMAGEN SUGERIDA: Collage de 4 escenas cotidianas: nevera abierta, persona sudando, olla a presión con vapor, taza de café. Pie de foto: \"Cuatro momentos de tu día donde la termodinámica está trabajando.\"]**\n\n```prediction-box\nTITLE: ¿Qué enfría más rápido?\nQUESTION: Tienes dos tazas de café idénticas a 80°C. A una le soplas suavemente durante 30 segundos. A la otra no la tocas. Después de 5 minutos, ¿cuál está más fría?\nXP: 25\nOPTION_CORRECT: La que soplaste | Soplar acelera la convección forzada, retirando el vapor caliente y reemplazándolo con aire más frío. La diferencia puede ser de 3-5°C.\nOPTION_WRONG: Están igual | El soplido inicial acelera el enfriamiento aunque solo dure 30 segundos, porque retira la capa de aire caliente que aísla la superficie.\nOPTION_WRONG: La que no tocaste | El aire quieto actúa como aislante. Soplar rompe esa capa aislante.\nEXPLANATION: La convección forzada multiplica la tasa de transferencia de calor. Por eso los días de viento se sienten más fríos aunque la temperatura sea la misma.\n```",
+        "intermedio": "**La nevera**: ciclo de refrigeración por compresión de vapor:\n1. Compresor → gas caliente a alta presión\n2. Condensador (rejilla trasera) → disipa calor\n3. Válvula de expansión → el líquido se enfría bruscamente\n4. Evaporador (dentro) → absorbe calor del interior\n\nCOP típico ≈ 3 (extrae 3 J de calor por cada J de electricidad).\n\n**El cuerpo humano:**\n- Tasa metabólica basal: ~80 W\n- Ejercicio intenso: ~1000 W\n- Termorregulación: radiación (60%), evaporación/sudor (22%), convección (15%), conducción (3%)\n- 10 personas en una habitación = calefactor de 1 kW\n\n**Cocina:** el agua hierve a menor temperatura en altitudes altas. En la cima del Everest (~8.8 km), el agua hierve a ~70°C. La olla a presión sube el punto de ebullición a ~120°C.",
+        "avanzado": "**Psicrometría y confort térmico:** la carta psicrométrica relaciona T, humedad relativa, entalpía y punto de rocío. El aire acondicionado no solo enfría: deshumidifica. El calor latente de condensación del vapor de agua es una carga térmica significativa.\n\n**Termodinámica atmosférica:** gradiente adiabático seco Γ_d = g/cp ≈ 9.8 K/km. Gradiente húmedo ≈ 6.5 K/km (la condensación libera calor latente). La estabilidad atmosférica determina la formación de nubes.\n\n**Sistemas biológicos:** Schrödinger en \"What is Life?\" (1944) planteó que los seres vivos se alimentan de \"entropía negativa\" (neguentropía). La tasa de producción de entropía en la biosfera es ~1 W/kg·K, dominada por la fotosíntesis.\n\n```aeterna-decision\nBadge: Interdisciplinar\nTítulo: ¿Por qué vida = baja entropía?\nPregunta: Un ser vivo es una isla de orden. ¿Cómo no viola esto la Segunda Ley?\nNivel: avanzado\nXP: 50\nBotón: Comprobar\n```\n\n<Transfer targetDomain=\"Ingeniería y tecnología\" title=\"Transfiere: aplica la termodinámica\">\nDiseña un sistema de refrigeración para un centro de datos que genera 50 kW de calor. ¿Qué COP necesitarías para mantener la sala a 25°C si el exterior está a 35°C? ¿Qué pasaría si usaras el calor residual para calentar oficinas?\n</Transfer>"
+      },
+      "acciones": []
+    },
+    {
+      "id": "sistema-aeterna",
+      "titulo": "Sistema Aeterna: lo que has aprendido y hacia dónde vas",
+      "niveles": {
+        "principiante": "Has viajado desde una taza de café hasta el destino del universo. La termodinámica es simple en esencia: **la energía se conserva, pero el desorden siempre aumenta**.\n\nRecuerda:\n- 🔥 El calor es energía en movimiento, no una propiedad\n- 🧊 La temperatura mide la agitación de las partículas\n- ⚡ Nada se crea ni se destruye (Primera Ley)\n- 🎲 El desorden siempre crece (Segunda Ley)\n- ❄️ El cero absoluto es inalcanzable (Tercera Ley)\n- 🌡️ Si dos cosas tocan un termómetro y marcan igual, están a la misma temperatura (Ley Cero)\n\n```aeterna-exercise\nTITLE: Las cuatro leyes en tu día\nHINT: Busca ejemplos cotidianos: cocinar, ducharte, encender el coche.\nXP: 40\nDescribe una situación de tu día a día donde se manifiesten al menos dos de las leyes de la termodinámica.\nSOLUTION: Ejemplo: al ducharte con agua caliente, el agua cede calor a tu cuerpo (Ley Cero). La energía del calentador se convierte en calor (Primera Ley). El vapor se dispersa aumentando la entropía (Segunda Ley).\n```",
+        "intermedio": "**Resumen de las cuatro leyes**:\n\n| Ley | Enunciado | Ecuación clave |\n| :--- | :--- | :--- |\n| **Ley Cero** | Equilibrio térmico es transitivo | Si TA=TB y TB=TC → TA=TC |\n| **Primera Ley** | Conservación de la energía | ΔU = Q − W |\n| **Segunda Ley** | La entropía nunca disminuye | ΔS ≥ 0 (sistema aislado) |\n| **Tercera Ley** | Cero absoluto inalcanzable | S → 0 cuando T → 0 |\n\n**Fórmulas esenciales:**\n- $$ Q = m c \\Delta T $$ (calorimetría)\n- $$ PV = nRT $$ (gas ideal)\n- $$ \\Delta U = Q - W $$ (primera ley)\n- $$ \\eta_{max} = 1 - \\frac{T_f}{T_c} $$ (rendimiento Carnot)\n- $$ S = k_B \\ln \\Omega $$ (entropía de Boltzmann)\n\n**Próxima parada**: la termodinámica se conecta con la **mecánica estadística** y con la **cosmología**.\n\n```aeterna-decision\nBadge: Integración\nTítulo: Conectando con otras ramas\nPregunta: La termodinámica es macroscópica y fenomenológica. ¿Qué rama de la física explica SUS leyes desde primeros principios microscópicos?\nNivel: intermedio\nXP: 40\nBotón: Descubrir\nRespuesta: Respuesta: La mecánica estadística (Boltzmann, Gibbs, Maxwell) explica las leyes macroscópicas de la termodinámica a partir del comportamiento estadístico de partículas individuales. S = kB ln Ω es el puente entre ambos mundos.\n```",
+        "avanzado": "**Fronteras de la termodinámica moderna:**\n\n1. **Termodinámica cuántica**: motores cuánticos, refrigeración cuántica, baterías cuánticas.\n2. **Termodinámica de agujeros negros**: $$ S_{BH} = \\frac{k_B c^3 A}{4G\\hbar} $$ — conexión entre gravedad, termodinámica y mecánica cuántica.\n3. **Termodinámica de la información**: principio de Landauer, ecuación de Sagawa-Ueda para sistemas con retroalimentación.\n4. **Termodinámica estocástica**: relaciones de fluctuación (Jarzynski, Crooks) para sistemas microscópicos: $$ \\langle e^{-W/k_B T} \\rangle = e^{-\\Delta F/k_B T} $$\n\n**Preguntas abiertas**: ¿Por qué el universo comenzó con entropía tan baja? ¿Es la Segunda Ley responsable de la existencia del tiempo? ¿Puede la gravedad cuántica unificar la termodinámica de agujeros negros con la termodinámica ordinaria?\n\n**Siguiente parada sugerida**: [Mecánica Estadística] o [Cosmología] para explorar las consecuencias más profundas.\n\n<Transfer targetDomain=\"Filosofía de la ciencia\" title=\"Transfiere: el tiempo y la entropía\">\nSi la Segunda Ley es la razón de que el tiempo tenga dirección, ¿qué implicaciones tiene esto para el libre albedrío y el determinismo? Debate: ¿es el paso del tiempo una ilusión creada por el aumento de entropía?\n</Transfer>"
+      },
+      "acciones": []
+    },
+    {
+      "id": "laboratorio",
+      "titulo": "Laboratorio: Problemas resueltos paso a paso",
+      "niveles": {
+        "principiante": "## Calorimetría básica\n\n**Problema 1: Calentando agua para té**\n\nQuieres preparar té y necesitas calentar 300 g de agua desde 20°C hasta 90°C. ¿Cuánta energía necesitas?\n\n**Datos:** m = 0.3 kg, c_agua = 4184 J/(kg·K), ΔT = 90 − 20 = 70 K\n\n$$ Q = m c \\Delta T = 0.3 \\times 4184 \\times 70 = 87,864 \\text{ J} \\approx 87.9 \\text{ kJ} $$\n\n**Respuesta:** Necesitas aproximadamente 87.9 kJ, equivalente a dejar encendida una bombilla de 100 W durante unos 15 minutos.\n\n---\n\n## Mezclas térmicas\n\n**Problema 2: Café con leche**\n\nMezclas 200 g de café a 80°C con 50 g de leche fría a 5°C. ¿Cuál será la temperatura final de la mezcla? (Asume que el calor específico de ambos es el del agua: 4184 J/kg·K)\n\n**Principio:** El calor cedido por el café = calor absorbido por la leche.\n\n$$ m_c c (T_c - T_f) = m_l c (T_f - T_l) $$\n\n$$ 0.2 \\times 4184 \\times (80 - T_f) = 0.05 \\times 4184 \\times (T_f - 5) $$\n\nSimplificando (cancelamos c = 4184):\n\n$$ 0.2(80 - T_f) = 0.05(T_f - 5) $$\n$$ 16 - 0.2T_f = 0.05T_f - 0.25 $$\n$$ 16 + 0.25 = 0.25T_f $$\n$$ T_f = \\frac{16.25}{0.25} = 65°C $$\n\n**Respuesta:** La mezcla queda a 65°C. El café se enfría 15°C y la leche se calienta 60°C. La masa del café (mayor) domina la temperatura final.\n\n```aeterna-exercise\nTITLE: Mezcla de dos masas de agua\nHINT: Recuerda que el calor cedido por el agua caliente es igual al absorbido por el agua fría.\nXP: 40\nMezclas 150 g de agua a 90°C con 350 g de agua a 20°C. ¿Cuál es la temperatura final?\n```",
+        "intermedio": "## Gas ideal y cambios de estado\n\n**Problema 3: Globo de helio que asciende**\n\nUn globo meteorológico contiene 2 moles de helio a 1 atm de presión y 25°C a nivel del mar. Asciende hasta una altura donde la presión es 0.5 atm y la temperatura es −20°C. ¿Cuál es su nuevo volumen?\n\n**Datos:** n = 2 mol, P₁ = 1 atm = 101,325 Pa, T₁ = 25°C = 298 K, P₂ = 0.5 atm = 50,662.5 Pa, T₂ = −20°C = 253 K\n\nUsando PV = nRT:\n\n$$ V_1 = \\frac{nRT_1}{P_1} = \\frac{2 \\times 8.314 \\times 298}{101,325} = 0.0489 \\text{ m}^3 = 48.9 \\text{ L} $$\n\n$$ V_2 = \\frac{nRT_2}{P_2} = \\frac{2 \\times 8.314 \\times 253}{50,662.5} = 0.0830 \\text{ m}^3 = 83.0 \\text{ L} $$\n\n**Respuesta:** El globo se expande de 48.9 L a 83.0 L, casi el doble. Aunque la temperatura baja, la presión cae a la mitad, lo que domina.\n\n---\n\n## Primera ley en acción\n\n**Problema 4: Expansión isotérmica**\n\nUn gas ideal monoatómico (n = 1 mol) se expande isotérmicamente a 300 K desde V₁ = 10 L hasta V₂ = 25 L. Calcula: (a) el trabajo realizado, (b) el calor absorbido, (c) la variación de energía interna.\n\n**Resolución:**\n\n(a) Trabajo isotérmico: $$ W = nRT \\ln\\left(\\frac{V_2}{V_1}\\right) = 1 \\times 8.314 \\times 300 \\times \\ln\\left(\\frac{25}{10}\\right) $$\n$$ W = 2494.2 \\times \\ln(2.5) = 2494.2 \\times 0.916 = 2285 \\text{ J} $$\n\n(b) En un proceso isotérmico, ΔU = 0, por lo que Q = W = 2285 J.\n\n(c) ΔU = 0 (la energía interna de un gas ideal solo depende de la temperatura).\n\n**Respuesta:** W = 2285 J, Q = 2285 J, ΔU = 0.\n\n---\n\n## Calorimetría avanzada: cambios de fase\n\n**Problema 5: Derritiendo hielo**\n\nTienes 50 g de hielo a 0°C y quieres convertirlo en agua líquida a 30°C. ¿Cuánta energía necesitas? (Calor latente de fusión del hielo: Lf = 334,000 J/kg)\n\n**Paso 1:** Fundir el hielo a 0°C:\n$$ Q_1 = m L_f = 0.05 \\times 334,000 = 16,700 \\text{ J} $$\n\n**Paso 2:** Calentar el agua resultante de 0°C a 30°C:\n$$ Q_2 = m c \\Delta T = 0.05 \\times 4184 \\times 30 = 6,276 \\text{ J} $$\n\n**Total:** $$ Q = Q_1 + Q_2 = 16,700 + 6,276 = 22,976 \\text{ J} \\approx 23.0 \\text{ kJ} $$\n\n**Respuesta:** Necesitas 23 kJ. La mayor parte (73%) se gasta solo en fundir el hielo, sin cambiar la temperatura.\n\n```aeterna-exercise\nTITLE: De hielo a vapor\nHINT: Hay tres etapas: calentar hielo, fundir, calentar agua, vaporizar, calentar vapor.\nXP: 60\n¿Cuánta energía necesitas para convertir 100 g de hielo a −10°C en vapor de agua a 100°C? Datos: c_hielo = 2090 J/(kg·K), Lf = 334,000 J/kg, c_agua = 4184 J/(kg·K), Lv = 2,260,000 J/kg.\n```",
+        "avanzado": "## Ciclo de Carnot y rendimiento\n\n**Problema 6: Central térmica ideal**\n\nUna central térmica opera con una caldera a 600 K y un condensador a 300 K. Si absorbe 500 MW de calor de la caldera, calcula: (a) el rendimiento máximo de Carnot, (b) la potencia máxima que puede generar, (c) el calor cedido al condensador.\n\n**Resolución:**\n\n(a) Rendimiento: $$ \\eta_{max} = 1 - \\frac{T_f}{T_c} = 1 - \\frac{300}{600} = 0.50 = 50\\% $$\n\n(b) Potencia máxima: $$ W_{max} = \\eta \\times Q_c = 0.50 \\times 500 = 250 \\text{ MW} $$\n\n(c) Calor cedido: $$ Q_f = Q_c - W_{max} = 500 - 250 = 250 \\text{ MW} $$\n\n**Respuesta:** Como máximo, la mitad de la energía del combustible se convierte en electricidad. La otra mitad se pierde inevitablemente. Ninguna mejora tecnológica puede superar este límite: es una ley de la naturaleza.\n\n---\n\n## Entropía en procesos reversibles\n\n**Problema 7: Cambio de entropía al fundir hielo**\n\nCalcula el cambio de entropía cuando 1 kg de hielo se funde reversiblemente a 0°C. Lf = 334,000 J/kg.\n\n**Resolución:**\n\nEn un proceso reversible a temperatura constante:\n$$ \\Delta S = \\frac{Q_{rev}}{T} = \\frac{m L_f}{T} = \\frac{1 \\times 334,000}{273} = 1223.4 \\text{ J/K} $$\n\nEl hielo absorbe 334 kJ del entorno, aumentando su entropía en 1223 J/K. Simultáneamente, el entorno cede 334 kJ a 273 K, disminuyendo su entropía en 1223 J/K. ΔS_total = 0 para un proceso reversible.\n\n---\n\n## Eficiencia de una bomba de calor\n\n**Problema 8: Calefacción con bomba de calor**\n\nUna bomba de calor extrae calor del exterior a 5°C y lo cede al interior de una casa a 25°C. ¿Cuál es su COP máximo teórico?\n\n**Resolución:**\n\n$$ COP_{max} = \\frac{T_c}{T_c - T_f} = \\frac{298}{298 - 278} = \\frac{298}{20} = 14.9 $$\n\n**Respuesta:** Por cada julio de electricidad consumido, la bomba de calor puede transferir hasta 14.9 J de calor al interior. En la práctica, el COP real es de 3-5.\n\n```aeterna-decision\nBadge: Aplicación\nTítulo: ¿Central o bomba de calor?\nPregunta: ¿Por qué una bomba de calor puede tener un COP > 1 (hasta ~15 teóricamente) mientras que el rendimiento de una central térmica siempre es < 1?\nNivel: avanzado\nXP: 70\nBotón: Comprobar\n```\n\n---\n\n## Ecuación de van der Waals\n\n**Problema 9: Gas real**\n\nUn mol de CO₂ ocupa 0.5 L a 300 K. Calcula la presión usando (a) la ecuación del gas ideal y (b) la ecuación de van der Waals. Discute la diferencia.\n\nDatos para CO₂: a = 0.364 J·m³/mol², b = 4.27×10⁻⁵ m³/mol.\n\n**Resolución:**\n\n(a) Gas ideal: $$ P_{ideal} = \\frac{nRT}{V} = \\frac{1 \\times 8.314 \\times 300}{0.0005} = 4,988,400 \\text{ Pa} \\approx 49.2 \\text{ atm} $$\n\n(b) van der Waals:\n$$ P_{vdW} = \\frac{nRT}{V - nb} - a\\frac{n^2}{V^2} = \\frac{8.314 \\times 300}{0.0005 - 0.0000427} - \\frac{0.364}{0.0005^2} $$\n$$ P_{vdW} = \\frac{2494.2}{0.0004573} - 1,456,000 = 5,452,000 - 1,456,000 = 3,996,000 \\text{ Pa} \\approx 39.4 \\text{ atm} $$\n\n**Respuesta:** El gas ideal predice 49.2 atm; van der Waals predice 39.4 atm. La diferencia (~20%) se debe a que a 0.5 L, las moléculas de CO₂ están muy juntas y las fuerzas atractivas reducen significativamente la presión."
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": "La termodinámica nació de una pregunta práctica —cómo construir mejores máquinas de vapor— y acabó revelando algunas de las verdades más profundas del universo. Cuatro leyes gobiernan el flujo del calor, la conservación de la energía, la inevitabilidad del desorden y la imposibilidad del frío absoluto. Son leyes que no dependen de los detalles: aplican a una taza de café, a una estrella, a un agujero negro y al cosmos entero. La termodinámica es, en esencia, la física del tiempo.",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Calentando agua para el té",
+        "enunciado": "Quieres preparar té y necesitas calentar 300 g de agua desde 20°C hasta 90°C. ¿Cuánta energía necesitas? (c_agua = 4184 J/kg·K)",
+        "solucion": "Q = m × c × ΔT = 0.3 × 4184 × 70 = 87,864 J ≈ 87.9 kJ.\n\nNecesitas aproximadamente 87.9 kJ, equivalente a dejar encendida una bombilla de 100 W durante unos 15 minutos.",
+        "xp": 30,
+        "pistas": [
+          "La fórmula es Q = m × c × ΔT. Identifica cada variable: masa (m), calor específico (c), y cambio de temperatura (ΔT).",
+          "Convierte los gramos a kilogramos: 300 g = 0.3 kg. El cambio de temperatura es 90 − 20 = 70°C = 70 K.",
+          "Multiplica: 0.3 × 4184 × 70. El resultado está en julios (J)."
+        ],
+        "opciones": [
+          {
+            "label": "87.9 kJ",
+            "correcta": true
+          },
+          {
+            "label": "21.0 kJ",
+            "correcta": false
+          },
+          {
+            "label": "418.4 kJ",
+            "correcta": false
+          },
+          {
+            "label": "8.8 kJ",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Convierte la masa a kilogramos: 300 g = 0.3 kg",
+          "Identifica el cambio de temperatura: ΔT = 90°C − 20°C = 70°C = 70 K",
+          "Aplica la fórmula Q = m·c·ΔT: 0.3 × 4184 × 70 = 87,864 J",
+          "Convierte a kJ dividiendo entre 1000: 87,864 J = 87.9 kJ"
+        ]
+      },
+      {
+        "titulo": "Café con leche",
+        "enunciado": "Mezclas 200 g de café a 80°C con 50 g de leche fría a 5°C. ¿Cuál será la temperatura final? (Asume c para ambos = 4184 J/kg·K)",
+        "solucion": "Por conservación de energía: calor cedido por el café = calor absorbido por la leche.\n\nm_c × c × (T_c − T_f) = m_l × c × (T_f − T_l)\n\n0.2 × (80 − Tf) = 0.05 × (Tf − 5)\n16 − 0.2Tf = 0.05Tf − 0.25\n16.25 = 0.25Tf → Tf = 65°C\n\nLa masa del café (mayor) domina la temperatura final.",
+        "xp": 40,
+        "pistas": [
+          "El principio es: calor cedido = calor absorbido. La misma sustancia (c igual) simplifica la ecuación.",
+          "Elimina c de ambos lados: m_café × (80 − Tf) = m_leche × (Tf − 5).",
+          "Sustituye masas: 0.2(80 − Tf) = 0.05(Tf − 5). Despeja Tf."
+        ],
+        "pasos": [
+          "Escribe la ecuación de conservación: Q_cedido = Q_absorbido",
+          "Sustituye: m_café·c·(80 − Tf) = m_leche·c·(Tf − 5)",
+          "Como c es igual, cancélala de ambos lados",
+          "Sustituye las masas: 0.2(80 − Tf) = 0.05(Tf − 5)",
+          "Desarrolla: 16 − 0.2Tf = 0.05Tf − 0.25",
+          "Agrupa términos con Tf: 16 + 0.25 = 0.25Tf",
+          "Calcula: Tf = 16.25 / 0.25 = 65°C"
+        ]
+      },
+      {
+        "titulo": "Mezcla de dos masas de agua",
+        "enunciado": "Mezclas 150 g de agua a 90°C con 350 g de agua a 20°C. ¿Cuál es la temperatura final?",
+        "solucion": "0.15 × (90 − Tf) = 0.35 × (Tf − 20)\n13.5 − 0.15Tf = 0.35Tf − 7\n20.5 = 0.5Tf → Tf = 41°C",
+        "xp": 35,
+        "pistas": [
+          "Misma lógica: el calor que pierde el agua caliente lo gana el agua fría.",
+          "La masa total es 500 g. La mayor parte está fría (350 g), así que Tf estará más cerca de 20°C.",
+          "0.15(90 − Tf) = 0.35(Tf − 20). Resuelve."
+        ],
+        "opciones": [
+          {
+            "label": "41°C",
+            "correcta": true
+          },
+          {
+            "label": "55°C",
+            "correcta": false
+          },
+          {
+            "label": "35°C",
+            "correcta": false
+          },
+          {
+            "label": "70°C",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Plantea: m₁·(T₁ − Tf) = m₂·(Tf − T₂)",
+          "Sustituye: 0.15(90 − Tf) = 0.35(Tf − 20)",
+          "Desarrolla: 13.5 − 0.15Tf = 0.35Tf − 7",
+          "Agrupa: 13.5 + 7 = 0.5Tf",
+          "Calcula: Tf = 20.5 / 0.5 = 41°C"
+        ]
+      },
+      {
+        "titulo": "Energía de una ducha caliente",
+        "enunciado": "Una ducha típica consume 50 L de agua caliente. El agua entra a 15°C y se calienta a 40°C. ¿Cuánta energía consume una ducha? (1 L de agua = 1 kg, c = 4184 J/kg·K)",
+        "solucion": "Q = m × c × ΔT = 50 × 4184 × (40 − 15) = 50 × 4184 × 25 = 5,230,000 J = 5.23 MJ ≈ 1.45 kWh.\n\nUna ducha de 5 minutos consume aproximadamente 5.23 MJ de energía solo para calentar el agua.",
+        "xp": 30,
+        "pistas": [
+          "Convierte litros a kg: 50 L = 50 kg de agua",
+          "ΔT = 40 − 15 = 25°C",
+          "Q = 50 × 4184 × 25. El resultado en julios."
+        ],
+        "pasos": [
+          "Masa de agua: 50 L = 50 kg",
+          "ΔT = 40°C − 15°C = 25 K",
+          "Q = 50 × 4184 × 25 = 5,230,000 J",
+          "Convierte a kWh: 5,230,000 ÷ 3,600,000 = 1.45 kWh"
+        ]
+      },
+      {
+        "titulo": "Hielo en bebida",
+        "enunciado": "Añades 3 cubitos de hielo (30 g en total) a 0°C en un vaso con 200 g de refresco a 25°C. ¿Cuánto refresco queda sin enfriar? Es decir, ¿qué temperatura final alcanza? (Lf = 334 J/g, c = 4.184 J/g·K)",
+        "solucion": "El hielo primero se funde (absorbe 30 × 334 = 10,020 J) y luego el agua resultante se calienta. Q_fundir + m_hielo×c×(Tf − 0) = m_refresco×c×(25 − Tf). Con c = 4.184 J/g·K:\n\n10,020 + 30×4.184×Tf = 200×4.184×(25 − Tf)\n10,020 + 125.5Tf = 20,920 − 836.8Tf\n962.3Tf = 10,900\nTf ≈ 11.3°C",
+        "xp": 40,
+        "pistas": [
+          "Hay dos procesos para el hielo: fundirse (Q = m×Lf) y calentarse (Q = m×c×ΔT)",
+          "Q_fundir = 30 g × 334 J/g = 10,020 J",
+          "Plantea: 10,020 + 30×4.184×Tf = 200×4.184×(25 − Tf)"
+        ],
+        "pasos": [
+          "Calcula energía para fundir: Q₁ = 30 × 334 = 10,020 J",
+          "Plantea balance: Q₁ + m_hielo×c×(Tf−0) = m_bebida×c×(25−Tf)",
+          "Sustituye: 10,020 + 30×4.184×Tf = 200×4.184×(25−Tf)",
+          "Calcula lado derecho: 200×4.184×25 = 20,920",
+          "Ecuación: 10,020 + 125.5Tf = 20,920 − 836.8Tf",
+          "Agrupa: 962.3Tf = 10,900 → Tf = 11.3°C"
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Globo meteorológico",
+        "enunciado": "Un globo contiene 2 moles de helio a 1 atm y 25°C. Asciende hasta donde P = 0.5 atm y T = −20°C. ¿Nuevo volumen?",
+        "solucion": "Usando PV = nRT:\n\nV₁ = nRT₁/P₁ = 2 × 8.314 × 298 / 101,325 = 0.0489 m³ = 48.9 L\nV₂ = 2 × 8.314 × 253 / 50,662.5 = 0.0830 m³ = 83 L\n\nEl globo se expande casi al doble. Aunque T baja, P cae a la mitad (domina).",
+        "xp": 50,
+        "pistas": [
+          "Usa la ecuación del gas ideal: PV = nRT. Calcula V₁ primero, luego V₂.",
+          "Convierte temperaturas a Kelvin: T₁ = 25 + 273 = 298 K, T₂ = −20 + 273 = 253 K.",
+          "Convierte presiones a Pa: 1 atm = 101,325 Pa. R = 8.314 J/(mol·K)."
+        ],
+        "opciones": [
+          {
+            "label": "83 L",
+            "correcta": true
+          },
+          {
+            "label": "49 L",
+            "correcta": false
+          },
+          {
+            "label": "25 L",
+            "correcta": false
+          },
+          {
+            "label": "166 L",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Convierte temperaturas a Kelvin: T₁ = 25°C + 273 = 298 K, T₂ = −20°C + 273 = 253 K",
+          "Convierte presiones a Pa: P₁ = 1 atm = 101,325 Pa, P₂ = 0.5 atm = 50,662.5 Pa",
+          "Calcula V₁ = nRT₁/P₁ = (2 × 8.314 × 298) / 101,325 = 0.0489 m³",
+          "Calcula V₂ = nRT₂/P₂ = (2 × 8.314 × 253) / 50,662.5 = 0.0830 m³",
+          "Convierte a litros: V₁ = 48.9 L, V₂ = 83.0 L. El globo se expande ~70%"
+        ]
+      },
+      {
+        "titulo": "Expansión isotérmica",
+        "enunciado": "1 mol de gas ideal a 300 K se expande isotérmicamente de 10 L a 25 L. Calcula W, Q y ΔU.",
+        "solucion": "W = nRT ln(V₂/V₁) = 1 × 8.314 × 300 × ln(2.5) = 2494.2 × 0.916 = 2285 J\n\nΔU = 0 (T constante en gas ideal)\nQ = W = 2285 J (por la Primera Ley)",
+        "xp": 50,
+        "pistas": [
+          "En un proceso isotérmico, ΔU = 0 para un gas ideal. Por la Primera Ley: Q = W.",
+          "W = nRT × ln(V₂/V₁). Sustituye y calcula el logaritmo natural.",
+          "ln(2.5) ≈ 0.916. Multiplica por nRT = 1 × 8.314 × 300 = 2494.2."
+        ],
+        "pasos": [
+          "En proceso isotérmico de gas ideal: ΔU = 0",
+          "Por la Primera Ley: Q = W",
+          "Calcula W = nRT·ln(V₂/V₁) = 1 × 8.314 × 300 × ln(25/10)",
+          "ln(2.5) ≈ 0.9163",
+          "W = 2494.2 × 0.9163 = 2285 J. Por tanto Q = 2285 J"
+        ]
+      },
+      {
+        "titulo": "De hielo a vapor",
+        "enunciado": "¿Cuánta energía para convertir 100 g de hielo a −10°C en vapor a 100°C? (c_hielo=2090, Lf=334000, c_agua=4184, Lv=2260000 J/kg)",
+        "solucion": "4 etapas:\nQ₁(calentar hielo −10→0) = 0.1 × 2090 × 10 = 2,090 J\nQ₂(fundir hielo) = 0.1 × 334,000 = 33,400 J\nQ₃(calentar agua 0→100) = 0.1 × 4184 × 100 = 41,840 J\nQ₄(vaporizar agua) = 0.1 × 2,260,000 = 226,000 J\n\nTotal = 303,330 J ≈ 303 kJ\n\nEl 75% se gasta solo en vaporizar. Los cambios de fase requieren mucha más energía que los cambios de temperatura.",
+        "xp": 60,
+        "pistas": [
+          "Hay 4 etapas: calentar hielo, fundir, calentar agua, vaporizar.",
+          "Para cambios de fase usa Q = m × L (L es calor latente). Para cambios de temperatura usa Q = m × c × ΔT.",
+          "Convierte 100 g = 0.1 kg. Suma las 4 energías."
+        ],
+        "pasos": [
+          "Etapa 1: Calentar hielo de −10°C a 0°C. Q₁ = 0.1 × 2090 × 10 = 2,090 J",
+          "Etapa 2: Fundir hielo a 0°C. Q₂ = 0.1 × 334,000 = 33,400 J",
+          "Etapa 3: Calentar agua de 0°C a 100°C. Q₃ = 0.1 × 4184 × 100 = 41,840 J",
+          "Etapa 4: Vaporizar agua a 100°C. Q₄ = 0.1 × 2,260,000 = 226,000 J",
+          "Suma total: 2,090 + 33,400 + 41,840 + 226,000 = 303,330 J ≈ 303 kJ"
+        ]
+      },
+      {
+        "titulo": "Compresión isotérmica",
+        "enunciado": "2 moles de gas ideal se comprimen isotérmicamente a 350 K desde 40 L hasta 10 L. Calcula: (a) W, (b) Q, (c) ΔU.",
+        "solucion": "W = nRT·ln(V₂/V₁) = 2 × 8.314 × 350 × ln(10/40) = 5819.8 × ln(0.25). ln(0.25) = −1.386.\n\nW = 5819.8 × (−1.386) = −8,066 J (trabajo hecho SOBRE el gas, por eso es negativo).\nΔU = 0 (T constante). Q = W = −8,066 J (el gas cede calor al entorno).",
+        "xp": 50,
+        "pistas": [
+          "Proceso isotérmico: ΔU = 0, Q = W",
+          "W = nRT·ln(V₂/V₁). Como V₂ < V₁, el logaritmo es negativo",
+          "nRT = 2 × 8.314 × 350 = 5,819.8. ln(0.25) = −1.386"
+        ],
+        "pasos": [
+          "W = nRT·ln(V₂/V₁) = 2×8.314×350×ln(10/40)",
+          "ln(0.25) = −ln(4) = −1.386",
+          "W = 5,819.8 × (−1.386) = −8,066 J",
+          "ΔU = 0 porque T es constante",
+          "Q = W = −8,066 J (el gas cede calor)"
+        ]
+      },
+      {
+        "titulo": "Rendimiento real de un motor",
+        "enunciado": "Un motor de coche absorbe 800 J de calor del combustible y realiza 240 J de trabajo útil por ciclo. El foco caliente está a 500 K y el frío a 320 K. Calcula: (a) rendimiento real, (b) rendimiento de Carnot, (c) eficiencia relativa (η_real / η_Carnot).",
+        "solucion": "(a) η_real = 240 / 800 = 0.30 = 30%\n(b) η_Carnot = 1 − 320/500 = 1 − 0.64 = 0.36 = 36%\n(c) Eficiencia relativa = 0.30 / 0.36 = 0.833 = 83.3%\n\nEl motor alcanza el 83% de su máximo teórico. El 17% restante se pierde por irreversibilidades.",
+        "xp": 50,
+        "pistas": [
+          "η_real = W_útil / Q_absorbido",
+          "η_Carnot = 1 − Tf/Tc",
+          "Divide η_real entre η_Carnot para la eficiencia relativa"
+        ],
+        "pasos": [
+          "η_real = 240 / 800 = 0.30 = 30%",
+          "η_Carnot = 1 − 320/500 = 0.36 = 36%",
+          "Eficiencia relativa = 30% / 36% = 83.3%"
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Central térmica ideal (Carnot)",
+        "enunciado": "Una central opera con caldera a 600 K y condensador a 300 K. Absorbe 500 MW de la caldera. Calcula: (a) η_max, (b) W_max, (c) Q_f.",
+        "solucion": "(a) η_max = 1 − T_f/T_c = 1 − 300/600 = 0.50 = 50%\n(b) W_max = η × Q_c = 0.50 × 500 = 250 MW\n(c) Q_f = Q_c − W_max = 500 − 250 = 250 MW\n\nLa mitad de la energía del combustible se convierte en electricidad. La otra mitad se pierde inevitablemente. ¡Es una ley de la naturaleza, no un defecto de ingeniería!",
+        "xp": 60,
+        "pistas": [
+          "El rendimiento de Carnot es η = 1 − T_f/T_c. Ambas temperaturas en Kelvin.",
+          "La potencia máxima es W_max = η × Q_absorbido.",
+          "Por conservación de energía: Q_f = Q_c − W."
+        ],
+        "opciones": [
+          {
+            "label": "η = 50%, W = 250 MW",
+            "correcta": true
+          },
+          {
+            "label": "η = 100%, W = 500 MW",
+            "correcta": false
+          },
+          {
+            "label": "η = 25%, W = 125 MW",
+            "correcta": false
+          },
+          {
+            "label": "η = 75%, W = 375 MW",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Aplica la fórmula de Carnot: η = 1 − Tf/Tc",
+          "Sustituye: η = 1 − 300/600 = 1 − 0.5 = 0.50 = 50%",
+          "Potencia máxima: W = η × Qc = 0.50 × 500 MW = 250 MW",
+          "Calor cedido por conservación: Qf = Qc − W = 500 − 250 = 250 MW"
+        ]
+      },
+      {
+        "titulo": "Entropía al fundir hielo",
+        "enunciado": "Calcula ΔS cuando 1 kg de hielo se funde reversiblemente a 0°C. Lf = 334,000 J/kg.",
+        "solucion": "ΔS = Q_rev/T = mLf/T = 1 × 334,000 / 273 = 1,223.4 J/K\n\nΔS_total = 0 para un proceso reversible: el entorno cede exactamente la misma cantidad de entropía que el hielo gana.",
+        "xp": 50,
+        "pistas": [
+          "Para un proceso reversible a T constante: ΔS = Q_rev / T.",
+          "El calor absorbido es Q = mLf = 1 × 334,000 = 334,000 J.",
+          "T = 0°C = 273 K. Divide 334,000 entre 273."
+        ],
+        "pasos": [
+          "Para un proceso reversible a T constante: ΔS = Q_rev / T",
+          "Calcula el calor: Q = m × Lf = 1 × 334,000 = 334,000 J",
+          "Convierte T a Kelvin: 0°C = 273 K",
+          "Calcula ΔS = 334,000 / 273 = 1,223.4 J/K",
+          "ΔS_total = 0 porque el entorno cede exactamente la misma entropía"
+        ]
+      },
+      {
+        "titulo": "COP de bomba de calor",
+        "enunciado": "Una bomba de calor extrae calor del exterior a 5°C y lo cede al interior a 25°C. Calcula el COP máximo teórico.",
+        "solucion": "COP_max = Tc / (Tc − Tf) = 298 / (298 − 278) = 298/20 = 14.9\n\nPor cada julio de electricidad consumido, puede transferir hasta 14.9 J de calor al interior. En la práctica el COP real es 3-5.",
+        "xp": 50,
+        "pistas": [
+          "Para una bomba de calor: COP_max = Tc/(Tc − Tf). Temperaturas en Kelvin.",
+          "Tc = 25 + 273 = 298 K, Tf = 5 + 273 = 278 K.",
+          "ΔT = 298 − 278 = 20 K. COP = 298/20."
+        ],
+        "opciones": [
+          {
+            "label": "COP ≈ 15",
+            "correcta": true
+          },
+          {
+            "label": "COP ≈ 1",
+            "correcta": false
+          },
+          {
+            "label": "COP ≈ 60",
+            "correcta": false
+          },
+          {
+            "label": "COP ≈ 5",
+            "correcta": false
+          }
+        ],
+        "pasos": [
+          "Convierte temperaturas a Kelvin: Tc = 25 + 273 = 298 K, Tf = 5 + 273 = 278 K",
+          "Aplica COP_max = Tc / (Tc − Tf)",
+          "Calcula ΔT = 298 − 278 = 20 K",
+          "COP_max = 298 / 20 = 14.9",
+          "Interpreta: por cada J de electricidad, transfiere hasta 14.9 J de calor"
+        ]
+      },
+      {
+        "titulo": "Entropía en expansión libre",
+        "enunciado": "Un gas ideal (n=1 mol) se expande libremente (contra vacío) duplicando su volumen. Calcula ΔS del gas, del entorno y del universo. ¿Es reversible?",
+        "solucion": "ΔS_gas = nR·ln(V₂/V₁) = 1 × 8.314 × ln(2) = 5.76 J/K\n\nComo es expansión libre: W = 0, Q = 0 (no intercambia calor con el entorno). Por tanto ΔS_entorno = 0.\n\nΔS_universo = 5.76 + 0 = 5.76 J/K > 0 → proceso IRREVERSIBLE (Segunda Ley).",
+        "xp": 60,
+        "pistas": [
+          "Para gas ideal en proceso isotérmico: ΔS = nR·ln(V₂/V₁)",
+          "En expansión libre no hay intercambio de calor: Q = 0, por tanto ΔS_entorno = 0",
+          "Si ΔS_universo > 0, el proceso es irreversible"
+        ],
+        "pasos": [
+          "ΔS_gas = nR·ln(V₂/V₁) = 1 × 8.314 × ln(2)",
+          "ln(2) = 0.693 → ΔS_gas = 5.76 J/K",
+          "Expansión libre: W = 0, Q = 0 → ΔS_entorno = 0",
+          "ΔS_universo = 5.76 J/K > 0 → IRREVERSIBLE"
+        ]
+      },
+      {
+        "titulo": "Motor de Carnot con dos focos",
+        "enunciado": "Un inventor afirma haber creado un motor que opera entre 800 K y 300 K con un rendimiento del 70%. ¿Es posible? Justifica con la Segunda Ley.",
+        "solucion": "η_Carnot = 1 − 300/800 = 1 − 0.375 = 0.625 = 62.5%\n\nEl rendimiento máximo teórico para estas temperaturas es 62.5%. Un rendimiento del 70% SUPERARÍA el límite de Carnot, lo cual viola la Segunda Ley de la termodinámica.\n\nEs imposible. El inventor está equivocado o mintiendo.",
+        "xp": 50,
+        "pistas": [
+          "Calcula primero el rendimiento máximo de Carnot: η = 1 − Tf/Tc",
+          "η_max = 1 − 300/800 = 0.625 = 62.5%",
+          "Si afirma 70%, ¿supera el máximo?"
+        ],
+        "pasos": [
+          "η_Carnot = 1 − Tf/Tc = 1 − 300/800",
+          "η_Carnot = 1 − 0.375 = 0.625 = 62.5%",
+          "70% > 62.5% → supera el límite de Carnot",
+          "Conclusión: viola la Segunda Ley → IMPOSIBLE"
+        ]
+      }
+    ]
+  }
+}

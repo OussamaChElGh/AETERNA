@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="wall-nw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#443930" />
+      <stop offset="50%" stop-color="#352C25" />
+      <stop offset="100%" stop-color="#241D18" />
+    </linearGradient>
+    <linearGradient id="wall-ne" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D241D" />
+      <stop offset="60%" stop-color="#1E1712" />
+      <stop offset="100%" stop-color="#140E0A" />
+    </linearGradient>
+    <linearGradient id="glass-amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" stop-opacity="0.95" />
+      <stop offset="40%" stop-color="#F59E0B" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#78350F" stop-opacity="0.4" />
+    </linearGradient>
+  </defs>
+  <!-- NW Wall -->
+  <polygon points="600,240 408,336 408,166 600,70" fill="url(#wall-nw)" stroke="#17120E" stroke-width="2" />
+  <!-- NE Wall -->
+  <polygon points="600,240 920,400 920,230 600,70" fill="url(#wall-ne)" stroke="#120D09" stroke-width="2" />
+  <!-- Gothic Arch Window -->
+  <g transform="translate(504, 203)">
+    <path d="M -28,25 L -28,-20 Q 0,-60 28,-20 L 28,25 Z" fill="#1C1510" stroke="#D4AF37" stroke-width="3" />
+    <path d="M -22,20 L -22,-16 Q 0,-50 22,-16 L 22,20 Z" fill="url(#glass-amber)" />
+    <line x1="0" y1="-45" x2="0" y2="20" stroke="#381D08" stroke-width="3" />
+    <line x1="-22" y1="-10" x2="22" y2="-10" stroke="#381D08" stroke-width="2.5" />
+  </g>
+</svg>

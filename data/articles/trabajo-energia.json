@@ -1,0 +1,413 @@
+{
+  "metadata": {
+    "title": "Trabajo y Energía: Las Monedas del Movimiento",
+    "description": "Guía completa de trabajo y energía: trabajo físico, energía cinética y potencial, teorema trabajo-energía, conservación de la energía, fuerzas conservativas, potencia y rendimiento. Con laboratorio de ejercicios y bloques interactivos.",
+    "slug": "trabajo-energia",
+    "author": "Aeterna",
+    "category": "ciencias_naturales",
+    "subcategory": "fisica",
+    "tags": [
+      "trabajo",
+      "energía",
+      "energía cinética",
+      "energía potencial",
+      "conservación",
+      "potencia",
+      "rendimiento",
+      "fuerzas conservativas",
+      "teorema trabajo-energía"
+    ],
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-08",
+    "nivel": 2,
+    "nivel_titulo": "El Reino de lo Clásico",
+    "orden": 3,
+    "insignia": "Conservador de la Energía",
+    "tipo": "theory",
+    "prerequisites": [
+      "cinematica",
+      "leyes-newton-movimiento"
+    ],
+    "breadcrumb": "Física / El Reino de lo Clásico / Trabajo y Energía"
+  },
+  "introduccion": "# Trabajo y Energía: Las Monedas del Movimiento\n\nImagina que empujas una caja pesada por el suelo. Tu cuerpo se cansa, sudas, sientes el esfuerzo. En física, ese esfuerzo tiene un nombre exacto: **trabajo**. Y lo que se gasta o se gana con ese esfuerzo se llama **energía**.\n\nLa energía es la moneda universal del universo. Se presenta en mil formas —cinética, potencial, térmica, química, eléctrica— pero siempre se conserva: **nada se crea ni se destruye, solo se transforma**.\n\n**[IMAGEN SUGERIDA: El ángulo entre fuerza y desplazamiento determina cuánto trabajo se realiza. Pie de foto: \"El ángulo entre fuerza y desplazamiento determina cuánto trabajo se realiza.\"]**\n\n> La energía es la capacidad de realizar un trabajo. Cuando un cuerpo realiza trabajo, transfiere energía de una forma a otra. Este es el puente que conecta la mecánica con todas las demás ramas de la física.\n\nElige tu capa de profundidad y descubre cómo se mueve el dinero del universo.",
+  "secciones": [
+    {
+      "id": "bienvenida",
+      "titulo": "Bienvenida: Las monedas del movimiento",
+      "niveles": {
+        "principiante": "Imagina que empujas una caja pesada por el suelo. Tu cuerpo se cansa, sudas, sientes el esfuerzo. En física, ese esfuerzo tiene un nombre exacto: **trabajo**. Y lo que se gasta o se gana con ese esfuerzo se llama **energía**.\n\n**¿Qué es la energía?** Es la capacidad de realizar un trabajo. Se presenta en mil formas —cinética, potencial, térmica, química, eléctrica— pero siempre se conserva: **nada se crea ni se destruye, solo se transforma**.\n\n**¿Qué es el trabajo?** Es la energía transferida por una fuerza que desplaza un objeto. Si sostienes una maleta sin moverte, no haces trabajo en física: no hay desplazamiento.\n\n> **La clave en 10 segundos:** La energía es la moneda del universo. El trabajo es la transacción que la convierte de una forma a otra. Cuando empujas una caja, la energía de tu cuerpo se transfiere a la caja como trabajo.\n\n**[IMAGEN SUGERIDA: Una persona empujando una caja pesada por un suelo, con flechas de fuerza y energía. Pie de foto: \"El trabajo físico es el esfuerzo que transforma energía.\"]**",
+        "intermedio": "La energía es la **moneda universal** de la física: una magnitud escalar que se conserva en todos los procesos. El trabajo es el **puente** que conecta las fuerzas con la energía: la fuerza aplicada sobre una distancia transfiere energía de un sistema a otro.\n\n**Los tres pilares de este tema:**\n\n1. **Trabajo**: W = F·d·cos(θ) — la energía transferida por una fuerza\n2. **Energía cinética**: Ec = ½mv² — la energía del movimiento\n3. **Energía potencial**: Ep = mgh — la energía de la posición\n\n**El teorema que lo conecta todo:**\n\n> El trabajo neto realizado sobre un objeto es igual al cambio en su energía cinética: W_neto = ΔEc.\n\nEste teorema es la herramienta más poderosa para resolver problemas de mecánica: en vez de analizar fuerzas con detalle, puedes usar el balance de energía.\n\n**[IMAGEN SUGERIDA: Diagrama que muestra la conversión entre energía cinética y potencial en una montaña rusa. Pie de foto: \"La energía se transforma entre cinética y potencial, pero el total se conserva.\"]**\n\n<PedagogicalContentBlock type=\"key-insight\">\n**Idea clave:** El trabajo y la energía son los dos lados de la misma moneda. El trabajo transfiere energía; la energía se conserva. Dominar este balance resuelve la mayoría de problemas de mecánica.\n</PedagogicalContentBlock>",
+        "avanzado": "El principio de conservación de la energía es una de las leyes más profundas de la física. El teorema de Noether lo conecta con la **simetría de traslación temporal**: si las leyes de la física son las mismas en cada instante, la energía se conserva.\n\n**La estructura conceptual:**\n\n- **Trabajo** (proceso): no es una propiedad del sistema, es una transferencia de energía que depende del camino (diferencial inexacta δW)\n- **Energía** (estado): es una función de estado, depende solo del estado del sistema\n- **Potencia**: la rapidez de la transferencia, P = dW/dt\n\n**De fuerzas a potenciales:**\n\nLas fuerzas conservativas derivan de una energía potencial: F = −∇U. Esta estructura permite resolver problemas sin integrar las fuerzas directamente, usando solo los puntos inicial y final.\n\n**[IMAGEN SUGERIDA: Curva de energía potencial U(x) con puntos de equilibrio estable e inestable. Pie de foto: \"El análisis de la energía potencial revela el movimiento sin resolver las fuerzas.\"]**\n\n<HiddenAssumption assumption=\"La energía mecánica se conserva solo sin fricción\">\nCuando la fricción actúa, la energía mecánica no se conserva: parte se degrada a calor. Pero la energía total (incluyendo la térmica) sí se conserva. La fricción no destruye energía, solo la convierte en una forma menos útil.\n</HiddenAssumption>"
+      },
+      "acciones": []
+    },
+    {
+      "id": "que-es-trabajo",
+      "titulo": "¿Qué es el trabajo físico?",
+      "niveles": {
+        "principiante": "**¿Qué es el trabajo en física?** No es lo mismo que el esfuerzo cotidiano. Sostener una maleta sin moverte es agotador, pero en física **no haces trabajo**: no hay desplazamiento.\n\nEl trabajo físico ocurre cuando una **fuerza mueve un objeto** a lo largo de una distancia:\n\n$$ W = F \\cdot d \\cdot \\cos(\\theta) $$\n\nDonde:\n- W es el trabajo (julios, J)\n- F es la fuerza aplicada (newtons, N)\n- d es la distancia recorrida (metros, m)\n- θ es el ángulo entre la fuerza y el movimiento\n\n**Reglas rápidas:**\n- Si la fuerza va en la misma dirección que el movimiento (θ = 0°), W = F·d (trabajo máximo)\n- Si la fuerza es perpendicular (θ = 90°), W = 0 (¡la fuerza normal no hace trabajo!)\n- Si la fuerza va en contra (θ = 180°), W es negativo (la fuerza frena)\n\n> **La clave en 10 segundos:** El trabajo es la energía transferida por una fuerza que desplaza un objeto. Sin desplazamiento, no hay trabajo. La fuerza y el desplazamiento deben tener componente en la misma dirección.\n\n**[IMAGEN SUGERIDA: La montaña rusa convierte energía potencial en cinética y viceversa. Pie de foto: \"La montaña rusa convierte energía potencial en cinética y viceversa.\"]**\n\n```aeterna-exercise\nTITLE: ¿Trabajo o no trabajo?\nHINT: Pregúntate si hay desplazamiento en la dirección de la fuerza.\nXP: 30\nUna persona sostiene una maleta de 20 kg quieta durante 5 minutos. ¿Cuánto trabajo físico realiza?\nSOLUTION: Cero julios. No hay desplazamiento (d = 0), por lo que W = F·d·cos(θ) = 0. Sostener sin mover es agotador muscularmente, pero no realiza trabajo en el sentido físico.\n```\n\n<PedagogicalContentBlock type=\"key-insight\">\n**Idea clave:** El trabajo físico no es el esfuerzo: es la energía transferida por una fuerza que desplaza un objeto. Sin desplazamiento, no hay trabajo.\n</PedagogicalContentBlock>\n\n```prediction-box\nTITLE: Empujar contra una pared\nQUESTION: Empujas una pared con toda tu fuerza durante 30 segundos. La pared no se mueve. ¿Cuánto trabajo realizas?\nXP: 30\nOPTION_CORRECT: Cero julios | La pared no se desplaza (d=0), así que W=0 aunque la fuerza sea enorme. El trabajo requiere desplazamiento.\nOPTION_WRONG: Muchos julios | Podrías sentirte cansado, pero sin desplazamiento la física dice que el trabajo es cero.\nOPTION_WRONG: Depende de la fuerza | La fuerza importa, pero sin desplazamiento el trabajo es siempre cero.\nEXPLANATION: El trabajo es fuerza × desplazamiento en la dirección de la fuerza. Sin movimiento, no hay transferencia de energía mecánica.\n```\n\n```aeterna-decision\nBadge: Concepto\nTítulo: Trabajo y movimiento circular\nPregunta: Un satélite orbita la Tierra en círculo. La fuerza de gravedad apunta al centro. ¿Realiza trabajo sobre el satélite?\nNivel: 1\nXP: 30\nBotón: Comprobar\nRespuesta: No. La fuerza centrípeta (gravedad) es perpendicular al movimiento en cada instante (θ = 90°). Como W = F·d·cos(90°) = 0, la gravedad no cambia la rapidez del satélite, solo su dirección.\n```\n\n```aeterna-exercise\nTITLE: ¿Comprendes el trabajo?\nHINT: Piensa en la definición física: fuerza por desplazamiento en la dirección de la fuerza.\nXP: 30\n¿Es correcto afirmar que \"sostener un objeto sin moverlo realiza trabajo\"? Explica tu razonamiento.\nSOLUTION: No. Sostener sin desplazar (d = 0) realiza cero trabajo en física, aunque sea agotador muscularmente. El trabajo requiere desplazamiento en la dirección de la fuerza.\n```",
+        "intermedio": "**Definición formal de trabajo:** El trabajo realizado por una fuerza constante al desplazar un objeto es:\n\n$$ W = \\vec{F} \\cdot \\vec{d} = F d \\cos\\theta $$\n\nDonde el producto punto entre fuerza y desplazamiento tiene en cuenta solo la **componente de la fuerza paralela al movimiento**.\n\n**Casos particulares:**\n- Fuerza paralela (θ=0): W = F·d\n- Fuerza perpendicular (θ=90°): W = 0 (la fuerza normal y la centrípeta no hacen trabajo)\n- Fuerza opuesta (θ=180°): W = −F·d (trabajo negativo, disipa energía)\n\n**Unidades:** El trabajo se mide en julios (J). 1 J = 1 N·m = 1 kg·m²/s².\n\n**Un ejemplo numérico:** Empujas una caja de 30 kg con una fuerza de 50 N horizontalmente durante 4 metros.\n\n$$ W = 50 \\times 4 \\times \\cos(0°) = 200 \\text{ J} $$\n\nSi en cambio empujas con la misma fuerza a 60° sobre la horizontal:\n\n$$ W = 50 \\times 4 \\times \\cos(60°) = 50 \\times 4 \\times 0.5 = 100 \\text{ J} $$\n\nSolo la componente horizontal de la fuerza realiza trabajo sobre el desplazamiento horizontal.",
+        "avanzado": "**Trabajo de una fuerza variable:** Cuando la fuerza no es constante, el trabajo se calcula mediante la integral:\n\n$$ W = \\int_{\\vec{r}_1}^{\\vec{r}_2} \\vec{F} \\cdot d\\vec{r} $$\n\nEn una dimensión: $$ W = \\int_{x_1}^{x_2} F(x) \\, dx $$\n\nEsto corresponde al **área bajo la curva** F(x) en una gráfica fuerza-desplazamiento.\n\n**Ejemplo — resorte (ley de Hooke):** Si estiras un resorte desde su posición natural, la fuerza es F = −kx. El trabajo realizado al estirarlo una distancia x es:\n\n$$ W = \\int_0^x kx' \\, dx' = \\frac{1}{2}kx^2 $$\n\nEste trabajo queda almacenado como **energía potencial elástica** del resorte.\n\n**Trabajo como transferencia de energía:** El trabajo no es una propiedad del sistema (no es una función de estado), sino un **proceso** de transferencia de energía. La notación diferencial inexacta δW refleja que el trabajo depende del camino, no solo de los estados inicial y final.\n\n**Estimación de orden de magnitud — el superpoder del físico:**\n\nLos físicos estiman sin calcular con precisión, construyendo **modelos simplificados** que capturan lo esencial del problema. Usando el teorema trabajo-energía y órdenes de magnitud, podemos responder preguntas aparentemente imposibles.\n\n**Problema Fermi:** ¿Cuánta energía cinética tiene un tren de mercancías de 10,000 toneladas (10⁷ kg) moviéndose a 100 km/h (~30 m/s)?\n\n$$ E_c = \\frac{1}{2} \\times 10^7 \\times 30^2 = \\frac{1}{2} \\times 10^7 \\times 900 = 4.5 \\times 10^9 \\text{ J} $$\n\nAproximadamente 4.5 GJ. Eso es la energía de ~1 tonelada de TNT. Ahora entiendes por qué los trenes necesitan tanto tiempo y distancia para frenar: la energía cinética enorme debe disiparse como calor en los frenos."
+      },
+      "acciones": []
+    },
+    {
+      "id": "energia-cinetica-potencial",
+      "titulo": "Energía cinética y potencial",
+      "niveles": {
+        "principiante": "**Dos tipos de energía mecánica:**\n\n**Energía cinética (E_c)** — la energía del movimiento:\n\n$$ E_c = \\frac{1}{2}mv^2 $$\n\nUn coche a 100 km/h tiene mucha energía cinética. Una pelota lanzada también. Cuanto más masa y más velocidad, más energía cinética.\n\n**Energía potencial (E_p)** — la energía almacenada por posición:\n\n$$ E_p = mgh $$\n\nUn objeto elevado tiene energía potencial gravitatoria. Cuando cae, esa energía se convierte en cinética. Un arco tensado, un muelle comprimido, también almacenan energía potencial.\n\n> **Error común:** \"La energía cinética es proporcional a la velocidad.\" **No es cierto.** Es proporcional al **cuadrado** de la velocidad (v²). Duplicar la velocidad cuadruplica la energía cinética. Por eso los accidentes a alta velocidad son tan devastadores.\n\n**[IMAGEN SUGERIDA: Para frenar, la fricción realiza trabajo negativo igual al cambio de energía cinética. Pie de foto: \"Para frenar, la fricción realiza trabajo negativo igual al cambio de energía cinética.\"]**\n\n```aeterna-formula\ntitle=\"Energía cinética\"\nformula=\"E_c = \\\\frac{1}{2} m v^2\"\nvariables={[{\"symbol\":\"Ec\",\"name\":\"Energía cinética\",\"unit\":\"J\"},{\"symbol\":\"m\",\"name\":\"Masa\",\"unit\":\"kg\"},{\"symbol\":\"v\",\"name\":\"Velocidad\",\"unit\":\"m/s\"}]}\nnote=\"La energía cinética crece con el cuadrado de la velocidad: duplicar v cuadruplica Ec. Es la energía del movimiento.\"\n```\n\n```aeterna-exercise\nTITLE: Identifica la forma de energía\nHINT: ¿Está relacionada con el movimiento (cinética) o con la posición (potencial)?\nXP: 30\nSeñala cuál de los siguientes es energía cinética: (a) un coche en movimiento, (b) un arco tensado, (c) una pelota en lo alto de una torre, (d) una montaña rusa en el punto más bajo.\nSOLUTION: (a) Cinética (movimiento). (b) Potencial elástica (deformación almacenada). (c) Potencial gravitatoria (altura). (d) Cinética máxima (toda la potencial se convirtió en movimiento si no hay fricción).\n```",
+        "intermedio": "**Energía cinética y el teorema de la fuerza neta:**\n\n$$ E_c = \\frac{1}{2}mv^2 $$\n\n**Energía potencial gravitatoria:**\n\n$$ E_p = mgh $$\n\nDonde h es la altura respecto a un nivel de referencia arbitrario (el cero de potencial).\n\n**Energía potencial elástica (resorte):**\n\n$$ E_p^{el} = \\frac{1}{2}kx^2 $$\n\n**Energía mecánica total:**\n\n$$ E_m = E_c + E_p = \\frac{1}{2}mv^2 + mgh $$\n\n**Unidades y factores de conversión:**\n- 1 J = 1 N·m = 1 kg·m²/s²\n- 1 kWh = 3.6 × 10⁶ J\n- 1 caloría = 4.184 J\n- 1 eV = 1.602 × 10⁻¹⁹ J\n\n**Ejemplo — pelota lanzada hacia arriba:**\n\nLanzas una pelota de 0.5 kg verticalmente a 10 m/s.\n\n**En el lanzamiento:**\n$$ E_c = \\frac{1}{2} \\times 0.5 \\times 10^2 = 25 \\text{ J} $$\n$$ E_p = 0 \\text{ J} $$\n\n**En el punto más alto (v = 0):**\n$$ E_c = 0 \\text{ J} $$\n$$ E_p = mgh = 0.5 \\times 9.8 \\times h $$\n\nComo E_m se conserva: 25 = 0.5 × 9.8 × h → h = 5.1 m. La pelota sube 5.1 metros.\n\n```aeterna-decision\nBadge: Aplicación\nTítulo: Montaña rusa y energía\nPregunta: En una montaña rusa sin fricción, el carrito baja desde lo alto de una colina. ¿Qué ocurre con su energía mecánica total?\nNivel: 2\nXP: 35\nBotón: Comprobar\nRespuesta: Se mantiene constante. Sin fricción (solo fuerzas conservativas), la energía mecánica se conserva: E_m = E_c + E_p es siempre la misma. Lo que cambia es cómo se reparte entre cinética y potencial.\n```\n\n```error-hunter\nTITLE: Caza el error: La energía y la velocidad\nCONTEXT: Un estudiante afirma: \"Si un coche duplica su velocidad, su energía cinética se duplica porque la energía es proporcional a la velocidad.\"\nXP: 50\nSTEP_CORRECT: La energía cinética depende del cuadrado de la velocidad | Ec = ½mv², no ½mv. Duplicar v cuadruplica Ec.\nSTEP_CORRECT: Verifica con números | A 10 m/s, Ec = ½m(10²) = 50m. A 20 m/s, Ec = ½m(20²) = 200m. Es 4 veces, no 2.\nSTEP_CORRECT: Consecuencia práctica | Por eso los accidentes a doble velocidad son 4 veces más destructivos en términos de energía.\n```",
+        "avanzado": "**Energía potencial y fuerzas conservativas:**\n\nLa energía potencial está asociada a fuerzas conservativas mediante:\n\n$$ \\vec{F} = -\\nabla U $$\n\nO en una dimensión: $$ F_x = -\\frac{dU}{dx} $$\n\nLa fuerza es el **gradiente negativo** del potencial. Esto significa que:\n\n1. La fuerza apunta hacia donde la energía potencial **disminuye** más rápido\n2. Las fuerzas conservativas derivan de un potencial escalar\n\n**Energía cinética relativista:**\n\nA altas velocidades, la energía cinética se generaliza:\n\n$$ E_c = (\\gamma - 1)mc^2 = mc^2\\left(\\frac{1}{\\sqrt{1-v^2/c^2}} - 1\\right) $$\n\nQue se reduce a ½mv² para v << c.\n\n**Diagramas de energía potencial:**\n\nLa curva U(x) permite analizar el movimiento cualitativamente:\n\n- **Puntos de equilibrio estable**: mínimos de U (la fuerza restauradora devuelve al punto)\n- **Puntos de equilibrio inestable**: máximos de U\n- **Puntos de retorno**: donde E = U, la energía cinética se anula\n\nLa energía total E es una línea horizontal en el diagrama; la región accesible es donde E ≥ U(x)."
+      },
+      "acciones": []
+    },
+    {
+      "id": "teorema-trabajo-energia",
+      "titulo": "Teorema trabajo-energía",
+      "niveles": {
+        "intermedio": "**El teorema trabajo-energía conecta la fuerza y la energía:**\n\n> El trabajo neto realizado sobre un objeto es igual al cambio en su energía cinética.\n\n$$ W_{neto} = \\Delta E_c = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2 $$\n\n**Demostración intuitiva (una dimensión):**\n\nPartiendo de la Segunda Ley F = ma y la cinemática v² = v₀² + 2ad:\n\n$$ W = Fd = mad = m \\left(\\frac{v_f^2 - v_i^2}{2d}\\right)d = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2 $$\n\n**Ejemplo resuelto — frenado:**\n\nUn coche de 1000 kg frena desde 20 m/s hasta detenerse. ¿Cuánto trabajo realiza la fuerza de fricción?\n\n$$ W = \\Delta E_c = 0 - \\frac{1}{2} \\times 1000 \\times 20^2 = -200{,}000 \\text{ J} $$\n\nEl trabajo es negativo porque la fricción se opone al movimiento, disipando la energía cinética como calor.\n\n**[IMAGEN SUGERIDA: La fricción al frenar realiza trabajo negativo, convirtiendo energía cinética en calor. Pie de foto: \"La fricción al frenar realiza trabajo negativo, convirtiendo energía cinética en calor.\"]**\n\n```aeterna-formula\ntitle=\"Teorema trabajo-energía\"\nformula=\"W_{neto} = \\\\Delta E_c = \\\\frac{1}{2}mv_f^2 - \\\\frac{1}{2}mv_i^2\"\nvariables={[{\"symbol\":\"Wneto\",\"name\":\"Trabajo neto\",\"unit\":\"J\"},{\"symbol\":\"Ec\",\"name\":\"Energía cinética\",\"unit\":\"J\"},{\"symbol\":\"m\",\"name\":\"Masa\",\"unit\":\"kg\"},{\"symbol\":\"v\",\"name\":\"Velocidad\",\"unit\":\"m/s\"}]}\nnote=\"El trabajo neto (suma de todos los trabajos) equivale al cambio de energía cinética. Es la forma más general de conectar fuerzas y movimiento.\"\n```\n\n```aeterna-exercise\nTITLE: Frenando a tiempo\nHINT: Usa el teorema trabajo-energía: W_neto = ΔEc. El trabajo de la fricción es negativo.\nXP: 40\nUn coche de 1200 kg viaja a 25 m/s (90 km/h) y frena hasta detenerse. Calcula el trabajo realizado por la fricción.\nSOLUTION: W = ΔEc = 0 − ½×1200×25² = −375,000 J = −375 kJ. La fricción disipa 375 kJ de energía cinética como calor.\n```\n\n```graph-lab\nTITLE: Energía cinética vs velocidad\nDESC: La energía cinética crece con el cuadrado de la velocidad, no linealmente.\nX_LABEL: Velocidad v (m/s)\nY_LABEL: Energía cinética (J)\nQUESTION: ¿Qué forma tiene la gráfica de Ec vs v para una masa fija?\nXP: 40\nPOINT: 0 | 0 | Reposo\nPOINT: 10 | 50 | v=10\nPOINT: 20 | 200 | v=20\nPOINT: 30 | 450 | v=30\nOPTION_CORRECT: Una parábola | Ec = ½mv² crece con el cuadrado de v. Duplicar v cuadruplica Ec.\nOPTION_WRONG: Una línea recta | Una línea recta implicaría Ec proporcional a v, pero es proporcional a v².\nOPTION_WRONG: Una hipérbola | Eso implicaría una relación inversa, incorrecta para la energía cinética.\n```\n\n<PedagogicalContentBlock type=\"key-insight\">\n**Posición y desplazamiento:** El trabajo y la energía se calculan a partir del **desplazamiento** (cambio de posición, Δr), no de la distancia total recorrida. El trabajo W = F·d·cos(θ) usa el desplazamiento en la dirección de la fuerza. La energía potencial mgh mide la posición vertical respecto a un nivel de referencia.\n</PedagogicalContentBlock>",
+        "avanzado": "**Generalización a varias fuerzas y movimiento en 3D:**\n\nEl teorema trabajo-energía vale para el trabajo **neto** de todas las fuerzas:\n\n$$ W_{neto} = \\int_{\\vec{r}_1}^{\\vec{r}_2} \\vec{F}_{neta} \\cdot d\\vec{r} = \\Delta E_c $$\n\n**Demostración formal:**\n\nPartiendo de F = m·dv/dt y multiplicando por v = dr/dt:\n\n$$ F \\frac{dr}{dt} = m \\frac{dv}{dt} v = \\frac{d}{dt}\\left(\\frac{1}{2}mv^2\\right) $$\n\nIntegrando en el tiempo:\n\n$$ \\int F \\frac{dr}{dt} dt = \\int \\frac{d}{dt}\\left(\\frac{1}{2}mv^2\\right) dt $$\n$$ \\int F \\, dr = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2 $$\n\n**Conexión con el teorema de conservación de la energía:**\n\nSeparando el trabajo en fuerzas conservativas y no conservativas:\n\n$$ W_{conservativas} + W_{no\\,conservativas} = \\Delta E_c $$\n\nPero W_conservativas = −ΔU (por definición del potencial). Entonces:\n\n$$ -\\Delta U + W_{no\\,conservativas} = \\Delta E_c $$\n$$ W_{no\\,conservativas} = \\Delta E_c + \\Delta U = \\Delta E_m $$\n\n**Conclusión clave:** El trabajo de las fuerzas no conservativas (fricción, resistencia) es igual al **cambio de la energía mecánica total**. Si solo actúan fuerzas conservativas, la energía mecánica se conserva.\n\n**Conexión con la aceleración (Segunda Ley):**\n\nEl teorema trabajo-energía es equivalente a la Segunda Ley de Newton (F = ma). Partiendo de que la fuerza neta produce una **aceleración** constante a, y usando la cinemática v² = v₀² + 2a·d:\n\n$$ W = F \\cdot d = (ma) \\cdot d = ma \\cdot \\frac{v_f^2 - v_i^2}{2a} = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2 $$\n\nLa aceleración conecta la dinámica (fuerzas) con la energía (trabajo). La fuerza aplicada sobre una distancia es equivalente al cambio de energía cinética que produce la aceleración.",
+        "principiante": "El teorema trabajo-energía es la conexión más importante de la mecánica:\n\n> **El trabajo neto realizado sobre un objeto es igual al cambio en su energía cinética.**\n\n$$ W_{neto} = \\Delta E_c = \\frac{1}{2}mv_f^2 - \\frac{1}{2}mv_i^2 $$\n\n**En palabras simples:** si empujas un objeto (haces trabajo), su velocidad cambia. El trabajo total es exactamente el cambio de energía cinética.\n\n**Ejemplo — patinador:**\n\nUn patinador de 50 kg va a 4 m/s y se detiene. Su energía cinética inicial era:\n\n$$ E_c = \\frac{1}{2} \\times 50 \\times 4^2 = 400 \\text{ J} $$\n\nPara frenarlo, la fricción tuvo que realizar −400 J de trabajo (negativo porque frena).\n\n**[IMAGEN SUGERIDA: La energía se transforma pero no se pierde. Pie de foto: \"La energía se transforma pero no se pierde.\"]**"
+      },
+      "acciones": []
+    },
+    {
+      "id": "conservacion-energia",
+      "titulo": "Conservación de la energía",
+      "niveles": {
+        "intermedio": "**El principio de conservación de la energía:**\n\n> En un sistema aislado, la energía total se conserva. La energía no se crea ni se destruye, solo se transforma.\n\nPara un sistema donde solo actúan fuerzas conservativas:\n\n$$ E_m = E_c + E_p = \\text{constante} $$\n\n$$ \\frac{1}{2}mv_1^2 + mgh_1 = \\frac{1}{2}mv_2^2 + mgh_2 $$\n\n**Ejemplo — el péndulo:**\n\nUn péndulo se suelta desde una altura h. En el punto más bajo, toda la energía potencial se convirtió en cinética:\n\n$$ mgh = \\frac{1}{2}mv^2 \\rightarrow v = \\sqrt{2gh} $$\n\nEl péndulo vuelve a subir hasta la misma altura h al otro lado (si no hay fricción).\n\n**La fricción y la energía:**\n\nCuando hay fricción, la energía mecánica NO se conserva: parte se convierte en calor. Pero la **energía total** (incluyendo la térmica) sí se conserva. La fricción no destruye energía: la degrada a una forma menos útil.\n\n> **La clave en 10 segundos:** La energía no se crea ni se destruye. Si la energía mecánica disminuye, apareció energía térmica (calor) o de otro tipo. El balance siempre cuadra.\n\n**[IMAGEN SUGERIDA: La suma Ec + Ep se mantiene constante si solo actúan fuerzas conservativas. Pie de foto: \"La suma Ec + Ep se mantiene constante si solo actúan fuerzas conservativas.\"]**\n\n```parameter-lab\nTITLE: Laboratorio: Conservación de la energía\nDESC: Lanza una pelota verticalmente y ajusta la masa y la velocidad inicial para ver cómo se intercambian energía cinética y potencial.\nOUTPUT_LABEL: Altura máxima\nOUTPUT_UNIT: m\nQUESTION: Al duplicar la velocidad inicial, ¿cuánto aumenta la altura máxima?\nANSWER: Cuatro veces. h_max = v₀²/(2g), así que al duplicar v₀, la altura se cuadruplica.\nXP: 50\nPARAM: m | Masa | kg | 0.1 | 5 | 0.1 | 1\nPARAM: v0 | Velocidad inicial | m/s | 1 | 20 | 1 | 10\n```\n\n<PedagogicalContentBlock type=\"key-insight\">\n**Idea clave:** La energía mecánica se conserva cuando solo actúan fuerzas conservativas. La fricción convierte energía mecánica en calor, pero la energía total del universo nunca se pierde.\n</PedagogicalContentBlock>\n\n```sequence-builder\nTITLE: Ordena la conversión de energía en una presa hidroeléctrica\nDESC: Reconstruye la secuencia de transformaciones de energía desde el agua del embalse hasta la electricidad.\nXP: 50\nSTEP: Energía potencial gravitatoria del agua embalsada | El agua en lo alto de la presa almacena Ep = mgh\nSTEP: Energía cinética del agua que cae | Al descender, la energía potencial se convierte en cinética\nSTEP: Energía cinética de rotación de la turbina | El agua en movimiento hace girar las turbinas\nSTEP: Energía eléctrica en el generador | La rotación de la turbina acciona el generador que produce electricidad\n```",
+        "avanzado": "**La energía como invariante de Noether:**\n\nEl teorema de Noether establece que la **conservación de la energía** es una consecuencia de la **simetría de traslación temporal**: las leyes de la física son las mismas en cada instante del tiempo.\n\nSi el Lagrangiano L no depende explícitamente del tiempo, entonces:\n\n$$ \\sum_i \\dot{q}_i \\frac{\\partial L}{\\partial \\dot{q}_i} - L = \\text{constante} $$\n\nQue es la **función de Hamilton** (energía total). Esta es una de las conexiones más profundas de la física: las simetrías del universo implican leyes de conservación.\n\n**Sistemas con disipación:**\n\nCuando la fricción actúa, la energía mecánica no se conserva pero la energía total sí. El trabajo de la fricción se disipa como calor (aumento de entropía):\n\n$$ W_{fricci\\acute{o}n} = -\\Delta E_m = \\mu_k N d $$\n\n**Balance energético completo:**\n\n$$ E_{inicial} + W_{entrada} = E_{final} + Q_{disipado} $$\n\n**Aplicaciones:**\n\n- **Rampas y planos inclinados**: la altura inicial determina la velocidad final independientemente de la masa\n- **Montañas rusas**: el diseño aprovecha la conservación para que el tren suba colinas sin motor\n- **Péndulos y osciladores**: la energía oscila entre cinética y potencial\n\n**Ejemplo con fricción — bloque en un plano inclinado:**\n\nUn bloque de 5 kg se desliza 10 m por un plano inclinado de 30° con coeficiente de fricción μ_k = 0.2. La energía potencial inicial es:\n\n$$ E_p = mgh = 5 \\times 9.8 \\times (10 \\sin 30°) = 245 \\text{ J} $$\n\nEl trabajo de la fricción disipa:\n\n$$ W_f = \\mu_k mg \\cos\\theta \\cdot d = 0.2 \\times 5 \\times 9.8 \\times \\cos 30° \\times 10 = 84.9 \\text{ J} $$\n\nLa energía cinética final en la base:\n\n$$ E_c = 245 - 84.9 = 160.1 \\text{ J} $$\n\nLa fricción no destruyó la energía: la convirtió en calor del bloque y del plano.",
+        "principiante": "La energía no se crea ni se destruye, solo se transforma. Esta es una de las leyes más importantes del universo.\n\n**La energía mecánica** es la suma de dos partes:\n\n- **Cinética (E_c)**: energía del movimiento\n- **Potencial (E_p)**: energía de la posición\n\n$$ E_m = E_c + E_p $$\n\n**Ejemplo — pelota que cae:**\n\nSuelta una pelota desde una altura. En lo alto: mucha potencial, poca cinética. Al caer: la potencial se convierte en cinética. Justo antes de tocar el suelo: toda la potencial se convirtió en cinética.\n\nLa suma se mantiene constante (si no hay fricción):\n\n$$ E_c^{arriba} + E_p^{arriba} = E_c^{abajo} + E_p^{abajo} $$\n\n> **La clave:** La energía cambia de forma, pero la cantidad total nunca cambia. Cuando una cantidad parece \"perderse\", en realidad se transformó en otra forma.\n\n**[IMAGEN SUGERIDA: La gravedad es conservativa, pero la fricción disipa energía en cada rebote. Pie de foto: \"La gravedad es conservativa, pero la fricción disipa energía en cada rebote.\"]**"
+      },
+      "acciones": []
+    },
+    {
+      "id": "fuerzas-conservativas",
+      "titulo": "Fuerzas conservativas y no conservativas",
+      "niveles": {
+        "avanzado": "**¿Qué hace a una fuerza conservativa?**\n\nUna fuerza es conservativa si se cumple cualquiera de estas condiciones equivalentes:\n\n1. **El trabajo es independiente de la trayectoria**: solo depende de los puntos inicial y final\n2. **El trabajo en una trayectoria cerrada es cero**: ∮F·dr = 0\n3. **Existe una función energía potencial** U tal que F = −∇U\n4. **Su rotacional es cero**: ∇ × F = 0\n\n**Ejemplos:**\n\n| Fuerza | ¿Conservativa? | Potencial |\n|:------:|:--------------:|:---------:|\n| Gravitatoria | Sí | U = mgh |\n| Elástica (resorte) | Sí | U = ½kx² |\n| Eléctrica (culombiana) | Sí | U = kq₁q₂/r |\n| Fricción | **No** | No existe |\n| Resistencia del aire | **No** | No existe |\n\n**Fuerzas no conservativas:**\n\n- El trabajo depende del camino (más largo = más energía disipada)\n- No se puede definir una energía potencial asociada\n- Disipan energía mecánica en calor o sonido\n\n> **Dato que rompe el cerebro:** La gravedad es conservativa: subes una montaña por cualquier camino y el trabajo gravitatorio es el mismo (depende solo de la altura total). Pero subir por un camino con fricción disipa más energía porque la fricción no es conservativa.\n\n**Conexión con otras ramas:**\n\nLa distinción conservativa/no conservativa es fundamental en toda la física:\n- **Termodinámica**: las fuerzas conservativas permiten definir la energía interna\n- **Electromagnetismo**: el campo electrostático es conservativo (∇ × E = 0); el campo magnético no hace trabajo\n- **Fluidos**: la ecuación de Bernoulli asume fuerzas conservativas (sin viscosidad)\n- **Cuántica**: los potenciales definen los niveles de energía de los átomos\n\n<Connect title=\"Fuerzas conservativas en la física moderna\" sourceConcept=\"Fuerzas conservativas\" targetConcept=\"Electromagnetismo y cuántica\">\nLa noción de campo conservativo se extiende al electromagnetismo: el campo eléctrico estático deriva de un potencial escalar (∇×E=0). En mecánica cuántica, el potencial U(x) determina los niveles de energía permitidos del átomo. La idea de derivar fuerzas de un potencial es universal.\n</Connect>\n\n```error-hunter\nTITLE: Caza el error: La fricción es conservativa\nCONTEXT: Un estudiante afirma: \"La fricción es conservativa porque devuelve energía al objeto: si empujas una caja sobre una mesa rugosa y luego dejas de empujar, se detiene pero el calor generado podría usarse para volver a moverla.\"\nXP: 50\nSTEP_CORRECT: La fricción no es conservativa | No existe una función potencial U de la que derive la fricción. Su trabajo depende del camino.\nSTEP_CORRECT: El trabajo en una trayectoria cerrada no es cero | Frotar un objeto en un círculo cerrado disipa calor en cada vuelta; ∮F·dr ≠ 0.\nSTEP_CORRECT: El calor no se puede recuperar totalmente | La Segunda Ley de la termodinámica impide convertir todo el calor de vuelta en trabajo útil.\nSTEP_CORRECT: La fricción degrada la energía mecánica | Convierte energía cinética ordenada en energía térmica desordenada, que no puede revertirse por completo.\n```\n\n```aeterna-exercise\nTITLE: Clasificar: tipo de fuerzas\nHINT: ¿Depende el trabajo del camino? ¿Se puede definir una energía potencial?\nXP: 50\nClasifica cada fuerza, agrupando según su tipo, como conservativa o no conservativa: (a) gravedad, (b) fricción, (c) fuerza elástica de un resorte, (d) resistencia del aire, (e) fuerza eléctrica.\nSOLUTION: Conservativas: gravedad (a), resorte (c), eléctrica (e) — su trabajo no depende del camino y derivan de un potencial. No conservativas: fricción (b), resistencia del aire (d) — disipan energía como calor y su trabajo depende del camino.\n```",
+        "intermedio": "**Fuerzas conservativas vs no conservativas:**\n\n| Característica | Conservativas | No conservativas |\n|:--------------:|:-------------:|:----------------:|\n| Trabajo independiente del camino | Sí | No |\n| Trayectoria cerrada | W = 0 | W ≠ 0 |\n| Se puede definir energía potencial | Sí | No |\n| Ejemplos | Gravedad, resorte | Fricción, resistencia |\n\n**Por qué importa:**\n\nSi una fuerza es conservativa, puedes asociarle una **energía potencial**. El trabajo que hace la fuerza es la disminución de esa energía potencial:\n\n$$ W_{conservativa} = -\\Delta U $$\n\nPara la gravedad: U = mgh. Para un resorte: U = ½kx².\n\n**La fricción no es conservativa:**\n\nEmpuja una caja 5 m por el suelo y luego 10 m de vuelta. El trabajo de la fricción en el recorrido de ida y vuelta NO es cero: se disipó calor en ambos trayectos. Por eso la fricción no puede tener energía potencial.\n\n**[IMAGEN SUGERIDA: Las fuerzas conservativas dependen solo de los extremos; la fricción depende del camino. Pie de foto: \"Las fuerzas conservativas dependen solo de los extremos; la fricción depende del camino.\"]**\n\n```prediction-box\nTITLE: La pelota que rebota\nQUESTION: Dejas caer una pelota desde 2 m. Con cada rebote pierde el 20% de su energía. ¿Hasta qué altura sube tras el primer rebote?\nXP: 35\nOPTION_CORRECT: 1.6 m | Tras perder el 20%, conserva el 80% de la energía. Como E_p = mgh, la altura se reduce al 80%: 2 × 0.8 = 1.6 m.\nOPTION_WRONG: 1.8 m | Perder el 20% significa conservar el 80%, no el 90%.\nOPTION_WRONG: 2 m | Eso implicaría que no pierde energía, contradiciendo el enunciado.\nOPTION_WRONG: 1.2 m | Eso sería perder el 40% de la energía.\nEXPLANATION: La energía perdida se convierte en calor y sonido. La altura es proporcional a la energía potencial restante.\n```\n\n```aeterna-flowchart\ntitle=\"Balance energético: conservativa vs fricción\"\nsteps=[{label=\"Energía inicial E_i\"},{label=\"Fuerzas conservativas (gravedad): E_c + E_p se conserva\"},{label=\"Fuerzas no conservativas (fricción): disipan calor Q\"},{label=\"Energía final: E_f = E_i − Q\"},{label=\"Energía total del universo se conserva\"},{label=\"Conclusión: la energía no se pierde, se degrada\"}]<｜end▁of▁thinking｜>```",
+        "principiante": "Algunas fuerzas guardan la energía y otras la gastan.\n\n**Fuerzas conservativas** (guardan la energía):\n- Gravedad: lo que sube, puede bajar y recuperar la energía\n- Resorte: lo que se comprime, puede soltar y devolver la energía\n\n**Fuerzas no conservativas** (gastan la energía):\n- Fricción: convierte la energía en calor que no se puede recuperar\n- Resistencia del aire\n\n**Ejemplo — pelota que rebota:**\n\nSuelta una pelota. Sube y baja gracias a la gravedad (conservativa). Pero con cada rebote pierde altura: la fricción con el aire y el suelo disipan energía. La energía no desaparece: se convierte en calor y sonido.\n\n**[IMAGEN SUGERIDA: Mismo trabajo, distinta potencia. Pie de foto: \"Mismo trabajo, distinta potencia.\"]**"
+      },
+      "acciones": []
+    },
+    {
+      "id": "potencia-trabajo",
+      "titulo": "Potencia y rendimiento",
+      "niveles": {
+        "avanzado": "**Potencia:** La rapidez con la que se realiza trabajo o se transfiere energía:\n\n$$ P = \\frac{W}{t} = \\frac{dW}{dt} $$\n\nUnidad: vatio (W). 1 W = 1 J/s.\n\n**Potencia y fuerza:**\n\nSi una fuerza constante actúa sobre un objeto que se mueve a velocidad v:\n\n$$ P = F \\cdot v $$\n\nEsto explica por qué los coches necesitan más potencia para acelerar a alta velocidad (P = F·v, con v grande).\n\n**Rendimiento (eficiencia):**\n\nEl rendimiento mide qué fracción de la energía de entrada se convierte en trabajo útil:\n\n$$ \\eta = \\frac{W_{\\acute{u}til}}{W_{entrada}} = \\frac{P_{\\acute{u}til}}{P_{entrada}} $$\n\nEl rendimiento es siempre < 1 (menor al 100%) porque las fuerzas no conservativas disipan energía.\n\n**Potencia mecánica y eléctrica:**\n\n- Motor de coche: ~100 kW\n- Corazón humano: ~1.3 W\n- Bombilla: ~60 W\n- Central nuclear: ~1 GW\n\n**Ejemplo — ascensor:**\n\nUn ascensor sube 500 kg a 10 m en 15 segundos. Potencia necesaria:\n\n$$ P = \\frac{mgh}{t} = \\frac{500 \\times 9.8 \\times 10}{15} = 3{,}267 \\text{ W} \\approx 3.3 \\text{ kW} $$\n\n**Transferencia de energía:**\n\nEl concepto de potencia conecta el trabajo con el tiempo. Dos motores pueden realizar el mismo trabajo, pero el más potente lo hace en menos tiempo.\n\n<Transfer targetDomain=\"Ingeniería y energía sostenible\" title=\"Transfiere: potencia y eficiencia real\">\nUn motor eléctrico de 3 kW consume 3 kW de potencia eléctrica. Si su rendimiento es del 85%, ¿cuánta potencia mecánica útil produce? ¿Dónde va la energía restante? Aplica el concepto de rendimiento para evaluar si conviene sustituir un motor viejo de 70% de eficiencia por uno nuevo de 90%.\n</Transfer>\n\n```aeterna-exercise\nTITLE: Subiendo escaleras\nHINT: Potencia = trabajo/tiempo. El trabajo es mgh (subir contra la gravedad).\nXP: 40\nUna persona de 70 kg sube 3 pisos (9 m) en 20 segundos. ¿Qué potencia desarrolla?\nSOLUTION: P = mgh/t = 70×9.8×9/20 = 308.7 W ≈ 0.31 kW. Una persona subiendo escaleras desarrolla unos 300 W de potencia.\n```\n\n```aeterna-exercise\nTITLE: Sintetizar: de la mecánica a la termodinámica\nHINT: ¿Qué le pasa a la energía cinética que \"pierde\" un objeto que frena? ¿Dónde acaba?\nXP: 60\nUn bloque se desliza y frena por fricción. Explica, conectando mecánica y termodinámica, qué ocurre con la energía cinética perdida. ¿Se viola la conservación de la energía?\nSOLUTION: No se viola. La energía cinética se convierte en energía térmica (calor) por fricción, aumentando la temperatura del bloque y la superficie. La energía total se conserva (Primera Ley de la termodinámica), pero parte se degrada a una forma menos útil. La fricción conecta el teorema trabajo-energía con la termodinámica.\n```",
+        "intermedio": "**Potencia:** Es la rapidez con la que se realiza trabajo:\n\n$$ P = \\frac{W}{t} $$\n\n**Unidades:** vatio (W), 1 W = 1 J/s. El kilovatio-hora (kWh) usado en la factura eléctrica es una unidad de **energía**, no de potencia: 1 kWh = 3.6 MJ.\n\n**Ejemplo — bombilla:**\n\nUna bombilla de 100 W consume 100 J de energía cada segundo. En 1 hora consume:\n\n$$ E = P \\cdot t = 100 \\times 3600 = 360{,}000 \\text{ J} = 0.1 \\text{ kWh} $$\n\n**Potencia en el movimiento:**\n\n$$ P = F \\cdot v $$\n\n**Ejemplo — coche en subida:**\n\nUn coche de 1500 kg sube una pendiente a 15 m/s. Si la componente de la gravedad paralela a la pendiente es de 4000 N, la potencia necesaria es:\n\n$$ P = 4000 \\times 15 = 60{,}000 \\text{ W} = 60 \\text{ kW} $$\n\n**[IMAGEN SUGERIDA: La potencia necesaria para subir depende de la fuerza y la velocidad. Pie de foto: \"La potencia necesaria para subir depende de la fuerza y la velocidad.\"]**\n\n```parameter-lab\nTITLE: Laboratorio: Potencia y tiempo\nDESC: Ajusta el trabajo a realizar y el tiempo para ver la potencia resultante.\nOUTPUT_LABEL: Potencia\nOUTPUT_UNIT: W\nQUESTION: Si haces el doble de trabajo en el mismo tiempo, ¿qué pasa con la potencia?\nANSWER: La potencia se duplica, porque P = W/t es directamente proporcional al trabajo.\nXP: 40\nPARAM: W | Trabajo | J | 100 | 5000 | 100 | 2000\nPARAM: t | Tiempo | s | 1 | 60 | 1 | 10\n```",
+        "principiante": "**Potencia** es qué tan rápido se hace un trabajo o se usa energía:\n\n$$ P = \\frac{W}{t} $$\n\nUna bombilla de 100 W usa 100 julios cada segundo. Un coche de 100 kW usa 100,000 julios cada segundo.\n\n**Ejemplo — escaleras:**\n\nSubir corriendo las escaleras te cansa más rápido que subirlas despacio, pero haces el MISMO trabajo (subir la misma altura con tu mismo peso). La diferencia es la potencia: subir rápido = más potencia.\n\n> **La clave:** Trabajo es energía transferida. Potencia es qué tan rápido se transfiere. Dos personas pueden hacer el mismo trabajo, pero la más rápida tiene más potencia.\n\n**[IMAGEN SUGERIDA: Mismo trabajo, distinta potencia. Pie de foto: \"Mismo trabajo, distinta potencia.\"]**"
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": "## Conclusión\n\nEl trabajo y la energía son los conceptos que conectan la mecánica con toda la física. El trabajo mide la energía transferida por las fuerzas; la energía cinética y potencial son las dos caras de la energía mecánica; el teorema trabajo-energía une fuerzas con movimiento; la conservación de la energía es una de las leyes más fundamentales del universo. Cuando dominas el balance de energía, puedes predecir el movimiento sin conocer todos los detalles de las fuerzas: solo necesitas el principio de conservación.\n\n**Siguiente parada recomendada:** la conservación de la energía conecta con la termodinámica (donde el calor es otra forma de energía) y con la mecánica estadística (donde la energía se reparte entre partículas).",
+  "cuaderno": {
+    "principiante": [
+      {
+        "titulo": "Trabajo de una fuerza horizontal",
+        "enunciado": "Empujas una caja de 20 kg con una fuerza de 100 N horizontalmente durante 5 metros. ¿Cuánto trabajo realizas?",
+        "solucion": "W = F·d·cos(θ) = 100 × 5 × cos(0°) = 500 J.\n\nComo la fuerza y el desplazamiento van en la misma dirección, todo el esfuerzo se convierte en trabajo sobre la caja.",
+        "pasos": [
+          "Identifica los datos: F = 100 N, d = 5 m, θ = 0°",
+          "Aplica la fórmula del trabajo: W = F·d·cos(θ)",
+          "Sustituye: W = 100 × 5 × 1 = 500 J"
+        ],
+        "xp": 30,
+        "pistas": [
+          "El trabajo es fuerza por desplazamiento por el coseno del ángulo.",
+          "La fuerza y el movimiento son paralelos, así que cos(0°) = 1."
+        ],
+        "opciones": [
+          {
+            "label": "500 J",
+            "correcta": true
+          },
+          {
+            "label": "100 J",
+            "correcta": false
+          },
+          {
+            "label": "2000 J",
+            "correcta": false
+          },
+          {
+            "label": "0 J",
+            "correcta": false
+          }
+        ]
+      },
+      {
+        "titulo": "Energía cinética de un coche",
+        "enunciado": "Un coche de 1000 kg se mueve a 20 m/s (72 km/h). Calcula su energía cinética.",
+        "solucion": "Ec = ½·m·v² = ½ × 1000 × 20² = ½ × 1000 × 400 = 200,000 J = 200 kJ.\n\nSi duplicara la velocidad a 40 m/s, la energía cinética se cuadruplicaría a 800 kJ.",
+        "pasos": [
+          "Identifica: m = 1000 kg, v = 20 m/s",
+          "Aplica Ec = ½·m·v²",
+          "Calcula: ½ × 1000 × 400 = 200,000 J"
+        ],
+        "xp": 35,
+        "pistas": [
+          "La energía cinética es ½ por la masa por la velocidad al cuadrado.",
+          "20 al cuadrado es 400."
+        ],
+        "opciones": [
+          {
+            "label": "200 kJ",
+            "correcta": true
+          },
+          {
+            "label": "400 kJ",
+            "correcta": false
+          },
+          {
+            "label": "20 kJ",
+            "correcta": false
+          },
+          {
+            "label": "1000 J",
+            "correcta": false
+          }
+        ]
+      },
+      {
+        "titulo": "Energía potencial de un objeto elevado",
+        "enunciado": "Un libro de 2 kg está en una estantería a 1.5 m del suelo. Calcula su energía potencial gravitatoria (g = 9.8 m/s²).",
+        "solucion": "Ep = m·g·h = 2 × 9.8 × 1.5 = 29.4 J.\n\nSi lo subieras al doble de altura (3 m), la energía potencial se duplicaría a 58.8 J.",
+        "pasos": [
+          "Identifica: m = 2 kg, h = 1.5 m, g = 9.8 m/s²",
+          "Aplica Ep = m·g·h",
+          "Calcula: 2 × 9.8 × 1.5 = 29.4 J"
+        ],
+        "xp": 30,
+        "pistas": [
+          "La energía potencial gravitatoria es masa por gravedad por altura.",
+          "La altura se mide respecto a un nivel de referencia."
+        ],
+        "opciones": [
+          {
+            "label": "29.4 J",
+            "correcta": true
+          },
+          {
+            "label": "14.7 J",
+            "correcta": false
+          },
+          {
+            "label": "294 J",
+            "correcta": false
+          },
+          {
+            "label": "2 J",
+            "correcta": false
+          }
+        ]
+      }
+    ],
+    "intermedio": [
+      {
+        "titulo": "Teorema trabajo-energía: frenado",
+        "enunciado": "Un coche de 1200 kg frena desde 25 m/s hasta 5 m/s. ¿Cuánto trabajo realizó la fricción?",
+        "solucion": "W = ΔEc = ½·m·(vf² − vi²) = ½ × 1200 × (25 − 625) = ½ × 1200 × (−600) = −360,000 J = −360 kJ.\n\nEl trabajo es negativo porque la fricción se opone al movimiento, disipando 360 kJ de energía cinética como calor.",
+        "pasos": [
+          "Identifica: m = 1200 kg, vi = 25 m/s, vf = 5 m/s",
+          "Aplica el teorema: W = ½·m·(vf² − vi²)",
+          "Calcula: ½ × 1200 × (25 − 625) = −360,000 J"
+        ],
+        "xp": 45,
+        "pistas": [
+          "El trabajo neto es el cambio de energía cinética.",
+          "El signo negativo indica que la fuerza se opone al movimiento."
+        ],
+        "opciones": [
+          {
+            "label": "−360 kJ",
+            "correcta": true
+          },
+          {
+            "label": "+360 kJ",
+            "correcta": false
+          },
+          {
+            "label": "−180 kJ",
+            "correcta": false
+          },
+          {
+            "label": "+180 kJ",
+            "correcta": false
+          }
+        ]
+      },
+      {
+        "titulo": "Conservación de la energía: pelota lanzada",
+        "enunciado": "Lanzas una pelota de 0.5 kg verticalmente hacia arriba a 15 m/s. ¿Qué altura máxima alcanza? (g = 9.8 m/s², sin fricción)",
+        "solucion": "Por conservación de la energía: ½·m·v₀² = m·g·h_max → h_max = v₀²/(2g).\n\nh_max = 15²/(2 × 9.8) = 225/19.6 = 11.48 m.\n\nEn el punto más alto, toda la energía cinética inicial se convirtió en energía potencial.",
+        "pasos": [
+          "Iguala energía cinética inicial con potencial final: ½·m·v₀² = m·g·h",
+          "La masa se cancela: h = v₀²/(2g)",
+          "Calcula: h = 225/19.6 = 11.48 m"
+        ],
+        "xp": 50,
+        "pistas": [
+          "La energía cinética inicial se convierte en potencial en el punto más alto.",
+          "Despeja h de la ecuación de conservación."
+        ],
+        "opciones": [
+          {
+            "label": "11.5 m",
+            "correcta": true
+          },
+          {
+            "label": "22.9 m",
+            "correcta": false
+          },
+          {
+            "label": "5.7 m",
+            "correcta": false
+          },
+          {
+            "label": "115 m",
+            "correcta": false
+          }
+        ]
+      },
+      {
+        "titulo": "Potencia de un motor",
+        "enunciado": "Un motor eleva un peso de 500 kg una altura de 8 m en 10 segundos. ¿Qué potencia desarrolla? (g = 9.8 m/s²)",
+        "solucion": "P = W/t = mgh/t = 500 × 9.8 × 8 / 10 = 3,920 W ≈ 3.9 kW.\n\nEl motor transfiere 3,920 J de energía cada segundo para elevar el peso.",
+        "pasos": [
+          "Calcula el trabajo: W = mgh = 500 × 9.8 × 8 = 39,200 J",
+          "Divide entre el tiempo: P = 39,200/10 = 3,920 W"
+        ],
+        "xp": 50,
+        "pistas": [
+          "El trabajo para elevar un peso es mgh.",
+          "La potencia es el trabajo dividido entre el tiempo."
+        ],
+        "opciones": [
+          {
+            "label": "3.9 kW",
+            "correcta": true
+          },
+          {
+            "label": "39 kW",
+            "correcta": false
+          },
+          {
+            "label": "0.39 kW",
+            "correcta": false
+          },
+          {
+            "label": "392 kW",
+            "correcta": false
+          }
+        ]
+      }
+    ],
+    "avanzado": [
+      {
+        "titulo": "Fricción en un plano inclinado",
+        "enunciado": "Un bloque de 5 kg se desliza 8 m por un plano inclinado de 30° con μ_k = 0.3. Calcula: (a) la energía potencial perdida, (b) la energía disipada por fricción, (c) la velocidad al llegar a la base.",
+        "solucion": "(a) Ep = mgh = 5 × 9.8 × (8·sin30°) = 5 × 9.8 × 4 = 196 J.\n(b) W_f = μ·m·g·cosθ·d = 0.3 × 5 × 9.8 × cos30° × 8 = 0.3 × 5 × 9.8 × 0.866 × 8 = 101.8 J.\n(c) Ec = Ep − W_f = 196 − 101.8 = 94.2 J → ½·5·v² = 94.2 → v = √(37.7) = 6.14 m/s.",
+        "pasos": [
+          "Calcula la altura: h = 8·sin30° = 4 m",
+          "Energía potencial inicial: Ep = 5 × 9.8 × 4 = 196 J",
+          "Trabajo de fricción: W_f = μ·m·g·cosθ·d = 101.8 J",
+          "Energía cinética final: Ec = 196 − 101.8 = 94.2 J",
+          "Velocidad: v = √(2·Ec/m) = √(37.7) = 6.14 m/s"
+        ],
+        "xp": 60,
+        "pistas": [
+          "La energía potencial inicial se reparte entre cinética y fricción.",
+          "La fricción disipa μ·N·d, donde N = mg·cosθ."
+        ],
+        "opciones": [
+          {
+            "label": "6.14 m/s",
+            "correcta": true
+          },
+          {
+            "label": "8.85 m/s",
+            "correcta": false
+          },
+          {
+            "label": "4.0 m/s",
+            "correcta": false
+          },
+          {
+            "label": "3.07 m/s",
+            "correcta": false
+          }
+        ]
+      },
+      {
+        "titulo": "Potencia y rendimiento de un motor",
+        "enunciado": "Un motor eléctrico consume 2 kW de potencia eléctrica y tiene un rendimiento del 80%. ¿Cuánta potencia mecánica útil produce? ¿Cuánta energía disipa como calor en 1 hora?",
+        "solucion": "Potencia útil = η × P_entrada = 0.80 × 2000 = 1600 W = 1.6 kW.\n\nEnergía disipada = P_perdida × t = (2000 − 1600) × 3600 = 400 × 3600 = 1,440,000 J = 1.44 MJ.\n\nEl 20% de la energía (1.44 MJ cada hora) se disipa como calor en el motor.",
+        "pasos": [
+          "Potencia útil: P = 0.80 × 2000 = 1600 W",
+          "Potencia perdida: 2000 − 1600 = 400 W",
+          "Energía disipada en 1h: 400 × 3600 = 1.44 MJ"
+        ],
+        "xp": 65,
+        "pistas": [
+          "El rendimiento multiplica la potencia de entrada.",
+          "La energía disipada es la potencia perdida por el tiempo."
+        ],
+        "opciones": [
+          {
+            "label": "1.6 kW y 1.44 MJ",
+            "correcta": true
+          },
+          {
+            "label": "1.6 kW y 7.2 MJ",
+            "correcta": false
+          },
+          {
+            "label": "2 kW y 0 J",
+            "correcta": false
+          },
+          {
+            "label": "0.4 kW y 1.44 MJ",
+            "correcta": false
+          }
+        ]
+      },
+      {
+        "titulo": "Integración: montaña rusa con fricción",
+        "enunciado": "Una montaña rusa de 800 kg parte del reposo en lo alto de una colina de 40 m. Al llegar a la segunda colina de 25 m, la velocidad es de 12 m/s. ¿Cuánta energía se disipó por fricción?",
+        "solucion": "Energía inicial: Ep₁ = mgh₁ = 800 × 9.8 × 40 = 313,600 J.\nEnergía en la segunda colina: Ep₂ + Ec = 800×9.8×25 + ½×800×12² = 196,000 + 57,600 = 253,600 J.\nEnergía disipada: 313,600 − 253,600 = 60,000 J = 60 kJ.",
+        "pasos": [
+          "Energía inicial: Ep₁ = 800 × 9.8 × 40 = 313.6 kJ",
+          "Energía en la 2ª colina: Ep₂ + Ec = 196 + 57.6 = 253.6 kJ",
+          "Fricción: 313.6 − 253.6 = 60 kJ"
+        ],
+        "xp": 70,
+        "pistas": [
+          "La energía inicial es solo potencial (parte del reposo).",
+          "La diferencia entre inicial y final es lo que disipó la fricción."
+        ],
+        "opciones": [
+          {
+            "label": "60 kJ",
+            "correcta": true
+          },
+          {
+            "label": "313.6 kJ",
+            "correcta": false
+          },
+          {
+            "label": "253.6 kJ",
+            "correcta": false
+          },
+          {
+            "label": "120 kJ",
+            "correcta": false
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "title": "Ondas y Óptica: Problemas Resueltos y Ejercicios Prácticos",
+    "description": "Pon a prueba tu comprensión de ondas y óptica con 7 problemas resueltos paso a paso y 12 ejercicios propuestos con soluciones. Reflexión, refracción, interferencia, efecto Doppler y más.",
+    "slug": "ondas-y-optica-practica",
+    "author": "Aeterna",
+    "category": "ciencias",
+    "subcategory": "fisica",
+    "tags": [
+      "física",
+      "ondas",
+      "óptica",
+      "problemas resueltos",
+      "reflexión",
+      "refracción",
+      "interferencia",
+      "efecto Doppler",
+      "ejercicios de física"
+    ],
+    "image": "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-08",
+    "nivel": "2",
+    "nivel_titulo": "El Reino de lo Clásico",
+    "orden": "5",
+    "insignia": "Señor de lo Clásico",
+    "tipo": "practice",
+    "## 🧪 Bienvenida": "El laboratorio de ondas"
+  },
+  "introduccion": "",
+  "secciones": [
+    {
+      "id": "1-problemas-de-ondas-frecuencia-longitud-y-velocidad",
+      "titulo": "1. Problemas de ondas: frecuencia, longitud y velocidad",
+      "niveles": {
+        "intermedio": "```aeterna-resueltos\r\nLABEL: 1. Energía de un fotón\r\n\r\n**Enunciado:**\r\nUn fotón tiene una frecuencia de $5 \\times 10^{14}$ Hz. Sabiendo que la constante de Planck es $h = 6.63 \\times 10^{-34} \\text{ J}\\cdot\\text{s}$, calcula su energía.\r\n\r\n1. **Identificación de los datos**\r\nLa frecuencia es $f = 5 \\times 10^{14}$ Hz.\r\nLa constante es planck.\r\n\r\n2. **Aplicación de la fórmula**\r\nUtilizando $E = h \\cdot f$:\r\n$E = (6.63 \\times 10^{-34} \\text{ J}\\cdot\\text{s}) \\times (5 \\times 10^{14} \\text{ s}^{-1})$\r\n\r\n**Respuesta:**\r\nLa energía del fotón es de $3.315 \\times 10^{-19}$ J.\r\n```\r\n\r\n```aeterna-resueltos\r\n### Problema resuelto 1.1: La radio FM\r\n\r\n**Enunciado:** Una emisora de radio FM emite en la frecuencia de 100 MHz (100 × 10⁶ Hz). Las ondas de radio viajan a la velocidad de la luz (c = 3 × 10⁸ m/s). ¿Cuál es su longitud de onda?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Identifica los datos:\r\n   - `f = 100 × 10⁶ Hz = 10⁸ Hz`\r\n   - `v = c = 3 × 10⁸ m/s`\r\n   - `λ = ?`\r\n\r\n2. Usa la ecuación fundamental de las ondas: `v = λ · f`, por tanto `λ = v / f`.\r\n\r\n3. Sustituye: `λ = (3 × 10⁸) / (10⁸) = 3 metros`.\r\n\r\n**Respuesta:** La longitud de onda de una emisora de FM a 100 MHz es de **3 metros**. Las antenas de los coches suelen medir alrededor de 75 cm, que es un cuarto de esa longitud de onda.\r\n```\r\n---\r\n\r\n```aeterna-resueltos\r\n### ✅ Problema resuelto 1.2: El sonido de un trueno\r\n\r\n**Enunciado:** Ves el destello de un rayo y, 6 segundos después, oyes el trueno. La velocidad del sonido en el aire es de aproximadamente 343 m/s. ¿A qué distancia ha caído el rayo?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Durante esos 6 segundos, la luz te ha llegado casi instantáneamente. El sonido, sin embargo, ha tardado en recorrer la distancia.\r\n\r\n2. Usa la relación: `distancia = velocidad × tiempo`.\r\n\r\n3. Sustituye: `d = 343 m/s × 6 s = 2.058 metros`.\r\n\r\n**Respuesta:** El rayo ha caído aproximadamente a **2 kilómetros** de ti.\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 1)\r\n\r\nResuelve estos ejercicios por tu cuenta antes de consultar las soluciones al final del artículo.\r\n\r\n```aeterna-exercise\r\n**Ejercicio 1:** Una ola en el mar tiene una longitud de onda de 20 metros y un periodo de 8 segundos. ¿Cuál es su velocidad de propagación?\r\nPISTA: Puedes usar la fórmula de la velocidad: v = λ / T. ¡No olvides indicar las unidades de tu respuesta (m/s)!\r\nRESPUESTA_CORRECTA: 2.5 m/s\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 2:** Un diapasón vibra a 440 Hz (la nota La). El sonido viaja por el agua a 1.480 m/s. ¿Cuál es la longitud de onda de este sonido en el agua?\r\nPISTA: Recuerda que aquí la velocidad cambia. Usa la fórmula v = λ · f y despeja la longitud de onda (λ). ¡Sé cuidadoso indicando las unidades (m)!\r\nRESPUESTA_CORRECTA: 3.36 m\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 3:** Un terremoto genera ondas sísmicas que viajan a 6 km/s. Si la frecuencia de la onda es de 0.2 Hz, ¿cuál es su longitud de onda?\r\nPISTA: Mucho cuidado con las unidades. 6 km/s son 6000 m/s. Aplica v = λ · f y cerciórate de poner \"m\" de metros.\r\nRESPUESTA_CORRECTA: 30000 m\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 4:** Una cuerda de guitarra vibra con una frecuencia de 50 Hz y una longitud de onda de 0.4 metros. ¿A qué velocidad se propaga la onda por la cuerda?\r\nPISTA: Solo tienes que multiplicar la longitud de onda por la frecuencia. Asegúrate de añadir (m/s) en el resultado.\r\nRESPUESTA_CORRECTA: 20 m/s\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 5:** Una onda de radio de AM viaja a la velocidad de la luz (c = 3 × 10⁸ m/s) y tiene una longitud de onda de 500 metros. ¿Cuál es su frecuencia en kHz?\r\nPISTA: Primero calcula f = v / λ para obtener la frecuencia en Hz. Luego divide entre 1000 para pasar a kHz. Recuerda que la respuesta debe dar las unidades (kHz).\r\nRESPUESTA_CORRECTA: 600 kHz\r\n```\r\n\r\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "2-problemas-de-reflexin-y-espejos",
+      "titulo": "2. Problemas de reflexión y espejos",
+      "niveles": {
+        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 2.1: La altura mínima de un espejo\r\n\r\n**Enunciado:** Una persona de 1.80 m de altura quiere comprar un espejo plano para verse de cuerpo entero. ¿Cuál es la altura mínima del espejo? ¿A qué altura del suelo debe colocarse?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Para ver tus pies en el espejo, el rayo que sale de tus pies debe reflejarse y llegar a tus ojos. Ese rayo incide en el espejo a una altura igual a la **mitad** de la distancia entre tus pies y tus ojos.\r\n\r\n2. Para ver la parte superior de tu cabeza, el rayo incide en el espejo a una altura que es la mitad de la distancia entre tus ojos y la coronilla.\r\n\r\n3. La altura mínima del espejo es **la mitad de la altura de la persona**: `1.80 m / 2 = 0.90 m`.\r\n\r\n4. Si los ojos están aproximadamente a 1.70 m del suelo, el borde inferior debe estar a `1.70 m / 2 = 0.85 m` del suelo.\r\n\r\n**Respuesta:** Un espejo de **90 cm** de altura colocado a **85 cm** del suelo permite a una persona de 1.80 m verse de cuerpo entero. La distancia a la que te pongas no importa: la altura mínima siempre es la mitad de tu altura.\r\n```\r\n\r\n---\r\n\r\n```aeterna-resueltos\r\n### ✅ Problema resuelto 2.2: Imagen en un espejo cóncavo\r\n\r\n**Enunciado:** Un espejo cóncavo tiene un radio de curvatura de 40 cm. Se coloca un objeto a 30 cm del vértice del espejo. ¿Dónde se forma la imagen? ¿Es real o virtual?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. La distancia focal es la mitad del radio de curvatura: `f = R / 2 = 40 cm / 2 = 20 cm`.\r\n\r\n2. Usa la ecuación de los espejos: `1/f = 1/s + 1/s'`, donde `s` es la distancia del objeto al espejo y `s'` la distancia de la imagen.\r\n\r\n3. Sustituye: `1/20 = 1/30 + 1/s'`.\r\n\r\n4. Despeja: `1/s' = 1/20 - 1/30 = (3 - 2) / 60 = 1/60`.\r\n\r\n5. Por tanto: `s' = 60 cm`. Como `s'` es positiva, la imagen es **real** y se forma delante del espejo.\r\n\r\n**Respuesta:** La imagen se forma a **60 cm** delante del espejo y es **real** (se puede proyectar en una pantalla).\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 2)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 6:** Una persona de 1.65 m de altura se sitúa frente a un espejo plano. ¿Cuál es la altura mínima que debe tener el espejo para que pueda verse de cuerpo entero?\r\nPISTA: Igual que en el problema resuelto 2.1, la altura de la persona manda. ¡Y no olvides qué estás midiendo, añade metros (m)!\r\nRESPUESTA_CORRECTA: 0.825 m\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 7:** Un espejo cóncavo tiene una distancia focal de 15 cm. Se coloca un objeto a 45 cm del espejo. ¿Dónde se forma la imagen? ¿Es real o virtual? ¿Cuál es el factor de ampliación?\r\nPISTA: Usa la fórmula 1/f = 1/s + 1/s'. Recuerda que las longitudes van en cm y así debes mostrar la respuesta (cm).\r\nRESPUESTA_CORRECTA: 22.5 cm\r\n```\r\n\r\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "3-problemas-de-refraccin-y-ley-de-snell",
+      "titulo": "3. Problemas de refracción y ley de Snell",
+      "niveles": {
+        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 3.1: El lápiz que se \"rompe\"\r\n\r\n**Enunciado:** Un rayo de luz viaja por el aire (n₁ = 1.00) e incide sobre la superficie del agua (n₂ = 1.33) con un ángulo de 45° respecto a la normal. ¿Con qué ángulo se refracta dentro del agua?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Aplica la ley de Snell: `n₁ · sen(θ₁) = n₂ · sen(θ₂)`.\r\n\r\n2. Sustituye: `1.00 · sen(45°) = 1.33 · sen(θ₂)`.\r\n\r\n3. `sen(45°) ≈ 0.7071`. Por tanto: `0.7071 = 1.33 · sen(θ₂)`.\r\n\r\n4. Despeja: `sen(θ₂) = 0.7071 / 1.33 ≈ 0.5316`.\r\n\r\n5. Aplica el arcoseno: `θ₂ = arcsen(0.5316) ≈ 32.1°`.\r\n\r\n**Respuesta:** El rayo se refracta con un ángulo de aproximadamente **32°** respecto a la normal. La luz se desvía hacia la normal al entrar en un medio más denso.\r\n```\r\n\r\n**[IMAGEN SUGERIDA: Diagrama con un rayo de luz incidiendo en la superficie del agua a 45° y refractándose a 32°. Línea punteada para la normal. Pie de foto: \"Al pasar del aire al agua, la luz se frena y se desvía hacia la normal.\"]**\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 3)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 8:** Un rayo de luz viaja por el agua (n₁ = 1.33) e incide sobre la superficie del aire (n₂ = 1.00) con un ángulo de 30° respecto a la normal. ¿Con qué ángulo emerge al aire?\r\nPISTA: Usa la Ley de Snell (n1 * sen(a1) = n2 * sen(a2)). Fíjate que el dato te lo piden en grados, indica la unidad (° o grados).\r\nRESPUESTA_CORRECTA: 41.7°\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 9:** ¿Cuál es el ángulo crítico para la reflexión total interna en la frontera entre agua (n = 1.33) y aire (n = 1.00)? Si un buceador dirige un haz de luz hacia la superficie con un ángulo de 55°, ¿logrará que la luz salga al aire?\r\nPISTA: El ángulo crítico se da cuando el ángulo de refracción es de 90°. Recuerda indicar los grados en la respuesta (° o grados).\r\nRESPUESTA_CORRECTA: 48.8°\r\n```\r\n\r\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "4-problemas-de-interferencia-y-difraccin",
+      "titulo": "4. Problemas de interferencia y difracción",
+      "niveles": {
+        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 4.1: Las dos rendijas de Young\r\n\r\n**Enunciado:** En un experimento de Young, la distancia entre las dos rendijas es de 0.2 mm. Se ilumina con luz monocromática de longitud de onda 600 nm. La pantalla está situada a 2 metros de las rendijas. ¿Cuál es la distancia entre dos franjas brillantes consecutivas?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Datos: `d = 0.2 mm = 2 × 10⁻⁴ m`, `λ = 600 nm = 6 × 10⁻⁷ m`, `D = 2 m`.\r\n\r\n2. La fórmula para la distancia entre franjas brillantes consecutivas es: `Δy = (λ · D) / d`.\r\n\r\n3. Sustituye: `Δy = (6 × 10⁻⁷ m × 2 m) / (2 × 10⁻⁴ m)`.\r\n\r\n4. Calcula: `Δy = (12 × 10⁻⁷) / (2 × 10⁻⁴) = 6 × 10⁻³ m = 6 mm`.\r\n\r\n**Respuesta:** La distancia entre dos franjas brillantes consecutivas es de **6 milímetros**.\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicio propuesto (sección 4)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 10:** En un experimento de Young, la separación entre rendijas es de 0.1 mm, la longitud de onda de la luz es de 500 nm y la pantalla está a 1.5 metros. ¿Cuál es la distancia entre franjas brillantes consecutivas? Si se usa luz roja (λ = 700 nm) en lugar de verde, ¿la distancia entre franjas aumenta o disminuye? Compruébalo calculándolo.\r\nPISTA: La fórmula para las franjas es Δy = (λ · D) / d. Fíjate bien en el orden de magnitud de la longitud de onda, que te lo piden en mm (mm).\r\nRESPUESTA_CORRECTA: 7.5 mm\r\n```\r\n\r\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "5-problemas-de-efecto-doppler",
+      "titulo": "5. Problemas de efecto Doppler",
+      "niveles": {
+        "intermedio": "```aeterna-resueltos\r\n### ✅ Problema resuelto 5.1: La ambulancia que se acerca\r\n\r\n**Enunciado:** Una ambulancia viaja hacia ti a 108 km/h (30 m/s) con la sirena encendida, que emite un sonido de 800 Hz. La velocidad del sonido en el aire es de 343 m/s. ¿Qué frecuencia escuchas tú?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Datos: `f₀ = 800 Hz`, `v_sonido = 343 m/s`, `v_fuente = 30 m/s`, `v_observador = 0 m/s`.\r\n\r\n2. La fórmula del efecto Doppler cuando la fuente se acerca al observador quieto es:\r\n   `f = f₀ × [v / (v - v_fuente)]`.\r\n\r\n3. Sustituye: `f = 800 × [343 / (343 - 30)] = 800 × (343 / 313)`.\r\n\r\n4. Calcula: `f ≈ 800 × 1.0958 ≈ 876.7 Hz`.\r\n\r\n**Respuesta:** Escuchas un sonido de aproximadamente **877 Hz**, más agudo que los 800 Hz originales.\r\n```\r\n\r\n---\r\n\r\n```aeterna-resueltos\r\n### ✅ Problema resuelto 5.2: La ambulancia se aleja\r\n\r\n**Enunciado:** La misma ambulancia, tras pasar de largo, se aleja de ti a 30 m/s. ¿Qué frecuencia escuchas ahora?\r\n\r\n**Solución paso a paso:**\r\n\r\n1. Ahora la fuente se aleja: `f = f₀ × [v / (v + v_fuente)]`.\r\n\r\n2. Sustituye: `f = 800 × [343 / (343 + 30)] = 800 × (343 / 373)`.\r\n\r\n3. Calcula: `f ≈ 800 × 0.9196 ≈ 735.7 Hz`.\r\n\r\n**Respuesta:** Escuchas un sonido de aproximadamente **736 Hz**, más grave.\r\n```\r\n\r\n---\r\n\r\n### ✏️ Ejercicios propuestos (sección 5)\r\n\r\n```aeterna-exercise\r\n**Ejercicio 11:** Un tren se acerca a ti a 144 km/h (40 m/s) haciendo sonar un silbato de 1.000 Hz. La velocidad del sonido es 343 m/s. ¿Qué frecuencia percibes?\r\nPISTA: Efecto doppler. f = f₀ × [v / (v - v_fuente)] cuando se acerca. Deberás añadir la unidad de frecuencia (Hz).\r\nRESPUESTA_CORRECTA: 1132 Hz\r\n```\r\n\r\n```aeterna-exercise\r\n**Ejercicio 12:** El mismo tren, tras pasar, se aleja de ti a la misma velocidad. ¿Qué frecuencia percibes ahora? ¿Cuál es la diferencia entre la frecuencia de acercamiento y la de alejamiento?\r\nPISTA: Ahora la fuente se aleja: f = f₀ × [v / (v + v_fuente)]. Luego resta ambas frecuencias. Recuerda indicar la frecuencia en Hz.\r\nRESPUESTA_CORRECTA: 236 Hz\r\n```\r\n\r\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "6-experimento-prctico-mide-la-velocidad-del-sonido-en-casa",
+      "titulo": "6. Experimento práctico: mide la velocidad del sonido en casa",
+      "niveles": {
+        "intermedio": "Puedes medir la velocidad del sonido con materiales sencillos. Aquí tienes un método:\r\n\r\n**Materiales:**\r\n- Un recipiente profundo con agua (un cubo o la bañera)\r\n- Un tubo de cartón (como el de un rollo de papel de cocina)\r\n- Una cuchara metálica grande y algo duro para golpearla\r\n- Una cinta métrica o regla\r\n\r\n**Procedimiento:**\r\n1. Llena el recipiente con agua hasta unos 20-30 cm de altura.\r\n2. Golpea la cuchara contra un objeto duro y escucha el sonido.\r\n3. Mientras golpeas, acerca el extremo del tubo al agua y muévelo hacia arriba y hacia abajo lentamente.\r\n4. En ciertas posiciones, el sonido se amplificará notablemente por resonancia. Esa posición ocurre cuando la longitud del tubo sobre el agua es un cuarto de la longitud de onda del sonido.\r\n5. Mide la distancia desde el extremo superior del tubo hasta la superficie del agua. Llámala `L`.\r\n\r\n**Cálculo:**\r\n- La longitud de onda del sonido es `λ = 4L`.\r\n- El sonido de la cuchara golpeada suele tener una frecuencia dominante entre 400 y 800 Hz.\r\n- Si asumimos `f = 600 Hz` y medimos `L = 14.3 cm`, entonces `λ = 4 × 0.143 m = 0.572 m` y `v = λ × f = 0.572 × 600 ≈ 343 m/s`.\r\n\r\nCompara tu resultado con los 343 m/s teóricos y calcula el porcentaje de error.\r\n\r\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "-autoevaluacin-qu-tal-lo-has-hecho",
+      "titulo": "🧠 Autoevaluación: ¿Qué tal lo has hecho?",
+      "niveles": {
+        "intermedio": "| Ejercicios resueltos correctamente | Diagnóstico |\r\n| :--- | :--- |\r\n| 0-3 | Vuelve a la parada teórica de [Ondas y Óptica](#) y repasa los conceptos fundamentales. |\r\n| 4-7 | Buen trabajo. Has comprendido los fundamentos, pero aún hay detalles que afinar. Repasa los problemas que fallaste. |\r\n| 8-10 | Excelente. Tienes una comprensión sólida de las ondas y la óptica clásica. |\r\n| 11-12 | Sobresaliente. Estás listo para las fronteras de la física: relatividad y cuántica te esperan. |\r\n\r\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "-soluciones-a-los-ejercicios-propuestos",
+      "titulo": "📝 Soluciones a los ejercicios propuestos",
+      "niveles": {
+        "intermedio": "**Ejercicio 1:** `v = λ / T = 20 m / 8 s = 2.5 m/s`.\r\n\r\n**Ejercicio 2:** `λ = v / f = 1.480 m/s / 440 Hz ≈ 3.36 m`.\r\n\r\n**Ejercicio 3:** `λ = v / f = 6.000 m/s / 0.2 Hz = 30.000 m = 30 km`.\r\n\r\n**Ejercicio 4:** `v = λ · f = 0.4 m × 50 Hz = 20 m/s`.\r\n\r\n**Ejercicio 5:** `f = v / λ = (3 × 10⁸ m/s) / 500 m = 600.000 Hz = 600 kHz`.\r\n\r\n**Ejercicio 6:** `h_espejo = 1.65 m / 2 = 0.825 m = 82.5 cm`.\r\n\r\n**Ejercicio 7:** `1/15 = 1/45 + 1/s'` → `1/s' = 1/15 - 1/45 = (3-1)/45 = 2/45` → `s' = 22.5 cm`. La imagen es **real** (s' > 0). Ampliación: `A = -s'/s = -22.5/45 = -0.5`. La imagen está **invertida** (A negativo) y tiene **la mitad de tamaño**.\r\n\r\n**Ejercicio 8:** `1.33 × sen(30°) = 1.00 × sen(θ₂)` → `sen(θ₂) = 0.665` → `θ₂ ≈ 41.7°`. El rayo se aleja de la normal.\r\n\r\n**Ejercicio 9:** Ángulo crítico: `θ_c = arcsen(n₂/n₁) = arcsen(1.00/1.33) ≈ arcsen(0.7519) ≈ 48.8°`. Con 55° (> 48.8°), el haz **no saldrá** al aire: sufrirá **reflexión total interna** y volverá al agua. Es lo que hace que la superficie del agua parezca un espejo desde abajo.\r\n\r\n**Ejercicio 10:** Con λ = 500 nm: `Δy = (500 × 10⁻⁹ × 1.5) / (0.1 × 10⁻³) = 7.5 × 10⁻³ m = 7.5 mm`. Con λ = 700 nm: `Δy = (700 × 10⁻⁹ × 1.5) / (0.1 × 10⁻³) = 10.5 mm`. La distancia **aumenta** con la longitud de onda. La luz roja produce franjas más separadas.\r\n\r\n**Ejercicio 11:** `f = 1.000 × [343 / (343 - 40)] = 1.000 × (343 / 303) ≈ 1.132 Hz`.\r\n\r\n**Ejercicio 12:** `f = 1.000 × [343 / (343 + 40)] = 1.000 × (343 / 383) ≈ 895.6 Hz`. Diferencia: `1.132 - 896 ≈ 236 Hz`. Tu oído percibe perfectamente esa diferencia como un cambio notable de tono.\r\n\r\n---\r\n\r\n> **⚠️ Siguiente parada: Relatividad Especial**\r\n>\r\n> Has completado el Nivel 2: El Reino de lo Clásico. Ahora te espera un salto a las fronteras de la realidad. Descubrirás por qué el tiempo se dilata, por qué nada supera la velocidad de la luz y cómo Einstein cambió para siempre nuestra comprensión del espacio y el tiempo. [Sigue la ruta →](#)\r\n\r\n---\r\n\r\n**📚 Para seguir explorando:** *\"Física para la ciencia y la tecnología\"* de Tipler y Mosca contiene cientos de problemas resueltos de física universitaria, con un nivel de detalle excelente para seguir practicando. [Consíguelo aquí](enlace-afiliado)."
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": ""
+}

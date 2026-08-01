@@ -1,0 +1,46 @@
+{
+  "$schema": "aeterna-tileset-v1",
+  "id": "academic_room_v1",
+  "name": "Academic Room Tileset v1",
+  "version": "1.0.0",
+  "artStyle": "academic_painterly_cozy",
+  "isometric": {
+    "projection": "true_2.5d",
+    "tileRatio": "2:1",
+    "tileWidthPx": 64,
+    "tileHeightPx": 32,
+    "wallHeightPx": 150
+  },
+  "autotilingRules": {
+    "floor": {
+      "centerVariants": [
+        "/images/aeterna_master_oak_floor_tile.png",
+        "/images/aeterna_master_oak_floor_tile.png",
+        "/images/aeterna_master_oak_floor_tile.png",
+        "/images/aeterna_master_oak_floor_tile.png"
+      ],
+      "edges": {
+        "N": "/images/aeterna_master_oak_floor_tile.png",
+        "S": "/images/aeterna_master_oak_floor_tile.png",
+        "E": "/images/aeterna_master_oak_floor_tile.png",
+        "W": "/images/aeterna_master_oak_floor_tile.png"
+      },
+      "corners": {
+        "NW": "/images/aeterna_master_oak_floor_tile.png",
+        "NE": "/images/aeterna_master_oak_floor_tile.png",
+        "SW": "/images/aeterna_master_oak_floor_tile.png",
+        "SE": "/images/aeterna_master_oak_floor_tile.png"
+      }
+    }
+  },
+  "skirting": {
+    "NW": "/images/aeterna_master_oak_floor_tile.png",
+    "NE": "/images/aeterna_master_oak_floor_tile.png"
+  },
+  "lightingProfile": {
+    "ambientColor": "#2A1B0E",
+    "ambientIntensity": 0.85,
+    "sunLightAngle": 45,
+    "sunLightColor": "#FEF08A"
+  }
+}

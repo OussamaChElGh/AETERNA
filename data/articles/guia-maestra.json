@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "title": "Guía Maestra de Física: El Mapa del Universo",
+    "description": "El mapa completo de la disciplina, sus ramas, su historia y su método. Es la brújula que orienta todo el viaje.",
+    "slug": "guia-maestra",
+    "author": "Aeterna",
+    "category": "ciencias",
+    "subcategory": "fisica",
+    "tags": [
+      "fisica",
+      "ciencia",
+      "fundamentos"
+    ],
+    "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-09",
+    "nivel": "1",
+    "nivel_titulo": "Fundamentos del Cosmos",
+    "orden": "1",
+    "insignia": "Iniciado del Cosmos"
+  },
+  "introduccion": "",
+  "secciones": [
+    {
+      "id": "la-fsica-el-lenguaje-de-la-realidad",
+      "titulo": "La Física: El Lenguaje de la Realidad",
+      "niveles": {
+        "intermedio": "Aquí adquieres el mapa, el lenguaje y las herramientas básicas para pensar como un físico. Todo este trayecto te preparará para entender cómo funciona la realidad a través de principios fundamentales."
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": ""
+}

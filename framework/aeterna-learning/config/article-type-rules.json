@@ -1,0 +1,125 @@
+{
+  "conceptual": {
+    "type": "conceptual",
+    "description": "Artículo cuyo objetivo principal es comprender conceptos, principios, modelos o fenómenos.",
+    "layers": {
+      "inicio": { "min": 1, "max": 2 },
+      "intermedio": { "min": 2, "max": 3 },
+      "avanzado": { "min": 1, "max": 2 }
+    },
+    "totalRecommended": { "min": 4, "max": 7 },
+    "interactiveRequirement": "optional",
+    "priorities": [
+      "comprensión conceptual",
+      "interpretación",
+      "aplicación básica"
+    ]
+  },
+  "methodological": {
+    "type": "methodological",
+    "description": "Artículo cuyo objetivo principal es enseñar una forma de pensar, investigar, medir, modelizar, estimar, analizar o trabajar científicamente.",
+    "layers": {
+      "inicio": { "min": 1, "max": 2 },
+      "intermedio": { "min": 1, "max": 3 },
+      "avanzado": { "min": 1, "max": 2 }
+    },
+    "totalRecommended": { "min": 3, "max": 7 },
+    "interactiveRequirement": "optional",
+    "priorities": [
+      "reconocer el método",
+      "aplicarlo",
+      "justificar decisiones",
+      "transferencia"
+    ]
+  },
+  "procedural": {
+    "type": "procedural",
+    "description": "Artículo cuyo objetivo principal es enseñar un procedimiento o método reproducible para resolver una clase de tarea.",
+    "layers": {
+      "inicio": { "min": 2, "max": 3 },
+      "intermedio": { "min": 2, "max": 4 },
+      "avanzado": { "min": 2, "max": 3 }
+    },
+    "totalRecommended": { "min": 6, "max": 10 },
+    "interactiveRequirement": "optional",
+    "priorities": [
+      "comprensión del procedimiento",
+      "ejecución",
+      "aplicación a casos diferentes",
+      "detección de errores"
+    ]
+  },
+  "problem_solving": {
+    "type": "problem_solving",
+    "description": "Artículo cuyo núcleo es resolver problemas y desarrollar capacidad de aplicación y razonamiento.",
+    "layers": {
+      "inicio": { "min": 2, "max": 3 },
+      "intermedio": { "min": 3, "max": 5 },
+      "avanzado": { "min": 3, "max": 5 }
+    },
+    "totalRecommended": { "min": 8, "max": 13 },
+    "interactiveRequirement": "optional",
+    "priorities": [
+      "aplicación",
+      "razonamiento",
+      "problemas no rutinarios",
+      "transferencia"
+    ]
+  },
+  "experimental": {
+    "type": "experimental",
+    "description": "Artículo centrado en experimentación, observación, medición, diseño experimental o interpretación de resultados.",
+    "layers": {
+      "inicio": { "min": 1, "max": 2 },
+      "intermedio": { "min": 2, "max": 3 },
+      "avanzado": { "min": 1, "max": 3 }
+    },
+    "totalRecommended": { "min": 4, "max": 8 },
+    "interactiveRequirement": "recommended",
+    "priorities": [
+      "observación",
+      "medición",
+      "interpretación de datos",
+      "incertidumbre",
+      "diseño experimental",
+      "conclusiones"
+    ]
+  },
+  "simulation": {
+    "type": "simulation",
+    "description": "Artículo cuyo aprendizaje depende de manera importante de una simulación, modelo manipulable o entorno interactivo.",
+    "layers": {
+      "inicio": { "min": 1, "max": 2 },
+      "intermedio": { "min": 1, "max": 3 },
+      "avanzado": { "min": 1, "max": 3 }
+    },
+    "totalRecommended": { "min": 3, "max": 8 },
+    "interactiveRequirement": "highly_recommended",
+    "priorities": [
+      "manipulación de variables",
+      "observación de resultados",
+      "formulaciones de predicciones",
+      "interpretación",
+      "experimentación",
+      "transferencia"
+    ]
+  },
+  "synthesis": {
+    "type": "synthesis",
+    "description": "Artículo cuyo objetivo principal es integrar, relacionar o consolidar conocimientos adquiridos previamente.",
+    "layers": {
+      "inicio": { "min": 1, "max": 2 },
+      "intermedio": { "min": 2, "max": 3 },
+      "avanzado": { "min": 2, "max": 3 }
+    },
+    "totalRecommended": { "min": 5, "max": 8 },
+    "interactiveRequirement": "optional",
+    "priorities": [
+      "conectar conceptos",
+      "comparar",
+      "integrar",
+      "transferir",
+      "recuperar conocimientos previos"
+    ]
+  }
+}

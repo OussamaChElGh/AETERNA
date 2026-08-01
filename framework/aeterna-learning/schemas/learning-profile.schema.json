@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LearningProfile",
+  "type": "object",
+  "required": ["profileId", "name", "targetAudience", "layers", "recommendedTotalExercises"],
+  "properties": {
+    "profileId": { "type": "string" },
+    "name": { "type": "string" },
+    "targetAudience": { "type": "string" },
+    "description": { "type": "string" },
+    "layers": {
+      "type": "object",
+      "required": ["inicio", "intermedio", "avanzado"],
+      "properties": {
+        "inicio": { "$ref": "#/definitions/layer" },
+        "intermedio": { "$ref": "#/definitions/layer" },
+        "avanzado": { "$ref": "#/definitions/layer" }
+      }
+    },
+    "recommendedTotalExercises": {
+      "type": "object",
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "type": "integer" },
+        "max": { "type": "integer" }
+      }
+    }
+  },
+  "definitions": {
+    "layer": {
+      "type": "object",
+      "required": ["id", "title", "objective", "minExercises", "maxExercises", "masteryThreshold", "competencies"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "objective": { "type": "string" },
+        "minExercises": { "type": "integer" },
+        "maxExercises": { "type": "integer" },
+        "masteryThreshold": { "type": "number" },
+        "competencies": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

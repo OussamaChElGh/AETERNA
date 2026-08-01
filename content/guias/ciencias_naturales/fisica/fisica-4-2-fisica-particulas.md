@@ -1,0 +1,19 @@
+---
+title: "Física de Partículas: El Zoo Subatómico"
+description: "El Modelo Estándar, los quarks, los leptones y el bosón de Higgs. El 'zoo subatómico' completo."
+slug: "fisica-particulas"
+author: "Aeterna"
+category: "ciencias"
+subcategory: "fisica"
+tags: ["física", "Modelo Estándar", "quarks", "leptones", "bosón de Higgs"]
+image: "https://images.unsplash.com/photo-1544256718-3bcf237f3974?q=80&w=2070&auto=format&fit=crop"
+date: "2026-05-09"
+nivel: 4
+nivel_titulo: "La Síntesis y el Futuro"
+orden: 2
+insignia: "Señor de la Síntesis"
+---
+
+## Adentrándose en el Modelo Estándar
+
+Más allá de los protones, neutrones y electrones, yace un zoológico de partículas con masa, momento angular y características excéntricas. El Modelo Estándar explica cuáles son y cómo interactúan las fuerzas entre ellas.

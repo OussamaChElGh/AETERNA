@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+
+  --color-brand-offwhite: #F5F5F0;
+  --color-brand-ink: #09090B;
+  --color-brand-blue: #3e5b76;
+  --color-brand-gold: #D4AF37;
+  --color-brand-cosmic: #0ea5e9;
+  --color-brand-border: #1F1F22;
+  --color-brand-accent-hover: #18181B;
+  --color-brand-muted: #71717A;
+  --shadow-3xl: 0 35px 60px -15px rgba(0, 0, 0, 0.5);
+}
+
+@layer base {
+  .bg-engraving {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30L0 30M30 0L30 30M60 30L30 30M30 60L30 30' stroke='%23C5A059' stroke-width='0.5' fill='none' stroke-opacity='0.05'/%3E%3C/svg%3E");
+  }
+}
+
+@layer base {
+  :root {
+    --brand-offwhite: #F5F5F0;
+    --brand-ink: #09090B;
+    --brand-blue: #639cc9;
+    --brand-gold: #D4AF37;
+    --brand-cosmic: #22d3ee;
+    --brand-border: #1F1F22;
+    --brand-accent-hover: #f8f8f6;
+    --brand-muted: #808080;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --brand-offwhite: #0a0a0a;
+    --brand-ink: #f2f2f2;
+    --brand-blue: #639cc9;
+    --brand-gold: #d4af37;
+    --brand-cosmic: #22d3ee;
+    --brand-border: #1f1f1f;
+    --brand-accent-hover: #141414;
+    --brand-muted: #888888;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+  }
+
+  html {
+    @apply scroll-smooth font-sans;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight font-normal;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+@media print {
+  nav, footer, aside, button, .fixed, .sticky { display: none !important; }
+  body { background: white !important; color: black !important; }
+}
+
+/* ─── Aeterna Feedback FX (Duolingo-style) ─────────────────────────── */
+@layer utilities {
+  @keyframes aeterna-pop {
+    0%   { transform: scale(1); }
+    35%  { transform: scale(1.12) rotate(-1.5deg); }
+    70%  { transform: scale(0.96) rotate(0.5deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+  .animate-pop { animation: aeterna-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+  @keyframes aeterna-shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-7px) rotate(-0.5deg); }
+    40% { transform: translateX(7px) rotate(0.5deg); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+  }
+  .animate-shake { animation: aeterna-shake 0.4s ease-in-out; }
+
+  @keyframes aeterna-fade-up {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: aeterna-fade-up 0.5s ease-out both; }
+
+  @keyframes aeterna-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-16px); }
+  }
+  .animate-float { animation: aeterna-float 7s ease-in-out infinite; }
+
+  @keyframes aeterna-wobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+  }
+  .animate-wobble { animation: aeterna-wobble 0.4s ease-in-out 2; }
+
+  @keyframes aeterna-glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    50%      { box-shadow: 0 0 24px 6px rgba(212, 175, 55, 0.5); }
+  }
+  .animate-glow-pulse { animation: aeterna-glow-pulse 1.2s ease-in-out 2; }
+}
+
+/* Textbook Formula Styling for KaTeX Math Equations */
+.katex-display {
+  margin: 1.75rem 0 !important;
+  padding: 1.25rem 1.75rem !important;
+  background: rgba(212, 175, 55, 0.04) !important;
+  border-left: 3px solid #D4AF37 !important;
+  border-radius: 0 !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  font-size: 1.25rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.dark .katex-display {
+  background: rgba(212, 175, 55, 0.08) !important;
+  border-left-color: #E6C200 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.katex {
+  font-size: 1.08em !important;
+  line-height: 1.2 !important;
+}

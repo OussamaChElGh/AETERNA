@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "title": "Cómo aprender Inglés de forma efectiva",
+    "description": "Estrategias modernas y recursos digitales para dominar el idioma más universal.",
+    "slug": "aprender-ingles",
+    "author": "Redacción",
+    "category": "guias",
+    "subcategory": "idiomas",
+    "tags": [
+      "inglés",
+      "idiomas",
+      "aprendizaje"
+    ],
+    "image": "https://images.unsplash.com/photo-1543165796-5426273ea458?q=80&w=2070&auto=format&fit=crop",
+    "date": "2024-04-26"
+  },
+  "introduccion": "El inglés ya no es una opción, es una herramienta básica. En esta guía exploramos cómo pasar de la teoría a la práctica real.",
+  "secciones": [
+    {
+      "id": "1-el-mito-de-la-inmersin-total",
+      "titulo": "1. El mito de la inmersión total",
+      "niveles": {
+        "intermedio": "Nos han dicho repetidamente que la única forma de dominar un idioma es irse a vivir al país donde se habla. \n\n\n```aeterna-question\nContexto: \"Si no vives en Estados Unidos o Inglaterra, nunca hablarás inglés fluidamente\".\nPregunta: ¿Cómo refutarías esta afirmación basándote en la tecnología de la que disponemos hoy?\nXP: 80\nTipo: Contradicción\n```\n\n\nLa realidad es que, gracias a internet, hoy puedes crear una \"burbuja de inmersión\" en tu propia habitación: configurando tu teléfono en inglés, viendo series en inglés, y jugando videojuegos en servidores norteamericanos."
+      },
+      "acciones": []
+    },
+    {
+      "id": "2-fluidez-vs-precisin",
+      "titulo": "2. Fluidez vs Precisión",
+      "niveles": {
+        "intermedio": "Al principio, muchos estudiantes se bloquean tratando de formar la oración gramaticalmente perfecta. Esto es contraproducente para la comunicación.\n\n\n```aeterna-question\nPregunta: Imagina que estás perdido en Londres. ¿Qué es más efectivo?\nOpciones:\n- Formular una frase impecable en tu mente durante 2 minutos antes de hablar.\n- Decir \"where is the train station\" rápidamente, aunque la gramática no sea perfecta.\n- Buscar en un diccionario físico en medio de la calle.\nRespuestaCorrecta: Decir \"where is the train station\" rápidamente, aunque la gramática no sea perfecta.\nXP: 40\nTipo: Decisión\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "3-revisin-de-tu-mtodo-actual",
+      "titulo": "3. Revisión de tu método actual",
+      "niveles": {
+        "intermedio": "Ahora que hemos cubierto estos conceptos clave, detente a pensar en cómo has estado aprendiendo hasta ahora.\n\n\n```aeterna-question\nContexto: Antes pensabas que necesitabas estudiar gramática 2 horas al día para progresar.\nPregunta: ¿Sigues pensando igual? ¿Cómo vas a ajustar tu rutina a partir de mañana?\nXP: 100\nTipo: Revisión\n```"
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": ""
+}

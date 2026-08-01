@@ -1,0 +1,745 @@
+[
+  {
+    "term": "entropía",
+    "definition": "Medida del desorden o de la dispersión de la energía en un sistema. Según la Segunda Ley, en un sistema aislado la entropía nunca disminuye: ΔS ≥ 0.",
+    "synonyms": [
+      "entropia",
+      "entropy"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "entalpía",
+    "definition": "Contenido energético total de un sistema a presión constante: H = U + PV. Útil en procesos químicos y de flujo.",
+    "synonyms": [
+      "entalpia",
+      "enthalpy"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "kelvin",
+    "definition": "Unidad de temperatura absoluta del SI. 0 K = −273.15 °C (cero absoluto). La temperatura en Kelvin es directamente proporcional a la energía cinética media de las partículas.",
+    "synonyms": [
+      "kelvin",
+      "k"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "calor específico",
+    "definition": "Cantidad de energía necesaria para elevar la temperatura de 1 kg de una sustancia en 1 K. Unidad: J/(kg·K). El agua tiene un valor excepcionalmente alto (4184 J/kg·K).",
+    "synonyms": [
+      "calor especifico",
+      "specific heat"
+    ],
+    "tags": [
+      "calorimetría"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "calor latente",
+    "definition": "Energía absorbida o liberada durante un cambio de fase sin que cambie la temperatura. Ej.: fusión, vaporización.",
+    "synonyms": [
+      "calor latente",
+      "latent heat"
+    ],
+    "tags": [
+      "cambios de fase"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "proceso adiabático",
+    "definition": "Proceso en el que no hay intercambio de calor con el entorno (Q = 0). Un gas que se comprime rápidamente se calienta sin absorber calor externo.",
+    "synonyms": [
+      "adiabático",
+      "adiabatico",
+      "adiabatic"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "proceso isotérmico",
+    "definition": "Proceso que ocurre a temperatura constante. Para un gas ideal, ΔU = 0 y todo el calor se convierte en trabajo.",
+    "synonyms": [
+      "isotérmico",
+      "isotermico",
+      "isothermal"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "gas ideal",
+    "definition": "Modelo teórico de gas donde las moléculas no interactúan entre sí. Obedece la ecuación PV = nRT.",
+    "synonyms": [
+      "gas ideal"
+    ],
+    "tags": [
+      "gases"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "ecuación de van der Waals",
+    "definition": "Corrección a la ecuación del gas ideal que considera el volumen finito de las moléculas (b) y las fuerzas de atracción entre ellas (a): (P + an²/V²)(V − nb) = nRT.",
+    "synonyms": [
+      "van der waals",
+      "van der waals"
+    ],
+    "tags": [
+      "gases"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "constante de Boltzmann",
+    "definition": "kB = 1.381 × 10⁻²³ J/K. Relaciona la energía cinética media de las partículas con la temperatura: ⟨E⟩ = (3/2)kBT.",
+    "synonyms": [
+      "boltzmann",
+      "constante de boltzmann"
+    ],
+    "tags": [
+      "mecánica estadística"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "energía interna",
+    "definition": "Suma de todas las energías cinéticas y potenciales de las partículas de un sistema. Para un gas ideal solo depende de la temperatura.",
+    "synonyms": [
+      "energia interna",
+      "internal energy"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "trabajo termodinámico",
+    "definition": "Energía transferida cuando un sistema cambia de volumen contra una presión: W = ∫P dV. En un proceso isobárico, W = P·ΔV.",
+    "synonyms": [
+      "trabajo termodinámico"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "ciclo de Carnot",
+    "definition": "Ciclo termodinámico reversible de máxima eficiencia posible entre dos focos térmicos. Su rendimiento es η = 1 − Tf/Tc.",
+    "synonyms": [
+      "carnot",
+      "ciclo de carnot"
+    ],
+    "tags": [
+      "máquinas térmicas"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "rendimiento",
+    "definition": "Fracción de la energía aportada que se convierte en trabajo útil: η = W_útil / Q_entrada. Nunca puede superar el rendimiento de Carnot.",
+    "synonyms": [
+      "rendimiento"
+    ],
+    "tags": [
+      "máquinas térmicas"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "bomba de calor",
+    "definition": "Dispositivo que usa trabajo para mover calor del foco frío al caliente (inverso de una máquina térmica). Su COP puede superar 1.",
+    "synonyms": [
+      "bomba de calor",
+      "heat pump"
+    ],
+    "tags": [
+      "máquinas térmicas"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "cero absoluto",
+    "definition": "Temperatura más baja posible: 0 K = −273.15 °C. Inalcanzable en un número finito de pasos (Tercera Ley).",
+    "synonyms": [
+      "cero absoluto"
+    ],
+    "tags": [
+      "tercera ley"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "equilibrio térmico",
+    "definition": "Estado en el que dos o más cuerpos tienen la misma temperatura y no hay flujo neto de calor entre ellos.",
+    "synonyms": [
+      "equilibrio termico"
+    ],
+    "tags": [
+      "ley cero"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "conducción",
+    "definition": "Transferencia de calor a través de un material sólido por contacto entre partículas. Los metales son excelentes conductores.",
+    "synonyms": [
+      "conducción",
+      "conduccion"
+    ],
+    "tags": [
+      "transferencia de calor"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "convección",
+    "definition": "Transferencia de calor por el movimiento de un fluido (líquido o gas). Ej.: el vapor que asciende de una taza de café.",
+    "synonyms": [
+      "convección",
+      "conveccion",
+      "convection"
+    ],
+    "tags": [
+      "transferencia de calor"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "radiación",
+    "definition": "Transferencia de calor mediante ondas electromagnéticas. No necesita medio material. Ej.: el Sol calienta la Tierra por radiación.",
+    "synonyms": [
+      "radiación",
+      "radiacion"
+    ],
+    "tags": [
+      "transferencia de calor"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "energía del punto cero",
+    "definition": "Energía residual mínima que posee un sistema cuántico incluso a T = 0 K, debida al principio de incertidumbre.",
+    "synonyms": [
+      "energía del punto cero",
+      "energia del punto cero"
+    ],
+    "tags": [
+      "cuántica"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "superconductividad",
+    "definition": "Fenómeno por el que ciertos materiales pierden toda resistencia eléctrica por debajo de su temperatura crítica.",
+    "synonyms": [
+      "superconductividad",
+      "superconductivity"
+    ],
+    "tags": [
+      "aplicaciones"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "superfluidez",
+    "definition": "Estado de la materia en el que un fluido (como el helio-4) fluye sin viscosidad por debajo de 2.17 K.",
+    "synonyms": [
+      "superfluidez",
+      "superfluidity"
+    ],
+    "tags": [
+      "aplicaciones"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "condensado de Bose-Einstein",
+    "definition": "Estado de la materia donde cientos de átomos ultrafríos pierden su identidad individual y se comportan como una única onda de materia.",
+    "synonyms": [
+      "bose-einstein",
+      "bose einstein"
+    ],
+    "tags": [
+      "frontera"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "exergía",
+    "definition": "Trabajo máximo teóricamente obtenible cuando un sistema se lleva al equilibrio con su entorno. Se destruye con las irreversibilidades.",
+    "synonyms": [
+      "exergía",
+      "exergia",
+      "exergy"
+    ],
+    "tags": [
+      "termodinámica"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "psicrometría",
+    "definition": "Estudio de las propiedades del aire húmedo: temperatura, humedad relativa, entalpía y punto de rocío.",
+    "synonyms": [
+      "psicrometría",
+      "psicrometria"
+    ],
+    "tags": [
+      "aplicaciones"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "gradiente adiabático",
+    "definition": "Tasa de cambio de temperatura con la altitud en la atmósfera para una parcela de aire que asciende sin intercambiar calor (~9.8 K/km seco).",
+    "synonyms": [
+      "gradiente adiabático",
+      "gradiente adiabatico"
+    ],
+    "tags": [
+      "atmósfera"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "negueentropía",
+    "definition": "Entropía negativa; el orden que un sistema vivo mantiene al exportar desorden al entorno. Concepto popularizado por Schrödinger.",
+    "synonyms": [
+      "neguentropía",
+      "neguentropia"
+    ],
+    "tags": [
+      "biología"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "temperatura",
+    "definition": "Magnitud que mide la energía cinética media de las partículas de un cuerpo. Unidad SI: kelvin (K).",
+    "synonyms": [
+      "temperatura"
+    ],
+    "tags": [
+      "fundamentos"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "calor",
+    "definition": "Energía térmica en tránsito entre dos cuerpos a distinta temperatura. Se mide en julios (J).",
+    "synonyms": [
+      "calor"
+    ],
+    "tags": [
+      "fundamentos"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "presión",
+    "definition": "Fuerza ejercida por unidad de área: P = F/A. Unidad SI: pascal (Pa).",
+    "synonyms": [
+      "presión",
+      "presion",
+      "pressure"
+    ],
+    "tags": [
+      "fundamentos"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "volumen",
+    "definition": "Espacio tridimensional ocupado por una sustancia. Unidad SI: metro cúbico (m³).",
+    "synonyms": [
+      "volumen"
+    ],
+    "tags": [
+      "fundamentos"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "foco térmico",
+    "definition": "Reservorio de energía térmica a temperatura constante que puede ceder o absorber calor sin cambiar su propia temperatura.",
+    "synonyms": [
+      "foco térmico",
+      "foco termico"
+    ],
+    "tags": [
+      "máquinas térmicas"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "método científico",
+    "definition": "Metodología para obtener nuevos conocimientos basada en la observación sistemática, la medición, la experimentación y la formulación, análisis y modificación de hipótesis.",
+    "synonyms": [
+      "metodo cientifico",
+      "método experimental"
+    ],
+    "tags": [
+      "epistemología",
+      "fundamentos"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "hipótesis",
+    "definition": "Conjetura provisional que requiere contrastación con la experiencia. Si se confirma experimentalmente se denomina enunciado verificado.",
+    "synonyms": [
+      "hipotesis"
+    ],
+    "tags": [
+      "método científico"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "falsabilidad",
+    "definition": "Criterio de Popper: una afirmación es científica si existe una observación que podría refutarla. Basta una observación en contra para derribar una afirmación universal.",
+    "synonyms": [
+      "falsación",
+      "falsacion",
+      "refutabilidad"
+    ],
+    "tags": [
+      "epistemología",
+      "Popper"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "variable independiente",
+    "definition": "La variable que el investigador cambia deliberadamente en un experimento para observar su efecto.",
+    "synonyms": [
+      "variable independiente"
+    ],
+    "tags": [
+      "experimentación"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "variable dependiente",
+    "definition": "La variable que se mide en un experimento y que responde a los cambios de la variable independiente.",
+    "synonyms": [
+      "variable dependiente"
+    ],
+    "tags": [
+      "experimentación"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "grupo control",
+    "definition": "Grupo que no recibe el tratamiento en un experimento. Sirve de referencia para comparar y aislar el efecto de la variable independiente.",
+    "synonyms": [
+      "grupo de control",
+      "control"
+    ],
+    "tags": [
+      "experimentación"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "variable de confusión",
+    "definition": "Variable no controlada que puede distorsionar el resultado, ofreciendo una explicación alternativa al efecto observado.",
+    "synonyms": [
+      "variable de confusión",
+      "confusion"
+    ],
+    "tags": [
+      "experimentación"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "precisión",
+    "definition": "Grado de reproducibilidad de una medición: qué tan coincidentes son las medidas entre sí. Preciso no implica exacto.",
+    "synonyms": [
+      "precision"
+    ],
+    "tags": [
+      "medición"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "exactitud",
+    "definition": "Cercanía de una medición al valor verdadero. Exacto no implica preciso.",
+    "synonyms": [
+      "exactitud"
+    ],
+    "tags": [
+      "medición"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "incertidumbre",
+    "definition": "Dispersión o margen de error asociado a toda medición. Una medida sin incertidumbre reportada es una medida incompleta.",
+    "synonyms": [
+      "incertidumbre",
+      "error de medida"
+    ],
+    "tags": [
+      "medición"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "error sistemático",
+    "definition": "Error que desplaza todas las mediciones en una misma dirección, causado por calibración o método defectuoso.",
+    "synonyms": [
+      "error sistemático",
+      "error sistematico"
+    ],
+    "tags": [
+      "medición",
+      "errores"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "error aleatorio",
+    "definition": "Error que produce dispersión alrededor del valor verdadero, causado por fluctuaciones impredecibles. Se reduce repitiendo y promediando.",
+    "synonyms": [
+      "error aleatorio"
+    ],
+    "tags": [
+      "medición",
+      "errores"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "orden de magnitud",
+    "definition": "Potencia de 10 que más se aproxima a una cantidad. Herramienta de estimación que permite comparar escalas y detectar resultados absurdos.",
+    "synonyms": [
+      "orden de magnitud"
+    ],
+    "tags": [
+      "estimación"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "estimación de Fermi",
+    "definition": "Técnica para obtener respuestas de orden de magnitud descomponiendo un problema aparentemente imposible en partes estimables.",
+    "synonyms": [
+      "fermi",
+      "estimación de fermi",
+      "problema de fermi"
+    ],
+    "tags": [
+      "estimación",
+      "razonamiento"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "correlación",
+    "definition": "Relación estadística entre dos variables que varían juntas. No implica causalidad: puede existir una variable de confusión.",
+    "synonyms": [
+      "correlación",
+      "correlacion",
+      "asociación"
+    ],
+    "tags": [
+      "estadística"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "causalidad",
+    "definition": "Relación en la que un factor produce directamente un efecto. Solo se establece con experimentos controlados, no con correlación.",
+    "synonyms": [
+      "causalidad"
+    ],
+    "tags": [
+      "estadística"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "sesgo",
+    "definition": "Distorsión sistemática en la observación, medición o selección que aleja los resultados del valor verdadero.",
+    "synonyms": [
+      "sesgo",
+      "bias"
+    ],
+    "tags": [
+      "experimentación"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "doble ciego",
+    "definition": "Diseño experimental en el que ni el sujeto ni el investigador saben quién recibe el tratamiento. Elimina el efecto placebo y el sesgo del observador.",
+    "synonyms": [
+      "doble ciego",
+      "ensayo ciego"
+    ],
+    "tags": [
+      "experimentación"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "reproducibilidad",
+    "definition": "Capacidad de repetir un resultado en condiciones equivalentes. Sello de calidad de la ciencia: un resultado que nadie reproduce es sospechoso.",
+    "synonyms": [
+      "reproducibilidad",
+      "replicabilidad"
+    ],
+    "tags": [
+      "experimentación"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "observación científica",
+    "definition": "Registro sistemático y objetivo de fenómenos, priorizando datos medibles y verificables sobre impresiones subjetivas.",
+    "synonyms": [
+      "observación científica",
+      "observacion"
+    ],
+    "tags": [
+      "método científico"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "trabajo físico",
+    "definition": "Energía transferida por una fuerza que desplaza un objeto: W = F·d·cos(θ). Sin desplazamiento no hay trabajo.",
+    "synonyms": [
+      "trabajo físico",
+      "trabajo mecanico"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "energía cinética",
+    "definition": "Energía asociada al movimiento: Ec = ½mv². Crece con el cuadrado de la velocidad.",
+    "synonyms": [
+      "energía cinética",
+      "energia cinetica"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "energía potencial",
+    "definition": "Energía almacenada por posición o configuración: gravitatoria Ep = mgh, elástica Ep = ½kx².",
+    "synonyms": [
+      "energía potencial",
+      "energia potencial"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "principiante"
+  },
+  {
+    "term": "teorema trabajo-energía",
+    "definition": "El trabajo neto realizado sobre un objeto es igual al cambio de su energía cinética: W_neto = ΔEc.",
+    "synonyms": [
+      "teorema trabajo-energía",
+      "teorema trabajo energia"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "conservación de la energía",
+    "definition": "Principio según el cual la energía total se conserva: no se crea ni se destruye, solo se transforma.",
+    "synonyms": [
+      "conservación de la energía",
+      "conservacion de la energia",
+      "energía se conserva"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "fuerza conservativa",
+    "definition": "Fuerza cuyo trabajo no depende del camino y que permite definir energía potencial. Ej: gravedad, resorte.",
+    "synonyms": [
+      "fuerza conservativa",
+      "conservativa"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "fuerza no conservativa",
+    "definition": "Fuerza cuyo trabajo depende del camino y disipa energía como calor. Ej: fricción, resistencia del aire.",
+    "synonyms": [
+      "fuerza no conservativa",
+      "fricción",
+      "friccion"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "avanzado"
+  },
+  {
+    "term": "potencia",
+    "definition": "Rapidez con la que se realiza trabajo o se transfiere energía: P = W/t. Unidad: vatio (W).",
+    "synonyms": [
+      "potencia"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "intermedio"
+  },
+  {
+    "term": "fricción",
+    "definition": "Fuerza de contacto que se opone al movimiento relativo entre superficies. Convierte energía mecánica en calor.",
+    "synonyms": [
+      "fricción",
+      "friccion",
+      "rozamiento"
+    ],
+    "tags": [
+      "mecánica"
+    ],
+    "nivel": "intermedio"
+  }
+]

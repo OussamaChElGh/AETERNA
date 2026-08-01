@@ -1,0 +1,15 @@
+{
+  "relics": [
+    {
+      "id": "prisma_newton",
+      "name": "Prisma de Newton",
+      "description": "Descomposición espectral de la luz en sus colores fundamentales.",
+      "icon": "/images/aeterna_pixel_prism.png",
+      "unlocksOn": {
+        "type": "layer_completed",
+        "article": "ondas-y-optica",
+        "layer": "principiante"
+      }
+    }
+  ]
+}

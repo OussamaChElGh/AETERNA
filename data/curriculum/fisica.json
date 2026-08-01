@@ -1,0 +1,2384 @@
+{
+  "branchId": "fisica",
+  "branchName": "Física",
+  "profileId": "bachillerato",
+  "source": "FASE3-benchmarking + inventory real de content/guias/ciencias_naturales/fisica",
+  "contentPath": "ciencias_naturales/fisica",
+  "description": "Mapa curricular declarativo de la rama de Física. Cada artículo define sus capas objetivo (inicio/intermedio/avanzado), secciones, competencias y bloques interactivos recomendados.",
+  "levels": [
+    {
+      "nivel": 1,
+      "titulo": "Fundamentos",
+      "descripcion": "Cimientos del método científico, la materia y las herramientas matemáticas."
+    },
+    {
+      "nivel": 2,
+      "titulo": "El Reino de lo Clásico",
+      "descripcion": "Mecánica, termodinámica, electromagnetismo, ondas, óptica y fluidos."
+    },
+    {
+      "nivel": 3,
+      "titulo": "Las Fronteras de la Realidad",
+      "descripcion": "Relatividad, mecánica cuántica y física atómica y nuclear."
+    },
+    {
+      "nivel": 4,
+      "titulo": "La Síntesis y el Futuro",
+      "descripcion": "Cosmología, física de partículas, teoría del todo y tecnología."
+    }
+  ],
+  "articles": [
+    {
+      "slug": "guia-maestra-de-fisica",
+      "title": "Guía Maestra de Física",
+      "nivel": 1,
+      "orden": 1,
+      "insignia": "Arquitecto del Conocimiento",
+      "tipo": "hub",
+      "prerequisites": [],
+      "tags": [
+        "física",
+        "mapa",
+        "navegación"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-fisica",
+              "titulo": "¿Qué es la física?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            },
+            {
+              "id": "mapa-ruta",
+              "titulo": "Mapa de ruta",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "concept-map"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "grandes-ramas",
+              "titulo": "Las grandes ramas",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "unidad-conocimiento",
+              "titulo": "La unidad del conocimiento físico",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "como-piensa-un-fisico",
+      "title": "Cómo Piensa un Físico",
+      "nivel": 1,
+      "orden": 2,
+      "insignia": "Explorador del Método",
+      "tipo": "practice",
+      "prerequisites": [],
+      "tags": [
+        "método científico",
+        "modelado",
+        "pensamiento"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "observar",
+              "titulo": "Observar el mundo",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "preguntas",
+              "titulo": "Hacer buenas preguntas",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "hipotesis",
+              "titulo": "Formular hipótesis",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "prediction-box"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "modelos-limitaciones",
+              "titulo": "Modelos y sus límites",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving",
+                "transfer"
+              ],
+              "bloques": [
+                "model-builder"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "metodo-cientifico",
+      "title": "Método Científico",
+      "nivel": 1,
+      "orden": 3,
+      "insignia": "El Método",
+      "tipo": "methodological",
+      "prerequisites": [],
+      "tags": [
+        "método científico",
+        "ciencia",
+        "verificación"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "pasos-metodo",
+              "titulo": "Los pasos del método",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "pedagogical-key-insight"
+              ]
+            },
+            {
+              "id": "observacion-medida",
+              "titulo": "Observación y medida",
+              "competencias": [
+                "recognition",
+                "basic_application"
+              ],
+              "bloques": [
+                "prediction-box"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "experimentos",
+              "titulo": "Diseño de experimentos",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "parameter-lab",
+                "sequence-builder"
+              ]
+            },
+            {
+              "id": "variables-control",
+              "titulo": "Variables y control",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "graph-lab",
+                "pedagogical-misconception"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "falsacion",
+              "titulo": "Falsabilidad y crítica",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "error-hunter",
+                "hidden-assumption",
+                "connect"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "materia-y-energia",
+      "title": "Materia y Energía",
+      "nivel": 1,
+      "orden": 4,
+      "insignia": "Arquitecto del Universo",
+      "tipo": "theory",
+      "prerequisites": [],
+      "tags": [
+        "materia",
+        "energía",
+        "conservación"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-materia",
+              "titulo": "¿Qué es la materia?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": []
+            },
+            {
+              "id": "que-es-energia",
+              "titulo": "¿Qué es la energía?",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "estados-agregacion",
+              "titulo": "Estados de agregación",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "conservacion",
+              "titulo": "Leyes de conservación",
+              "competencias": [
+                "application"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "masa-energia",
+              "titulo": "Equivalencia masa-energía",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "vectores",
+      "title": "Vectores",
+      "nivel": 1,
+      "orden": 5,
+      "insignia": "Cartógrafo de Fuerzas",
+      "tipo": "theory",
+      "prerequisites": [
+        "materia-y-energia"
+      ],
+      "tags": [
+        "vectores",
+        "álgebra",
+        "descomposición"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-vector",
+              "titulo": "¿Qué es un vector?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "operaciones",
+              "titulo": "Suma y resta de vectores",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "graph-lab"
+              ]
+            },
+            {
+              "id": "descomposicion",
+              "titulo": "Descomposición en componentes",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "productos-vectoriales",
+              "titulo": "Producto escalar y vectorial",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "leyes-newton-movimiento",
+      "title": "Las Leyes de Newton del Movimiento",
+      "nivel": 1,
+      "orden": 6,
+      "insignia": "Amo de la Dinámica",
+      "tipo": "theory",
+      "prerequisites": [
+        "vectores"
+      ],
+      "tags": [
+        "Newton",
+        "fuerzas",
+        "dinámica",
+        "inercia"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "primera-ley",
+              "titulo": "Primera ley: la inercia",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "tercera-ley",
+              "titulo": "Tercera ley: acción y reacción",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "segunda-ley",
+              "titulo": "Segunda ley: F = ma",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "diagramas-cuerpo-libre",
+              "titulo": "Diagramas de cuerpo libre",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "model-builder"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "formulacion-diferencial",
+              "titulo": "Formulación diferencial",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "sistemas-no-inerciales",
+              "titulo": "Sistemas no inerciales",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "mecanica-clasica",
+      "title": "Mecánica Clásica: La Física del Movimiento y las Fuerzas",
+      "nivel": 2,
+      "orden": 1,
+      "insignia": "Señor de lo Clásico",
+      "tipo": "theory",
+      "prerequisites": [
+        "vectores",
+        "leyes-newton-movimiento"
+      ],
+      "tags": [
+        "mecánica",
+        "movimiento",
+        "fuerzas",
+        "energía",
+        "momento angular"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "bienvenida",
+              "titulo": "Bienvenida",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            },
+            {
+              "id": "cinematica",
+              "titulo": "Cinemática: el arte de describir",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "dinamica",
+              "titulo": "Dinámica: las leyes de Newton",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "trabajo-energia",
+              "titulo": "Trabajo y energía",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            },
+            {
+              "id": "fluidos",
+              "titulo": "Estática de fluidos",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": []
+            },
+            {
+              "id": "rotacion",
+              "titulo": "Sistemas en rotación",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "mas-alla-clasico",
+              "titulo": "Más allá de lo clásico",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            },
+            {
+              "id": "sistema-aeterna",
+              "titulo": "Sistema Aeterna",
+              "competencias": [
+                "reasoning"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "cinematica",
+      "title": "Cinemática",
+      "nivel": 2,
+      "orden": 2,
+      "insignia": "Maestro del Movimiento",
+      "tipo": "theory",
+      "prerequisites": [
+        "vectores"
+      ],
+      "tags": [
+        "cinemática",
+        "posición",
+        "velocidad",
+        "aceleración",
+        "MRUA"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "posicion-movimiento",
+              "titulo": "Posición y movimiento",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "velocidad",
+              "titulo": "Velocidad",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "aceleracion",
+              "titulo": "Aceleración",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "graph-lab"
+              ]
+            },
+            {
+              "id": "mrua",
+              "titulo": "Movimiento rectilíneo uniformemente acelerado",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "caida-libre",
+              "titulo": "Caída libre",
+              "competencias": [
+                "application"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "movimiento-2d",
+              "titulo": "Movimiento en 2D y tiro parabólico",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "graph-lab"
+              ]
+            },
+            {
+              "id": "derivacion-integracion",
+              "titulo": "De la derivada a la integral",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "trabajo-energia",
+      "title": "Trabajo y Energía",
+      "nivel": 2,
+      "orden": 3,
+      "insignia": "Conservador de la Energía",
+      "tipo": "theory",
+      "prerequisites": [
+        "cinematica",
+        "leyes-newton-movimiento"
+      ],
+      "tags": [
+        "trabajo",
+        "energía",
+        "potencia",
+        "conservación"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-trabajo",
+              "titulo": "¿Qué es el trabajo físico?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "pedagogical-key-insight",
+                "prediction-box"
+              ]
+            },
+            {
+              "id": "energia-cinetica-potencial",
+              "titulo": "Energía cinética y potencial",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "pedagogical-misconception"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "teorema-trabajo-energia",
+              "titulo": "Teorema trabajo-energía",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "aeterna-exercise",
+                "graph-lab"
+              ]
+            },
+            {
+              "id": "conservacion-energia",
+              "titulo": "Conservación de la energía",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "parameter-lab",
+                "pedagogical-key-insight"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "fuerzas-conservativas",
+              "titulo": "Fuerzas conservativas y no conservativas",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "error-hunter",
+                "connect"
+              ]
+            },
+            {
+              "id": "potencia-trabajo",
+              "titulo": "Potencia y rendimiento",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "transfer"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "momentum-colisiones",
+      "title": "Momentum y Colisiones",
+      "nivel": 2,
+      "orden": 4,
+      "insignia": "Guardián del Momento",
+      "tipo": "theory",
+      "prerequisites": [
+        "leyes-newton-movimiento",
+        "cinematica"
+      ],
+      "tags": [
+        "momentum",
+        "impulso",
+        "colisiones",
+        "conservación"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-momentum",
+              "titulo": "¿Qué es el momentum?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "impulso",
+              "titulo": "Impulso",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "conservacion-momentum",
+              "titulo": "Conservación del momentum",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "tipos-colisiones",
+              "titulo": "Colisiones elásticas e inelásticas",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "centro-masa",
+              "titulo": "Centro de masa",
+              "competencias": [
+                "reasoning"
+              ],
+              "bloques": [
+                "model-builder"
+              ]
+            },
+            {
+              "id": "sistemas-variables",
+              "titulo": "Sistemas con masa variable",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "movimiento-circular-satelites",
+      "title": "Movimiento Circular y Satélites",
+      "nivel": 2,
+      "orden": 5,
+      "insignia": "Orbitador de Estrellas",
+      "tipo": "theory",
+      "prerequisites": [
+        "cinematica",
+        "leyes-newton-movimiento"
+      ],
+      "tags": [
+        "movimiento circular",
+        "satélites",
+        "órbitas",
+        "fuerza centrípeta"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "movimiento-circular",
+              "titulo": "Movimiento circular uniforme",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "fuerza-centripeta",
+              "titulo": "Fuerza centrípeta",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "orbita-satelite",
+              "titulo": "Órbitas y satélites",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            },
+            {
+              "id": "gravedad-centripeta",
+              "titulo": "La gravedad como fuerza centrípeta",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "leyes-kepler",
+              "titulo": "Leyes de Kepler",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": []
+            },
+            {
+              "id": "velocidad-escape",
+              "titulo": "Velocidad de escape",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "torque-momento-angular",
+      "title": "Torque y Momento Angular",
+      "nivel": 2,
+      "orden": 6,
+      "insignia": "Señor de la Rotación",
+      "tipo": "theory",
+      "prerequisites": [
+        "leyes-newton-movimiento",
+        "vectores"
+      ],
+      "tags": [
+        "torque",
+        "momento angular",
+        "rotación",
+        "equilibrio"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-torque",
+              "titulo": "¿Qué es el torque?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "equilibrio-rotacional",
+              "titulo": "Equilibrio rotacional",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "momento-inercia",
+              "titulo": "Momento de inercia",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "conservacion-momento-angular",
+              "titulo": "Conservación del momento angular",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "dinamica-rotacional",
+              "titulo": "Dinámica rotacional",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "precesion-giroscopio",
+              "titulo": "Precesión y giroscopios",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "fluidos",
+      "title": "Fluidos",
+      "nivel": 2,
+      "orden": 7,
+      "insignia": "Navegante de los Fluidos",
+      "tipo": "theory",
+      "prerequisites": [
+        "materia-y-energia",
+        "leyes-newton-movimiento"
+      ],
+      "tags": [
+        "fluidos",
+        "hidrostática",
+        "presión",
+        "hidrodinámica"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-fluido",
+              "titulo": "¿Qué es un fluido?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": []
+            },
+            {
+              "id": "presion",
+              "titulo": "Presión",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "hidrostatica",
+              "titulo": "Hidrostática",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "principio-arquimedes",
+              "titulo": "Principio de Arquímedes",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "hidrodinamica",
+              "titulo": "Hidrodinámica y ecuación de continuidad",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "bernoulli",
+              "titulo": "Ecuación de Bernoulli",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "error-hunter"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "termodinamica",
+      "title": "Termodinámica",
+      "nivel": 2,
+      "orden": 8,
+      "insignia": "Arquitecto del Calor",
+      "tipo": "theory",
+      "prerequisites": [
+        "materia-y-energia"
+      ],
+      "tags": [
+        "termodinámica",
+        "calor",
+        "entropía",
+        "gases"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "temperatura-calor",
+              "titulo": "Temperatura y calor",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "ley-cero",
+              "titulo": "Ley cero de la termodinámica",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "primera-ley",
+              "titulo": "Primera ley: conservación de la energía",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "gases-ideales",
+              "titulo": "Gases ideales",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "segunda-ley-entropia",
+              "titulo": "Segunda ley y entropía",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "error-hunter"
+              ]
+            },
+            {
+              "id": "ciclos-maquinas",
+              "titulo": "Ciclos y máquinas térmicas",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "electromagnetismo",
+      "title": "Electromagnetismo",
+      "nivel": 2,
+      "orden": 9,
+      "insignia": "Maestro de la Electricidad",
+      "tipo": "theory",
+      "prerequisites": [
+        "materia-y-energia",
+        "vectores"
+      ],
+      "tags": [
+        "electricidad",
+        "magnetismo",
+        "campos",
+        "circuitos"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "carga-electrica",
+              "titulo": "Carga eléctrica",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "corriente",
+              "titulo": "Corriente eléctrica",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "ley-ohm",
+              "titulo": "Ley de Ohm y circuitos",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "campos-magneticos",
+              "titulo": "Campos magnéticos",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "induccion",
+              "titulo": "Inducción electromagnética",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "ecuaciones-maxwell",
+              "titulo": "Ecuaciones de Maxwell",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "electromagnetismo-avanzado",
+      "title": "Electromagnetismo Avanzado",
+      "nivel": 2,
+      "orden": 10,
+      "insignia": "Dominador del Campo",
+      "tipo": "theory",
+      "prerequisites": [
+        "electromagnetismo"
+      ],
+      "tags": [
+        "Maxwell",
+        "ondas electromagnéticas",
+        "relatividad"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "repaso-campos",
+              "titulo": "Repaso de campos",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "ondas-em",
+              "titulo": "Ondas electromagnéticas",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "maxwell-relatividad",
+              "titulo": "Maxwell y la relatividad",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "ondas-y-optica",
+      "title": "Ondas y Óptica",
+      "nivel": 2,
+      "orden": 11,
+      "insignia": "Señor de las Ondas",
+      "tipo": "theory",
+      "prerequisites": [
+        "electromagnetismo"
+      ],
+      "tags": [
+        "ondas",
+        "óptica",
+        "refracción",
+        "reflexión"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-onda",
+              "titulo": "¿Qué es una onda?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "reflexion-refraccion",
+              "titulo": "Reflexión y refracción",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "interferencia-difraccion",
+              "titulo": "Interferencia y difracción",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            },
+            {
+              "id": "lentes-espejos",
+              "titulo": "Lentes y espejos",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "luz-onda-particula",
+              "titulo": "Luz: ¿onda o partícula?",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "error-hunter"
+              ]
+            },
+            {
+              "id": "instrumentos-opticos",
+              "titulo": "Instrumentos ópticos",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "ondas-y-optica-practica",
+      "title": "Ondas y Óptica: Práctica",
+      "nivel": 2,
+      "orden": 12,
+      "insignia": "Experto en Fenómenos Ondulatorios",
+      "tipo": "practice",
+      "prerequisites": [
+        "ondas-y-optica"
+      ],
+      "tags": [
+        "ondas",
+        "óptica",
+        "ejercicios",
+        "aplicaciones"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "ejercicios-basicos",
+              "titulo": "Ejercicios básicos",
+              "competencias": [
+                "recognition",
+                "basic_application"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "problemas-ondas",
+              "titulo": "Problemas de ondas",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-exercise",
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "desafios-optica",
+              "titulo": "Desafíos de óptica",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving",
+                "transfer"
+              ],
+              "bloques": [
+                "error-hunter"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "relatividad-especial",
+      "title": "Relatividad Especial",
+      "nivel": 3,
+      "orden": 1,
+      "insignia": "Viajero del Espacio-Tiempo",
+      "tipo": "theory",
+      "prerequisites": [
+        "electromagnetismo-avanzado"
+      ],
+      "tags": [
+        "relatividad",
+        "espacio-tiempo",
+        "Einstein",
+        "luz"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "postulados",
+              "titulo": "Los postulados de Einstein",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "simultaneidad",
+              "titulo": "Simultaneidad",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "dilatacion-tiempo",
+              "titulo": "Dilatación del tiempo",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "parameter-lab"
+              ]
+            },
+            {
+              "id": "contraccion-longitud",
+              "titulo": "Contracción de la longitud",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "masa-energia-einstein",
+              "titulo": "E = mc²",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "paradojas",
+              "titulo": "Paradojas y resolución",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "error-hunter"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "relatividad-especial-practica",
+      "title": "Relatividad Especial: Práctica",
+      "nivel": 3,
+      "orden": 2,
+      "insignia": "Navegante del Espacio-Tiempo",
+      "tipo": "practice",
+      "prerequisites": [
+        "relatividad-especial"
+      ],
+      "tags": [
+        "relatividad",
+        "ejercicios",
+        "transformaciones"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "ejercicios-postulados",
+              "titulo": "Ejercicios de postulados",
+              "competencias": [
+                "recognition",
+                "basic_application"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "problemas-dilatacion",
+              "titulo": "Problemas de dilatación y contracción",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "transformaciones-lorentz",
+              "titulo": "Transformaciones de Lorentz",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-formula",
+                "error-hunter"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "relatividad-general",
+      "title": "Relatividad General",
+      "nivel": 3,
+      "orden": 3,
+      "insignia": "Arquitecto de la Gravedad",
+      "tipo": "theory",
+      "prerequisites": [
+        "relatividad-especial"
+      ],
+      "tags": [
+        "relatividad general",
+        "gravedad",
+        "curvatura",
+        "agujeros negros"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "gravedad-curvatura",
+              "titulo": "La gravedad como curvatura",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "principio-equivalencia",
+              "titulo": "Principio de equivalencia",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "curvatura-espacio-tiempo",
+              "titulo": "Curvatura del espacio-tiempo",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "model-builder"
+              ]
+            },
+            {
+              "id": "lente-gravitacional",
+              "titulo": "Lentes gravitacionales",
+              "competencias": [
+                "application"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "agujeros-negros",
+              "titulo": "Agujeros negros",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            },
+            {
+              "id": "ondas-gravitacionales",
+              "titulo": "Ondas gravitacionales",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "mecanica-cuantica",
+      "title": "Mecánica Cuántica",
+      "nivel": 3,
+      "orden": 4,
+      "insignia": "Señor de lo Cuántico",
+      "tipo": "theory",
+      "prerequisites": [
+        "electromagnetismo",
+        "materia-y-energia"
+      ],
+      "tags": [
+        "cuántica",
+        "dualidad",
+        "superposición",
+        "incertidumbre"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "que-es-cuantica",
+              "titulo": "¿Qué es la mecánica cuántica?",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "dualidad-onda-particula",
+              "titulo": "Dualidad onda-partícula",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "superposicion",
+              "titulo": "Superposición",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            },
+            {
+              "id": "incertidumbre",
+              "titulo": "Principio de incertidumbre",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "funcion-onda",
+              "titulo": "Función de onda y probabilidad",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "ecuacion-schrodinger",
+              "titulo": "Ecuación de Schrödinger",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "parameter-lab"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "fisica-atomica-y-nuclear",
+      "title": "Física Atómica y Nuclear",
+      "nivel": 3,
+      "orden": 5,
+      "insignia": "Arquitecto del Átomo",
+      "tipo": "theory",
+      "prerequisites": [
+        "mecanica-cuantica"
+      ],
+      "tags": [
+        "átomo",
+        "núcleo",
+        "radiactividad",
+        "fisión",
+        "fusión"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "estructura-atomo",
+              "titulo": "Estructura del átomo",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "radiactividad",
+              "titulo": "Radiactividad",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "modelo-bohr",
+              "titulo": "Modelo de Bohr",
+              "competencias": [
+                "application",
+                "standard_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "fision-fusion",
+              "titulo": "Fisión y fusión nuclear",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "decaimiento-nuclear",
+              "titulo": "Decaimiento nuclear",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "datacion-aplicaciones",
+              "titulo": "Datación y aplicaciones",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "cosmologia",
+      "title": "Cosmología",
+      "nivel": 4,
+      "orden": 1,
+      "insignia": "Arquitecto del Cosmos",
+      "tipo": "theory",
+      "prerequisites": [
+        "relatividad-general"
+      ],
+      "tags": [
+        "cosmología",
+        "universo",
+        "big bang",
+        "expansión"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "universo-observable",
+              "titulo": "El universo observable",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "big-bang",
+              "titulo": "Big Bang",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "expansion-universo",
+              "titulo": "Expansión del universo",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "radiacion-fondo",
+              "titulo": "Radiación de fondo cósmico",
+              "competencias": [
+                "application"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "materia-oscura",
+              "titulo": "Materia y energía oscura",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "error-hunter"
+              ]
+            },
+            {
+              "id": "destino-universo",
+              "titulo": "El destino del universo",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "fisica-particulas",
+      "title": "Física de Partículas",
+      "nivel": 4,
+      "orden": 2,
+      "insignia": "Cazador de Partículas",
+      "tipo": "theory",
+      "prerequisites": [
+        "fisica-atomica-y-nuclear"
+      ],
+      "tags": [
+        "partículas",
+        "quarks",
+        "bosones",
+        "modelo estándar"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "particulas-elementales",
+              "titulo": "Partículas elementales",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            },
+            {
+              "id": "modelo-estandar",
+              "titulo": "Modelo estándar",
+              "competencias": [
+                "recognition"
+              ],
+              "bloques": [
+                "concept-map"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "quarks-leptones",
+              "titulo": "Quarks y leptones",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            },
+            {
+              "id": "fuerzas-fundamentales",
+              "titulo": "Las cuatro fuerzas",
+              "competencias": [
+                "application"
+              ],
+              "bloques": []
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "boson-higgs",
+              "titulo": "Bosón de Higgs",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving"
+              ],
+              "bloques": [
+                "aeterna-formula"
+              ]
+            },
+            {
+              "id": "aceleradores",
+              "titulo": "Aceleradores de partículas",
+              "competencias": [
+                "reasoning",
+                "transfer"
+              ],
+              "bloques": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "teoria-del-todo",
+      "title": "Teoría del Todo",
+      "nivel": 4,
+      "orden": 3,
+      "insignia": "Buscador de la Síntesis",
+      "tipo": "synthesis",
+      "prerequisites": [
+        "relatividad-general",
+        "mecanica-cuantica"
+      ],
+      "tags": [
+        "teoría del todo",
+        "gravedad cuántica",
+        "síntesis",
+        "M-theory"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "sintesis-necesaria",
+              "titulo": "La síntesis necesaria",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "conflicto-gravedad-cuantica",
+              "titulo": "El conflicto entre relatividad y cuántica",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "candidatas",
+              "titulo": "Candidatas: cuerdas y bucles",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving",
+                "transfer"
+              ],
+              "bloques": [
+                "model-builder"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "fisica-tecnologia",
+      "title": "Física y Tecnología",
+      "nivel": 4,
+      "orden": 4,
+      "insignia": "Ingeniero del Futuro",
+      "tipo": "synthesis",
+      "prerequisites": [
+        "electromagnetismo",
+        "fisica-atomica-y-nuclear"
+      ],
+      "tags": [
+        "tecnología",
+        "aplicaciones",
+        "láser",
+        "semiconductores",
+        "cuántica"
+      ],
+      "capas": {
+        "inicio": {
+          "sections": [
+            {
+              "id": "fisica-cotidiana",
+              "titulo": "La física en la vida cotidiana",
+              "competencias": [
+                "recognition",
+                "understanding"
+              ],
+              "bloques": [
+                "aeterna-exercise"
+              ]
+            }
+          ]
+        },
+        "intermedio": {
+          "sections": [
+            {
+              "id": "tecnologias-clave",
+              "titulo": "Tecnologías clave",
+              "competencias": [
+                "application",
+                "interpretation"
+              ],
+              "bloques": [
+                "aeterna-decision"
+              ]
+            }
+          ]
+        },
+        "avanzado": {
+          "sections": [
+            {
+              "id": "futuro-tecnologico",
+              "titulo": "El futuro tecnológico",
+              "competencias": [
+                "reasoning",
+                "non_routine_problem_solving",
+                "transfer"
+              ],
+              "bloques": [
+                "prediction-box"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "title": "El Estoicismo en la Era Moderna",
+    "description": "Cómo las enseñanzas de Marco Aurelio y Séneca pueden ayudarnos a navegar la ansiedad del siglo XXI.",
+    "slug": "estoicismo-era-moderna",
+    "author": "Marco Aurelio",
+    "category": "filosofia",
+    "tags": [
+      "estoicismo",
+      "vida moderna",
+      "ética"
+    ],
+    "image": "https://images.unsplash.com/photo-1507671006237-f21309dd75a9?q=80&w=2070&auto=format&fit=crop",
+    "date": "2024-04-30"
+  },
+  "introduccion": "El estoicismo no es una filosofía de la resignación, sino de la acción consciente. En un mundo saturado de información y estímulos, la capacidad de distinguir entre lo que podemos controlar y lo que no se convierte en nuestra mayor fortaleza.",
+  "secciones": [
+    {
+      "id": "los-pilares-del-estoicismo",
+      "titulo": "Los Pilares del Estoicismo",
+      "niveles": {
+        "intermedio": "Tradicionalmente, el estoicismo se apoya en cuatro virtudes cardinales:\n1. Prudencia\n2. Justicia\n3. Fortaleza\n4. Templanza\n\n### La Dicotomía del Control\n\nEl concepto central, popularmente atribuido a Epicteto, nos recuerda que nuestra frustración nace de intentar cambiar lo que es externo a nosotros. \n\n\n```aeterna-question\nPregunta: Según la dicotomía del control, ¿cuál de los siguientes elementos está realmente bajo tu control?\nOpciones:\n- La opinión que los demás tienen de tu trabajo.\n- Que el tren llegue a su hora hoy.\n- Tu reacción emocional ante un imprevisto.\n- El clima durante tus vacaciones.\nRespuestaCorrecta: Tu reacción emocional ante un imprevisto.\nXP: 50\nTipo: Refutar\n```\n\n\n\"Te conviertes en lo que le das tu atención.\" - Epicteto.\n\n\n```aeterna-question\nContexto: Piensa en algo que te haya frustrado hoy o ayer (un comentario, un atasco de tráfico, una mala noticia).\nPregunta: ¿Cómo separarías ahora mismo lo que está bajo tu control de lo que no lo está en esa situación concreta? Describe tu marco de acción.\nXP: 100\nTipo: Aplicación\n```\n\n\n..."
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": ""
+}

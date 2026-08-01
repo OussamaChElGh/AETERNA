@@ -1,0 +1,19 @@
+{
+  "maxScore": 5,
+  "criteriaWeights": {
+    "manipulateVariables": 1,
+    "observeDynamicChanges": 1,
+    "experiment": 1,
+    "immediateFeedback": 1,
+    "visualizeHardConcept": 1
+  },
+  "interpretations": {
+    "0": "no recomendado",
+    "1": "no recomendado",
+    "2": "normalmente innecesario",
+    "3": "opcional",
+    "4": "recomendado",
+    "5": "altamente recomendado"
+  },
+  "doNotPenalizeAbsenceIfAbstractOrPurePractice": true
+}

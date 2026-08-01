@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "title": "Prototipo de Guía Maestra: El Método Aeterna",
+    "description": "Este es el modelo estructural para todos los artículos de la plataforma, demostrando el sistema de capas, índices dinámicos y transiciones.",
+    "slug": "prototipo-guia-maestra",
+    "author": "El Observador Eterno",
+    "category": "Metodología",
+    "subcategory": "Estructura de Datos",
+    "tags": ["prototipo", "tutorial", "capas"],
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
+    "date": "2026-05-11",
+    "xp": 500
+  },
+  "introduccion": "Bienvenido a la Cámara de Estructuras. Este documento no es solo un artículo; es el **molde genético** sobre el que se construirá toda la Gnosis de Aeterna. Aquí aprenderás cómo el sistema interpreta las diferentes Capas de Realidad para ofrecerte una experiencia de aprendizaje adaptativa.",
+  "secciones": [
+    {
+      "id": "seccion-1",
+      "titulo": {
+        "principiante": "Hito I: Los Fundamentos",
+        "intermedio": "Exégesis I: Arquitectura Interna",
+        "avanzado": "Axioma I: Dinámica del Sistema"
+      },
+      "niveles": {
+        "principiante": "En esta primera capa, la información es directa y visual. El objetivo es que entiendas el concepto general sin abrumarte con detalles técnicos.\n\n> 💡 **Idea clave**\n> Las capas son niveles de profundidad. Imagina que estás mirando una cebolla: la capa exterior es lo que ves a simple vista.",
+        "intermedio": "La Capa II introduce la exégesis técnica. Aquí empezamos a ver los mecanismos internos que hacen que el sistema funcione.\n\n```aeterna-engagement\ndid-you-know | Sincronización de Datos | El sistema detecta tu nivel actual y filtra las secciones del JSON que no corresponden a tu capa de realidad.\n```",
+        "avanzado": "En la Capa III, exploramos la frontera axiomática. El lenguaje es preciso, matemático y denso.\n\n$$ \\Psi(x,t) = \\int_{-\\infty}^{\\infty} A(k) e^{i(kx - \\omega t)} dk $$\n\nEsta ecuación representa la superposición de estados que permite a un mismo archivo JSON contener múltiples verdades simultáneas."
+      }
+    },
+    {
+      "id": "seccion-2",
+      "titulo": {
+        "principiante": "Hito II: Navegación Visual",
+        "intermedio": "Exégesis II: Mutación de Índices",
+        "avanzado": "Axioma II: Geometría de Frontera"
+      },
+      "niveles": {
+        "principiante": "El índice que ves a tu izquierda solo muestra los hitos de esta capa. Es una navegación simplificada para tu primer contacto.",
+        "intermedio": "Notarás que al subir a esta capa, el índice ha mutado. Ahora incluye puntos de control más específicos y desafíos de exégesis que antes estaban ocultos.",
+        "avanzado": "El índice de frontera es un mapa completo de la estructura lógica del tomo. Cada hito aquí requiere una asimilación total de los conceptos previos."
+      }
+    },
+    {
+      "id": "seccion-3",
+      "titulo": {
+        "principiante": "Hito III: Trascendencia Básica",
+        "intermedio": "Exégesis III: Sincronización",
+        "avanzado": "Axioma III: Gnosis Permanente"
+      },
+      "niveles": {
+        "principiante": "Has llegado al final de los fundamentos. Tu mente está lista para el siguiente nivel de complejidad.\n\n<BotonTransicion nivel=\"intermedio\">\n  Haz clic aquí para ascender a la Capa II: Exégesis Técnica.\n</BotonTransicion>",
+        "intermedio": "La exégesis ha sido completada. Los axiomas de frontera te esperan.\n\n<BotonTransicion nivel=\"avanzado\">\n  Desbloquea la Capa III y accede a la formulación matemática final.\n</BotonTransicion>",
+        "avanzado": "Has alcanzado la Maestría Absoluta en este tomo. Los datos han sido grabados permanentemente.\n\n> 🧠 **Sistema Aeterna**\n> La sincronización ha finalizado. Puedes regresar al Nexo o explorar otros tomos de la biblioteca."
+      }
+    }
+  ],
+  "conclusion": "Este prototipo demuestra que Aeterna no es una web estática, sino un organismo de datos vivo que evoluciona contigo."
+}

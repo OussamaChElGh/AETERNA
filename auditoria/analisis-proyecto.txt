@@ -1,0 +1,814 @@
+================================================================================
+  AETERNA — ANÁLISIS COMPLETO DEL PROYECTO
+  Auditoría de Arquitectura, Componentes y Framework de Aprendizaje
+================================================================================
+  Fecha: 2026-07-31
+================================================================================
+
+
+================================================================================
+1. TIPOS PRINCIPALES
+================================================================================
+
+types/index.ts:
+
+  ArticleFrontmatter {
+    title: string
+    description: string
+    slug: string
+    author: string
+    category: string
+    subcategory?: string
+    tags: string[]
+    image: string
+    date: string
+    nivel?: number
+    orden?: number
+    nivel_titulo?: string
+    insignia?: string
+    tipo?: "theory" | "practice" | "philosophy" | "milestone"
+    _path?: string
+  }
+
+  AeternaAction {
+    tipo: 'BotonSimplificar' | 'BotonProfundizar' | 'BotonEjemplos' | 'BotonConexiones'
+    contenido: string
+  }
+
+  AeternaSection {
+    id: string
+    titulo: string
+    niveles: { principiante?: string; intermedio?: string; avanzado?: string }
+    acciones: AeternaAction[]
+  }
+
+  AeternaArticle {
+    metadata: ArticleFrontmatter
+    introduccion: string
+    secciones: AeternaSection[]
+    conclusion?: string
+  }
+
+
+================================================================================
+2. ARQUITECTURA DEL FRAMEWORK DE AUDITORÍA
+================================================================================
+
+Ubicación: framework/aeterna-learning/
+Archivos totales: 45 archivos
+
+Estructura de directorios:
+
+  framework/aeterna-learning/
+    index.ts                        ← Punto de entrada: auditArticle(), loadLearningProfile()
+    types/index.ts                  ← 653 líneas de definiciones de tipos
+    config/
+      article-type-rules.json       ← Reglas por tipo de artículo (conceptual, procedural, etc.)
+      scoring-rules.json            ← Pesos, score caps, umbrales de estado
+      learning-profile.bachillerato.json
+      exercise-rules.json
+      interactive-rules.json
+      layer-rules.json
+    schemas/
+      article-metadata.schema.json
+      audit-report.schema.json
+      learning-profile.schema.json
+    scoring/
+      scoring-engine.ts             ← 557 líneas — evalúa 8 dimensiones, scores, status
+      cross-dimension-engine.ts     ← 220 líneas — intervenciones priorizadas
+    analyzers/
+      content-analyzer.ts           ← Orquestador de análisis
+      structure-analyzer.ts         ← Extrae encabezados, fórmulas matemáticas, componentes
+      layer-analyzer.ts             ← Detecta etiquetas NivelActivo o división por fallback
+      exercise-analyzer.ts          ← Extrae ejercicios de bloques de código
+      interactive-analyzer.ts       ← Detecta componentes interactivos, puntúa 0-5
+      article-type-analyzer.ts      ← Infiere tipo de artículo por señales
+      competency-analyzer.ts        ← Mapea ejercicios a competencias
+      visual-analyzer.ts            ← Extrae imágenes, clasifica, identifica oportunidades
+      discoverability-analyzer.ts   ← SEO, intención de búsqueda, cobertura semántica
+      knowledge-benchmark-analyzer.ts ← Compara contra modelos de conocimiento de referencia
+      prerequisite-analyzer.ts      ← Analiza prerrequisitos
+      topic-identifier.ts           ← Identifica tema del contenido
+      source-ranker.ts              ← Rankea fuentes por autoridad
+    experiences/
+      taxonomy.ts                   ← 19 ExperienceKeys con metadatos
+      experience-analyzer.ts        ← Audita experiencias de aprendizaje
+      pedagogical-blocks-registry.ts ← 8 tipos de bloques pedagógicos
+      knowledge-model-builder.ts    ← Construye modelos de referencia
+      activity-plan-generator.ts    ← Genera planes de actividad
+      benchmark-cache.ts            ← Cache de modelos de conocimiento
+      registry.ts
+    competencies/
+      taxonomy.ts                   ← 20 TaxonomyCompetencies con keywords
+      profiles.ts                   ← Perfiles de competencia por tipo de artículo
+    providers/
+      reference-provider.ts         ← Proveedor de fuentes de referencia
+    reports/
+      report-generator.ts           ← formatTerminalReport() y formatJsonReport()
+    __tests__/
+      content-audit-v2.test.ts
+      knowledge-benchmark.test.ts
+      pedagogical-blocks.test.ts
+      experience-auditor.test.ts
+      framework-registry.test.ts
+      competency.test.ts
+      calibration.test.ts
+      article-type.test.ts
+
+
+================================================================================
+3. LAS 8 DIMENSIONES DE AUDITORÍA
+================================================================================
+
+  Dimensión                    Peso Máximo  Descripción
+  ─────────────────────────────────────────────────────────────────────────────
+  rigorAcademico                    20     Profundidad teórica, fórmulas, fuentes
+  estructuraPedagogica              20     Capas, secciones, navegación
+  practica                          20     Ejercicios, distribución por capas
+  razonamiento                      15     Análisis, justificación, pensamiento crítico
+  interactividad                    10     Componentes interactivos, laboratorios
+  conexiones                        10     Transdisciplina, transferencia
+  experienciaAeterna                 5     Bloques pedagógicos, narrativa
+  ─────────────────────────────────────────────────────────────────────────────
+  TOTAL                            100
+
+  Pesos exactos (scoring-rules.json):
+    rigorAcademico: 20
+    estructuraPedagogica: 20
+    practica: 20
+    razonamiento: 15
+    interactividad: 10
+    conexiones: 10
+    experienciaAeterna: 5
+
+  Sub-pesos de práctica:
+    quantity: 0.20
+    layerDistribution: 0.15
+    difficultyProgression: 0.20
+    exerciseVariety: 0.15
+    competencyCoverage: 0.30
+
+
+================================================================================
+4. ESTADOS Y UMBRALES
+================================================================================
+
+  AuditStatus:
+    EXCELENTE           >= 90
+    BUENO               >= 80
+    NECESITA_REVISION   >= 70
+    DEBIL               >= 60
+    NO_APROBADO          < 60
+
+  Score Caps:
+    practiceUnder50Cap:   74  (si práctica < 50, score máximo 74)
+    practiceUnder60Cap:   79  (si práctica < 60, score máximo 79)
+    rigorUnder50Cap:      74
+    reasoningUnder50Cap:  79
+
+  Quality Gates (7 reglas):
+    NO_CRITICAL_STRUCTURAL_ERRORS
+    REQUIRED_LAYERS_PRESENT
+    LAYERS_DIFFERENTIATED
+    PRACTICE_EXISTS
+    EXERCISE_SOLUTIONS_PRESENT
+    NO_SEVERE_STRUCTURAL_INCONSISTENCIES
+    PREREQUISITES_WELL_FORMED
+
+  EvidenceState: PASS | PARTIAL | INSUFFICIENT | NOT_EVALUATED
+  ConfidenceLevel: HIGH | MEDIUM | LOW
+  InteractiveRequirement: optional | recommended | highly_recommended
+
+
+================================================================================
+5. TIPOS DE ARTÍCULO (ArticleType)
+================================================================================
+
+  conceptual      — Comprender conceptos, principios, modelos
+  methodological  — Enseñar forma de pensar, investigar, modelizar
+  procedural      — Enseñar procedimiento reproducible
+  problem_solving — Resolver problemas y desarrollar razonamiento
+  experimental    — Experimentación, observación, medición
+  simulation      — Simulación o entorno interactivo
+  synthesis       — Integrar, relacionar, consolidar conocimientos
+
+  Cada tipo tiene expectativas de capas (inicio/intermedio/avanzado),
+  total de ejercicios recomendado y requerimiento de interactividad.
+
+
+================================================================================
+6. TAXONOMÍA DE EXPERIENCIAS DE APRENDIZAJE (19 ExperienceKeys)
+================================================================================
+
+  Clave                          Título                         Demanda
+  ──────────────────────────────────────────────────────────────────────────
+  EXPLAIN_CONCEPT                Explicar concepto              LOW
+  APPLY_PROCEDURE                Aplicar procedimiento          MEDIUM
+  SOLVE_PROBLEM                  Resolver problema              MEDIUM
+  INTERPRET_DATA                 Interpretar datos              MEDIUM
+  BUILD_MODEL                    Construir modelo               HIGH
+  COMPARE_ALTERNATIVES           Comparar alternativas          MEDIUM
+  JUSTIFY_DECISION               Justificar decisión            HIGH
+  ANALYZE_ERROR                  Analizar supuestos/errores     HIGH
+  EVALUATE_PLAUSIBILITY          Evaluar plausibilidad          HIGH
+  PERFORM_ESTIMATION             Realizar estimación            MEDIUM
+  TRANSFER_KNOWLEDGE             Transferir a situación nueva   HIGH
+  EXPERIMENT_VARIABLES           Experimentar con variables     HIGH
+  PREDICT_BEFORE_OBSERVE         Predecir antes de observar     HIGH
+  INTERPRET_SIMULATION           Interpretar simulación         MEDIUM
+  CAUSAL_REASONING               Razonamiento causal            HIGH
+  ARGUE_BUILD                    Construir argumento            HIGH
+  EVIDENCE_EVALUATION            Evaluación de evidencias       HIGH
+  CRITICAL_THINKING              Pensamiento crítico            HIGH
+  SEQUENCE_PROCESS               Reconstruir secuencia          MEDIUM
+
+
+================================================================================
+7. TAXONOMÍA DE COMPETENCIAS (20 competencias)
+================================================================================
+
+  recognition, understanding, basic_application, application,
+  interpretation, standard_problem_solving, reasoning,
+  non_routine_problem_solving, transfer
+
+  TaxonomyCompetency (en experiences/taxonomy.ts):
+    EXPLAIN, UNDERSTAND, APPLY, CALCULATE, ANALYZE, INTERPRET,
+    MODEL, EVALUATE, COMPARE, JUSTIFY, ERROR_ANALYSIS, ESTIMATE,
+    PREDICT, TRANSFER
+
+  Tipos de CognitiveLevel (13 niveles):
+    conceptual_explain, conceptual_identify, conceptual_compare,
+    procedural_execute, procedural_apply, reasoning_justify,
+    reasoning_model, reasoning_estimate, reasoning_detect_errors,
+    reasoning_predict, reasoning_experiment, reasoning_interpret_graph,
+    transfer_new_context
+
+
+================================================================================
+8. BLOQUES PEDAGÓGICOS (8 tipos)
+================================================================================
+
+  Tipo                Título Visible               Familia
+  ────────────────────────────────────────────────────────────────────────────
+  misconception       "Error Común"                PEDAGOGICAL_CONTENT_BLOCK
+  key-insight         "La Clave en 10 segundos"    PEDAGOGICAL_CONTENT_BLOCK
+  archive-fragment    "Fragmento de Archivo"       PEDAGOGICAL_CONTENT_BLOCK
+  aeterna-system      "Sistema Aeterna"            PEDAGOGICAL_CONTENT_BLOCK
+  mini-challenge      "Mini Desafío"               PEDAGOGICAL_CONTENT_BLOCK
+  connect             "Conecta"                    PEDAGOGICAL_CONTENT_BLOCK
+  hidden-assumption   "Supuesto Oculto"            PEDAGOGICAL_CONTENT_BLOCK
+  transfer            "Transfiere"                 PEDAGOGICAL_CONTENT_BLOCK
+
+
+================================================================================
+9. COMPONENTES INTERACTIVOS (34 archivos en components/interactive/)
+================================================================================
+
+  AccionBotones.tsx              ← Botones de acción (simplificar/profundizar/ejemplos/conexiones)
+  AeternaDecisionBox.tsx         ← Caja de decisión con input y gamificación
+  AeternaExamTool.tsx            ← Herramienta de examen
+  AeternaFlowchart.tsx           ← Constructor de diagramas de flujo
+  AeternaInteractiveQuestion.tsx ← Componente de pregunta interactiva
+  AeternaKnowledgeRoom.tsx       ← Sala de mapa de conocimiento
+  AeternaPixelRoom.tsx           ← Sala de pixel art
+  AeternaSystem.tsx              ← Componente de sistema
+  ArgumentBuilder.tsx            ← Construcción de argumentos
+  ArgumentEvaluation.tsx         ← Evaluación de argumentos
+  AtomicModelSimulator.tsx       ← Simulación atómica
+  BotonTransicion.tsx            ← Botón de transición entre capas
+  CausalMap.tsx                  ← Mapeo causa-efecto
+  ConceptMap.tsx                 ← Mapa de conceptos
+  Counterexample.tsx             ← Buscador de contraejemplos
+  ErrorHunter.tsx                ← Ejercicio de detección de errores
+  EvidenceMatcher.tsx            ← Ejercicio de emparejamiento de evidencia
+  GraphLab.tsx                   ← Laboratorio de interpretación de gráficas
+  IndiceNivel.tsx                ← Índice lateral de secciones
+  KanaGameV2.tsx                 ← Juego de aprendizaje de kana
+  KanaTool.tsx                   ← Herramienta de referencia de kana
+  MasteryCommandCenter.tsx       ← Header fijo con selector de nivel, progreso, XP
+  MissionCompletionModal.tsx     ← Modal de finalización de misión
+  ModelBuilder.tsx               ← Actividad de construcción de modelos
+  MostrarEnNivel.tsx             ← Render condicional por nivel
+  NivelActivo.tsx                ← Contenedor condicional por nivel activo
+  NivelContenido.tsx             ← Contenedor de contenido específico por nivel
+  NivelSelector.tsx              ← Selector de nivel
+  ParameterLab.tsx               ← Laboratorio de manipulación de parámetros
+  PhysicsSimulator.tsx           ← Simulador de física
+  PredictionBox.tsx              ← Predicción antes de observar
+  ProgresionArticulo.tsx         ← Stepper de progreso del artículo (3 capas)
+  ReadingLibrarian.tsx           ← Personaje flotante de progreso de lectura
+  SequenceBuilder.tsx            ← Actividad de ordenamiento de secuencia
+
+
+================================================================================
+10. ARTÍCULOS DISPONIBLES (40 archivos JSON en data/articles/)
+================================================================================
+
+  4-fuerzas-fundamentales.json
+  aprender-ingles.json
+  aprender-japones.json
+  cinematica.json
+  cosmologia.json
+  cómo-aprender-japonés-desde-cero-guía-completa--libros-pdf-gratuitos.json
+  electromagnetismo.json
+  electromagnetismo-avanzado.json
+  enigma-gravedad.json
+  ensayo-prueba-blog.json
+  esoicismo-era-moderna.json (aproximación)
+  existencialismo-libertad.json
+  FASE3-benchmarking.json
+  fisica-atomica-y-nuclear.json
+  fisica-particulas.json
+  fisica-tecnologia.json
+  fluidos.json
+  guia-maestra.json
+  guia-maestra-de-fisica.json
+  introduccion-a-la-ciencia.json
+  leyes-newton-movimiento.json
+  materia-y-energia.json
+  mecanica-clasica.json
+  mecanica-cuantica.json
+  metodo-de-la-fisica.json
+  momentum-colisiones.json
+  movimiento-circular-satelites.json
+  ondas-y-optica.json
+  ondas-y-optica-practica.json
+  prototipo-guia-maestra.json
+  quijote-analisis.json
+  relatividad-especial.json
+  relatividad-especial-practica.json
+  relatividad-general.json
+  ruta-japones.json
+  teoria-del-todo.json
+  termodinamica.json
+  torque-momento-angular.json
+  vectores.json
+
+
+================================================================================
+11. ARCHIVOS MARKDOWN ORIGINALES (en content/guias/)
+================================================================================
+
+  Subdirectorios: ciencias_naturales/fisica/ y otros
+
+  Archivos .md:
+    demo-componentes-interactivos.md
+    demo-pedagogical-blocks.md
+    FASE3-benchmarking.md
+    fisica-1-1-guia-maestra.md
+    fisica-1-2-4-fuerzas.md
+    fisica-1-3-materia-energia.md
+    fisica-1-4-metodo.md
+    fisica-1-5-vectores.md
+    fisica-2-1-mecanica-clasica.md
+    fisica-2-2-termodinamica.md
+    fisica-2-3-1-electromagnetismo-avanzado.md
+    fisica-2-3-electromagnetismo.md
+    fisica-2-4-1-ejercicios-ondas-optica.md
+    fisica-2-4-ondas-optica.md
+    fisica-2-5-1-movimiento-circular.md
+    fisica-2-5-cinematica.md
+    fisica-2-6-fluidos.md
+    fisica-2-7-momentum-colisiones.md
+    fisica-2-8-torque-momento-angular.md
+    fisica-3-1-1-ejercicios-relatividad-especial.md
+    fisica-3-1-relatividad-especial.md
+    fisica-3-2-relatividad-general.md
+    fisica-3-3-1-mecanica-cuantica-expandido.md
+    fisica-3-3-mecanica-cuantica.md
+    fisica-3-4-fisica-atomica.md
+    fisica-4-1-cosmologia.md
+    fisica-4-2-fisica-particulas.md
+    fisica-4-3-teoria-todo.md
+    fisica-4-4-fisica-tecnologia.md
+    guia-ciencias-naturales.md
+    aprender-ingles.md
+    aprender-japones.md
+    cómo-aprender-japonés-desde-cero-guía-completa--libros-pdf-gratuitos.md
+    ruta-japones.md
+
+
+================================================================================
+12. MAPA DE CAPAS (Layer Naming)
+================================================================================
+
+  En el contexto Aeterna, los 3 niveles se mapean así:
+
+    principiante  ←→  fundamentos, capa1, inicio
+    intermedio    ←→  profundizacion, exegesis, capa2
+    avanzado      ←→  frontera, capa3
+
+  Metadatos visuales de capa:
+
+    principiante: { label: "CAPA I: FUNDAMENTOS", code: "CAPA 01", icon: Compass }
+    intermedio:   { label: "CAPA II: EXÉGESIS",   code: "CAPA 02", icon: BookOpen }
+    avanzado:     { label: "CAPA III: FRONTERA",  code: "CAPA 03", icon: ShieldCheck }
+
+
+================================================================================
+13. TIPOS DE AUDITORÍA — ESTRUCTURA COMPLETA DEL REPORTE
+================================================================================
+
+  AuditReport {
+    timestamp: string
+    filePath: string
+    articleTitle: string
+    profile: string
+    discipline: string
+
+    articleTypeInfo: ArticleTypeDetectionResult
+    typeRuleConfig: ArticleTypeRuleConfig
+
+    structurePass: boolean
+    layerStatus: { inicio: boolean; intermedio: boolean; avanzado: boolean }
+
+    // Análisis expandido de 8 dimensiones
+    contentDepthAnalysis: ContentDepthAnalysis
+    structureAnalysis: StructureAnalysisResult
+    practiceEvaluation: PracticeEvaluation
+    interactiveAnalysis: InteractiveAnalysis
+    reasoningAnalysis: ReasoningAnalysis
+    visualAnalysis: VisualAnalysisResult
+    discoverabilityAnalysis: DiscoverabilityAnalysisResult
+    aeternaExperienceResult: AeternaExperienceResult
+    knowledgeBenchmarkResult?: KnowledgeBenchmarkResult
+
+    // Auditorías específicas
+    evidenceTraces: EvidenceTraceItem[]
+    competencyAnalysis?: CompetencyAnalysisResult
+    learningExperienceAudit?: LearningExperienceAuditResult
+    recommendedActivityPlan?: ProposedActivityItem[]
+
+    // Intervenciones
+    crossDimensionInterventions: CrossDimensionIntervention[]
+
+    exercisesPerLayer: { inicio: number; intermedio: number; avanzado: number; general: number }
+    totalExercises: number
+
+    interactiveDetected: boolean
+    interactiveDetails: ExtractedInteractive[]
+    interactiveValueScore: number
+    interactiveRecommendation: string
+    interactiveRequirement: InteractiveRequirement
+
+    scores: {
+      rigorAcademico: number        // /20
+      estructuraPedagogica: number  // /20
+      practica: number              // /20
+      razonamiento: number          // /15
+      interactividad: number        // /10
+      conexiones: number            // /10
+      experienciaAeterna: number    // /5
+      // Scores granulares
+      contentCoverageScore: number
+      contentDepthScore: number
+      articleStructureScore: number
+      layerDistributionScore: number
+      navigationScore: number
+      coreExperiencesScore: number
+      cognitiveVarietyScore: number
+      interactiveQualityScore: number
+      meaningfulCoverageScore: number
+      activityDiversityScore: number
+      visualCoverageScore: number
+      pedagogicalVisualsScore: number
+      imageAccessibilityScore: number
+      technicalSeoScore: number
+      semanticCoverageScore: number
+      searchIntentScore: number
+      knowledgeCoverageScore?: number
+      referenceAlignmentScore?: number
+    }
+
+    totalScore: number              // 0..100
+    appliedScoreCap?: { cap: number; reason: string }
+    status: AuditStatus
+
+    qualityGatesPassed: boolean
+    criticalFailures: QualityGateFailure[]
+    warnings: string[]
+    recommendations: string[]
+  }
+
+
+================================================================================
+14. INTERFACES DE SUB-ANÁLISIS (tipos completos)
+================================================================================
+
+  ContentDepthAnalysis {
+    coverageScore: number         // 0..100
+    depthScore: number            // 0..100
+    academicRigorScore: number    // 0..100
+    overallScore: number
+    conceptsDetected: string[]
+    missingConcepts: string[]
+    redundantConcepts: string[]
+    shallowSections: string[]
+    wordCount: number
+    readabilityScore: number
+  }
+
+  StructureAnalysisResult {
+    articleStructureScore: number   // 0..100
+    layerDistributionScore: number  // 0..100
+    navigationScore: number         // 0..100
+    overallScore: number
+    headingHierarchyValid: boolean
+    layerBalanceMessage: string
+    poorSections: string[]
+    overlyLongSections: string[]
+  }
+
+  PracticeEvaluation {
+    quantity: { actual: number; recommended: [number, number]; status: EvidenceState; message: string; score: number }
+    layerDistribution: SubDimensionEval
+    difficultyProgression: SubDimensionEval
+    cognitiveVariety: { status: EvidenceState; cognitiveLevelsDetected: CognitiveLevel[]; message: string; score: number }
+    competencyCoverage: { status: EvidenceState; reason: string; score: number }
+    totalPracticeScore: number
+    confidence: ConfidenceLevel
+    confidenceReason: string
+  }
+
+  InteractiveAnalysis {
+    potential: number           // 0..5
+    requirement: InteractiveRequirement
+    presence: boolean
+    relevance: EvidenceState
+    manipulation: boolean
+    feedback: boolean
+    exploration: boolean
+    learningAlignment: EvidenceState
+    qualityScore: number        // 0..5
+    scoreCategory: number       // 0..10
+    status: EvidenceState
+    message: string
+    breakdown: InteractivityBreakdown
+  }
+
+  InteractivityBreakdown {
+    overall: number             // 0..100
+    meaningfulCoverage: number  // 0..100
+    activityDiversity: number   // 0..100
+    diversityBonus?: string
+    interactionDepth: number    // 0..100
+    manipulation: number        // 0..100
+    feedbackQuality: number     // 0..100
+    stateChange: number         // 0..100
+    explanation: string
+  }
+
+  ReasoningAnalysis {
+    contentScore: number        // 0..100 (40% weight)
+    practiceScore: number       // 0..100 (60% weight)
+    weightedScore: number       // 0..15 category score
+    status: EvidenceState
+    evidenceContent: string[]
+    evidencePractice: string[]
+    competenciesDetected: string[]
+    missingCompetencies: string[]
+    ruleExplanation: string
+  }
+
+  VisualAnalysisResult {
+    visualCoverageScore: number       // 0..100
+    pedagogicalVisualsScore: number    // 0..100
+    imageAccessibilityScore: number    // 0..100
+    totalVisuals: number
+    pedagogicalCount: number
+    decorativeCount: number
+    categoriesDetected: Record<VisualCategory, number>
+    layerDistribution: Record<string, number>
+    visualOpportunities: VisualOpportunity[]
+    extractedVisuals: ExtractedVisual[]
+  }
+
+  DiscoverabilityAnalysisResult {
+    technicalSeoScore: number         // 0..100
+    semanticCoverageScore: number     // 0..100
+    searchIntentScore: number         // 0..100
+    overallScore: number
+    technicalMetrics: TechnicalSeoMetrics
+    searchIntentAspects: SearchIntentAspect[]
+    keyEntitiesDetected: string[]
+    missingSearchAspects: string[]
+    aiDiscoverabilitySignals: { ... }
+  }
+
+  AeternaExperienceResult {
+    connectionsScore: number          // 0..100
+    experienceScore: number           // 0..100
+    overallScore: number
+    pedagogicalBlocksCount: number
+    meaningfulIntegrationScore: number
+    reflectionMomentsCount: number
+  }
+
+
+================================================================================
+15. INTERVENCIONES MULTI-DIMENSIÓN
+================================================================================
+
+  Intervención priorizada que cruza dimensiones:
+
+  CrossDimensionIntervention {
+    category: InterventionCategory
+    title: string
+    missingItem: string
+    recommendedIntervention: string
+    rationale: string
+    priorityLevel: RecommendationPriority  // HIGH | MEDIUM | LOW
+    type: RecommendationType                // CRITICAL_GAP | IMPORTANT_GAP | IMPROVEMENT_OPPORTUNITY | OPTIONAL_ENHANCEMENT
+    why: string[]
+  }
+
+  Categorías de intervención:
+    PEDAGOGY, VISUAL, CONTENT, DISCOVERABILITY, AETERNA, KNOWLEDGE_BENCHMARK
+
+
+================================================================================
+16. BENCHMARK DE CONOCIMIENTO (Knowledge Benchmark)
+================================================================================
+
+  KnowledgeBenchmarkResult {
+    topicProfile: TopicProfile
+    referenceConfidence: ConfidenceLevel
+    sourcesCount: number
+    sourceQualityScore: number            // 0..100
+    coreConceptCoverageScore: number      // 0..100
+    importantRelationshipCoverageScore: number
+    representationCoverageScore: number
+    applicationCoverageScore: number
+    misconceptionCoverageScore: number
+    prerequisiteCoverageScore: number
+    referenceAlignmentScore: number       // 0..100
+    academicCorrectnessScore: number      // 0..100
+    aeternaAddedValue: 'HIGH' | 'MODERATE' | 'STANDARD'
+    addedValueReasons: string[]
+    conceptDetails: ConceptCoverageDetail[]
+    gaps: KnowledgeGap[]
+    sequencingIssues: SequencingIssue[]
+    sourceTransparency: SourceTransparencyItem[]
+    contradictionsDetected: string[]
+    isDiagnosticOnly: boolean
+  }
+
+  ConceptCoverageDetail {
+    concept: string
+    importance: ConceptImportance        // CORE | IMPORTANT | SUPPORTING | OPTIONAL
+    status: 'PASS' | 'PARTIAL' | 'MISSING'
+    detectionMode: ConceptDetectionMode  // EXPLICIT | SEMANTIC | IMPLICIT | PARTIAL | MISSING
+    explicitTerminology: 'PASS' | 'PARTIAL' | 'MISSING'
+    confidence: ConfidenceLevel
+  }
+
+  Importancia de concepto:
+    CORE, IMPORTANT, SUPPORTING, OPTIONAL
+
+  Modo de detección:
+    EXPLICIT, SEMANTIC, IMPLICIT, PARTIAL, MISSING
+
+  Fuentes de referencia:
+    TIER_1_ACADEMIC, TIER_2_SPECIALIZED_EDU, TIER_3_HIGH_QUALITY_WEB, TIER_4_GENERAL_WEB
+
+
+================================================================================
+17. PUNTO DE ENTRADA DE AUDITORÍA
+================================================================================
+
+  framework/aeterna-learning/index.ts:
+
+    loadLearningProfile(profileId: string = 'bachillerato'): LearningProfileConfig
+      → Carga perfil desde framework/aeterna-learning/config/learning-profile.{id}.json
+
+    auditArticle(filePath: string, profileId: string = 'bachillerato'): AuditReport
+      → Lee archivo, analiza contenido, evalúa puntuación, devuelve reporte completo
+
+    formatTerminalReport(report: AuditReport): string
+      → Formatea reporte como texto plano legible en terminal
+
+    formatJsonReport(report: AuditReport): string
+      → Formatea reporte como JSON indentado
+
+
+================================================================================
+18. UI DEL AUDITOR (creada en esta sesión)
+================================================================================
+
+  Nueva funcionalidad agregada:
+
+    app/api/audit-article/route.ts
+      → API endpoint POST que acepta { slug }, busca el archivo .md original
+        en content/guias/, ejecuta auditArticle() y devuelve el reporte JSON.
+
+    components/ArticleAuditor.tsx
+      → Componente cliente React con:
+        • Selector desplegable de artículos
+        • Botón "Auditar" con estado de carga
+        • Score circular animado (0-100)
+        • Badge de estado (Excelente/Bueno/Necesita Revisión/Débil/No Aprobado)
+        • Barras de progreso para 7 dimensiones
+        • Secciones expandibles: Desglose Detallado, Compuertas de Calidad,
+          Plan de Mejora, Benchmark de Conocimiento, Recomendaciones
+        • Diseño responsivo con el sistema de colores de Aeterna (gold/dark/offwhite)
+
+    app/auditor/page.tsx
+      → Página servidor que lista artículos desde los archivos .md en content/guias/
+      → Renderiza ArticleAuditor con los datos
+
+  Errores corregidos durante la creación:
+    1. __dirname en Next.js apuntaba a .next/ — cambiado a process.cwd()
+    2. Regex de slug no manejaba comillas en frontmatter YAML
+    3. Tipo practiceEvaluation tenía max inexistente — cambiado a score-only
+
+
+================================================================================
+19. REFACTOR DE ArticlePageClient REALIZADO
+================================================================================
+
+  Monolito original: components/ArticlePageClient.tsx (1,463 líneas)
+
+  Separado en módulos:
+
+    components/article-page/
+      index.tsx                          ← Entry point: ArticlePageClient export
+      ArticleContent.tsx                 ← Orquestador: estado, efectos, cambio de vista
+      ScrollMode.tsx                     ← Renderizado scroll + FloatingLevelLabel + SidebarTOC + RenderAcciones
+      FocusStepViewer.tsx                ← Modo enfoque paso a paso (~666 líneas)
+      components/
+        customMarkdownComponents.tsx      ← 23 wrappers JSX + 12 manejadores de code fence
+      parsers/
+        index.ts
+        parseJsxAttributes.ts
+        parseJsxOrCodeProps.ts
+        preprocessAeternaContent.ts
+        extractInteractive.ts
+
+  Impacto:
+    tsc --noEmit pasa limpio
+    Importaciones actualizadas en 3 page.tsx
+
+
+================================================================================
+20. SISTEMA DE DISEÑO Y PATRONES UI
+================================================================================
+
+  Colores:
+    Primary:    #D4AF37 / #8B6914 (brand-gold)
+    Background: #FDFBF7 (off-white) / #0F0F12 (dark ink)
+    Text:       #1A1A1A (ink) / #F4F2EC (offwhite)
+    Acento:     brand-gold, emerald para aciertos, red/amber para errores
+
+  Tipografía:
+    Títulos:     font-serif (Playfair Display, Georgia)
+    Labels:      font-mono uppercase tracking-widest
+    Cuerpo:      font-sans (Inter, system-ui)
+
+  Patrones comunes:
+    • Card: bg-white dark:bg-[#16161B] border rounded-3xl p-8 md:p-12 shadow-sm
+    • Badge: px-3 py-1.5 rounded-lg border text-[10px] font-mono font-bold uppercase
+    • Botón gold: bg-brand-gold text-brand-ink hover:bg-black hover:text-brand-gold
+    • Progreso: h-2 bg-black/5 rounded-full overflow-hidden
+    • Modal: fixed inset-0 bg-black/60 backdrop-blur-md z-[100]
+    • Drawer: fixed top-0 right-0 bottom-0 w-80 md:w-96 con spring animation
+    • Score circular: SVG circle con strokeDasharray + animación
+
+  Animaciones:
+    • motion/react (framer-motion)
+    • AnimatePresence para entradas/salidas
+    • spring para drawers, fade para modales
+    • scale para notificaciones toast
+
+
+================================================================================
+21. ESTRUCTURA DEL PROYECTO (directorios principales)
+================================================================================
+
+  app/                          ← Next.js App Router (páginas y API)
+  components/                   ← Componentes React
+    article-page/               ← Módulo de página de artículo (refactorizado)
+    interactive/                ← 34 componentes interactivos
+    ui/                         ← Componentes base (card, badge, button)
+    ArticleAuditor.tsx          ← UI del auditor (nuevo)
+  framework/
+    aeterna-learning/           ← Framework de auditoría (45 archivos)
+  lib/
+    server-content.ts           ← Lectura de artículos (markdown + JSON)
+    utils.ts                    ← Utilidades (cn, formatDate, getArticlePath)
+  context/
+    GamificationContext.tsx      ← Contexto de gamificación (XP, niveles)
+    LevelContext.tsx             ← Contexto de nivel activo
+    AuthContext.tsx              ← Contexto de autenticación Firebase
+  types/
+    index.ts                    ← Tipos principales
+  data/
+    articles/                   ← 40 artículos en JSON (compilados)
+  content/
+    guias/                      ← Artículos fuente en markdown
+  public/
+    images/                     ← Imágenes estáticas
+
+
+================================================================================
+FIN DEL ANÁLISIS
+================================================================================

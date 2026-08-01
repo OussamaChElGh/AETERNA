@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "slug": "FASE3-benchmarking"
+  },
+  "introduccion": "# 🔍 FASE 3: INVESTIGACIÓN EXTERNA — Benchmarking de Plataformas de Física",
+  "secciones": [
+    {
+      "id": "objetivo",
+      "titulo": "Objetivo",
+      "niveles": {
+        "intermedio": "Comparar cómo las principales plataformas educativas organizan el contenido de física para tomar las mejores decisiones para Aeterna Project.\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "1-the-physics-classroom-physicsclassroomcom",
+      "titulo": "1. THE PHYSICS CLASSROOM (physicsclassroom.com)",
+      "niveles": {
+        "intermedio": "Estructura observada directamente desde su sitio web. Es la plataforma de física gratuita más antigua y respetada.\n\n### Estructura de su Tutorial Principal (17 secciones):\n\n```\n1.  1-D Kinematics\n2.  Newton's Laws\n3.  Vectors - Motion and Forces in Two Dimensions\n4.  Momentum and Its Conservation\n5.  Work, Energy, and Power\n6.  Circular Motion and Satellite Motion\n7.  Balance and Rotation (Static & Rotational Equilibrium)\n8.  Fluids\n9.  Thermal Physics\n10. Static Electricity\n11. Electric Circuits\n12. Magnetic Fields and Electromagnetism\n13. Electromagnetic Induction\n14. Vibrations and Waves\n15. Sound Waves and Music\n16. Light Waves and Color\n17. Reflection and the Ray Model of Light / Refraction and Lenses\n```\n\n### Observaciones clave:\n- **Secuencia pedagógica clásica**: Mecánica → Termo → Electromag → Ondas/Óptica\n- **\"Balance and Rotation\"** aparece como sección separada (momento, torque, equilibrio rotacional)\n- **\"Momentum\"** está separada de \"Newton's Laws\" (ellos la tratan como tema propio)\n- **\"Circular Motion and Satellite Motion\"** incluye gravedad orbital\n- **\"Thermal Physics\"** (no \"Thermodynamics\") — usan un nombre más accesible\n- **No incluyen**: Relatividad, mecánica cuántica, física nuclear (es contenido avanzado)\n- **Enfoque**: Secundaria tardía / universidad temprana\n\n### Formato de sus artículos:\n- Cada sección tiene múltiples **sub-lessons** organizadas secuencialmente\n- Usan: lecturas + ilustraciones + Check Your Understanding (preguntas)\n- Navegación: menú lateral con todas las secciones\n- URL pattern: `/class/section-name/`\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "2-khan-academy-khanacademyorg--estructura-conocida",
+      "titulo": "2. KHAN ACADEMY (khanacademy.org) — Estructura conocida",
+      "niveles": {
+        "intermedio": "### Estructura del curso de Física:\n\n```\nUnidad 1: One-dimensional motion\nUnidad 2: Two-dimensional motion\nUnidad 3: Forces and Newton's laws of motion\nUnidad 4: Forces with various angles\nUnidad 5: Tension, pulleys, and inclines (part of forces)\nUnidad 6: Work and energy\nUnidad 7: Momentum and impulse\nUnidad 8: Torque and angular momentum\nUnidad 9: Oscillations and mechanical waves\nUnidad 10: Fluids\nUnidad 11: Thermodynamics\n```\n\n### Observaciones clave (basado en estructura pública):\n- **11 unidades** vs 17 secciones de Physics Classroom\n- **Más compacto**: fusionan temas que Physics Classroom separa\n- **\"One-dimensional motion\"** y **\"Two-dimensional motion\"** son separadas (no las fusionan en \"cinemática\")\n- **Torque y momento angular** son su propia unidad\n- **No incluyen**: Óptica (está en otro curso separado), Relatividad, Cuántica\n- **Enfoque**: Preparatoria / early college (similar a Physics Classroom)\n- **Diferenciador**: Videos cortos + ejercicios interactivos + mastery system\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "3-openstax-college-physics-openstaxorg",
+      "titulo": "3. OPENSTAX COLLEGE PHYSICS (openstax.org)",
+      "niveles": {
+        "intermedio": "### Estructura del libro (College Physics 2e):\n\n```\nVolumen I:\n  1. Introduction: The Nature of Science and Physics\n  2. Kinematics\n  3. Introduction to Two-Dimensional Kinematics\n  4. Dynamics: Force and Newton's Laws of Motion\n  5. Further Applications of Newton's Laws of Motion\n  6. Uniform Circular Motion and Gravitation\n  7. Work, Energy, and Energy Resources\n  8. Linear Momentum and Collisions\n  9. Statics and Torque\n  10. Rotational Motion and Angular Momentum\n  11. Fluid Statics\n  12. Fluid Dynamics and Its Biological and Medical Applications\n  13. Temperature, Kinetic Theory, and the Gas Laws\n  14. Heat and Heat Transfer Methods\n  15. Thermodynamics\n  16. Oscillatory Motion and Waves\n  17. Physics of Hearing\n  18. Electric Charge and Electric Field\n  19. Electric Current, Resistance, and Ohm's Law\n  20. Circuits and Bioelectrics\n  21. Magnetism\n  22. Electromagnetic Induction, AC Circuits, and Electrical Technologies\n  23. Electromagnetic Waves\n  24. Geometric Optics\n  25. Vision and Optical Instruments\n  26. Wave Optics\n\nVolumen II:\n  27. Special Relativity\n  28. Introduction to Quantum Physics\n  29. Atomic Physics\n  30. Nuclear Physics\n  31. Radioactivity and Nuclear Physics\n  32. Medical Applications of Nuclear Physics\n  33. Particle Physics\n  34. Frontiers of Physics\n```\n\n### Observaciones clave:\n- **34 capítulos** en 2 volúmenes — el más exhaustivo\n- Separa **Kinematics** → **2D Kinematics** (como Khan Academy)\n- Separa **Fluid Statics** y **Fluid Dynamics**\n- **Thermodynamics** dividida en capítulos: Gas Laws → Heat Transfer → Termodinámica (2.ª ley)\n- **Óptica** dividida en: Geometric Optics + Vision + Wave Optics\n- **Tienen Relatividad Especial** (cap. 27) y **Física Moderna completa** (caps. 28-34)\n- **Diferenciadores**:\n  - Aplicaciones biológicas y médicas (Bio en Physics)\n  - Más detallado y riguroso que Physics Classroom\n  - Enfoque: Universitario (calculus-based)\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "4-mit-open-course-ware-mit-ocw-801--802",
+      "titulo": "4. MIT OPEN COURSE WARE (MIT OCW 8.01 / 8.02)",
+      "niveles": {
+        "intermedio": "### Estructura del curso 8.01 (Classical Mechanics):\n\n```\nPart I: Kinematics\n  - Position, velocity, acceleration\n  - 1D and 2D motion\n  - Projectile motion\n  - Circular motion\n\nPart II: Newton's Laws\n  - Forces, mass, Newton's three laws\n  - Applications (inclined planes, pulleys)\n  - Friction\n\nPart III: Energy and Momentum\n  - Work-energy theorem\n  - Conservation of energy\n  - Conservation of momentum\n  - Collisions\n\nPart IV: Rotational Dynamics\n  - Torque\n  - Moment of inertia\n  - Angular momentum\n  - Rolling motion\n\nPart V: Gravity\n  - Newton's law of gravitation\n  - Kepler's laws\n  - Gravitational potential energy\n\nPart VI: Oscillations and Waves\n  - Simple harmonic motion\n  - Pendulums\n  - Wave motion\n  - Sound\n\n8.02 (Electricity and Magnetism):\n  - Electric fields and forces\n  - Electric potential\n  - Capacitors\n  - Magnetic fields\n  - Electromagnetic induction\n  - Maxwell's equations\n  - Electromagnetic waves\n```\n\n### Observaciones clave:\n- **Muy riguroso** y matemático (calculus-based)\n- **8.01 y 8.02** son cursos separados (mecánica y electromagnetismo)\n- **\"Gravity\"** es una sección separada (no mezclada con dinámica)\n- **Oscillations and Waves** al final de mecánica\n- **Diferenciador**: Incluye problem sets con soluciones y exámenes\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "5-anlisis-comparativo",
+      "titulo": "5. ANÁLISIS COMPARATIVO",
+      "niveles": {
+        "intermedio": "### Tabla de comparación de estructuras\n\n| Tema | Physics Classroom | Khan Academy | OpenStax | MIT OCW | Aeterna (actual) |\n|:-----|:-----------------:|:------------:|:--------:|:-------:|:-----------------:|\n| **Fundamentos / Introducción** | ❌ | ❌ | ✅ Cap. 1 | ❌ | ✅ |\n| **Método científico** | ❌ | ❌ | ✅ (Cap. 1) | ❌ | ✅ |\n| **Cinemática 1D** | ✅ S1 | ✅ Ud1 | ✅ Cap. 2 | ✅ | ❌ (Falta) |\n| **Cinemática 2D** | ✅ S1+S3 | ✅ Ud2 | ✅ Cap. 3 | ✅ | ✅ Cinemática |\n| **Leyes de Newton** | ✅ S2 | ✅ Ud3 | ✅ Cap. 4 | ✅ | ✅ |\n| **Aplicaciones de Newton** | ✅ S3 (Vectores) | ✅ Ud4 | ✅ Cap. 5 | ✅ | ✅ Fuerzas |\n| **Momento y torque** | ✅ S7 | ✅ Ud8 | ✅ Cap. 9-10 | ✅ | ❌ (Falta) |\n| **Momentum/Colisiones** | ✅ S4 | ✅ Ud7 | ✅ Cap. 8 | ✅ | ❌ (Falta) |\n| **Trabajo y energía** | ✅ S5 | ✅ Ud6 | ✅ Cap. 7 | ✅ | ⚠️ Solo en compendio |\n| **Movimiento circular** | ✅ S6 | ⚠️ Parcial | ✅ Cap. 6 | ✅ | ❌ (Falta) |\n| **Gravitación** | ✅ S6 (parcial) | ⚠️ Parcial | ✅ Cap. 6 | ✅ Sep. | ❌ (Falta) |\n| **Fluidos** | ✅ S8 | ✅ Ud10 | ✅ Cap. 11-12 | ⚠️ Parcial | ✅ |\n| **Termodinámica** | ✅ S9 | ✅ Ud11 | ✅ Cap. 13-15 | ❌ | ✅ |\n| **Electricidad estática** | ✅ S10 | ❌ | ✅ Cap. 18 | ❌ | ⚠️ Solo intro |\n| **Circuitos eléctricos** | ✅ S11 | ❌ | ✅ Cap. 19-20 | ❌ | ❌ |\n| **Magnetismo** | ✅ S12 | ❌ | ✅ Cap. 21-22 | ❌ | ⚠️ Solo intro |\n| **Ondas y sonido** | ✅ S14-15 | ✅ Ud9 | ✅ Cap. 16-17 | ✅ S6 | ✅ |\n| **Óptica geométrica** | ✅ S16-17 | ❌ | ✅ Cap. 24-25 | ❌ | ⚠️ Solo en compendio |\n| **Óptica ondulatoria** | ❌ | ❌ | ✅ Cap. 26 | ❌ | ❌ |\n| **Relatividad especial** | ❌ | ❌ | ✅ Cap. 27 | ✅ | ✅ |\n| **Relatividad general** | ❌ | ❌ | ❌ | ❌ | ✅ |\n| **Mecánica cuántica** | ❌ | ❌ | ✅ Cap. 28 | ❌ | ✅ |\n| **Física atómica/nuclear** | ❌ | ❌ | ✅ Cap. 29-32 | ❌ | ✅ |\n| **Física de partículas** | ❌ | ❌ | ✅ Cap. 33 | ❌ | ✅ |\n| **Fronteras de la física** | ❌ | ❌ | ✅ Cap. 34 | ❌ | ⚠️ Solo 4 mini-artículos |\n\n### Insights principales:\n1. **Physics Classroom** es la referencia para **estructura de navegación** (simple, clara, lineal)\n2. **OpenStax** es la referencia para **cobertura y profundidad** (34 capítulos)\n3. **MIT OCW** es la referencia para **rigor matemático y ejercicios**\n4. **Khan Academy** es la referencia para **gamificación y progreso**\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "6-mejores-prcticas-identificadas",
+      "titulo": "6. MEJORES PRÁCTICAS IDENTIFICADAS",
+      "niveles": {
+        "intermedio": "### 🏗️ Estructura de navegación (de Physics Classroom)\n- **Menú lateral fijo** con todas las secciones\n- Nivel 1: Sección principal (ej: \"Vectors\")\n- Nivel 2: Sub-lessons dentro de cada sección\n- Nivel 3: Preguntas de comprensión al final\n- **Barra de progreso** visible\n\n### 📊 Sistema de progreso (de Khan Academy)\n- **Unidades → Lecciones → Práctica**\n- Puntos y badges por completar\n- Mastery system (principiante → familiarizado → maestro)\n- **Ruta de aprendizaje personalizada** basada en rendimiento\n\n### 📝 Formato de contenido (de OpenStax)\n- Cada capítulo tiene:\n  - Objetivos de aprendizaje\n  - Resumen de sección\n  - Conceptos clave\n  - Ejercicios con soluciones\n  - Problemas de pensamiento crítico\n  - Glosario de términos\n\n### 🎯 Gamificación (de Khan Academy)\n- Sistema de puntos y energía\n- Insignias por completar secciones\n- Streaks (rachas de estudio diario)\n- Mapa de progreso visual\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "7-recomendaciones-para-aeterna",
+      "titulo": "7. RECOMENDACIONES PARA AETERNA",
+      "niveles": {
+        "intermedio": "### Nivel de profundidad recomendado:\nPara tu audiencia (secundaria + universitarios + curiosos):\n- **Alcanzar** el nivel de Physics Classroom (claro y accesible)\n- **No exceder** la complejidad de OpenStax (muy técnico para muchos)\n- **Complementar** con la gamificación de Khan Academy\n\n### Estructura de navegación recomendada:\n\n```\n📊 MAPA DE CONTENIDO (Página principal)\n├── 📘 Fundamentos (Nivel 1)\n│   ├── Guía maestra\n│   ├── Método científico\n│   ├── Materia y energía\n│   ├── Leyes de Newton\n│   └── Vectores\n├── 📗 El Reino de lo Clásico (Nivel 2)\n│   ├── Mecánica clásica\n│   ├── Termodinámica\n│   ├── Electromagnetismo\n│   ├── Ondas y óptica\n│   ├── Cinemática ✨ NUEVO\n│   └── Fluidos ✨ NUEVO\n├── 📕 Las Fronteras de la Realidad (Nivel 3)\n│   ├── Relatividad especial\n│   ├── Relatividad general ✨ NUEVO\n│   ├── Mecánica cuántica\n│   └── Física atómica y nuclear\n└── 📙 La Síntesis y el Futuro (Nivel 4)\n    ├── Cosmología\n    ├── Física de partículas\n    ├── Teoría del todo\n    └── Física y tecnología\n```\n\n### Features por implementar:\n1. ✅ Sidebar con estructura jerárquica (como Physics Classroom)\n2. ✅ Barra de progreso por nivel (como Khan Academy)\n3. ✅ Breadcrumbs en cada artículo\n4. ✅ Artículos con prerequisitos (ya definidos)\n5. ⏳ Sistema de insignias (ya tienes el campo `insignia`)\n6. ⏳ Preguntas interactivas con verificación (ya tienes el componente `AeternaDecisionBox`)\n7. ⏳ Búsqueda por tags y categorías\n8. ⏳ Página de \"Próxima parada\" automática (ya la tienes en cada artículo)\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "8-acciones-derivadas",
+      "titulo": "8. ACCIONES DERIVADAS",
+      "niveles": {
+        "intermedio": "| Prioridad | Acción | Estado |\n|:---------:|--------|:-----:|\n| 🟢 Alta | Añadir artículos faltantes detectados | Pendiente |\n| 🟢 Alta | Añadir `prerequisites` a artículos originales | Pendiente |\n| 🟡 Media | Crear índice/próxima parada cruzado entre artículos | Pendiente |\n| 🟡 Media | Añadir ejercicios a artículos que solo tienen preguntas | Pendiente |\n| 🟢 Baja | Implementar sidebar jerárquico en React | Técnica |\n| 🟢 Baja | Implementar sistema de progreso visual | Técnica |\n| 🟢 Baja | Crear página de búsqueda de artículos | Técnica |\n\n---\n\n*Documento generado: Mayo 2026*\n*Fuentes: The Physics Classroom (analizado directamente), Khan Academy (estructura pública conocida), OpenStax College Physics 2e (estructura pública conocida), MIT OCW 8.01/8.02 (estructura pública conocida)*"
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": ""
+}

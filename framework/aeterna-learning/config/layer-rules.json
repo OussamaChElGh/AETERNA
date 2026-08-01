@@ -1,0 +1,27 @@
+{
+  "requiredLayers": [
+    "inicio",
+    "intermedio",
+    "avanzado"
+  ],
+  "layerKeywords": {
+    "inicio": [
+      "fundamentos",
+      "capa 1",
+      "principiante",
+      "inicio"
+    ],
+    "intermedio": [
+      "profundización",
+      "profundizacion",
+      "capa 2",
+      "intermedio"
+    ],
+    "avanzado": [
+      "frontera",
+      "capa 3",
+      "avanzado"
+    ]
+  },
+  "enforceLayerDifferentiation": true
+}

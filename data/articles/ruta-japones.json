@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "Ruta del Idioma Japonés: De Cero a N5",
+    "description": "Tu mapa de ruta para dominar el japonés. En esta primera fase, nos enfocamos en los cimientos: Hiragana, Katakana y la fonética perfecta.",
+    "slug": "ruta-japones",
+    "author": "Redacción",
+    "category": "guias",
+    "subcategory": "idiomas",
+    "tags": [
+      "japonés",
+      "idiomas",
+      "hiragana",
+      "katakana",
+      "aprendizaje"
+    ],
+    "image": "https://images.unsplash.com/photo-1528164344705-47542687990d?q=80&w=2070&auto=format&fit=crop",
+    "date": "2026-05-01"
+  },
+  "introduccion": "",
+  "secciones": [
+    {
+      "id": "fase-1-los-cimientos-semana-1",
+      "titulo": "Fase 1: Los Cimientos (Semana 1)",
+      "niveles": {
+        "intermedio": "Bienvenido a tu viaje por el idioma japonés. Muchos cometen el error de empezar con gramática compleja o romaji (letras latinas). **Grave error.** El japonés se siente y se piensa a través de sus sonidos. Si intentas aprender japonés usando letras latinas, tu cerebro nunca hará el \"clic\" necesario para entender la estructura lógica del idioma.\n\n### El Reto de los 7 Días\nTu misión esta semana es simple pero exigente: **Cero Romaji.** Debes ser capaz de leer y escribir los sonidos básicos de los dos silabarios principales.\n\n```interactive-kana\n{ \"type\": \"chart\" }\n```\n\n### Los Dos Rostros del Silabario\n\nEl japonés utiliza tres sistemas de escritura simultáneos, pero hoy nos centraremos en los dos \"silabarios\" o **Kana**:\n\n1.  **Hiragana (ひらがな):** Es el alma del idioma. Se usa para palabras de origen japonés, partículas gramaticales y terminaciones de verbos. Sus formas son curvas y fluidas.\n2.  **Katakana (カタカナ):** Es el sistema para lo \"externo\". Se usa para nombres extranjeros, onomatopeyas y préstamos lingüísticos (como *Kocha* para té o *Konpyuta* para computadora). Sus trazos son angulares y rectos.\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "las-variaciones-dakuten-y-handakuten",
+      "titulo": "Las Variaciones: Dakuten y Handakuten",
+      "niveles": {
+        "intermedio": "Una vez que domines los sonidos básicos (K, S, T, H), descubrirás que puedes \"modificar\" su sonido usando dos pequeñas marcas:\n\n*   **Dakuten (゛):** Llamado informalmente \"comillas\". Convierte sonidos sordos en sonoros.\n    *   *K* se vuelve *G* (か → が)\n    *   *S* se vuelve *Z* (さ → ざ)\n    *   *T* se vuelve *D* (た → だ)\n    *   *H* se vuelve *B* (は → ば)\n*   **Handakuten (゜):** Un pequeño círculo que solo se aplica a la línea de la *H*.\n    *   *H* se convierte en *P* (は → ぱ)\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "fontica-y-pronunciacin-maestra",
+      "titulo": "Fonética y Pronunciación Maestra",
+      "niveles": {
+        "intermedio": "A diferencia del inglés, cuya pronunciación es caótica, el japonés es un idioma **silábico y predecible**. Cada carácter tiene un solo sonido que casi nunca cambia.\n\n### Los Secretos del Pitch Accent\nNo busques el acento tónico (la sílaba fuerte) como en español. El japonés usa el **acento de altura**. Una palabra puede cambiar de significado según si la pronuncias con un tono alto o bajo. Sin embargo, para un principiante, lo más importante es mantener el ritmo: **todas las sílabas duran exactamente lo mismo.**\n\n| Sonido | Descripción Técnica | Truco de Aprendizaje |\n| :--- | :--- | :--- |\n| **R (ら)** | Un 'tap' alveolar. No es la 'r' fuerte española. | Pronúnciala como la 'd' suave en \"cada\". |\n| **F/H (ふ)** | No es una 'f' labiodental. Se sopla aire entre los labios. | Como si intentaras apagar una vela suavemente. |\n| **N (ん)** | La única consonante que puede ir sola. | Es un sonido nasal profundo que resuena en el paladar. |\n| **TSU (つ)** | Un sonido sibilante. | Imagina el sonido de un platillo de batería: \"ts\". |\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "tu-plan-de-entrenamiento-juego-interactivo",
+      "titulo": "Tu Plan de Entrenamiento (JUEGO INTERACTIVO)",
+      "niveles": {
+        "intermedio": "Para que esta guía sea realmente efectiva, hemos integrado la **Academia de Kana** en la parte superior. No es solo una tabla; es un sistema de entrenamiento progresivo:\n\n### Los 4 Niveles de Maestría:\n\n1.  **EXPLORAR (Estudio):** Toca cualquier carácter para escuchar su pronunciación real. Usa esto para memorizar el trazo y el sonido simultáneamente.\n2.  **PUZZLE (Construye la sílaba):** Te daremos un sonido (Romaji) y deberás identificar el carácter correcto. El truco es que aparecerán tanto Hiragana como Katakana, ¡debes dominarlos ambos!\n3.  **CLASIFICAR (¿Hiragana o Katakana?):** Ponemos a prueba tu intuición lingüística. ¿Esta palabra suena a japonés puro o es un préstamo extranjero? Arrástrala a su sistema correspondiente.\n4.  **FONÉTICA (Pronunciación Perfecta):** Escucha el audio sin ver el texto y elige la transcripción correcta. Es ideal para distinguir sonidos difíciles como *tsu* vs *su*.\n\n```interactive-kana\n{ \"type\": \"academy\" }\n```\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "reto-final-el-examen-de-la-academia-v2",
+      "titulo": "Reto Final: El Examen de la Academia (V2)",
+      "niveles": {
+        "intermedio": "Si ya te sientes cómodo con los sonidos básicos, es hora de poner a prueba tu velocidad y precisión con la versión avanzada de nuestro simulador. Este modo incluye **temporizador**, **sistema de rachas** y un **modo de contexto** para distinguir el uso real de Hiragana y Katakana.\n\n```interactive-kana-v2\n{ \"version\": \"2.0\", \"theme\": \"dark\" }\n```\n\n---"
+      },
+      "acciones": []
+    },
+    {
+      "id": "consejos-de-supervivencia-para-la-semana-1",
+      "titulo": "Consejos de Supervivencia para la Semana 1",
+      "niveles": {
+        "intermedio": "Asociar la forma del carácter con una imagen mental es la clave.\n*   **Hiragana 'u' (う):** Parece una oreja oyendo algo.\n*   **Hiragana 'shi' (し):** Parece un anzuelo (fishing hook).\n*   **Hiragana 'he' (へ):** Parece una montaña (Aconcagua, por ejemplo).\n\nNo dibujes los caracteres. **Escríbelos.** El orden de los trazos (stroke order) determina el equilibrio visual. Si sigues el orden correcto, tus caracteres se verán \"japoneses\". Si no, se verán como dibujos de un niño.\n\nBusca en YouTube canciones infantiles de Hiragana o mira un anime que ya conozcas bien, pero esta vez con subtítulos en japonés (si puedes encontrarlos). Tu objetivo no es entender, sino **reconocer** los caracteres que has estudiado."
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": ""
+}

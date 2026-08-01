@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="160" height="120">
+  <defs>
+    <radialGradient id="shadow-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.45"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sofa-wood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B4513" />
+      <stop offset="100%" stop-color="#4A2502" />
+    </linearGradient>
+    <linearGradient id="sofa-leather-top" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B85C1F" />
+      <stop offset="100%" stop-color="#823D10" />
+    </linearGradient>
+    <linearGradient id="sofa-leather-side" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6E320B" />
+      <stop offset="100%" stop-color="#4A2106" />
+    </linearGradient>
+  </defs>
+
+  <!-- Floor Contact Soft Shadow -->
+  <ellipse cx="80" cy="90" rx="65" ry="24" fill="url(#shadow-grad)" />
+
+  <!-- Main Isometric Sofa Structure -->
+  <g transform="translate(0, 5)">
+    <!-- Backrest Base -->
+    <path d="M 30 45 L 80 20 L 130 45 L 130 68 L 80 43 L 30 68 Z" fill="url(#sofa-leather-top)" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+    
+    <!-- Armrest Left -->
+    <path d="M 18 55 L 42 43 L 60 52 L 36 64 Z" fill="#9B4B18" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M 18 55 L 36 64 L 36 82 L 18 73 Z" fill="#6E320B" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Armrest Right -->
+    <path d="M 100 52 L 118 43 L 142 55 L 124 64 Z" fill="#9B4B18" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M 124 64 L 142 55 L 142 73 L 124 82 Z" fill="#4A2106" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Seat Cushion Plane -->
+    <path d="M 36 64 L 80 42 L 124 64 L 80 86 Z" fill="url(#sofa-leather-top)" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M 36 64 L 80 86 L 80 96 L 36 74 Z" fill="#6E320B" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M 80 86 L 124 64 L 124 74 L 80 96 Z" fill="#4A2106" stroke="#2D1403" stroke-width="2.5" stroke-linejoin="round" />
+
+    <!-- Cushion Split Line -->
+    <path d="M 80 42 L 80 86" stroke="#2D1403" stroke-width="2" stroke-dasharray="3 2" />
+
+    <!-- Wooden Turned Legs -->
+    <rect x="22" y="73" width="6" height="15" rx="2" fill="url(#sofa-wood)" stroke="#1A0A01" stroke-width="1.5" />
+    <rect x="132" y="73" width="6" height="15" rx="2" fill="url(#sofa-wood)" stroke="#1A0A01" stroke-width="1.5" />
+    <rect x="77" y="94" width="6" height="12" rx="2" fill="url(#sofa-wood)" stroke="#1A0A01" stroke-width="1.5" />
+  </g>
+</svg>

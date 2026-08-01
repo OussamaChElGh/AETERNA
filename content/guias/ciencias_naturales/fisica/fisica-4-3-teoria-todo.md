@@ -1,0 +1,19 @@
+---
+title: "Teoría del Todo: En Busca de la Unificación"
+description: "El sueño de unificar relatividad y cuántica. Teoría de cuerdas, gravedad cuántica de bucles y otras candidatas."
+slug: "teoria-del-todo"
+author: "Aeterna"
+category: "ciencias"
+subcategory: "fisica"
+tags: ["física", "Teoría del Todo", "teoría de cuerdas", "unificación"]
+image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2070&auto=format&fit=crop"
+date: "2026-05-09"
+nivel: 4
+nivel_titulo: "La Síntesis y el Futuro"
+orden: 3
+insignia: "Señor de la Síntesis"
+---
+
+## Combinando a Einstein y a Heisenberg
+
+El mayor desafío físico de nuestro siglo es crear un modelo matemático unificado que vincule la física del mundo macroscópico con el microscópico y, en el proceso, explique una y cada una de las peculiaridades de todo el universo observable.

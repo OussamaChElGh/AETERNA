@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AuditReport",
+  "type": "object",
+  "required": [
+    "timestamp", "filePath", "articleTitle", "profile", "discipline",
+    "structurePass", "totalExercises", "totalScore", "status", "qualityGatesPassed"
+  ],
+  "properties": {
+    "timestamp": { "type": "string" },
+    "filePath": { "type": "string" },
+    "articleTitle": { "type": "string" },
+    "profile": { "type": "string" },
+    "discipline": { "type": "string" },
+    "structurePass": { "type": "boolean" },
+    "totalExercises": { "type": "integer" },
+    "interactiveValueScore": { "type": "number" },
+    "totalScore": { "type": "number" },
+    "status": { "type": "string" },
+    "qualityGatesPassed": { "type": "boolean" }
+  }
+}

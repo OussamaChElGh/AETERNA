@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "El Enigma de la Gravedad",
+    "description": "Desde la caída de la manzana hasta la curvatura del tiempo, desglosamos la fuerza que esculpe el universo en tres actos independientes.",
+    "slug": "enigma-gravedad",
+    "author": "Aeterna",
+    "category": "ciencias",
+    "subcategory": "fisica",
+    "tags": ["gravedad", "Newton", "Einstein", "Relatividad"],
+    "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2072&auto=format&fit=crop",
+    "date": "2026-05-11",
+    "nivel": 1,
+    "insignia": "Explorador del Cosmos",
+    "tipo": "theory"
+  },
+  "introduccion": "Bienvenido a Aeterna. Estás ante una exégesis progresiva. Tu mente va a ascender por tres capas de realidad, cada una con su propia estructura de datos y desafíos interactivos.",
+  "secciones": [
+    {
+      "id": "inicio-la-fuerza-invisible",
+      "titulo": "I. La Fuerza Invisible (Concepto)",
+      "niveles": {
+        "principiante": "Imagina que el universo es una manta elástica gigante. Si pones una bola de bolos (el Sol) en el centro, la manta se hunde. Si lanzas una canica (la Tierra), rodará alrededor de ese hundimiento. Eso es la gravedad: objetos grandes haciendo que el espacio se curve y atraiga a los pequeños.\n\n```aeterna-question\nTipo: 🎯 VALIDACIÓN\nPregunta: En la analogía de la manta elástica, ¿qué representa la curvatura o hundimiento de la manta?\nOpciones:\n- La velocidad de la luz\n- La fuerza de gravedad\n- El vacío del espacio\n- El calor del sol\nRespuestaCorrecta: La fuerza de gravedad\nXP: 50\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "el-peso-en-otros-mundos",
+      "titulo": "II. El Peso de los Mundos (Curiosidad)",
+      "niveles": {
+        "principiante": "En la Luna pesarías mucho menos porque es más pequeña que la Tierra. Tienes la misma masa (sigues siendo tú), pero la Luna te 'tira' con menos ganas. En Júpiter, serías tan pesado que no podrías ni levantarte del suelo.\n\n```aeterna-decision\nBadge: 🧠 REFLEXIÓN\nTítulo: Colonización Espacial\nPregunta: Si pudieras elegir vivir en un planeta con gravedad baja (como Marte) o uno con gravedad alta, sabiendo que tu cuerpo cambiaría físicamente en pocos años, ¿qué preferirías y qué cambio físico crees que sería más útil para sobrevivir?\nNivel: 1\nXP: 50\nBotón: Sellar Reflexión\n```"
+      },
+      "acciones": [
+        { "tipo": "BotonEjemplos", "contenido": "- Luna: 16% de tu peso.\n- Marte: 38% de tu peso.\n- Sol: 2700% de tu peso." }
+      ]
+    },
+    {
+      "id": "fundamentos-newtonianos",
+      "titulo": "I. Dinámica de Newton (Técnica)",
+      "niveles": {
+        "intermedio": "La gravedad es la interacción fundamental que causa la atracción mutua entre masas. Isaac Newton la cuantificó con su Ley de Gravitación Universal: la fuerza es proporcional a las masas involucradas e inversamente proporcional al cuadrado de la distancia.\n\n$$F = G \\frac{m_1 m_2}{r^2}$$\n\nEsta fórmula nos permitió predecir el movimiento de los planetas con una precisión asombrosa durante siglos.\n\n```aeterna-question\nTipo: ⚡ CÁLCULO MENTAL\nPregunta: Si duplicamos la distancia entre dos objetos ($r$), ¿qué ocurre con la fuerza de atracción gravitatoria según la fórmula de Newton?\nOpciones:\n- Se duplica\n- Se mantiene igual\n- Se reduce a la cuarta parte (1/4)\n- Se reduce a la mitad (1/2)\nRespuestaCorrecta: Se reduce a la cuarta parte (1/4)\nXP: 100\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "el-campo-gravitatorio",
+      "titulo": "II. El Concepto de Campo",
+      "niveles": {
+        "intermedio": "A diferencia de Newton, que veía la gravedad como una acción instantánea a distancia, la física moderna la entiende como un **Campo**. La Tierra genera un campo gravitatorio en todo el espacio a su alrededor, y cualquier objeto que entre en ese campo siente su influencia.\n\n```aeterna-exercise\nLABEL: Análisis de Campo\nEnuncia cómo cambiaría la percepción del campo gravitatorio si la densidad de la Tierra aumentara al doble manteniendo el mismo radio.\nPISTA: Recuerda la relación entre la masa y la intensidad de campo $g = G \\cdot M / R^2$.\nRESPUESTA_CORRECTA: aumentaría al doble\n```"
+      },
+      "acciones": [
+        { "tipo": "BotonProfundizar", "contenido": "Investiga cómo se calcula la intensidad de campo $g$ en la superficie de cualquier cuerpo celeste." }
+      ]
+    },
+    {
+      "id": "relatividad-general-einstein",
+      "titulo": "I. La Variedad del Espaciotiempo",
+      "niveles": {
+        "avanzado": "En la relatividad general, abandonamos la idea de 'fuerza'. La gravedad es una consecuencia de la curvatura de la variedad tetradimensional del espacio-tiempo. Los objetos no se atraen; simplemente siguen la trayectoria más corta (geodésica) a través de un espacio que ha sido deformado por la energía y la masa.\n\n```aeterna-decision\nBadge: 🔬 FRONTERA\nTítulo: El Colapso del Tiempo\nPregunta: Si la gravedad curva el tiempo (dilatación temporal gravitatoria), ¿crees que el tiempo es una dimensión física real como el espacio, o solo una construcción de nuestra percepción para ordenar el movimiento?\nNivel: 3\nXP: 150\nBotón: Registrar Intuición\n```"
+      },
+      "acciones": []
+    },
+    {
+      "id": "ecuaciones-de-campo",
+      "titulo": "II. Ecuaciones de Campo de Einstein",
+      "niveles": {
+        "avanzado": "La relación exacta entre la materia y la curvatura del espacio-tiempo se dicta en estas diez ecuaciones diferenciales no lineales:\n\n$$G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}$$\n\nAquí, el tensor de Einstein $G_{\\mu\\nu}$ describe la geometría, mientras que el tensor de energía-momento $T_{\\mu\\nu}$ describe la distribución de materia y energía.\n\n```aeterna-question\nTipo: 🏛️ MAESTRÍA\nPregunta: ¿Qué componente de la ecuación de Einstein representa la energía oscura o la expansión intrínseca del vacío?\nOpciones:\n- El Tensor de Einstein (G)\n- El Tensor de Energía-Momento (T)\n- La Constante Cosmológica (Λ)\n- El Tensor Métrico (g)\nRespuestaCorrecta: La Constante Cosmológica (Λ)\nXP: 200\n```"
+      },
+      "acciones": [
+        { "tipo": "BotonConexiones", "contenido": "Relaciona esto con la Cosmología: ¿Cómo afecta la Constante Cosmológica $\\Lambda$ a la expansión del universo?" }
+      ]
+    },
+    {
+      "id": "singularidades-y-horizontes",
+      "titulo": "III. El Límite: Agujeros Negros",
+      "niveles": {
+        "avanzado": "Cuando la masa es lo suficientemente densa, la curvatura se vuelve infinita. La métrica de Schwarzschild predice un 'Horizonte de Eventos', una frontera de la cual ni siquiera la luz puede escapar. Es el punto donde nuestra comprensión de la física actual colapsa."
+      },
+      "acciones": []
+    }
+  ],
+  "conclusion": "Has completado una fase de exégesis. Tu integridad cognitiva ha sido actualizada."
+}
