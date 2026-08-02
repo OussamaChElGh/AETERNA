@@ -271,38 +271,6 @@ export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
     rotation: 0
   },
   {
-    instanceId: 'inst_window_sunlight',
-    catalogItemId: 'window_stone_arch_gothic',
-    tileX: 4,
-    tileY: 0,
-    tileZ: 1,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_bookshelf_nw',
-    catalogItemId: 'bookshelf_library',
-    tileX: 8,
-    tileY: 0,
-    tileZ: 0,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_clock_nw',
-    catalogItemId: 'clock_wall',
-    tileX: 2,
-    tileY: 0,
-    tileZ: 2,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_tapestry_ne',
-    catalogItemId: 'tapestry_alchemy',
-    tileX: 0,
-    tileY: 4,
-    tileZ: 2,
-    rotation: 0
-  },
-  {
     instanceId: 'inst_door_gothic',
     catalogItemId: 'door_gothic_double',
     tileX: 0,
@@ -339,30 +307,6 @@ export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
     catalogItemId: 'desk_academic',
     tileX: 5,
     tileY: 4,
-    tileZ: 0,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_globe_side',
-    catalogItemId: 'globe_brass',
-    tileX: 3,
-    tileY: 6,
-    tileZ: 0,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_astrolabe_side',
-    catalogItemId: 'astrolabe_stand',
-    tileX: 1,
-    tileY: 2,
-    tileZ: 0,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_telescope_fg',
-    catalogItemId: 'telescope_brass',
-    tileX: 10,
-    tileY: 9,
     tileZ: 0,
     rotation: 0
   }
