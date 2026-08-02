@@ -92,9 +92,11 @@ export function ShareRankCard(props: ShareRankCardProps) {
   const [showImagePreview, setShowImagePreview] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const [origin, setOrigin] = useState('');
+  const avatarImg = getAvatarImage(props.avatarId);
+  const xpValue = props.scope === 'weekly' ? props.weeklyXp : props.xp;
 
-  const shareText = `¡Estoy en el puesto #${props.rank} del ranking ${props.scope === 'weekly' ? 'semanal' : 'global'} de AETERNA con ${formatXP(props.scope === 'weekly' ? props.weeklyXp : props.xp)} XP!`;
-  const shareUrl = origin + '/clasificacion';
+  const xpRaw = xpValue;
+  const shareText = `¡Estoy en el puesto #${props.rank} del ranking ${props.scope === 'weekly' ? 'semanal' : 'global'} de AETERNA con ${formatXP(xpRaw)} XP!`;
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -102,11 +104,53 @@ export function ShareRankCard(props: ShareRankCardProps) {
     }
   }, []);
 
-  const generateImage = async () => {
-    if (!cardRef.current) return;
+  // Build share URL with OG params so social platforms show preview card
+  const ogParams = new URLSearchParams();
+  ogParams.set('name', props.name);
+  ogParams.set('rank', String(props.rank));
+  ogParams.set('xp', String(xpRaw));
+  ogParams.set('level', String(props.level));
+  ogParams.set('scope', props.scope);
+  ogParams.set('achievements', String(props.achievementsCount || 0));
+  ogParams.set('relics', String(props.relicsCount || 0));
+  ogParams.set('streak', String(props.dailyStreak || 0));
+  const shareUrl = origin ? `${origin}/clasificacion?${ogParams.toString()}` : '';
+
+  // Detect mobile Web Share API with file support
+  const canShareImage = typeof navigator !== 'undefined'
+    && typeof navigator.share === 'function'
+    && typeof navigator.canShare === 'function';
+
+  const handleNativeShare = async () => {
+    if (!canShareImage) return;
     setIsGenerating(true);
-    setImageError(false);
-    // Clonar el card fuera de la vista para que html2canvas lo capture bien
+    // Generate fresh image on demand
+    const freshImage = await generateImageRaw();
+    setIsGenerating(false);
+    if (!freshImage) return;
+
+    try {
+      const blob = await fetch(freshImage).then(r => r.blob());
+      const file = new File([blob], `aeterna-ranking-${props.scope}.png`, { type: 'image/png' });
+      if (navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'Mi ranking en AETERNA', text: shareText });
+        setIsOpen(false);
+        return;
+      }
+    } catch {
+      // Fallback: usar texto + URL
+    }
+    // Fallback: compartir texto y URL
+    try {
+      await navigator.share({ title: 'Mi ranking en AETERNA', text: shareText, url: shareUrl });
+    } catch {
+      handleCopyLink();
+    }
+  };
+
+  // Generate image and return dataUrl (null if fails)
+  const generateImageRaw = async (): Promise<string | null> => {
+    if (!cardRef.current) return null;
     const clone = cardRef.current.cloneNode(true) as HTMLElement;
     clone.style.position = 'fixed';
     clone.style.left = '-9999px';
@@ -116,24 +160,31 @@ export function ShareRankCard(props: ShareRankCardProps) {
     clone.style.transform = 'none';
     clone.style.zIndex = '99999';
     document.body.appendChild(clone);
-
     try {
       await new Promise(resolve => setTimeout(resolve, 300));
       const canvas = await html2canvas(clone, {
-        backgroundColor: '#09090B',
-        scale: 2,
-        allowTaint: true,
-        logging: false,
+        backgroundColor: '#09090B', scale: 2, allowTaint: true, logging: false,
       });
-      setImageDataUrl(canvas.toDataURL('image/png'));
-      setShowImagePreview(true);
-    } catch (e) {
-      console.error('Error generando imagen:', e);
-      setImageError(true);
+      return canvas.toDataURL('image/png');
+    } catch {
+      return null;
     } finally {
       document.body.removeChild(clone);
-      setIsGenerating(false);
     }
+  };
+
+  const generateImage = async () => {
+    if (!cardRef.current) return;
+    setIsGenerating(true);
+    setImageError(false);
+    const dataUrl = await generateImageRaw();
+    if (dataUrl) {
+      setImageDataUrl(dataUrl);
+      setShowImagePreview(true);
+    } else {
+      setImageError(true);
+    }
+    setIsGenerating(false);
   };
 
   useEffect(() => {
@@ -141,6 +192,9 @@ export function ShareRankCard(props: ShareRankCardProps) {
       setShowImagePreview(false);
       setImageDataUrl(null);
       setImageError(false);
+    } else {
+      // Auto-generate image when opening the modal
+      setTimeout(generateImage, 100);
     }
   }, [isOpen]);
 
@@ -158,27 +212,6 @@ export function ShareRankCard(props: ShareRankCardProps) {
       setTimeout(() => setCopied(false), 2000);
     }).catch(() => {});
   };
-
-  const handleNativeShare = async () => {
-    if (!imageDataUrl) {
-      await generateImage();
-      return;
-    }
-    try {
-      const blob = await fetch(imageDataUrl).then(r => r.blob());
-      const file = new File([blob], `aeterna-ranking-${props.scope}.png`, { type: 'image/png' });
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'Mi ranking en AETERNA', text: shareText });
-      } else {
-        handleDownload();
-      }
-    } catch {
-      handleDownload();
-    }
-  };
-
-  const avatarImg = getAvatarImage(props.avatarId);
-  const xpValue = props.scope === 'weekly' ? props.weeklyXp : props.xp;
 
   return (
     <>
@@ -236,7 +269,23 @@ export function ShareRankCard(props: ShareRankCardProps) {
                 </div>
               </div>
 
-              {/* Social media buttons — siempre visibles */}
+              {/* Mobile: native share button (primary action) */}
+              {canShareImage && (
+                <button
+                  onClick={handleNativeShare}
+                  disabled={isGenerating}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 mb-4 rounded-lg bg-brand-gold text-brand-ink text-xs font-mono font-bold uppercase tracking-wider hover:bg-brand-gold/90 transition-all disabled:opacity-50"
+                >
+                  {isGenerating ? (
+                    <div className="w-4 h-4 border-2 border-brand-ink border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <Share2 size={14} />
+                  )}
+                  {isGenerating ? 'Preparando...' : 'Compartir'}
+                </button>
+              )}
+
+              {/* Desktop: social media buttons */}
               <div className="mb-4">
                 <p className="text-[9px] font-mono uppercase tracking-wider text-brand-offwhite/40 mb-2">
                   Compartir en redes
@@ -260,6 +309,9 @@ export function ShareRankCard(props: ShareRankCardProps) {
                     </a>
                   ))}
                 </div>
+                <p className="text-[8px] font-mono text-brand-offwhite/30 mt-2 text-center">
+                  Las redes sociales mostrarán una vista previa del ranking.
+                </p>
               </div>
 
               {/* Image generation & download */}
@@ -274,7 +326,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
                       className="flex items-center gap-1 text-[9px] font-mono text-brand-gold/60 hover:text-brand-gold transition-colors"
                     >
                       <ImageIcon size={12} />
-                      Generar
+                      Regenerar
                     </button>
                   )}
                 </div>
@@ -282,14 +334,14 @@ export function ShareRankCard(props: ShareRankCardProps) {
                 {isGenerating && (
                   <div className="flex items-center justify-center gap-2 py-3 text-brand-gold/60">
                     <div className="w-4 h-4 border-2 border-brand-gold border-t-transparent rounded-full animate-spin" />
-                    <span className="text-[10px] font-mono">Generando...</span>
+                    <span className="text-[10px] font-mono">Generando imagen...</span>
                   </div>
                 )}
 
                 {imageError && (
                   <div className="flex items-center gap-2 p-2 rounded-lg bg-red-500/10 text-red-400 text-[10px]">
                     <AlertCircle size={14} />
-                    Error al generar. Intenta de nuevo.
+                    Error al generar. <button onClick={generateImage} className="underline ml-1">Reintentar</button>
                   </div>
                 )}
 
@@ -308,15 +360,6 @@ export function ShareRankCard(props: ShareRankCardProps) {
                         <Download size={14} />
                         Descargar PNG
                       </button>
-                      {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
-                        <button
-                          onClick={handleNativeShare}
-                          className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-brand-gold/40 text-brand-gold text-[10px] font-mono font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-ink transition-all"
-                        >
-                          <Share2 size={14} />
-                          Compartir
-                        </button>
-                      )}
                       <button
                         onClick={handleCopyLink}
                         className="flex items-center justify-center gap-1 px-3 py-2 rounded-lg border border-white/10 text-brand-offwhite/70 text-[10px] font-mono font-bold uppercase tracking-wider hover:text-brand-gold hover:border-brand-gold/30 transition-all"
