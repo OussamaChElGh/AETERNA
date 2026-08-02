@@ -94,7 +94,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 onClick={handleGoogleLogin}
                 className="group relative flex w-full items-center justify-center gap-4 overflow-hidden rounded-xl bg-white px-8 py-5 text-[10px] font-black uppercase tracking-[0.2em] text-black transition-all hover:bg-brand-gold"
               >
-                <img src="/images/auth/google.png" alt="Google" className="h-4 w-4" />
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="h-4 w-4" />
                 <span>Continuar con Google</span>
               </button>
 
