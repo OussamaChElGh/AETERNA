@@ -8,5 +8,10 @@ service cloud.firestore {
       allow read: if true;
       allow write: if request.auth != null && request.auth.uid == userId;
     }
+
+    // Notificaciones in-app: solo el propietario puede leer y escribir.
+    match /aeternaNotifications/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
   }
 }

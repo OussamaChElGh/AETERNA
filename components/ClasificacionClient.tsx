@@ -7,6 +7,7 @@ import { useGamification } from '@/context/GamificationContext';
 import { getLeaderboard, deriveLevel, type LeaderboardEntry, type LeaderboardScope } from '@/lib/leaderboard';
 import { LeaderboardTable } from '@/components/LeaderboardTable';
 import { ShareRankCard } from '@/components/ShareRankCard';
+import { useNotifications } from '@/context/NotificationContext';
 import { cn } from '@/lib/utils';
 
 const TABS: { id: LeaderboardScope; label: string; icon: typeof Trophy }[] = [
@@ -17,6 +18,7 @@ const TABS: { id: LeaderboardScope; label: string; icon: typeof Trophy }[] = [
 export function ClasificacionClient() {
   const { user, signInWithGoogle, loading: authLoading } = useAuth();
   const { progress, setAlias } = useGamification();
+  const { addNotification } = useNotifications();
   const [scope, setScope] = useState<LeaderboardScope>('global');
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [totalUsers, setTotalUsers] = useState(0);
@@ -86,6 +88,42 @@ export function ClasificacionClient() {
       setIsLoading(false);
     }
   }, [user, scope, load]);
+
+  useEffect(() => {
+    if (!user || currentUserRank === null) return;
+
+    const storageKey = `aeterna_rank_${scope}`;
+    const prevRankStr = localStorage.getItem(storageKey);
+    const prevRank = prevRankStr ? parseInt(prevRankStr, 10) : null;
+
+    if (prevRank !== null && !isNaN(prevRank)) {
+      if (currentUserRank < prevRank) {
+        const diff = prevRank - currentUserRank;
+        addNotification(
+          'rank_up',
+          '¡Has subido en el ranking!',
+          `Has subido ${diff} ${diff === 1 ? 'posición' : 'posiciones'} en el ranking ${scope === 'weekly' ? 'semanal' : 'global'}. Ahora estás en el puesto #${currentUserRank}.`
+        );
+      } else if (currentUserRank > prevRank) {
+        const diff = currentUserRank - prevRank;
+        addNotification(
+          'overtaken',
+          'Has bajado en el ranking',
+          `Has bajado ${diff} ${diff === 1 ? 'posición' : 'posiciones'} en el ranking ${scope === 'weekly' ? 'semanal' : 'global'}. Ahora estás en el puesto #${currentUserRank}. ¡Sigue aprendiendo!`
+        );
+      }
+
+      if (currentUserRank <= 10 && prevRank > 10) {
+        addNotification(
+          'top10',
+          '¡Estás en el Top 10!',
+          `Has entrado en el top 10 del ranking ${scope === 'weekly' ? 'semanal' : 'global'}. ¡Eres uno de los sabios más destacados!`
+        );
+      }
+    }
+
+    localStorage.setItem(storageKey, currentUserRank.toString());
+  }, [user, currentUserRank, scope, addNotification]);
 
   const handleSaveAlias = () => {
     const clean = aliasDraft.trim().slice(0, 20);

@@ -4,6 +4,8 @@ import "katex/dist/katex.min.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/context/AuthContext";
 import { GamificationProvider } from "@/context/GamificationContext";
+import { NotificationProvider } from "@/context/NotificationContext";
+import { NotificationTriggers } from "@/components/NotificationTriggers";
 import { Navbar } from "@/components/Navbar";
 import { GlobalFooter } from "@/components/GlobalFooter";
 import { GuidesStrip } from "@/components/GuidesStrip";
@@ -38,16 +40,19 @@ export default function RootLayout({
         <ThemeProvider defaultTheme="dark" storageKey="aeterna-theme">
           <AuthProvider>
             <GamificationProvider>
-              <div className="flex min-h-screen flex-col">
-                <Navbar />
-                <GuidesStrip />
-                <main className="flex-1">
-                  {children}
-                </main>
-                <GlobalFooter />
-                <FloatingMascot />
-                <FloatingGuides />
-              </div>
+              <NotificationProvider>
+                <NotificationTriggers />
+                <div className="flex min-h-screen flex-col">
+                  <Navbar />
+                  <GuidesStrip />
+                  <main className="flex-1">
+                    {children}
+                  </main>
+                  <GlobalFooter />
+                  <FloatingMascot />
+                  <FloatingGuides />
+                </div>
+              </NotificationProvider>
             </GamificationProvider>
           </AuthProvider>
         </ThemeProvider>

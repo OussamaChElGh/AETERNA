@@ -9,6 +9,7 @@ import { useGamification, ACHIEVEMENTS, AVATARS, formatXP } from "../context/Gam
 import { useAuth } from "../context/AuthContext";
 import { ThemeToggle } from "./ThemeToggle";
 import { LoginModal } from "./LoginModal";
+import { NotificationBell } from "./NotificationBell";
 
 interface NavItem {
   name: string;
@@ -93,6 +94,7 @@ export function Navbar() {
               </button>
             ) : (
               <div className="hidden lg:flex items-center gap-8">
+                <NotificationBell />
                 <Link href="/clasificacion"
                   className="flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.2em] text-brand-muted hover:text-brand-ink transition-all"
                 >
@@ -175,6 +177,10 @@ export function Navbar() {
                 </button>
               ) : (
                 <div className="flex flex-col gap-6">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] uppercase tracking-[0.3em] font-sans text-brand-ink/40">Notificaciones</span>
+                    <NotificationBell />
+                  </div>
                   <Link href="/clasificacion" onClick={() => setIsOpen(false)} className="text-[10px] uppercase tracking-[0.3em] font-sans">
                     Clasificación
                   </Link>
