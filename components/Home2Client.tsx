@@ -9,6 +9,9 @@ import { NexusNode3D } from '@/components/NexusNode3D';
 import { Starfield } from '@/components/Starfield';
 import { evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
 import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
+import { MiniLeaderboard } from '@/components/MiniLeaderboard';
+import { getLeaderboard, type LeaderboardEntry } from '@/lib/leaderboard';
+import { useAuth } from '@/context/AuthContext';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
@@ -189,6 +192,22 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
     level: progress.level || 1,
     nextLevel: progress.xp
   };
+
+  // Ranking mini para la home (top 5 + mi posición)
+  const { user: authUser } = useAuth();
+  const [miniRanking, setMiniRanking] = useState<{ entries: LeaderboardEntry[]; myRank: number | null }>({ entries: [], myRank: null });
+  const [miniLoading, setMiniLoading] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    if (!authUser) return;
+    setMiniLoading(true);
+    getLeaderboard('global', { max: 5, currentUserId: authUser.uid }).then(res => {
+      if (cancelled) return;
+      setMiniRanking({ entries: res.entries, myRank: res.currentUserRank });
+      setMiniLoading(false);
+    }).catch(() => { if (!cancelled) setMiniLoading(false); });
+    return () => { cancelled = true; };
+  }, [authUser]);
 
   return (
     <div className="home-page-container bg-brand-ink min-h-screen relative selection:bg-brand-gold selection:text-brand-ink overflow-x-hidden">
@@ -478,6 +497,18 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                 <Trophy size={12} /> Reclamar recompensas <ArrowRight size={10} className="hover:translate-x-1 transition-transform" />
               </Link>
             </div>
+
+            {authUser && (
+              <div className="mt-5">
+                <MiniLeaderboard
+                  entries={miniRanking.entries}
+                  currentUserId={authUser.uid}
+                  currentUserRank={miniRanking.myRank}
+                  isLoading={miniLoading}
+                  scope="global"
+                />
+              </div>
+            )}
           </div>
         </motion.div>
 

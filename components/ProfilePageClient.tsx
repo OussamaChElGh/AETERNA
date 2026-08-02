@@ -42,9 +42,11 @@ import { RoomProvider } from "@/context/RoomContext";
 import { AeternaKnowledgeRoom } from "@/components/interactive/AeternaKnowledgeRoom";
 
 export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: ArticleFrontmatter[] }) {
-  const { progress, selectAvatar, resetProgress } = useGamification();
+  const { progress, selectAvatar, resetProgress, setAlias } = useGamification();
   const { user } = useAuth();
   const [articles, setArticles] = useState<ArticleFrontmatter[]>(initialArticles);
+  const [aliasDraft, setAliasDraft] = useState('');
+  const [aliasSaved, setAliasSaved] = useState(false);
   const [dailyChallenge, setDailyChallenge] = useState<{
     title: string;
     description: string;
@@ -62,6 +64,19 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
   const handleReset = () => {
     resetProgress();
     setShowResetConfirm(false);
+  };
+
+  // Sincronizar el borrador del alias con el guardado
+  useEffect(() => {
+    setAliasDraft(progress.alias || '');
+  }, [progress.alias]);
+
+  const handleSaveAlias = () => {
+    const clean = aliasDraft.trim().slice(0, 20);
+    if (clean.length < 3) return;
+    setAlias(clean);
+    setAliasSaved(true);
+    setTimeout(() => setAliasSaved(false), 2000);
   };
 
   useEffect(() => {
@@ -304,6 +319,31 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
                       </span>
                       <span className="text-[9px] text-white/40 font-mono tracking-widest italic">
                         {user.email}
+                      </span>
+                      <div className="mt-2 flex items-center gap-2">
+                        <input
+                          value={aliasDraft}
+                          onChange={(e) => { setAliasDraft(e.target.value); setAliasSaved(false); }}
+                          onKeyDown={(e) => { if (e.key === 'Enter') handleSaveAlias(); }}
+                          maxLength={20}
+                          placeholder={progress.alias || user.displayName || 'Tu alias de clasificación'}
+                          className="bg-white/10 border border-white/20 rounded-lg px-2.5 py-1.5 text-[11px] text-white placeholder:text-white/30 focus:border-brand-gold focus:outline-none w-44"
+                        />
+                        <button
+                          onClick={handleSaveAlias}
+                          disabled={aliasDraft.trim().length < 3}
+                          className={cn(
+                            "px-2.5 py-1.5 rounded-lg border text-[9px] font-mono font-bold uppercase tracking-wider transition-all shrink-0",
+                            aliasDraft.trim().length >= 3
+                              ? "border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-brand-ink"
+                              : "border-white/10 text-white/30 cursor-not-allowed"
+                          )}
+                        >
+                          {aliasSaved ? '✓' : 'Alias'}
+                        </button>
+                      </div>
+                      <span className="text-[8px] text-white/30 font-mono mt-1">
+                        Aparecerá en el cuadro de clasificación
                       </span>
                     </div>
                   </div>

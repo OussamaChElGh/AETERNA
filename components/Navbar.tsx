@@ -93,6 +93,12 @@ export function Navbar() {
               </button>
             ) : (
               <div className="hidden lg:flex items-center gap-8">
+                <Link href="/clasificacion"
+                  className="flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.2em] text-brand-muted hover:text-brand-ink transition-all"
+                >
+                  <Trophy size={14} />
+                  Clasificación
+                </Link>
                 <Link href="/perfil"
                   className="flex items-center gap-4 group"
                 >
@@ -169,6 +175,9 @@ export function Navbar() {
                 </button>
               ) : (
                 <div className="flex flex-col gap-6">
+                  <Link href="/clasificacion" onClick={() => setIsOpen(false)} className="text-[10px] uppercase tracking-[0.3em] font-sans">
+                    Clasificación
+                  </Link>
                   <Link href="/perfil" onClick={() => setIsOpen(false)} className="text-[10px] uppercase tracking-[0.3em] font-sans">
                     Perfil ({formatXP(progress.xp)} XP)
                   </Link>

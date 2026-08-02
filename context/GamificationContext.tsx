@@ -11,6 +11,19 @@ import relicData from "@/data/relics.json";
 import { evaluateRoomUnlocks } from "@/lib/roomEngineStorage";
 import { ROOM_ENGINE_CATALOG } from "@/data/roomEngineCatalog";
 
+/**
+ * Devuelve el lunes de la semana actual a las 00:00 (UTC) como ISO string.
+ * Se usa para el ranking semanal: la semana se reinicia cada lunes.
+ */
+export function getMondayKey(date: Date = new Date()): string {
+  const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
+  const day = d.getUTCDay(); // 0=domingo ... 6=sábado
+  const diff = (day + 6) % 7; // días desde el lunes
+  d.setUTCDate(d.getUTCDate() - diff);
+  d.setUTCHours(0, 0, 0, 0);
+  return d.toISOString();
+}
+
 export interface UserProgress {
   xp: number;
   level: number;
@@ -24,6 +37,11 @@ export interface UserProgress {
   answeredQuestions: string[];
   physicsRelics: string[];
   completedLayers?: Record<string, string[]>;
+  alias?: string;
+  displayName?: string;
+  photoURL?: string;
+  weeklyXp?: number;
+  weeklyResetDate?: string;
 }
 
 export type NotificationType = 'level_up' | 'achievement' | 'streak' | 'xp' | 'warning';
@@ -72,6 +90,7 @@ interface GamificationContextType {
   breakCombo: () => void;
   unlockAchievement: (id: string) => void;
   resetProgress: () => void;
+  setAlias: (alias: string) => void;
   fireFeedback: (ev: Omit<FeedbackEvent, 'id'>) => void;
   feedbackEvent: FeedbackEvent | null;
 }
@@ -89,6 +108,11 @@ const defaultProgress: UserProgress = {
   answeredQuestions: [],
   physicsRelics: [],
   completedLayers: {},
+  alias: '',
+  displayName: '',
+  photoURL: '',
+  weeklyXp: 0,
+  weeklyResetDate: getMondayKey(),
 };
 
 const GamificationContext = createContext<GamificationContextType | undefined>(undefined);
@@ -313,10 +337,27 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
             notifiedKeys.current.add(`read_xp_${id.replace('article_read_', '')}`);
           });
 
+          // Rellenar displayName/photoURL desde la sesión de Auth si faltan,
+          // para que el ranking tenga nombre aunque el usuario no haya fijado alias.
+          const enriched = {
+            ...cloudData,
+            displayName: cloudData.displayName || user.displayName || '',
+            photoURL: cloudData.photoURL || user.photoURL || ''
+          };
+
           setProgress({
             ...defaultProgress,
-            ...cloudData
+            ...enriched
           });
+
+          // Si faltaban, persistir la versión enriquecida una vez
+          if (!cloudData.displayName || !cloudData.photoURL) {
+            try {
+              await setDoc(doc(db, "aeternaProgressV3", user.uid), { ...enriched, ownerId: user.uid }, { merge: true });
+            } catch (e) {
+              handleFirestoreError(e, OperationType.WRITE, `aeternaProgressV3/${user.uid}`);
+            }
+          }
         }
         syncedFirebase.current = true;
       } catch (error) {
@@ -497,7 +538,18 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       });
     }
 
-    setProgress((prev) => ({ ...prev, xp: prev.xp + amount }));
+    setProgress((prev) => {
+      // Lógica del ranking semanal: se reinicia cada lunes.
+      const thisMonday = getMondayKey();
+      const isNewWeek = prev.weeklyResetDate !== thisMonday;
+      const weeklyXp = isNewWeek ? amount : (prev.weeklyXp || 0) + amount;
+      return {
+        ...prev,
+        xp: prev.xp + amount,
+        weeklyXp,
+        weeklyResetDate: thisMonday
+      };
+    });
   }, [notify]);
 
   const completePath = useCallback((pathId: string, telemetry?: Telemetry) => {
@@ -860,6 +912,11 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       answeredQuestions: [],
       physicsRelics: [],
       completedLayers: {},
+      alias: '',
+      displayName: user?.displayName || '',
+      photoURL: user?.photoURL || '',
+      weeklyXp: 0,
+      weeklyResetDate: getMondayKey(),
     };
     setProgress(emptyProgress);
     if (user) {
@@ -874,6 +931,11 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       saveReset();
     }
   }, [user]);
+
+  const setAlias = useCallback((alias: string) => {
+    const clean = alias.trim().slice(0, 20);
+    setProgress(prev => ({ ...prev, alias: clean }));
+  }, []);
 
   return (
     <GamificationContext.Provider value={{ 
@@ -892,6 +954,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       breakCombo,
       unlockAchievement: publicUnlockAchievement,
       resetProgress,
+      setAlias,
       fireFeedback,
       feedbackEvent,
     }}>

@@ -1,0 +1,13 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "aeternaProgressV3",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "weeklyResetDate", "order": "ASCENDING" },
+        { "fieldPath": "weeklyXp", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
