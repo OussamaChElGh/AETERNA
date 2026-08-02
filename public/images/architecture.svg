@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
-  <!-- Ceiling Beams -->
-  <polygon points="600,70 408,166 408,146 600,50" fill="#3D1D07" stroke="#1C0A00" stroke-width="2" />
-  <polygon points="600,70 920,230 920,210 600,50" fill="#270F02" stroke="#1C0A00" stroke-width="2" />
-  <!-- Corner Pillar -->
-  <polygon points="588,240 612,240 612,50 588,50" fill="#2A1203" stroke="#120600" stroke-width="2" />
-  <rect x="586" y="52" width="28" height="6" fill="#D4AF37" rx="1" />
-</svg>
