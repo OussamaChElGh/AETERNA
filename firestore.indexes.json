@@ -7,6 +7,22 @@
         { "fieldPath": "weeklyResetDate", "order": "ASCENDING" },
         { "fieldPath": "weeklyXp", "order": "DESCENDING" }
       ]
+    },
+    {
+      "collectionGroup": "aeternaChallenges",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "creator", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "aeternaChallenges",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "challenger", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
+      ]
     }
   ],
   "fieldOverrides": []
