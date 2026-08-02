@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/context/AuthContext";
 import { GamificationProvider } from "@/context/GamificationContext";
 import { NotificationProvider } from "@/context/NotificationContext";
+import { FollowProvider } from "@/context/FollowContext";
 import { NotificationTriggers } from "@/components/NotificationTriggers";
 import { Navbar } from "@/components/Navbar";
 import { GlobalFooter } from "@/components/GlobalFooter";
@@ -41,8 +42,9 @@ export default function RootLayout({
           <AuthProvider>
             <GamificationProvider>
               <NotificationProvider>
-                <NotificationTriggers />
-                <div className="flex min-h-screen flex-col">
+                <FollowProvider>
+                  <NotificationTriggers />
+                  <div className="flex min-h-screen flex-col">
                   <Navbar />
                   <GuidesStrip />
                   <main className="flex-1">
@@ -52,6 +54,7 @@ export default function RootLayout({
                   <FloatingMascot />
                   <FloatingGuides />
                 </div>
+                </FollowProvider>
               </NotificationProvider>
             </GamificationProvider>
           </AuthProvider>

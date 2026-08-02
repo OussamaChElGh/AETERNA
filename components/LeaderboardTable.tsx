@@ -1,9 +1,10 @@
 'use client';
 import React from 'react';
 import { motion } from 'motion/react';
-import { Crown, Medal, Flame, Award, User, Sparkles, TrendingUp, Zap } from 'lucide-react';
+import { Crown, Medal, Flame, Award, User, Sparkles, TrendingUp, Zap, Plus, Check } from 'lucide-react';
 import { AVATARS } from '@/context/GamificationContext';
 import { formatXP } from '@/context/GamificationContext';
+import { useFollow } from '@/context/FollowContext';
 import { cn } from '@/lib/utils';
 import { getLeague, LEAGUES, type League, type LeagueId } from '@/lib/leaderboard';
 import type { LeaderboardEntry } from '@/lib/leaderboard';
@@ -257,11 +258,38 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
               <div className="hidden sm:block">
                 <LeagueBadge league={league} rank={place} />
               </div>
+
+              {/* Follow button */}
+              {!isMe && <FollowBtn targetUid={entry.uid} />}
             </motion.div>
           );
         })}
       </div>
     </div>
+  );
+}
+
+// ─── FOLLOW BUTTON ─────────────────────────────────────────────────────
+
+function FollowBtn({ targetUid }: { targetUid: string }) {
+  const { isFollowing, follow, unfollow } = useFollow();
+  const following = isFollowing(targetUid);
+
+  return (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        following ? unfollow(targetUid) : follow(targetUid);
+      }}
+      className={cn(
+        "shrink-0 w-7 h-7 rounded-lg flex items-center justify-center transition-all",
+        following
+          ? "bg-brand-gold/20 border border-brand-gold/40 text-brand-gold"
+          : "bg-white/5 border border-white/10 text-brand-offwhite/40 hover:border-brand-gold/30 hover:text-brand-gold"
+      )}
+    >
+      {following ? <Check size={12} /> : <Plus size={12} />}
+    </button>
   );
 }
 

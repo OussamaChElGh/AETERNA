@@ -8,11 +8,15 @@ import { getLeaderboard, deriveLevel, getLeague, getMondayKey, LEAGUES, LEAGUE_T
 import { LeaderboardTable } from '@/components/LeaderboardTable';
 import { ShareRankCard } from '@/components/ShareRankCard';
 import { useNotifications } from '@/context/NotificationContext';
+import { useFollow } from '@/context/FollowContext';
 import { cn } from '@/lib/utils';
 
-const TABS: { id: LeaderboardScope; label: string; icon: typeof Trophy; color: string }[] = [
+type ClasificacionScope = LeaderboardScope | 'following';
+
+const TABS: { id: ClasificacionScope; label: string; icon: typeof Trophy; color: string }[] = [
   { id: 'global', label: 'Global', icon: Trophy, color: 'brand-gold' },
   { id: 'weekly', label: 'Semanal', icon: Crown, color: 'brand-cosmic' },
+  { id: 'following', label: 'Siguiendo', icon: Users, color: 'brand-gold' },
 ];
 
 function WeeklyCountdown() {
@@ -46,7 +50,8 @@ export function ClasificacionClient() {
   const { user, signInWithGoogle, loading: authLoading } = useAuth();
   const { progress, setAlias } = useGamification();
   const { addNotification } = useNotifications();
-  const [scope, setScope] = useState<LeaderboardScope>('global');
+  const { following } = useFollow();
+  const [scope, setScope] = useState<ClasificacionScope>('global');
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [currentUserRank, setCurrentUserRank] = useState<number | null>(null);
@@ -85,6 +90,26 @@ export function ClasificacionClient() {
 
   useEffect(() => { setAliasDraft(progress.alias || ''); }, [progress.alias]);
 
+  // Filter entries for "following" tab (client-side, global data already loaded)
+  const effectiveScope: LeaderboardScope = scope === 'following' ? 'global' : scope;
+  const displayedEntries = useMemo(() => {
+    if (scope !== 'following') return entries;
+    const followingSet = new Set(following);
+    const me = buildLocalMe();
+    return entries.filter(e => followingSet.has(e.uid) || e.uid === me.uid);
+  }, [scope, entries, following, progress]);
+
+  const displayedRank = useMemo(() => {
+    if (scope !== 'following') return currentUserRank;
+    const me = buildLocalMe();
+    const idx = displayedEntries.findIndex(e => e.uid === me.uid);
+    return idx >= 0 ? idx + 1 : currentUserRank;
+  }, [scope, displayedEntries, currentUserRank, progress]);
+
+  // Final values used in the UI (with following filter applied)
+  const visibleEntries = scope === 'following' ? displayedEntries : entries;
+  const visibleRank = scope === 'following' ? displayedRank : currentUserRank;
+
   const load = useCallback(async (currentScope: LeaderboardScope) => {
     setIsLoading(true);
     try {
@@ -109,8 +134,8 @@ export function ClasificacionClient() {
   }, [user?.uid, progress]);
 
   useEffect(() => {
-    if (user) { load(scope); } else { setEntries([]); setIsLoading(false); }
-  }, [user, scope, load]);
+    if (user) { load(effectiveScope); } else { setEntries([]); setIsLoading(false); }
+  }, [user, effectiveScope, load]);
 
   // ─── Ranking notifications ───
   useEffect(() => {
@@ -139,7 +164,7 @@ export function ClasificacionClient() {
     setAlias(clean);
     setAliasSaved(true);
     setTimeout(() => setAliasSaved(false), 2000);
-    setTimeout(() => load(scope), 800);
+    setTimeout(() => load(effectiveScope), 800);
   };
 
   if (!user) {
@@ -178,7 +203,7 @@ export function ClasificacionClient() {
             </p>
 
             {/* League badge */}
-            {currentUserRank && (
+            {visibleRank && (
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -200,13 +225,13 @@ export function ClasificacionClient() {
                 <div className={cn("w-px h-8 ml-1 mr-1", myLeague.border)} style={{ borderWidth: 1, borderStyle: 'solid' }} />
                 <div className="text-right">
                   <div className="text-[9px] font-mono uppercase tracking-wider text-brand-offwhite/40">Puesto</div>
-                  <div className="font-mono font-black text-brand-gold text-lg">#{currentUserRank}</div>
+                  <div className="font-mono font-black text-brand-gold text-lg">#{visibleRank}</div>
                 </div>
               </motion.div>
             )}
 
             {/* Next league progress */}
-            {currentUserRank && nextLeague && (
+            {visibleRank && nextLeague && (
               <div className="max-w-xs mx-auto mb-4">
                 <div className="flex items-center justify-between text-[9px] font-mono text-brand-offwhite/40 mb-1">
                   <span>{myLeague.emoji} {myLeague.name}</span>
@@ -215,13 +240,13 @@ export function ClasificacionClient() {
                 <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
-                    animate={{ width: `${Math.min(100, ((nextLeague.rank - (currentUserRank || 999)) / nextLeague.rank) * 100)}%` }}
+                    animate={{ width: `${Math.min(100, ((nextLeague.rank - (visibleRank || 999)) / nextLeague.rank) * 100)}%` }}
                     transition={{ duration: 1, ease: 'easeOut' }}
                     className="h-full rounded-full bg-gradient-to-r from-brand-gold to-brand-cosmic"
                   />
                 </div>
                 <p className="text-[8px] font-mono text-brand-offwhite/30 mt-1 text-center">
-                  Faltan {nextLeague.rank - (currentUserRank || 999)} puestos para {nextLeague.name}
+                  Faltan {nextLeague.rank - (visibleRank || 999)} puestos para {nextLeague.name}
                 </p>
               </div>
             )}
@@ -248,14 +273,14 @@ export function ClasificacionClient() {
             );
           })}
           {scope === 'weekly' && <WeeklyCountdown />}
-          <button onClick={() => load(scope)}
+          <button onClick={() => load(effectiveScope)}
             className="ml-auto p-2 rounded-lg border border-white/10 text-brand-offwhite/50 hover:text-brand-gold transition-all" title="Actualizar">
             <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
           </button>
         </div>
 
         {/* ─── MY STATS CARD ─── */}
-        {currentUserRank !== null && (
+        {visibleRank !== null && (
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
             <div className={cn(
               "rounded-2xl border-2 p-4 flex flex-col sm:flex-row sm:items-center gap-4",
@@ -279,7 +304,7 @@ export function ClasificacionClient() {
                     </span>
                   </div>
                   <div className="flex items-center gap-2 mt-0.5 text-[10px] font-mono">
-                    <span className="text-brand-gold font-bold">#{currentUserRank}</span>
+                    <span className="text-brand-gold font-bold">#{visibleRank}</span>
                     <span className="text-brand-offwhite/30">·</span>
                     <span className="text-brand-offwhite/50">Nv.{myLevel}</span>
                     <span className="text-brand-offwhite/30">·</span>
@@ -298,11 +323,11 @@ export function ClasificacionClient() {
                   name={buildLocalMe().name}
                   photoURL={progress.photoURL || user?.photoURL || ''}
                   avatarId={progress.selectedAvatarId || 'novice'}
-                  rank={currentUserRank}
+                  rank={visibleRank || 1}
                   xp={progress.xp || 0}
                   weeklyXp={progress.weeklyXp || 0}
                   level={myLevel}
-                  scope={scope}
+                  scope={scope === 'following' ? 'global' : scope}
                   achievementsCount={Array.isArray(progress.achievements) ? progress.achievements.length : 0}
                   relicsCount={Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0}
                   dailyStreak={progress.dailyStreak || 0}
@@ -333,7 +358,7 @@ export function ClasificacionClient() {
         )}
 
         {/* ─── LEADERBOARD ─── */}
-        <LeaderboardTable entries={entries} currentUserId={user.uid} isLoading={isLoading} scope={scope} />
+        <LeaderboardTable entries={visibleEntries} currentUserId={user.uid} isLoading={isLoading} scope={scope === 'following' ? 'global' : scope} />
       </div>
     </div>
   );
