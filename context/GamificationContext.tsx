@@ -5,8 +5,11 @@ import { Trophy, Star, Flame, Award, X, Compass, User, BookOpen, Crown, BrainCir
 import { useAuth } from "./AuthContext";
 import { db, handleFirestoreError, OperationType } from "@/lib/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { RewardService } from "@/lib/services/rewardService";
 import { FeedbackOverlay } from "@/components/FeedbackOverlay";
+import fisicaCurriculum from "@/data/curriculum/fisica.json";
+import relicData from "@/data/relics.json";
+import { evaluateRoomUnlocks } from "@/lib/roomEngineStorage";
+import { ROOM_ENGINE_CATALOG } from "@/data/roomEngineCatalog";
 
 export interface UserProgress {
   xp: number;
@@ -218,8 +221,8 @@ export const ACHIEVEMENTS: Record<string, { title: string; description: string; 
   explorer: { title: "Explorador", description: "Lee 5 guías distintas.", xp: 400, icon: Map },
   pensador_cientifico_1: { title: "Pensador Científico I", description: "Completa la misión: ¿Qué es la ciencia? con éxito.", xp: 120, icon: BrainCircuit },
   fisica_primer_hallazgo: { title: "Primera Reliquia", description: "Descubre tu primera reliquia física", xp: 100, icon: Zap },
-  fisica_cazador_reliquias: { title: "Cazador de Reliquias", description: "Colecciona 3 reliquias físicas", xp: 300, icon: Crown },
-  fisica_coleccionista: { title: "Coleccionista del Cosmos", description: "Completa la colección de 12 reliquias físicas", xp: 1200, icon: Award },
+  fisica_cazador_reliquias: { title: "Cazador de Reliquias", description: "Colecciona 2 reliquias físicas", xp: 300, icon: Crown },
+  fisica_coleccionista: { title: "Coleccionista del Cosmos", description: "Completa la colección de 4 reliquias físicas", xp: 1200, icon: Award },
   fisica_capa_asimilada: { title: "Capa Asimilada", description: "Domina las 3 capas de un mismo artículo", xp: 300, icon: BrainCircuit },
 };
 
@@ -538,31 +541,69 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         points: amount 
       });
 
-      // Decoupled evaluation of Room Item Unlocks
-      RewardService.evaluateUnlocks(user?.uid || 'anonymous', {
-        type: 'article_completed',
-        targetId: pathId
-      }).then(({ newlyUnlocked }) => {
-        newlyUnlocked.forEach(item => {
-          notifyOnce(`room_unlock_${item.id}`, {
-            type: 'achievement',
-            title: "¡Objeto / Mueble Desbloqueado!",
-            message: `${item.name}: Añadido a tu Habitación del Conocimiento`,
-            points: 100
-          });
+      // Evaluación de desbloqueos del Room Engine (catálogo nuevo)
+      const ctx = {
+        completedPaths: newCompletedPaths,
+        completedLayers: prev.completedLayers || {}
+      };
+      const { unlockedIds } = evaluateRoomUnlocks(ctx);
+      const newlyUnlocked = ROOM_ENGINE_CATALOG.filter(item => unlockedIds.has(item.id));
+      newlyUnlocked.forEach(item => {
+        notifyOnce(`room_unlock_${item.id}`, {
+          type: 'achievement',
+          title: "¡Objeto / Mueble Desbloqueado!",
+          message: `${item.name}: Añadido a tu Habitación del Conocimiento`,
+          points: 100
         });
-      }).catch(err => console.warn("RewardService error:", err));
+      });
       
       if (!prev.achievements.includes('first_blood')) {
         newAchievements.push('first_blood');
         // Achievement notification is handled by the useEffect watching achievements
+      }
+
+      // Evaluar reliquias por nivel: un nivel se completa cuando TODOS sus
+      // artículos están en completedPaths. Al completarlo, se registra la
+      // reliquia y se otorgan los logros de coleccionista.
+      const articlesByNivel: Record<number, string[]> = {};
+      for (const a of (fisicaCurriculum as { articles?: { slug: string; nivel: number }[] }).articles || []) {
+        if (!articlesByNivel[a.nivel]) articlesByNivel[a.nivel] = [];
+        articlesByNivel[a.nivel].push(a.slug);
+      }
+      const newPhysicsRelics = [...(prev.physicsRelics || [])];
+      for (const r of (relicData as { relics?: { id: string; unlocksOn: { type: string; nivel?: number } }[] }).relics || []) {
+        if (r.unlocksOn.type !== 'nivel_completed') continue;
+        const nivel = r.unlocksOn.nivel || 0;
+        const slugs = articlesByNivel[nivel] || [];
+        if (slugs.length === 0 || newPhysicsRelics.includes(r.id)) continue;
+        const nivelDone = slugs.every(slug => newCompletedPaths.includes(slug));
+        if (nivelDone) {
+          newPhysicsRelics.push(r.id);
+          notifyOnce(`relic_${r.id}`, {
+            type: 'achievement',
+            title: "¡Reliquia Desbloqueada!",
+            message: `Has dominado el nivel ${nivel}. Reliquia añadida al Muro.`,
+            points: 250
+          });
+        }
+      }
+
+      // Logros de coleccionista basados en el total de reliquias
+      if (newPhysicsRelics.length >= 4 && !newAchievements.includes('fisica_coleccionista')) {
+        newAchievements.push('fisica_coleccionista');
+      } else if (newPhysicsRelics.length >= 2 && !newAchievements.includes('fisica_cazador_reliquias')) {
+        newAchievements.push('fisica_cazador_reliquias');
+      }
+      if (newPhysicsRelics.length >= 1 && !newAchievements.includes('fisica_primer_hallazgo')) {
+        newAchievements.push('fisica_primer_hallazgo');
       }
       
       return { 
         ...prev, 
         xp: newXp,
         completedPaths: newCompletedPaths,
-        achievements: newAchievements
+        achievements: newAchievements,
+        physicsRelics: newPhysicsRelics
       };
     });
   }, [notifyOnce]);
@@ -728,27 +769,25 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
   }, []);
 
   /**
-   * Desbloquea el poster/mueble asociado a una capa completada.
-   * Busca en data/relics.json si existe una reliquia para esta
-   * combinación artículo+capa. Si no existe, no desbloquea nada
-   * (el recuadro de la sala queda vacío).
+   * Desbloquea el mueble asociado a una capa completada.
+   * Usa el catálogo del Room Engine (catálogo nuevo).
    */
   const unlockLayerPoster = useCallback((articleId: string, capa: string) => {
-    RewardService.evaluateUnlocks(user?.uid || 'anonymous', {
-      type: 'layer_completed',
-      targetId: articleId,
-      layer: capa
-    }).then(({ newlyUnlocked }) => {
-      newlyUnlocked.forEach(item => {
-        notifyOnce(`poster_unlock_${item.id}`, {
-          type: 'achievement',
-          title: "¡Hallazgo desbloqueado!",
-          message: `${item.name}: Añadido a tu sala como poster`,
-          points: 75
-        });
+    const ctx = {
+      completedPaths: stateRef.current.completedPaths,
+      completedLayers: { ...(stateRef.current.completedLayers || {}), [articleId]: [...((stateRef.current.completedLayers || {})[articleId] || []), capa] }
+    };
+    const { unlockedIds } = evaluateRoomUnlocks(ctx);
+    const newlyUnlocked = ROOM_ENGINE_CATALOG.filter(item => unlockedIds.has(item.id));
+    newlyUnlocked.forEach(item => {
+      notifyOnce(`poster_unlock_${item.id}`, {
+        type: 'achievement',
+        title: "¡Hallazgo desbloqueado!",
+        message: `${item.name}: Añadido a tu sala como objeto`,
+        points: 75
       });
-    }).catch(err => console.warn("RewardService poster error:", err));
-  }, [user?.uid, notifyOnce]);
+    });
+  }, [notifyOnce]);
 
   const completeLayer = useCallback((articleId: string, capa: string) => {
     if (stateRef.current.completedLayers?.[articleId]?.includes(capa)) return;

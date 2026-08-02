@@ -8,7 +8,6 @@ import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/componen
 import { NexusNode3D } from '@/components/NexusNode3D';
 import { Starfield } from '@/components/Starfield';
 import { evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
-import relicsData from '@/data/relics.json';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
@@ -180,9 +179,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
     completedPaths: progress.completedPaths || [],
     completedLayers: progress.completedLayers || {}
   });
-  const relicUnlockedCount = (relicsData.relics || []).filter(r =>
-    (progress.completedLayers?.[r.unlocksOn.article] || []).includes(r.unlocksOn.layer)
-  ).length;
+  const relicUnlockedCount = (progress.physicsRelics || []).length;
   const levelInfo = {
     level: progress.level || 1,
     nextLevel: progress.xp

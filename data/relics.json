@@ -1,14 +1,43 @@
 {
   "relics": [
     {
-      "id": "prisma_newton",
-      "name": "Prisma de Newton",
-      "description": "Descomposición espectral de la luz en sus colores fundamentales.",
-      "icon": "/images/aeterna_pixel_prism.png",
+      "id": "relic_fundamentos_cosmos",
+      "name": "Esfera de los Fundamentos",
+      "description": "Dominas los Fundamentos del Cosmos: la materia, la energía y las leyes que rigen el mundo clásico.",
+      "icon": "/images/reliquias/reliquia_n1_fundamentos.png",
       "unlocksOn": {
-        "type": "layer_completed",
-        "article": "ondas-y-optica",
-        "layer": "principiante"
+        "type": "nivel_completed",
+        "nivel": 1
+      }
+    },
+    {
+      "id": "relic_profundizacion_mecanica",
+      "name": "Engranaje de la Profundización",
+      "description": "Has asimilado la Profundización Mecánica: fluidos, ondas, rotación y los motores del universo clásico.",
+      "icon": "/images/reliquias/reliquia_n2_mecanica.png",
+      "unlocksOn": {
+        "type": "nivel_completed",
+        "nivel": 2
+      }
+    },
+    {
+      "id": "relic_fisica_moderna",
+      "name": "Átomo de la Física Moderna",
+      "description": "Comprendes la Física Moderna: la relatividad, la cuántica y el corazón de la materia.",
+      "icon": "/images/reliquias/reliquia_n3_moderna.png",
+      "unlocksOn": {
+        "type": "nivel_completed",
+        "nivel": 3
+      }
+    },
+    {
+      "id": "relic_fronteras_cosmos",
+      "name": "Singularidad de las Fronteras",
+      "description": "Has cruzado las Fronteras del Cosmos: cosmología, partículas, la teoría del todo y el futuro.",
+      "icon": "/images/reliquias/reliquia_n4_fronteras.png",
+      "unlocksOn": {
+        "type": "nivel_completed",
+        "nivel": 4
       }
     }
   ]

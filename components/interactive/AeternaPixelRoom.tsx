@@ -51,13 +51,9 @@ export function AeternaPixelRoom({
   // Posters: relics from data/relics.json unlocked by completed layers.
   // A layer with no defined relic shows an empty frame.
   const relics = relicsData.relics || [];
-  const unlockedLayerKeys = new Set<string>();
-  for (const [article, layers] of Object.entries(completedLayers || {})) {
-    for (const layer of layers) unlockedLayerKeys.add(`${article}|${layer}`);
-  }
   const posterEntries = relics.map(r => ({
     ...r,
-    unlocked: unlockedLayerKeys.has(`${r.unlocksOn.article}|${r.unlocksOn.layer}`),
+    unlocked: false,
   }));
   // Also show an empty frame count: number of completed layers without a relic defined.
   const completedLayerTotal = Object.values(completedLayers || {}).reduce((s, arr) => s + (Array.isArray(arr) ? arr.length : 0), 0);
@@ -438,7 +434,7 @@ export function AeternaPixelRoom({
                   ? "border-brand-gold bg-brand-gold/10"
                   : "border-brand-gold/20 bg-black/5 dark:bg-white/5 opacity-60"
               )}
-              title={poster.unlocked ? `${poster.name}: desbloqueado en ${poster.unlocksOn.article} (${poster.unlocksOn.layer})` : poster.description}
+              title={poster.unlocked ? `${poster.name}: desbloqueado` : poster.description}
             >
               {poster.unlocked ? (
                 <>

@@ -6,35 +6,56 @@ import { X, Award, Lock } from 'lucide-react';
 import relicsData from '@/data/relics.json';
 import { useGamification } from '@/context/GamificationContext';
 import { cn } from '@/lib/utils';
+import fisicaCurriculum from '@/data/curriculum/fisica.json';
 
 interface RelicWallProps {
   open: boolean;
   onClose: () => void;
 }
 
+interface RelicEntry {
+  id: string;
+  name: string;
+  description?: string;
+  icon: string | null;
+  unlocksOn: { type: string; nivel?: number; article?: string; layer?: string };
+  unlocked: boolean;
+}
+
 export function RelicWall({ open, onClose }: RelicWallProps) {
   const { progress } = useGamification();
-  const relics = relicsData.relics || [];
+  const relics = (relicsData.relics || []) as Omit<RelicEntry, 'unlocked'>[];
+  const completedPaths = progress.completedPaths || [];
   const completedLayers = progress.completedLayers || {};
 
-  const unlockedLayerKeys = new Set<string>();
-  for (const [article, layers] of Object.entries(completedLayers)) {
-    for (const layer of layers) unlockedLayerKeys.add(`${article}|${layer}`);
+  // Mapa de artículos por nivel desde el curriculum de física
+  const articlesByNivel: Record<number, string[]> = {};
+  for (const a of (fisicaCurriculum as { articles?: { slug: string; nivel: number }[] }).articles || []) {
+    if (!articlesByNivel[a.nivel]) articlesByNivel[a.nivel] = [];
+    articlesByNivel[a.nivel].push(a.slug);
   }
 
-  const posterEntries = relics.map(r => ({
-    ...r,
-    unlocked: unlockedLayerKeys.has(`${r.unlocksOn.article}|${r.unlocksOn.layer}`),
-  }));
+  // Un nivel está completado si todos sus artículos están en completedPaths
+  const nivelCompleted = (nivel: number): boolean => {
+    const slugs = articlesByNivel[nivel] || [];
+    if (slugs.length === 0) return false;
+    return slugs.every(slug => completedPaths.includes(slug));
+  };
 
-  const completedLayerTotal = Object.values(completedLayers).reduce((s, arr) => s + (Array.isArray(arr) ? arr.length : 0), 0);
+  const posterEntries: RelicEntry[] = relics.map(r => {
+    let unlocked = false;
+    if (r.unlocksOn.type === 'nivel_completed') {
+      unlocked = nivelCompleted(r.unlocksOn.nivel || 0);
+    } else if (r.unlocksOn.type === 'layer_completed') {
+      const layers = completedLayers[r.unlocksOn.article || ''] || [];
+      unlocked = layers.includes(r.unlocksOn.layer || '');
+    } else if (r.unlocksOn.type === 'article_completed') {
+      unlocked = completedPaths.includes(r.unlocksOn.article || '');
+    }
+    return { ...r, unlocked };
+  });
+
   const unlockedCount = posterEntries.filter(p => p.unlocked).length;
-
-  // Rellena la grilla con recuadros vacíos reales para que el contador
-  // corresponda a lo que se ve en pantalla.
-  const MIN_SLOTS = 6;
-  const emptySlots = Math.max(0, MIN_SLOTS - posterEntries.length);
-  const slots = [...posterEntries, ...Array.from({ length: emptySlots }, (_, i) => ({ id: `empty-${i}`, name: 'Reliquia por descubrir', unlocked: false, unlocksOn: { article: '', layer: '' }, icon: null as string | null }))];
 
   return (
     <AnimatePresence>
@@ -67,14 +88,14 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
               <h3 className="font-serif text-3xl text-brand-offwhite">Muro de Reliquias</h3>
             </div>
             <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-gold mb-6">
-              {unlockedCount} de {posterEntries.length} desbloqueadas {emptySlots > 0 && `· ${emptySlots} recuadros vacíos`}
+              {unlockedCount} de {posterEntries.length} desbloqueadas
             </p>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {slots.map((poster) => (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {posterEntries.map((poster) => (
                 <div
                   key={poster.id}
-                  title={poster.unlocked ? `${poster.name}: desbloqueada en ${poster.unlocksOn.article} (${poster.unlocksOn.layer})` : 'Bloqueada'}
+                  title={poster.unlocked ? `${poster.name}: desbloqueada` : `Completa todos los artículos de este nivel para desbloquearla`}
                   className={cn(
                     "relative aspect-square rounded-2xl border flex flex-col items-center justify-center gap-2 p-3 text-center transition-all",
                     poster.unlocked
@@ -88,16 +109,26 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
                         <Image src={poster.icon} alt={poster.name} width={56} height={56} className="object-contain" />
                       )}
                       <span className="text-[10px] font-mono font-bold text-brand-gold leading-tight">{poster.name}</span>
+                      <span className="text-[8px] font-mono text-brand-gold/50 leading-tight">
+                        Nivel {poster.unlocksOn.nivel || '?'}
+                      </span>
                     </>
                   ) : (
                     <>
                       <Lock size={22} className="text-brand-offwhite/20" />
                       <span className="text-[10px] font-mono text-brand-offwhite/30 leading-tight">{poster.name}</span>
+                      <span className="text-[8px] font-mono text-brand-offwhite/20 leading-tight">
+                        Nivel {poster.unlocksOn.nivel || '?'}
+                      </span>
                     </>
                   )}
                 </div>
               ))}
             </div>
+
+            <p className="mt-6 text-[9px] font-mono text-brand-offwhite/40 text-center leading-relaxed">
+              Cada reliquia se desbloquea al completar todos los artículos de su nivel.
+            </p>
           </motion.div>
         </motion.div>
       )}
