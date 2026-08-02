@@ -23,15 +23,28 @@ export interface LeaderboardResult {
 
 export type LeaderboardScope = 'global' | 'weekly';
 
+/**
+ * Recalcula el nivel a partir del XP usando la misma fórmula logarítmica
+ * del juego, para que el nivel mostrado en el ranking siempre corresponda
+ * al XP real (los documentos pueden tener el campo `level` desactualizado).
+ */
+export function deriveLevel(totalXp: number): number {
+  const xpBase = 15000;
+  const multiplier = 1.0415;
+  if (totalXp <= 0) return 1;
+  return Math.floor(Math.log(totalXp / xpBase + 1) / Math.log(multiplier)) + 1;
+}
+
 function mapDocToEntry(docSnap: { id: string; data: () => any }): LeaderboardEntry {
   const d = docSnap.data();
+  const xp = d.xp || 0;
   return {
     uid: docSnap.id,
     name: (d.alias && d.alias.trim()) || d.displayName || 'Sabio Anónimo',
     photoURL: d.photoURL || '',
     avatarId: d.selectedAvatarId || 'novice',
-    level: d.level || 1,
-    xp: d.xp || 0,
+    level: deriveLevel(xp),
+    xp,
     weeklyXp: d.weeklyXp || 0,
     achievementsCount: Array.isArray(d.achievements) ? d.achievements.length : 0,
     relicsCount: Array.isArray(d.physicsRelics) ? d.physicsRelics.length : 0,

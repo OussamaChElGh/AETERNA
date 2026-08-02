@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { Trophy, Users, RefreshCw, Crown } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
-import { getLeaderboard, type LeaderboardEntry, type LeaderboardScope } from '@/lib/leaderboard';
+import { getLeaderboard, deriveLevel, type LeaderboardEntry, type LeaderboardScope } from '@/lib/leaderboard';
 import { LeaderboardTable } from '@/components/LeaderboardTable';
 import { cn } from '@/lib/utils';
 
@@ -28,10 +28,10 @@ export function ClasificacionClient() {
   // aunque Firestore no permita leer la colección todavía).
   const buildLocalMe = (): LeaderboardEntry => ({
     uid: user?.uid || 'local',
-    name: (progress.alias && progress.alias.trim()) || progress.displayName || user?.displayName || 'Sabio Anónimo',
+    name: (progress.alias && progress.alias.trim()) || progress.displayName || user?.displayName || (user?.email ? user.email.split('@')[0] : '') || 'Sabio Anónimo',
     photoURL: progress.photoURL || user?.photoURL || '',
     avatarId: progress.selectedAvatarId || 'novice',
-    level: progress.level || 1,
+    level: deriveLevel(progress.xp || 0),
     xp: progress.xp || 0,
     weeklyXp: progress.weeklyXp || 0,
     achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
@@ -56,13 +56,16 @@ export function ClasificacionClient() {
       // Firestore con nombre vacío (Sabio Anónimo).
       const me = buildLocalMe();
       const withoutMe = result.entries.filter(e => e.uid !== me.uid);
-      const entriesWithMe = me.uid !== 'local' ? [...withoutMe, me] : withoutMe;
-      setEntries(entriesWithMe);
+      const merged = me.uid !== 'local' ? [...withoutMe, me] : withoutMe;
+      // ORDENAR por el scope activo (desc): la tabla muestra posiciones según
+      // el índice del array, así que la lista debe llegar ya ordenada.
+      const sorted = [...merged].sort((a, b) =>
+        currentScope === 'weekly' ? b.weeklyXp - a.weeklyXp : b.xp - a.xp
+      );
+      setEntries(sorted);
       setTotalUsers(Math.max(result.totalUsers, withoutMe.length + (me.uid !== 'local' ? 1 : 0)));
 
-      // Posición: ordenar por el scope activo y encontrar el índice de mi uid
-      const ordered = [...entriesWithMe].sort((a, b) => (currentScope === 'weekly' ? b.weeklyXp - a.weeklyXp : b.xp - a.xp));
-      const myIdx = ordered.findIndex(e => e.uid === me.uid);
+      const myIdx = sorted.findIndex(e => e.uid === me.uid);
       setCurrentUserRank(myIdx >= 0 ? myIdx + 1 : result.currentUserRank);
     } catch (e) {
       console.warn('Leaderboard: error cargando clasificación', e);

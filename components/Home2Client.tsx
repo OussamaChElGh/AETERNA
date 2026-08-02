@@ -10,7 +10,7 @@ import { Starfield } from '@/components/Starfield';
 import { evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
 import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
 import { MiniLeaderboard } from '@/components/MiniLeaderboard';
-import { getLeaderboard, type LeaderboardEntry } from '@/lib/leaderboard';
+import { getLeaderboard, deriveLevel, type LeaderboardEntry } from '@/lib/leaderboard';
 import { useAuth } from '@/context/AuthContext';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
@@ -201,40 +201,31 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
     let cancelled = false;
     if (!authUser) return;
     setMiniLoading(true);
+    const buildMe = (): LeaderboardEntry => ({
+      uid: authUser.uid,
+      name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || (authUser.email ? authUser.email.split('@')[0] : '') || 'Sabio Anónimo',
+      photoURL: progress.photoURL || authUser.photoURL || '',
+      avatarId: progress.selectedAvatarId || 'novice',
+      level: deriveLevel(progress.xp || 0),
+      xp: progress.xp || 0,
+      weeklyXp: progress.weeklyXp || 0,
+      achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
+      relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
+      dailyStreak: progress.dailyStreak || 0,
+    });
     getLeaderboard('global', { max: 5, currentUserId: authUser.uid }).then(res => {
       if (cancelled) return;
-      const me: LeaderboardEntry = {
-        uid: authUser.uid,
-        name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || (authUser.email ? authUser.email.split('@')[0] : '') || 'Sabio Anónimo',
-        photoURL: progress.photoURL || authUser.photoURL || '',
-        avatarId: progress.selectedAvatarId || 'novice',
-        level: progress.level || 1,
-        xp: progress.xp || 0,
-        weeklyXp: progress.weeklyXp || 0,
-        achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
-        relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
-        dailyStreak: progress.dailyStreak || 0,
-      };
+      const me = buildMe();
       const withoutMe = res.entries.filter(e => e.uid !== me.uid);
-      setMiniRanking({ entries: [...withoutMe, me], myRank: (withoutMe.length + 1) });
+      // Mostrar top 5 + mi posición (si no estoy en el top)
+      const all = [...withoutMe, me].sort((a, b) => b.xp - a.xp);
+      const top = all.slice(0, 5);
+      const myIdx = all.findIndex(e => e.uid === me.uid);
+      setMiniRanking({ entries: top, myRank: myIdx >= 0 ? myIdx + 1 : res.currentUserRank });
       setMiniLoading(false);
     }).catch(() => {
       if (cancelled) return;
-      setMiniRanking({
-        entries: [{
-          uid: authUser.uid,
-          name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || (authUser.email ? authUser.email.split('@')[0] : '') || 'Sabio Anónimo',
-          photoURL: progress.photoURL || authUser.photoURL || '',
-          avatarId: progress.selectedAvatarId || 'novice',
-          level: progress.level || 1,
-          xp: progress.xp || 0,
-          weeklyXp: progress.weeklyXp || 0,
-          achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
-          relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
-          dailyStreak: progress.dailyStreak || 0,
-        }],
-        myRank: 1,
-      });
+      setMiniRanking({ entries: [buildMe()], myRank: 1 });
       setMiniLoading(false);
     });
     return () => { cancelled = true; };

@@ -2,10 +2,10 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
-import { Trophy, Medal, Lock, Crown, Flame, Award, User } from 'lucide-react';
+import { Trophy, Medal, Crown, Flame, Award, User, Sparkles } from 'lucide-react';
 import { AVATARS } from '@/context/GamificationContext';
 import type { LeaderboardEntry } from '@/lib/leaderboard';
-import { formatXP } from '@/context/GamificationContext';
+import { formatXP, calculateProgressToNextLevel } from '@/context/GamificationContext';
 import { cn } from '@/lib/utils';
 
 interface LeaderboardTableProps {
@@ -68,9 +68,51 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
   }
 
   const xpKey = scope === 'weekly' ? 'weeklyXp' : 'xp';
+  const leader = entries[0];
 
   return (
     <div>
+      {/* BANNER DEL LÍDER */}
+      {leader && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative overflow-hidden mb-8 rounded-2xl border border-brand-gold/40 bg-gradient-to-r from-brand-gold/10 via-brand-gold/5 to-transparent p-4 flex items-center gap-4"
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(212,175,55,0.15),transparent_60%)]" />
+          <motion.div
+            animate={{ rotate: [0, 12, 0, -12, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative shrink-0"
+          >
+            <Crown size={28} className="text-brand-gold drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]" />
+          </motion.div>
+          <div className="relative min-w-0">
+            <div className="text-[9px] font-mono uppercase tracking-[0.3em] text-brand-gold/70 mb-0.5">
+              {scope === 'weekly' ? 'Líder de la semana' : 'Sabio Supremo'}
+            </div>
+            <div className="font-serif text-xl font-bold text-brand-offwhite truncate leading-tight">
+              {leader.name}
+            </div>
+            <div className="text-[11px] font-mono text-brand-offwhite/50">
+              Nivel {leader.level} · {formatXP(leader[xpKey])} XP
+            </div>
+          </div>
+          <div className="relative ml-auto hidden sm:block">
+            <div className="text-right">
+              <div className="text-[9px] font-mono uppercase tracking-wider text-brand-gold/60">Distancia</div>
+              {entries[1] ? (
+                <div className="font-mono text-xs text-brand-offwhite/70">
+                  +{formatXP(leader[xpKey] - entries[1][xpKey])} XP sobre el 2º
+                </div>
+              ) : (
+                <div className="font-mono text-xs text-brand-offwhite/70">Único sabio</div>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      )}
+
       {/* PODIO */}
       <div className="flex flex-col md:flex-row items-end justify-center gap-4 md:gap-8 mb-10">
         {top3.map((entry) => {
@@ -103,8 +145,40 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
               <div className="text-[10px] font-mono text-brand-offwhite/50 mt-1">
                 Nivel {entry.level} · {formatXP(entry[xpKey])} XP
               </div>
+              {/* Barra de progreso hacia el siguiente nivel */}
+              {(() => {
+                const p = calculateProgressToNextLevel(entry[xpKey]);
+                const pct = p.xpForNextLevel > 0 ? Math.min(100, Math.round((p.currentLevelXp / p.xpForNextLevel) * 100)) : 0;
+                return (
+                  <div className="w-full mt-2">
+                    <div className="h-1 rounded-full bg-black/30 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-brand-gold/60 to-brand-gold"
+                        style={{ width: `${pct}%` }}
+                      />
+                    </div>
+                  </div>
+                );
+              })()}
+              {/* Stat chips: logros, reliquias y racha */}
+              <div className="flex items-center gap-1.5 mt-2">
+                <span className="inline-flex items-center gap-1 rounded-full bg-black/20 border border-white/10 px-1.5 py-0.5 text-[8px] font-mono text-brand-offwhite/60">
+                  <Award size={9} className="text-brand-gold" />
+                  {entry.achievementsCount}
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-black/20 border border-white/10 px-1.5 py-0.5 text-[8px] font-mono text-brand-offwhite/60">
+                  <Sparkles size={9} className="text-brand-gold" />
+                  {entry.relicsCount}
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full bg-black/20 border border-white/10 px-1.5 py-0.5 text-[8px] font-mono text-brand-offwhite/60">
+                  <Flame size={9} className="text-orange-400" />
+                  {entry.dailyStreak}
+                </span>
+              </div>
               {isMe && (
-                <div className="mt-1 text-[9px] font-mono font-bold text-brand-gold uppercase tracking-wider">Tú</div>
+                <div className="mt-2 text-[9px] font-mono font-bold text-brand-gold uppercase tracking-wider bg-brand-gold/10 border border-brand-gold/30 rounded-full px-2 py-0.5">
+                  Tú
+                </div>
               )}
             </motion.div>
           );
@@ -128,15 +202,26 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
             {rest.map((entry, idx) => {
               const place = idx + 4;
               const isMe = entry.uid === currentUserId;
+              const topMedal = place <= 3 ? podiumMedals[place - 1] : null;
               return (
-                <tr
+                <motion.tr
                   key={entry.uid}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.03, duration: 0.3 }}
                   className={cn(
                     "border-b border-white/5 transition-colors",
                     isMe ? "bg-brand-gold/10 border-brand-gold/30" : "hover:bg-white/5"
                   )}
                 >
-                  <td className="py-2.5 px-3 font-mono text-xs text-brand-offwhite/50">{place}</td>
+                  <td className="py-2.5 px-3">
+                    <span className="flex items-center gap-1.5">
+                      {topMedal && (
+                        <Medal size={13} className={cn(topMedal.text, "shrink-0")} />
+                      )}
+                      <span className="font-mono text-xs text-brand-offwhite/50">{place}</span>
+                    </span>
+                  </td>
                   <td className="py-2.5 px-3">
                     <div className="flex items-center gap-2.5">
                       <AvatarDisplay entry={entry} size={28} />
@@ -164,7 +249,7 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
                       {entry.dailyStreak}
                     </span>
                   </td>
-                </tr>
+                </motion.tr>
               );
             })}
           </tbody>
