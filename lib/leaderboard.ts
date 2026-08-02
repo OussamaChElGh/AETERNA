@@ -1,5 +1,5 @@
 import { collection, getDocs, query, orderBy, limit, where, doc, getDoc, QueryConstraint, startAfter } from "firebase/firestore";
-import { db, handleFirestoreError, OperationType } from "@/lib/firebase";
+import { db } from "@/lib/firebase";
 
 export interface LeaderboardEntry {
   uid: string;
@@ -76,7 +76,7 @@ export async function getLeaderboard(
       ));
       totalUsers = totalSnap.size;
     } catch (e) {
-      handleFirestoreError(e, OperationType.GET, 'aeternaProgressV3 (count)');
+      console.warn('Leaderboard: no se pudo contar usuarios totales', e);
     }
 
     // Posición y entrada del usuario actual
@@ -102,13 +102,13 @@ export async function getLeaderboard(
           currentUserRank = aheadSnap.size + 1;
         }
       } catch (e) {
-        handleFirestoreError(e, OperationType.GET, `aeternaProgressV3/${opts.currentUserId}`);
+        console.warn('Leaderboard: no se pudo calcular tu posición', e);
       }
     }
 
     return { entries, totalUsers, currentUserRank, currentUserEntry };
   } catch (error) {
-    handleFirestoreError(error, OperationType.GET, 'aeternaProgressV3 (leaderboard)');
+    console.warn('Leaderboard: error al obtener la clasificación', error);
     return { entries: [], totalUsers: 0, currentUserRank: null, currentUserEntry: null };
   }
 }
@@ -152,7 +152,7 @@ export async function getMoreLeaderboard(
     const snap = await getDocs(q);
     return snap.docs.map(mapDocToEntry);
   } catch (error) {
-    handleFirestoreError(error, OperationType.GET, 'aeternaProgressV3 (leaderboard more)');
+    console.warn('Leaderboard: error al obtener más entradas', error);
     return [];
   }
 }

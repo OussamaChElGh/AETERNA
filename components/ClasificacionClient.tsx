@@ -31,14 +31,21 @@ export function ClasificacionClient() {
 
   const load = useCallback(async (currentScope: LeaderboardScope) => {
     setIsLoading(true);
-    const result = await getLeaderboard(currentScope, {
-      max: 100,
-      currentUserId: user?.uid,
-    });
-    setEntries(result.entries);
-    setTotalUsers(result.totalUsers);
-    setCurrentUserRank(result.currentUserRank);
-    setIsLoading(false);
+    try {
+      const result = await getLeaderboard(currentScope, {
+        max: 100,
+        currentUserId: user?.uid,
+      });
+      setEntries(result.entries);
+      setTotalUsers(result.totalUsers);
+      setCurrentUserRank(result.currentUserRank);
+    } catch (e) {
+      console.warn('Leaderboard: error cargando clasificación', e);
+      setEntries([]);
+      setCurrentUserRank(null);
+    } finally {
+      setIsLoading(false);
+    }
   }, [user?.uid]);
 
   useEffect(() => {
