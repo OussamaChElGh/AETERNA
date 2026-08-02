@@ -53,7 +53,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'epic',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_trophy.png',
+      src: '/images/aeterna_pixel_schrodinger.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -94,11 +94,10 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     discipline: 'mathematics',
     rarity: 'common',
     asset: {
-      type: 'svg',
-      src: 'abacus',
+      type: 'pixel_art',
+      src: '/images/aeterna_pixel_abacus.png',
       widthGrid: 2,
-      heightGrid: 1,
-      color: '#D4AF37'
+      heightGrid: 1
     },
     unlockCondition: {
       type: 'default',
@@ -137,11 +136,10 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     discipline: 'computer_science',
     rarity: 'rare',
     asset: {
-      type: 'svg',
-      src: 'terminal',
+      type: 'pixel_art',
+      src: '/images/aeterna_pixel_terminal.png',
       widthGrid: 3,
-      heightGrid: 2,
-      color: '#8B6914'
+      heightGrid: 2
     },
     unlockCondition: {
       type: 'level_reached',
@@ -159,11 +157,10 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     discipline: 'philosophy',
     rarity: 'epic',
     asset: {
-      type: 'svg',
-      src: 'bust',
+      type: 'pixel_art',
+      src: '/images/aeterna_pixel_bust.png',
       widthGrid: 2,
-      heightGrid: 2,
-      color: '#E5E7EB'
+      heightGrid: 2
     },
     unlockCondition: {
       type: 'discipline_mastered',
@@ -181,11 +178,10 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     discipline: 'biology',
     rarity: 'uncommon',
     asset: {
-      type: 'svg',
-      src: 'microscope',
+      type: 'pixel_art',
+      src: '/images/aeterna_pixel_microscope.png',
       widthGrid: 2,
-      heightGrid: 2,
-      color: '#10B981'
+      heightGrid: 2
     },
     unlockCondition: {
       type: 'article_completed',
@@ -203,11 +199,10 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     discipline: 'biology',
     rarity: 'rare',
     asset: {
-      type: 'svg',
-      src: 'terrarium',
+      type: 'pixel_art',
+      src: '/images/aeterna_pixel_terrarium.png',
       widthGrid: 2,
-      heightGrid: 2,
-      color: '#34D399'
+      heightGrid: 2
     },
     unlockCondition: {
       type: 'streak_reached',
@@ -246,11 +241,10 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     discipline: 'general',
     rarity: 'uncommon',
     asset: {
-      type: 'svg',
-      src: 'armchair',
+      type: 'pixel_art',
+      src: '/images/aeterna_pixel_armchair.png',
       widthGrid: 2,
-      heightGrid: 2,
-      color: '#8B4513'
+      heightGrid: 2
     },
     unlockCondition: {
       type: 'level_reached',

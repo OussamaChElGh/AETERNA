@@ -22,7 +22,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'escritorio',
     name: 'Escritorio de Madera Noble',
     category: 'furniture',
-    image: '/images/aeterna_pixel_empty_room.png', // Uses sprite assets or styled pixel representation
+    image: '/images/aeterna_pixel_desk.png',
     widthGrid: 4,
     heightGrid: 3,
     allowRotation: true
@@ -31,7 +31,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'silla',
     name: 'Silla de Estudio',
     category: 'furniture',
-    image: '/images/aeterna_pixel_empty_room.png',
+    image: '/images/aeterna_pixel_armchair.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: true
@@ -58,7 +58,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'lampara',
     name: 'Lámpara de Escritorio',
     category: 'decoration',
-    image: '/images/aeterna_pixel_prism.png',
+    image: '/images/aeterna_pixel_lamp.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: true
@@ -67,7 +67,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'planta',
     name: 'Planta en Maceta de Barro',
     category: 'plants',
-    image: '/images/aeterna_pixel_prism.png',
+    image: '/images/aeterna_pixel_plant.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: false
