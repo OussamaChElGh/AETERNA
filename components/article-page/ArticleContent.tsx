@@ -149,7 +149,7 @@ export function ArticleContent({ overrideSlug, initialArticle, nextArticle }: { 
           <CuadernoEjercicios
             cuaderno={article.cuaderno}
             activeLayer={currentLevel}
-            titulo={`Cuaderno: ${article.metadata.insignia || article.metadata.title}`}
+            titulo={`Cuaderno de ${article.metadata.title}`}
           />
         )}
       </>
@@ -173,7 +173,7 @@ export function ArticleContent({ overrideSlug, initialArticle, nextArticle }: { 
         <CuadernoEjercicios
           cuaderno={article.cuaderno}
           activeLayer={currentLevel}
-          titulo={`Cuaderno: ${article.metadata.insignia || article.metadata.title}`}
+          titulo={`Cuaderno de ${article.metadata.title}`}
         />
       )}
     </>

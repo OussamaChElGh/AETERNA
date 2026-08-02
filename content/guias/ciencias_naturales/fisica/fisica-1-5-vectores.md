@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 1
 orden: 5
 nivel_titulo: Fundamentos del Cosmos
-insignia: Cartógrafo de Fuerzas
 tipo: theory
 prerequisites: ["materia-y-energia"]
 breadcrumb: Física / Fundamentos del Cosmos / Vectores

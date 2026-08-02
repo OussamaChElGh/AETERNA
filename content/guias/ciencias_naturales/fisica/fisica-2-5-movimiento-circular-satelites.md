@@ -11,7 +11,6 @@ date: 2026-05-09
 nivel: 2
 orden: 5
 nivel_titulo: El Reino de lo Clásico
-insignia: Orbitador de Estrellas
 tipo: theory
 prerequisites: ["cinematica", "leyes-newton-movimiento"]
 breadcrumb: Física / El Reino de lo Clásico / Movimiento Circular y Satélites

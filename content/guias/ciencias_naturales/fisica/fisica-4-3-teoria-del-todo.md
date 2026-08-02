@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 4
 orden: 3
 nivel_titulo: Fronteras del Cosmos
-insignia: Buscador de la Unidad
 tipo: synthesis
 prerequisites: ["relatividad-general", "mecanica-cuantica", "fisica-particulas"]
 breadcrumb: Física / Fronteras del Cosmos / Teoría del Todo

@@ -11,7 +11,6 @@ date: 2026-08-01
 nivel: 1
 orden: 99
 nivel_titulo: Fundamentos del Cosmos
-insignia: Arquitecto del Conocimiento
 tipo: demo
 prerequisites: []
 breadcrumb: Física / Demo / Galería de Bloques

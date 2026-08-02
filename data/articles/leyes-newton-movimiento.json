@@ -21,7 +21,6 @@
     "nivel": 1,
     "nivel_titulo": "Fundamentos del Cosmos",
     "orden": 6,
-    "insignia": "Amo de la Dinámica",
     "tipo": "theory",
     "prerequisites": [
       "vectores"

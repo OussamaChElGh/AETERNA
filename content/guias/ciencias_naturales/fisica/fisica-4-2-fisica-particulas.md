@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 4
 orden: 2
 nivel_titulo: Fronteras del Cosmos
-insignia: Arquitecto de la Materia
 tipo: theory
 prerequisites: ["mecanica-cuantica", "cosmologia"]
 breadcrumb: Física / Fronteras del Cosmos / Física de Partículas

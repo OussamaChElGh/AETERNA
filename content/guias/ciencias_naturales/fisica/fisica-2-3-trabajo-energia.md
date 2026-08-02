@@ -11,7 +11,6 @@ date: 2026-05-08
 nivel: 2
 orden: 3
 nivel_titulo: El Reino de lo Clásico
-insignia: Conservador de la Energía
 tipo: theory
 prerequisites: ["cinematica", "leyes-newton-movimiento"]
 breadcrumb: Física / El Reino de lo Clásico / Trabajo y Energía

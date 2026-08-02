@@ -14,7 +14,6 @@ interface AeternaMetadata {
   nivel?: number;
   orden?: number;
   nivel_titulo?: string;
-  insignia?: string;
   tipo?: string;
   prerequisites?: string[];
   breadcrumb?: string[] | string;
@@ -51,7 +50,7 @@ function escapeYamlValue(v: string): string {
 function buildFrontmatter(metadata: Record<string, any>): string {
   const lines: string[] = ['---'];
   const keys = ['title', 'description', 'slug', 'author', 'category', 'subcategory',
-    'tags', 'image', 'date', 'nivel', 'orden', 'nivel_titulo', 'insignia', 'tipo',
+    'tags', 'image', 'date', 'nivel', 'orden', 'nivel_titulo', 'tipo',
     'prerequisites', 'breadcrumb'];
 
   for (const key of keys) {

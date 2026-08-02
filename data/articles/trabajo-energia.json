@@ -22,7 +22,6 @@
     "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
     "orden": 3,
-    "insignia": "Conservador de la Energía",
     "tipo": "theory",
     "prerequisites": [
       "cinematica",

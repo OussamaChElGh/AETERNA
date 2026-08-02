@@ -11,7 +11,6 @@ date: 2026-05-08
 nivel: 2
 orden: 4
 nivel_titulo: El Reino de lo Clásico
-insignia: Señor de lo Clásico
 ---
 
 

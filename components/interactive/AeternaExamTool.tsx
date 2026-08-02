@@ -47,7 +47,7 @@ const DEFAULT_QUESTIONS: ExamQuestion[] = [
   },
   {
     id: 'q3',
-    question: '¿Qué representa la insignia de este nivel?',
+    question: '¿Qué demuestra dominar este nivel?',
     options: [
       'La asimilación de los preceptos críticos',
       'Un mero adorno estético',
@@ -111,7 +111,7 @@ export function AeternaExamTool({
             setTimeout(() => {
                 const event = new CustomEvent('aeterna-notification', { detail: { 
                   type: 'achievement', 
-                  title: `Insignia Obtenida: ${badgeName}`, 
+                  title: `Nivel Dominado: ${badgeName}`, 
                   message: `Has demostrado dominio en ${levelTitle}.`,
                   points: 0
                 } });
@@ -147,7 +147,7 @@ export function AeternaExamTool({
              <div>
                <h4 className="font-serif text-xl text-white mb-1">Dominio de {levelTitle} Alcanzado</h4>
                <p className="text-[11px] font-sans text-brand-muted uppercase tracking-widest">
-                 Insignia Obtenida: {badgeName}
+                 Nivel Dominado: {badgeName}
                </p>
              </div>
           </div>
@@ -171,7 +171,7 @@ export function AeternaExamTool({
           Evaluación: {levelTitle}
         </h3>
         <p className="text-brand-muted max-w-xl mx-auto font-sans font-light leading-relaxed relative z-10 mb-8">
-          Demuestra tu asimilación de los conocimientos de <em>{levelTitle}</em> y desbloquea la insignia <strong>{badgeName}</strong>.
+          Demuestra tu asimilación de los conocimientos de <em>{levelTitle}</em> y desbloquea la recompensa del nivel: <strong>{badgeName}</strong>.
         </p>
         
         <button 
@@ -266,7 +266,7 @@ export function AeternaExamTool({
                   <h3 className="font-serif text-4xl text-white mb-4">La Prueba ha sido Superada</h3>
                   <p className="text-brand-muted mb-12">
                     Has respondido correctamente {correctCount} de {questions.length} preguntas. 
-                    La insignia <strong>{badgeName}</strong> es ahora tuya.
+                    El nivel <strong>{badgeName}</strong> es ahora tuyo.
                   </p>
                   <button 
                     onClick={() => setIsOpen(false)}

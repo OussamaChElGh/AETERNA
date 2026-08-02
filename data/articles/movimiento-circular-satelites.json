@@ -21,7 +21,6 @@
     "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
     "orden": 5,
-    "insignia": "Orbitador de Estrellas",
     "tipo": "theory",
     "prerequisites": [
       "cinematica",

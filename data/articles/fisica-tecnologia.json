@@ -21,7 +21,6 @@
     "nivel": 4,
     "nivel_titulo": "Fronteras del Cosmos",
     "orden": 4,
-    "insignia": "Arquitecto del Futuro",
     "tipo": "synthesis",
     "prerequisites": [
       "mecanica-cuantica",

@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 3
 orden: 1
 nivel_titulo: Física Moderna
-insignia: Navegante del Espacio-Tiempo
 tipo: theory
 prerequisites: ["electromagnetismo-avanzado", "vectores"]
 breadcrumb: Física / Física Moderna / Relatividad Especial

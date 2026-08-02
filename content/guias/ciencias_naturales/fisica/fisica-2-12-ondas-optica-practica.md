@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 2
 orden: 12
 nivel_titulo: Profundización Mecánica
-insignia: Domador de Ondas
 tipo: practice
 prerequisites: ["ondas-y-optica", "electromagnetismo"]
 breadcrumb: "Física / Profundización Mecánica / Ondas y Óptica: Problemas Resueltos"

@@ -20,7 +20,6 @@
     "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
     "orden": 9,
-    "insignia": "Maestro de la Electricidad",
     "tipo": "theory",
     "prerequisites": [
       "materia-y-energia",

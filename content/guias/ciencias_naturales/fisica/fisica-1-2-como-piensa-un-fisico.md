@@ -11,7 +11,6 @@ date: 2026-05-13
 nivel: 1
 orden: 2
 nivel_titulo: Fundamentos del Cosmos
-insignia: Explorador del Método
 tipo: practice
 prerequisites: []
 breadcrumb: Física / Fundamentos del Cosmos / Cómo Piensa un Físico

@@ -20,7 +20,6 @@
     "nivel": 3,
     "nivel_titulo": "Física Moderna",
     "orden": 2,
-    "insignia": "Calculista del Espacio-Tiempo",
     "tipo": "practice",
     "prerequisites": [
       "relatividad-especial"

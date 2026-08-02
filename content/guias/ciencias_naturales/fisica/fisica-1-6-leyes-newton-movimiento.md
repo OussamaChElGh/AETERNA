@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 1
 orden: 6
 nivel_titulo: Fundamentos del Cosmos
-insignia: Amo de la Dinámica
 tipo: theory
 prerequisites: ["vectores"]
 breadcrumb: Física / Fundamentos del Cosmos / Las Leyes de Newton

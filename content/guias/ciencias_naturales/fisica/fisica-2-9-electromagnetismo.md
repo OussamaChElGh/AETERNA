@@ -11,7 +11,6 @@ date: 2026-05-09
 nivel: 2
 orden: 9
 nivel_titulo: El Reino de lo Clásico
-insignia: Maestro de la Electricidad
 tipo: theory
 prerequisites: ["materia-y-energia", "vectores"]
 breadcrumb: Física / El Reino de lo Clásico / Electromagnetismo

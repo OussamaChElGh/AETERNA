@@ -85,7 +85,6 @@ export function parseFrontmatter(fileContent: string, filePath: string): { data:
     nivel: parsedData.nivel,
     orden: parsedData.orden,
     nivel_titulo: parsedData.nivel_titulo,
-    insignia: parsedData.insignia,
     tipo: parsedData.tipo,
     _path: relativePath,
   };

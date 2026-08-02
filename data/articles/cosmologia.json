@@ -21,7 +21,6 @@
     "nivel": 4,
     "nivel_titulo": "Fronteras del Cosmos",
     "orden": 1,
-    "insignia": "Cartógrafo del Universo",
     "tipo": "theory",
     "prerequisites": [
       "relatividad-general",

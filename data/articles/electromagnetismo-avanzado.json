@@ -20,7 +20,6 @@
     "nivel": 2,
     "nivel_titulo": "Profundización Mecánica",
     "orden": 10,
-    "insignia": "Arquitecto de Campos",
     "tipo": "theory",
     "prerequisites": [
       "electromagnetismo",

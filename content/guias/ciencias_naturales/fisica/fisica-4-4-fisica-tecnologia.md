@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 4
 orden: 4
 nivel_titulo: Fronteras del Cosmos
-insignia: Arquitecto del Futuro
 tipo: synthesis
 prerequisites: ["mecanica-cuantica", "electromagnetismo-avanzado", "teoria-del-todo"]
 breadcrumb: Física / Fronteras del Cosmos / Física y Tecnología

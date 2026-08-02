@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 3
 orden: 2
 nivel_titulo: Física Moderna
-insignia: Calculista del Espacio-Tiempo
 tipo: practice
 prerequisites: ["relatividad-especial"]
 breadcrumb: "Física / Física Moderna / Relatividad Especial: Problemas Resueltos"

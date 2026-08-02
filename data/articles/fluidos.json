@@ -22,7 +22,6 @@
     "nivel": 2,
     "nivel_titulo": "El Reino de lo Clásico",
     "orden": 7,
-    "insignia": "Navegante de los Fluidos",
     "tipo": "theory",
     "prerequisites": [
       "materia-y-energia",

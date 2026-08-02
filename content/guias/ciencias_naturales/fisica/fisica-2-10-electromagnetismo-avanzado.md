@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 2
 orden: 10
 nivel_titulo: Profundización Mecánica
-insignia: Arquitecto de Campos
 tipo: theory
 prerequisites: ["electromagnetismo", "mecanica-clasica", "vectores"]
 breadcrumb: Física / Profundización Mecánica / Electromagnetismo Avanzado

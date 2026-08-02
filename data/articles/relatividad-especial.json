@@ -20,7 +20,6 @@
     "nivel": 3,
     "nivel_titulo": "Física Moderna",
     "orden": 1,
-    "insignia": "Navegante del Espacio-Tiempo",
     "tipo": "theory",
     "prerequisites": [
       "electromagnetismo-avanzado",

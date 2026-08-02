@@ -19,7 +19,6 @@
     "nivel": 2,
     "nivel_titulo": "Profundización Mecánica",
     "orden": 4,
-    "insignia": "Guardián del Momento",
     "tipo": "theory",
     "prerequisites": [
       "leyes-newton-movimiento",

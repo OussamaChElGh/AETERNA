@@ -19,7 +19,6 @@
     "nivel": 1,
     "nivel_titulo": "Fundamentos del Cosmos",
     "orden": 5,
-    "insignia": "Cartógrafo de Fuerzas",
     "tipo": "theory",
     "prerequisites": [
       "materia-y-energia"

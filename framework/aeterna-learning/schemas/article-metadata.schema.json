@@ -13,7 +13,6 @@
     "tags": { "type": "array", "items": { "type": "string" } },
     "nivel": { "type": "integer" },
     "orden": { "type": "integer" },
-    "insignia": { "type": "string" },
     "tipo": { "type": "string" },
     "prerequisitos": { "type": "array", "items": { "type": "string" } }
   }

@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 3
 orden: 3
 nivel_titulo: Física Moderna
-insignia: Arquitecto del Espacio-Tiempo
 tipo: theory
 prerequisites: ["relatividad-especial", "electromagnetismo-avanzado"]
 breadcrumb: Física / Física Moderna / Relatividad General

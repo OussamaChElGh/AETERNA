@@ -43,7 +43,6 @@ export interface PlannedArticle {
   title: string;
   nivel: number;
   orden: number;
-  insignia: string;
   tipo: 'theory' | 'practice' | 'philosophy' | 'milestone' | 'hub' | 'synthesis' | 'methodological';
   prerequisites: string[];
   tags: string[];
@@ -131,7 +130,6 @@ export interface OutlineMetadata {
   nivel: number;
   orden: number;
   nivel_titulo: string;
-  insignia: string;
   tipo: ArticleType | string;
 }
 

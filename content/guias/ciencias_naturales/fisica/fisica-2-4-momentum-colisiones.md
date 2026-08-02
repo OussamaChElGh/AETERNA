@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 2
 orden: 4
 nivel_titulo: Profundización Mecánica
-insignia: Guardián del Momento
 tipo: theory
 prerequisites: ["leyes-newton-movimiento", "mecanica-clasica"]
 breadcrumb: Física / Profundización Mecánica / Momento y Colisiones

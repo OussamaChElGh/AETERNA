@@ -11,7 +11,6 @@ export interface ArticleFrontmatter {
   nivel?: number;
   orden?: number;
   nivel_titulo?: string;
-  insignia?: string;
   tipo?: "theory" | "practice" | "philosophy" | "milestone";
   _path?: string;
 }

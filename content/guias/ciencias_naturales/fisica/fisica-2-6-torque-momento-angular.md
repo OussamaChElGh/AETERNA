@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 2
 orden: 6
 nivel_titulo: Profundización Mecánica
-insignia: Maestro del Giro
 tipo: theory
 prerequisites: ["leyes-newton-movimiento", "momentum-colisiones", "vectores"]
 breadcrumb: Física / Profundización Mecánica / Torque y Momento Angular

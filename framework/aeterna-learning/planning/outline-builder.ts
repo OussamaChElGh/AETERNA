@@ -325,7 +325,6 @@ export function buildOutline(curriculum: BranchCurriculum, slug: string): Articl
     nivel: article.nivel,
     orden: article.orden,
     nivel_titulo: level?.titulo || `Nivel ${article.nivel}`,
-    insignia: article.insignia,
     tipo: article.tipo,
   };
 

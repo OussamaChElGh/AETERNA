@@ -6,7 +6,11 @@
     "author": "El Observador Eterno",
     "category": "Metodología",
     "subcategory": "Estructura de Datos",
-    "tags": ["prototipo", "tutorial", "capas"],
+    "tags": [
+      "prototipo",
+      "tutorial",
+      "capas"
+    ],
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
     "date": "2026-05-11",
     "xp": 500

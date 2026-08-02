@@ -6,11 +6,15 @@
     "author": "Aeterna",
     "category": "ciencias",
     "subcategory": "fisica",
-    "tags": ["gravedad", "Newton", "Einstein", "Relatividad"],
+    "tags": [
+      "gravedad",
+      "Newton",
+      "Einstein",
+      "Relatividad"
+    ],
     "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2072&auto=format&fit=crop",
     "date": "2026-05-11",
     "nivel": 1,
-    "insignia": "Explorador del Cosmos",
     "tipo": "theory"
   },
   "introduccion": "Bienvenido a Aeterna. Estás ante una exégesis progresiva. Tu mente va a ascender por tres capas de realidad, cada una con su propia estructura de datos y desafíos interactivos.",
@@ -30,7 +34,10 @@
         "principiante": "En la Luna pesarías mucho menos porque es más pequeña que la Tierra. Tienes la misma masa (sigues siendo tú), pero la Luna te 'tira' con menos ganas. En Júpiter, serías tan pesado que no podrías ni levantarte del suelo.\n\n```aeterna-decision\nBadge: 🧠 REFLEXIÓN\nTítulo: Colonización Espacial\nPregunta: Si pudieras elegir vivir en un planeta con gravedad baja (como Marte) o uno con gravedad alta, sabiendo que tu cuerpo cambiaría físicamente en pocos años, ¿qué preferirías y qué cambio físico crees que sería más útil para sobrevivir?\nNivel: 1\nXP: 50\nBotón: Sellar Reflexión\n```"
       },
       "acciones": [
-        { "tipo": "BotonEjemplos", "contenido": "- Luna: 16% de tu peso.\n- Marte: 38% de tu peso.\n- Sol: 2700% de tu peso." }
+        {
+          "tipo": "BotonEjemplos",
+          "contenido": "- Luna: 16% de tu peso.\n- Marte: 38% de tu peso.\n- Sol: 2700% de tu peso."
+        }
       ]
     },
     {
@@ -48,7 +55,10 @@
         "intermedio": "A diferencia de Newton, que veía la gravedad como una acción instantánea a distancia, la física moderna la entiende como un **Campo**. La Tierra genera un campo gravitatorio en todo el espacio a su alrededor, y cualquier objeto que entre en ese campo siente su influencia.\n\n```aeterna-exercise\nLABEL: Análisis de Campo\nEnuncia cómo cambiaría la percepción del campo gravitatorio si la densidad de la Tierra aumentara al doble manteniendo el mismo radio.\nPISTA: Recuerda la relación entre la masa y la intensidad de campo $g = G \\cdot M / R^2$.\nRESPUESTA_CORRECTA: aumentaría al doble\n```"
       },
       "acciones": [
-        { "tipo": "BotonProfundizar", "contenido": "Investiga cómo se calcula la intensidad de campo $g$ en la superficie de cualquier cuerpo celeste." }
+        {
+          "tipo": "BotonProfundizar",
+          "contenido": "Investiga cómo se calcula la intensidad de campo $g$ en la superficie de cualquier cuerpo celeste."
+        }
       ]
     },
     {
@@ -66,7 +76,10 @@
         "avanzado": "La relación exacta entre la materia y la curvatura del espacio-tiempo se dicta en estas diez ecuaciones diferenciales no lineales:\n\n$$G_{\\mu\\nu} + \\Lambda g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}$$\n\nAquí, el tensor de Einstein $G_{\\mu\\nu}$ describe la geometría, mientras que el tensor de energía-momento $T_{\\mu\\nu}$ describe la distribución de materia y energía.\n\n```aeterna-question\nTipo: 🏛️ MAESTRÍA\nPregunta: ¿Qué componente de la ecuación de Einstein representa la energía oscura o la expansión intrínseca del vacío?\nOpciones:\n- El Tensor de Einstein (G)\n- El Tensor de Energía-Momento (T)\n- La Constante Cosmológica (Λ)\n- El Tensor Métrico (g)\nRespuestaCorrecta: La Constante Cosmológica (Λ)\nXP: 200\n```"
       },
       "acciones": [
-        { "tipo": "BotonConexiones", "contenido": "Relaciona esto con la Cosmología: ¿Cómo afecta la Constante Cosmológica $\\Lambda$ a la expansión del universo?" }
+        {
+          "tipo": "BotonConexiones",
+          "contenido": "Relaciona esto con la Cosmología: ¿Cómo afecta la Constante Cosmológica $\\Lambda$ a la expansión del universo?"
+        }
       ]
     },
     {

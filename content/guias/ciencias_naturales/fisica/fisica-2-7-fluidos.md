@@ -11,7 +11,6 @@ date: 2026-05-09
 nivel: 2
 orden: 7
 nivel_titulo: El Reino de lo Clásico
-insignia: Navegante de los Fluidos
 tipo: theory
 prerequisites: ["materia-y-energia", "leyes-newton-movimiento"]
 breadcrumb: Física / El Reino de lo Clásico / Fluidos

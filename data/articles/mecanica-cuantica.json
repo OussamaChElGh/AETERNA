@@ -21,7 +21,6 @@
     "nivel": 3,
     "nivel_titulo": "Física Moderna",
     "orden": 4,
-    "insignia": "Navegante Cuántico",
     "tipo": "theory",
     "prerequisites": [
       "electromagnetismo-avanzado",

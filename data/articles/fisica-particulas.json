@@ -21,7 +21,6 @@
     "nivel": 4,
     "nivel_titulo": "Fronteras del Cosmos",
     "orden": 2,
-    "insignia": "Arquitecto de la Materia",
     "tipo": "theory",
     "prerequisites": [
       "mecanica-cuantica",

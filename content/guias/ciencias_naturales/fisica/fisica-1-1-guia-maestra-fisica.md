@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 1
 orden: 1
 nivel_titulo: Fundamentos del Cosmos
-insignia: Aprendiz del Cosmos
 tipo: hub
 prerequisites: []
 breadcrumb: Física / Fundamentos del Cosmos / Guía Maestra

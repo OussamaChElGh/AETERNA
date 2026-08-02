@@ -80,7 +80,6 @@ Examples:
       console.log(`Esqueleto generado en: ${finalPath}`);
       console.log(`  - Secciones: ${outline.secciones.length}`);
       console.log(`  - Nivel: ${outline.metadata.nivel} (${outline.metadata.nivel_titulo})`);
-      console.log(`  - Insignia: ${outline.metadata.insignia}`);
       console.log(`  - Prerequisitos sugeridos: ${loadCurriculum(branchId).articles.find(a => a.slug === outlineSlug)?.prerequisites?.join(', ') || 'ninguno'}`);
 
       const contentPath = curriculum.contentPath || 'ciencias_naturales/fisica';

@@ -11,7 +11,6 @@ date: 2026-05-08
 nivel: 1
 orden: 3
 nivel_titulo: Fundamentos
-insignia: El Método
 tipo: methodological
 prerequisites: []
 breadcrumb: Física / Fundamentos / Método Científico

@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 3
 orden: 4
 nivel_titulo: Física Moderna
-insignia: Navegante Cuántico
 tipo: theory
 prerequisites: ["electromagnetismo-avanzado", "mecanica-clasica"]
 breadcrumb: Física / Física Moderna / Mecánica Cuántica

@@ -223,7 +223,7 @@ export const ACHIEVEMENTS: Record<string, { title: string; description: string; 
   fisica_capa_asimilada: { title: "Capa Asimilada", description: "Domina las 3 capas de un mismo artículo", xp: 300, icon: BrainCircuit },
 };
 
-// Dinámicamente añadir insignias de nivel
+// Dinámicamente añadir recompensas de nivel
 Object.entries(ROADMAPS).forEach(([categoryKey, roadmap]) => {
   roadmap.steps.forEach(step => {
     const levelNum = step.level?.num || 1;

@@ -8,9 +8,9 @@ import { cn } from '@/lib/utils';
 export interface LearningPathArticle {
   slug: string;
   title: string;
-  insignia: string;
   nivel: number;
   orden: number;
+  nivel_titulo?: string;
 }
 
 export interface LearningPathLevel {
@@ -154,7 +154,7 @@ export function LearningPath({ levels, articles, completedArticles, layersByArti
                               <div className="mt-3 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none absolute top-full pt-1 z-20 w-40">
                                 <div className="bg-brand-ink border border-brand-gold/30 rounded-lg p-3 text-center shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
                                   <div className="text-[9px] font-mono uppercase tracking-widest text-brand-gold mb-1">
-                                    {article.insignia}
+                                    {article.nivel_titulo || `Nivel ${article.nivel}`}
                                   </div>
                                   <div className="text-[10px] font-bold text-brand-offwhite leading-tight">
                                     {article.title}

@@ -10,7 +10,6 @@ image: "https://images.unsplash.com/photo-1569788497016-40b2b4b6d62b?q=80&w=2070
 date: 2026-05-11
 nivel: 3
 orden: 4
-insignia: Visionario del Átomo
 tipo: theory
 ---
 

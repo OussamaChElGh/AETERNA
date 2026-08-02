@@ -11,7 +11,6 @@ date: 2026-05-07
 nivel: 2
 orden: 1
 nivel_titulo: El Reino de lo Clásico
-insignia: Señor de lo Clásico
 tipo: theory
 prerequisites: ["como-piensa-un-fisico", "vectores"]
 breadcrumb: ["El Reino de lo Clásico", "Mecánica Clásica"]

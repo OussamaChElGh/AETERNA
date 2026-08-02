@@ -21,7 +21,6 @@
     "nivel": 3,
     "nivel_titulo": "Física Moderna",
     "orden": 3,
-    "insignia": "Arquitecto del Espacio-Tiempo",
     "tipo": "theory",
     "prerequisites": [
       "relatividad-especial",

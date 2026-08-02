@@ -3,7 +3,7 @@ import type { LearningPathArticle, LearningPathLevel } from "@/components/Learni
 
 interface CurriculumFile {
   levels?: { nivel: number; titulo: string; descripcion: string }[];
-  articles?: { slug: string; title: string; insignia: string; nivel: number; orden: number }[];
+  articles?: { slug: string; title: string; nivel: number; orden: number; nivel_titulo?: string }[];
 }
 
 export default function HomePage() {
@@ -23,7 +23,7 @@ export default function HomePage() {
   }
 
   for (const a of curriculum.articles || []) {
-    articles.push({ slug: a.slug, title: a.title, insignia: a.insignia, nivel: a.nivel, orden: a.orden });
+    articles.push({ slug: a.slug, title: a.title, nivel: a.nivel, orden: a.orden, nivel_titulo: a.nivel_titulo });
   }
 
   for (const a of articles) {

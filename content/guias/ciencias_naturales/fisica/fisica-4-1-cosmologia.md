@@ -11,7 +11,6 @@ date: 2026-05-12
 nivel: 4
 orden: 1
 nivel_titulo: Fronteras del Cosmos
-insignia: Cartógrafo del Universo
 tipo: theory
 prerequisites: ["relatividad-general", "fisica-atomica-y-nuclear"]
 breadcrumb: Física / Fronteras del Cosmos / Cosmología

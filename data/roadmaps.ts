@@ -120,7 +120,7 @@ export function populateRoadmaps(articles: ArticleFrontmatter[]) {
           level: {
             num: art.nivel || (index + 1),
             title: art.nivel_titulo || art.title,
-            badge: art.insignia || "Explorador"
+            badge: art.nivel_titulo || art.title
           }
         };
       });

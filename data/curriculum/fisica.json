@@ -33,7 +33,6 @@
       "title": "Guía Maestra de Física",
       "nivel": 1,
       "orden": 1,
-      "insignia": "Arquitecto del Conocimiento",
       "tipo": "hub",
       "prerequisites": [],
       "tags": [
@@ -100,7 +99,6 @@
       "title": "Cómo Piensa un Físico",
       "nivel": 1,
       "orden": 2,
-      "insignia": "Explorador del Método",
       "tipo": "practice",
       "prerequisites": [],
       "tags": [
@@ -170,7 +168,6 @@
       "title": "Método Científico",
       "nivel": 1,
       "orden": 3,
-      "insignia": "El Método",
       "tipo": "methodological",
       "prerequisites": [],
       "tags": [
@@ -258,7 +255,6 @@
       "title": "Materia y Energía",
       "nivel": 1,
       "orden": 4,
-      "insignia": "Arquitecto del Universo",
       "tipo": "theory",
       "prerequisites": [],
       "tags": [
@@ -331,7 +327,6 @@
       "title": "Vectores",
       "nivel": 1,
       "orden": 5,
-      "insignia": "Cartógrafo de Fuerzas",
       "tipo": "theory",
       "prerequisites": [
         "materia-y-energia"
@@ -406,7 +401,6 @@
       "title": "Las Leyes de Newton del Movimiento",
       "nivel": 1,
       "orden": 6,
-      "insignia": "Amo de la Dinámica",
       "tipo": "theory",
       "prerequisites": [
         "vectores"
@@ -503,7 +497,6 @@
       "title": "Mecánica Clásica: La Física del Movimiento y las Fuerzas",
       "nivel": 2,
       "orden": 1,
-      "insignia": "Señor de lo Clásico",
       "tipo": "theory",
       "prerequisites": [
         "vectores",
@@ -618,7 +611,6 @@
       "title": "Cinemática",
       "nivel": 2,
       "orden": 2,
-      "insignia": "Maestro del Movimiento",
       "tipo": "theory",
       "prerequisites": [
         "vectores"
@@ -728,7 +720,6 @@
       "title": "Trabajo y Energía",
       "nivel": 2,
       "orden": 3,
-      "insignia": "Conservador de la Energía",
       "tipo": "theory",
       "prerequisites": [
         "cinematica",
@@ -833,7 +824,6 @@
       "title": "Momentum y Colisiones",
       "nivel": 2,
       "orden": 4,
-      "insignia": "Guardián del Momento",
       "tipo": "theory",
       "prerequisites": [
         "leyes-newton-movimiento",
@@ -931,7 +921,6 @@
       "title": "Movimiento Circular y Satélites",
       "nivel": 2,
       "orden": 5,
-      "insignia": "Orbitador de Estrellas",
       "tipo": "theory",
       "prerequisites": [
         "cinematica",
@@ -1027,7 +1016,6 @@
       "title": "Torque y Momento Angular",
       "nivel": 2,
       "orden": 6,
-      "insignia": "Señor de la Rotación",
       "tipo": "theory",
       "prerequisites": [
         "leyes-newton-movimiento",
@@ -1122,7 +1110,6 @@
       "title": "Fluidos",
       "nivel": 2,
       "orden": 7,
-      "insignia": "Navegante de los Fluidos",
       "tipo": "theory",
       "prerequisites": [
         "materia-y-energia",
@@ -1218,7 +1205,6 @@
       "title": "Termodinámica",
       "nivel": 2,
       "orden": 8,
-      "insignia": "Arquitecto del Calor",
       "tipo": "theory",
       "prerequisites": [
         "materia-y-energia"
@@ -1313,7 +1299,6 @@
       "title": "Electromagnetismo",
       "nivel": 2,
       "orden": 9,
-      "insignia": "Maestro de la Electricidad",
       "tipo": "theory",
       "prerequisites": [
         "materia-y-energia",
@@ -1409,7 +1394,6 @@
       "title": "Electromagnetismo Avanzado",
       "nivel": 2,
       "orden": 10,
-      "insignia": "Dominador del Campo",
       "tipo": "theory",
       "prerequisites": [
         "electromagnetismo"
@@ -1469,7 +1453,6 @@
       "title": "Ondas y Óptica",
       "nivel": 2,
       "orden": 11,
-      "insignia": "Señor de las Ondas",
       "tipo": "theory",
       "prerequisites": [
         "electromagnetismo"
@@ -1563,7 +1546,6 @@
       "title": "Ondas y Óptica: Práctica",
       "nivel": 2,
       "orden": 12,
-      "insignia": "Experto en Fenómenos Ondulatorios",
       "tipo": "practice",
       "prerequisites": [
         "ondas-y-optica"
@@ -1629,7 +1611,6 @@
       "title": "Relatividad Especial",
       "nivel": 3,
       "orden": 1,
-      "insignia": "Viajero del Espacio-Tiempo",
       "tipo": "theory",
       "prerequisites": [
         "electromagnetismo-avanzado"
@@ -1726,7 +1707,6 @@
       "title": "Relatividad Especial: Práctica",
       "nivel": 3,
       "orden": 2,
-      "insignia": "Navegante del Espacio-Tiempo",
       "tipo": "practice",
       "prerequisites": [
         "relatividad-especial"
@@ -1791,7 +1771,6 @@
       "title": "Relatividad General",
       "nivel": 3,
       "orden": 3,
-      "insignia": "Arquitecto de la Gravedad",
       "tipo": "theory",
       "prerequisites": [
         "relatividad-especial"
@@ -1880,7 +1859,6 @@
       "title": "Mecánica Cuántica",
       "nivel": 3,
       "orden": 4,
-      "insignia": "Señor de lo Cuántico",
       "tipo": "theory",
       "prerequisites": [
         "electromagnetismo",
@@ -1977,7 +1955,6 @@
       "title": "Física Atómica y Nuclear",
       "nivel": 3,
       "orden": 5,
-      "insignia": "Arquitecto del Átomo",
       "tipo": "theory",
       "prerequisites": [
         "mecanica-cuantica"
@@ -2070,7 +2047,6 @@
       "title": "Cosmología",
       "nivel": 4,
       "orden": 1,
-      "insignia": "Arquitecto del Cosmos",
       "tipo": "theory",
       "prerequisites": [
         "relatividad-general"
@@ -2161,7 +2137,6 @@
       "title": "Física de Partículas",
       "nivel": 4,
       "orden": 2,
-      "insignia": "Cazador de Partículas",
       "tipo": "theory",
       "prerequisites": [
         "fisica-atomica-y-nuclear"
@@ -2252,7 +2227,6 @@
       "title": "Teoría del Todo",
       "nivel": 4,
       "orden": 3,
-      "insignia": "Buscador de la Síntesis",
       "tipo": "synthesis",
       "prerequisites": [
         "relatividad-general",
@@ -2318,7 +2292,6 @@
       "title": "Física y Tecnología",
       "nivel": 4,
       "orden": 4,
-      "insignia": "Ingeniero del Futuro",
       "tipo": "synthesis",
       "prerequisites": [
         "electromagnetismo",

@@ -11,7 +11,6 @@ date: 2026-05-06
 nivel: 1
 orden: 3
 nivel_titulo: Fundamentos del Cosmos
-insignia: Aprendiz del Cosmos
 ---
 
 
