@@ -31,17 +31,19 @@ export function ShareRankCard(props: ShareRankCardProps) {
   const [isGenerating, setIsGenerating] = useState(false);
   const [imageDataUrl, setImageDataUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [shareUrl, setShareUrl] = useState('');
   const cardRef = useRef<HTMLDivElement>(null);
+  const hasGeneratedRef = useRef(false);
 
-  const shareText = `¡Estoy en el puesto #${props.rank} del ranking ${props.scope === 'weekly' ? 'semanal' : 'global'} de AETERNA con ${formatXP(props.scope === 'weekly' ? props.weeklyXp : props.xp)} XP!`;
-  const shareUrl = window.location.origin + '/clasificacion';
+  const shareTitle = `¡Estoy en el puesto #${props.rank} del ranking ${props.scope === 'weekly' ? 'semanal' : 'global'} de AETERNA con ${formatXP(props.scope === 'weekly' ? props.weeklyXp : props.xp)} XP!`;
 
   const generateImage = async () => {
-    if (!cardRef.current || imageDataUrl) return;
+    if (!cardRef.current || hasGeneratedRef.current) return;
+    hasGeneratedRef.current = true;
     setIsGenerating(true);
     setError(null);
     try {
-      await new Promise(resolve => setTimeout(resolve, 100));
+      await new Promise(resolve => setTimeout(resolve, 200));
       const canvas = await html2canvas(cardRef.current, {
         backgroundColor: '#09090B',
         scale: 2,
@@ -50,19 +52,23 @@ export function ShareRankCard(props: ShareRankCardProps) {
         logging: false,
         imageTimeout: 5000,
       });
-      const dataUrl = canvas.toDataURL('image/png');
-      setImageDataUrl(dataUrl);
+      setImageDataUrl(canvas.toDataURL('image/png'));
     } catch (e) {
       console.error('Error generando imagen:', e);
       setError('No se pudo generar la imagen. Intenta de nuevo.');
+      hasGeneratedRef.current = false;
     } finally {
       setIsGenerating(false);
     }
   };
 
   useEffect(() => {
-    if (isOpen) {
-      generateImage();
+    if (isOpen && typeof window !== 'undefined') {
+      setShareUrl(window.location.origin + '/clasificacion');
+      hasGeneratedRef.current = false;
+      setImageDataUrl(null);
+      setError(null);
+      requestAnimationFrame(() => { generateImage(); });
     }
   }, [isOpen]);
 
@@ -83,7 +89,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
         await navigator.share({
           files: [file],
           title: 'Mi ranking en AETERNA',
-          text: shareText,
+          text: shareTitle,
         });
       } else {
         handleDownload();
@@ -101,7 +107,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
   };
 
   const handleSocialShare = (platform: string) => {
-    const encodedText = encodeURIComponent(shareText);
+    const encodedText = encodeURIComponent(shareTitle);
     const encodedUrl = encodeURIComponent(shareUrl);
     let url = '';
     
