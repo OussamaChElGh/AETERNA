@@ -227,6 +227,22 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     anchorX: 0.5,
     anchorY: 0.85
   },
+  asset_window_arched_sunlight: {
+    id: 'asset_window_arched_sunlight',
+    src: '/images/aeterna_master_arched_window_sunlight.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_arched_window_sunlight.png',
+      90: '/images/aeterna_master_arched_window_sunlight.png',
+      180: '/images/aeterna_master_arched_window_sunlight.png',
+      270: '/images/aeterna_master_arched_window_sunlight.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 1,
+    pixelWidth: 160,
+    pixelHeight: 240,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
   asset_window_gothic_tight: {
     id: 'asset_window_gothic_tight',
     src: '/images/aeterna_master_gothic_window_tight.png',
