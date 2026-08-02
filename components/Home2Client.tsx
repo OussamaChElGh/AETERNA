@@ -8,6 +8,7 @@ import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/componen
 import { NexusNode3D } from '@/components/NexusNode3D';
 import { Starfield } from '@/components/Starfield';
 import { evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
+import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
 
@@ -180,6 +181,10 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
     completedLayers: progress.completedLayers || {}
   });
   const relicUnlockedCount = (progress.physicsRelics || []).length;
+  const objectUnlockedCount = [...unlockedIds].filter(id => {
+    const item = ROOM_ENGINE_CATALOG.find(i => i.id === id);
+    return item && item.unlockCondition && item.unlockCondition.type !== 'default';
+  }).length;
   const levelInfo = {
     level: progress.level || 1,
     nextLevel: progress.xp
@@ -458,7 +463,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                 <div className="flex items-center gap-2 text-[10px] text-brand-offwhite/60">
                   <Package size={12} className="text-brand-gold/70" /> Objetos en tu estancia
                 </div>
-                <span className="font-mono text-xs text-brand-offwhite">{unlockedIds.size}</span>
+                <span className="font-mono text-xs text-brand-offwhite">{objectUnlockedCount}</span>
               </div>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-[10px] text-brand-offwhite/60">

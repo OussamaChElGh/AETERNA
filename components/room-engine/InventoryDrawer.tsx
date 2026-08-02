@@ -27,7 +27,8 @@ export function InventoryDrawer({
   const categories = [
     { id: 'all', label: 'Colección Completa' },
     { id: 'furniture', label: 'Mobiliario' },
-    { id: 'scientific', label: 'Instrumentos' }
+    { id: 'scientific', label: 'Instrumentos' },
+    { id: 'decoration', label: 'Decoración' }
   ];
 
   const filteredCatalog = ROOM_ENGINE_CATALOG.filter(item => {

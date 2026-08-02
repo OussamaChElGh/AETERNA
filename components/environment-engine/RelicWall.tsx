@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Award, Lock } from 'lucide-react';
@@ -20,6 +20,23 @@ interface RelicEntry {
   icon: string | null;
   unlocksOn: { type: string; nivel?: number; article?: string; layer?: string };
   unlocked: boolean;
+}
+
+function RelicIcon({ src, name }: { src: string; name: string }) {
+  const [error, setError] = useState(false);
+  if (error || !src) {
+    return <Award size={40} className="text-brand-gold" />;
+  }
+  return (
+    <Image
+      src={src}
+      alt={name}
+      width={56}
+      height={56}
+      className="object-contain"
+      onError={() => setError(true)}
+    />
+  );
 }
 
 export function RelicWall({ open, onClose }: RelicWallProps) {
@@ -105,9 +122,7 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
                 >
                   {poster.unlocked ? (
                     <>
-                      {poster.icon && (
-                        <Image src={poster.icon} alt={poster.name} width={56} height={56} className="object-contain" />
-                      )}
+                      {poster.icon && <RelicIcon src={poster.icon} name={poster.name} />}
                       <span className="text-[10px] font-mono font-bold text-brand-gold leading-tight">{poster.name}</span>
                       <span className="text-[8px] font-mono text-brand-gold/50 leading-tight">
                         Nivel {poster.unlocksOn.nivel || '?'}

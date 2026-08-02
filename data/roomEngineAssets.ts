@@ -291,6 +291,262 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     pixelHeight: 110,
     anchorX: 0.5,
     anchorY: 1.0
+  },
+  asset_blackboard_equations: {
+    id: 'asset_blackboard_equations',
+    src: '/images/aeterna_master_blackboard.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_blackboard.png',
+      90: '/images/aeterna_master_blackboard.png',
+      180: '/images/aeterna_master_blackboard.png',
+      270: '/images/aeterna_master_blackboard.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 1,
+    pixelWidth: 160,
+    pixelHeight: 200,
+    anchorX: 0.5,
+    anchorY: 0.9
+  },
+  asset_compass_proportions: {
+    id: 'asset_compass_proportions',
+    src: '/images/aeterna_master_compass.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_compass.png',
+      90: '/images/aeterna_master_compass.png',
+      180: '/images/aeterna_master_compass.png',
+      270: '/images/aeterna_master_compass.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 110,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_sundial_marble: {
+    id: 'asset_sundial_marble',
+    src: '/images/aeterna_master_sundial.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_sundial.png',
+      90: '/images/aeterna_master_sundial.png',
+      180: '/images/aeterna_master_sundial.png',
+      270: '/images/aeterna_master_sundial.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 100,
+    pixelHeight: 150,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_chronometer_brass: {
+    id: 'asset_chronometer_brass',
+    src: '/images/aeterna_master_chronometer.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_chronometer.png',
+      90: '/images/aeterna_master_chronometer.png',
+      180: '/images/aeterna_master_chronometer.png',
+      270: '/images/aeterna_master_chronometer.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 110,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_anvil_energy: {
+    id: 'asset_anvil_energy',
+    src: '/images/aeterna_master_anvil.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_anvil.png',
+      90: '/images/aeterna_master_anvil.png',
+      180: '/images/aeterna_master_anvil.png',
+      270: '/images/aeterna_master_anvil.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 120,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.8
+  },
+  asset_newtons_cradle: {
+    id: 'asset_newtons_cradle',
+    src: '/images/aeterna_master_newtons_cradle.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_newtons_cradle.png',
+      90: '/images/aeterna_master_newtons_cradle.png',
+      180: '/images/aeterna_master_newtons_cradle.png',
+      270: '/images/aeterna_master_newtons_cradle.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 100,
+    pixelHeight: 120,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_gyroscope_brass: {
+    id: 'asset_gyroscope_brass',
+    src: '/images/aeterna_master_gyroscope.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_gyroscope.png',
+      90: '/images/aeterna_master_gyroscope.png',
+      180: '/images/aeterna_master_gyroscope.png',
+      270: '/images/aeterna_master_gyroscope.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 130,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_archimedes_fountain: {
+    id: 'asset_archimedes_fountain',
+    src: '/images/aeterna_master_archimedes_fountain.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_archimedes_fountain.png',
+      90: '/images/aeterna_master_archimedes_fountain.png',
+      180: '/images/aeterna_master_archimedes_fountain.png',
+      270: '/images/aeterna_master_archimedes_fountain.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 2,
+    pixelWidth: 140,
+    pixelHeight: 160,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_tesla_coil_mini: {
+    id: 'asset_tesla_coil_mini',
+    src: '/images/aeterna_master_tesla_coil.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_tesla_coil.png',
+      90: '/images/aeterna_master_tesla_coil.png',
+      180: '/images/aeterna_master_tesla_coil.png',
+      270: '/images/aeterna_master_tesla_coil.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 100,
+    pixelHeight: 140,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_faraday_cage: {
+    id: 'asset_faraday_cage',
+    src: '/images/aeterna_master_faraday_cage.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_faraday_cage.png',
+      90: '/images/aeterna_master_faraday_cage.png',
+      180: '/images/aeterna_master_faraday_cage.png',
+      270: '/images/aeterna_master_faraday_cage.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 130,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_prism_desk: {
+    id: 'asset_prism_desk',
+    src: '/images/aeterna_master_prism_desk.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_prism_desk.png',
+      90: '/images/aeterna_master_prism_desk.png',
+      180: '/images/aeterna_master_prism_desk.png',
+      270: '/images/aeterna_master_prism_desk.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 110,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_melting_clock: {
+    id: 'asset_melting_clock',
+    src: '/images/aeterna_master_melting_clock.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_melting_clock.png',
+      90: '/images/aeterna_master_melting_clock.png',
+      180: '/images/aeterna_master_melting_clock.png',
+      270: '/images/aeterna_master_melting_clock.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 110,
+    pixelHeight: 90,
+    anchorX: 0.5,
+    anchorY: 0.8
+  },
+  asset_orrery_planets: {
+    id: 'asset_orrery_planets',
+    src: '/images/aeterna_master_orrery.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_orrery.png',
+      90: '/images/aeterna_master_orrery.png',
+      180: '/images/aeterna_master_orrery.png',
+      270: '/images/aeterna_master_orrery.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 2,
+    pixelWidth: 180,
+    pixelHeight: 200,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_nucleus_lamp: {
+    id: 'asset_nucleus_lamp',
+    src: '/images/aeterna_master_nucleus_lamp.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_nucleus_lamp.png',
+      90: '/images/aeterna_master_nucleus_lamp.png',
+      180: '/images/aeterna_master_nucleus_lamp.png',
+      270: '/images/aeterna_master_nucleus_lamp.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 100,
+    pixelHeight: 150,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_planck_cube: {
+    id: 'asset_planck_cube',
+    src: '/images/aeterna_master_planck_cube.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_planck_cube.png',
+      90: '/images/aeterna_master_planck_cube.png',
+      180: '/images/aeterna_master_planck_cube.png',
+      270: '/images/aeterna_master_planck_cube.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 120,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_silicon_chip_frame: {
+    id: 'asset_silicon_chip_frame',
+    src: '/images/aeterna_master_silicon_chip.png',
+    spritesByRotation: {
+      0: '/images/aeterna_master_silicon_chip.png',
+      90: '/images/aeterna_master_silicon_chip.png',
+      180: '/images/aeterna_master_silicon_chip.png',
+      270: '/images/aeterna_master_silicon_chip.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 120,
+    pixelHeight: 120,
+    anchorX: 0.5,
+    anchorY: 0.9
   }
 };
 
