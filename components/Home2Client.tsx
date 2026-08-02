@@ -205,7 +205,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
       if (cancelled) return;
       const me: LeaderboardEntry = {
         uid: authUser.uid,
-        name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || 'Sabio Anónimo',
+        name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || (authUser.email ? authUser.email.split('@')[0] : '') || 'Sabio Anónimo',
         photoURL: progress.photoURL || authUser.photoURL || '',
         avatarId: progress.selectedAvatarId || 'novice',
         level: progress.level || 1,
@@ -215,16 +215,15 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
         relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
         dailyStreak: progress.dailyStreak || 0,
       };
-      const isMeInList = res.entries.some(e => e.uid === me.uid);
-      const entries = isMeInList ? res.entries : [...res.entries, me];
-      setMiniRanking({ entries, myRank: isMeInList ? res.currentUserRank : res.entries.length + 1 });
+      const withoutMe = res.entries.filter(e => e.uid !== me.uid);
+      setMiniRanking({ entries: [...withoutMe, me], myRank: (withoutMe.length + 1) });
       setMiniLoading(false);
     }).catch(() => {
       if (cancelled) return;
       setMiniRanking({
         entries: [{
           uid: authUser.uid,
-          name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || 'Sabio Anónimo',
+          name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || (authUser.email ? authUser.email.split('@')[0] : '') || 'Sabio Anónimo',
           photoURL: progress.photoURL || authUser.photoURL || '',
           avatarId: progress.selectedAvatarId || 'novice',
           level: progress.level || 1,

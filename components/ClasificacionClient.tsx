@@ -51,23 +51,19 @@ export function ClasificacionClient() {
         max: 100,
         currentUserId: user?.uid,
       });
-      // Fallback: si la colección no devuelve al usuario (reglas sin desplegar,
-      // colección vacía, etc.), inyectamos nuestra propia entrada local para que
-      // el jugador siempre se vea en el cuadro.
+      // Mi entrada SIEMPRE se construye desde la sesión local (nombre real,
+      // avatar, XP actual). Reemplaza cualquier fila con mi uid que venga de
+      // Firestore con nombre vacío (Sabio Anónimo).
       const me = buildLocalMe();
-      const isMeInList = result.entries.some(e => e.uid === me.uid);
-      if (me.uid !== 'local' && !isMeInList) {
-        const xpKey = currentScope === 'weekly' ? 'weeklyXp' : 'xp';
-        const myValue = currentScope === 'weekly' ? me.weeklyXp : me.xp;
-        const myRank = result.entries.filter(e => (currentScope === 'weekly' ? e.weeklyXp : e.xp) > myValue).length + 1;
-        setEntries([...result.entries, me]);
-        setCurrentUserRank(myRank);
-        setTotalUsers(Math.max(result.totalUsers, 1));
-      } else {
-        setEntries(result.entries);
-        setTotalUsers(result.totalUsers);
-        setCurrentUserRank(result.currentUserRank);
-      }
+      const withoutMe = result.entries.filter(e => e.uid !== me.uid);
+      const entriesWithMe = me.uid !== 'local' ? [...withoutMe, me] : withoutMe;
+      setEntries(entriesWithMe);
+      setTotalUsers(Math.max(result.totalUsers, withoutMe.length + (me.uid !== 'local' ? 1 : 0)));
+
+      // Posición: ordenar por el scope activo y encontrar el índice de mi uid
+      const ordered = [...entriesWithMe].sort((a, b) => (currentScope === 'weekly' ? b.weeklyXp - a.weeklyXp : b.xp - a.xp));
+      const myIdx = ordered.findIndex(e => e.uid === me.uid);
+      setCurrentUserRank(myIdx >= 0 ? myIdx + 1 : result.currentUserRank);
     } catch (e) {
       console.warn('Leaderboard: error cargando clasificación', e);
       setEntries([buildLocalMe()]);
