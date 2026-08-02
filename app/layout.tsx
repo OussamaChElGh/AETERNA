@@ -6,7 +6,9 @@ import { AuthProvider } from "@/context/AuthContext";
 import { GamificationProvider } from "@/context/GamificationContext";
 import { NotificationProvider } from "@/context/NotificationContext";
 import { FollowProvider } from "@/context/FollowContext";
+import { ChallengeProvider } from "@/context/ChallengeContext";
 import { NotificationTriggers } from "@/components/NotificationTriggers";
+import { ChallengeProgressSync } from "@/components/ChallengeProgressSync";
 import { Navbar } from "@/components/Navbar";
 import { GlobalFooter } from "@/components/GlobalFooter";
 import { GuidesStrip } from "@/components/GuidesStrip";
@@ -43,8 +45,10 @@ export default function RootLayout({
             <GamificationProvider>
               <NotificationProvider>
                 <FollowProvider>
-                  <NotificationTriggers />
-                  <div className="flex min-h-screen flex-col">
+                  <ChallengeProvider>
+                    <NotificationTriggers />
+                    <ChallengeProgressSync />
+                    <div className="flex min-h-screen flex-col">
                   <Navbar />
                   <GuidesStrip />
                   <main className="flex-1">
@@ -54,6 +58,7 @@ export default function RootLayout({
                   <FloatingMascot />
                   <FloatingGuides />
                 </div>
+                  </ChallengeProvider>
                 </FollowProvider>
               </NotificationProvider>
             </GamificationProvider>

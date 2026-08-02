@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, User, Flame, Award, Sparkles, Trophy, Loader2 } from 'lucide-react';
+import { ArrowLeft, User, Flame, Award, Sparkles, Trophy, Loader2, Swords } from 'lucide-react';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { useFollow } from '@/context/FollowContext';
@@ -11,6 +11,8 @@ import { cn } from '@/lib/utils';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { getFollowing, isFollowing } from '@/lib/follows';
+import { CreateChallengeModal } from '@/components/CreateChallengeModal';
+import { ChallengeBanner } from '@/components/ChallengeBanner';
 
 interface UserProfile {
   xp: number;
@@ -35,6 +37,7 @@ export function UsuarioClient({ uid }: { uid: string }) {
   const [rank, setRank] = useState<number | null>(null);
   const [totalUsers, setTotalUsers] = useState(0);
   const [following, setFollowing] = useState(false);
+  const [showChallengeModal, setShowChallengeModal] = useState(false);
 
   useEffect(() => {
     if (!user) return;
@@ -172,17 +175,26 @@ export function UsuarioClient({ uid }: { uid: string }) {
                 {isMe ? (
                   <p className="mt-2 text-[10px] font-mono text-brand-offwhite/40">Este es tu perfil</p>
                 ) : (
-                  <button
-                    onClick={handleToggleFollow}
-                    className={cn(
-                      "mt-3 px-4 py-1.5 rounded-lg border text-[10px] font-mono font-bold uppercase tracking-wider transition-all",
-                      following
-                        ? "bg-brand-gold/20 border-brand-gold/40 text-brand-gold hover:bg-brand-gold/30"
-                        : "border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-ink"
-                    )}
-                  >
-                    {following ? '✓ Siguiendo' : '+ Seguir'}
-                  </button>
+                  <div className="flex items-center gap-2 mt-3 justify-center sm:justify-start">
+                    <button
+                      onClick={handleToggleFollow}
+                      className={cn(
+                        "px-4 py-1.5 rounded-lg border text-[10px] font-mono font-bold uppercase tracking-wider transition-all",
+                        following
+                          ? "bg-brand-gold/20 border-brand-gold/40 text-brand-gold hover:bg-brand-gold/30"
+                          : "border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-ink"
+                      )}
+                    >
+                      {following ? '✓ Siguiendo' : '+ Seguir'}
+                    </button>
+                    <button
+                      onClick={() => setShowChallengeModal(true)}
+                      className="px-4 py-1.5 rounded-lg border border-brand-cosmic/40 text-brand-cosmic text-[10px] font-mono font-bold uppercase tracking-wider hover:bg-brand-cosmic hover:text-brand-ink transition-all flex items-center gap-1"
+                    >
+                      <Swords size={12} />
+                      Retar
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
@@ -205,7 +217,7 @@ export function UsuarioClient({ uid }: { uid: string }) {
           )}
 
           {profile.dailyStreak > 0 && (
-            <div className="rounded-2xl border border-orange-400/10 bg-orange-400/5 p-4">
+            <div className="rounded-2xl border border-orange-400/10 bg-orange-400/5 p-4 mb-6">
               <div className="flex items-center gap-2">
                 <Flame size={18} className="text-orange-400" />
                 <div>
@@ -217,8 +229,17 @@ export function UsuarioClient({ uid }: { uid: string }) {
               </div>
             </div>
           )}
+
+          {/* Active challenges with this user */}
+          {!isMe && <ChallengeBanner currentUserId={user.uid} />}
         </motion.div>
       </div>
+      <CreateChallengeModal
+        challengerUid={uid}
+        challengerName={name}
+        isOpen={showChallengeModal}
+        onClose={() => setShowChallengeModal(false)}
+      />
     </div>
   );
 }

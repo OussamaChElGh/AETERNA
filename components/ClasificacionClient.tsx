@@ -9,6 +9,8 @@ import { LeaderboardTable } from '@/components/LeaderboardTable';
 import { ShareRankCard } from '@/components/ShareRankCard';
 import { useNotifications } from '@/context/NotificationContext';
 import { useFollow } from '@/context/FollowContext';
+import { useChallenges } from '@/context/ChallengeContext';
+import { ChallengeBanner } from '@/components/ChallengeBanner';
 import { cn } from '@/lib/utils';
 
 type ClasificacionScope = LeaderboardScope | 'following';
@@ -278,6 +280,9 @@ export function ClasificacionClient() {
             <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
           </button>
         </div>
+
+        {/* ─── CHALLENGE BANNER ─── */}
+        <ChallengeBanner currentUserId={user.uid} />
 
         {/* ─── MY STATS CARD ─── */}
         {visibleRank !== null && (
