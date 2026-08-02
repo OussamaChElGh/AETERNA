@@ -16,12 +16,12 @@ export const ACADEMIC_LIBRARY_THEME: EnvironmentTheme = {
     ]
   },
   wallModuleSet: {
-    wallLeft: '/images/room_bookshelf.svg',
-    wallRight: '/images/room_bookshelf.svg',
-    cornerInner: '/images/room_bookshelf.svg',
-    cornerOuter: '/images/room_bookshelf.svg',
-    pillar: '/images/room_bookshelf.svg',
-    windowModule: '/images/room_telescope.svg'
+    wallLeft: '/images/room_bookshelf.png',
+    wallRight: '/images/room_bookshelf.png',
+    cornerInner: '/images/room_bookshelf.png',
+    cornerOuter: '/images/room_bookshelf.png',
+    pillar: '/images/room_bookshelf.png',
+    windowModule: '/images/room_telescope.png'
   },
   lightingProfile: {
     ambientColor: '#2A1B0E',
