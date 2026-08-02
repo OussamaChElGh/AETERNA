@@ -339,9 +339,11 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
 
           // Rellenar displayName/photoURL desde la sesión de Auth si faltan,
           // para que el ranking tenga nombre aunque el usuario no haya fijado alias.
+          // Si Google no devuelve nombre, usamos el email como nombre visible.
+          const sessionName = user.displayName || (user.email ? user.email.split('@')[0] : '') || '';
           const enriched = {
             ...cloudData,
-            displayName: cloudData.displayName || user.displayName || '',
+            displayName: cloudData.displayName || sessionName,
             photoURL: cloudData.photoURL || user.photoURL || ''
           };
 
@@ -365,9 +367,10 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
           // local + datos de la sesión, para que el usuario aparezca en el
           // cuadro de clasificación aunque nunca haya cambiado el progreso.
           try {
+            const sessionName = user.displayName || (user.email ? user.email.split('@')[0] : '') || '';
             await setDoc(
               doc(db, "aeternaProgressV3", user.uid),
-              { ...progress, displayName: user.displayName || '', photoURL: user.photoURL || '', ownerId: user.uid },
+              { ...progress, displayName: progress.displayName || sessionName, photoURL: progress.photoURL || user.photoURL || '', ownerId: user.uid },
               { merge: true }
             );
           } catch (e) {
@@ -391,7 +394,15 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     if (user && syncedFirebase.current) {
       const saveToCloud = async () => {
         try {
-          const payload = { ...progress, ownerId: user.uid };
+          // Forzar displayName/photoURL desde la sesión de Auth en cada guardado.
+          // Corrige documentos antiguos que quedaron sin nombre (Sabio Anónimo).
+          const sessionName = user.displayName || (user.email ? user.email.split('@')[0] : '') || '';
+          const payload = {
+            ...progress,
+            displayName: progress.displayName || sessionName,
+            photoURL: progress.photoURL || user.photoURL || '',
+            ownerId: user.uid
+          };
           await setDoc(doc(db, "aeternaProgressV3", user.uid), payload);
         } catch (error) {
           handleFirestoreError(error, OperationType.WRITE, `aeternaProgressV3/${user.uid}`);
