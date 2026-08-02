@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" width="160" height="180">
+  <defs>
+    <filter id="glow-fountain" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="stone-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9CA3AF"/>
+      <stop offset="100%" stop-color="#4B5563"/>
+    </linearGradient>
+    <linearGradient id="water-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="80" cy="155" rx="45" ry="18" fill="#000000" opacity="0.38"/>
+  <g filter="url(#glow-fountain)">
+    <ellipse cx="80" cy="140" rx="42" ry="20" fill="url(#stone-grad)" stroke="#1F2937" stroke-width="2"/>
+    <ellipse cx="80" cy="138" rx="36" ry="15" fill="url(#water-grad)" opacity="0.9"/>
+    <path d="M 80 138 Q 70 110 78 80 T 82 45" stroke="#E0F2FE" stroke-width="3" fill="none" opacity="0.8"/>
+    <rect x="72" y="55" width="16" height="75" rx="8" fill="url(#stone-grad)" stroke="#1F2937" stroke-width="1.5"/>
+    <path d="M 72 65 Q 88 75 72 85 Q 88 95 72 105 Q 88 115 72 125" stroke="#38BDF8" stroke-width="4" fill="none"/>
+    <ellipse cx="80" cy="45" rx="18" ry="8" fill="url(#water-grad)"/>
+    <circle cx="80" cy="42" r="4" fill="#FFFFFF" opacity="0.9"/>
+  </g>
+</svg>

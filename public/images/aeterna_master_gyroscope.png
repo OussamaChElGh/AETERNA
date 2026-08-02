@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
+  <defs>
+    <filter id="glow-gyro" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="brass-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE066"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#8A6D1B"/>
+    </linearGradient>
+    <linearGradient id="wood-base" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B3A19"/>
+      <stop offset="100%" stop-color="#341A0B"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="60" cy="138" rx="30" ry="12" fill="#000000" opacity="0.35"/>
+  <g filter="url(#glow-gyro)">
+    <path d="M 40 135 L 60 125 L 80 135 L 60 140 Z" fill="url(#wood-base)" stroke="#221107" stroke-width="1"/>
+    <cylinder x="50" y="115" width="20" height="12" fill="url(#wood-base)"/>
+    <rect x="52" y="110" width="16" height="18" rx="3" fill="url(#wood-base)" stroke="#221107"/>
+    <line x1="60" y1="110" x2="60" y2="40" stroke="url(#brass-1)" stroke-width="3.5" stroke-linecap="round"/>
+    <ellipse cx="60" cy="70" rx="28" ry="14" fill="none" stroke="url(#brass-1)" stroke-width="4.5"/>
+    <ellipse cx="60" cy="70" rx="20" ry="24" fill="none" stroke="url(#brass-1)" stroke-width="3.5" transform="rotate(35 60 70)"/>
+    <circle cx="60" cy="70" r="10" fill="url(#brass-1)" stroke="#4A3414" stroke-width="1.5"/>
+    <ellipse cx="60" cy="70" rx="8" ry="3" fill="#FFE4B5" opacity="0.8"/>
+  </g>
+</svg>
