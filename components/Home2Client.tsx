@@ -528,6 +528,17 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                   currentUserRank={miniRanking.myRank}
                   isLoading={miniLoading}
                   scope="global"
+                  currentUserData={{
+                    name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || (authUser.email ? authUser.email.split('@')[0] : '') || 'Sabio Anónimo',
+                    photoURL: progress.photoURL || authUser.photoURL || '',
+                    avatarId: progress.selectedAvatarId || 'novice',
+                    xp: progress.xp || 0,
+                    weeklyXp: progress.weeklyXp || 0,
+                    level: deriveLevel(progress.xp || 0),
+                    achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
+                    relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
+                    dailyStreak: progress.dailyStreak || 0,
+                  }}
                 />
               </div>
             )}

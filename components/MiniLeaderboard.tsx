@@ -2,11 +2,12 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Trophy, ChevronRight, User, Flame } from 'lucide-react';
+import { Trophy, ChevronRight, User, Flame, Share2 } from 'lucide-react';
 import { AVATARS } from '@/context/GamificationContext';
 import { formatXP } from '@/context/GamificationContext';
 import type { LeaderboardEntry } from '@/lib/leaderboard';
 import { cn } from '@/lib/utils';
+import { ShareRankCard } from '@/components/ShareRankCard';
 
 interface MiniLeaderboardProps {
   entries: LeaderboardEntry[];
@@ -14,6 +15,17 @@ interface MiniLeaderboardProps {
   currentUserRank?: number | null;
   isLoading?: boolean;
   scope: 'global' | 'weekly';
+  currentUserData?: {
+    name: string;
+    photoURL?: string;
+    avatarId: string;
+    xp: number;
+    weeklyXp: number;
+    level: number;
+    achievementsCount?: number;
+    relicsCount?: number;
+    dailyStreak?: number;
+  };
 }
 
 function getAvatarImage(avatarId: string): string {
@@ -58,7 +70,7 @@ function Row({ entry, place, isMe }: { entry: LeaderboardEntry; place: number; i
   );
 }
 
-export function MiniLeaderboard({ entries, currentUserId, currentUserRank, isLoading, scope }: MiniLeaderboardProps) {
+export function MiniLeaderboard({ entries, currentUserId, currentUserRank, isLoading, scope, currentUserData }: MiniLeaderboardProps) {
   const top = entries.slice(0, 5);
   const me = currentUserId ? entries.find(e => e.uid === currentUserId) : undefined;
   const hasMeInTop = !!me;
@@ -104,13 +116,30 @@ export function MiniLeaderboard({ entries, currentUserId, currentUserRank, isLoa
             </>
           )}
 
-          <Link
-            href="/clasificacion"
-            className="mt-3 flex items-center justify-center gap-1.5 w-full py-2 rounded-lg border border-brand-gold/30 text-brand-gold text-[11px] font-mono font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-ink transition-all group"
-          >
-            Ver clasificación completa
-            <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-          </Link>
+          <div className="mt-3 flex items-center gap-2">
+            {currentUserData && currentUserRank && (
+              <ShareRankCard
+                name={currentUserData.name}
+                photoURL={currentUserData.photoURL}
+                avatarId={currentUserData.avatarId}
+                rank={currentUserRank}
+                xp={currentUserData.xp}
+                weeklyXp={currentUserData.weeklyXp}
+                level={currentUserData.level}
+                scope={scope}
+                achievementsCount={currentUserData.achievementsCount}
+                relicsCount={currentUserData.relicsCount}
+                dailyStreak={currentUserData.dailyStreak}
+              />
+            )}
+            <Link
+              href="/clasificacion"
+              className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg border border-brand-gold/30 text-brand-gold text-[11px] font-mono font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-ink transition-all group"
+            >
+              Ver completa
+              <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
         </>
       )}
     </div>

@@ -6,6 +6,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
 import { getLeaderboard, deriveLevel, type LeaderboardEntry, type LeaderboardScope } from '@/lib/leaderboard';
 import { LeaderboardTable } from '@/components/LeaderboardTable';
+import { ShareRankCard } from '@/components/ShareRankCard';
 import { cn } from '@/lib/utils';
 
 const TABS: { id: LeaderboardScope; label: string; icon: typeof Trophy }[] = [
@@ -216,6 +217,21 @@ export function ClasificacionClient() {
             <p className="text-sm font-serif text-brand-offwhite">
               Tu posición: <span className="font-bold text-brand-gold">#{currentUserRank}</span> en el ranking {scope === 'global' ? 'global' : 'semanal'}
             </p>
+            <div className="ml-auto">
+              <ShareRankCard
+                name={(progress.alias && progress.alias.trim()) || progress.displayName || user?.displayName || (user?.email ? user.email.split('@')[0] : '') || 'Sabio Anónimo'}
+                photoURL={progress.photoURL || user?.photoURL || ''}
+                avatarId={progress.selectedAvatarId || 'novice'}
+                rank={currentUserRank}
+                xp={progress.xp || 0}
+                weeklyXp={progress.weeklyXp || 0}
+                level={deriveLevel(progress.xp || 0)}
+                scope={scope}
+                achievementsCount={Array.isArray(progress.achievements) ? progress.achievements.length : 0}
+                relicsCount={Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0}
+                dailyStreak={progress.dailyStreak || 0}
+              />
+            </div>
           </div>
         )}
 
