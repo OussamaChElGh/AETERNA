@@ -263,44 +263,12 @@ export function validatePlacement(
 
 export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
   {
-    instanceId: 'inst_fireplace_main',
-    catalogItemId: 'fireplace_gothic',
-    tileX: 0,
-    tileY: 0,
-    tileZ: 0,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_door_gothic',
-    catalogItemId: 'door_gothic_double',
-    tileX: 0,
-    tileY: 10,
-    tileZ: 0,
-    rotation: 0
-  },
-  {
     instanceId: 'inst_sofa_ne',
     catalogItemId: 'sofa_leather',
     tileX: 0,
     tileY: 7,
     tileZ: 0,
     rotation: 90
-  },
-  {
-    instanceId: 'inst_sconce_ne',
-    catalogItemId: 'sconce_candelabra',
-    tileX: 0,
-    tileY: 2,
-    tileZ: 2,
-    rotation: 0
-  },
-  {
-    instanceId: 'inst_rug_center',
-    catalogItemId: 'rug_persian',
-    tileX: 4,
-    tileY: 4,
-    tileZ: 0,
-    rotation: 0
   },
   {
     instanceId: 'inst_desk_center',
