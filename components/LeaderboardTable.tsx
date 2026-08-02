@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'motion/react';
-import { Medal, Crown, Flame, Award, User, Sparkles } from 'lucide-react';
+import { Crown, Medal, Flame, Award, User, Sparkles, TrendingUp, Zap } from 'lucide-react';
 import { AVATARS } from '@/context/GamificationContext';
-import type { LeaderboardEntry } from '@/lib/leaderboard';
 import { formatXP } from '@/context/GamificationContext';
 import { cn } from '@/lib/utils';
+import { getLeague, LEAGUES, type League, type LeagueId } from '@/lib/leaderboard';
+import type { LeaderboardEntry } from '@/lib/leaderboard';
 
 interface LeaderboardTableProps {
   entries: LeaderboardEntry[];
@@ -20,71 +20,80 @@ function getAvatarImage(avatarId: string): string {
   return av?.image || '';
 }
 
-// Anillos de color según la medalla (oro/plata/bronce)
-const podiumMeta = [
-  {
-    place: 1,
-    ring: 'border-amber-300/80',
-    glow: 'shadow-[0_0_24px_rgba(251,191,36,0.25)]',
-    badge: 'bg-amber-300 text-amber-950',
-    label: 'Oro',
-    scale: 'md:scale-105',
-    icon: Crown,
-  },
-  {
-    place: 2,
-    ring: 'border-slate-300/70',
-    glow: 'shadow-[0_0_16px_rgba(203,213,225,0.15)]',
-    badge: 'bg-slate-300 text-slate-900',
-    label: 'Plata',
-    scale: '',
-    icon: Medal,
-  },
-  {
-    place: 3,
-    ring: 'border-orange-400/60',
-    glow: 'shadow-[0_0_16px_rgba(251,146,60,0.15)]',
-    badge: 'bg-orange-400 text-orange-950',
-    label: 'Bronce',
-    scale: '',
-    icon: Medal,
-  },
-];
+function getXPProgress(entry: LeaderboardEntry, scope: 'global' | 'weekly'): number {
+  const xp = scope === 'weekly' ? entry.weeklyXp : entry.xp;
+  const levelXp = deriveLevelXP(entry.level);
+  const nextLevelXp = deriveLevelXP(entry.level + 1);
+  return Math.min(1, (xp - levelXp) / (nextLevelXp - levelXp));
+}
 
-function PodiumAvatar({ entry, meta }: { entry: LeaderboardEntry; meta: typeof podiumMeta[number] }) {
-  const avatarImg = getAvatarImage(entry.avatarId);
-  const Icon = meta.icon;
+function deriveLevelXP(level: number): number {
+  const xpBase = 15000;
+  const multiplier = 1.0415;
+  if (level <= 1) return 0;
+  return Math.round(xpBase * (Math.pow(multiplier, level - 1) - 1));
+}
+
+function LeagueBadge({ league, rank }: { league: League; rank: number }) {
   return (
-    <div className={cn("relative rounded-full p-1.5 border-2 bg-brand-ink", meta.ring, meta.glow)}>
-      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden flex items-center justify-center bg-brand-gold/10">
-        {avatarImg ? (
-          <Image src={avatarImg} alt={entry.name} width={80} height={80} className="object-cover w-full h-full" />
-        ) : (
-          <User size={32} className="text-brand-gold" />
-        )}
-      </div>
-      <div className={cn("absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center border-2 border-brand-ink", meta.badge)}>
-        <Icon size={12} />
-      </div>
+    <div className={cn(
+      "flex items-center gap-1 px-2 py-0.5 rounded-full border text-[9px] font-mono font-bold uppercase tracking-wider",
+      league.border, league.bg, league.text
+    )}>
+      <span>{league.emoji}</span>
+      <span>{league.name}</span>
     </div>
   );
 }
 
-function RowAvatar({ entry, place }: { entry: LeaderboardEntry; place: number }) {
-  const avatarImg = getAvatarImage(entry.avatarId);
+function RankGlow({ rank, children }: { rank: number; children: React.ReactNode }) {
+  const league = getLeague(rank);
   return (
-    <div className={cn(
-      "relative shrink-0 w-8 h-8 rounded-full border overflow-hidden flex items-center justify-center bg-brand-gold/10",
-      place === 1 ? "border-amber-300/80" :
-      place === 2 ? "border-slate-300/70" :
-      place === 3 ? "border-orange-400/60" :
-      "border-brand-gold/25"
-    )}>
-      {avatarImg ? (
-        <Image src={avatarImg} alt={entry.name} width={32} height={32} className="object-cover w-full h-full" />
-      ) : (
-        <User size={14} className="text-brand-gold" />
-      )}
+    <div className="relative">
+      <div className={cn(
+        "absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 blur-xl",
+        rank === 1 ? 'bg-amber-300' :
+        rank <= 3 ? 'bg-brand-cosmic' :
+        rank <= 10 ? 'bg-sky-400' :
+        'bg-brand-gold/30'
+      )} />
+      {children}
+    </div>
+  );
+}
+
+function XPCircle({ entry, scope }: { entry: LeaderboardEntry; scope: 'global' | 'weekly' }) {
+  const progress = getXPProgress(entry, scope);
+  const league = getLeague(typeof entry === 'object' && 'uid' in entry ? 0 : 0);
+  const circumference = 2 * Math.PI * 18;
+
+  return (
+    <div className="relative shrink-0 w-12 h-12">
+      <svg className="w-full h-full -rotate-90" viewBox="0 0 44 44">
+        <circle
+          cx="22" cy="22" r="18"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          className="text-white/5"
+        />
+        <circle
+          cx="22" cy="22" r="18"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference * (1 - progress)}
+          className={cn(
+            "transition-all duration-700",
+            entry.uid === 'me' ? 'text-brand-gold' : 'text-brand-cosmic'
+          )}
+        />
+      </svg>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <span className="text-[9px] font-mono font-bold text-brand-offwhite/80">{entry.level}</span>
+      </div>
     </div>
   );
 }
@@ -92,12 +101,13 @@ function RowAvatar({ entry, place }: { entry: LeaderboardEntry; place: number })
 export function LeaderboardTable({ entries, currentUserId, isLoading = false, scope }: LeaderboardTableProps) {
   const top3 = entries.slice(0, 3);
   const rest = entries.slice(3);
+  const xpKey = scope === 'weekly' ? 'weeklyXp' : 'xp';
 
   if (isLoading) {
     return (
       <div className="space-y-3 animate-pulse">
-        {[...Array(8)].map((_, i) => (
-          <div key={i} className="h-12 rounded-xl bg-white/5 border border-white/5" />
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="h-20 rounded-2xl bg-white/5 border border-white/5" />
         ))}
       </div>
     );
@@ -105,139 +115,277 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
 
   if (entries.length === 0) {
     return (
-      <div className="text-center py-16 text-brand-offwhite/50 font-serif text-lg">
-        Aún no hay sabios en esta clasificación.
+      <div className="text-center py-20">
+        <div className="w-20 h-20 mx-auto rounded-full bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center mb-4">
+          <Crown size={32} className="text-brand-gold/40" />
+        </div>
+        <p className="text-brand-offwhite/40 font-serif text-lg">Aún no hay sabios en esta clasificación</p>
       </div>
     );
   }
 
-  const xpKey = scope === 'weekly' ? 'weeklyXp' : 'xp';
-  const leader = entries[0];
+  // Calcular ligas para top 3
+  const leaderLeague = getLeague(1);
 
   return (
-    <div>
-      {/* BANNER DEL LÍDER — sutil, tipográfico */}
-      {leader && (
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-6 flex items-center gap-3 px-4 py-3 rounded-xl border border-brand-gold/25 bg-brand-gold/5"
-        >
-          <span className="text-brand-gold"><Crown size={16} /></span>
-          <div className="min-w-0">
-            <span className="text-[9px] font-mono uppercase tracking-[0.25em] text-brand-gold/60 mr-2">
-              {scope === 'weekly' ? 'Líder de la semana' : 'Sabio supremo'}
-            </span>
-            <span className="text-sm font-serif font-bold text-brand-offwhite">{leader.name}</span>
-          </div>
-          <div className="ml-auto shrink-0 text-right">
-            <div className="font-mono text-xs text-brand-gold">{formatXP(leader[xpKey])} XP</div>
-            <div className="text-[9px] font-mono text-brand-offwhite/40">Nivel {leader.level}</div>
-          </div>
-        </motion.div>
-      )}
+    <div className="space-y-4">
+      {/* ─── PODIO TOP 3 ─── */}
+      <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
+        {/* 2nd place */}
+        {top3[1] && (
+          <PodiumCard entry={top3[1]} rank={2} isMe={top3[1].uid === currentUserId} scope={scope} />
+        )}
+        {/* 1st place */}
+        {top3[0] && (
+          <PodiumCard entry={top3[0]} rank={1} isMe={top3[0].uid === currentUserId} scope={scope} highlight />
+        )}
+        {/* 3rd place */}
+        {top3[2] && (
+          <PodiumCard entry={top3[2]} rank={3} isMe={top3[2].uid === currentUserId} scope={scope} />
+        )}
+      </div>
 
-      {/* PODIO — limpio, sin gradientes ni alturas forzadas */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 mb-10">
-        {top3.map((entry) => {
-          const meta = podiumMeta.find(m => m.place === top3.indexOf(entry) + 1)!;
+      {/* ─── LEAGUE BAR ─── */}
+      <div className="flex items-center gap-2 px-2 py-2 mb-2 overflow-x-auto scrollbar-none">
+        {Object.entries(LEAGUES).map(([id, league]) => (
+          <div key={id} className={cn(
+            "flex items-center gap-1 px-2 py-0.5 rounded-full border text-[8px] font-mono font-bold uppercase tracking-wider shrink-0",
+            league.border, league.bg, league.text
+          )}>
+            <span>{league.emoji}</span>
+            <span>{league.name}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* ─── RANKING LIST ─── */}
+      <div className="space-y-2">
+        {rest.map((entry, idx) => {
+          const place = idx + 4;
           const isMe = entry.uid === currentUserId;
+          const league = getLeague(place);
+
           return (
             <motion.div
               key={entry.uid}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: top3.indexOf(entry) * 0.1, type: 'spring', stiffness: 140, damping: 20 }}
-              className={cn("flex flex-col items-center text-center px-4 py-4 w-32", meta.scale)}
-            >
-              <PodiumAvatar entry={entry} meta={meta} />
-              <div className="mt-3 flex items-center gap-1.5">
-                <span className="text-xs font-black font-serif text-brand-offwhite">{meta.place}</span>
-                <span className={cn("text-[9px] font-mono uppercase tracking-wider", meta.ring.includes('amber') ? 'text-amber-300' : meta.ring.includes('slate') ? 'text-slate-300' : 'text-orange-400')}>
-                  {meta.label}
-                </span>
-              </div>
-              <div className={cn("mt-1 text-sm font-serif font-bold leading-tight max-w-[120px] truncate", isMe ? "text-brand-gold" : "text-brand-offwhite")}>
-                {entry.name}
-              </div>
-              {isMe && (
-                <span className="mt-0.5 text-[8px] font-mono text-brand-gold/70 uppercase tracking-widest">Tú</span>
+              transition={{ delay: idx * 0.04, duration: 0.3 }}
+              className={cn(
+                "group relative flex items-center gap-3 p-3 rounded-2xl border transition-all duration-300 hover:scale-[1.01]",
+                isMe
+                  ? "bg-brand-gold/10 border-brand-gold/40"
+                  : "bg-white/[0.02] border-white/5 hover:bg-white/[0.04] hover:border-white/10"
               )}
-              <div className="text-[10px] font-mono text-brand-offwhite/40 mt-0.5">
-                {formatXP(entry[xpKey])} XP
+            >
+              {/* Rank number */}
+              <div className="w-8 text-center">
+                <span className={cn(
+                  "font-mono text-sm font-black",
+                  place <= 10 ? "text-brand-gold" : "text-brand-offwhite/40"
+                )}>
+                  {place}
+                </span>
+                {place <= 10 && (
+                  <div className="text-[7px] font-mono text-brand-offwhite/30">TOP</div>
+                )}
               </div>
-              <div className="flex items-center gap-2 mt-2 text-brand-offwhite/40">
-                <span className="inline-flex items-center gap-0.5 text-[9px] font-mono"><Award size={9} className="text-brand-gold/60" />{entry.achievementsCount}</span>
-                <span className="inline-flex items-center gap-0.5 text-[9px] font-mono"><Sparkles size={9} className="text-brand-gold/60" />{entry.relicsCount}</span>
-                <span className="inline-flex items-center gap-0.5 text-[9px] font-mono"><Flame size={9} className="text-orange-400/70" />{entry.dailyStreak}</span>
+
+              {/* Avatar */}
+              <div
+                className={cn(
+                  "relative w-10 h-10 rounded-full border-2 overflow-hidden flex items-center justify-center shrink-0",
+                  league.glow,
+                  isMe ? "border-brand-gold" : league.border
+                )}
+              >
+                {getAvatarImage(entry.avatarId) ? (
+                  <img
+                    src={getAvatarImage(entry.avatarId)}
+                    alt={entry.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <User size={18} className={league.icon} />
+                )}
+                {isMe && (
+                  <div className="absolute -bottom-0.5 inset-x-0 flex justify-center">
+                    <div className="bg-brand-gold text-brand-ink text-[6px] font-mono font-bold px-1 rounded">TÚ</div>
+                  </div>
+                )}
+              </div>
+
+              {/* Info */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className={cn(
+                    "text-xs font-serif font-bold truncate",
+                    isMe ? "text-brand-gold" : "text-brand-offwhite"
+                  )}>
+                    {entry.name}
+                  </span>
+                  {entry.dailyStreak >= 7 && (
+                    <Flame size={12} className="text-orange-400 shrink-0" />
+                  )}
+                </div>
+                <div className="flex items-center gap-2 mt-0.5">
+                  <span className="text-[10px] font-mono text-brand-offwhite/40">
+                    Nv.{entry.level}
+                  </span>
+                  <span className="text-[8px] font-mono text-brand-offwhite/20">·</span>
+                  <span className="text-[10px] font-mono text-brand-offwhite/40 flex items-center gap-0.5">
+                    <Award size={9} className="text-brand-gold/50" />
+                    {entry.achievementsCount}
+                  </span>
+                  <span className="text-[8px] font-mono text-brand-offwhite/20">·</span>
+                  <span className="text-[10px] font-mono text-brand-offwhite/40 flex items-center gap-0.5">
+                    <Sparkles size={9} className="text-brand-gold/50" />
+                    {entry.relicsCount}
+                  </span>
+                </div>
+              </div>
+
+              {/* XP */}
+              <div className="text-right shrink-0">
+                <div className="text-xs font-mono font-bold text-brand-gold">
+                  {formatXP(entry[xpKey])}
+                </div>
+                <div className="text-[8px] font-mono text-brand-offwhite/30">XP</div>
+              </div>
+
+              {/* League badge */}
+              <div className="hidden sm:block">
+                <LeagueBadge league={league} rank={place} />
               </div>
             </motion.div>
           );
         })}
       </div>
-
-      {/* TABLA */}
-      <div className="max-h-[440px] overflow-y-auto pr-1">
-        <table className="w-full text-left border-collapse">
-          <thead className="sticky top-0 bg-brand-ink z-10">
-            <tr className="border-b border-brand-gold/20">
-              <th className="py-2 px-3 text-[10px] font-mono uppercase tracking-wider text-brand-gold/60 w-12">#</th>
-              <th className="py-2 px-3 text-[10px] font-mono uppercase tracking-wider text-brand-gold/60">Sabio</th>
-              <th className="py-2 px-3 text-[10px] font-mono uppercase tracking-wider text-brand-gold/60 text-center w-16">Nivel</th>
-              <th className="py-2 px-3 text-[10px] font-mono uppercase tracking-wider text-brand-gold/60 text-right w-24">XP</th>
-              <th className="py-2 px-3 text-[10px] font-mono uppercase tracking-wider text-brand-gold/60 text-center w-16 hidden sm:table-cell">Logros</th>
-              <th className="py-2 px-3 text-[10px] font-mono uppercase tracking-wider text-brand-gold/60 text-center w-14 hidden sm:table-cell">Racha</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rest.map((entry, idx) => {
-              const place = idx + 4;
-              const isMe = entry.uid === currentUserId;
-              return (
-                <motion.tr
-                  key={entry.uid}
-                  initial={{ opacity: 0, x: -8 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.03, duration: 0.25 }}
-                  className={cn(
-                    "border-b border-white/5 transition-colors",
-                    isMe ? "bg-brand-gold/10 border-brand-gold/30" : "hover:bg-white/5"
-                  )}
-                >
-                  <td className="py-2.5 px-3 font-mono text-xs text-brand-offwhite/50">{place}</td>
-                  <td className="py-2.5 px-3">
-                    <div className="flex items-center gap-2.5">
-                      <RowAvatar entry={entry} place={place} />
-                      <div className="min-w-0">
-                        <div className={cn("text-xs font-serif font-bold truncate max-w-[160px]", isMe ? "text-brand-gold" : "text-brand-offwhite")}>
-                          {entry.name}
-                        </div>
-                        {isMe && (
-                          <div className="text-[8px] font-mono text-brand-gold/60 uppercase tracking-wider">Tú</div>
-                        )}
-                      </div>
-                    </div>
-                  </td>
-                  <td className="py-2.5 px-3 text-center font-mono text-xs text-brand-offwhite/70">{entry.level}</td>
-                  <td className="py-2.5 px-3 text-right font-mono text-xs text-brand-gold">{formatXP(entry[xpKey])}</td>
-                  <td className="py-2.5 px-3 text-center hidden sm:table-cell">
-                    <span className="inline-flex items-center gap-1 text-xs text-brand-offwhite/60">
-                      <Award size={12} className="text-brand-gold/70" />
-                      {entry.achievementsCount}
-                    </span>
-                  </td>
-                  <td className="py-2.5 px-3 text-center hidden sm:table-cell">
-                    <span className="inline-flex items-center gap-1 text-xs text-brand-offwhite/60">
-                      <Flame size={12} className="text-orange-400/80" />
-                      {entry.dailyStreak}
-                    </span>
-                  </td>
-                </motion.tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
     </div>
+  );
+}
+
+// ─── PODIUM CARD ────────────────────────────────────────────────────────
+
+function PodiumCard({
+  entry,
+  rank,
+  isMe,
+  scope,
+  highlight = false,
+}: {
+  entry: LeaderboardEntry;
+  rank: number;
+  isMe: boolean;
+  scope: 'global' | 'weekly';
+  highlight?: boolean;
+}) {
+  const league = getLeague(rank);
+  const xpKey = scope === 'weekly' ? 'weeklyXp' : 'xp';
+  const progress = getXPProgress(entry, scope);
+  const avatarImg = getAvatarImage(entry.avatarId);
+
+  const rankColors = {
+    1: { icon: Crown, shadow: 'shadow-[0_0_30px_rgba(251,191,36,0.25)]', ring: 'border-amber-300', badge: 'bg-amber-300 text-amber-950', label: 'Leyenda', color: '#fbbf24' },
+    2: { icon: Medal, shadow: 'shadow-[0_0_20px_rgba(14,165,233,0.2)]', ring: 'border-brand-cosmic', badge: 'bg-brand-cosmic text-brand-ink', label: 'Diamante', color: '#0ea5e9' },
+    3: { icon: Medal, shadow: 'shadow-[0_0_20px_rgba(56,189,248,0.15)]', ring: 'border-sky-400', badge: 'bg-sky-400 text-sky-950', label: 'Platino', color: '#38bdf8' },
+  }[rank];
+
+  if (!rankColors) return null;
+  const Icon = rankColors.icon;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: rank * 0.15, type: 'spring', stiffness: 120, damping: 18 }}
+      className={cn(
+        "relative rounded-2xl border bg-brand-ink/80 backdrop-blur-sm p-3 md:p-4 flex flex-col items-center text-center transition-all duration-300 hover:scale-[1.02]",
+        rank === 1 ? "border-amber-300/50 order-1" :
+        rank === 2 ? "border-brand-cosmic/40 order-0" :
+        "border-sky-400/30 order-2",
+        highlight && rankColors.shadow
+      )}
+    >
+      {/* Crown/Medal icon top */}
+      <div className={cn(
+        "absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-2 border-brand-ink flex items-center justify-center",
+        rankColors.badge
+      )}>
+        <Icon size={12} />
+      </div>
+
+      {/* Rank label */}
+      <div className="text-[8px] font-mono font-bold uppercase tracking-widest mt-1 opacity-60"
+        style={{ color: rank === 1 ? '#fbbf24' : rank === 2 ? '#0ea5e9' : '#38bdf8' }}>
+        #{rank} · {rankColors.label}
+      </div>
+
+      {/* Avatar */}
+      <div className={cn(
+        "relative mt-2 w-14 h-14 md:w-16 md:h-16 rounded-full border-2 overflow-hidden flex items-center justify-center",
+        rankColors.ring,
+        highlight ? "ring-2 ring-amber-300/30 ring-offset-2 ring-offset-brand-ink" : "",
+        rankColors.shadow
+      )}>
+        {avatarImg ? (
+          <img src={avatarImg} alt={entry.name} className="w-full h-full object-cover" />
+        ) : (
+          <User size={24} className="text-brand-gold/60" />
+        )}
+      </div>
+
+      {/* Name */}
+      <div className={cn(
+        "mt-2 text-xs md:text-sm font-serif font-bold truncate max-w-full px-1",
+        isMe ? "text-brand-gold" : "text-brand-offwhite"
+      )}>
+        {entry.name}
+      </div>
+      {isMe && (
+        <div className="text-[7px] font-mono text-brand-gold/70 uppercase tracking-widest">Tú</div>
+      )}
+
+      {/* Level + XP */}
+      <div className="mt-1.5 flex items-center gap-2">
+        <div className="flex items-center gap-1 text-[10px] font-mono font-bold">
+          <Sparkles size={10} className="text-brand-gold" />
+          <span className="text-brand-offwhite">Nv.{entry.level}</span>
+        </div>
+      </div>
+
+      {/* XP amount */}
+      <div className="text-base md:text-lg font-mono font-black text-brand-gold mt-0.5">
+        {formatXP(entry[xpKey])}
+        <span className="text-[8px] font-normal text-brand-offwhite/40 ml-1">XP</span>
+      </div>
+
+      {/* Progress bar */}
+      <div className="w-full mt-2 flex items-center gap-2">
+        <div className="flex-1 h-1.5 rounded-full bg-white/5 overflow-hidden">
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: `${progress * 100}%` }}
+            transition={{ duration: 0.8, delay: rank * 0.2 + 0.3, ease: 'easeOut' }}
+            className={cn(
+              "h-full rounded-full",
+              rank === 1 ? "bg-gradient-to-r from-amber-300 to-amber-400" :
+              rank === 2 ? "bg-gradient-to-r from-brand-cosmic to-cyan-400" :
+              "bg-gradient-to-r from-sky-400 to-sky-500"
+            )}
+          />
+        </div>
+        <span className="text-[9px] font-mono text-brand-offwhite/40">{Math.round(progress * 100)}%</span>
+      </div>
+
+      {/* Stats row */}
+      <div className="flex items-center gap-2 mt-2 text-[9px] font-mono text-brand-offwhite/40">
+        <span className="flex items-center gap-1"><Award size={9} className="text-brand-gold/60" />{entry.achievementsCount}</span>
+        <span className="flex items-center gap-0.5"><Sparkles size={9} className="text-brand-gold/60" />{entry.relicsCount}</span>
+        {entry.dailyStreak > 0 && (
+          <span className="flex items-center gap-0.5"><Flame size={9} className="text-orange-400/70" />{entry.dailyStreak}</span>
+        )}
+      </div>
+    </motion.div>
   );
 }

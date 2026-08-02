@@ -169,3 +169,98 @@ export async function getMoreLeaderboard(
     return [];
   }
 }
+
+// ─── League / Division system ───────────────────────────────────────────
+
+export type LeagueId = 'legend' | 'diamond' | 'platinum' | 'gold' | 'silver' | 'bronze';
+
+export interface League {
+  id: LeagueId;
+  name: string;
+  emoji: string;
+  border: string;
+  bg: string;
+  text: string;
+  glow: string;
+  icon: string;
+}
+
+export const LEAGUES: Record<LeagueId, League> = {
+  legend: {
+    id: 'legend',
+    name: 'Leyenda',
+    emoji: '👑',
+    border: 'border-amber-300/80',
+    bg: 'bg-amber-300/10',
+    text: 'text-amber-300',
+    glow: 'shadow-[0_0_30px_rgba(251,191,36,0.3)]',
+    icon: 'text-amber-300',
+  },
+  diamond: {
+    id: 'diamond',
+    name: 'Diamante',
+    emoji: '💎',
+    border: 'border-brand-cosmic/70',
+    bg: 'bg-brand-cosmic/10',
+    text: 'text-brand-cosmic',
+    glow: 'shadow-[0_0_24px_rgba(14,165,233,0.3)]',
+    icon: 'text-brand-cosmic',
+  },
+  platinum: {
+    id: 'platinum',
+    name: 'Platino',
+    emoji: '🧿',
+    border: 'border-sky-400/60',
+    bg: 'bg-sky-400/10',
+    text: 'text-sky-400',
+    glow: 'shadow-[0_0_20px_rgba(56,189,248,0.2)]',
+    icon: 'text-sky-400',
+  },
+  gold: {
+    id: 'gold',
+    name: 'Oro',
+    emoji: '🥇',
+    border: 'border-brand-gold/50',
+    bg: 'bg-brand-gold/10',
+    text: 'text-brand-gold',
+    glow: 'shadow-[0_0_16px_rgba(212,175,55,0.2)]',
+    icon: 'text-brand-gold',
+  },
+  silver: {
+    id: 'silver',
+    name: 'Plata',
+    emoji: '🥈',
+    border: 'border-brand-offwhite/30',
+    bg: 'bg-brand-offwhite/5',
+    text: 'text-brand-offwhite/60',
+    glow: 'shadow-[0_0_12px_rgba(245,245,240,0.1)]',
+    icon: 'text-brand-offwhite/50',
+  },
+  bronze: {
+    id: 'bronze',
+    name: 'Bronce',
+    emoji: '🥉',
+    border: 'border-orange-700/40',
+    bg: 'bg-orange-700/5',
+    text: 'text-orange-400/60',
+    glow: 'shadow-[0_0_8px_rgba(194,65,12,0.1)]',
+    icon: 'text-orange-400/50',
+  },
+};
+
+export function getLeague(rank: number): League {
+  if (rank === 1) return LEAGUES.legend;
+  if (rank <= 3) return LEAGUES.diamond;
+  if (rank <= 10) return LEAGUES.platinum;
+  if (rank <= 25) return LEAGUES.gold;
+  if (rank <= 50) return LEAGUES.silver;
+  return LEAGUES.bronze;
+}
+
+export const LEAGUE_THRESHOLDS: { rank: number; name: string; emoji: string }[] = [
+  { rank: 1, name: 'Leyenda', emoji: '👑' },
+  { rank: 3, name: 'Diamante', emoji: '💎' },
+  { rank: 10, name: 'Platino', emoji: '🧿' },
+  { rank: 25, name: 'Oro', emoji: '🥇' },
+  { rank: 50, name: 'Plata', emoji: '🥈' },
+];

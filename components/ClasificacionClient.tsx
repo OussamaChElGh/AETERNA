@@ -1,19 +1,46 @@
 'use client';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { motion } from 'motion/react';
-import { Trophy, Users, RefreshCw, Crown } from 'lucide-react';
+import { Trophy, Users, RefreshCw, Crown, Timer, TrendingUp, Zap, ChevronRight, Sparkles, Flame, Award, User } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
-import { useGamification } from '@/context/GamificationContext';
-import { getLeaderboard, deriveLevel, type LeaderboardEntry, type LeaderboardScope } from '@/lib/leaderboard';
+import { useGamification, formatXP } from '@/context/GamificationContext';
+import { getLeaderboard, deriveLevel, getLeague, getMondayKey, LEAGUES, LEAGUE_THRESHOLDS, type LeaderboardEntry, type LeaderboardScope, type League } from '@/lib/leaderboard';
 import { LeaderboardTable } from '@/components/LeaderboardTable';
 import { ShareRankCard } from '@/components/ShareRankCard';
 import { useNotifications } from '@/context/NotificationContext';
 import { cn } from '@/lib/utils';
 
-const TABS: { id: LeaderboardScope; label: string; icon: typeof Trophy }[] = [
-  { id: 'global', label: 'Global', icon: Trophy },
-  { id: 'weekly', label: 'Semanal', icon: Crown },
+const TABS: { id: LeaderboardScope; label: string; icon: typeof Trophy; color: string }[] = [
+  { id: 'global', label: 'Global', icon: Trophy, color: 'brand-gold' },
+  { id: 'weekly', label: 'Semanal', icon: Crown, color: 'brand-cosmic' },
 ];
+
+function WeeklyCountdown() {
+  const [timeLeft, setTimeLeft] = useState('');
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      const monday = new Date(getMondayKey());
+      monday.setDate(monday.getDate() + 7);
+      const diff = monday.getTime() - now.getTime();
+      if (diff <= 0) { setTimeLeft('Recalculando...'); return; }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      setTimeLeft(`${d}d ${h}h ${m}m`);
+    };
+    tick();
+    const id = setInterval(tick, 60000);
+    return () => clearInterval(id);
+  }, []);
+  if (!timeLeft) return null;
+  return (
+    <div className="flex items-center gap-1.5 text-[9px] font-mono text-brand-offwhite/40 bg-white/5 border border-white/5 rounded-full px-2 py-0.5">
+      <Timer size={10} className="text-brand-cosmic" />
+      <span>Reinicio en {timeLeft}</span>
+    </div>
+  );
+}
 
 export function ClasificacionClient() {
   const { user, signInWithGoogle, loading: authLoading } = useAuth();
@@ -27,14 +54,14 @@ export function ClasificacionClient() {
   const [aliasDraft, setAliasDraft] = useState('');
   const [aliasSaved, setAliasSaved] = useState(false);
 
-  // Entrada del usuario construida desde el progreso local (siempre disponible,
-  // aunque Firestore no permita leer la colección todavía).
+  const myLevel = deriveLevel(progress.xp || 0);
+
   const buildLocalMe = (): LeaderboardEntry => ({
     uid: user?.uid || 'local',
     name: (progress.alias && progress.alias.trim()) || progress.displayName || user?.displayName || (user?.email ? user.email.split('@')[0] : '') || 'Sabio Anónimo',
     photoURL: progress.photoURL || user?.photoURL || '',
     avatarId: progress.selectedAvatarId || 'novice',
-    level: deriveLevel(progress.xp || 0),
+    level: myLevel,
     xp: progress.xp || 0,
     weeklyXp: progress.weeklyXp || 0,
     achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
@@ -42,36 +69,37 @@ export function ClasificacionClient() {
     dailyStreak: progress.dailyStreak || 0,
   });
 
-  // Sincronizar el borrador con el alias guardado
-  useEffect(() => {
-    setAliasDraft(progress.alias || '');
-  }, [progress.alias]);
+  const myLeague: League = useMemo(() =>
+    currentUserRank ? getLeague(currentUserRank) : LEAGUES.bronze,
+    [currentUserRank]
+  );
+
+  const nextLeague = useMemo(() => {
+    for (const t of LEAGUE_THRESHOLDS) {
+      if (currentUserRank && currentUserRank > t.rank) break;
+      if (myLeague.id === LEAGUES.bronze.id) return null;
+      return t;
+    }
+    return null;
+  }, [currentUserRank, myLeague]);
+
+  useEffect(() => { setAliasDraft(progress.alias || ''); }, [progress.alias]);
 
   const load = useCallback(async (currentScope: LeaderboardScope) => {
     setIsLoading(true);
     try {
-      const result = await getLeaderboard(currentScope, {
-        max: 100,
-        currentUserId: user?.uid,
-      });
-      // Mi entrada SIEMPRE se construye desde la sesión local (nombre real,
-      // avatar, XP actual). Reemplaza cualquier fila con mi uid que venga de
-      // Firestore con nombre vacío (Sabio Anónimo).
+      const result = await getLeaderboard(currentScope, { max: 100, currentUserId: user?.uid });
       const me = buildLocalMe();
       const withoutMe = result.entries.filter(e => e.uid !== me.uid);
       const merged = me.uid !== 'local' ? [...withoutMe, me] : withoutMe;
-      // ORDENAR por el scope activo (desc): la tabla muestra posiciones según
-      // el índice del array, así que la lista debe llegar ya ordenada.
       const sorted = [...merged].sort((a, b) =>
         currentScope === 'weekly' ? b.weeklyXp - a.weeklyXp : b.xp - a.xp
       );
       setEntries(sorted);
       setTotalUsers(Math.max(result.totalUsers, withoutMe.length + (me.uid !== 'local' ? 1 : 0)));
-
       const myIdx = sorted.findIndex(e => e.uid === me.uid);
       setCurrentUserRank(myIdx >= 0 ? myIdx + 1 : result.currentUserRank);
-    } catch (e) {
-      console.warn('Leaderboard: error cargando clasificación', e);
+    } catch {
       setEntries([buildLocalMe()]);
       setCurrentUserRank(1);
       setTotalUsers(1);
@@ -81,47 +109,27 @@ export function ClasificacionClient() {
   }, [user?.uid, progress]);
 
   useEffect(() => {
-    if (user) {
-      load(scope);
-    } else {
-      setEntries([]);
-      setIsLoading(false);
-    }
+    if (user) { load(scope); } else { setEntries([]); setIsLoading(false); }
   }, [user, scope, load]);
 
+  // ─── Ranking notifications ───
   useEffect(() => {
     if (!user || currentUserRank === null) return;
-
     const storageKey = `aeterna_rank_${scope}`;
     const prevRankStr = localStorage.getItem(storageKey);
     const prevRank = prevRankStr ? parseInt(prevRankStr, 10) : null;
-
     if (prevRank !== null && !isNaN(prevRank)) {
       if (currentUserRank < prevRank) {
         const diff = prevRank - currentUserRank;
-        addNotification(
-          'rank_up',
-          '¡Has subido en el ranking!',
-          `Has subido ${diff} ${diff === 1 ? 'posición' : 'posiciones'} en el ranking ${scope === 'weekly' ? 'semanal' : 'global'}. Ahora estás en el puesto #${currentUserRank}.`
-        );
+        addNotification('rank_up', '¡Has subido en el ranking!', `Has subido ${diff} ${diff === 1 ? 'posición' : 'posiciones'} en el ranking ${scope === 'weekly' ? 'semanal' : 'global'}. Ahora estás en el puesto #${currentUserRank}.`);
       } else if (currentUserRank > prevRank) {
         const diff = currentUserRank - prevRank;
-        addNotification(
-          'overtaken',
-          'Has bajado en el ranking',
-          `Has bajado ${diff} ${diff === 1 ? 'posición' : 'posiciones'} en el ranking ${scope === 'weekly' ? 'semanal' : 'global'}. Ahora estás en el puesto #${currentUserRank}. ¡Sigue aprendiendo!`
-        );
+        addNotification('overtaken', 'Has bajado en el ranking', `Has bajado ${diff} ${diff === 1 ? 'posición' : 'posiciones'} en el ranking ${scope === 'weekly' ? 'semanal' : 'global'}. Ahora estás en el puesto #${currentUserRank}. ¡Sigue aprendiendo!`);
       }
-
       if (currentUserRank <= 10 && prevRank > 10) {
-        addNotification(
-          'top10',
-          '¡Estás en el Top 10!',
-          `Has entrado en el top 10 del ranking ${scope === 'weekly' ? 'semanal' : 'global'}. ¡Eres uno de los sabios más destacados!`
-        );
+        addNotification('top10', '¡Estás en el Top 10!', `Has entrado en el top 10 del ranking ${scope === 'weekly' ? 'semanal' : 'global'}. ¡Eres uno de los sabios más destacados!`);
       }
     }
-
     localStorage.setItem(storageKey, currentUserRank.toString());
   }, [user, currentUserRank, scope, addNotification]);
 
@@ -131,19 +139,14 @@ export function ClasificacionClient() {
     setAlias(clean);
     setAliasSaved(true);
     setTimeout(() => setAliasSaved(false), 2000);
-    // Recargar para ver el alias actualizado
     setTimeout(() => load(scope), 800);
   };
 
-  // Pantalla de login
   if (!user) {
     return (
       <div className="min-h-[70vh] bg-brand-ink flex items-center justify-center px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-md w-full bg-brand-ink border border-brand-gold/30 rounded-3xl p-8 text-center"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+          className="max-w-md w-full bg-brand-ink border border-brand-gold/30 rounded-3xl p-8 text-center">
           <div className="w-16 h-16 mx-auto rounded-2xl border border-brand-gold/40 bg-brand-gold/10 flex items-center justify-center mb-4">
             <Trophy size={28} className="text-brand-gold" />
           </div>
@@ -151,11 +154,8 @@ export function ClasificacionClient() {
           <p className="text-sm text-brand-offwhite/60 mb-6 font-serif">
             Inicia sesión para competir con otros sabios y ver tu posición en el ranking global y semanal.
           </p>
-          <button
-            onClick={signInWithGoogle}
-            disabled={authLoading}
-            className="w-full py-3 rounded-xl border border-brand-gold/40 text-brand-gold font-mono font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-ink transition-all disabled:opacity-50"
-          >
+          <button onClick={signInWithGoogle} disabled={authLoading}
+            className="w-full py-3 rounded-xl border border-brand-gold/40 text-brand-gold font-mono font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-ink transition-all disabled:opacity-50">
             {authLoading ? 'Cargando…' : 'Iniciar sesión con Google'}
           </button>
         </motion.div>
@@ -164,121 +164,176 @@ export function ClasificacionClient() {
   }
 
   return (
-    <div className="min-h-screen bg-brand-ink px-4 py-10">
-      <div className="max-w-3xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
-        >
-          <div className="flex items-center gap-3 mb-2">
-            <Trophy size={24} className="text-brand-gold" />
-            <h1 className="font-serif text-3xl text-brand-offwhite">Cuadro de Clasificación</h1>
-          </div>
-          <p className="text-sm text-brand-offwhite/60 font-serif">
-            Compite contra {totalUsers > 0 ? totalUsers : 'todos los'} sabios de Aeterna por el trono del conocimiento.
-          </p>
-        </motion.div>
+    <div className="min-h-screen bg-brand-ink">
+      {/* ─── HERO HEADER ─── */}
+      <div className="relative overflow-hidden border-b border-brand-gold/10">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-gold/5 via-transparent to-transparent" />
+        <div className="max-w-4xl mx-auto px-4 py-12 relative z-10">
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center">
+            <h1 className="font-serif text-4xl md:text-5xl text-brand-offwhite font-bold mb-2 tracking-tight">
+              Cuadro de <span className="text-brand-gold italic">Clasificación</span>
+            </h1>
+            <p className="text-sm text-brand-offwhite/50 font-serif mb-6">
+              {totalUsers > 0 ? `${totalUsers} sabios compitiendo` : 'Compite con todos los sabios'} por el trono del conocimiento
+            </p>
 
-        {/* Alias */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 }}
-          className="mb-6 bg-brand-ink border border-brand-gold/20 rounded-2xl p-4"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            <div className="flex-1">
-              <label className="text-[10px] font-mono uppercase tracking-wider text-brand-gold/60 mb-1 block">
-                Tu alias en el ranking
-              </label>
-              <input
-                value={aliasDraft}
-                onChange={(e) => { setAliasDraft(e.target.value); setAliasSaved(false); }}
-                onKeyDown={(e) => { if (e.key === 'Enter') handleSaveAlias(); }}
-                maxLength={20}
-                placeholder={user.displayName || 'Escribe tu alias'}
-                className="w-full bg-white/5 border border-brand-gold/20 rounded-lg px-3 py-2 text-sm text-brand-offwhite placeholder:text-brand-offwhite/30 focus:border-brand-gold focus:outline-none"
-              />
-            </div>
-            <button
-              onClick={handleSaveAlias}
-              disabled={aliasDraft.trim().length < 3}
-              className={cn(
-                "px-4 py-2 rounded-lg border font-mono text-xs font-bold uppercase tracking-wider transition-all shrink-0",
-                aliasDraft.trim().length >= 3
-                  ? "border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-ink"
-                  : "border-white/10 text-brand-offwhite/30 cursor-not-allowed"
-              )}
-            >
-              {aliasSaved ? 'Guardado ✓' : 'Guardar alias'}
-            </button>
-          </div>
-          <p className="text-[10px] text-brand-offwhite/40 mt-2 font-mono">
-            Mínimo 3 caracteres. Si no defines alias, se mostrará tu nombre de Google.
-          </p>
-        </motion.div>
-
-        {/* Tabs */}
-        <div className="flex items-center gap-2 mb-6">
-          {TABS.map(tab => {
-            const Icon = tab.icon;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setScope(tab.id)}
+            {/* League badge */}
+            {currentUserRank && (
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2, type: 'spring', stiffness: 120 }}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-xl border text-xs font-mono font-bold uppercase tracking-wider transition-all",
-                  scope === tab.id
-                    ? "bg-brand-gold text-brand-ink border-brand-gold"
-                    : "bg-white/5 text-brand-offwhite/70 border-white/10 hover:text-brand-gold"
+                  "inline-flex items-center gap-2 px-5 py-2 rounded-full border-2 mb-6",
+                  myLeague.border, myLeague.bg, myLeague.glow
                 )}
               >
+                <span className="text-lg">{myLeague.emoji}</span>
+                <div className="text-left">
+                  <div className={cn("text-[9px] font-mono uppercase tracking-wider opacity-70", myLeague.text)}>
+                    Liga
+                  </div>
+                  <div className={cn("text-sm font-serif font-bold", myLeague.text)}>
+                    {myLeague.name}
+                  </div>
+                </div>
+                <div className={cn("w-px h-8 ml-1 mr-1", myLeague.border)} style={{ borderWidth: 1, borderStyle: 'solid' }} />
+                <div className="text-right">
+                  <div className="text-[9px] font-mono uppercase tracking-wider text-brand-offwhite/40">Puesto</div>
+                  <div className="font-mono font-black text-brand-gold text-lg">#{currentUserRank}</div>
+                </div>
+              </motion.div>
+            )}
+
+            {/* Next league progress */}
+            {currentUserRank && nextLeague && (
+              <div className="max-w-xs mx-auto mb-4">
+                <div className="flex items-center justify-between text-[9px] font-mono text-brand-offwhite/40 mb-1">
+                  <span>{myLeague.emoji} {myLeague.name}</span>
+                  <span>{nextLeague.emoji} {nextLeague.name}</span>
+                </div>
+                <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${Math.min(100, ((nextLeague.rank - (currentUserRank || 999)) / nextLeague.rank) * 100)}%` }}
+                    transition={{ duration: 1, ease: 'easeOut' }}
+                    className="h-full rounded-full bg-gradient-to-r from-brand-gold to-brand-cosmic"
+                  />
+                </div>
+                <p className="text-[8px] font-mono text-brand-offwhite/30 mt-1 text-center">
+                  Faltan {nextLeague.rank - (currentUserRank || 999)} puestos para {nextLeague.name}
+                </p>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        {/* ─── TABS + CONTROLS ─── */}
+        <div className="flex items-center gap-2 mb-6 flex-wrap">
+          {TABS.map(tab => {
+            const Icon = tab.icon;
+            const active = scope === tab.id;
+            return (
+              <button key={tab.id} onClick={() => setScope(tab.id)} className={cn(
+                "flex items-center gap-2 px-4 py-2 rounded-xl border text-xs font-mono font-bold uppercase tracking-wider transition-all",
+                active
+                  ? `${tab.id === 'global' ? 'bg-brand-gold text-brand-ink border-brand-gold' : 'bg-brand-cosmic text-brand-ink border-brand-cosmic'}`
+                  : 'bg-white/5 text-brand-offwhite/70 border-white/10 hover:text-brand-gold'
+              )}>
                 <Icon size={14} />
                 {tab.label}
               </button>
             );
           })}
-          <button
-            onClick={() => load(scope)}
-            className="ml-auto p-2 rounded-lg border border-white/10 text-brand-offwhite/50 hover:text-brand-gold transition-all"
-            title="Actualizar"
-          >
-            <RefreshCw size={14} className={isLoading ? "animate-spin" : ""} />
+          {scope === 'weekly' && <WeeklyCountdown />}
+          <button onClick={() => load(scope)}
+            className="ml-auto p-2 rounded-lg border border-white/10 text-brand-offwhite/50 hover:text-brand-gold transition-all" title="Actualizar">
+            <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
           </button>
         </div>
 
-        {/* Posición actual del usuario */}
+        {/* ─── MY STATS CARD ─── */}
         {currentUserRank !== null && (
-          <div className="mb-6 flex items-center gap-3 bg-brand-gold/5 border border-brand-gold/25 rounded-2xl px-4 py-3">
-            <Users size={16} className="text-brand-gold" />
-            <p className="text-sm font-serif text-brand-offwhite">
-              Tu posición: <span className="font-bold text-brand-gold">#{currentUserRank}</span> en el ranking {scope === 'global' ? 'global' : 'semanal'}
-            </p>
-            <div className="ml-auto">
-              <ShareRankCard
-                name={(progress.alias && progress.alias.trim()) || progress.displayName || user?.displayName || (user?.email ? user.email.split('@')[0] : '') || 'Sabio Anónimo'}
-                photoURL={progress.photoURL || user?.photoURL || ''}
-                avatarId={progress.selectedAvatarId || 'novice'}
-                rank={currentUserRank}
-                xp={progress.xp || 0}
-                weeklyXp={progress.weeklyXp || 0}
-                level={deriveLevel(progress.xp || 0)}
-                scope={scope}
-                achievementsCount={Array.isArray(progress.achievements) ? progress.achievements.length : 0}
-                relicsCount={Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0}
-                dailyStreak={progress.dailyStreak || 0}
-              />
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
+            <div className={cn(
+              "rounded-2xl border-2 p-4 flex flex-col sm:flex-row sm:items-center gap-4",
+              myLeague.border, myLeague.bg
+            )}>
+              <div className="flex items-center gap-3 flex-1 min-w-0">
+                <div className={cn("shrink-0 w-12 h-12 rounded-full border-2 overflow-hidden flex items-center justify-center", myLeague.border, myLeague.glow)}>
+                  {user?.photoURL ? (
+                    <img src={user.photoURL} alt="" className="w-full h-full object-cover" />
+                  ) : (
+                    <User size={20} className={myLeague.icon} />
+                  )}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-serif font-bold text-brand-offwhite truncate">
+                      {buildLocalMe().name}
+                    </span>
+                    <span className={cn("text-[8px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded-full border", myLeague.border, myLeague.text)}>
+                      {myLeague.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-0.5 text-[10px] font-mono">
+                    <span className="text-brand-gold font-bold">#{currentUserRank}</span>
+                    <span className="text-brand-offwhite/30">·</span>
+                    <span className="text-brand-offwhite/50">Nv.{myLevel}</span>
+                    <span className="text-brand-offwhite/30">·</span>
+                    <span className="text-brand-offwhite/50">{formatXP(progress.xp)} XP</span>
+                    {progress.dailyStreak > 0 && (
+                      <>
+                        <span className="text-brand-offwhite/30">·</span>
+                        <span className="text-orange-400 flex items-center gap-0.5"><Flame size={10} />{progress.dailyStreak}</span>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <ShareRankCard
+                  name={buildLocalMe().name}
+                  photoURL={progress.photoURL || user?.photoURL || ''}
+                  avatarId={progress.selectedAvatarId || 'novice'}
+                  rank={currentUserRank}
+                  xp={progress.xp || 0}
+                  weeklyXp={progress.weeklyXp || 0}
+                  level={myLevel}
+                  scope={scope}
+                  achievementsCount={Array.isArray(progress.achievements) ? progress.achievements.length : 0}
+                  relicsCount={Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0}
+                  dailyStreak={progress.dailyStreak || 0}
+                />
+              </div>
             </div>
-          </div>
+
+            {/* Alias */}
+            <div className="mt-3 bg-white/[0.02] border border-white/5 rounded-xl p-3 flex flex-col sm:flex-row sm:items-center gap-2">
+              <div className="flex-1">
+                <label className="text-[9px] font-mono uppercase tracking-wider text-brand-offwhite/40 mb-1 block">Tu alias</label>
+                <input
+                  value={aliasDraft}
+                  onChange={(e) => { setAliasDraft(e.target.value); setAliasSaved(false); }}
+                  onKeyDown={(e) => { if (e.key === 'Enter') handleSaveAlias(); }}
+                  maxLength={20}
+                  placeholder={user.displayName || 'Escribe tu alias'}
+                  className="w-full bg-transparent text-sm text-brand-offwhite placeholder:text-brand-offwhite/30 focus:outline-none"
+                />
+              </div>
+              <button onClick={handleSaveAlias} disabled={aliasDraft.trim().length < 3}
+                className={cn("px-3 py-1.5 rounded-lg border text-[10px] font-mono font-bold uppercase tracking-wider transition-all shrink-0",
+                  aliasDraft.trim().length >= 3 ? "border-brand-gold/40 text-brand-gold hover:bg-brand-gold hover:text-brand-ink" : "border-white/10 text-brand-offwhite/30 cursor-not-allowed")}>
+                {aliasSaved ? '✓ Guardado' : 'Guardar'}
+              </button>
+            </div>
+          </motion.div>
         )}
 
-        <LeaderboardTable
-          entries={entries}
-          currentUserId={user.uid}
-          isLoading={isLoading}
-          scope={scope}
-        />
+        {/* ─── LEADERBOARD ─── */}
+        <LeaderboardTable entries={entries} currentUserId={user.uid} isLoading={isLoading} scope={scope} />
       </div>
     </div>
   );
