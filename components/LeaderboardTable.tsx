@@ -1,11 +1,11 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'motion/react';
-import { Trophy, Medal, Crown, Flame, Award, User, Sparkles } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Medal, Crown, Flame, Award, User, Sparkles } from 'lucide-react';
 import { AVATARS } from '@/context/GamificationContext';
 import type { LeaderboardEntry } from '@/lib/leaderboard';
-import { formatXP, calculateProgressToNextLevel } from '@/context/GamificationContext';
+import { formatXP } from '@/context/GamificationContext';
 import { cn } from '@/lib/utils';
 
 interface LeaderboardTableProps {
@@ -20,40 +20,84 @@ function getAvatarImage(avatarId: string): string {
   return av?.image || '';
 }
 
-function AvatarDisplay({ entry, size = 40 }: { entry: LeaderboardEntry; size?: number }) {
+// Anillos de color según la medalla (oro/plata/bronce)
+const podiumMeta = [
+  {
+    place: 1,
+    ring: 'border-amber-300/80',
+    glow: 'shadow-[0_0_24px_rgba(251,191,36,0.25)]',
+    badge: 'bg-amber-300 text-amber-950',
+    label: 'Oro',
+    scale: 'md:scale-105',
+    icon: Crown,
+  },
+  {
+    place: 2,
+    ring: 'border-slate-300/70',
+    glow: 'shadow-[0_0_16px_rgba(203,213,225,0.15)]',
+    badge: 'bg-slate-300 text-slate-900',
+    label: 'Plata',
+    scale: '',
+    icon: Medal,
+  },
+  {
+    place: 3,
+    ring: 'border-orange-400/60',
+    glow: 'shadow-[0_0_16px_rgba(251,146,60,0.15)]',
+    badge: 'bg-orange-400 text-orange-950',
+    label: 'Bronce',
+    scale: '',
+    icon: Medal,
+  },
+];
+
+function PodiumAvatar({ entry, meta }: { entry: LeaderboardEntry; meta: typeof podiumMeta[number] }) {
+  const avatarImg = getAvatarImage(entry.avatarId);
+  const Icon = meta.icon;
+  return (
+    <div className={cn("relative rounded-full p-1.5 border-2 bg-brand-ink", meta.ring, meta.glow)}>
+      <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden flex items-center justify-center bg-brand-gold/10">
+        {avatarImg ? (
+          <Image src={avatarImg} alt={entry.name} width={80} height={80} className="object-cover w-full h-full" />
+        ) : (
+          <User size={32} className="text-brand-gold" />
+        )}
+      </div>
+      <div className={cn("absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center border-2 border-brand-ink", meta.badge)}>
+        <Icon size={12} />
+      </div>
+    </div>
+  );
+}
+
+function RowAvatar({ entry, place }: { entry: LeaderboardEntry; place: number }) {
   const avatarImg = getAvatarImage(entry.avatarId);
   return (
-    <div
-      className="relative shrink-0 rounded-full border border-brand-gold/30 bg-brand-gold/10 overflow-hidden flex items-center justify-center"
-      style={{ width: size, height: size }}
-    >
+    <div className={cn(
+      "relative shrink-0 w-8 h-8 rounded-full border overflow-hidden flex items-center justify-center bg-brand-gold/10",
+      place === 1 ? "border-amber-300/80" :
+      place === 2 ? "border-slate-300/70" :
+      place === 3 ? "border-orange-400/60" :
+      "border-brand-gold/25"
+    )}>
       {avatarImg ? (
-        <Image src={avatarImg} alt={entry.name} width={size} height={size} className="object-cover" />
+        <Image src={avatarImg} alt={entry.name} width={32} height={32} className="object-cover w-full h-full" />
       ) : (
-        <User size={size * 0.5} className="text-brand-gold" />
+        <User size={14} className="text-brand-gold" />
       )}
     </div>
   );
 }
 
-const podiumMedals = [
-  { place: 1, color: 'from-amber-300/30 to-amber-600/20 border-amber-400/60', text: 'text-amber-300', label: 'Oro', icon: Crown, order: 'order-2 md:order-2', size: 'md:h-64', offset: 'md:-mt-4' },
-  { place: 2, color: 'from-slate-300/30 to-slate-500/20 border-slate-300/60', text: 'text-slate-200', label: 'Plata', icon: Medal, order: 'order-1 md:order-1', size: 'md:h-56', offset: '' },
-  { place: 3, color: 'from-orange-300/30 to-orange-700/20 border-orange-400/60', text: 'text-orange-300', label: 'Bronce', icon: Medal, order: 'order-3 md:order-3', size: 'md:h-56', offset: '' },
-];
-
 export function LeaderboardTable({ entries, currentUserId, isLoading = false, scope }: LeaderboardTableProps) {
   const top3 = entries.slice(0, 3);
   const rest = entries.slice(3);
-  const userEntry = currentUserId
-    ? entries.find(e => e.uid === currentUserId)
-    : undefined;
 
   if (isLoading) {
     return (
       <div className="space-y-3 animate-pulse">
         {[...Array(8)].map((_, i) => (
-          <div key={i} className="h-14 rounded-xl bg-white/5 border border-white/5" />
+          <div key={i} className="h-12 rounded-xl bg-white/5 border border-white/5" />
         ))}
       </div>
     );
@@ -72,114 +116,61 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
 
   return (
     <div>
-      {/* BANNER DEL LÍDER */}
+      {/* BANNER DEL LÍDER — sutil, tipográfico */}
       {leader && (
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative overflow-hidden mb-8 rounded-2xl border border-brand-gold/40 bg-gradient-to-r from-brand-gold/10 via-brand-gold/5 to-transparent p-4 flex items-center gap-4"
+          className="mb-6 flex items-center gap-3 px-4 py-3 rounded-xl border border-brand-gold/25 bg-brand-gold/5"
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(212,175,55,0.15),transparent_60%)]" />
-          <motion.div
-            animate={{ rotate: [0, 12, 0, -12, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-            className="relative shrink-0"
-          >
-            <Crown size={28} className="text-brand-gold drop-shadow-[0_0_12px_rgba(212,175,55,0.6)]" />
-          </motion.div>
-          <div className="relative min-w-0">
-            <div className="text-[9px] font-mono uppercase tracking-[0.3em] text-brand-gold/70 mb-0.5">
-              {scope === 'weekly' ? 'Líder de la semana' : 'Sabio Supremo'}
-            </div>
-            <div className="font-serif text-xl font-bold text-brand-offwhite truncate leading-tight">
-              {leader.name}
-            </div>
-            <div className="text-[11px] font-mono text-brand-offwhite/50">
-              Nivel {leader.level} · {formatXP(leader[xpKey])} XP
-            </div>
+          <span className="text-brand-gold"><Crown size={16} /></span>
+          <div className="min-w-0">
+            <span className="text-[9px] font-mono uppercase tracking-[0.25em] text-brand-gold/60 mr-2">
+              {scope === 'weekly' ? 'Líder de la semana' : 'Sabio supremo'}
+            </span>
+            <span className="text-sm font-serif font-bold text-brand-offwhite">{leader.name}</span>
           </div>
-          <div className="relative ml-auto hidden sm:block">
-            <div className="text-right">
-              <div className="text-[9px] font-mono uppercase tracking-wider text-brand-gold/60">Distancia</div>
-              {entries[1] ? (
-                <div className="font-mono text-xs text-brand-offwhite/70">
-                  +{formatXP(leader[xpKey] - entries[1][xpKey])} XP sobre el 2º
-                </div>
-              ) : (
-                <div className="font-mono text-xs text-brand-offwhite/70">Único sabio</div>
-              )}
-            </div>
+          <div className="ml-auto shrink-0 text-right">
+            <div className="font-mono text-xs text-brand-gold">{formatXP(leader[xpKey])} XP</div>
+            <div className="text-[9px] font-mono text-brand-offwhite/40">Nivel {leader.level}</div>
           </div>
         </motion.div>
       )}
 
-      {/* PODIO */}
-      <div className="flex flex-col md:flex-row items-end justify-center gap-4 md:gap-8 mb-10">
+      {/* PODIO — limpio, sin gradientes ni alturas forzadas */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8 mb-10">
         {top3.map((entry) => {
-          const meta = podiumMedals.find(m => m.place === top3.indexOf(entry) + 1)!;
-          const Icon = meta.icon;
+          const meta = podiumMeta.find(m => m.place === top3.indexOf(entry) + 1)!;
           const isMe = entry.uid === currentUserId;
           return (
             <motion.div
               key={entry.uid}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: top3.indexOf(entry) * 0.12, type: 'spring', stiffness: 120, damping: 18 }}
-              className={cn(
-                "flex flex-col items-center text-center w-28 md:w-36 rounded-t-3xl rounded-b-2xl border bg-gradient-to-b px-4 pt-4 pb-6 relative",
-                meta.color,
-                meta.size,
-                meta.order,
-                meta.offset
-              )}
+              transition={{ delay: top3.indexOf(entry) * 0.1, type: 'spring', stiffness: 140, damping: 20 }}
+              className={cn("flex flex-col items-center text-center px-4 py-4 w-32", meta.scale)}
             >
-              <div className={cn("flex items-center gap-1 mb-1", meta.text)}>
-                <Icon size={18} />
-                <span className="text-xs font-mono font-bold uppercase tracking-wider">{meta.label}</span>
+              <PodiumAvatar entry={entry} meta={meta} />
+              <div className="mt-3 flex items-center gap-1.5">
+                <span className="text-xs font-black font-serif text-brand-offwhite">{meta.place}</span>
+                <span className={cn("text-[9px] font-mono uppercase tracking-wider", meta.ring.includes('amber') ? 'text-amber-300' : meta.ring.includes('slate') ? 'text-slate-300' : 'text-orange-400')}>
+                  {meta.label}
+                </span>
               </div>
-              <div className="text-3xl font-black font-serif text-brand-offwhite mb-2">{meta.place}</div>
-              <AvatarDisplay entry={entry} size={64} />
-              <div className={cn("mt-2 text-sm font-bold font-serif leading-tight", isMe ? "text-brand-gold" : "text-brand-offwhite")}>
+              <div className={cn("mt-1 text-sm font-serif font-bold leading-tight max-w-[120px] truncate", isMe ? "text-brand-gold" : "text-brand-offwhite")}>
                 {entry.name}
               </div>
-              <div className="text-[10px] font-mono text-brand-offwhite/50 mt-1">
-                Nivel {entry.level} · {formatXP(entry[xpKey])} XP
-              </div>
-              {/* Barra de progreso hacia el siguiente nivel */}
-              {(() => {
-                const p = calculateProgressToNextLevel(entry[xpKey]);
-                const pct = p.xpForNextLevel > 0 ? Math.min(100, Math.round((p.currentLevelXp / p.xpForNextLevel) * 100)) : 0;
-                return (
-                  <div className="w-full mt-2">
-                    <div className="h-1 rounded-full bg-black/30 overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-brand-gold/60 to-brand-gold"
-                        style={{ width: `${pct}%` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })()}
-              {/* Stat chips: logros, reliquias y racha */}
-              <div className="flex items-center gap-1.5 mt-2">
-                <span className="inline-flex items-center gap-1 rounded-full bg-black/20 border border-white/10 px-1.5 py-0.5 text-[8px] font-mono text-brand-offwhite/60">
-                  <Award size={9} className="text-brand-gold" />
-                  {entry.achievementsCount}
-                </span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-black/20 border border-white/10 px-1.5 py-0.5 text-[8px] font-mono text-brand-offwhite/60">
-                  <Sparkles size={9} className="text-brand-gold" />
-                  {entry.relicsCount}
-                </span>
-                <span className="inline-flex items-center gap-1 rounded-full bg-black/20 border border-white/10 px-1.5 py-0.5 text-[8px] font-mono text-brand-offwhite/60">
-                  <Flame size={9} className="text-orange-400" />
-                  {entry.dailyStreak}
-                </span>
-              </div>
               {isMe && (
-                <div className="mt-2 text-[9px] font-mono font-bold text-brand-gold uppercase tracking-wider bg-brand-gold/10 border border-brand-gold/30 rounded-full px-2 py-0.5">
-                  Tú
-                </div>
+                <span className="mt-0.5 text-[8px] font-mono text-brand-gold/70 uppercase tracking-widest">Tú</span>
               )}
+              <div className="text-[10px] font-mono text-brand-offwhite/40 mt-0.5">
+                {formatXP(entry[xpKey])} XP
+              </div>
+              <div className="flex items-center gap-2 mt-2 text-brand-offwhite/40">
+                <span className="inline-flex items-center gap-0.5 text-[9px] font-mono"><Award size={9} className="text-brand-gold/60" />{entry.achievementsCount}</span>
+                <span className="inline-flex items-center gap-0.5 text-[9px] font-mono"><Sparkles size={9} className="text-brand-gold/60" />{entry.relicsCount}</span>
+                <span className="inline-flex items-center gap-0.5 text-[9px] font-mono"><Flame size={9} className="text-orange-400/70" />{entry.dailyStreak}</span>
+              </div>
             </motion.div>
           );
         })}
@@ -202,29 +193,21 @@ export function LeaderboardTable({ entries, currentUserId, isLoading = false, sc
             {rest.map((entry, idx) => {
               const place = idx + 4;
               const isMe = entry.uid === currentUserId;
-              const topMedal = place <= 3 ? podiumMedals[place - 1] : null;
               return (
                 <motion.tr
                   key={entry.uid}
-                  initial={{ opacity: 0, x: -10 }}
+                  initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.03, duration: 0.3 }}
+                  transition={{ delay: idx * 0.03, duration: 0.25 }}
                   className={cn(
                     "border-b border-white/5 transition-colors",
                     isMe ? "bg-brand-gold/10 border-brand-gold/30" : "hover:bg-white/5"
                   )}
                 >
-                  <td className="py-2.5 px-3">
-                    <span className="flex items-center gap-1.5">
-                      {topMedal && (
-                        <Medal size={13} className={cn(topMedal.text, "shrink-0")} />
-                      )}
-                      <span className="font-mono text-xs text-brand-offwhite/50">{place}</span>
-                    </span>
-                  </td>
+                  <td className="py-2.5 px-3 font-mono text-xs text-brand-offwhite/50">{place}</td>
                   <td className="py-2.5 px-3">
                     <div className="flex items-center gap-2.5">
-                      <AvatarDisplay entry={entry} size={28} />
+                      <RowAvatar entry={entry} place={place} />
                       <div className="min-w-0">
                         <div className={cn("text-xs font-serif font-bold truncate max-w-[160px]", isMe ? "text-brand-gold" : "text-brand-offwhite")}>
                           {entry.name}

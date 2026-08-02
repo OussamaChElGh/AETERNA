@@ -31,7 +31,13 @@ function Row({ entry, place, isMe }: { entry: LeaderboardEntry; place: number; i
       )}
     >
       <span className="w-6 text-right font-mono text-[10px] text-brand-offwhite/50">{place}</span>
-      <div className="relative shrink-0 w-7 h-7 rounded-full border border-brand-gold/30 bg-brand-gold/10 overflow-hidden flex items-center justify-center">
+      <div className={cn(
+        "relative shrink-0 w-7 h-7 rounded-full border overflow-hidden flex items-center justify-center bg-brand-gold/10",
+        place === 1 ? "border-amber-300/80" :
+        place === 2 ? "border-slate-300/70" :
+        place === 3 ? "border-orange-400/60" :
+        "border-brand-gold/25"
+      )}>
         {avatarImg ? (
           <Image src={avatarImg} alt={entry.name} width={28} height={28} className="object-cover" />
         ) : (
