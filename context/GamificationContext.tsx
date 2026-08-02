@@ -355,7 +355,9 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
             try {
               await setDoc(doc(db, "aeternaProgressV3", user.uid), { ...enriched, ownerId: user.uid }, { merge: true });
             } catch (e) {
-              handleFirestoreError(e, OperationType.WRITE, `aeternaProgressV3/${user.uid}`);
+              // Best-effort: si falla la escritura del nombre, no bloquear el
+              // progreso del usuario; se reintentará en el próximo login.
+              console.warn('Gamification: no se pudo enriquecer displayName/photoURL', e);
             }
           }
         } else {
@@ -369,7 +371,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
               { merge: true }
             );
           } catch (e) {
-            handleFirestoreError(e, OperationType.WRITE, `aeternaProgressV3/${user.uid}`);
+            // Best-effort: si falla, el progreso se guardará en el siguiente cambio
+            console.warn('Gamification: no se pudo crear el documento inicial', e);
           }
         }
         syncedFirebase.current = true;
