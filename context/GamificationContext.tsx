@@ -358,6 +358,19 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
               handleFirestoreError(e, OperationType.WRITE, `aeternaProgressV3/${user.uid}`);
             }
           }
+        } else {
+          // No existe documento en Firestore aún: crear uno con el progreso
+          // local + datos de la sesión, para que el usuario aparezca en el
+          // cuadro de clasificación aunque nunca haya cambiado el progreso.
+          try {
+            await setDoc(
+              doc(db, "aeternaProgressV3", user.uid),
+              { ...progress, displayName: user.displayName || '', photoURL: user.photoURL || '', ownerId: user.uid },
+              { merge: true }
+            );
+          } catch (e) {
+            handleFirestoreError(e, OperationType.WRITE, `aeternaProgressV3/${user.uid}`);
+          }
         }
         syncedFirebase.current = true;
       } catch (error) {

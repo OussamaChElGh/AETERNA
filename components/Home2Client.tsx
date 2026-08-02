@@ -203,11 +203,43 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
     setMiniLoading(true);
     getLeaderboard('global', { max: 5, currentUserId: authUser.uid }).then(res => {
       if (cancelled) return;
-      setMiniRanking({ entries: res.entries, myRank: res.currentUserRank });
+      const me: LeaderboardEntry = {
+        uid: authUser.uid,
+        name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || 'Sabio Anónimo',
+        photoURL: progress.photoURL || authUser.photoURL || '',
+        avatarId: progress.selectedAvatarId || 'novice',
+        level: progress.level || 1,
+        xp: progress.xp || 0,
+        weeklyXp: progress.weeklyXp || 0,
+        achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
+        relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
+        dailyStreak: progress.dailyStreak || 0,
+      };
+      const isMeInList = res.entries.some(e => e.uid === me.uid);
+      const entries = isMeInList ? res.entries : [...res.entries, me];
+      setMiniRanking({ entries, myRank: isMeInList ? res.currentUserRank : res.entries.length + 1 });
       setMiniLoading(false);
-    }).catch(() => { if (!cancelled) setMiniLoading(false); });
+    }).catch(() => {
+      if (cancelled) return;
+      setMiniRanking({
+        entries: [{
+          uid: authUser.uid,
+          name: (progress.alias && progress.alias.trim()) || progress.displayName || authUser.displayName || 'Sabio Anónimo',
+          photoURL: progress.photoURL || authUser.photoURL || '',
+          avatarId: progress.selectedAvatarId || 'novice',
+          level: progress.level || 1,
+          xp: progress.xp || 0,
+          weeklyXp: progress.weeklyXp || 0,
+          achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
+          relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
+          dailyStreak: progress.dailyStreak || 0,
+        }],
+        myRank: 1,
+      });
+      setMiniLoading(false);
+    });
     return () => { cancelled = true; };
-  }, [authUser]);
+  }, [authUser, progress]);
 
   return (
     <div className="home-page-container bg-brand-ink min-h-screen relative selection:bg-brand-gold selection:text-brand-ink overflow-x-hidden">

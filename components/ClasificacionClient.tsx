@@ -24,6 +24,21 @@ export function ClasificacionClient() {
   const [aliasDraft, setAliasDraft] = useState('');
   const [aliasSaved, setAliasSaved] = useState(false);
 
+  // Entrada del usuario construida desde el progreso local (siempre disponible,
+  // aunque Firestore no permita leer la colección todavía).
+  const buildLocalMe = (): LeaderboardEntry => ({
+    uid: user?.uid || 'local',
+    name: (progress.alias && progress.alias.trim()) || progress.displayName || user?.displayName || 'Sabio Anónimo',
+    photoURL: progress.photoURL || user?.photoURL || '',
+    avatarId: progress.selectedAvatarId || 'novice',
+    level: progress.level || 1,
+    xp: progress.xp || 0,
+    weeklyXp: progress.weeklyXp || 0,
+    achievementsCount: Array.isArray(progress.achievements) ? progress.achievements.length : 0,
+    relicsCount: Array.isArray(progress.physicsRelics) ? progress.physicsRelics.length : 0,
+    dailyStreak: progress.dailyStreak || 0,
+  });
+
   // Sincronizar el borrador con el alias guardado
   useEffect(() => {
     setAliasDraft(progress.alias || '');
@@ -36,17 +51,32 @@ export function ClasificacionClient() {
         max: 100,
         currentUserId: user?.uid,
       });
-      setEntries(result.entries);
-      setTotalUsers(result.totalUsers);
-      setCurrentUserRank(result.currentUserRank);
+      // Fallback: si la colección no devuelve al usuario (reglas sin desplegar,
+      // colección vacía, etc.), inyectamos nuestra propia entrada local para que
+      // el jugador siempre se vea en el cuadro.
+      const me = buildLocalMe();
+      const isMeInList = result.entries.some(e => e.uid === me.uid);
+      if (me.uid !== 'local' && !isMeInList) {
+        const xpKey = currentScope === 'weekly' ? 'weeklyXp' : 'xp';
+        const myValue = currentScope === 'weekly' ? me.weeklyXp : me.xp;
+        const myRank = result.entries.filter(e => (currentScope === 'weekly' ? e.weeklyXp : e.xp) > myValue).length + 1;
+        setEntries([...result.entries, me]);
+        setCurrentUserRank(myRank);
+        setTotalUsers(Math.max(result.totalUsers, 1));
+      } else {
+        setEntries(result.entries);
+        setTotalUsers(result.totalUsers);
+        setCurrentUserRank(result.currentUserRank);
+      }
     } catch (e) {
       console.warn('Leaderboard: error cargando clasificación', e);
-      setEntries([]);
-      setCurrentUserRank(null);
+      setEntries([buildLocalMe()]);
+      setCurrentUserRank(1);
+      setTotalUsers(1);
     } finally {
       setIsLoading(false);
     }
-  }, [user?.uid]);
+  }, [user?.uid, progress]);
 
   useEffect(() => {
     if (user) {
