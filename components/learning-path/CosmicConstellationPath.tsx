@@ -204,7 +204,28 @@ export default function CosmicConstellationPath() {
                                     >
                                       {/* Specular highlight */}
                                       <div className="absolute top-2 left-2 w-3 h-3 rounded-full bg-white opacity-[0.06]" />
-                                      {emoji}
+                                      {/* Bottom shadow for sphere depth */}
+                                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-1/3 rounded-full opacity-30"
+                                        style={{ background: 'rgba(0,0,0,0.5)', filter: 'blur(4px)' }} />
+                                      {/* Emoji with 3D text effects */}
+                                      <span className="relative z-10"
+                                        style={{
+                                          textShadow: [
+                                            `0 4px 8px rgba(0,0,0,0.7)`,        // deep shadow
+                                            `0 2px 4px rgba(0,0,0,0.5)`,         // mid shadow  
+                                            `0 1px 2px rgba(0,0,0,0.3)`,         // tight shadow
+                                            `0 -1px 0 rgba(255,255,255,0.15)`,    // top highlight
+                                          ].join(', '),
+                                          filter: isLocked
+                                            ? 'grayscale(0.6) brightness(0.7)'
+                                            : node.done
+                                            ? `drop-shadow(0 0 6px ${GOLD}) drop-shadow(0 2px 4px rgba(0,0,0,0.6))`
+                                            : isActive
+                                            ? `drop-shadow(0 0 8px ${cfg.accent}) drop-shadow(0 2px 4px rgba(0,0,0,0.6))`
+                                            : `drop-shadow(0 2px 4px rgba(0,0,0,0.5))`,
+                                        }}>
+                                        {emoji}
+                                      </span>
                                       {/* Done check */}
                                       {node.done && (
                                         <div className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-bold shadow-md"
