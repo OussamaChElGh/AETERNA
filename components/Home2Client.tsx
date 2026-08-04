@@ -377,7 +377,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
                       <Hexagon size={200} className="text-brand-gold" />
                     </motion.div>
                     <h1 className="font-serif text-3xl md:text-5xl tracking-tight leading-none text-brand-offwhite mb-2">
-                      AE<span className="italic text-brand-gold">TER</span>NA
+                      AN<span className="italic text-brand-gold">EKT</span>IA
                     </h1>
                     <div className="flex items-center justify-center gap-2 text-[7px] md:text-[8px] font-bold uppercase tracking-[0.4em] text-brand-gold">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-ping" />
