@@ -61,7 +61,7 @@ export const ROOM_BLOCKED_TILES = new Set<string>([
   "4,1", "5,1",
 ]);
 
-export const AETERNA_ROOM_LAYOUT: RoomLayout = {
+export const ANEKTIA_ROOM_LAYOUT: RoomLayout = {
   gridSizeX: GRID_SIZE,
   gridSizeY: GRID_SIZE,
   floorMask: createDefaultFloorMask(),
@@ -71,8 +71,8 @@ export const AETERNA_ROOM_LAYOUT: RoomLayout = {
 
 export function isTileOnFloor(tileX: number, tileY: number): boolean {
   if (tileX < 0 || tileX >= GRID_SIZE || tileY < 0 || tileY >= GRID_SIZE) return false;
-  return AETERNA_ROOM_LAYOUT.floorMask[tileX][tileY] === true &&
-    !AETERNA_ROOM_LAYOUT.blockedTiles.has(`${tileX},${tileY}`);
+  return ANEKTIA_ROOM_LAYOUT.floorMask[tileX][tileY] === true &&
+    !ANEKTIA_ROOM_LAYOUT.blockedTiles.has(`${tileX},${tileY}`);
 }
 
 export function isTileOnWall(tileX: number, tileY: number): boolean {

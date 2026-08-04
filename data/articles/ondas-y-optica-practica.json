@@ -3,7 +3,7 @@
     "title": "Ondas y Óptica: Problemas Resueltos",
     "description": "Taller práctico de ondas y óptica: problemas resueltos de frecuencia y velocidad, reflexión y espejos, refracción y ley de Snell, interferencia y difracción, y efecto Doppler.",
     "slug": "ondas-y-optica-practica",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -29,7 +29,7 @@
     ],
     "breadcrumb": "Física / Profundización Mecánica / Ondas y Óptica: Problemas Resueltos"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  La teoría de ondas y óptica ya la conoces. Ahora viene lo divertido: usarla para resolver problemas reales.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Este taller te entrena en las herramientas de las ondas: la relación **v = λ·f** (velocidad, longitud de onda, frecuencia), la **reflexión** (ángulo de incidencia = ángulo de reflexión), la **refracción** con la **ley de Snell** (n₁sinθ₁ = n₂sinθ₂), la **interferencia** (d·sinθ = mλ) y la **difracción**, y el **efecto Doppler** (el cambio de frecuencia por el movimiento de fuente u observador). Cada sección combina problemas resueltos con ejercicios para que practiques.\n\n**[IMAGEN SUGERIDA: Un prisma descomponiendo la luz blanca en el espectro. Pie de foto: \"La refracción separa los colores.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  La teoría de ondas y óptica ya la conoces. Ahora viene lo divertido: usarla para resolver problemas reales.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Este taller te entrena en las herramientas de las ondas: la relación **v = λ·f** (velocidad, longitud de onda, frecuencia), la **reflexión** (ángulo de incidencia = ángulo de reflexión), la **refracción** con la **ley de Snell** (n₁sinθ₁ = n₂sinθ₂), la **interferencia** (d·sinθ = mλ) y la **difracción**, y el **efecto Doppler** (el cambio de frecuencia por el movimiento de fuente u observador). Cada sección combina problemas resueltos con ejercicios para que practiques.\n\n**[IMAGEN SUGERIDA: Un prisma descomponiendo la luz blanca en el espectro. Pie de foto: \"La refracción separa los colores.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

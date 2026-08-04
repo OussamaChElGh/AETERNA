@@ -23,7 +23,7 @@ export default function InteractiveDemoPage() {
         {/* Page Header */}
         <header className="text-center space-y-4 border-b border-black/10 dark:border-white/10 pb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 text-[#8B6914] dark:text-[#D4AF37] text-xs font-mono font-bold tracking-wider uppercase border border-[#D4AF37]/30">
-            <Sparkles className="w-3.5 h-3.5" /> Aeterna Interactive Pedagogical Suite v2.0
+            <Sparkles className="w-3.5 h-3.5" /> Anektia Interactive Pedagogical Suite v2.0
           </div>
           <h1 className="text-3xl md:text-5xl font-bold font-serif text-brand-ink dark:text-white tracking-tight">
             Demostración de Componentes Pedagógicos (FASE 1 & FASE 2)

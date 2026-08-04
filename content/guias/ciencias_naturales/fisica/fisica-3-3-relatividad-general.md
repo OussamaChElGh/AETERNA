@@ -2,7 +2,7 @@
 title: Relatividad General
 description: "Guía completa de la relatividad general de Einstein: la gravedad como curvatura del espacio-tiempo, el principio de equivalencia, las lentes gravitacionales, los agujeros negros y las ondas gravitacionales."
 slug: relatividad-general
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["relatividad general", "Einstein", "curvatura", "espacio-tiempo", "agujeros negros", "ondas gravitacionales", "lentes gravitacionales", "principio de equivalencia"]
@@ -16,9 +16,9 @@ prerequisites: ["relatividad-especial", "electromagnetismo-avanzado"]
 breadcrumb: Física / Física Moderna / Relatividad General
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   En 1915, Einstein dio el siguiente paso: la gravedad no es una fuerza que tira de los objetos, sino la curvatura del propio espacio-tiempo.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

@@ -48,11 +48,11 @@ async function main() {
   const bookshelfPng = path.join(PUBLIC_DIR, 'images', 'room_bookshelf.png');
   const telescopePng = path.join(PUBLIC_DIR, 'images', 'room_telescope.png');
   
-  if (fs.existsSync(path.join(PUBLIC_DIR, 'images', 'aeterna_pixel_bookshelf.png'))) {
-    fs.copyFileSync(path.join(PUBLIC_DIR, 'images', 'aeterna_pixel_bookshelf.png'), bookshelfPng);
+  if (fs.existsSync(path.join(PUBLIC_DIR, 'images', 'anektia_pixel_bookshelf.png'))) {
+    fs.copyFileSync(path.join(PUBLIC_DIR, 'images', 'anektia_pixel_bookshelf.png'), bookshelfPng);
   }
-  if (fs.existsSync(path.join(PUBLIC_DIR, 'images', 'aeterna_pixel_telescope.png'))) {
-    fs.copyFileSync(path.join(PUBLIC_DIR, 'images', 'aeterna_pixel_telescope.png'), telescopePng);
+  if (fs.existsSync(path.join(PUBLIC_DIR, 'images', 'anektia_pixel_telescope.png'))) {
+    fs.copyFileSync(path.join(PUBLIC_DIR, 'images', 'anektia_pixel_telescope.png'), telescopePng);
   }
 
   console.log('\n¡Proceso de re-codificación PNG finalizado!');

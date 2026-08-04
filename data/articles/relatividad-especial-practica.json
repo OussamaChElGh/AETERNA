@@ -3,7 +3,7 @@
     "title": "Relatividad Especial: Problemas Resueltos",
     "description": "Taller práctico de relatividad especial: factor de Lorentz, dilatación del tiempo, contracción de longitudes, E = mc² y la paradoja de los gemelos con problemas resueltos.",
     "slug": "relatividad-especial-practica",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -26,7 +26,7 @@
     ],
     "breadcrumb": "Física / Física Moderna / Relatividad Especial: Problemas Resueltos"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  La teoría ya la conoces: la dilatación del tiempo, la contracción de longitudes, E = mc². Ahora aprende a calcularla.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Todo problema relativista usa el **factor de Lorentz** γ = 1/√(1−v²/c²). Con él: la dilatación del tiempo (Δt = γΔt₀), la contracción de longitudes (L = L₀/γ) y la energía (E = γmc²). El método: (1) identifica si pides tiempo, longitud o energía, (2) calcula γ, (3) aplica la fórmula, (4) verifica que γ ≥ 1 y que los efectos son mayores cuanto más cerca de c.\n\n**[IMAGEN SUGERIDA: Un reloj atómico y una nave a alta velocidad. Pie de foto: \"γ es la llave de todos los cálculos relativistas.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  La teoría ya la conoces: la dilatación del tiempo, la contracción de longitudes, E = mc². Ahora aprende a calcularla.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Todo problema relativista usa el **factor de Lorentz** γ = 1/√(1−v²/c²). Con él: la dilatación del tiempo (Δt = γΔt₀), la contracción de longitudes (L = L₀/γ) y la energía (E = γmc²). El método: (1) identifica si pides tiempo, longitud o energía, (2) calcula γ, (3) aplica la fórmula, (4) verifica que γ ≥ 1 y que los efectos son mayores cuanto más cerca de c.\n\n**[IMAGEN SUGERIDA: Un reloj atómico y una nave a alta velocidad. Pie de foto: \"γ es la llave de todos los cálculos relativistas.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

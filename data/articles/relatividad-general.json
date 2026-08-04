@@ -3,7 +3,7 @@
     "title": "Relatividad General",
     "description": "Guía completa de la relatividad general de Einstein: la gravedad como curvatura del espacio-tiempo, el principio de equivalencia, las lentes gravitacionales, los agujeros negros y las ondas gravitacionales.",
     "slug": "relatividad-general",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / Física Moderna / Relatividad General"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  En 1915, Einstein dio el siguiente paso: la gravedad no es una fuerza que tira de los objetos, sino la curvatura del propio espacio-tiempo.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La relatividad general dice que **la masa curva el espacio-tiempo** y que los objetos siguen las trayectorias más rectas posibles (geodésicas) en ese espacio curvo —lo que percibimos como gravedad. El **principio de equivalencia** (no puedes distinguir localmente entre gravedad y aceleración) es su punto de partida. Sus predicciones: la **curvatura de la luz** (lentes gravitacionales), los **agujeros negros** (curvatura extrema), la **dilatación gravitacional del tiempo** y las **ondas gravitacionales** —detectadas en 2015, un siglo después de su predicción.\n\n**[IMAGEN SUGERIDA: El espacio-tiempo como una malla curva, con la Tierra hundiéndola. Pie de foto: \"La masa curva el espacio-tiempo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  En 1915, Einstein dio el siguiente paso: la gravedad no es una fuerza que tira de los objetos, sino la curvatura del propio espacio-tiempo.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La relatividad general dice que **la masa curva el espacio-tiempo** y que los objetos siguen las trayectorias más rectas posibles (geodésicas) en ese espacio curvo —lo que percibimos como gravedad. El **principio de equivalencia** (no puedes distinguir localmente entre gravedad y aceleración) es su punto de partida. Sus predicciones: la **curvatura de la luz** (lentes gravitacionales), los **agujeros negros** (curvatura extrema), la **dilatación gravitacional del tiempo** y las **ondas gravitacionales** —detectadas en 2015, un siglo después de su predicción.\n\n**[IMAGEN SUGERIDA: El espacio-tiempo como una malla curva, con la Tierra hundiéndola. Pie de foto: \"La masa curva el espacio-tiempo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

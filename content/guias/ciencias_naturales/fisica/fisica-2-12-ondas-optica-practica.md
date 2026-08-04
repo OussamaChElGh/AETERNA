@@ -2,7 +2,7 @@
 title: "Ondas y Óptica: Problemas Resueltos"
 description: "Taller práctico de ondas y óptica: problemas resueltos de frecuencia y velocidad, reflexión y espejos, refracción y ley de Snell, interferencia y difracción, y efecto Doppler."
 slug: ondas-y-optica-practica
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["ondas", "óptica", "problemas resueltos", "reflexión", "refracción", "ley de Snell", "interferencia", "efecto Doppler", "frecuencia"]
@@ -16,9 +16,9 @@ prerequisites: ["ondas-y-optica", "electromagnetismo"]
 breadcrumb: "Física / Profundización Mecánica / Ondas y Óptica: Problemas Resueltos"
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   La teoría de ondas y óptica ya la conoces. Ahora viene lo divertido: usarla para resolver problemas reales.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

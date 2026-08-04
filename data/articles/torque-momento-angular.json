@@ -3,7 +3,7 @@
     "title": "Torque y Momento Angular",
     "description": "Guía completa del torque, el equilibrio rotacional, el momento de inercia, la conservación del momento angular, la dinámica rotacional y la precesión de los giroscopios.",
     "slug": "torque-momento-angular",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / Profundización Mecánica / Torque y Momento Angular"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  Una patinadora gira con los brazos abiertos y, al cerrarlos, gira muchísimo más rápido. Un trompo se inclina y, en vez de caerse, describe un círculo. Bienvenido a la rotación.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **torque** (τ = r × F) es la fuerza que hace girar: depende de la fuerza y de la distancia al eje. En **equilibrio**, la suma de torques es cero. El **momento de inercia** (I = Σmr²) es la 'masa rotacional' —depende de cómo se distribuye la masa. La segunda ley rotacional es τ = Iα. El **momento angular** (L = Iω) se conserva: por eso la patinadora acelera al cerrar los brazos. Y los **giroscopios** precesan porque el torque cambia la dirección del momento angular.\n\n**[IMAGEN SUGERIDA: Una patinadora girando con los brazos cerrados, acelerando su giro. Pie de foto: \"Al cerrar los brazos, el momento angular se conserva y gira más rápido.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  Una patinadora gira con los brazos abiertos y, al cerrarlos, gira muchísimo más rápido. Un trompo se inclina y, en vez de caerse, describe un círculo. Bienvenido a la rotación.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **torque** (τ = r × F) es la fuerza que hace girar: depende de la fuerza y de la distancia al eje. En **equilibrio**, la suma de torques es cero. El **momento de inercia** (I = Σmr²) es la 'masa rotacional' —depende de cómo se distribuye la masa. La segunda ley rotacional es τ = Iα. El **momento angular** (L = Iω) se conserva: por eso la patinadora acelera al cerrar los brazos. Y los **giroscopios** precesan porque el torque cambia la dirección del momento angular.\n\n**[IMAGEN SUGERIDA: Una patinadora girando con los brazos cerrados, acelerando su giro. Pie de foto: \"Al cerrar los brazos, el momento angular se conserva y gira más rápido.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

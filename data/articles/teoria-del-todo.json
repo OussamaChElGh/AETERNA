@@ -3,7 +3,7 @@
     "title": "Teoría del Todo",
     "description": "Guía completa de la búsqueda de la teoría del todo: la síntesis necesaria entre relatividad general y mecánica cuántica, el conflicto de la gravedad cuántica, y las teorías candidatas como la de cuerdas.",
     "slug": "teoria-del-todo",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / Fronteras del Cosmos / Teoría del Todo"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  Dos teorías —la relatividad general y la mecánica cuántica— describen el universo con precisión asombrosa. Pero son incompatibles. La búsqueda de la teoría que las una es el Santo Grial de la física.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La física tiene dos pilares incompatibles: la **relatividad general** (la gravedad a gran escala, el espacio-tiempo es suave y continuo) y la **mecánica cuántica** (a escala atómica, la realidad es granular y probabilística). Ambas son correctas en su dominio, pero fallan donde se encuentran: los agujeros negros y el Big Bang. La **teoría del todo** (TOE) busca una teoría única que las unifique. Candidatas: la **teoría de cuerdas** (las partículas son cuerdas vibrantes en 10 u 11 dimensiones), la **gravedad cuántica de lazos** (el espacio-tiempo es granular), y otras. Ninguna está verificada: es el problema abierto más profundo de la física.\n\n**[IMAGEN SUGERIDA: Dos universos fundiéndose: el suave espacio-tiempo de la relatividad y el granular de la cuántica. Pie de foto: \"Dos teorías, un universo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  Dos teorías —la relatividad general y la mecánica cuántica— describen el universo con precisión asombrosa. Pero son incompatibles. La búsqueda de la teoría que las una es el Santo Grial de la física.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La física tiene dos pilares incompatibles: la **relatividad general** (la gravedad a gran escala, el espacio-tiempo es suave y continuo) y la **mecánica cuántica** (a escala atómica, la realidad es granular y probabilística). Ambas son correctas en su dominio, pero fallan donde se encuentran: los agujeros negros y el Big Bang. La **teoría del todo** (TOE) busca una teoría única que las unifique. Candidatas: la **teoría de cuerdas** (las partículas son cuerdas vibrantes en 10 u 11 dimensiones), la **gravedad cuántica de lazos** (el espacio-tiempo es granular), y otras. Ninguna está verificada: es el problema abierto más profundo de la física.\n\n**[IMAGEN SUGERIDA: Dos universos fundiéndose: el suave espacio-tiempo de la relatividad y el granular de la cuántica. Pie de foto: \"Dos teorías, un universo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

@@ -2,7 +2,7 @@
 title: "Física Atómica y Nuclear: Del Átomo a la Estrella"
 description: Explora la arquitectura de la materia desde el concepto griego del átomo hasta las ecuaciones de frontera que rigen el núcleo estelar.
 slug: fisica-atomica-y-nuclear
-author: Aeterna
+author: Anektia
 category: ciencias
 subcategory: fisica
 tags: ["física", "física atómica", "física nuclear", "radiactividad", "fisión nuclear", "fusión nuclear", "modelos atómicos"]
@@ -158,7 +158,7 @@ La radiactividad diagnostica y trata: la tomografía PET detecta la aniquilació
 
 ### La equivalencia Masa-Energía
     Tanto en la fisión como en la fusión, el resultado final pesa un poco menos que el inicial. Esa masa desaparecida se ha convertido en energía según la ecuación de Einstein:
-    ```aeterna-equation
+    ```anektia-equation
     E = mc^2
     ```
     Un solo gramo de uranio libera la energía de 2.5 toneladas de carbón.
@@ -169,9 +169,9 @@ La fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (
 
 ---
 
-## 5. El Legado de Aeterna: ¿Qué has aprendido?
+## 5. El Legado de Anektia: ¿Qué has aprendido?
 
-> 🧠 **Sistema Aeterna**
+> 🧠 **Sistema Anektia**
 > Has descendido hasta lo más profundo de la materia. Has visto que lo sólido es ilusión y que la energía que alimenta el cosmos reside en el corazón de lo invisible. Tu integridad cognitiva ahora abarca la dualidad entre la creación estelar y la responsabilidad tecnológica.
 
 ```aeterna-decision

@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const structured = getStructuredArticleBySlug(slug);
   if (structured) {
     return {
-      title: `${structured.metadata.title} | Aeterna`,
+      title: `${structured.metadata.title} | Anektia`,
       description: structured.metadata.description,
       keywords: structured.metadata.tags || [],
       openGraph: {
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const markdown = getArticleBySlug(slug);
   if (markdown) {
     return {
-      title: `${markdown.data.title} | Aeterna`,
+      title: `${markdown.data.title} | Anektia`,
       description: markdown.data.description,
       keywords: markdown.data.tags || [],
       openGraph: {
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return { title: 'Artículo | Aeterna' };
+  return { title: 'Artículo | Anektia' };
 }
 
 export default async function ArticleRoute({ params }: Props) {

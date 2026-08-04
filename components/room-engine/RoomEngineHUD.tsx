@@ -46,7 +46,7 @@ export function RoomEngineHUD({
         </Link>
         <div>
           <span className="text-[9px] font-mono font-bold uppercase tracking-[0.25em] text-brand-gold block">
-            Aeterna • Estancia del Conocimiento
+            Anektia • Estancia del Conocimiento
           </span>
           <h1 className="font-serif text-lg sm:text-xl font-bold text-brand-offwhite leading-tight">
             Habitación de Estudio

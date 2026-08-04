@@ -2,7 +2,7 @@
 title: "Ondas y Óptica: La Física de la Luz y el Sonido"
 description: Descubre qué son las ondas mecánicas y electromagnéticas, cómo se propaga la luz, por qué el cielo es azul y cómo funcionan los espejos, las lentes y los prismas. Guía completa con ejemplos claros.
 slug: ondas-y-optica
-author: Aeterna
+author: Anektia
 category: ciencias
 subcategory: fisica
 tags: ["física", "ondas", "óptica", "luz", "sonido", "reflexión", "refracción", "interferencia", "difracción", "efecto Doppler"]
@@ -191,9 +191,9 @@ Cuando la fuente se acerca, las ondas se comprimen (frecuencia mayor, sonido má
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
-> **Sistema Aeterna, paso 1: La onda viaja, el medio se queda**
+> **Sistema Anektia, paso 1: La onda viaja, el medio se queda**
 > Las ondas transportan energía sin transportar materia. Esa es una lección sobre el conocimiento: las ideas se propagan como ondas, cambiando de medio pero no de esencia. ¿Qué ideas te llegan de lejos y te atraviesan sin moverte?
 
 </NivelActivo>
@@ -451,7 +451,7 @@ Cuando una fuente de luz se acerca, sus ondas se comprimen y la frecuencia aumen
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
 > **Paso 1: Formula preguntas, no certezas.**
 >
@@ -681,12 +681,12 @@ Este **corrimiento al rojo** es la base de la cosmología: las galaxias lejanas 
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
-> **Sistema Aeterna, paso 2: La luz es onda y partícula a la vez**
+> **Sistema Anektia, paso 2: La luz es onda y partícula a la vez**
 > La dualidad de la luz nos enseña que la realidad no siempre se ajusta a nuestras categorías. A veces un mismo fenómeno tiene dos descripciones válidas que se complementan. ¿En qué áreas de tu vida dos "verdades" coexisten sin anularse?
 
-> **Sistema Aeterna, paso 3: El corrimiento al rojo revela lo que no se ve**
+> **Sistema Anektia, paso 3: El corrimiento al rojo revela lo que no se ve**
 > El efecto Doppler de la luz nos dice que el universo se expande. A veces los pequeños cambios que observamos —un tono, un matiz— revelan grandes movimientos que no vemos directamente. ¿Qué señales sutiles te revelan grandes procesos ocultos?
 
 </NivelActivo>

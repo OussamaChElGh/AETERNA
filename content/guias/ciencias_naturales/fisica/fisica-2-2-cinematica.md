@@ -2,7 +2,7 @@
 title: "Cinemática: El Arte de Describir el Movimiento"
 description: "Guía completa de cinemática: posición, velocidad, aceleración, movimiento rectilíneo uniforme y acelerado, caída libre, movimiento parabólico y la relación entre derivadas e integrales. Con laboratorio de ejercicios y bloques interactivos."
 slug: cinematica
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["cinemática", "posición", "velocidad", "aceleración", "movimiento rectilíneo", "caída libre", "movimiento parabólico", "MRU", "MRUA", "derivadas", "integrales"]
@@ -16,9 +16,9 @@ prerequisites: ["vectores"]
 breadcrumb: Física / El Reino de lo Clásico / Cinemática
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Todo se mueve: la Tierra, el aire, tu corazón. La cinemática es el arte de describir ese movimiento —sin preguntar por qué ocurre.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

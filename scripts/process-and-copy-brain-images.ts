@@ -42,7 +42,7 @@ async function main() {
       const dest = path.join(reliquiasDir, baseName);
       await processImage(src, dest);
       console.log(`✅ Procesada Reliquia -> ${path.relative(process.cwd(), dest)}`);
-    } else if (baseName.startsWith('aeterna_pixel_') || baseName.startsWith('aeterna_master_')) {
+    } else if (baseName.startsWith('anektia_pixel_') || baseName.startsWith('anektia_master_')) {
       const dest = path.join(publicImages, baseName);
       await processImage(src, dest);
       console.log(`✅ Procesado Objeto -> ${path.relative(process.cwd(), dest)}`);

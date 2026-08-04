@@ -99,7 +99,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
               </button>
 
               <p className="mt-8 text-[9px] text-white/20 uppercase tracking-[0.3em]">
-                Protocolos Aeterna Verificados
+                Protocolos Anektia Verificados
               </p>
             </div>
           </motion.div>

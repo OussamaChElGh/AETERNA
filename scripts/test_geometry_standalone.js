@@ -1,4 +1,4 @@
-// Standalone Geometry Validation Test Battery for Aeterna Room Engine
+// Standalone Geometry Validation Test Battery for Anektia Room Engine
 
 const GRID_SIZE = 32;
 

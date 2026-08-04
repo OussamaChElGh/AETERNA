@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
-import { PedagogicalBlockType, PEDAGOGICAL_BLOCKS_REGISTRY } from '@/framework/aeterna-learning/experiences/pedagogical-blocks-registry';
-import { AeternaEngagement } from './AeternaEngagement';
+import { PedagogicalBlockType, PEDAGOGICAL_BLOCKS_REGISTRY } from '@/framework/anektia-learning/experiences/pedagogical-blocks-registry';
+import { AnektiaEngagement } from './AnektiaEngagement';
 import { ConnectBlock } from './blocks/ConnectBlock';
 import { HiddenAssumptionBlock } from './blocks/HiddenAssumptionBlock';
 import { TransferBlock } from './blocks/TransferBlock';
@@ -63,7 +63,7 @@ export function PedagogicalContentBlock({
   }
 
   return (
-    <AeternaEngagement
+    <AnektiaEngagement
       type={type as any}
       title={title || metadata?.visibleTitle || 'Bloque Pedagógico'}
       content={content}

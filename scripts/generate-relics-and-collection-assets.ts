@@ -131,7 +131,7 @@ for (const [filename, content] of Object.entries(relicSvgs)) {
 
 // 2. Objetos / Muebles de la Colección
 const collectionSvgs: Record<string, string> = {
-  'aeterna_pixel_schrodinger.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_schrodinger.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <defs>
     <filter id="cat-glow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#A855F7" flood-opacity="0.6"/>
@@ -147,7 +147,7 @@ const collectionSvgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_pixel_abacus.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_abacus.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <rect x="20" y="35" width="80" height="50" rx="4" fill="#78350F" stroke="#451A03" stroke-width="3"/>
   <line x1="32" y1="35" x2="32" y2="85" stroke="#D97706" stroke-width="2"/>
   <line x1="48" y1="35" x2="48" y2="85" stroke="#D97706" stroke-width="2"/>
@@ -165,16 +165,16 @@ const collectionSvgs: Record<string, string> = {
   <circle cx="80" cy="72" r="4" fill="#F59E0B"/>
 </svg>`,
 
-  'aeterna_pixel_terminal.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_terminal.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <rect x="25" y="25" width="70" height="50" rx="5" fill="#1E293B" stroke="#B45309" stroke-width="3"/>
   <rect x="32" y="32" width="56" height="36" fill="#022C22" stroke="#10B981" stroke-width="1.5"/>
-  <text x="36" y="46" fill="#34D399" font-family="monospace" font-size="8">> AETERNA OS</text>
+  <text x="36" y="46" fill="#34D399" font-family="monospace" font-size="8">> ANEKTIA OS</text>
   <text x="36" y="58" fill="#34D399" font-family="monospace" font-size="8">> READY_</text>
   <rect x="52" y="75" width="16" height="12" fill="#78350F"/>
   <rect x="40" y="87" width="40" height="6" rx="2" fill="#78350F"/>
 </svg>`,
 
-  'aeterna_pixel_bust.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_bust.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <rect x="42" y="80" width="36" height="20" rx="2" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/>
   <path d="M 40 80 Q 60 70 80 80 L 72 58 Q 60 62 48 58 Z" fill="#F1F5F9" stroke="#94A3B8" stroke-width="1.5"/>
   <ellipse cx="60" cy="42" rx="14" ry="18" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5"/>
@@ -182,7 +182,7 @@ const collectionSvgs: Record<string, string> = {
   <path d="M 52 50 Q 60 56 68 50" stroke="#94A3B8" stroke-width="2" fill="none"/>
 </svg>`,
 
-  'aeterna_pixel_microscope.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_microscope.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <rect x="35" y="92" width="50" height="12" rx="3" fill="#1E293B"/>
   <path d="M 60 92 L 60 45 Q 75 45 75 30" stroke="#D97706" stroke-width="4" fill="none"/>
   <rect x="68" y="20" width="14" height="25" rx="3" fill="#F59E0B" stroke="#78350F" transform="rotate(20 75 32)"/>
@@ -190,7 +190,7 @@ const collectionSvgs: Record<string, string> = {
   <circle cx="60" cy="55" r="5" fill="#38BDF8"/>
 </svg>`,
 
-  'aeterna_pixel_terrarium.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_terrarium.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <circle cx="60" cy="62" r="34" fill="#ECFDF5" stroke="#34D399" stroke-width="2.5" opacity="0.9"/>
   <ellipse cx="60" cy="84" rx="26" ry="10" fill="#064E3B"/>
   <path d="M 48 84 Q 52 65 56 84 M 58 84 Q 62 60 66 84 M 68 84 Q 72 68 76 84" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
@@ -199,7 +199,7 @@ const collectionSvgs: Record<string, string> = {
   <rect x="52" y="24" width="16" height="8" rx="2" fill="#78350F"/>
 </svg>`,
 
-  'aeterna_pixel_armchair.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_armchair.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <rect x="30" y="40" width="60" height="45" rx="8" fill="#78350F" stroke="#451A03" stroke-width="3"/>
   <rect x="25" y="55" width="12" height="30" rx="4" fill="#B45309" stroke="#451A03" stroke-width="2"/>
   <rect x="83" y="55" width="12" height="30" rx="4" fill="#B45309" stroke="#451A03" stroke-width="2"/>
@@ -208,7 +208,7 @@ const collectionSvgs: Record<string, string> = {
   <rect x="77" y="90" width="8" height="15" fill="#451A03"/>
 </svg>`,
 
-  'aeterna_pixel_desk.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="140" height="120">
+  'anektia_pixel_desk.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="140" height="120">
   <rect x="20" y="45" width="100" height="18" rx="3" fill="#78350F" stroke="#451A03" stroke-width="3"/>
   <rect x="25" y="63" width="25" height="35" fill="#542407" stroke="#451A03" stroke-width="2"/>
   <rect x="90" y="63" width="25" height="35" fill="#542407" stroke="#451A03" stroke-width="2"/>
@@ -218,14 +218,14 @@ const collectionSvgs: Record<string, string> = {
   <circle cx="102.5" cy="88" r="2.5" fill="#F59E0B"/>
 </svg>`,
 
-  'aeterna_pixel_lamp.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_lamp.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <rect x="45" y="92" width="30" height="8" rx="2" fill="#D97706"/>
   <path d="M 60 92 Q 42 70 60 48" stroke="#F59E0B" stroke-width="3.5" fill="none"/>
   <path d="M 45 48 C 45 35, 75 35, 75 48 Z" fill="#047857" stroke="#022C22" stroke-width="2"/>
   <circle cx="60" cy="50" r="4" fill="#FEF08A"/>
 </svg>`,
 
-  'aeterna_pixel_plant.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  'anektia_pixel_plant.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
   <polygon points="45,65 75,65 70,98 50,98" fill="#B45309" stroke="#78350F" stroke-width="2.5"/>
   <path d="M 60 65 Q 40 45 32 52 M 60 65 Q 50 35 55 25 M 60 65 Q 70 35 65 25 M 60 65 Q 80 45 88 52 M 60 65 Q 60 40 60 30" stroke="#15803D" stroke-width="6" stroke-linecap="round"/>
 </svg>`

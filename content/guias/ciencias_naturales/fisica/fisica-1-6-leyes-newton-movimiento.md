@@ -2,7 +2,7 @@
 title: Las Leyes de Newton del Movimiento
 description: "Guía completa de las leyes de Newton: la inercia, F = ma, acción y reacción, diagramas de cuerpo libre, formulación diferencial y sistemas no inerciales. Con laboratorio de ejercicios y bloques interactivos."
 slug: leyes-newton-movimiento
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["Newton", "fuerzas", "dinámica", "inercia", "F = ma", "acción y reacción", "diagramas de cuerpo libre", "sistemas no inerciales"]
@@ -16,9 +16,9 @@ prerequisites: ["vectores"]
 breadcrumb: Física / Fundamentos del Cosmos / Las Leyes de Newton
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Una manzana cae, la Luna orbita, tu coche frena. Tres leyes simples explican por qué se mueve todo lo que se mueve.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

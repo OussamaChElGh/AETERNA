@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { serializeArticleToMarkdown, writeArticleToContent, filenameFromArticle } from '../framework/aeterna-learning/serializers/markdown-serializer';
-import { loadCurriculum } from '../framework/aeterna-learning/planning/analyze-branch';
+import { serializeArticleToMarkdown, writeArticleToContent, filenameFromArticle } from '../framework/anektia-learning/serializers/markdown-serializer';
+import { loadCurriculum } from '../framework/anektia-learning/planning/analyze-branch';
 
 const JSON_DIR = path.join(process.cwd(), 'data', 'articles');
 
@@ -10,7 +10,7 @@ function main() {
 
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
-Aeterna Article Sync CLI v1.0
+Anektia Article Sync CLI v1.0
 
 Regenera el archivo Markdown (.md) en content/guias/ a partir del JSON en data/articles/.
 

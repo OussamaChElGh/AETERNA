@@ -2,7 +2,7 @@
 title: Física de Partículas
 description: "Guía completa de la física de partículas: las partículas elementales, el modelo estándar, los quarks y leptones, las fuerzas fundamentales, el bosón de Higgs y los aceleradores de partículas."
 slug: fisica-particulas
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["partículas elementales", "modelo estándar", "quarks", "leptones", "bosón de Higgs", "aceleradores", "LHC", "fuerzas fundamentales"]
@@ -16,9 +16,9 @@ prerequisites: ["mecanica-cuantica", "cosmologia"]
 breadcrumb: Física / Fronteras del Cosmos / Física de Partículas
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Toda la materia ordinaria —tú, las estrellas, las galaxias— está hecha de un puñado de partículas fundamentales regidas por cuatro fuerzas.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

@@ -2,7 +2,7 @@
 title: "Movimiento Circular y Satélites: La Danza de las Órbitas"
 description: "Guía completa del movimiento circular: aceleración centrípeta, fuerza centrípeta, órbitas y satélites, gravedad orbital, leyes de Kepler y velocidad de escape. Con laboratorio de ejercicios y bloques interactivos."
 slug: movimiento-circular-satelites
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["movimiento circular", "aceleración centrípeta", "fuerza centrípeta", "órbitas", "satélites", "gravedad", "leyes de Kepler", "velocidad de escape"]
@@ -16,9 +16,9 @@ prerequisites: ["cinematica", "leyes-newton-movimiento"]
 breadcrumb: Física / El Reino de lo Clásico / Movimiento Circular y Satélites
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   La Luna no cae sobre nosotros, y los satélites no se pierden en el espacio. Una sola fuerza —la gravedad— coreografía la danza de las órbitas.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

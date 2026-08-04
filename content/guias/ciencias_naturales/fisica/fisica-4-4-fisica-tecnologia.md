@@ -2,7 +2,7 @@
 title: Física y Tecnología
 description: "Guía de síntesis de la física y la tecnología: la física en la vida cotidiana, las tecnologías clave que transformaron el mundo y el futuro tecnológico que la física prepara."
 slug: fisica-tecnologia
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["tecnología", "física aplicada", "semiconductores", "láser", "computación cuántica", "energía", "electrónica", "transistores"]
@@ -16,9 +16,9 @@ prerequisites: ["mecanica-cuantica", "electromagnetismo-avanzado", "teoria-del-t
 breadcrumb: Física / Fronteras del Cosmos / Física y Tecnología
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   El móvil en tu bolsillo tiene más potencia que los ordenadores que llevaron al hombre a la Luna. Y existe porque unos físicos entendieron la mecánica cuántica de los semiconductores.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

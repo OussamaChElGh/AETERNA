@@ -1,4 +1,4 @@
-// Aeterna Environment System - SpatialGrid Sub-System
+// Anektia Environment System - SpatialGrid Sub-System
 // Manages spatial indexing, floor masks, footprint checking, and collision validation
 
 import { EnvironmentLayout, EnvironmentPlacedItem, PlacementValidationResult, AssetMetadata } from '@/types/environmentEngine';

@@ -1,7 +1,7 @@
 ---
 title: "Cómo aprender japonés desde cero"
 description: "Guía completa con recursos, metodología y libros en PDF."
-author: "Aeterna"
+author: "Anektia"
 date: "2024-03-22"
 category: "guias"
 subcategory: "idiomas"
@@ -473,7 +473,7 @@ Festivales como Hanami, Obon, ceremonias del té → temas de conversación aut�
 
 ### 20.3 Invitación a descargar los libros PDF
 
-Aprovecha los **libros PDF gratuitos** disponibles en **AETERNA** (materiales legales y seguros).
+Aprovecha los **libros PDF gratuitos** disponibles en **ANEKTIA** (materiales legales y seguros).
 
 ---
 

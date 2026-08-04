@@ -2,7 +2,7 @@
 title: "Termodinámica: La Física del Calor, la Energía y el Tiempo"
 description: "Guía completa de termodinámica: desde las leyes del calor y la entropía hasta el ciclo de Carnot y el cero absoluto. Tres capas de profundidad con ejercicios, laboratorios interactivos, gráficos y experimentos mentales."
 slug: termodinamica
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["termodinámica", "calor", "entropía", "leyes de la termodinámica", "máquinas térmicas", "energía", "ciclo de Carnot", "cero absoluto", "gases ideales", "transferencia de calor"]
@@ -247,7 +247,7 @@ EXPLANATION: La convección forzada multiplica la tasa de transferencia de calor
 
 ---
 
-## Sistema Aeterna: lo que has aprendido y hacia dónde vas
+## Sistema Anektia: lo que has aprendido y hacia dónde vas
 
 Has viajado desde una taza de café hasta el destino del universo. La termodinámica es simple en esencia: **la energía se conserva, pero el desorden siempre aumenta**.
 
@@ -563,7 +563,7 @@ COP típico ≈ 3 (extrae 3 J de calor por cada J de electricidad).
 
 ---
 
-## Sistema Aeterna: lo que has aprendido y hacia dónde vas
+## Sistema Anektia: lo que has aprendido y hacia dónde vas
 
 **Resumen de las cuatro leyes**:
 
@@ -864,7 +864,7 @@ Diseña un sistema de refrigeración para un centro de datos que genera 50 kW de
 
 ---
 
-## Sistema Aeterna: lo que has aprendido y hacia dónde vas
+## Sistema Anektia: lo que has aprendido y hacia dónde vas
 
 **Fronteras de la termodinámica moderna:**
 

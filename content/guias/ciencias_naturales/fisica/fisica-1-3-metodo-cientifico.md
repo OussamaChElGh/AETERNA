@@ -2,7 +2,7 @@
 title: "Método Científico: El Camino Hacia el Conocimiento"
 description: "Guía completa del método científico: observación, hipótesis, experimentación, variables y control, y falsabilidad. Aprende cómo piensa y trabaja la ciencia, con laboratorio de ejercicios interactivos."
 slug: metodo-cientifico
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["método científico", "ciencia", "hipótesis", "experimentación", "falsabilidad", "observación", "medición", "variables", "método"]

@@ -35,7 +35,7 @@ export function RoomCanvas({
     >
       {/* ROOM ISOMETRIC BACKGROUND */}
       <Image
-        src="/images/aeterna_pixel_isometric_room.png"
+        src="/images/anektia_pixel_isometric_room.png"
         alt="Habitación 2D Pixel Art"
         fill
         className="object-cover pointer-events-none opacity-95"

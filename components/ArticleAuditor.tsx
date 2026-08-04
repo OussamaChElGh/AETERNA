@@ -27,7 +27,7 @@ const DIMENSION_META: Record<string, { label: string; max: number; icon: any; co
   razonamiento: { label: "Razonamiento", max: 15, icon: BrainCircuit, color: "text-purple-600 dark:text-purple-400", desc: "Análisis, justificación, pensamiento crítico" },
   interactividad: { label: "Interactividad", max: 10, icon: Zap, color: "text-orange-600 dark:text-orange-400", desc: "Componentes interactivos, laboratorios" },
   conexiones: { label: "Conexiones", max: 10, icon: Feather, color: "text-rose-600 dark:text-rose-400", desc: "Transdisciplina, transferencia" },
-  experienciaAeterna: { label: "Experiencia Aeterna", max: 5, icon: Compass, color: "text-cyan-600 dark:text-cyan-400", desc: "Bloques pedagógicos, narrativa" },
+  experienciaAnektia: { label: "Experiencia Anektia", max: 5, icon: Compass, color: "text-cyan-600 dark:text-cyan-400", desc: "Bloques pedagógicos, narrativa" },
 };
 
 const STATUS_META: Record<string, { label: string; color: string; bg: string }> = {
@@ -97,7 +97,7 @@ interface AuditReport {
     razonamiento: number;
     interactividad: number;
     conexiones: number;
-    experienciaAeterna: number;
+    experienciaAnektia: number;
   };
   totalScore: number;
   appliedScoreCap?: { cap: number; reason: string };
@@ -196,7 +196,7 @@ export function ArticleAuditor({ articles }: Props) {
       <header className="mb-16 text-center">
         <div className="inline-flex items-center gap-3 text-[10px] font-mono font-bold uppercase tracking-[0.6em] text-[#8B6914] dark:text-brand-gold mb-6">
           <BrainCircuit size={16} />
-          <span>Framework de Aprendizaje Aeterna</span>
+          <span>Framework de Aprendizaje Anektia</span>
         </div>
         <h1 className="font-serif text-4xl md:text-5xl text-brand-ink dark:text-white font-bold tracking-tight mb-4">
           Auditor de Calidad
@@ -410,8 +410,8 @@ export function ArticleAuditor({ articles }: Props) {
                         <Row label="Intención de búsqueda" value={r.discoverabilityAnalysis.searchIntentScore} max={100} />
                       </SectionCard>
 
-                      {/* Aeterna Experience */}
-                      <SectionCard title="Experiencia Aeterna" icon={Compass}>
+                      {/* Anektia Experience */}
+                      <SectionCard title="Experiencia Anektia" icon={Compass}>
                         <Row label="Conexiones" value={r.aeternaExperienceResult.connectionsScore} max={100} />
                         <Row label="Experiencia" value={r.aeternaExperienceResult.experienceScore} max={100} />
                       </SectionCard>

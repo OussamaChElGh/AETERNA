@@ -15,12 +15,12 @@ export interface ArticleFrontmatter {
   _path?: string;
 }
 
-export interface AeternaAction {
+export interface AnektiaAction {
   tipo: 'BotonSimplificar' | 'BotonProfundizar' | 'BotonEjemplos' | 'BotonConexiones';
   contenido: string;
 }
 
-export interface AeternaSection {
+export interface AnektiaSection {
   id: string;
   titulo: string;
   niveles: {
@@ -28,13 +28,13 @@ export interface AeternaSection {
     intermedio?: string;
     avanzado?: string;
   };
-  acciones: AeternaAction[];
+  acciones: AnektiaAction[];
 }
 
-export interface AeternaArticle {
+export interface AnektiaArticle {
   metadata: ArticleFrontmatter;
   introduccion: string;
-  secciones: AeternaSection[];
+  secciones: AnektiaSection[];
   conclusion?: string;
   cuaderno?: Record<string, CuadernoEntry[]>;
 }

@@ -1,4 +1,4 @@
-// Aeterna Environment System — Visual Floor Diamond Constants
+// Anektia Environment System — Visual Floor Diamond Constants
 // These are the VISUAL screen-space corners of the master_floor_asset.png
 // when rendered at 940x620px centered at (600, 390) in the 1200x800 stage.
 // Derived analytically: for a proper 2:1 isometric diamond,

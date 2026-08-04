@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { analyzeBranch, buildOutline, outlineToJson, loadCurriculum } from '../framework/aeterna-learning/planning';
-import { writeArticleToContent } from '../framework/aeterna-learning/serializers/markdown-serializer';
+import { analyzeBranch, buildOutline, outlineToJson, loadCurriculum } from '../framework/anektia-learning/planning';
+import { writeArticleToContent } from '../framework/anektia-learning/serializers/markdown-serializer';
 
 function formatTerminalAnalysis(branchId: string): string {
   const result = analyzeBranch(branchId);
@@ -37,14 +37,14 @@ function main() {
 
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
-Aeterna Branch Planner CLI v1.0
+Anektia Branch Planner CLI v1.0
 
 Usage:
   npm run plan:branch -- <branch-id> [--outline <slug> [--output <path>]]
 
 Commands:
   <branch-id>              Analiza la rama: inventario real vs curriculum ideal (gaps)
-  --outline <slug>         Genera el esqueleto AeternaArticle para un articulo del curriculum
+  --outline <slug>         Genera el esqueleto AnektiaArticle para un articulo del curriculum
   --output <path>          Ruta donde guardar el esqueleto (por defecto data/articles/<slug>.outline.json)
 
 Examples:

@@ -2,7 +2,7 @@
 title: "Vectores: El Lenguaje de la Física"
 description: "Guía completa de vectores: qué son, suma y resta, descomposición en componentes, producto escalar y vectorial. La herramienta matemática que la física usa para describir cantidades con dirección."
 slug: vectores
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["vectores", "álgebra vectorial", "descomposición", "producto escalar", "producto vectorial", "componentes"]
@@ -16,9 +16,9 @@ prerequisites: ["materia-y-energia"]
 breadcrumb: Física / Fundamentos del Cosmos / Vectores
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   La velocidad, la fuerza, el campo eléctrico: cantidades que no bastan con un número —necesitan dirección. Eso es un vector.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

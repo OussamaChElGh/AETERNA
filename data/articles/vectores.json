@@ -3,7 +3,7 @@
     "title": "Vectores: El Lenguaje de la Física",
     "description": "Guía completa de vectores: qué son, suma y resta, descomposición en componentes, producto escalar y vectorial. La herramienta matemática que la física usa para describir cantidades con dirección.",
     "slug": "vectores",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -25,7 +25,7 @@
     ],
     "breadcrumb": "Física / Fundamentos del Cosmos / Vectores"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  La velocidad, la fuerza, el campo eléctrico: cantidades que no bastan con un número —necesitan dirección. Eso es un vector.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Un **vector** es una cantidad con magnitud y dirección (como la velocidad o la fuerza), a diferencia de un **escalar** que solo tiene magnitud (como la masa o la temperatura). Los vectores se suman, restan y descomponen en componentes perpendiculares. El **producto escalar** da un número (trabajo), el **producto vectorial** da otro vector (torque). Con los vectores, la física puede describir el mundo en dos y tres dimensiones.\n\n**[IMAGEN SUGERIDA: Flechas de distintos colores apuntando en distintas direcciones sobre un fondo oscuro. Pie de foto: \"Los vectores llevan dirección.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  La velocidad, la fuerza, el campo eléctrico: cantidades que no bastan con un número —necesitan dirección. Eso es un vector.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Un **vector** es una cantidad con magnitud y dirección (como la velocidad o la fuerza), a diferencia de un **escalar** que solo tiene magnitud (como la masa o la temperatura). Los vectores se suman, restan y descomponen en componentes perpendiculares. El **producto escalar** da un número (trabajo), el **producto vectorial** da otro vector (torque). Con los vectores, la física puede describir el mundo en dos y tres dimensiones.\n\n**[IMAGEN SUGERIDA: Flechas de distintos colores apuntando en distintas direcciones sobre un fondo oscuro. Pie de foto: \"Los vectores llevan dirección.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

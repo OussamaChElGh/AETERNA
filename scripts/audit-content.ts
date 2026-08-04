@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import { auditArticle, formatTerminalReport, formatJsonReport } from '../framework/aeterna-learning';
+import { auditArticle, formatTerminalReport, formatJsonReport } from '../framework/anektia-learning';
 
 function main() {
   const args = process.argv.slice(2);
   
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
-Aeterna Content Auditor CLI v1.0
+Anektia Content Auditor CLI v1.0
 
 Usage:
   npm run audit:content -- <path-to-markdown-file> [--json [output-path]] [--profile bachillerato]

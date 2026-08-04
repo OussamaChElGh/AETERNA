@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (isSubcategory) {
     const subName = subcategory.replace(/-/g, ' ');
     return {
-      title: `${subName.toUpperCase()} — Guía Maestra | Aeterna`,
+      title: `${subName.toUpperCase()} — Guía Maestra | Anektia`,
       description: `Ruta de estudio profundo sobre ${subName}.`,
     };
   }
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticleBySlug(subcategory);
   if (article) {
     return {
-      title: `${article.data.title} | Aeterna`,
+      title: `${article.data.title} | Anektia`,
       description: article.data.description,
       keywords: article.data.tags || [],
       openGraph: {
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return { title: 'Guía | Aeterna' };
+  return { title: 'Guía | Anektia' };
 }
 
 export default async function GuiasResolverPage({ params }: Props) {

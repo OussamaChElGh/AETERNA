@@ -2,7 +2,7 @@
 title: "Materia y Energía: La Fábrica del Universo Explicada"
 description: Descubre qué es la materia, qué es la energía, sus diferencias, estados, tipos y cómo se transforman. De la Ley de Conservación a E=mc², pasando por la materia oscura y la energía oscura.
 slug: materia-y-energia
-author: Aeterna
+author: Anektia
 category: ciencias
 subcategory: fisica
 tags: ["física", "materia", "energía", "ley de conservación", "E=mc²", "materia oscura", "energía oscura"]
@@ -139,12 +139,12 @@ No sabemos qué son exactamente. Sabemos que están ahí por sus efectos. Es uno
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
-> **Sistema Aeterna, paso 1: La materia y la energía son intercambiables**
+> **Sistema Anektia, paso 1: La materia y la energía son intercambiables**
 > La materia no es algo fijo y eterno: es energía congelada. E=mc² te dice que los objetos y la energía son dos caras de la misma moneda. ¿Qué cambia en tu forma de ver el mundo si piensas que todo —incluso tú— es energía condensada?
 
-> **Sistema Aeterna, paso 2: La conservación es la base de la ciencia**
+> **Sistema Anektia, paso 2: La conservación es la base de la ciencia**
 > Antes de medir nada, la física asume que la energía y la materia se conservan. Esta suposición, verificada millones de veces, permite descubrir cosas nuevas cuando algo "no cuadra". ¿Qué se conserva en tu vida que consideres intocable?
 
 </NivelActivo>
@@ -354,7 +354,7 @@ Saul Perlmutter, Brian Schmidt y Adam Riess recibieron el Premio Nobel de Físic
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
 > **Paso 1: Formula preguntas, no certezas.**
 >
@@ -532,12 +532,12 @@ Estos dos misterios definen la frontera de la física moderna: el 95% del univer
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
-> **Sistema Aeterna, paso 3: El 95% del universo es desconocido**
+> **Sistema Anektia, paso 3: El 95% del universo es desconocido**
 > La física ha construido el mapa más preciso de la realidad, y ese mapa cubre solo el 5% del universo. La materia y la energía oscura son el territorio que falta por cartografiar. Eso no es una derrota: es la prueba de que lo más interesante está por delante.
 
-> **Sistema Aeterna, paso 4: Acepta la incertidumbre**
+> **Sistema Anektia, paso 4: Acepta la incertidumbre**
 > Las mejores teorías de la física son provisionales y perfectibles. El conocimiento no es un edificio terminado: es un proceso. La duda metódica no es debilidad, es el motor del descubrimiento.
 
 </NivelActivo>

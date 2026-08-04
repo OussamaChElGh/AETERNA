@@ -2,7 +2,7 @@
 title: Mecánica Cuántica
 description: "Guía completa de la mecánica cuántica: la dualidad onda-partícula, el experimento de la doble rendija, el principio de incertidumbre, la superposición, el entrelazamiento, el efecto túnel y sus aplicaciones."
 slug: mecanica-cuantica
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["mecánica cuántica", "dualidad onda-partícula", "principio de incertidumbre", "superposición", "entrelazamiento", "efecto túnel", "doble rendija", "fotones"]
@@ -16,9 +16,9 @@ prerequisites: ["electromagnetismo-avanzado", "mecanica-clasica"]
 breadcrumb: Física / Física Moderna / Mecánica Cuántica
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   A escala atómica, la realidad se comporta de forma que nuestra intuición no puede imaginar: las partículas son ondas, la incertidumbre es fundamental, y el gato puede estar vivo y muerto a la vez.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

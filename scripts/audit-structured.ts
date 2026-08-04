@@ -1,11 +1,11 @@
-import { auditStructuredArticle, formatTerminalReport } from '../framework/aeterna-learning';
+import { auditStructuredArticle, formatTerminalReport } from '../framework/anektia-learning';
 
 function main() {
   const args = process.argv.slice(2);
 
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
-Aeterna Structured Auditor CLI v1.0
+Anektia Structured Auditor CLI v1.0
 
 Audita un articulo JSON (data/articles/*.json) directamente, sin pasar por Markdown.
 

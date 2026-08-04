@@ -139,7 +139,7 @@ export function FloatingMascot() {
           )}>
             <img
               src="/mascot.png"
-              alt="Mascota Aeterna"
+              alt="Mascota Anektia"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               onError={(e) => {
                 e.currentTarget.src = "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?q=80&w=200&auto=format&fit=crop";

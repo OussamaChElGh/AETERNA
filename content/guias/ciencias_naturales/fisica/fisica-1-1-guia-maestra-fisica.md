@@ -2,7 +2,7 @@
 title: "Guía Maestra de Física: El Mapa del Universo"
 description: Descubre qué es la física, sus ramas, su historia y cómo estudiarla. La guía más completa para empezar tu viaje por la ciencia que explica todo lo que existe.
 slug: guia-maestra-de-fisica
-author: Aeterna
+author: Anektia
 category: ciencias
 subcategory: fisica
 tags: ["física", "introducción a la física", "ramas de la física", "historia de la física", "método científico", "guía de física"]
@@ -16,10 +16,10 @@ prerequisites: []
 breadcrumb: Física / Fundamentos del Cosmos / Guía Maestra
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Todo lo que existe — las estrellas, el tiempo, tú — tiene una explicación.
   La física es el intento más ambicioso de encontrarla.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >
@@ -168,9 +168,9 @@ Cuando entiendes aunque sea un poco de física, el mundo cambia. No desaparece e
 
 > **💡 Sobre las matemáticas**
 >
-> Este nivel no tiene una sola ecuación. Y acabas de entender la relatividad, el electromagnetismo y la mecánica cuántica aplicada. Para lo que Aeterna ofrece, la curiosidad es suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar un poema no hace falta ser gramático.
+> Este nivel no tiene una sola ecuación. Y acabas de entender la relatividad, el electromagnetismo y la mecánica cuántica aplicada. Para lo que Anektia ofrece, la curiosidad es suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar un poema no hace falta ser gramático.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="Los relojes de los satélites GPS se desincronizan con los de la Tierra por dos efectos relativistas que actúan en sentidos opuestos. ¿Cuál es el efecto neto si no se corrige?"
   options={[
     { id: 0, text: "El GPS se adelanta unos segundos por día, acumulando errores pequeños pero despreciables." },
@@ -289,7 +289,7 @@ La física puede decirte cómo funciona el universo. No puede decirte por qué e
 
 La física es el mejor mapa de la realidad que existe. Pero el mapa no es el territorio. Y el territorio contiene preguntas que la ciencia no puede — ni pretende — responder. Esa honestidad sobre sus propios límites es, paradójicamente, una de las cosas que hace grande a la física.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="Planck consideró sus propias ecuaciones un truco matemático provisional. ¿Qué nos dice eso sobre cómo avanza la física?"
   options={[
     { id: 0, text: "Que los físicos no comprenden realmente lo que descubren hasta años después." },
@@ -440,7 +440,7 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 >
 > Todo lo que conoces — las estrellas, los planetas, el gas interestelar, los átomos de tu cuerpo, este artículo — representa el 5% del universo. El 95% restante es materia oscura y energía oscura. La física del futuro se construirá sobre esta ignorancia. Y eso, lejos de ser desalentador, es la mejor noticia posible: significa que lo más interesante está por descubrir.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="La energía oscura es la candidata para explicar la expansión acelerada del universo. Si la predicción de la física cuántica para esa energía es 10¹²⁰ veces mayor que la observada, ¿qué conclusión es más correcta?"
   options={[
     { id: 0, text: "La física cuántica está equivocada y debe descartarse como marco teórico." },
@@ -475,7 +475,7 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 > La física busca los principios más fundamentales — los que aplican a todo el universo, siempre, sin excepción. La química estudia cómo se combinan los átomos; la física estudia por qué los átomos existen y por qué tienen las propiedades que tienen. La física fundamenta a las demás ciencias, aunque la relación no siempre es evidente.
 
 > **¿Necesito matemáticas para entender física?**
-> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
+> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Anektia está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
 
 > **¿Cuál es el mayor problema sin resolver en física?**
 > La incompatibilidad entre relatividad general y mecánica cuántica. Son las dos teorías de mayor éxito de la historia de la ciencia, pero sus matemáticas chocan de frente en los extremos del cosmos: en los agujeros negros y en el instante inicial del Big Bang producen resultados sin sentido. Resolver esa contradicción — la Teoría del Todo — es el mayor desafío de la física teórica.
@@ -606,9 +606,9 @@ Cuando entiendes aunque sea un poco de física, el mundo cambia. No desaparece e
 
 > **💡 Sobre las matemáticas**
 >
-> Este nivel no tiene una sola ecuación. Y acabas de entender la relatividad, el electromagnetismo y la mecánica cuántica aplicada. Para lo que Aeterna ofrece, la curiosidad es suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar un poema no hace falta ser gramático.
+> Este nivel no tiene una sola ecuación. Y acabas de entender la relatividad, el electromagnetismo y la mecánica cuántica aplicada. Para lo que Anektia ofrece, la curiosidad es suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar un poema no hace falta ser gramático.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="Los relojes de los satélites GPS se desincronizan con los de la Tierra por dos efectos relativistas que actúan en sentidos opuestos. ¿Cuál es el efecto neto si no se corrige?"
   options={[
     { id: 0, text: "El GPS se adelanta unos segundos por día, acumulando errores pequeños pero despreciables." },
@@ -785,7 +785,7 @@ La física puede decirte cómo funciona el universo. No puede decirte por qué e
 
 La física es el mejor mapa de la realidad que existe. Pero el mapa no es el territorio. Y el territorio contiene preguntas que la ciencia no puede — ni pretende — responder. Esa honestidad sobre sus propios límites es, paradójicamente, una de las cosas que hace grande a la física.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="Planck consideró sus propias ecuaciones un truco matemático provisional. ¿Qué nos dice eso sobre cómo avanza la física?"
   options={[
     { id: 0, text: "Que los físicos no comprenden realmente lo que descubren hasta años después." },
@@ -857,7 +857,7 @@ Estás en la frontera. Aquí el contenido se vuelve más denso, más especulativ
 
 ### Los libros que deberían acompañarte
 
-Ningún artículo de Aeterna sustituye a un buen libro. Estos tres son el punto de partida honesto:
+Ningún artículo de Anektia sustituye a un buen libro. Estos tres son el punto de partida honesto:
 
 - **"El universo elegante" — Brian Greene.** La mejor introducción a la relatividad, la cuántica y la teoría de cuerdas. Greene escribe con la precisión de un físico y la claridad de alguien que de verdad quiere que lo entiendas. Compañero ideal para los niveles 3 y 4.
 - **"Seis piezas fáciles" — Richard Feynman.** Conferencias de Feynman adaptadas para no especialistas. Nadie ha explicado la física con más honestidad intelectual. Léelo antes del nivel 2.
@@ -959,7 +959,7 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 >
 > Todo lo que conoces — las estrellas, los planetas, el gas interestelar, los átomos de tu cuerpo, este artículo — representa el 5% del universo. El 95% restante es materia oscura y energía oscura. La física del futuro se construirá sobre esta ignorancia. Y eso, lejos de ser desalentador, es la mejor noticia posible: significa que lo más interesante está por descubrir.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="La energía oscura es la candidata para explicar la expansión acelerada del universo. Si la predicción de la física cuántica para esa energía es 10¹²⁰ veces mayor que la observada, ¿qué conclusión es más correcta?"
   options={[
     { id: 0, text: "La física cuántica está equivocada y debe descartarse como marco teórico." },
@@ -994,7 +994,7 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 > La física busca los principios más fundamentales — los que aplican a todo el universo, siempre, sin excepción. La química estudia cómo se combinan los átomos; la física estudia por qué los átomos existen y por qué tienen las propiedades que tienen. La física fundamenta a las demás ciencias, aunque la relación no siempre es evidente.
 
 > **¿Necesito matemáticas para entender física?**
-> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
+> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Anektia está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
 
 > **¿Cuál es el mayor problema sin resolver en física?**
 > La incompatibilidad entre relatividad general y mecánica cuántica. Son las dos teorías de mayor éxito de la historia de la ciencia, pero sus matemáticas chocan de frente en los extremos del cosmos: en los agujeros negros y en el instante inicial del Big Bang producen resultados sin sentido. Resolver esa contradicción — la Teoría del Todo — es el mayor desafío de la física teórica.
@@ -1009,7 +1009,7 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
 > **Paso 1: La autoridad no sustituye a la evidencia**
 >
@@ -1151,9 +1151,9 @@ Cuando entiendes aunque sea un poco de física, el mundo cambia. No desaparece e
 
 > **💡 Sobre las matemáticas**
 >
-> Este nivel no tiene una sola ecuación. Y acabas de entender la relatividad, el electromagnetismo y la mecánica cuántica aplicada. Para lo que Aeterna ofrece, la curiosidad es suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar un poema no hace falta ser gramático.
+> Este nivel no tiene una sola ecuación. Y acabas de entender la relatividad, el electromagnetismo y la mecánica cuántica aplicada. Para lo que Anektia ofrece, la curiosidad es suficiente. Las matemáticas son el lenguaje en el que está escrito el universo — pero para apreciar un poema no hace falta ser gramático.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="Los relojes de los satélites GPS se desincronizan con los de la Tierra por dos efectos relativistas que actúan en sentidos opuestos. ¿Cuál es el efecto neto si no se corrige?"
   options={[
     { id: 0, text: "El GPS se adelanta unos segundos por día, acumulando errores pequeños pero despreciables." },
@@ -1272,7 +1272,7 @@ La física puede decirte cómo funciona el universo. No puede decirte por qué e
 
 La física es el mejor mapa de la realidad que existe. Pero el mapa no es el territorio. Y el territorio contiene preguntas que la ciencia no puede — ni pretende — responder. Esa honestidad sobre sus propios límites es, paradójicamente, una de las cosas que hace grande a la física.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="Planck consideró sus propias ecuaciones un truco matemático provisional. ¿Qué nos dice eso sobre cómo avanza la física?"
   options={[
     { id: 0, text: "Que los físicos no comprenden realmente lo que descubren hasta años después." },
@@ -1423,7 +1423,7 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 >
 > Todo lo que conoces — las estrellas, los planetas, el gas interestelar, los átomos de tu cuerpo, este artículo — representa el 5% del universo. El 95% restante es materia oscura y energía oscura. La física del futuro se construirá sobre esta ignorancia. Y eso, lejos de ser desalentador, es la mejor noticia posible: significa que lo más interesante está por descubrir.
 
-<AeternaDecisionBox
+<AnektiaDecisionBox
   question="La energía oscura es la candidata para explicar la expansión acelerada del universo. Si la predicción de la física cuántica para esa energía es 10¹²⁰ veces mayor que la observada, ¿qué conclusión es más correcta?"
   options={[
     { id: 0, text: "La física cuántica está equivocada y debe descartarse como marco teórico." },
@@ -1458,7 +1458,7 @@ La teoría de cuerdas y la gravedad cuántica de bucles son los dos intentos má
 > La física busca los principios más fundamentales — los que aplican a todo el universo, siempre, sin excepción. La química estudia cómo se combinan los átomos; la física estudia por qué los átomos existen y por qué tienen las propiedades que tienen. La física fundamenta a las demás ciencias, aunque la relación no siempre es evidente.
 
 > **¿Necesito matemáticas para entender física?**
-> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Aeterna está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
+> Para hacer física, sí. Para entender física, no necesariamente. Este nivel no tiene una sola ecuación, y has comprendido la relatividad, el electromagnetismo cuántico y la cosmología moderna. Anektia está diseñada para que la curiosidad sea suficiente. Dominar las matemáticas te permitirá leer las ecuaciones en su idioma original, pero comprender las ideas profundas de la física no exige ser especialista en cálculo.
 
 > **¿Cuál es el mayor problema sin resolver en física?**
 > La incompatibilidad entre relatividad general y mecánica cuántica. Son las dos teorías de mayor éxito de la historia de la ciencia, pero sus matemáticas chocan de frente en los extremos del cosmos: en los agujeros negros y en el instante inicial del Big Bang producen resultados sin sentido. Resolver esa contradicción — la Teoría del Todo — es el mayor desafío de la física teórica.

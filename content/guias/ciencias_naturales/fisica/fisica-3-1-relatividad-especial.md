@@ -2,7 +2,7 @@
 title: Relatividad Especial
 description: "Guía completa de la relatividad especial de Einstein: postulados, simultaneidad, dilatación del tiempo, contracción de longitudes, E = mc² y las paradojas del tiempo."
 slug: relatividad-especial
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["relatividad", "Einstein", "velocidad de la luz", "dilatación del tiempo", "E = mc²", "contracción de longitudes", "simultaneidad"]
@@ -16,9 +16,9 @@ prerequisites: ["electromagnetismo-avanzado", "vectores"]
 breadcrumb: Física / Física Moderna / Relatividad Especial
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   En 1905, un empleado de la oficina de patentes de Berna publicó un artículo que cambió para siempre nuestra comprensión del tiempo y el espacio.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

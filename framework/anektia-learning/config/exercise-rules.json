@@ -1,0 +1,21 @@
+{
+  "totalRange": {
+    "min": 7,
+    "max": 13
+  },
+  "exerciseTypes": {
+    "AnektiaExercise": {
+      "requiresTitle": true,
+      "requiresHint": true,
+      "requiresXP": true,
+      "weight": 1.0
+    },
+    "AnektiaDecisionBox": {
+      "requiresQuestion": true,
+      "requiresOptions": true,
+      "minOptions": 2,
+      "weight": 0.8
+    }
+  },
+  "requireSolutionsWhenApplicable": true
+}

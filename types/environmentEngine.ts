@@ -1,4 +1,4 @@
-// AETERNA ENVIRONMENT SYSTEM v1.0
+// ANEKTIA ENVIRONMENT SYSTEM v1.0
 // Comprehensive Domain Types & Entities Definition
 
 export type SurfaceType = 'floor' | 'wall' | 'desk' | 'ceiling';

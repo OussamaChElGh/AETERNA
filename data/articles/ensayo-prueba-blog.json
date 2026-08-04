@@ -3,7 +3,7 @@
     "title": "La Estética de lo Invisible: Un Ensayo de Prueba",
     "description": "Exploramos por qué la belleza del conocimiento reside en aquello que no podemos ver a simple vista.",
     "slug": "ensayo-prueba-blog",
-    "author": "Aeterna Editorial",
+    "author": "Anektia Editorial",
     "category": "bitacora",
     "tags": [
       "ensayo",
@@ -41,10 +41,10 @@
       "id": "conclusion-editorial",
       "titulo": "Hacia una Nueva Narrativa",
       "niveles": {
-        "intermedio": "Con este artículo confirmamos que la estética de Aeterna es versátil: potente para el aprendizaje técnico y elegante para la reflexión pausada."
+        "intermedio": "Con este artículo confirmamos que la estética de Anektia es versátil: potente para el aprendizaje técnico y elegante para la reflexión pausada."
       },
       "acciones": []
     }
   ],
-  "conclusion": "Gracias por validar el motor editorial de Aeterna. El archivo sigue creciendo."
+  "conclusion": "Gracias por validar el motor editorial de Anektia. El archivo sigue creciendo."
 }

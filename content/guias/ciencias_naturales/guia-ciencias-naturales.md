@@ -76,7 +76,7 @@ En este juego no se puede perder. Y ahí reside precisamente el problema.
 
 Popper propuso un criterio demoledor: la **falsabilidad**. Una teoría es científica no porque mil observaciones la confirmen, sino porque una sola podría refutarla. La ciencia se coloca frente al pelotón de fusilamiento de la realidad y dice: *"Si observas esto que yo mismo te indico, estoy muerta"*.
 
-> **🧠 Pregunta para ti (Sistema Aeterna, paso 1: Formula preguntas, no certezas)**
+> **🧠 Pregunta para ti (Sistema Anektia, paso 1: Formula preguntas, no certezas)**
 >
 > Piensa en una creencia que tengas. ¿Puedes imaginar un experimento que demuestre que estás equivocado? Si la respuesta es "no", no estás pensando científicamente. Y no pasa nada. Pero conviene saberlo.
 
@@ -213,7 +213,7 @@ Una **hipótesis** es la respuesta tentativa a esa pregunta. Y su atributo esenc
 - ❌ Mala hipótesis: "Las plantas necesitan cariño para crecer". (¿Cómo se mide el "cariño"? ¿Con un cariciómetro? No es falsable).
 - ✅ Buena hipótesis: "Las plantas de la especie *Phaseolus vulgaris* regadas con una solución de nitrógeno al 2% crecerán un 15% más rápido que el grupo de control regado solo con agua".
 
-> **🧠 Sistema Aeterna, paso 2: Crea hipótesis falsables**
+> **🧠 Sistema Anektia, paso 2: Crea hipótesis falsables**
 >
 > ¿Tu hipótesis es lo bastante concreta como para ser destruida por un experimento? Si no puedes imaginar qué resultado te haría decir "estaba equivocado", no tienes una hipótesis. Tienes una opinión.
 
@@ -368,7 +368,7 @@ Esas dos nubes —anomalías en la velocidad de la luz y en la radiación de los
 
 Einstein demostró que Newton no era "falso". Era un caso particular, perfecto para nuestro mundo de velocidades lentas y gravedades moderadas. Pero cuando viajas cerca de la velocidad de la luz o te acercas a un agujero negro, necesitas un mapa más grande. La revolución relativista nos enseñó la lección de humildad definitiva: **todo modelo, incluso el más exitoso, es provisional.**
 
-> **🧠 Sistema Aeterna, paso 3: Busca activamente el error**
+> **🧠 Sistema Anektia, paso 3: Busca activamente el error**
 >
 > Fíjate en el patrón: Copérnico, Darwin, Einstein. Ninguno dijo "todo está bien, sigamos como estamos". Buscaron la anomalía, la pieza que no encajaba, y la persiguieron. La ciencia avanza cuando alguien se obsesiona con lo que los demás ignoran. ¿Qué anomalía estás ignorando tú?
 
@@ -480,7 +480,7 @@ Son ciencias empíricas por excelencia. Interrogan a la realidad con experimento
 | **Geología** | La Tierra, su composición y su historia | ¿Cómo funciona nuestro planeta y qué historias cuentan sus rocas? | [Guía Maestra de Geología] |
 | **Astronomía** | Los cuerpos celestes y el universo como un todo | ¿Qué hay más allá de la Tierra y cuál es el origen y el destino del cosmos? | [Guía Maestra de Astronomía] |
 
-> **🧠 Sistema Aeterna, paso 4: Refina el modelo y repite**
+> **🧠 Sistema Anektia, paso 4: Refina el modelo y repite**
 >
 > Fíjate en cómo las ciencias naturales se organizan por escala: la física estudia las partículas, la química estudia cómo se combinan, la biología estudia lo vivo construido sobre esa química. Cada nivel se apoya en el anterior, pero no se reduce a él. Una célula no es "solo" un montón de reacciones químicas: es un sistema que emerge de ellas. La ciencia avanza refinando estos niveles y las conexiones entre ellos.
 

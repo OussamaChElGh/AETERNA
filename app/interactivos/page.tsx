@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { KanaTool } from "@/components/interactive/KanaTool";
 import { KanaGameV2 } from "@/components/interactive/KanaGameV2";
-import { AeternaInteractiveQuestion } from "@/components/interactive/AeternaInteractiveQuestion";
+import { AnektiaInteractiveQuestion } from "@/components/interactive/AnektiaInteractiveQuestion";
 import { PhysicsSimulator } from "@/components/interactive/PhysicsSimulator";
 import { AtomicModelSimulator } from "@/components/interactive/AtomicModelSimulator";
 
@@ -148,7 +148,7 @@ export default function InteractivePage() {
                   Laboratorio <span className="text-brand-gold italic font-normal normal-case">Interactivo</span>
                 </h1>
                 <p className="text-brand-muted text-base md:text-lg font-sans font-light leading-relaxed max-w-xl mx-auto">
-                  Accede de forma directa a todas las herramientas interactivas, desafíos de velocidad y simuladores desarrollados para el ecosistema Aeterna.
+                  Accede de forma directa a todas las herramientas interactivas, desafíos de velocidad y simuladores desarrollados para el ecosistema Anektia.
                 </p>
                 <div className="h-px bg-gradient-to-r from-transparent via-brand-border to-transparent w-full mt-10" />
               </div>
@@ -302,7 +302,7 @@ export default function InteractivePage() {
                     className="space-y-16"
                   >
                     <div className="text-center max-w-2xl mx-auto space-y-4 mb-20">
-                      <span className="text-[9px] font-mono font-bold tracking-[0.4em] text-brand-gold uppercase block">SISTEMA AETERNA</span>
+                      <span className="text-[9px] font-mono font-bold tracking-[0.4em] text-brand-gold uppercase block">SISTEMA ANEKTIA</span>
                       <h2 className="font-serif text-4xl md:text-5xl uppercase">Cuestionarios de Física</h2>
                       <p className="text-brand-muted font-sans font-light leading-relaxed text-sm">
                         Colección de retos conceptuales síncronos. Responde correctamente para asimilar los principios axiomáticos y ganar XP para tu perfil.
@@ -318,7 +318,7 @@ export default function InteractivePage() {
                             <span className="text-[11px] font-mono font-black uppercase tracking-[0.4em] text-brand-ink/80 dark:text-brand-offwhite/80">{q.title}</span>
                             <div className="h-px flex-1 bg-black/5 dark:bg-white/5" />
                           </div>
-                          <AeternaInteractiveQuestion content={q.content} />
+                          <AnektiaInteractiveQuestion content={q.content} />
                         </div>
                       ))}
                     </div>

@@ -20,14 +20,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${catData.name} — Rutas de Aprendizaje`,
       description: catData.description,
       openGraph: {
-        title: `${catData.name} | Aeterna`,
+        title: `${catData.name} | Anektia`,
         description: catData.description,
       },
     };
   }
 
   return {
-    title: 'Guía de Aprendizaje | Aeterna',
+    title: 'Guía de Aprendizaje | Anektia',
   };
 }
 

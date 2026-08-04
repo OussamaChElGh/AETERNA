@@ -138,7 +138,7 @@
   body { background: white !important; color: black !important; }
 }
 
-/* ─── Aeterna Feedback FX (Duolingo-style) ─────────────────────────── */
+/* ─── Anektia Feedback FX (Duolingo-style) ─────────────────────────── */
 @layer utilities {
   @keyframes aeterna-pop {
     0%   { transform: scale(1); }

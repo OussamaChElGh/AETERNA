@@ -3,7 +3,7 @@
     "title": "Relatividad Especial",
     "description": "Guía completa de la relatividad especial de Einstein: postulados, simultaneidad, dilatación del tiempo, contracción de longitudes, E = mc² y las paradojas del tiempo.",
     "slug": "relatividad-especial",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -27,7 +27,7 @@
     ],
     "breadcrumb": "Física / Física Moderna / Relatividad Especial"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  En 1905, un empleado de la oficina de patentes de Berna publicó un artículo que cambió para siempre nuestra comprensión del tiempo y el espacio.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La relatividad especial se basa en **dos postulados**: (1) las leyes de la física son las mismas para todos los observadores inerciales; (2) la velocidad de la luz c es la misma para todos los observadores. De estos dos postulados se deducen consecuencias extraordinarias: el **tiempo es relativo** (se dilata a altas velocidades), las **longitudes se contraen**, y **E = mc²** —la masa es energía. A velocidades cotidianas estos efectos son diminutos; cerca de la velocidad de la luz, dominan el universo.\n\n**[IMAGEN SUGERIDA: Un reloj que se ralentiza cerca de un agujero negro o a alta velocidad. Pie de foto: \"El tiempo no es absoluto.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  En 1905, un empleado de la oficina de patentes de Berna publicó un artículo que cambió para siempre nuestra comprensión del tiempo y el espacio.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La relatividad especial se basa en **dos postulados**: (1) las leyes de la física son las mismas para todos los observadores inerciales; (2) la velocidad de la luz c es la misma para todos los observadores. De estos dos postulados se deducen consecuencias extraordinarias: el **tiempo es relativo** (se dilata a altas velocidades), las **longitudes se contraen**, y **E = mc²** —la masa es energía. A velocidades cotidianas estos efectos son diminutos; cerca de la velocidad de la luz, dominan el universo.\n\n**[IMAGEN SUGERIDA: Un reloj que se ralentiza cerca de un agujero negro o a alta velocidad. Pie de foto: \"El tiempo no es absoluto.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

@@ -1,0 +1,51 @@
+{
+  "profileId": "bachillerato",
+  "name": "Bachillerato",
+  "targetAudience": "Estudiante de Bachillerato (16-18 años)",
+  "description": "Perfil pedagógico estándar de Anektia para estudiantes de nivel Bachillerato. Énfasis en comprensión sólida de conceptos, práctica variada de 7 a 13 ejercicios y desarrollo de razonamiento crítico.",
+  "layers": {
+    "inicio": {
+      "id": "inicio",
+      "title": "Inicio / Fundamentos",
+      "objective": "comprender",
+      "minExercises": 2,
+      "maxExercises": 4,
+      "masteryThreshold": 0.70,
+      "competencies": [
+        "recognition",
+        "understanding",
+        "basic_application"
+      ]
+    },
+    "intermedio": {
+      "id": "intermedio",
+      "title": "Intermedio / Profundización",
+      "objective": "aplicar",
+      "minExercises": 3,
+      "maxExercises": 5,
+      "masteryThreshold": 0.75,
+      "competencies": [
+        "application",
+        "interpretation",
+        "standard_problem_solving"
+      ]
+    },
+    "avanzado": {
+      "id": "avanzado",
+      "title": "Avanzado / Frontera",
+      "objective": "dominar / razonar / transferir",
+      "minExercises": 2,
+      "maxExercises": 4,
+      "masteryThreshold": 0.75,
+      "competencies": [
+        "reasoning",
+        "non_routine_problem_solving",
+        "transfer"
+      ]
+    }
+  },
+  "recommendedTotalExercises": {
+    "min": 7,
+    "max": 13
+  }
+}

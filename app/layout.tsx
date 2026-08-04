@@ -17,16 +17,16 @@ import { FloatingMascot } from "@/components/FloatingMascot";
 
 export const metadata: Metadata = {
   title: {
-    default: "AETERNA — El Nexo del Conocimiento",
-    template: "%s | AETERNA"
+    default: "ANEKTIA — El Nexo del Conocimiento",
+    template: "%s | ANEKTIA"
   },
   description: "Plataforma de aprendizaje autodidacta profundo y gamificado. Ciencias, Filosofía, Literatura e Idiomas explicados con exégesis multinivel.",
   keywords: ["física", "filosofía", "aprendizaje", "autodidacta", "ciencia", "japones", "guias maestras"],
-  authors: [{ name: "Aeterna" }],
+  authors: [{ name: "Anektia" }],
   openGraph: {
-    title: "AETERNA — El Nexo del Conocimiento",
+    title: "ANEKTIA — El Nexo del Conocimiento",
     description: "Plataforma de aprendizaje autodidacta profundo y gamificado.",
-    siteName: "Aeterna",
+    siteName: "Anektia",
     locale: "es_ES",
     type: "website",
   },

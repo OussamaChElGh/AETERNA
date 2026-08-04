@@ -2,7 +2,7 @@
 title: Torque y Momento Angular
 description: Guía completa del torque, el equilibrio rotacional, el momento de inercia, la conservación del momento angular, la dinámica rotacional y la precesión de los giroscopios.
 slug: torque-momento-angular
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["torque", "momento angular", "momento de inercia", "equilibrio rotacional", "giroscopio", "precesión", "rotación"]
@@ -16,9 +16,9 @@ prerequisites: ["leyes-newton-movimiento", "momentum-colisiones", "vectores"]
 breadcrumb: Física / Profundización Mecánica / Torque y Momento Angular
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Una patinadora gira con los brazos abiertos y, al cerrarlos, gira muchísimo más rápido. Un trompo se inclina y, en vez de caerse, describe un círculo. Bienvenido a la rotación.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

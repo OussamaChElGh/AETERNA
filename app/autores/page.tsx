@@ -5,11 +5,11 @@ import { ArrowRight } from "lucide-react";
 
 const AUTHORS = [
   {
-    name: "Guardián Aeterna",
+    name: "Guardián Anektia",
     role: "Inteligencia Artificial",
     bio: "Un archivero incansable de la matriz galáctica. El Guardián es el bibliotecario de la plataforma, encargado de destilar sabiduría atemporal.",
     image: "/mascot.png",
-    slug: "guardian-aeterna"
+    slug: "guardian-anektia"
   },
   {
     name: "Marco Aurelio",
@@ -69,7 +69,7 @@ export default function AuthorsPage() {
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                   onError={(e) => { 
-                    if (author.slug === "guardian-aeterna") {
+                    if (author.slug === "guardian-anektia") {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?q=80&w=200&auto=format&fit=crop"; 
                     }
                   }}

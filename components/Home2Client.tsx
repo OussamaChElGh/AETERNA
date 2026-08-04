@@ -354,7 +354,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
               ))}
             </motion.div>
 
-            {/* Núcleo central AETERNA */}
+            {/* Núcleo central ANEKTIA */}
             <motion.div
               initial={{ scale: 0, rotate: -45 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -609,7 +609,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
             className="mb-12 relative w-32 h-32 mx-auto">
             <div className="absolute inset-0 bg-brand-gold blur-3xl opacity-40 animate-pulse" />
             <div className="relative w-full h-full rounded-full border border-brand-gold/50 shadow-[0_0_40px_rgba(212,175,55,0.5)] overflow-hidden bg-brand-ink/90 flex items-center justify-center p-2 backdrop-blur-sm">
-              <img src="/mascot.png" alt="Aeterna Mascot" className="w-full h-full object-cover rounded-full" />
+              <img src="/mascot.png" alt="Anektia Mascot" className="w-full h-full object-cover rounded-full" />
             </div>
           </motion.div>
           <h2 className="text-6xl md:text-8xl font-serif tracking-tighter text-brand-offwhite mb-16 leading-none drop-shadow-2xl">

@@ -9,10 +9,10 @@ export const ACADEMIC_LIBRARY_THEME: EnvironmentTheme = {
     tileWidthPx: 64,
     tileHeightPx: 32,
     variants: [
-      '/images/aeterna_master_oak_floor_tile.png',
-      '/images/aeterna_master_oak_floor_tile_b.png',
-      '/images/aeterna_master_oak_floor_tile_c.png',
-      '/images/aeterna_master_oak_floor_tile.png'
+      '/images/anektia_master_oak_floor_tile.png',
+      '/images/anektia_master_oak_floor_tile_b.png',
+      '/images/anektia_master_oak_floor_tile_c.png',
+      '/images/anektia_master_oak_floor_tile.png'
     ]
   },
   wallModuleSet: {

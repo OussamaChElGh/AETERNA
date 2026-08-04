@@ -16,10 +16,10 @@ import { cn, formatDate } from "@/lib/utils";
 import { PixelParticles } from "@/components/PixelParticles";
 import { useGamification } from "@/context/GamificationContext";
 import { customMarkdownComponents, markdownPlugins } from "./components/customMarkdownComponents";
-import { preprocessAeternaContent } from "./parsers/preprocessAeternaContent";
+import { preprocessAnektiaContent } from "./parsers/preprocessAnektiaContent";
 import { extractInteractiveFromContent, extractImageFromContent } from "./parsers/extractInteractive";
 import ReactMarkdown from "react-markdown";
-import type { AeternaArticle } from "@/types";
+import type { AnektiaArticle } from "@/types";
 
 const layerMeta: Record<string, { label: string; code: string; icon: any }> = {
   principiante: { label: "CAPA I: FUNDAMENTOS", code: "CAPA 01", icon: Compass },
@@ -58,7 +58,7 @@ function RenderAcciones({ acciones }: { acciones: any[] }) {
 }
 
 interface FocusStepViewerProps {
-  article: AeternaArticle;
+  article: AnektiaArticle;
   displaySecciones: any[];
   currentLevel: string;
   changeLevel: (level: string) => void;
@@ -131,12 +131,12 @@ export function FocusStepViewer({
     const subcat = (metadata.subcategory || "").toLowerCase();
 
     if (cat.includes("math") || subcat.includes("matematica") || subcat.includes("logica")) {
-      return "/images/aeterna_pixel_math.png";
+      return "/images/anektia_pixel_math.png";
     }
     if (cat.includes("info") || subcat.includes("computacion") || subcat.includes("programacion")) {
-      return "/images/aeterna_pixel_cs.png";
+      return "/images/anektia_pixel_cs.png";
     }
-    return "/images/aeterna_pixel_physics.png";
+    return "/images/anektia_pixel_physics.png";
   }, [metadata.category, metadata.subcategory]);
 
   const handleNext = () => {
@@ -223,7 +223,7 @@ export function FocusStepViewer({
           rehypePlugins={markdownPlugins.rehype}
           components={customMarkdownComponents}
         >
-          {preprocessAeternaContent(textContent || "Contenido no disponible para este nivel.")}
+          {preprocessAnektiaContent(textContent || "Contenido no disponible para este nivel.")}
         </ReactMarkdown>
       </div>
 
@@ -250,7 +250,7 @@ export function FocusStepViewer({
           <span>Actividad Práctica Interactiva</span>
         </div>
         <span className="px-3 py-1 rounded-full bg-brand-gold/20 text-[#8B6914] dark:text-brand-gold text-[9px] font-mono font-bold uppercase tracking-widest border border-brand-gold/30">
-          Aeterna Lab
+          Anektia Lab
         </span>
       </div>
 
@@ -265,7 +265,7 @@ export function FocusStepViewer({
               rehypePlugins={markdownPlugins.rehype}
               components={customMarkdownComponents}
             >
-              {preprocessAeternaContent(block)}
+              {preprocessAnektiaContent(block)}
             </ReactMarkdown>
           </div>
         ))}
@@ -541,7 +541,7 @@ export function FocusStepViewer({
                   <div className="relative w-full h-48 md:h-64 rounded-2xl overflow-hidden border-2 border-brand-gold/40 shadow-xl bg-brand-gold/10">
                     <Image
                       src={exordiumBanner}
-                      alt="Aeterna Visual Exordium"
+                      alt="Anektia Visual Exordium"
                       fill
                       className="object-cover"
                     />
@@ -580,7 +580,7 @@ export function FocusStepViewer({
                           rehypePlugins={markdownPlugins.rehype}
                           components={customMarkdownComponents}
                         >
-                          {preprocessAeternaContent(introduccion)}
+                          {preprocessAnektiaContent(introduccion)}
                         </ReactMarkdown>
                       </div>
                     </div>
@@ -609,7 +609,7 @@ export function FocusStepViewer({
                     className="w-24 h-24 mx-auto relative flex items-center justify-center"
                   >
                     <Image
-                      src="/images/aeterna_pixel_prism.png"
+                      src="/images/anektia_pixel_prism.png"
                       alt="Prism Relic"
                       width={96}
                       height={96}

@@ -39,7 +39,7 @@ import { CATEGORIES_DATA } from "@/data/categories";
 import type { ArticleFrontmatter } from "@/types";
 import { ConstellationMap } from "@/components/ConstellationMap";
 import { RoomProvider } from "@/context/RoomContext";
-import { AeternaKnowledgeRoom } from "@/components/interactive/AeternaKnowledgeRoom";
+import { AnektiaKnowledgeRoom } from "@/components/interactive/AnektiaKnowledgeRoom";
 
 export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: ArticleFrontmatter[] }) {
   const { progress, selectAvatar, resetProgress, setAlias } = useGamification();
@@ -359,7 +359,7 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
         <section className="shadow-2xl rounded-3xl overflow-hidden relative">
           <div className="bg-brand-ink text-brand-gold p-3 px-6 flex items-center justify-between border-b border-brand-gold/30">
             <span className="text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
-              <Sparkles size={14} /> Motor de Habitación 2D Aeterna
+              <Sparkles size={14} /> Motor de Habitación 2D Anektia
             </span>
             <Link 
               href="/room-engine"
@@ -370,7 +370,7 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
             </Link>
           </div>
           <RoomProvider>
-            <AeternaKnowledgeRoom />
+            <AnektiaKnowledgeRoom />
           </RoomProvider>
         </section>
 

@@ -19,11 +19,11 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
   const title = hasShare
     ? `${params.name} está en el puesto #${params.rank} del ranking ${params.scope === 'weekly' ? 'semanal' : 'global'}`
-    : 'Cuadro de Clasificación — AETERNA';
+    : 'Cuadro de Clasificación — ANEKTIA';
 
   const description = hasShare
-    ? `Nivel ${params.level || '?'} · ${params.xp || '0'} XP · Compite con otros sabios en AETERNA`
-    : 'Compite con otros sabios de Aeterna por el trono del conocimiento. Ranking global y semanal.';
+    ? `Nivel ${params.level || '?'} · ${params.xp || '0'} XP · Compite con otros sabios en ANEKTIA`
+    : 'Compite con otros sabios de Anektia por el trono del conocimiento. Ranking global y semanal.';
 
   return {
     title,
@@ -32,7 +32,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
       title,
       description,
       url: 'https://aeterna.app/clasificacion',
-      siteName: 'AETERNA',
+      siteName: 'ANEKTIA',
       locale: 'es_ES',
       type: 'website',
       images: [{ url: ogImageUrl.toString(), width: 1200, height: 630, alt: title }],

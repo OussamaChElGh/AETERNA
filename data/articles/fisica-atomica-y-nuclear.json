@@ -3,7 +3,7 @@
     "title": "Física Atómica y Nuclear: Del Átomo a la Estrella",
     "description": "Explora la arquitectura de la materia desde el concepto griego del átomo hasta las ecuaciones de frontera que rigen el núcleo estelar.",
     "slug": "fisica-atomica-y-nuclear",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias",
     "subcategory": "fisica",
     "tags": [
@@ -63,7 +63,7 @@
       "titulo": "4. La Energía del Núcleo: Fisión y Fusión",
       "niveles": {
         "principiante": "### Romper o Unir\n    - **Fisión:** Romper un átomo pesado (Uranio) para liberar energía. Es lo que usamos en las centrales nucleares.\n    - **Fusión:** Unir átomos ligeros (Hidrógeno) para formar uno más pesado. Es lo que hace el Sol. Libera mucha más energía y es más limpia.\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía\">\nLa fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (isótopos de hidrógeno) libera energía sin residuos de larga vida. Investiga los proyectos ITER y los reactores de fusión por confinamiento inercial, y explica con la física que has aprendido por qué la fusión es tan difícil de controlar (temperaturas de millones de grados) pero tan prometedora.\n</Transfer>\n",
-        "intermedio": "### La equivalencia Masa-Energía\n    Tanto en la fisión como en la fusión, el resultado final pesa un poco menos que el inicial. Esa masa desaparecida se ha convertido en energía según la ecuación de Einstein:\n    ```aeterna-equation\n    E = mc^2\n    ```\n    Un solo gramo de uranio libera la energía de 2.5 toneladas de carbón.\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía\">\nLa fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (isótopos de hidrógeno) libera energía sin residuos de larga vida. Investiga los proyectos ITER y los reactores de fusión por confinamiento inercial, y explica con la física que has aprendido por qué la fusión es tan difícil de controlar (temperaturas de millones de grados) pero tan prometedora.\n</Transfer>\n",
+        "intermedio": "### La equivalencia Masa-Energía\n    Tanto en la fisión como en la fusión, el resultado final pesa un poco menos que el inicial. Esa masa desaparecida se ha convertido en energía según la ecuación de Einstein:\n    ```anektia-equation\n    E = mc^2\n    ```\n    Un solo gramo de uranio libera la energía de 2.5 toneladas de carbón.\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía\">\nLa fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (isótopos de hidrógeno) libera energía sin residuos de larga vida. Investiga los proyectos ITER y los reactores de fusión por confinamiento inercial, y explica con la física que has aprendido por qué la fusión es tan difícil de controlar (temperaturas de millones de grados) pero tan prometedora.\n</Transfer>\n",
         "avanzado": "### Nucleosíntesis Estelar y el Límite del Hierro\n    Las estrellas forjan elementos mediante fusión. Sin embargo, el **Hierro-56** es el punto de máxima estabilidad. Fusionar elementos más pesados consume energía en lugar de liberarla. Por eso, los elementos más pesados que el hierro solo se crean en eventos violentos como las **Supernovas**.\n\n<Transfer targetDomain=\"Energía del futuro\" title=\"Transfiere: la fusión como energía\">\nLa fusión nuclear promete energía limpia e ilimitada: unir deuterio y tritio (isótopos de hidrógeno) libera energía sin residuos de larga vida. Investiga los proyectos ITER y los reactores de fusión por confinamiento inercial, y explica con la física que has aprendido por qué la fusión es tan difícil de controlar (temperaturas de millones de grados) pero tan prometedora.\n</Transfer>\n"
       },
       "acciones": [
@@ -74,10 +74,10 @@
       ]
     },
     {
-      "id": "5-el-legado-de-aeterna-qu-has-aprendido",
-      "titulo": "5. El Legado de Aeterna: ¿Qué has aprendido?",
+      "id": "5-el-legado-de-anektia-qu-has-aprendido",
+      "titulo": "5. El Legado de Anektia: ¿Qué has aprendido?",
       "niveles": {
-        "intermedio": "> 🧠 **Sistema Aeterna**\n> Has descendido hasta lo más profundo de la materia. Has visto que lo sólido es ilusión y que la energía que alimenta el cosmos reside en el corazón de lo invisible. Tu integridad cognitiva ahora abarca la dualidad entre la creación estelar y la responsabilidad tecnológica.\n\n```aeterna-decision\nBadge: 🏛️ ÉTICA\nTítulo: La Responsabilidad de la Energía\nPregunta: La energía nuclear puede iluminar ciudades o borrarlas del mapa. ¿Crees que la humanidad está madura para gestionar el poder de la fusión nuclear comercial?\nBotón: Sellar Exégesis\n```\n\n<BotonTransicion nivel=\"intermedio\">\n  Has completado la Capa I. Si tu mente está lista para los formalismos técnicos, asciende a la **Capa II: Exégesis**.\n</BotonTransicion>"
+        "intermedio": "> 🧠 **Sistema Anektia**\n> Has descendido hasta lo más profundo de la materia. Has visto que lo sólido es ilusión y que la energía que alimenta el cosmos reside en el corazón de lo invisible. Tu integridad cognitiva ahora abarca la dualidad entre la creación estelar y la responsabilidad tecnológica.\n\n```aeterna-decision\nBadge: 🏛️ ÉTICA\nTítulo: La Responsabilidad de la Energía\nPregunta: La energía nuclear puede iluminar ciudades o borrarlas del mapa. ¿Crees que la humanidad está madura para gestionar el poder de la fusión nuclear comercial?\nBotón: Sellar Exégesis\n```\n\n<BotonTransicion nivel=\"intermedio\">\n  Has completado la Capa I. Si tu mente está lista para los formalismos técnicos, asciende a la **Capa II: Exégesis**.\n</BotonTransicion>"
       },
       "acciones": []
     }

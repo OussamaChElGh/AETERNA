@@ -2,7 +2,7 @@
 title: "Electromagnetismo: La Fuerza Invisible"
 description: Electricidad, magnetismo y cómo Maxwell los unificó. La fuerza que enciende tu pantalla, mueve el mundo moderno y explica por qué tu mano no atraviesa la mesa.
 slug: electromagnetismo
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["física", "electromagnetismo", "electricidad", "magnetismo", "ecuaciones de Maxwell", "campos", "circuitos"]
@@ -16,9 +16,9 @@ prerequisites: ["materia-y-energia", "vectores"]
 breadcrumb: Física / El Reino de lo Clásico / Electromagnetismo
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Cada chispazo, cada imán de nevera, cada pantalla que enciendes: una sola fuerza invisible lo gobierna todo.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

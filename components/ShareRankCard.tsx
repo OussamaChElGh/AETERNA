@@ -96,7 +96,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
   const xpValue = props.scope === 'weekly' ? props.weeklyXp : props.xp;
 
   const xpRaw = xpValue;
-  const shareText = `¡Estoy en el puesto #${props.rank} del ranking ${props.scope === 'weekly' ? 'semanal' : 'global'} de AETERNA con ${formatXP(xpRaw)} XP!`;
+  const shareText = `¡Estoy en el puesto #${props.rank} del ranking ${props.scope === 'weekly' ? 'semanal' : 'global'} de ANEKTIA con ${formatXP(xpRaw)} XP!`;
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -131,9 +131,9 @@ export function ShareRankCard(props: ShareRankCardProps) {
 
     try {
       const blob = await fetch(freshImage).then(r => r.blob());
-      const file = new File([blob], `aeterna-ranking-${props.scope}.png`, { type: 'image/png' });
+      const file = new File([blob], `anektia-ranking-${props.scope}.png`, { type: 'image/png' });
       if (navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'Mi ranking en AETERNA', text: shareText });
+        await navigator.share({ files: [file], title: 'Mi ranking en ANEKTIA', text: shareText });
         setIsOpen(false);
         return;
       }
@@ -142,7 +142,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
     }
     // Fallback: compartir texto y URL
     try {
-      await navigator.share({ title: 'Mi ranking en AETERNA', text: shareText, url: shareUrl });
+      await navigator.share({ title: 'Mi ranking en ANEKTIA', text: shareText, url: shareUrl });
     } catch {
       handleCopyLink();
     }
@@ -202,7 +202,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
     if (!imageDataUrl) return;
     const a = document.createElement('a');
     a.href = imageDataUrl;
-    a.download = `aeterna-ranking-${props.scope}.png`;
+    a.download = `anektia-ranking-${props.scope}.png`;
     a.click();
   };
 
@@ -384,7 +384,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
                       <div className="text-[10px] font-mono uppercase tracking-[0.3em] text-brand-gold/60 mb-1">
                         {props.scope === 'weekly' ? 'Ranking Semanal' : 'Ranking Global'}
                       </div>
-                      <div className="font-serif text-3xl text-brand-offwhite font-bold">AETERNA</div>
+                      <div className="font-serif text-3xl text-brand-offwhite font-bold">ANEKTIA</div>
                     </div>
                     <div className="text-right">
                       <div className="text-[10px] font-mono uppercase tracking-wider text-brand-offwhite/40">Puesto</div>

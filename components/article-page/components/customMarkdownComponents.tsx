@@ -20,21 +20,21 @@ import { EvidenceMatcher } from "@/components/interactive/EvidenceMatcher";
 import { Counterexample } from "@/components/interactive/Counterexample";
 import { ArgumentEvaluation } from "@/components/interactive/ArgumentEvaluation";
 import { SequenceBuilder } from "@/components/interactive/SequenceBuilder";
-import { AeternaFlowchart } from "@/components/interactive/AeternaFlowchart";
-import { AeternaDecisionBox } from "@/components/interactive/AeternaDecisionBox";
-import { AeternaExercise } from "@/components/AeternaExercise";
-import { AeternaEngagement } from "@/components/AeternaEngagement";
+import { AnektiaFlowchart } from "@/components/interactive/AnektiaFlowchart";
+import { AnektiaDecisionBox } from "@/components/interactive/AnektiaDecisionBox";
+import { AnektiaExercise } from "@/components/AnektiaExercise";
+import { AnektiaEngagement } from "@/components/AnektiaEngagement";
 import { PedagogicalContentBlock } from "@/components/PedagogicalContentBlock";
 import { ConnectBlock } from "@/components/blocks/ConnectBlock";
 import { HiddenAssumptionBlock } from "@/components/blocks/HiddenAssumptionBlock";
 import { TransferBlock } from "@/components/blocks/TransferBlock";
-import { AeternaFormula } from "@/components/blocks/AeternaFormula";
-import { AeternaInteractiveQuestion } from "@/components/interactive/AeternaInteractiveQuestion";
+import { AnektiaFormula } from "@/components/blocks/AnektiaFormula";
+import { AnektiaInteractiveQuestion } from "@/components/interactive/AnektiaInteractiveQuestion";
 import { ComparativeTable } from "@/components/interactive/ComparativeTable";
 import { ProcessVisual } from "@/components/interactive/ProcessVisual";
 import { VisualData } from "@/components/interactive/VisualData";
-import AeternaTable, { TableHead, TableRow, TableHeader, TableCell } from "@/components/AeternaTable";
-import { preprocessAeternaContent } from "../parsers/preprocessAeternaContent";
+import AnektiaTable, { TableHead, TableRow, TableHeader, TableCell } from "@/components/AnektiaTable";
+import { preprocessAnektiaContent } from "../parsers/preprocessAnektiaContent";
 import { parseJsxOrCodeProps } from "../parsers/parseJsxOrCodeProps";
 import { ConceptTooltip } from "@/components/interactive/ConceptTooltip";
 import { remarkConceptGlossaryHtml } from "../utils/remarkGlossary";
@@ -57,14 +57,14 @@ export const customMarkdownComponents: any = {
   Counterexample: (props: any) => <Counterexample {...props} />,
   ArgumentEvaluation: (props: any) => <ArgumentEvaluation {...props} />,
   SequenceBuilder: (props: any) => <SequenceBuilder {...props} />,
-  AeternaFlowchart: (props: any) => <AeternaFlowchart steps={[]} {...props} />,
-  Flowchart: (props: any) => <AeternaFlowchart steps={[]} {...props} />,
-  AeternaFormula: (props: any) => <AeternaFormula {...props} />,
-  FormulaBlock: (props: any) => <AeternaFormula {...props} />,
-  Formula: (props: any) => <AeternaFormula {...props} />,
-  AeternaDecisionBox: (props: any) => <AeternaDecisionBox {...props} />,
-  AeternaExercise: (props: any) => <AeternaExercise {...props} />,
-  AeternaEngagement: (props: any) => <AeternaEngagement {...props} />,
+  AnektiaFlowchart: (props: any) => <AnektiaFlowchart steps={[]} {...props} />,
+  Flowchart: (props: any) => <AnektiaFlowchart steps={[]} {...props} />,
+  AnektiaFormula: (props: any) => <AnektiaFormula {...props} />,
+  FormulaBlock: (props: any) => <AnektiaFormula {...props} />,
+  Formula: (props: any) => <AnektiaFormula {...props} />,
+  AnektiaDecisionBox: (props: any) => <AnektiaDecisionBox {...props} />,
+  AnektiaExercise: (props: any) => <AnektiaExercise {...props} />,
+  AnektiaEngagement: (props: any) => <AnektiaEngagement {...props} />,
   PedagogicalContentBlock: (props: any) => <PedagogicalContentBlock {...props} />,
   Connect: (props: any) => <ConnectBlock {...props} />,
   ConnectBlock: (props: any) => <ConnectBlock {...props} />,
@@ -89,7 +89,7 @@ export const customMarkdownComponents: any = {
     }
     return <a {...props} />;
   },
-  table: (props: any) => <AeternaTable {...props} />,
+  table: (props: any) => <AnektiaTable {...props} />,
   thead: (props: any) => <TableHead {...props} />,
   tr: (props: any) => <TableRow {...props} />,
   th: (props: any) => <TableHeader {...props} />,
@@ -121,7 +121,7 @@ export const customMarkdownComponents: any = {
 
     if (lang === 'aeterna-engagement') {
       const parsedProps = parseJsxOrCodeProps(contentStr);
-      return <AeternaEngagement type={parsedProps.type || 'archive-fragment'} title={parsedProps.title || 'Bloque'} content={parsedProps.content || ''} {...parsedProps} />;
+      return <AnektiaEngagement type={parsedProps.type || 'archive-fragment'} title={parsedProps.title || 'Bloque'} content={parsedProps.content || ''} {...parsedProps} />;
     }
 
     if (lang === 'boton-transicion') {
@@ -130,13 +130,13 @@ export const customMarkdownComponents: any = {
     }
 
     if (lang === 'aeterna-exercise' || lang === 'aeterna-ejercicio') {
-      return <AeternaExercise content={contentStr} />;
+      return <AnektiaExercise content={contentStr} />;
     }
 
     if (lang === 'aeterna-decision' || lang === 'aeterna-decision-box') {
       const parsedProps = parseJsxOrCodeProps(contentStr);
-      if (parsedProps.content) return <AeternaDecisionBox {...parsedProps} />;
-      return <AeternaDecisionBox content={contentStr} />;
+      if (parsedProps.content) return <AnektiaDecisionBox {...parsedProps} />;
+      return <AnektiaDecisionBox content={contentStr} />;
     }
 
     if (lang === 'prediction-box' || lang === 'prediction') {
@@ -201,12 +201,12 @@ export const customMarkdownComponents: any = {
 
     if (lang === 'aeterna-flowchart' || lang === 'flowchart') {
       const parsedProps = parseJsxOrCodeProps(contentStr);
-      return <AeternaFlowchart steps={[]} {...parsedProps} content={contentStr} />;
+      return <AnektiaFlowchart steps={[]} {...parsedProps} content={contentStr} />;
     }
 
     if (lang === 'aeterna-formula' || lang === 'formula') {
       const parsedProps = parseJsxOrCodeProps(contentStr);
-      return <AeternaFormula {...parsedProps} formula={parsedProps.formula || parsedProps.expression || contentStr} />;
+      return <AnektiaFormula {...parsedProps} formula={parsedProps.formula || parsedProps.expression || contentStr} />;
     }
 
     if (lang === 'comparative-table') {
@@ -234,13 +234,13 @@ export const customMarkdownComponents: any = {
   },
   div: ({ className, children, ...props }: any) => {
     if (className?.includes("aeterna-ejercicio")) {
-      return <AeternaExercise content={String(children || '')} />;
+      return <AnektiaExercise content={String(children || '')} />;
     }
     if (className?.includes("aeterna-interactivo")) {
-      return <AeternaInteractiveQuestion content={String(children || '')} />;
+      return <AnektiaInteractiveQuestion content={String(children || '')} />;
     }
     if (className?.includes("aeterna-decision")) {
-      return <AeternaDecisionBox content={String(children || '')} />;
+      return <AnektiaDecisionBox content={String(children || '')} />;
     }
     if (className?.includes("prediction-box")) {
       return <PredictionBox question="" options={[]} content={String(children || '')} />;
@@ -275,7 +275,7 @@ export function renderMarkdown(content: string) {
       rehypePlugins={markdownPlugins.rehype}
       components={customMarkdownComponents}
     >
-      {preprocessAeternaContent(content)}
+      {preprocessAnektiaContent(content)}
     </ReactMarkdown>
   );
 }

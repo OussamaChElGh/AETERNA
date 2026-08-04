@@ -5,14 +5,14 @@ import { useScroll } from "motion/react";
 import { useGamification } from "@/context/GamificationContext";
 import { FocusStepViewer } from "./FocusStepViewer";
 import { ScrollMode } from "./ScrollMode";
-import type { AeternaArticle } from "@/types";
+import type { AnektiaArticle } from "@/types";
 import { CuadernoEjercicios } from "@/components/interactive/CuadernoEjercicios";
 
-export function ArticleContent({ overrideSlug, initialArticle, nextArticle }: { overrideSlug?: string; initialArticle?: AeternaArticle | null; nextArticle?: { title: string; href: string } | null }) {
+export function ArticleContent({ overrideSlug, initialArticle, nextArticle }: { overrideSlug?: string; initialArticle?: AnektiaArticle | null; nextArticle?: { title: string; href: string } | null }) {
   const { slug: paramSlug } = useParams<{ slug: string }>();
   const slug = overrideSlug || paramSlug;
   const searchParams = useSearchParams();
-  const [article] = useState<AeternaArticle | null>(initialArticle || null);
+  const [article] = useState<AnektiaArticle | null>(initialArticle || null);
   const [loading] = useState(!initialArticle);
   const [activeHeadingId, setActiveHeadingId] = useState<string>("");
   const [transitioning, setTransitioning] = useState(false);

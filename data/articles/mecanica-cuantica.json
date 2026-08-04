@@ -3,7 +3,7 @@
     "title": "Mecánica Cuántica",
     "description": "Guía completa de la mecánica cuántica: la dualidad onda-partícula, el experimento de la doble rendija, el principio de incertidumbre, la superposición, el entrelazamiento, el efecto túnel y sus aplicaciones.",
     "slug": "mecanica-cuantica",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / Física Moderna / Mecánica Cuántica"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  A escala atómica, la realidad se comporta de forma que nuestra intuición no puede imaginar: las partículas son ondas, la incertidumbre es fundamental, y el gato puede estar vivo y muerto a la vez.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La mecánica cuántica describe el mundo a escala atómica. Sus ideas centrales: la **dualidad onda-partícula** (todo es onda y partícula a la vez), el **principio de incertidumbre** (no puedes conocer posición y momento con precisión simultánea), la **superposición** (los estados se combinan hasta medir), el **entrelazamiento** (partículas correlacionadas sin importar la distancia), y el **efecto túnel** (las partículas atraviesan barreras). Todo esto es contraintuitivo, pero está verificado experimentalmente y es la base de los láseres, los transistores, la resonancia magnética y los futuros ordenadores cuánticos.\n\n**[IMAGEN SUGERIDA: La doble rendija, con electrones formando un patrón de interferencia. Pie de foto: \"Un electrón es onda y partícula a la vez.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  A escala atómica, la realidad se comporta de forma que nuestra intuición no puede imaginar: las partículas son ondas, la incertidumbre es fundamental, y el gato puede estar vivo y muerto a la vez.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La mecánica cuántica describe el mundo a escala atómica. Sus ideas centrales: la **dualidad onda-partícula** (todo es onda y partícula a la vez), el **principio de incertidumbre** (no puedes conocer posición y momento con precisión simultánea), la **superposición** (los estados se combinan hasta medir), el **entrelazamiento** (partículas correlacionadas sin importar la distancia), y el **efecto túnel** (las partículas atraviesan barreras). Todo esto es contraintuitivo, pero está verificado experimentalmente y es la base de los láseres, los transistores, la resonancia magnética y los futuros ordenadores cuánticos.\n\n**[IMAGEN SUGERIDA: La doble rendija, con electrones formando un patrón de interferencia. Pie de foto: \"Un electrón es onda y partícula a la vez.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

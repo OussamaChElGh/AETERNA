@@ -3,7 +3,7 @@
     "title": "Movimiento Circular y Satélites: La Danza de las Órbitas",
     "description": "Guía completa del movimiento circular: aceleración centrípeta, fuerza centrípeta, órbitas y satélites, gravedad orbital, leyes de Kepler y velocidad de escape. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "movimiento-circular-satelites",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / El Reino de lo Clásico / Movimiento Circular y Satélites"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  La Luna no cae sobre nosotros, y los satélites no se pierden en el espacio. Una sola fuerza —la gravedad— coreografía la danza de las órbitas.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> En el movimiento circular uniforme, la velocidad es constante pero la dirección cambia constantemente — eso es aceleración. La **aceleración centrípeta** apunta hacia el centro y es producida por una **fuerza centrípeta** (en órbitas, la gravedad). Newton descubrió que la Luna 'cae' hacia la Tierra continuamente, pero nunca llega: cae alrededor de ella. Ese es el secreto de las órbitas, los satélites y las leyes de Kepler.\n\n**[IMAGEN SUGERIDA: Ilustración de la Tierra con un satélite en órbita, mostrando la trayectoria circular y la fuerza centrípeta apuntando al centro. Pie de foto: \"Un satélite cae alrededor de la Tierra.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  La Luna no cae sobre nosotros, y los satélites no se pierden en el espacio. Una sola fuerza —la gravedad— coreografía la danza de las órbitas.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> En el movimiento circular uniforme, la velocidad es constante pero la dirección cambia constantemente — eso es aceleración. La **aceleración centrípeta** apunta hacia el centro y es producida por una **fuerza centrípeta** (en órbitas, la gravedad). Newton descubrió que la Luna 'cae' hacia la Tierra continuamente, pero nunca llega: cae alrededor de ella. Ese es el secreto de las órbitas, los satélites y las leyes de Kepler.\n\n**[IMAGEN SUGERIDA: Ilustración de la Tierra con un satélite en órbita, mostrando la trayectoria circular y la fuerza centrípeta apuntando al centro. Pie de foto: \"Un satélite cae alrededor de la Tierra.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

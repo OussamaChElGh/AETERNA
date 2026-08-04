@@ -1,4 +1,4 @@
-import { harvest, loadCorpus } from '../framework/aeterna-learning/rigor/harvest';
+import { harvest, loadCorpus } from '../framework/anektia-learning/rigor/harvest';
 
 function formatCorpus(slug: string, topic: string) {
   const corpus = loadCorpus(slug);
@@ -29,7 +29,7 @@ async function main() {
 
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
-Aeterna Rigor Harvest CLI v1.0
+Anektia Rigor Harvest CLI v1.0
 
 Usage:
   npm run rigor:harvest -- <slug> <topic>

@@ -42,7 +42,7 @@ export function IsoSpriteObject({
 
   const rawSpriteSrc = (asset?.spritesByRotation && asset.spritesByRotation[item.rotation]) 
     || asset?.src 
-    || '/images/aeterna_master_sofa.png';
+    || '/images/anektia_master_sofa.png';
 
   const [cleanSpriteSrc, setCleanSpriteSrc] = useState<string>('');
   const [spriteReady, setSpriteReady] = useState(false);

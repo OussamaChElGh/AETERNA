@@ -70,7 +70,7 @@ export function MasteryCommandCenter({
             </span>
             <div className="flex items-center gap-2">
               <span className="font-serif text-lg text-[#1A1A1A]">
-                Canon Aeterna
+                Canon Anektia
               </span>
               {xpGained > 0 && (
                 <motion.span

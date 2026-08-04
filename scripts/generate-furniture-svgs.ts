@@ -4,7 +4,7 @@ import path from 'path';
 const PUBLIC_IMAGES = path.join(process.cwd(), 'public', 'images');
 
 const svgs: Record<string, string> = {
-  'aeterna_master_gyroscope.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
+  'anektia_master_gyroscope.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
   <defs>
     <filter id="glow-gyro" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
@@ -32,7 +32,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_archimedes_fountain.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" width="160" height="180">
+  'anektia_master_archimedes_fountain.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180" width="160" height="180">
   <defs>
     <filter id="glow-fountain" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>
@@ -58,7 +58,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_tesla_coil.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
+  'anektia_master_tesla_coil.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
   <defs>
     <filter id="plasma-glow" x="-30%" y="-30%" width="160%" height="160%">
       <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#A855F7" flood-opacity="0.8"/>
@@ -81,7 +81,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_faraday_cage.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
+  'anektia_master_faraday_cage.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
   <defs>
     <filter id="glow-faraday" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
@@ -106,7 +106,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_prism_desk.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
+  'anektia_master_prism_desk.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="140" height="140">
   <defs>
     <filter id="glow-prism" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.35"/>
@@ -129,7 +129,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_melting_clock.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 150" width="130" height="150">
+  'anektia_master_melting_clock.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 150" width="130" height="150">
   <defs>
     <filter id="glow-clock" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>
@@ -150,7 +150,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_orrery.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  'anektia_master_orrery.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
   <defs>
     <filter id="glow-orrery" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="5" flood-color="#000000" flood-opacity="0.4"/>
@@ -177,7 +177,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_nucleus_lamp.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 160" width="130" height="160">
+  'anektia_master_nucleus_lamp.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 160" width="130" height="160">
   <defs>
     <filter id="glow-atom" x="-30%" y="-30%" width="160%" height="160%">
       <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#38BDF8" flood-opacity="0.75"/>
@@ -199,7 +199,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_planck_cube.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 150" width="130" height="150">
+  'anektia_master_planck_cube.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 150" width="130" height="150">
   <defs>
     <filter id="glow-cube" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#F59E0B" flood-opacity="0.6"/>
@@ -223,7 +223,7 @@ const svgs: Record<string, string> = {
   </g>
 </svg>`,
 
-  'aeterna_master_silicon_chip.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 160" width="140" height="160">
+  'anektia_master_silicon_chip.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 160" width="140" height="160">
   <defs>
     <filter id="glow-chip" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000000" flood-opacity="0.4"/>

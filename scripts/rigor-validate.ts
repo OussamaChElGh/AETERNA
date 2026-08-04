@@ -1,4 +1,4 @@
-import { validate, loadCorpus, harvest } from '../framework/aeterna-learning/rigor';
+import { validate, loadCorpus, harvest } from '../framework/anektia-learning/rigor';
 
 function formatReport(report: ReturnType<typeof validate>, articleSlug: string) {
   console.log(`\n=== INFORME DE RIGOR: ${articleSlug} ===`);
@@ -37,7 +37,7 @@ async function main() {
 
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
-Aeterna Rigor Validator CLI v1.0
+Anektia Rigor Validator CLI v1.0
 
 Usage:
   npm run rigor:validate -- <slug> [--harvest <topic>]

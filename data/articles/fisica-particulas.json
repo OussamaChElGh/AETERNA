@@ -3,7 +3,7 @@
     "title": "Física de Partículas",
     "description": "Guía completa de la física de partículas: las partículas elementales, el modelo estándar, los quarks y leptones, las fuerzas fundamentales, el bosón de Higgs y los aceleradores de partículas.",
     "slug": "fisica-particulas",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / Fronteras del Cosmos / Física de Partículas"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  Toda la materia ordinaria —tú, las estrellas, las galaxias— está hecha de un puñado de partículas fundamentales regidas por cuatro fuerzas.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **modelo estándar** de la física de partículas describe el universo con unas pocas partículas: 6 **quarks** (up, down, charm, strange, top, bottom) y 6 **leptones** (electrón, muón, tau y sus neutrinos), que son la **materia**; y las partículas mediadoras de las **fuerzas** (fotón, gluones, W/Z, y el **bosón de Higgs** que da masa). Cuatro fuerzas fundamentales: gravedad, electromagnética, nuclear fuerte y nuclear débil. Los **aceleradores** como el LHC colisionan partículas para revelar esta estructura y descubrir la nueva física.\n\n**[IMAGEN SUGERIDA: La tabla de partículas del modelo estándar. Pie de foto: \"Un puñado de partículas construye todo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  Toda la materia ordinaria —tú, las estrellas, las galaxias— está hecha de un puñado de partículas fundamentales regidas por cuatro fuerzas.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **modelo estándar** de la física de partículas describe el universo con unas pocas partículas: 6 **quarks** (up, down, charm, strange, top, bottom) y 6 **leptones** (electrón, muón, tau y sus neutrinos), que son la **materia**; y las partículas mediadoras de las **fuerzas** (fotón, gluones, W/Z, y el **bosón de Higgs** que da masa). Cuatro fuerzas fundamentales: gravedad, electromagnética, nuclear fuerte y nuclear débil. Los **aceleradores** como el LHC colisionan partículas para revelar esta estructura y descubrir la nueva física.\n\n**[IMAGEN SUGERIDA: La tabla de partículas del modelo estándar. Pie de foto: \"Un puñado de partículas construye todo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

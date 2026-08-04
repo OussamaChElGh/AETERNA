@@ -2,7 +2,7 @@
 title: Momento y Colisiones
 description: "Guía completa del momento lineal: qué es, el impulso, la conservación del momento, colisiones elásticas e inelásticas, centro de masa y sistemas de masa variable."
 slug: momentum-colisiones
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["momento lineal", "impulso", "colisiones", "conservación", "centro de masa", "cohetes"]
@@ -16,9 +16,9 @@ prerequisites: ["leyes-newton-movimiento", "mecanica-clasica"]
 breadcrumb: Física / Profundización Mecánica / Momento y Colisiones
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Un mosquito choca contra el parabrisas de un camión. El camión apenas lo nota... pero el mosquito sí nota al camión. ¿Y si te digo que el momento del mosquito era igual y opuesto al del camión?
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

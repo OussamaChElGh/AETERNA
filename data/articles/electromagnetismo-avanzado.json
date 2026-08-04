@@ -3,7 +3,7 @@
     "title": "Electromagnetismo Avanzado",
     "description": "Guía avanzada del electromagnetismo: repaso de campos eléctricos y magnéticos, las ecuaciones de Maxwell, las ondas electromagnéticas, la relatividad y las predicciones que cambiaron el mundo.",
     "slug": "electromagnetismo-avanzado",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / Profundización Mecánica / Electromagnetismo Avanzado"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  En el siglo XIX, cuatro ecuaciones de James Clerk Maxwell unificaron la electricidad, el magnetismo y la luz en una sola teoría. El premio: toda la tecnología moderna.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El electromagnetismo se resume en las **cuatro ecuaciones de Maxwell**: (1) la ley de Gauss para el campo eléctrico —las cargas crean campos; (2) la ley de Gauss para el campo magnético —no hay monopolos magnéticos; (3) la ley de Faraday —un campo magnético cambiante induce electricidad; (4) la ley de Ampère-Maxwell —la corriente y un campo eléctrico cambiante crean magnetismo. Estas cuatro ecuaciones predicen las **ondas electromagnéticas** —luz, radio, rayos X— que viajan a la velocidad de la luz, y unifican con la relatividad. De ellas nacieron la radio, los motores, los transformadores y toda la electrónica.\n\n**[IMAGEN SUGERIDA: Un diagrama de las cuatro ecuaciones de Maxwell, con ondas electromagnéticas. Pie de foto: \"Cuatro ecuaciones que unificaron el electromagnetismo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  En el siglo XIX, cuatro ecuaciones de James Clerk Maxwell unificaron la electricidad, el magnetismo y la luz en una sola teoría. El premio: toda la tecnología moderna.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El electromagnetismo se resume en las **cuatro ecuaciones de Maxwell**: (1) la ley de Gauss para el campo eléctrico —las cargas crean campos; (2) la ley de Gauss para el campo magnético —no hay monopolos magnéticos; (3) la ley de Faraday —un campo magnético cambiante induce electricidad; (4) la ley de Ampère-Maxwell —la corriente y un campo eléctrico cambiante crean magnetismo. Estas cuatro ecuaciones predicen las **ondas electromagnéticas** —luz, radio, rayos X— que viajan a la velocidad de la luz, y unifican con la relatividad. De ellas nacieron la radio, los motores, los transformadores y toda la electrónica.\n\n**[IMAGEN SUGERIDA: Un diagrama de las cuatro ecuaciones de Maxwell, con ondas electromagnéticas. Pie de foto: \"Cuatro ecuaciones que unificaron el electromagnetismo.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

@@ -134,7 +134,7 @@ export function InventoryDrawer({
                   )}
                   <div className="w-12 h-12 relative shrink-0 bg-brand-gold/10 rounded-xl p-1 border border-brand-gold/20 flex items-center justify-center">
                     <Image
-                      src={asset?.src || '/images/aeterna_master_sofa.png'}
+                      src={asset?.src || '/images/anektia_master_sofa.png'}
                       alt={item.name}
                       fill
                       className="object-contain drop-shadow-md group-hover:scale-105 transition-transform"

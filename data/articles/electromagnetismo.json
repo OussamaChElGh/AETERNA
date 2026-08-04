@@ -3,7 +3,7 @@
     "title": "Electromagnetismo: La Fuerza Invisible",
     "description": "Electricidad, magnetismo y cómo Maxwell los unificó. La fuerza que enciende tu pantalla, mueve el mundo moderno y explica por qué tu mano no atraviesa la mesa.",
     "slug": "electromagnetismo",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -27,7 +27,7 @@
     ],
     "breadcrumb": "Física / El Reino de lo Clásico / Electromagnetismo"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  Cada chispazo, cada imán de nevera, cada pantalla que enciendes: una sola fuerza invisible lo gobierna todo.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El electromagnetismo es la fuerza que une la electricidad y el magnetismo en una sola descripción. Cuatro ecuaciones de Maxwell lo resumen todo: la carga crea campos eléctricos, el movimiento de cargas crea campos magnéticos, y un campo magnético cambiante crea electricidad. Sin esta fuerza, no habría átomos estables, ni luz, ni tecnología moderna.\n\n**[IMAGEN SUGERIDA: Fotografía de una tormenta eléctrica nocturna con relámpagos sobre una ciudad. Pie de foto: \"Un relámpago es electromagnetismo en su forma más espectacular: millones de voltios entre el cielo y la tierra.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  Cada chispazo, cada imán de nevera, cada pantalla que enciendes: una sola fuerza invisible lo gobierna todo.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El electromagnetismo es la fuerza que une la electricidad y el magnetismo en una sola descripción. Cuatro ecuaciones de Maxwell lo resumen todo: la carga crea campos eléctricos, el movimiento de cargas crea campos magnéticos, y un campo magnético cambiante crea electricidad. Sin esta fuerza, no habría átomos estables, ni luz, ni tecnología moderna.\n\n**[IMAGEN SUGERIDA: Fotografía de una tormenta eléctrica nocturna con relámpagos sobre una ciudad. Pie de foto: \"Un relámpago es electromagnetismo en su forma más espectacular: millones de voltios entre el cielo y la tierra.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "carga-electrica",

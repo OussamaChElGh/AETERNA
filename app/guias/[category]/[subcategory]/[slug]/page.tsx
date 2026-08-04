@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (article) {
     return {
-      title: `${article.data.title} | Aeterna`,
+      title: `${article.data.title} | Anektia`,
       description: article.data.description,
       keywords: article.data.tags || [],
       openGraph: {
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return { title: 'Artículo | Aeterna' };
+  return { title: 'Artículo | Anektia' };
 }
 
 export default async function NestedArticlePage({ params }: Props) {

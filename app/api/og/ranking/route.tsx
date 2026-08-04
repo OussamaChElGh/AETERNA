@@ -17,7 +17,7 @@ function getInitial(name: string): string {
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const name = searchParams.get('name') || 'Sabio de AETERNA';
+  const name = searchParams.get('name') || 'Sabio de ANEKTIA';
   const rank = searchParams.get('rank') || '?';
   const xp = parseInt(searchParams.get('xp') || '0', 10);
   const level = searchParams.get('level') || '1';
@@ -48,7 +48,7 @@ export async function GET(req: Request) {
                 Ranking {scope}
               </span>
               <span style={{ fontSize: 64, fontWeight: 900, fontFamily: '"Playfair Display", serif', fontStyle: 'italic' }}>
-                AETERNA
+                ANEKTIA
               </span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>

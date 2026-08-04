@@ -1,4 +1,4 @@
-// Aeterna Environment System - IsoCamera Sub-System
+// Anektia Environment System - IsoCamera Sub-System
 // Manages isometric projection, zoom, panning, viewport bounds, and screen<->tile math
 
 export const TILE_WIDTH_HALF = 32;

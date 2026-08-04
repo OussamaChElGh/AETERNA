@@ -2,7 +2,7 @@
 title: Electromagnetismo Avanzado
 description: "Guía avanzada del electromagnetismo: repaso de campos eléctricos y magnéticos, las ecuaciones de Maxwell, las ondas electromagnéticas, la relatividad y las predicciones que cambiaron el mundo."
 slug: electromagnetismo-avanzado
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["ecuaciones de Maxwell", "ondas electromagnéticas", "campos eléctricos", "campos magnéticos", "relatividad", "luz", "electromagnetismo"]
@@ -16,9 +16,9 @@ prerequisites: ["electromagnetismo", "mecanica-clasica", "vectores"]
 breadcrumb: Física / Profundización Mecánica / Electromagnetismo Avanzado
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   En el siglo XIX, cuatro ecuaciones de James Clerk Maxwell unificaron la electricidad, el magnetismo y la luz en una sola teoría. El premio: toda la tecnología moderna.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

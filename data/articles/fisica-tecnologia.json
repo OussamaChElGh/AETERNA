@@ -3,7 +3,7 @@
     "title": "Física y Tecnología",
     "description": "Guía de síntesis de la física y la tecnología: la física en la vida cotidiana, las tecnologías clave que transformaron el mundo y el futuro tecnológico que la física prepara.",
     "slug": "fisica-tecnologia",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -29,7 +29,7 @@
     ],
     "breadcrumb": "Física / Fronteras del Cosmos / Física y Tecnología"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  El móvil en tu bolsillo tiene más potencia que los ordenadores que llevaron al hombre a la Luna. Y existe porque unos físicos entendieron la mecánica cuántica de los semiconductores.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La física es la madre de la tecnología moderna. Los **transistores** (base de todos los chips) funcionan por la mecánica cuántica de los semiconductores. El **láser** nació de Einstein y la emisión estimulada. El **GPS** depende de la relatividad. La **fibra óptica** usa la reflexión total interna. Las **energías** solar, eólica y nuclear son física aplicada. Y el **futuro** —computación cuántica, fusión, nuevos materiales— se construye hoy en los laboratorios de física.\n\n**[IMAGEN SUGERIDA: Un chip de silicio brillando, con circuitos y luz. Pie de foto: \"La física cuántica, hecha hardware.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  El móvil en tu bolsillo tiene más potencia que los ordenadores que llevaron al hombre a la Luna. Y existe porque unos físicos entendieron la mecánica cuántica de los semiconductores.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La física es la madre de la tecnología moderna. Los **transistores** (base de todos los chips) funcionan por la mecánica cuántica de los semiconductores. El **láser** nació de Einstein y la emisión estimulada. El **GPS** depende de la relatividad. La **fibra óptica** usa la reflexión total interna. Las **energías** solar, eólica y nuclear son física aplicada. Y el **futuro** —computación cuántica, fusión, nuevos materiales— se construye hoy en los laboratorios de física.\n\n**[IMAGEN SUGERIDA: Un chip de silicio brillando, con circuitos y luz. Pie de foto: \"La física cuántica, hecha hardware.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

@@ -5,7 +5,7 @@ function main() {
 
   if (args.length === 0 || args.includes('--help') || args.includes('-h')) {
     console.log(`
-Aeterna Image Generator CLI v1.0
+Anektia Image Generator CLI v1.0
 
 Genera las imagenes de un articulo.
 

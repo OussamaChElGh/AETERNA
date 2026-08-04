@@ -2,7 +2,7 @@
 title: "Fluidos: La Física de lo que Fluye"
 description: "Guía completa de fluidos: presión, hidrostática, principio de Pascal, principio de Arquímedes, hidrodinámica, ecuación de Bernoulli y viscosidad. Con laboratorio de ejercicios y bloques interactivos."
 slug: fluidos
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["fluidos", "presión", "hidrostática", "Pascal", "Arquímedes", "Bernoulli", "hidrodinámica", "viscosidad", "flotabilidad"]
@@ -16,9 +16,9 @@ prerequisites: ["materia-y-energia", "leyes-newton-movimiento"]
 breadcrumb: Física / El Reino de lo Clásico / Fluidos
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   El agua, el aire, la sangre de tus venas: todo lo que fluye obedece unas pocas leyes elegantes. La física de los fluidos explica por qué los barcos flotan y los aviones vuelan.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

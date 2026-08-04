@@ -2,7 +2,7 @@
 title: Teoría del Todo
 description: "Guía completa de la búsqueda de la teoría del todo: la síntesis necesaria entre relatividad general y mecánica cuántica, el conflicto de la gravedad cuántica, y las teorías candidatas como la de cuerdas."
 slug: teoria-del-todo
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["teoría del todo", "gravedad cuántica", "teoría de cuerdas", "unificación", "relatividad general", "mecánica cuántica", "multiverso"]
@@ -16,9 +16,9 @@ prerequisites: ["relatividad-general", "mecanica-cuantica", "fisica-particulas"]
 breadcrumb: Física / Fronteras del Cosmos / Teoría del Todo
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Dos teorías —la relatividad general y la mecánica cuántica— describen el universo con precisión asombrosa. Pero son incompatibles. La búsqueda de la teoría que las una es el Santo Grial de la física.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

@@ -8,10 +8,10 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { customMarkdownComponents, markdownPlugins } from "./components/customMarkdownComponents";
-import { preprocessAeternaContent } from "./parsers/preprocessAeternaContent";
+import { preprocessAnektiaContent } from "./parsers/preprocessAnektiaContent";
 import ReactMarkdown from "react-markdown";
 import { MasteryCommandCenter } from "@/components/interactive/MasteryCommandCenter";
-import type { AeternaArticle } from "@/types";
+import type { AnektiaArticle } from "@/types";
 
 function FloatingLevelLabel({ level }: { level: string }) {
   const levelNames: Record<string, string> = {
@@ -98,7 +98,7 @@ function RenderAcciones({ acciones }: { acciones: any[] }) {
 }
 
 interface ScrollModeProps {
-  article: AeternaArticle;
+  article: AnektiaArticle;
   displaySecciones: any[];
   currentLevel: string;
   changeLevel: (level: string) => void;
@@ -197,7 +197,7 @@ export function ScrollMode({
                     rehypePlugins={markdownPlugins.rehype}
                     components={customMarkdownComponents}
                   >
-                    {preprocessAeternaContent(introduccion)}
+                    {preprocessAnektiaContent(introduccion)}
                   </ReactMarkdown>
                 </div>
               </div>
@@ -220,7 +220,7 @@ export function ScrollMode({
                       rehypePlugins={markdownPlugins.rehype}
                       components={customMarkdownComponents}
                     >
-                      {preprocessAeternaContent(sec.activeContent || "Contenido no disponible para este nivel.")}
+                      {preprocessAnektiaContent(sec.activeContent || "Contenido no disponible para este nivel.")}
                     </ReactMarkdown>
                   </div>
 

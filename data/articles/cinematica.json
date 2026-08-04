@@ -3,7 +3,7 @@
     "title": "Cinemática: El Arte de Describir el Movimiento",
     "description": "Guía completa de cinemática: posición, velocidad, aceleración, movimiento rectilíneo uniforme y acelerado, caída libre, movimiento parabólico y la relación entre derivadas e integrales. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "cinematica",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -30,7 +30,7 @@
     ],
     "breadcrumb": "Física / El Reino de lo Clásico / Cinemática"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  Todo se mueve: la Tierra, el aire, tu corazón. La cinemática es el arte de describir ese movimiento —sin preguntar por qué ocurre.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La cinemática describe el movimiento con tres conceptos: **posición** (dónde estás), **velocidad** (qué tan rápido cambias de posición) y **aceleración** (qué tan rápido cambia tu velocidad). El movimiento rectilíneo uniforme (MRU) mantiene velocidad constante; el uniformemente acelerado (MRUA) cambia la velocidad a ritmo constante; y la caída libre es MRUA con la aceleración de la gravedad. Con estas herramientas puedes describir desde un coche en la autopista hasta un planeta orbitando.\n\n**[IMAGEN SUGERIDA: Una autopista vista desde arriba con estelas de luz de los coches moviéndose, mostrando trayectorias. Pie de foto: \"La cinemática describe el movimiento sin preguntar por qué.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  Todo se mueve: la Tierra, el aire, tu corazón. La cinemática es el arte de describir ese movimiento —sin preguntar por qué ocurre.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La cinemática describe el movimiento con tres conceptos: **posición** (dónde estás), **velocidad** (qué tan rápido cambias de posición) y **aceleración** (qué tan rápido cambia tu velocidad). El movimiento rectilíneo uniforme (MRU) mantiene velocidad constante; el uniformemente acelerado (MRUA) cambia la velocidad a ritmo constante; y la caída libre es MRUA con la aceleración de la gravedad. Con estas herramientas puedes describir desde un coche en la autopista hasta un planeta orbitando.\n\n**[IMAGEN SUGERIDA: Una autopista vista desde arriba con estelas de luz de los coches moviéndose, mostrando trayectorias. Pie de foto: \"La cinemática describe el movimiento sin preguntar por qué.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

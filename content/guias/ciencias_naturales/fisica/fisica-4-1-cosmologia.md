@@ -2,7 +2,7 @@
 title: Cosmología
 description: "Guía completa de la cosmología: el universo observable, el Big Bang, la expansión del universo, la radiación de fondo, la materia oscura y el destino del cosmos."
 slug: cosmologia
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["cosmología", "Big Bang", "expansión del universo", "radiación de fondo", "materia oscura", "energía oscura", "ley de Hubble", "universo"]
@@ -16,9 +16,9 @@ prerequisites: ["relatividad-general", "fisica-atomica-y-nuclear"]
 breadcrumb: Física / Fronteras del Cosmos / Cosmología
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   El universo tiene 13.8 mil millones de años, empezó en un instante de densidad infinita, se expande acelerándose, y está hecho mayoritariamente de materia que no podemos ver.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

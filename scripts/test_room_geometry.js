@@ -1,4 +1,4 @@
-// Geometry Test Battery for Aeterna Room Engine Placement Validation
+// Geometry Test Battery for Anektia Room Engine Placement Validation
 
 const { validatePlacement, DEFAULT_PLACED_ITEMS } = require('../lib/roomEngineStorage');
 const { ROOM_ENGINE_CATALOG } = require('../data/roomEngineCatalog');

@@ -22,7 +22,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'escritorio',
     name: 'Escritorio de Madera Noble',
     category: 'furniture',
-    image: '/images/aeterna_pixel_desk.png',
+    image: '/images/anektia_pixel_desk.png',
     widthGrid: 4,
     heightGrid: 3,
     allowRotation: true
@@ -31,7 +31,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'silla',
     name: 'Silla de Estudio',
     category: 'furniture',
-    image: '/images/aeterna_pixel_armchair.png',
+    image: '/images/anektia_pixel_armchair.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: true
@@ -40,7 +40,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'estanteria',
     name: 'Estantería de Tomos',
     category: 'furniture',
-    image: '/images/aeterna_pixel_bookshelf.png',
+    image: '/images/anektia_pixel_bookshelf.png',
     widthGrid: 3,
     heightGrid: 4,
     allowRotation: true
@@ -49,7 +49,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'telescopio',
     name: 'Telescopio de Latón',
     category: 'scientific',
-    image: '/images/aeterna_pixel_telescope.png',
+    image: '/images/anektia_pixel_telescope.png',
     widthGrid: 2,
     heightGrid: 3,
     allowRotation: true
@@ -58,7 +58,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'lampara',
     name: 'Lámpara de Escritorio',
     category: 'decoration',
-    image: '/images/aeterna_pixel_lamp.png',
+    image: '/images/anektia_pixel_lamp.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: true
@@ -67,7 +67,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'planta',
     name: 'Planta en Maceta de Barro',
     category: 'plants',
-    image: '/images/aeterna_pixel_plant.png',
+    image: '/images/anektia_pixel_plant.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: false
@@ -76,7 +76,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'globo',
     name: 'Globo Terráqueo de Caoba',
     category: 'scientific',
-    image: '/images/aeterna_pixel_math.png',
+    image: '/images/anektia_pixel_math.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: true
@@ -85,7 +85,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'cuadro',
     name: 'Cuadro de Constelaciones',
     category: 'decoration',
-    image: '/images/aeterna_pixel_physics.png',
+    image: '/images/anektia_pixel_physics.png',
     widthGrid: 3,
     heightGrid: 2,
     allowRotation: false
@@ -94,7 +94,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'libros',
     name: 'Pila de Libros Antiguos',
     category: 'books',
-    image: '/images/aeterna_pixel_cs.png',
+    image: '/images/anektia_pixel_cs.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: true
@@ -103,7 +103,7 @@ export const CATALOG_ITEMS: CatalogItem[] = [
     id: 'instrumento',
     name: 'Prisma de Cristal y Soporte',
     category: 'scientific',
-    image: '/images/aeterna_pixel_prism.png',
+    image: '/images/anektia_pixel_prism.png',
     widthGrid: 2,
     heightGrid: 2,
     allowRotation: true

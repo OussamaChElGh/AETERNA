@@ -1,4 +1,4 @@
-// Aeterna Environment System - AutotilingEngine Sub-System
+// Anektia Environment System - AutotilingEngine Sub-System
 // Calculates 8-neighbor adjacency bitmasks & pseudo-random variant selection
 
 import { EnvironmentLayout } from '@/types/environmentEngine';

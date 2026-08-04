@@ -159,8 +159,8 @@ export const AVATARS = [
     icon: User 
   },
   { 
-    id: 'guardian_aeterna', 
-    name: 'Guardián Aeterna', 
+    id: 'guardian_anektia', 
+    name: 'Guardián Anektia', 
     requiredLevel: 5, 
     color: 'gold-intense',
     image: '/mascot.png',

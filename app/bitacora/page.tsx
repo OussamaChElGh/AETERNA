@@ -10,7 +10,7 @@ const BLOG_POSTS = [
     excerpt: "Un análisis sobre cómo las estructuras narrativas de la Grecia clásica continúan moldeando nuestra percepción de la realidad digital.",
     date: "2024-05-15",
     category: "Ensayo",
-    author: "Archivador Aeterna",
+    author: "Archivador Anektia",
     image: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=800"
   },
   {

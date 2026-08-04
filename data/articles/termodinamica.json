@@ -3,7 +3,7 @@
     "title": "Termodinámica: La Física del Calor, la Energía y el Tiempo",
     "description": "Guía completa de termodinámica: desde las leyes del calor y la entropía hasta el ciclo de Carnot y el cero absoluto. Tres capas de profundidad con ejercicios, laboratorios interactivos, gráficos y experimentos mentales.",
     "slug": "termodinamica",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -123,8 +123,8 @@
       "acciones": []
     },
     {
-      "id": "sistema-aeterna",
-      "titulo": "Sistema Aeterna: lo que has aprendido y hacia dónde vas",
+      "id": "sistema-anektia",
+      "titulo": "Sistema Anektia: lo que has aprendido y hacia dónde vas",
       "niveles": {
         "principiante": "Has viajado desde una taza de café hasta el destino del universo. La termodinámica es simple en esencia: **la energía se conserva, pero el desorden siempre aumenta**.\n\nRecuerda:\n- 🔥 El calor es energía en movimiento, no una propiedad\n- 🧊 La temperatura mide la agitación de las partículas\n- ⚡ Nada se crea ni se destruye (Primera Ley)\n- 🎲 El desorden siempre crece (Segunda Ley)\n- ❄️ El cero absoluto es inalcanzable (Tercera Ley)\n- 🌡️ Si dos cosas tocan un termómetro y marcan igual, están a la misma temperatura (Ley Cero)\n\n```aeterna-exercise\nTITLE: Las cuatro leyes en tu día\nHINT: Busca ejemplos cotidianos: cocinar, ducharte, encender el coche.\nXP: 40\nDescribe una situación de tu día a día donde se manifiesten al menos dos de las leyes de la termodinámica.\nSOLUTION: Ejemplo: al ducharte con agua caliente, el agua cede calor a tu cuerpo (Ley Cero). La energía del calentador se convierte en calor (Primera Ley). El vapor se dispersa aumentando la entropía (Segunda Ley).\n```",
         "intermedio": "**Resumen de las cuatro leyes**:\n\n| Ley | Enunciado | Ecuación clave |\n| :--- | :--- | :--- |\n| **Ley Cero** | Equilibrio térmico es transitivo | Si TA=TB y TB=TC → TA=TC |\n| **Primera Ley** | Conservación de la energía | ΔU = Q − W |\n| **Segunda Ley** | La entropía nunca disminuye | ΔS ≥ 0 (sistema aislado) |\n| **Tercera Ley** | Cero absoluto inalcanzable | S → 0 cuando T → 0 |\n\n**Fórmulas esenciales:**\n- $$ Q = m c \\Delta T $$ (calorimetría)\n- $$ PV = nRT $$ (gas ideal)\n- $$ \\Delta U = Q - W $$ (primera ley)\n- $$ \\eta_{max} = 1 - \\frac{T_f}{T_c} $$ (rendimiento Carnot)\n- $$ S = k_B \\ln \\Omega $$ (entropía de Boltzmann)\n\n**Próxima parada**: la termodinámica se conecta con la **mecánica estadística** y con la **cosmología**.\n\n```aeterna-decision\nBadge: Integración\nTítulo: Conectando con otras ramas\nPregunta: La termodinámica es macroscópica y fenomenológica. ¿Qué rama de la física explica SUS leyes desde primeros principios microscópicos?\nNivel: intermedio\nXP: 40\nBotón: Descubrir\nRespuesta: Respuesta: La mecánica estadística (Boltzmann, Gibbs, Maxwell) explica las leyes macroscópicas de la termodinámica a partir del comportamiento estadístico de partículas individuales. S = kB ln Ω es el puente entre ambos mundos.\n```",

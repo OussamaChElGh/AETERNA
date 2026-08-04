@@ -1,8 +1,8 @@
 ---
 title: "Demo Interactiva: La Galería de Bloques"
-description: Galería de demostración de todos los bloques interactivos y pedagógicos de Aeterna con estética pixel art. Úsala para visualizar los componentes antes de integrarlos en artículos reales.
+description: Galería de demostración de todos los bloques interactivos y pedagógicos de Anektia con estética pixel art. Úsala para visualizar los componentes antes de integrarlos en artículos reales.
 slug: demo-interactiva-bloques
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["demo", "bloques", "interactivos"]
@@ -16,12 +16,12 @@ prerequisites: []
 breadcrumb: Física / Demo / Galería de Bloques
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   Galería de demostración de los bloques interactivos y pedagógicos con estética pixel art.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave:**
-> Esta guía no enseña física — enseña los componentes de Aeterna. Navega por cada bloque para ver su apariencia y comportamiento pixel art.
+> Esta guía no enseña física — enseña los componentes de Anektia. Navega por cada bloque para ver su apariencia y comportamiento pixel art.
 
 
 <NivelActivo id="fundamentos">
@@ -540,4 +540,4 @@ CRITERION_WRONG: La antigüedad garantiza la verdad | Newton fue corregido por E
 </NivelActivo>
 
 
-Esta galería demuestra la estética pixel art unificada de los bloques de Aeterna. Cada bloque — pedagógico o interactivo — comparte el mismo lenguaje visual: iconos cuadrados, títulos mono, bordes duros y sombras desplazadas.
+Esta galería demuestra la estética pixel art unificada de los bloques de Anektia. Cada bloque — pedagógico o interactivo — comparte el mismo lenguaje visual: iconos cuadrados, títulos mono, bordes duros y sombras desplazadas.

@@ -2,7 +2,7 @@
 title: "Mecánica Clásica: La Física del Movimiento y las Fuerzas"
 description: "Descubre las leyes de Newton, la cinemática, la dinámica, el trabajo, la energía y los fluidos. De la manzana que cae a las órbitas planetarias: la guía más completa."
 slug: mecanica-clasica
-author: Aeterna
+author: Anektia
 category: ciencias
 subcategory: fisica
 tags: ["física", "mecánica clásica", "leyes de Newton", "cinemática", "dinámica", "trabajo y energía", "fluidos", "momento angular", "sistemas no inerciales", "principio de Arquímedes"]
@@ -266,17 +266,17 @@ La mecánica clásica no es "falsa". Es un modelo excelente para el 99,9% de nue
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
-> **🧠 Sistema Aeterna, paso 1: Describe antes de explicar**
+> **🧠 Sistema Anektia, paso 1: Describe antes de explicar**
 >
 > > La cinemática describe el movimiento; la dinámica lo explica. Antes de preguntarte *por qué* algo se mueve, aprende a narrar *cómo* se mueve: posición, velocidad, aceleración. El orden importa: no puedes explicar lo que no sabes describir.
 
-> **🧠 Sistema Aeterna, paso 2: Busca lo que se conserva**
+> **🧠 Sistema Anektia, paso 2: Busca lo que se conserva**
 >
 > > La energía y el momento angular no se crean ni se destruyen. Cuando un problema parece imposible, pregunta: ¿qué se está conservando aquí? Las leyes de conservación son las herramientas más poderosas de la física.
 
-> **🧠 Sistema Aeterna, paso 3: Conoce los límites de tu modelo**
+> **🧠 Sistema Anektia, paso 3: Conoce los límites de tu modelo**
 >
 > > La mecánica clásica funciona para el 99,9% de la vida cotidiana, pero falla a velocidades extremas y en el mundo subatómico. Todo modelo tiene un dominio de validez. Saber cuándo usarlo —y cuándo no— es la marca del pensador riguroso.
 
@@ -627,17 +627,17 @@ La órbita de Mercurio se desviaba 43 segundos de arco por siglo respecto a lo q
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
-> **🧠 Sistema Aeterna, paso 1: La causalidad newtoniana**
+> **🧠 Sistema Anektia, paso 1: La causalidad newtoniana**
 >
 > > Las tres leyes de Newton no son fórmulas aisladas: forman un sistema cerrado. La inercia define el estado natural; la segunda ley cuantifica el cambio; la tercera garantiza la coherencia de las interacciones. Estúdialas como un todo.
 
-> **🧠 Sistema Aeterna, paso 2: La energía como estrategia**
+> **🧠 Sistema Anektia, paso 2: La energía como estrategia**
 >
 > > Cuando las fuerzas son complicadas, cambia de marco: usa energía. El teorema trabajo-energía y la conservación de la energía mecánica convierten problemas de fuerzas variables en simples balances. El cambio de marco es un superpoder.
 
-> **🧠 Sistema Aeterna, paso 3: La anomalía como oportunidad**
+> **🧠 Sistema Anektia, paso 3: La anomalía como oportunidad**
 >
 > > La órbita de Mercurio no encajaba con Newton por 43 segundos de arco por siglo. En lugar de ignorarla, Einstein la persiguió — y nació la Relatividad General. Las grandes revoluciones empiezan con anomalías que nadie se atreve a descartar.
 
@@ -945,17 +945,17 @@ Botón: Registrar Reflexión
 
 ---
 
-## 🧠 Sistema Aeterna: ¿Qué acabas de aprender?
+## 🧠 Sistema Anektia: ¿Qué acabas de aprender?
 
-> **🧠 Sistema Aeterna, paso 1: De la fuerza al principio**
+> **🧠 Sistema Anektia, paso 1: De la fuerza al principio**
 >
 > > La mecánica clásica se puede reformular por completo con el principio de mínima acción y el lagrangiano $L = T - U$. Esta formulación variacional es más profunda que las leyes de Newton: se generaliza intacta a la mecánica cuántica. La física no es un conjunto de reglas: es una jerarquía de principios.
 
-> **🧠 Sistema Aeterna, paso 2: La simetría gobierna**
+> **🧠 Sistema Anektia, paso 2: La simetría gobierna**
 >
 > > El teorema de Noether conecta cada simetría con una ley de conservación: homogeneidad del tiempo → energía; homogeneidad del espacio → momento lineal; isotropía → momento angular. La estructura profunda de la física no son las fuerzas, sino las simetrías.
 
-> **🧠 Sistema Aeterna, paso 3: La teoría efectiva**
+> **🧠 Sistema Anektia, paso 3: La teoría efectiva**
 >
 > > La mecánica clásica es el caso límite de la relatividad y la cuántica. Aprender cuándo un modelo deja de ser válido —y qué parámetro lo rompe— es la habilidad que separa a quien memoriza física de quien la entiende.
 

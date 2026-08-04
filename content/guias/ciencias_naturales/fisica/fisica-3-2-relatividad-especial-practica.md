@@ -2,7 +2,7 @@
 title: "Relatividad Especial: Problemas Resueltos"
 description: "Taller práctico de relatividad especial: factor de Lorentz, dilatación del tiempo, contracción de longitudes, E = mc² y la paradoja de los gemelos con problemas resueltos."
 slug: relatividad-especial-practica
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["relatividad", "problemas resueltos", "factor de Lorentz", "dilatación del tiempo", "contracción", "E = mc²", "paradoja de los gemelos"]
@@ -16,9 +16,9 @@ prerequisites: ["relatividad-especial"]
 breadcrumb: "Física / Física Moderna / Relatividad Especial: Problemas Resueltos"
 ---
 
-<AeternaHeroWelcome>
+<AnektiaHeroWelcome>
   La teoría ya la conoces: la dilatación del tiempo, la contracción de longitudes, E = mc². Ahora aprende a calcularla.
-</AeternaHeroWelcome>
+</AnektiaHeroWelcome>
 
 > **💡 La clave en 10 segundos**
 >

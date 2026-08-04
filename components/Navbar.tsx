@@ -45,7 +45,7 @@ export function Navbar() {
           <div className="flex items-center gap-12">
             <Link href="/" className="flex items-center gap-3 group relative">
               <div className="relative w-12 h-12 rounded-full border border-brand-gold/30 bg-brand-ink flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:border-brand-gold group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)]">
-                <img src="/mascot.png" alt="Aeterna" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                <img src="/mascot.png" alt="Anektia" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?q=80&w=200&auto=format&fit=crop"; }} 
                 />
               </div>

@@ -1,5 +1,5 @@
 const INTERACTIVE_LANGS = 'prediction-box|parameter-lab|graph-lab|error-hunter|model-builder|concept-map|argument-builder|causal-map|evidence-matcher|counterexample|argument-evaluation|sequence-builder|aeterna-exercise|aeterna-ejercicio|aeterna-decision|aeterna-decision-box|aeterna-flowchart|flowchart';
-const INTERACTIVE_TAGS = 'PredictionBox|ParameterLab|GraphLab|ErrorHunter|ModelBuilder|ConceptMap|ArgumentBuilder|CausalMap|EvidenceMatcher|Counterexample|ArgumentEvaluation|SequenceBuilder|AeternaDecisionBox|AeternaExercise|AeternaFlowchart|Flowchart';
+const INTERACTIVE_TAGS = 'PredictionBox|ParameterLab|GraphLab|ErrorHunter|ModelBuilder|ConceptMap|ArgumentBuilder|CausalMap|EvidenceMatcher|Counterexample|ArgumentEvaluation|SequenceBuilder|AnektiaDecisionBox|AnektiaExercise|AnektiaFlowchart|Flowchart';
 
 export function extractInteractiveFromContent(content: string): {
   hasInteractive: boolean;

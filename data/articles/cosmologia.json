@@ -3,7 +3,7 @@
     "title": "Cosmología",
     "description": "Guía completa de la cosmología: el universo observable, el Big Bang, la expansión del universo, la radiación de fondo, la materia oscura y el destino del cosmos.",
     "slug": "cosmologia",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -28,7 +28,7 @@
     ],
     "breadcrumb": "Física / Fronteras del Cosmos / Cosmología"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  El universo tiene 13.8 mil millones de años, empezó en un instante de densidad infinita, se expande acelerándose, y está hecho mayoritariamente de materia que no podemos ver.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La cosmología es la física del universo entero. Su historia: el universo comenzó en el **Big Bang** y se **expande** (ley de Hubble: v = H₀d). La **radiación de fondo** (CMB) es el eco del universo primigenio a 2.7 K. La **materia oscura** (27%) no emite luz pero su gravedad la revela; la **energía oscura** (68%) acelera la expansión. El **destino del universo** depende de su densidad: expandirse para siempre, frenarse o colapsar. Hoy sabemos: se expande acelerándose, hacia un universo frío y vacío.\n\n**[IMAGEN SUGERIDA: Una galaxia espiral y el fondo de radiación cósmica. Pie de foto: \"El universo: 13.8 mil millones de años de historia.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  El universo tiene 13.8 mil millones de años, empezó en un instante de densidad infinita, se expande acelerándose, y está hecho mayoritariamente de materia que no podemos ver.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> La cosmología es la física del universo entero. Su historia: el universo comenzó en el **Big Bang** y se **expande** (ley de Hubble: v = H₀d). La **radiación de fondo** (CMB) es el eco del universo primigenio a 2.7 K. La **materia oscura** (27%) no emite luz pero su gravedad la revela; la **energía oscura** (68%) acelera la expansión. El **destino del universo** depende de su densidad: expandirse para siempre, frenarse o colapsar. Hoy sabemos: se expande acelerándose, hacia un universo frío y vacío.\n\n**[IMAGEN SUGERIDA: Una galaxia espiral y el fondo de radiación cósmica. Pie de foto: \"El universo: 13.8 mil millones de años de historia.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

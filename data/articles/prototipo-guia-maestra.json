@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Prototipo de Guía Maestra: El Método Aeterna",
+    "title": "Prototipo de Guía Maestra: El Método Anektia",
     "description": "Este es el modelo estructural para todos los artículos de la plataforma, demostrando el sistema de capas, índices dinámicos y transiciones.",
     "slug": "prototipo-guia-maestra",
     "author": "El Observador Eterno",
@@ -15,7 +15,7 @@
     "date": "2026-05-11",
     "xp": 500
   },
-  "introduccion": "Bienvenido a la Cámara de Estructuras. Este documento no es solo un artículo; es el **molde genético** sobre el que se construirá toda la Gnosis de Aeterna. Aquí aprenderás cómo el sistema interpreta las diferentes Capas de Realidad para ofrecerte una experiencia de aprendizaje adaptativa.",
+  "introduccion": "Bienvenido a la Cámara de Estructuras. Este documento no es solo un artículo; es el **molde genético** sobre el que se construirá toda la Gnosis de Anektia. Aquí aprenderás cómo el sistema interpreta las diferentes Capas de Realidad para ofrecerte una experiencia de aprendizaje adaptativa.",
   "secciones": [
     {
       "id": "seccion-1",
@@ -53,9 +53,9 @@
       "niveles": {
         "principiante": "Has llegado al final de los fundamentos. Tu mente está lista para el siguiente nivel de complejidad.\n\n<BotonTransicion nivel=\"intermedio\">\n  Haz clic aquí para ascender a la Capa II: Exégesis Técnica.\n</BotonTransicion>",
         "intermedio": "La exégesis ha sido completada. Los axiomas de frontera te esperan.\n\n<BotonTransicion nivel=\"avanzado\">\n  Desbloquea la Capa III y accede a la formulación matemática final.\n</BotonTransicion>",
-        "avanzado": "Has alcanzado la Maestría Absoluta en este tomo. Los datos han sido grabados permanentemente.\n\n> 🧠 **Sistema Aeterna**\n> La sincronización ha finalizado. Puedes regresar al Nexo o explorar otros tomos de la biblioteca."
+        "avanzado": "Has alcanzado la Maestría Absoluta en este tomo. Los datos han sido grabados permanentemente.\n\n> 🧠 **Sistema Anektia**\n> La sincronización ha finalizado. Puedes regresar al Nexo o explorar otros tomos de la biblioteca."
       }
     }
   ],
-  "conclusion": "Este prototipo demuestra que Aeterna no es una web estática, sino un organismo de datos vivo que evoluciona contigo."
+  "conclusion": "Este prototipo demuestra que Anektia no es una web estática, sino un organismo de datos vivo que evoluciona contigo."
 }

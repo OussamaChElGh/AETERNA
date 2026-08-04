@@ -1,7 +1,7 @@
 import { UserRoomData, PlacedRoomItem, PlacementValidationResult, RoomCatalogItem } from '@/types/roomEngine';
 import { getCatalogItem, ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
 import { getRoomAsset } from '@/data/roomEngineAssets';
-import { AETERNA_ROOM_LAYOUT, isTileOnFloor, isTileOnWall } from '@/data/roomLayoutData';
+import { ANEKTIA_ROOM_LAYOUT, isTileOnFloor, isTileOnWall } from '@/data/roomLayoutData';
 import { db } from '@/lib/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 

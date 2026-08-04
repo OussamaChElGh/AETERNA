@@ -2,11 +2,11 @@ import 'server-only';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import type { ArticleFrontmatter, AeternaArticle } from '@/types';
+import type { ArticleFrontmatter, AnektiaArticle } from '@/types';
 
 const contentDirectories = [
   path.join(process.cwd(), 'content', 'guias'),
-  path.join(process.cwd(), '..', 'AETERNA-main', 'src', 'content', 'guias')
+  path.join(process.cwd(), '..', 'aeterna-main', 'src', 'content', 'guias')
 ];
 const jsonArticlesDirectory = path.join(process.cwd(), 'data', 'articles');
 
@@ -76,7 +76,7 @@ export function parseFrontmatter(fileContent: string, filePath: string): { data:
     slug: parsedData.slug || filename,
     title: parsedData.title || filename.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
     description: parsedData.description || '',
-    author: parsedData.author || 'Aeterna',
+    author: parsedData.author || 'Anektia',
     category: parsedData.category || 'guias',
     subcategory: parsedData.subcategory,
     tags: Array.isArray(parsedData.tags) ? parsedData.tags : [],
@@ -136,7 +136,7 @@ export function getArticleBySlug(slug: string): { data: ArticleFrontmatter; cont
   return newest;
 }
 
-export function getStructuredArticleBySlug(slug: string): AeternaArticle | null {
+export function getStructuredArticleBySlug(slug: string): AnektiaArticle | null {
   const filePath = path.join(jsonArticlesDirectory, `${slug}.json`);
   if (!fs.existsSync(filePath)) {
     return null;
@@ -144,7 +144,7 @@ export function getStructuredArticleBySlug(slug: string): AeternaArticle | null 
   
   try {
     const fileContent = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContent) as AeternaArticle;
+    return JSON.parse(fileContent) as AnektiaArticle;
   } catch (e) {
     console.error(`Error loading JSON article ${slug}:`, e);
     return null;
@@ -156,7 +156,7 @@ export function getStructuredArticleBySlug(slug: string): AeternaArticle | null 
  * recently: the structured JSON or the raw markdown. Editing the markdown file
  * takes effect immediately; regenerating the JSON makes it win again.
  */
-export function getArticleForRender(slug: string): AeternaArticle | null {
+export function getArticleForRender(slug: string): AnektiaArticle | null {
   const files = getAllMarkdownFiles();
   let newestMd: { data: ArticleFrontmatter; content: string; mtime: number } | null = null;
 
@@ -182,7 +182,7 @@ export function getArticleForRender(slug: string): AeternaArticle | null {
   }
 
   if (newestMd && newestMd.mtime > jsonMtime) {
-    return adaptMarkdownToAeterna(newestMd);
+    return adaptMarkdownToAnektia(newestMd);
   }
 
   return getStructuredArticleBySlug(slug);
@@ -196,7 +196,7 @@ export function getAllStructuredArticleSlugs(): string[] {
     .map(file => file.replace('.json', ''));
 }
 
-export function adaptMarkdownToAeterna(mdData: { data: ArticleFrontmatter; content: string }): AeternaArticle {
+export function adaptMarkdownToAnektia(mdData: { data: ArticleFrontmatter; content: string }): AnektiaArticle {
   const content = mdData.content;
   const secciones: any[] = [];
   let introduccion = "";

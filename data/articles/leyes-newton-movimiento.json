@@ -3,7 +3,7 @@
     "title": "Las Leyes de Newton del Movimiento",
     "description": "Guía completa de las leyes de Newton: la inercia, F = ma, acción y reacción, diagramas de cuerpo libre, formulación diferencial y sistemas no inerciales. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "leyes-newton-movimiento",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -27,7 +27,7 @@
     ],
     "breadcrumb": "Física / Fundamentos del Cosmos / Las Leyes de Newton"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  Una manzana cae, la Luna orbita, tu coche frena. Tres leyes simples explican por qué se mueve todo lo que se mueve.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Las tres leyes de Newton son: **primera** (inercia): un objeto sigue en reposo o con movimiento uniforme salvo que actúe una fuerza; **segunda**: F = ma —la fuerza neta es masa por aceleración; **tercera**: acción y reacción —toda fuerza tiene una igual y opuesta. Con estas tres y los diagramas de cuerpo libre, puedes analizar cualquier situación dinámica, desde un bloque en un plano inclinado hasta una órbita planetaria.\n\n**[IMAGEN SUGERIDA: Una manzana cayendo de un árbol, con flechas de fuerza. Pie de foto: \"La gravedad acelera la manzana: F = ma.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  Una manzana cae, la Luna orbita, tu coche frena. Tres leyes simples explican por qué se mueve todo lo que se mueve.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Las tres leyes de Newton son: **primera** (inercia): un objeto sigue en reposo o con movimiento uniforme salvo que actúe una fuerza; **segunda**: F = ma —la fuerza neta es masa por aceleración; **tercera**: acción y reacción —toda fuerza tiene una igual y opuesta. Con estas tres y los diagramas de cuerpo libre, puedes analizar cualquier situación dinámica, desde un bloque en un plano inclinado hasta una órbita planetaria.\n\n**[IMAGEN SUGERIDA: Una manzana cayendo de un árbol, con flechas de fuerza. Pie de foto: \"La gravedad acelera la manzana: F = ma.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

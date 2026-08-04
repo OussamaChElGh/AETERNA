@@ -87,7 +87,7 @@ export function Footer() {
                onDoubleClick={triggerEasterEgg}
                title="Doble clic para la revelación"
              ></div>
-             <span className="text-[11px] uppercase tracking-[0.6em] font-bold text-brand-ink">AETERNA DIGITAL ARCHIVE — MMXXVI</span>
+             <span className="text-[11px] uppercase tracking-[0.6em] font-bold text-brand-ink">ANEKTIA DIGITAL ARCHIVE — MMXXVI</span>
            </div>
            <div className="flex items-center gap-8">
              <a href="#" className="text-brand-muted hover:text-brand-ink transition-colors"><Globe className="h-4 w-4" /></a>

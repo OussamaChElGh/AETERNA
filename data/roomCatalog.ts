@@ -10,7 +10,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_telescope.png',
+      src: '/images/anektia_pixel_telescope.png',
       widthGrid: 2,
       heightGrid: 3
     },
@@ -31,7 +31,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'uncommon',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_prism.png',
+      src: '/images/anektia_pixel_prism.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -53,7 +53,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'epic',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_schrodinger.png',
+      src: '/images/anektia_pixel_schrodinger.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -74,7 +74,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_math.png',
+      src: '/images/anektia_pixel_math.png',
       widthGrid: 3,
       heightGrid: 3
     },
@@ -95,7 +95,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'common',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_abacus.png',
+      src: '/images/anektia_pixel_abacus.png',
       widthGrid: 2,
       heightGrid: 1
     },
@@ -109,14 +109,14 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
   },
   {
     id: 'cs_quantum_core',
-    name: 'Procesador Cuántico Aeterna',
+    name: 'Procesador Cuántico Anektia',
     description: 'Matriz de cómputo cuántico con superconductores de flujo binario.',
     category: 'scientific',
     discipline: 'computer_science',
     rarity: 'legendary',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_cs.png',
+      src: '/images/anektia_pixel_cs.png',
       widthGrid: 3,
       heightGrid: 3
     },
@@ -137,7 +137,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_terminal.png',
+      src: '/images/anektia_pixel_terminal.png',
       widthGrid: 3,
       heightGrid: 2
     },
@@ -158,7 +158,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'epic',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_bust.png',
+      src: '/images/anektia_pixel_bust.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -179,7 +179,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'uncommon',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_microscope.png',
+      src: '/images/anektia_pixel_microscope.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -200,7 +200,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_terrarium.png',
+      src: '/images/anektia_pixel_terrarium.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -221,7 +221,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'common',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_bookshelf.png',
+      src: '/images/anektia_pixel_bookshelf.png',
       widthGrid: 3,
       heightGrid: 3
     },
@@ -242,7 +242,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'uncommon',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_pixel_armchair.png',
+      src: '/images/anektia_pixel_armchair.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -263,7 +263,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_desk_0deg.png',
+      src: '/images/anektia_master_desk_0deg.png',
       widthGrid: 3,
       heightGrid: 2
     },
@@ -284,7 +284,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'uncommon',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_armchair_0deg.png',
+      src: '/images/anektia_master_armchair_0deg.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -305,7 +305,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_globe_0deg.png',
+      src: '/images/anektia_master_globe_0deg.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -326,7 +326,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'epic',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_gothic_window.png',
+      src: '/images/anektia_master_gothic_window.png',
       widthGrid: 2,
       heightGrid: 3
     },
@@ -347,7 +347,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'common',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_wall_ivy.png',
+      src: '/images/anektia_master_wall_ivy.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -368,7 +368,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'uncommon',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_wall_clock.png',
+      src: '/images/anektia_master_wall_clock.png',
       widthGrid: 1,
       heightGrid: 2
     },
@@ -389,7 +389,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_fireplace.png',
+      src: '/images/anektia_master_fireplace.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -410,7 +410,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_astrolabe.png',
+      src: '/images/anektia_master_astrolabe.png',
       widthGrid: 1,
       heightGrid: 1
     },
@@ -431,7 +431,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_persian_rug.png',
+      src: '/images/anektia_master_persian_rug.png',
       widthGrid: 3,
       heightGrid: 3
     },
@@ -452,7 +452,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'uncommon',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_wall_tapestry.png',
+      src: '/images/anektia_master_wall_tapestry.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -473,7 +473,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'common',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_wall_sconce.png',
+      src: '/images/anektia_master_wall_sconce.png',
       widthGrid: 1,
       heightGrid: 1
     },
@@ -494,7 +494,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'rare',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_arched_window_sunlight.png',
+      src: '/images/anektia_master_arched_window_sunlight.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -515,7 +515,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'epic',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_gothic_window_tight.png',
+      src: '/images/anektia_master_gothic_window_tight.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -536,7 +536,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'legendary',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_stone_gothic_window.png',
+      src: '/images/anektia_master_stone_gothic_window.png',
       widthGrid: 2,
       heightGrid: 2
     },
@@ -557,7 +557,7 @@ export const ROOM_ITEM_CATALOG: RoomItemCatalogEntry[] = [
     rarity: 'legendary',
     asset: {
       type: 'pixel_art',
-      src: '/images/aeterna_master_gothic_door.png',
+      src: '/images/anektia_master_gothic_door.png',
       widthGrid: 2,
       heightGrid: 2
     },

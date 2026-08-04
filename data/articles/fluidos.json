@@ -3,7 +3,7 @@
     "title": "Fluidos: La Física de lo que Fluye",
     "description": "Guía completa de fluidos: presión, hidrostática, principio de Pascal, principio de Arquímedes, hidrodinámica, ecuación de Bernoulli y viscosidad. Con laboratorio de ejercicios y bloques interactivos.",
     "slug": "fluidos",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -29,7 +29,7 @@
     ],
     "breadcrumb": "Física / El Reino de lo Clásico / Fluidos"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  El agua, el aire, la sangre de tus venas: todo lo que fluye obedece unas pocas leyes elegantes. La física de los fluidos explica por qué los barcos flotan y los aviones vuelan.\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Un fluido es cualquier materia que puede fluir (líquidos y gases). Dos principios lo gobiernan todo: la **presión** (fuerza por unidad de área) se transmite y se acumula con la profundidad; el **principio de Arquímedes** explica por qué las cosas flotan (el empuje es el peso del fluido desalojado); y la **ecuación de Bernoulli** conecta velocidad, presión y altura en fluidos en movimiento —es la razón de que los aviones vuelen. Con estas tres ideas entiendes ríos, océanos, sangre y aviación.\n\n**[IMAGEN SUGERIDA: Una mano sosteniendo un vaso de agua con ondas, reflejando la luz. Pie de foto: \"Los fluidos fluyen, pero siguen leyes precisas.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  El agua, el aire, la sangre de tus venas: todo lo que fluye obedece unas pocas leyes elegantes. La física de los fluidos explica por qué los barcos flotan y los aviones vuelan.\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> Un fluido es cualquier materia que puede fluir (líquidos y gases). Dos principios lo gobiernan todo: la **presión** (fuerza por unidad de área) se transmite y se acumula con la profundidad; el **principio de Arquímedes** explica por qué las cosas flotan (el empuje es el peso del fluido desalojado); y la **ecuación de Bernoulli** conecta velocidad, presión y altura en fluidos en movimiento —es la razón de que los aviones vuelen. Con estas tres ideas entiendes ríos, océanos, sangre y aviación.\n\n**[IMAGEN SUGERIDA: Una mano sosteniendo un vaso de agua con ondas, reflejando la luz. Pie de foto: \"Los fluidos fluyen, pero siguen leyes precisas.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",

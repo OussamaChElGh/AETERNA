@@ -2,7 +2,7 @@
 title: "Cómo Piensa un Físico: Medición, Modelos y Estimación"
 description: "Aprende a pensar como un físico: domina el arte de medir, estimar lo imposible y construir modelos. De las unidades del SI a la estimación de Fermi."
 slug: como-piensa-un-fisico
-author: Aeterna
+author: Anektia
 category: ciencias_naturales
 subcategory: fisica
 tags: ["física", "medición", "estimación", "método científico", "unidades SI", "modelos físicos", "análisis dimensional"]
@@ -410,7 +410,7 @@ El problema clásico que planteaba a sus estudiantes era: "¿Cuántos afinadores
 
 ## Proceso de Estimación de Fermi
 
-<AeternaFlowchart
+<AnektiaFlowchart
   title="Proceso de Estimación de Fermi"
   subtitle="Metodología en 5 pasos para descomponer e inferir órdenes de magnitud incalculables"
   badgeText="METODOLOGÍA DE FERMI"
@@ -487,7 +487,7 @@ El mapa no es el territorio. Pero un buen mapa te permite navegar el territorio 
 
 ## Ciclo de Construcción y Validación de Modelos Físicos
 
-<AeternaFlowchart
+<AnektiaFlowchart
   title="Ciclo de Construcción y Validación de Modelos Físicos"
   subtitle="Secuencia metodológica desde la observación empírica hasta la prueba de validez"
   badgeText="MÉTODO DE MODELIZACIÓN"
@@ -671,7 +671,7 @@ El análisis dimensional se formaliza con el **teorema Pi de Buckingham** (1914)
 
 El análisis dimensional también revela los límites de nuestras teorías. Combinando las tres constantes fundamentales de la naturaleza —la velocidad de la luz (c), la constante de gravitación universal (G) y la constante de Planck (ħ)— se obtienen la **longitud de Planck** (ℓₚ ≈ 1.6 × 10⁻³⁵ m) y el **tiempo de Planck** (tₚ ≈ 5.4 × 10⁻⁴⁴ s). Por debajo de estas escalas, nuestras teorías actuales dejan de tener sentido. El espacio-tiempo mismo se vuelve espumoso, cuántico. Para describir lo que ocurre ahí abajo, necesitamos una teoría de gravedad cuántica que aún no tenemos.
 
-<AeternaFlowchart
+<AnektiaFlowchart
   title="Proceso de Análisis Dimensional"
   subtitle="Derivación de fórmulas estructurales mediante unidades"
   badgeText="MÉTODO DE ANÁLISIS DIMENSIONAL"

@@ -3,7 +3,7 @@
     "title": "Momento y Colisiones",
     "description": "Guía completa del momento lineal: qué es, el impulso, la conservación del momento, colisiones elásticas e inelásticas, centro de masa y sistemas de masa variable.",
     "slug": "momentum-colisiones",
-    "author": "Aeterna",
+    "author": "Anektia",
     "category": "ciencias_naturales",
     "subcategory": "fisica",
     "tags": [
@@ -26,7 +26,7 @@
     ],
     "breadcrumb": "Física / Profundización Mecánica / Momento y Colisiones"
   },
-  "introduccion": "<AeternaHeroWelcome>\n  Un mosquito choca contra el parabrisas de un camión. El camión apenas lo nota... pero el mosquito sí nota al camión. ¿Y si te digo que el momento del mosquito era igual y opuesto al del camión?\n</AeternaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **momento lineal** es p = mv —masa por velocidad. La segunda ley se escribe F = Δp/Δt: la fuerza cambia el momento. En un sistema aislado, el **momento total se conserva** (tercera ley): en cualquier colisión, lo que un cuerpo gana, otro lo pierde. En colisiones **elásticas** se conserva también la energía cinética; en **inelásticas** se pierde en calor y deformación. Con esta ley, analizas choques, retrocesos, cohetes y explosiones.\n\n**[IMAGEN SUGERIDA: Dos bolas de billar chocando, con flechas de momento. Pie de foto: \"El momento se conserva en cada choque.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
+  "introduccion": "<AnektiaHeroWelcome>\n  Un mosquito choca contra el parabrisas de un camión. El camión apenas lo nota... pero el mosquito sí nota al camión. ¿Y si te digo que el momento del mosquito era igual y opuesto al del camión?\n</AnektiaHeroWelcome>\n\n> **💡 La clave en 10 segundos**\n>\n> El **momento lineal** es p = mv —masa por velocidad. La segunda ley se escribe F = Δp/Δt: la fuerza cambia el momento. En un sistema aislado, el **momento total se conserva** (tercera ley): en cualquier colisión, lo que un cuerpo gana, otro lo pierde. En colisiones **elásticas** se conserva también la energía cinética; en **inelásticas** se pierde en calor y deformación. Con esta ley, analizas choques, retrocesos, cohetes y explosiones.\n\n**[IMAGEN SUGERIDA: Dos bolas de billar chocando, con flechas de momento. Pie de foto: \"El momento se conserva en cada choque.\"]**\n\n<ProgresionArticulo\n  hitos={[\"Fundamentos\", \"Profundización\", \"Frontera\"]}\n  hitoInicial=\"Fundamentos\"\n/>",
   "secciones": [
     {
       "id": "bienvenida",
