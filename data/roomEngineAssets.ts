@@ -563,6 +563,118 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     pixelHeight: 120,
     anchorX: 0.5,
     anchorY: 0.9
+  },
+  asset_pixel_schrodinger: {
+    id: 'asset_pixel_schrodinger',
+    src: '/images/aeterna_pixel_schrodinger.png',
+    spritesByRotation: {
+      0: '/images/aeterna_pixel_schrodinger.png',
+      90: '/images/aeterna_pixel_schrodinger.png',
+      180: '/images/aeterna_pixel_schrodinger.png',
+      270: '/images/aeterna_pixel_schrodinger.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 90,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_abacus: {
+    id: 'asset_pixel_abacus',
+    src: '/images/aeterna_pixel_abacus.png',
+    spritesByRotation: {
+      0: '/images/aeterna_pixel_abacus.png',
+      90: '/images/aeterna_pixel_abacus.png',
+      180: '/images/aeterna_pixel_abacus.png',
+      270: '/images/aeterna_pixel_abacus.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 100,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_terminal: {
+    id: 'asset_pixel_terminal',
+    src: '/images/aeterna_pixel_terminal.png',
+    spritesByRotation: {
+      0: '/images/aeterna_pixel_terminal.png',
+      90: '/images/aeterna_pixel_terminal.png',
+      180: '/images/aeterna_pixel_terminal.png',
+      270: '/images/aeterna_pixel_terminal.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_bust: {
+    id: 'asset_pixel_bust',
+    src: '/images/aeterna_pixel_bust.png',
+    spritesByRotation: {
+      0: '/images/aeterna_pixel_bust.png',
+      90: '/images/aeterna_pixel_bust.png',
+      180: '/images/aeterna_pixel_bust.png',
+      270: '/images/aeterna_pixel_bust.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_microscope: {
+    id: 'asset_pixel_microscope',
+    src: '/images/aeterna_pixel_microscope.png',
+    spritesByRotation: {
+      0: '/images/aeterna_pixel_microscope.png',
+      90: '/images/aeterna_pixel_microscope.png',
+      180: '/images/aeterna_pixel_microscope.png',
+      270: '/images/aeterna_pixel_microscope.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 110,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_terrarium: {
+    id: 'asset_pixel_terrarium',
+    src: '/images/aeterna_pixel_terrarium.png',
+    spritesByRotation: {
+      0: '/images/aeterna_pixel_terrarium.png',
+      90: '/images/aeterna_pixel_terrarium.png',
+      180: '/images/aeterna_pixel_terrarium.png',
+      270: '/images/aeterna_pixel_terrarium.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_plant: {
+    id: 'asset_pixel_plant',
+    src: '/images/aeterna_pixel_plant.png',
+    spritesByRotation: {
+      0: '/images/aeterna_pixel_plant.png',
+      90: '/images/aeterna_pixel_plant.png',
+      180: '/images/aeterna_pixel_plant.png',
+      270: '/images/aeterna_pixel_plant.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.85
   }
 };
 

@@ -54,10 +54,11 @@ export function AeternaEnvironmentEngine({
   const unlockedIds = useMemo(() => {
     const ctx = {
       completedPaths: progress.completedPaths || [],
-      completedLayers: progress.completedLayers || {}
+      completedLayers: progress.completedLayers || {},
+      userId: user?.uid
     };
     return evaluateRoomUnlocks(ctx).unlockedIds;
-  }, [progress.completedPaths, progress.completedLayers]);
+  }, [progress.completedPaths, progress.completedLayers, user?.uid]);
 
   const mountedRef = useRef(false);
   useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
@@ -130,7 +131,7 @@ export function AeternaEnvironmentEngine({
       catalogItemId: item.id,
       tileX: isWallItem ? 4 : (layout.spawnPoint?.tileX ?? 7),
       tileY: isWallItem ? 0 : (layout.spawnPoint?.tileY ?? 7),
-      tileZ: item.placementSurface === 'desk' ? 1 : 0,
+      tileZ: 0,
       rotation: 0
     };
 

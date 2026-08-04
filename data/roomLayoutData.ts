@@ -2,21 +2,31 @@ import { RoomLayout, WallSegment } from '@/types/roomEngine';
 
 const GRID_SIZE = 32;
 
-// CORRECTED FLOOR MASK — aligned with visual floor asset (940x620 centered at 600,390)
-// tileToScreen(x,y) maps:
-//   (0,0)   → (600, 160)  ≈ topCorner    (600, 155)  ✓
-//   (0,14)  → (152, 384)  ≈ leftCorner   (130, 390)  ✓
-//   (14,0)  → (1048, 384) ≈ rightCorner  (1070, 390) ✓
-//   (14,14) → (600, 608)  ≈ bottomCorner (600, 625)  ✓
-const FLOOR_MIN = 1;
-const FLOOR_MAX = 14;
+// Floor diamond covering tiles (0,0) to (16,16)
+// ORIGIN_X=600, ORIGIN_Y=260, TILE_WIDTH_HALF=32, TILE_HEIGHT_HALF=16
+// Edges: y >= -0.5x + 560, y >= 0.5x - 40, y <= 0.5x + 472, y <= -0.5x + 1072
 
 function createDefaultFloorMask(): boolean[][] {
   const mask: boolean[][] = [];
+  
+  const TILE_WIDTH_HALF = 32;
+  const TILE_HEIGHT_HALF = 16;
+  const ORIGIN_X = 600;
+  const ORIGIN_Y = 260;
+  
   for (let x = 0; x < GRID_SIZE; x++) {
     const row: boolean[] = [];
     for (let y = 0; y < GRID_SIZE; y++) {
-      row.push(x >= FLOOR_MIN && x <= FLOOR_MAX && y >= FLOOR_MIN && y <= FLOOR_MAX);
+      const screenX = (x - y) * TILE_WIDTH_HALF + ORIGIN_X;
+      const screenY = (x + y) * TILE_HEIGHT_HALF + ORIGIN_Y;
+      
+      const inside = 
+        screenY >= -0.5 * screenX + 560 &&
+        screenY >= 0.5 * screenX - 40 &&
+        screenY <= 0.5 * screenX + 472 &&
+        screenY <= -0.5 * screenX + 1072;
+      
+      row.push(inside);
     }
     mask.push(row);
   }

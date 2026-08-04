@@ -5,12 +5,18 @@ import { AETERNA_ROOM_LAYOUT, isTileOnFloor, isTileOnWall } from '@/data/roomLay
 import { db } from '@/lib/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 
+export const GM_USER_IDS: string[] = [
+];
+
 export interface RoomUnlockContext {
   completedPaths: string[];
   completedLayers?: Record<string, string[]>;
+  userId?: string;
 }
 
 export function isCatalogItemUnlocked(item: RoomCatalogItem, ctx: RoomUnlockContext): boolean {
+  if (ctx.userId && GM_USER_IDS.includes(ctx.userId)) return true;
+  
   const cond = item.unlockCondition;
   if (!cond || cond.type === 'default') return true;
 
@@ -93,15 +99,18 @@ export function calculateDerivedZIndex(
 
   const isRug = catalogItemId.includes('rug') || catalogItem?.name?.toLowerCase().includes('alfombra');
 
-  // Rugs ALWAYS render below everything — absolute floor z-index, never influenced by tile position
+  // Rugs ALWAYS render below everything
   if (isRug) {
     return 1;
   }
 
-  let layerPriority = 100;
+  // Wall items ALWAYS render behind floor items (z 10-40 vs floor min 100)
   if (catalogItem?.placementSurface === 'wall') {
-    layerPriority = 20;
-  } else if (catalogItem?.placementSurface === 'desk') {
+    return (tileX + tileY) + 10;
+  }
+
+  let layerPriority = 100;
+  if (catalogItem?.placementSurface === 'desk') {
     layerPriority = 500;
   }
 
@@ -212,8 +221,8 @@ export function validatePlacement(
           }
         }
 
-        // 2. Validate Surface Elevation for Floor Items
-        if (!isTargetWall && (targetTileZ > 0 || catalogItem.placementSurface === 'desk')) {
+        // 2. Validate Surface Elevation — require desk support only when elevated (Z>0)
+        if (!isTargetWall && targetTileZ > 0) {
           const hasSupportTable = placedItems.some(item => {
             if (item.instanceId === currentInstanceId) return false;
             if (item.tileZ !== 0) return false;

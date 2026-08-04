@@ -23,7 +23,7 @@ export function CompactObjectToolbar({
   return (
     <div 
       onClick={(e) => e.stopPropagation()}
-      className="absolute -top-12 left-1/2 -translate-x-1/2 z-[999] bg-[#270F02] text-[#FDE047] border border-[#D4AF37] shadow-[0_8px_20px_rgba(0,0,0,0.6)] rounded-xl px-2 py-1 flex items-center gap-1.5 font-mono select-none animate-in fade-in zoom-in-95 duration-150"
+      className="absolute -top-12 left-1/2 -translate-x-1/2 z-[99999] bg-[#270F02] text-[#FDE047] border border-[#D4AF37] shadow-[0_8px_20px_rgba(0,0,0,0.6)] rounded-xl px-2 py-1 flex items-center gap-1.5 font-mono select-none animate-in fade-in zoom-in-95 duration-150"
     >
       {/* Rotate Orientation Button */}
       <button

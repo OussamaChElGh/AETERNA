@@ -412,6 +412,90 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     placementSurface: 'wall',
     canRotate: true,
     unlockCondition: { type: 'article_completed', targetId: 'fisica-tecnologia' }
+  },
+  {
+    id: 'pixel_schrodinger',
+    name: 'Caja de Schrödinger Pixel Art',
+    description: 'Caja cuántica en pixel art, símbolo de la superposición cuántica.',
+    discipline: 'physics',
+    category: 'scientific',
+    rarity: 'epic',
+    assetId: 'asset_pixel_schrodinger',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'mecanica-cuantica' }
+  },
+  {
+    id: 'pixel_abacus',
+    name: 'Ábaco de Cálculo Pixel Art',
+    description: 'Ábaco clásico en pixel art, instrumento ancestral de cálculo.',
+    discipline: 'mathematics',
+    category: 'scientific',
+    rarity: 'uncommon',
+    assetId: 'asset_pixel_abacus',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'vectores' }
+  },
+  {
+    id: 'pixel_terminal',
+    name: 'Terminal Retro Pixel Art',
+    description: 'Terminal de computadora retro en pixel art, reliquia de la era digital.',
+    discipline: 'computer_science',
+    category: 'scientific',
+    rarity: 'rare',
+    assetId: 'asset_pixel_terminal',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'fisica-tecnologia' }
+  },
+  {
+    id: 'pixel_bust',
+    name: 'Busto de Filósofo Pixel Art',
+    description: 'Busto clásico de filósofo griego en pixel art.',
+    discipline: 'physics',
+    category: 'decoration',
+    rarity: 'rare',
+    assetId: 'asset_pixel_bust',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'relatividad-general' }
+  },
+  {
+    id: 'pixel_microscope',
+    name: 'Microscopio de Laboratorio Pixel Art',
+    description: 'Microscopio óptico en pixel art, herramienta de la física atómica.',
+    discipline: 'physics',
+    category: 'scientific',
+    rarity: 'epic',
+    assetId: 'asset_pixel_microscope',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'fisica-atomica-y-nuclear' }
+  },
+  {
+    id: 'pixel_terrarium',
+    name: 'Terrario Ecosistema Pixel Art',
+    description: 'Terrario autosuficiente en pixel art, ecosistema en miniatura.',
+    discipline: 'biology',
+    category: 'plants',
+    rarity: 'uncommon',
+    assetId: 'asset_pixel_terrarium',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'fluidos' }
+  },
+  {
+    id: 'pixel_plant',
+    name: 'Planta Decorativa Pixel Art',
+    description: 'Planta de interior en pixel art, toque verde para la habitación.',
+    discipline: 'biology',
+    category: 'plants',
+    rarity: 'common',
+    assetId: 'asset_pixel_plant',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'como-piensa-un-fisico' }
   }
 ];
 

@@ -623,7 +623,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       // Evaluación de desbloqueos del Room Engine (catálogo nuevo)
       const ctx = {
         completedPaths: newCompletedPaths,
-        completedLayers: prev.completedLayers || {}
+        completedLayers: prev.completedLayers || {},
+        userId: user?.uid
       };
       const { unlockedIds } = evaluateRoomUnlocks(ctx);
       const newlyUnlocked = ROOM_ENGINE_CATALOG.filter(item => unlockedIds.has(item.id));
@@ -854,7 +855,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
   const unlockLayerPoster = useCallback((articleId: string, capa: string) => {
     const ctx = {
       completedPaths: stateRef.current.completedPaths,
-      completedLayers: { ...(stateRef.current.completedLayers || {}), [articleId]: [...((stateRef.current.completedLayers || {})[articleId] || []), capa] }
+      completedLayers: { ...(stateRef.current.completedLayers || {}), [articleId]: [...((stateRef.current.completedLayers || {})[articleId] || []), capa] },
+      userId: user?.uid
     };
     const { unlockedIds } = evaluateRoomUnlocks(ctx);
     const newlyUnlocked = ROOM_ENGINE_CATALOG.filter(item => unlockedIds.has(item.id));
@@ -866,7 +868,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         points: 75
       });
     });
-  }, [notifyOnce]);
+  }, [notifyOnce, user?.uid]);
 
   const completeLayer = useCallback((articleId: string, capa: string) => {
     if (stateRef.current.completedLayers?.[articleId]?.includes(capa)) return;

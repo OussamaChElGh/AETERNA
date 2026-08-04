@@ -177,11 +177,15 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
   const focusedCategory = hoverNode ? CATEGORIES_DATA.find(c => c.id === hoverNode) : null;
   const focusedIsLive = focusedCategory ? LIVE_CATEGORIES.has(focusedCategory.id) : false;
 
+  // Ranking mini para la home (top 5 + mi posición)
+  const { user: authUser } = useAuth();
+
   // Stats for progression panel
   const totalLayers = Object.values(progress.completedLayers || {}).reduce((s, arr) => s + (Array.isArray(arr) ? arr.length : 0), 0);
   const { unlockedIds } = evaluateRoomUnlocks({
     completedPaths: progress.completedPaths || [],
-    completedLayers: progress.completedLayers || {}
+    completedLayers: progress.completedLayers || {},
+    userId: authUser?.uid
   });
   const relicUnlockedCount = (progress.physicsRelics || []).length;
   const objectUnlockedCount = [...unlockedIds].filter(id => {
@@ -192,9 +196,6 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
     level: progress.level || 1,
     nextLevel: progress.xp
   };
-
-  // Ranking mini para la home (top 5 + mi posición)
-  const { user: authUser } = useAuth();
   const [miniRanking, setMiniRanking] = useState<{ entries: LeaderboardEntry[]; myRank: number | null }>({ entries: [], myRank: null });
   const [miniLoading, setMiniLoading] = useState(false);
   useEffect(() => {

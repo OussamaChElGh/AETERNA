@@ -259,7 +259,7 @@ export function IsoSpriteObject({
         width: `${pixelWidth}px`,
         height: `${pixelHeight}px`,
         transform: `translate(-${anchorXPercent}%, -${anchorYPercent}%)`,
-        zIndex: isDragging ? 9999 : dynamicZIndex
+        zIndex: isDragging ? 99999 : isSelected ? 500000 : dynamicZIndex
       }}
       className={cn(
         "group select-none transition-transform duration-75 flex items-center justify-center",
@@ -293,25 +293,11 @@ export function IsoSpriteObject({
           className={cn(
             "w-full h-full object-contain filter group-hover:scale-[1.02] transition-transform pointer-events-none",
             dropShadowClass,
-            !spriteReady ? "opacity-0" : (!isValidDrag ? "opacity-80" : "opacity-100"),
-            isSelected && isValidDrag && "drop-shadow-[0_0_20px_#06b6d4]"
+            !spriteReady ? "opacity-0" : (isDragging ? (isValidDrag ? "opacity-70" : "opacity-50") : "opacity-100"),
+            isSelected && isValidDrag && "drop-shadow-[0_0_12px_#22d3ee] drop-shadow-[0_0_6px_#06b6d4] drop-shadow-[0_0_3px_#0891b2]",
+            isSelected && !isValidDrag && "drop-shadow-[0_0_12px_#ef4444] drop-shadow-[0_0_6px_#dc2626] drop-shadow-[0_0_3px_#b91c1c]"
           )}
         />
-
-        {/* SELECTION / FOOTPRINT OUTLINE */}
-        {isSelected && (
-          <div className={cn(
-            "absolute -inset-1 border-2 rounded-lg pointer-events-none transition-colors",
-            isValidDrag 
-              ? "border-cyan-400 shadow-[0_0_15px_#22d3ee] bg-cyan-400/10" 
-              : "border-red-500 shadow-[0_0_15px_#ef4444] bg-red-500/20"
-          )}>
-            <div className={cn("absolute -top-2 -left-2 w-2.5 h-2.5 rounded-full border border-white", isValidDrag ? "bg-cyan-400" : "bg-red-500")} />
-            <div className={cn("absolute -top-2 -right-2 w-2.5 h-2.5 rounded-full border border-white", isValidDrag ? "bg-cyan-400" : "bg-red-500")} />
-            <div className={cn("absolute -bottom-2 -left-2 w-2.5 h-2.5 rounded-full border border-white", isValidDrag ? "bg-cyan-400" : "bg-red-500")} />
-            <div className={cn("absolute -bottom-2 -right-2 w-2.5 h-2.5 rounded-full border border-white", isValidDrag ? "bg-cyan-400" : "bg-red-500")} />
-          </div>
-        )}
       </div>
 
       {/* COMPACT TOOLBAR WHEN SELECTED */}
