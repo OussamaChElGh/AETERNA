@@ -6,7 +6,7 @@ import type { ArticleFrontmatter, AnektiaArticle } from '@/types';
 
 const contentDirectories = [
   path.join(process.cwd(), 'content', 'guias'),
-  path.join(process.cwd(), '..', 'aeterna-main', 'src', 'content', 'guias')
+  path.join(process.cwd(), '..', 'anektia-main', 'src', 'content', 'guias')
 ];
 const jsonArticlesDirectory = path.join(process.cwd(), 'data', 'articles');
 

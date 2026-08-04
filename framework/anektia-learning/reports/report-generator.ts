@@ -12,7 +12,7 @@ export function formatTerminalReport(report: AuditReport): string {
   const sa = report.structureAnalysis;
   const va = report.visualAnalysis;
   const da = report.discoverabilityAnalysis;
-  const ae = report.aeternaExperienceResult;
+  const ae = report.anektiaExperienceResult;
   const kb = report.knowledgeBenchmarkResult;
 
   lines.push('====================================================');
@@ -100,7 +100,7 @@ export function formatTerminalReport(report: AuditReport): string {
     lines.push(`Misconception cov.:   ${kb.misconceptionCoverageScore}%`);
     lines.push(`Reference alignment:  ${kb.referenceAlignmentScore}/100`);
     lines.push(`Academic correctness: ${kb.academicCorrectnessScore}/100`);
-    lines.push(`Anektia added value:  ${kb.aeternaAddedValue}`);
+    lines.push(`Anektia added value:  ${kb.anektiaAddedValue}`);
     if (kb.addedValueReasons.length > 0) {
       kb.addedValueReasons.forEach(r => lines.push(`  + ${r}`));
     }

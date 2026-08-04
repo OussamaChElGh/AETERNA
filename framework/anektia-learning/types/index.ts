@@ -456,7 +456,7 @@ export interface KnowledgeBenchmarkResult {
   prerequisiteCoverageScore: number; // 0..100
   referenceAlignmentScore: number; // 0..100
   academicCorrectnessScore: number; // 0..100
-  aeternaAddedValue: 'HIGH' | 'MODERATE' | 'STANDARD';
+  anektiaAddedValue: 'HIGH' | 'MODERATE' | 'STANDARD';
   addedValueReasons: string[];
   conceptDetails: ConceptCoverageDetail[];
   gaps: KnowledgeGap[];
@@ -625,7 +625,7 @@ export interface AuditReport {
   reasoningAnalysis: ReasoningAnalysis;
   visualAnalysis: VisualAnalysisResult;
   discoverabilityAnalysis: DiscoverabilityAnalysisResult;
-  aeternaExperienceResult: AnektiaExperienceResult;
+  anektiaExperienceResult: AnektiaExperienceResult;
   knowledgeBenchmarkResult?: KnowledgeBenchmarkResult;
   glossaryCoverage?: GlossaryCoverageResult;
   textQuality?: TextQualityResult;

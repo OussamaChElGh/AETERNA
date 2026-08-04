@@ -4,7 +4,7 @@ import { CATEGORIES_DATA } from '@/data/categories';
 import { getArticlePath } from '@/lib/utils';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aeterna.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://anektia.app';
 
   // Static routes
   const routes: MetadataRoute.Sitemap = [

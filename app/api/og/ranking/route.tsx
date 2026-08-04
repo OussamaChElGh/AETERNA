@@ -139,7 +139,7 @@ export async function GET(req: Request) {
             borderTop: '1px solid rgba(212,175,55,0.2)', paddingTop: 24,
           }}>
             <span style={{ fontSize: 16, fontWeight: 600, letterSpacing: '0.3em', color: 'rgba(245,245,240,0.3)', textTransform: 'uppercase' }}>
-              aeterna.app
+              anektia.app
             </span>
             <span style={{ fontSize: 28 }}>
               {scope === 'Semanal' ? '👑' : '🏆'}

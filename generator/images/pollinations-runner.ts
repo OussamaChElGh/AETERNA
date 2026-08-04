@@ -22,7 +22,7 @@ export async function generateImagePollinations(
     model,
     seed: String(seed),
     nologo: 'true',
-    referrer: 'aeterna.app',
+    referrer: 'anektia.app',
   });
 
   const url = `${POLLINATIONS_BASE}/${encodeURIComponent(prompt)}?${params.toString()}`;

@@ -16,7 +16,7 @@ Para garantizar la máxima calidad pedagógica y consistencia en el catálogo de
 
 ## 2. Decisión de Arquitectura
 
-Se implementa **Anektia Learning Framework v1.0** como un módulo interno independiente ubicado en `/framework/aeterna-learning/` con CLI en `/scripts/audit-content.ts`.
+Se implementa **Anektia Learning Framework de Aprendizaje Anektia-learning/` con CLI en `/scripts/audit-content.ts`.
 
 ### Principios Fundamentales:
 1. **Desacoplamiento Total**: Las reglas pedagógicas se definen en ficheros JSON estáticos (`config/`) validados por esquemas JSON (`schemas/`). Los analizadores (`analyzers/`) leen estas reglas de forma dinámica sin hardcodear umbrales.
@@ -34,7 +34,7 @@ Se implementa **Anektia Learning Framework v1.0** como un módulo interno indepe
 ## 3. Estructura de Componentes del Framework
 
 ```text
-/framework/aeterna-learning/
+/Framework de Aprendizaje Anektia-learning/
   ├── config/
   │   ├── learning-profile.bachillerato.json  # Definición del estudiante modelo Bachillerato
   │   ├── layer-rules.json                    # Reglas para capas Inicio/Intermedio/Avanzado
@@ -87,7 +87,7 @@ No se requiere modificar los artículos existentes. Si un artículo no declara e
 
 ## 7. Próximos Pasos (Fase 1)
 
-1. Implementar esquemas, configuraciones y tipos de `/framework/aeterna-learning/`.
+1. Implementar esquemas, configuraciones y tipos de `/Framework de Aprendizaje Anektia-learning/`.
 2. Implementar analizadores deterministas y motor de scoring.
 3. Registrar script `audit:content` en `package.json`.
 4. Ejecutar auditoría sobre las guías maestras de física y presentar el informe.

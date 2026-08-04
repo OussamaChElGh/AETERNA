@@ -389,7 +389,7 @@ export function evaluateScoring(
 
   // NEW: Anektia Experience Result
   const anektiaBlocksCount = (parsed.rawBody.match(/<(?:PedagogicalContentBlock|Connect|HiddenAssumption|Transfer)/g) || []).length;
-  const aeternaExperienceResult: AnektiaExperienceResult = {
+  const anektiaExperienceResult: AnektiaExperienceResult = {
     connectionsScore: parsed.rawBody.includes('Connect') ? 90 : 60,
     experienceScore: anektiaBlocksCount >= 3 ? 95 : 70,
     overallScore: anektiaBlocksCount >= 3 ? 92 : 65,
@@ -573,7 +573,7 @@ export function evaluateScoring(
     reasoningAnalysis,
     visualAnalysis,
     discoverabilityAnalysis,
-    aeternaExperienceResult,
+    anektiaExperienceResult,
     knowledgeBenchmarkResult,
     glossaryCoverage,
     textQuality,

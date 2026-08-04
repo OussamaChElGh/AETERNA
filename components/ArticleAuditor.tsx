@@ -133,7 +133,7 @@ interface AuditReport {
   reasoningAnalysis: { contentScore: number; practiceScore: number; weightedScore: number };
   visualAnalysis: { visualCoverageScore: number; pedagogicalVisualsScore: number; imageAccessibilityScore: number };
   discoverabilityAnalysis: { technicalSeoScore: number; semanticCoverageScore: number; searchIntentScore: number };
-  aeternaExperienceResult: { connectionsScore: number; experienceScore: number };
+  anektiaExperienceResult: { connectionsScore: number; experienceScore: number };
   knowledgeBenchmarkResult?: {
     topicProfile: { topic: string };
     referenceConfidence: string;
@@ -145,7 +145,7 @@ interface AuditReport {
     misconceptionCoverageScore: number;
     referenceAlignmentScore: number;
     academicCorrectnessScore: number;
-    aeternaAddedValue: string;
+    anektiaAddedValue: string;
     addedValueReasons: string[];
     conceptDetails: { concept: string; importance: string; status: string; detectionMode: string; explicitTerminology: string }[];
     gaps: { concept: string; importance: string; scope: string; status: string; reason: string; evidenceFromReferences: string[] }[];
@@ -412,8 +412,8 @@ export function ArticleAuditor({ articles }: Props) {
 
                       {/* Anektia Experience */}
                       <SectionCard title="Experiencia Anektia" icon={Compass}>
-                        <Row label="Conexiones" value={r.aeternaExperienceResult.connectionsScore} max={100} />
-                        <Row label="Experiencia" value={r.aeternaExperienceResult.experienceScore} max={100} />
+                        <Row label="Conexiones" value={r.anektiaExperienceResult.connectionsScore} max={100} />
+                        <Row label="Experiencia" value={r.anektiaExperienceResult.experienceScore} max={100} />
                       </SectionCard>
                     </div>
                   </motion.div>
@@ -577,7 +577,7 @@ export function ArticleAuditor({ articles }: Props) {
                         </div>
 
                         <div className="bg-black/[0.02] dark:bg-white/[0.02] border border-black/5 dark:border-white/10 rounded-xl p-5">
-                          <p className="text-xs font-serif italic text-brand-ink/70 dark:text-brand-offwhite/70 leading-relaxed">{r.knowledgeBenchmarkResult.aeternaAddedValue}</p>
+                          <p className="text-xs font-serif italic text-brand-ink/70 dark:text-brand-offwhite/70 leading-relaxed">{r.knowledgeBenchmarkResult.anektiaAddedValue}</p>
                           {r.knowledgeBenchmarkResult.addedValueReasons.length > 0 && (
                             <ul className="mt-3 space-y-1">
                               {r.knowledgeBenchmarkResult.addedValueReasons.map((r, i) => (

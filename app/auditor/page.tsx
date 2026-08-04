@@ -5,7 +5,7 @@ import { ArticleAuditor } from '@/components/ArticleAuditor';
 
 const contentDirectories = [
   path.join(process.cwd(), 'content', 'guias'),
-  path.join(process.cwd(), '..', 'aeterna-main', 'src', 'content', 'guias'),
+  path.join(process.cwd(), '..', 'anektia-main', 'src', 'content', 'guias'),
 ];
 
 function getFilesRecursively(dir: string): string[] {

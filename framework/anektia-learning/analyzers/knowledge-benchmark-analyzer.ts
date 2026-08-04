@@ -194,9 +194,9 @@ export function analyzeKnowledgeBenchmark(
     addedValueReasons.push('Anektia integra bloques pedagógicos explícitos para conectar contenidos y provocar momentos de reflexión.');
   }
 
-  let aeternaAddedValue: 'HIGH' | 'MODERATE' | 'STANDARD' = 'STANDARD';
-  if (interactiveScoreBonus >= 30) aeternaAddedValue = 'HIGH';
-  else if (interactiveScoreBonus >= 15) aeternaAddedValue = 'MODERATE';
+  let anektiaAddedValue: 'HIGH' | 'MODERATE' | 'STANDARD' = 'STANDARD';
+  if (interactiveScoreBonus >= 30) anektiaAddedValue = 'HIGH';
+  else if (interactiveScoreBonus >= 15) anektiaAddedValue = 'MODERATE';
 
   // 6. SOURCE TRANSPARENCY
   const sourceTransparency: SourceTransparencyItem[] = model.sources.map(s => ({
@@ -232,7 +232,7 @@ export function analyzeKnowledgeBenchmark(
     prerequisiteCoverageScore,
     referenceAlignmentScore,
     academicCorrectnessScore,
-    aeternaAddedValue,
+    anektiaAddedValue,
     addedValueReasons,
     conceptDetails,
     gaps,
