@@ -184,9 +184,13 @@ export default function CosmicConstellationPath() {
                                     whileHover={node.unlocked ? { scale: 1.05 } : {}}
                                   >
                                     {/* 3D Node circle */}
-                                    <div
-                                      className="w-[68px] h-[68px] rounded-full flex items-center justify-center text-[24px] border-[3px] relative transition-all duration-300 shadow-lg"
+                                    <motion.div
+                                      className="w-[68px] h-[68px] rounded-full flex items-center justify-center text-[24px] border-[3px] relative shadow-lg"
+                                      animate={{ rotateY: 360 }}
+                                      transition={{ duration: 8 + Math.random() * 4, repeat: Infinity, ease: 'linear' }}
                                       style={{
+                                        transformStyle: 'preserve-3d',
+                                        perspective: '400px',
                                         background: node.done
                                           ? `radial-gradient(circle at 40% 35%, ${GOLD}22, #1C1510 70%)`
                                           : isActive
@@ -243,7 +247,7 @@ export default function CosmicConstellationPath() {
                                           +25 XP
                                         </motion.div>
                                       )}
-                                    </div>
+                                    </motion.div>
 
                                     {/* Node label */}
                                     <div
