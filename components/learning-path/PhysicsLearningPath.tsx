@@ -8,10 +8,14 @@ import { useGamification } from '@/context/GamificationContext';
 import { PathNode, PathNodeData } from './PathNode';
 import { PathSection } from './PathSection';
 import { PathChest } from './PathChest';
+import { FurnitureChest } from './FurnitureChest';
+import { BossNode } from './BossNode';
+import { SideQuestBanner } from './SideQuestBanner';
 import { FloatingParticles } from './FloatingParticles';
 import { ScrollProgressBar } from './ScrollProgressBar';
 import { FlameStreak } from './FlameStreak';
 import { MiniLeaderboard } from '@/components/MiniLeaderboard';
+import { LEVEL_CHESTS, SIDE_QUESTS } from '@/data/levelQuests';
 import { cn } from '@/lib/utils';
 
 interface ArticleJSON {
@@ -34,6 +38,38 @@ export function PhysicsLearningPath() {
 
   const curriculum = fisicaCurriculum as { levels?: { nivel: number; titulo: string; descripcion: string }[]; articles?: ArticleJSON[] };
   const relics = (relicData as { relics?: { id: string; name: string; unlocksOn: { type: string; nivel?: number }; image?: string }[] }).relics || [];
+
+  // Boss challenges per level
+  const BOSS_DATA: Record<number, { title: string; question: string; options: string[]; correctIndex: number; xpReward: number }> = {
+    1: {
+      title: 'Guardián de los Fundamentos',
+      question: 'Un coche viaja a 72 km/h. ¿Cuál es su velocidad en m/s?',
+      options: ['10 m/s', '20 m/s', '30 m/s', '72 m/s'],
+      correctIndex: 1,
+      xpReward: 300,
+    },
+    2: {
+      title: 'Señor de las Fuerzas',
+      question: 'Si duplicas la fuerza neta sobre un objeto y también duplicas su masa, ¿qué le ocurre a la aceleración?',
+      options: ['Se duplica', 'Se reduce a la mitad', 'Permanece igual', 'Se cuadruplica'],
+      correctIndex: 2,
+      xpReward: 400,
+    },
+    3: {
+      title: 'Espectro Cuántico',
+      question: '¿Qué principio establece que es imposible conocer simultáneamente la posición y el momento de una partícula con precisión arbitraria?',
+      options: ['Principio de exclusión de Pauli', 'Principio de incertidumbre de Heisenberg', 'Principio de correspondencia de Bohr', 'Principio de relatividad de Einstein'],
+      correctIndex: 1,
+      xpReward: 500,
+    },
+    4: {
+      title: 'Arquitecto de la Teoría Final',
+      question: '¿Cuál es el radio de Schwarzschild de un agujero negro con la masa del Sol (2×10³⁰ kg)?',
+      options: ['300 metros', '3 kilómetros', '30 kilómetros', '300.000 kilómetros'],
+      correctIndex: 1,
+      xpReward: 600,
+    },
+  };
 
   const completedPaths = progress.completedPaths || [];
   const completedLayers = progress.completedLayers || {};
@@ -182,22 +218,54 @@ export function PhysicsLearningPath() {
                     />
 
                     <div className="mt-4 space-y-0">
-                      {lvlNodes.map((node, idx) => (
-                        <PathNode
-                          key={node.slug}
-                          node={node}
-                          isFirst={idx === 0}
-                          isLast={false}
-                          index={idx}
-                        />
-                      ))}
+                      {lvlNodes.map((node, idx) => {
+                        const midPoint = Math.ceil(lvlNodes.length / 2);
+                        const chestData = LEVEL_CHESTS.find(c => c.nivel === lvl.nivel);
+                        const nodesBefore = (
+                          <>
+                            <PathNode
+                              key={node.slug}
+                              node={node}
+                              isFirst={idx === 0}
+                              isLast={false}
+                              index={idx}
+                            />
+                            {/* Furniture chest at mid-point */}
+                            {idx === midPoint - 1 && chestData && (
+                              <FurnitureChest
+                                key={`chest-${lvl.nivel}`}
+                                chest={chestData}
+                                completedCount={lvlCompleted}
+                                totalInLevel={lvlNodes.length}
+                                isAlreadyUnlocked={progress.achievements.includes(`chest_level_${lvl.nivel}`)}
+                              />
+                            )}
+                          </>
+                        );
+                        return nodesBefore;
+                      })}
 
+                      {/* End-of-level relic chest */}
                       {relic && (
                         <PathChest
                           nivel={lvl.nivel}
                           relicName={relic.name || `Reliquia del Nivel ${lvl.nivel}`}
                           isUnlocked={physicsRelics.includes(relic.id)}
                           relicImage={relic.image}
+                        />
+                      )}
+
+                      {/* Boss challenge at end of level */}
+                      {BOSS_DATA[lvl.nivel] && (
+                        <BossNode
+                          nivel={lvl.nivel}
+                          title={BOSS_DATA[lvl.nivel].title}
+                          question={BOSS_DATA[lvl.nivel].question}
+                          options={BOSS_DATA[lvl.nivel].options}
+                          correctIndex={BOSS_DATA[lvl.nivel].correctIndex}
+                          xpReward={BOSS_DATA[lvl.nivel].xpReward}
+                          isAvailable={lvlCompleted >= lvlNodes.length}
+                          isCompleted={progress.achievements.includes(`boss_level_${lvl.nivel}`)}
                         />
                       )}
                     </div>
@@ -276,6 +344,16 @@ export function PhysicsLearningPath() {
                 </div>
               ))}
             </div>
+
+            {/* Side Quests */}
+            <SideQuestBanner
+              quests={SIDE_QUESTS}
+              completedLayers={completedLayers}
+              completedPaths={completedPaths}
+              dailyStreak={dailyStreak}
+              xp={xp}
+              levelArticles={articles.map(a => a.slug)}
+            />
           </div>
         </div>
       </div>
