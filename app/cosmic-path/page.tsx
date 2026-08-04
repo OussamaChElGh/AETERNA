@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import { CosmicConstellationPath } from '@/components/learning-path/CosmicConstellationPath';
+import CosmicConstellationPath from '@/components/learning-path/CosmicConstellationPath';
 
 export const metadata: Metadata = {
-  title: 'Cosmic Constellation Path | Anektia',
-  description: 'Vista cósmica del Sendero del Sabio - Variante 2',
+  title: 'El Sendero del Sabio | Anektia',
+  description: 'Camino de aprendizaje de física — Dark Academia Edition',
 };
 
 export default function CosmicPathPage() {

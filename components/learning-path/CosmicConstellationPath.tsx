@@ -2,351 +2,485 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'motion/react';
-import { Star, ChevronRight, Telescope, Atom, Globe, Zap, Sparkles } from 'lucide-react';
+import { Flame, Trophy, Medal, Scroll, BookOpen, Lock, CheckCircle, Star, Gem, ChevronRight, Compass, Zap } from 'lucide-react';
 import fisicaCurriculum from '@/data/curriculum/fisica.json';
-import { useGamification } from '@/context/GamificationContext';
-import { FlameStreak } from './FlameStreak';
+import { useGamification, formatXP } from '@/context/GamificationContext';
 import { cn } from '@/lib/utils';
 
 interface ArticleJSON { slug: string; title: string; nivel: number; orden: number; tipo?: string; }
 
-interface PlanetNode {
-  slug: string; title: string; nivel: number; orden: number;
-  x: number; y: number; orbit: number; angle: number;
-  completed: boolean; inProgress: boolean; locked: boolean; layers: number;
-  icon: React.ReactNode;
-}
+const GOLD = '#C5A059';
+const CHARCOAL = '#121212';
+const CREAM = '#E5E5E5';
+const DARK_SURFACE = '#1A1A1A';
+const GOLD_LIGHT = '#D4AF37';
 
-const PLANET_ICONS = [<Star key="s" size={14} />, <Atom key="a" size={14} />, <Globe key="g" size={14} />, <Telescope key="t" size={14} />, <Zap key="z" size={14} />];
-const LEVEL_COLORS: Record<number, { glow: string; line: string; card: string; dot: string }> = {
-  1: { glow: 'rgba(139,92,246,0.6)', line: 'rgba(139,92,246,0.3)', card: 'from-violet-500/20 to-purple-900/30', dot: '#A78BFA' },
-  2: { glow: 'rgba(6,182,212,0.6)', line: 'rgba(6,182,212,0.3)', card: 'from-cyan-500/20 to-blue-900/30', dot: '#22D3EE' },
-  3: { glow: 'rgba(249,115,22,0.6)', line: 'rgba(249,115,22,0.3)', card: 'from-orange-500/20 to-amber-900/30', dot: '#FB923C' },
-  4: { glow: 'rgba(244,63,94,0.6)', line: 'rgba(244,63,94,0.3)', card: 'from-rose-500/20 to-red-900/30', dot: '#FB7185' },
+const LEVEL_COLORS = {
+  1: { from: '#8B5CF6', to: '#7C3AED', label: 'Fundamentos' },
+  2: { from: '#06B6D4', to: '#0891B2', label: 'Clásico' },
+  3: { from: '#F97316', to: '#EA580C', label: 'Frontera' },
+  4: { from: '#EF4444', to: '#DC2626', label: 'Síntesis' },
 };
 
-export function CosmicConstellationPath() {
+function FlameStreakIcon({ streak }: { streak: number }) {
+  if (streak === 0) return null;
+  const glow = Math.min(streak * 0.15, 1);
+  return (
+    <motion.div className="relative inline-flex items-center" animate={{ scale: streak >= 5 ? [1, 1.05, 1] : 1 }} transition={{ duration: 0.5, repeat: streak >= 5 ? Infinity : 0 }}>
+      <div className="absolute inset-0 rounded-full blur-lg" style={{ background: `radial-gradient(circle, rgba(251,146,60,${glow}) 0%, transparent 70%)`, transform: 'scale(2)' }} />
+      <Flame size={16} className="text-orange-400" style={{ filter: `drop-shadow(0 0 ${4 + streak}px rgba(251,146,60,0.7))` }} />
+      <span className="ml-1 font-mono font-black text-xs text-orange-400">{streak}</span>
+    </motion.div>
+  );
+}
+
+export default function CosmicConstellationPath() {
   const { progress } = useGamification();
   const completedPaths = progress.completedPaths || [];
   const completedLayers = progress.completedLayers || {};
+  const physicsRelics = progress.physicsRelics || [];
   const dailyStreak = progress.dailyStreak || 0;
+  const userLevel = progress.level || 1;
+  const userXp = progress.xp || 0;
+  const achievements = progress.achievements || [];
 
   const curriculum = fisicaCurriculum as { levels?: { nivel: number; titulo: string; descripcion: string }[]; articles?: ArticleJSON[] };
 
-  const allNodes = useMemo(() => {
+  const levels = useMemo(() => {
     const articles = [...(curriculum.articles || [])].sort((a, b) => a.nivel - b.nivel || a.orden - b.orden);
+    return (curriculum.levels || []).map(l => ({
+      ...l, articles: articles.filter(a => a.nivel === l.nivel)
+    })).filter(l => l.articles.length > 0);
+  }, []);
+
+  const allArticles = useMemo(() => levels.flatMap(l => l.articles), [levels]);
+
+  const nodelData = useMemo(() => {
     let prevCompleted = true;
-    return articles.map((art, idx) => {
+    return allArticles.map((art, idx) => {
       const layers = completedLayers[art.slug]?.length || 0;
       const isCompleted = completedPaths.includes(art.slug) || layers >= 3;
       const isUnlocked = idx === 0 || prevCompleted;
       if (isCompleted) prevCompleted = true; else prevCompleted = false;
-      return { ...art, layers, completed: isCompleted, inProgress: layers > 0 && layers < 3, locked: !isUnlocked };
+      return { ...art, layers, completed: isCompleted, unlocked: isUnlocked, inProgress: layers > 0 && layers < 3 };
     });
-  }, []);
+  }, [allArticles, completedPaths, completedLayers]);
 
-  const levels = useMemo(() => (curriculum.levels || []).map(l => ({
-    ...l, articles: allNodes.filter(a => a.nivel === l.nivel) })).filter(l => l.articles.length > 0),
-  [allNodes]);
+  const completedCount = nodelData.filter(n => n.completed).length;
+  const totalLayers = nodelData.reduce((s, n) => s + n.layers, 0);
+  const activeNode = nodelData.find(n => !n.completed && n.unlocked);
 
-  // Position nodes in constellation orbits
-  const planets = useMemo(() => {
-    const nodes: PlanetNode[] = [];
-    levels.forEach((lvl, li) => {
-      const radius = 140 + li * 100;
-      const count = lvl.articles.length;
-      const startAngle = li * 0.3;
-      lvl.articles.forEach((art, ai) => {
-        const angle = startAngle + (ai / count) * Math.PI * 1.4;
-        nodes.push({
-          slug: art.slug, title: art.title, nivel: art.nivel, orden: art.orden,
-          orbit: li, angle,
-          x: 50 + Math.cos(angle) * radius,
-          y: 45 + Math.sin(angle) * radius - li * 8,
-          completed: art.completed,
-          inProgress: art.inProgress,
-          locked: art.locked,
-          layers: art.layers,
-          icon: PLANET_ICONS[ai % PLANET_ICONS.length],
-        });
-      });
-    });
-    return nodes;
-  }, [levels]);
-
-  const completedCount = allNodes.filter(n => n.completed).length;
-
-  // Draw constellation lines between consecutive completed nodes
-  const constellationLines = useMemo(() => {
-    const lines: { x1: number; y1: number; x2: number; y2: number; color: string }[] = [];
-    for (let i = 0; i < planets.length - 1; i++) {
-      if (!planets[i].completed) continue;
-      const next = planets.slice(i + 1).find(p => p.completed);
-      if (next) {
-        const lvl = LEVEL_COLORS[planets[i].nivel] || LEVEL_COLORS[1];
-        lines.push({ x1: planets[i].x, y1: planets[i].y, x2: next.x, y2: next.y, color: lvl.dot });
-      }
-    }
-    return lines;
-  }, [planets]);
-
-  // Find current active node
-  const activeNode = planets.find(p => !p.completed && !p.locked) || planets[planets.length - 1];
+  const xpForLevel = 1000;
+  const levelProgress = (userXp % xpForLevel) / xpForLevel;
+  const circ = 2 * Math.PI * 28;
 
   return (
-    <div className="min-h-screen bg-[#06080D] font-sans relative overflow-hidden">
-      {/* Nebula background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-1/4 w-[600px] h-[600px] rounded-full bg-violet-500/8 blur-[120px]" />
-        <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] rounded-full bg-cyan-500/6 blur-[100px]" />
-        <div className="absolute top-1/3 right-1/3 w-[400px] h-[400px] rounded-full bg-amber-500/4 blur-[80px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#06080D_80%)]" />
-        {/* Star dots */}
-        {Array.from({ length: 40 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-[1.5px] h-[1.5px] rounded-full bg-white"
-            style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
-            animate={{ opacity: [0.2, 0.7, 0.2] }}
-            transition={{ duration: 2 + Math.random() * 3, repeat: Infinity, delay: Math.random() * 3 }}
-          />
-        ))}
-      </div>
+    <div className="min-h-screen font-sans text-white relative" style={{ background: CHARCOAL }}>
+      {/* Dark parchment texture overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{ backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(197,160,89,0.3) 2px, rgba(197,160,89,0.3) 3px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(197,160,89,0.15) 40px, rgba(197,160,89,0.15) 41px)' }} />
 
       {/* Header */}
-      <div className="sticky top-0 z-40 bg-[#06080D]/90 backdrop-blur-xl border-b border-white/5">
+      <header className="sticky top-0 z-50 border-b" style={{ background: 'rgba(18,18,18,0.92)', backdropFilter: 'blur(20px)', borderColor: 'rgba(197,160,89,0.12)' }}>
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <Sparkles size={16} className="text-violet-400" />
-              <h1 className="font-sans text-lg font-bold tracking-tight bg-gradient-to-r from-violet-400 via-cyan-400 to-amber-400 bg-clip-text text-transparent">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center" style={{ background: `radial-gradient(circle, ${GOLD_LIGHT}33, transparent)` }}>
+                <Compass size={16} style={{ color: GOLD }} />
+              </div>
+              <h1 className="font-serif text-xl font-bold tracking-tight" style={{ color: CREAM }}>
                 El Sendero del Sabio
               </h1>
             </div>
-            <span className="text-[9px] font-mono font-bold text-white/20 uppercase tracking-[0.3em]">COSMIC EDITION</span>
+            <span className="text-[8px] font-mono font-bold uppercase tracking-[0.4em] px-2 py-1 rounded-full"
+              style={{ background: 'rgba(197,160,89,0.08)', color: 'rgba(197,160,89,0.7)' }}>ANEKTIA</span>
           </div>
-          <div className="flex items-center gap-3">
-            <FlameStreak streak={dailyStreak} />
-            <span className="text-[10px] font-mono font-bold text-white/30">{completedCount}/{allNodes.length} nodos</span>
+
+          <div className="flex items-center gap-4">
+            <FlameStreakIcon streak={dailyStreak} />
+            <div className="flex items-center gap-1.5 text-xs font-mono" style={{ color: 'rgba(229,229,229,0.5)' }}>
+              <Gem size={12} style={{ color: GOLD }} />
+              <span style={{ color: CREAM }}>{formatXP(userXp)} XP</span>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Constellation Map */}
-      <div className="max-w-7xl mx-auto px-6 py-8 flex">
-        {/* Left: constellation canvas */}
-        <div className="flex-1 relative min-h-[650px]">
-          {/* SVG constellation lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 100 100" preserveAspectRatio="none">
-            {constellationLines.map((line, i) => (
-              <motion.line
-                key={i}
-                x1={`${line.x1}%`} y1={`${line.y1}%`}
-                x2={`${line.x2}%`} y2={`${line.y2}%`}
-                stroke={line.color}
-                strokeWidth="0.3"
-                strokeDasharray="2,4"
-                opacity={0.4}
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 1.5, delay: i * 0.2 }}
-              />
-            ))}
-          </svg>
-
-          {/* Planet nodes */}
-          {planets.map((planet, idx) => {
-            const lvl = LEVEL_COLORS[planet.nivel] || LEVEL_COLORS[1];
-            const isActive = activeNode?.slug === planet.slug;
-            const size = isActive ? 48 : planet.completed ? 36 : planet.locked ? 28 : 40;
-            const nodeSize = Math.max(28, size);
+      <div className="max-w-7xl mx-auto px-6 py-8 flex gap-8">
+        {/* LEFT: Pathway map */}
+        <div className="flex-1">
+          {/* Level cards stacked vertically */}
+          {levels.map((lvl, li) => {
+            const lvlNodes = nodelData.filter(n => n.nivel === lvl.nivel);
+            const lvlCompleted = lvlNodes.filter(n => n.completed).length;
+            const lvlColor = LEVEL_COLORS[lvl.nivel as keyof typeof LEVEL_COLORS] || LEVEL_COLORS[1];
 
             return (
               <motion.div
-                key={planet.slug}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: idx * 0.06, type: 'spring' }}
-                className="absolute z-10"
-                style={{ left: `${planet.x}%`, top: `${planet.y}%`, transform: 'translate(-50%, -50%)' }}
+                key={lvl.nivel}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: li * 0.15 }}
+                className="mb-8"
               >
-                <Link href={planet.locked ? '#' : `/guias/ciencias_naturales/fisica/${planet.slug}`}>
-                  <motion.div
-                    whileHover={!planet.locked ? { scale: 1.15 } : {}}
-                    className={cn(
-                      "relative flex items-center justify-center rounded-full transition-all cursor-pointer",
-                      planet.completed && "cursor-pointer",
-                      planet.locked && "cursor-not-allowed"
-                    )}
-                    style={{ width: nodeSize, height: nodeSize }}
-                  >
-                    {/* Glow halo */}
-                    {!planet.locked && (
-                      <motion.div
-                        className="absolute inset-0 rounded-full"
-                        style={{ background: `radial-gradient(circle, ${lvl.glow} 0%, transparent 70%)` }}
-                        animate={{ opacity: isActive ? [0.4, 0.8, 0.4] : 0.3, scale: isActive ? [1, 1.3, 1] : 1 }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                      />
-                    )}
-
-                    {/* Planet core */}
-                    <div
-                      className={cn(
-                        "relative rounded-full flex items-center justify-center z-10 border-2",
-                        planet.completed ? "bg-amber-500/20 border-amber-500/40" :
-                        planet.inProgress ? "bg-emerald-500/10 border-emerald-500/40" :
-                        !planet.locked ? "bg-cyan-500/10 border-cyan-500/40" :
-                        "bg-neutral-800/30 border-neutral-700/30"
-                      )}
-                      style={{ width: nodeSize - 8, height: nodeSize - 8 }}
-                    >
-                      {/* Progress arc for in-progress */}
-                      {planet.inProgress && (
-                        <svg className="absolute inset-0 -rotate-90" viewBox="0 0 32 32">
-                          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" className="text-white/5" strokeWidth="2" />
-                          <circle cx="16" cy="16" r="14" fill="none" stroke="#34D399" strokeWidth="2" strokeLinecap="round"
-                            strokeDasharray={`${2 * Math.PI * 14}`}
-                            strokeDashoffset={`${2 * Math.PI * 14 * (1 - planet.layers / 3)}`}
-                          />
-                        </svg>
-                      )}
-                      {planet.locked ? (
-                        <div className="w-1.5 h-1.5 rounded-full bg-neutral-600" />
-                      ) : planet.completed ? (
-                        <Star size={14} className="text-amber-400" />
-                      ) : (
-                        <div className="text-white/60">{planet.icon}</div>
-                      )}
-                    </div>
-
-                    {/* Label */}
-                    <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                      <span className={cn(
-                        "text-[9px] font-mono font-bold tracking-wider block text-center max-w-[120px] truncate",
-                        planet.completed ? "text-amber-400/70" :
-                        planet.locked ? "text-white/10" :
-                        isActive ? "text-white/80" : "text-white/40"
-                      )}>
-                        {planet.title}
+                {/* Level header with gold filigree */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-0.5 h-8 rounded-full" style={{ background: `linear-gradient(to bottom, ${lvlColor.from}, ${lvlColor.to})` }} />
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[8px] font-mono font-black uppercase tracking-[0.4em]"
+                        style={{ color: 'rgba(197,160,89,0.6)' }}>SECCIÓN {lvl.nivel}</span>
+                      <span className="text-[8px] font-mono font-bold" style={{ color: 'rgba(229,229,229,0.3)' }}>
+                        {lvlCompleted}/{lvlNodes.length}
                       </span>
-                      {!planet.locked && (
-                        <span className={cn("text-[7px] font-mono block text-center mt-0.5",
-                          planet.completed ? "text-amber-400/40" : "text-white/20"
-                        )}>
-                          {planet.completed ? '✦' : `${planet.layers}/3`}
-                        </span>
-                      )}
                     </div>
-                  </motion.div>
-                </Link>
+                    <h2 className="font-serif text-xl font-bold mt-0.5" style={{ color: CREAM }}>{lvl.titulo}</h2>
+                  </div>
+                </div>
+
+                {/* Node grid: horizontal scrolling cards */}
+                <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+                  {lvlNodes.map((node, ni) => {
+                    const isActive = activeNode?.slug === node.slug;
+                    return (
+                      <Link
+                        key={node.slug}
+                        href={node.unlocked ? `/guias/ciencias_naturales/fisica/${node.slug}` : '#'}
+                        className={cn("shrink-0", node.unlocked ? '' : 'pointer-events-none')}
+                      >
+                        <motion.div
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: ni * 0.08 }}
+                          whileHover={node.unlocked ? { y: -4, scale: 1.02 } : {}}
+                          className="relative w-[200px]"
+                        >
+                          {/* Card with glassmorphism */}
+                          <div
+                            className="rounded-2xl p-4 transition-all duration-300 border"
+                            style={{
+                              background: node.completed
+                                ? `linear-gradient(135deg, rgba(197,160,89,0.08), rgba(212,175,55,0.04))`
+                                : node.unlocked
+                                ? `rgba(26,26,26,0.8)`
+                                : `rgba(26,26,26,0.3)`,
+                              borderColor: node.completed
+                                ? 'rgba(197,160,89,0.3)'
+                                : node.unlocked
+                                ? `rgba(${isActive ? '197,160,89' : '255,255,255'}, ${isActive ? 0.4 : 0.08})`
+                                : 'rgba(255,255,255,0.04)',
+                              backdropFilter: 'blur(12px)',
+                              boxShadow: isActive && node.unlocked
+                                ? `0 0 30px rgba(197,160,89,0.15), inset 0 0 20px rgba(197,160,89,0.03)`
+                                : 'none',
+                              opacity: node.unlocked ? 1 : 0.35,
+                            }}
+                          >
+                            {/* Gold emblem circle */}
+                            <div className="flex items-center justify-center mb-3">
+                              <motion.div
+                                className="relative w-12 h-12 rounded-full flex items-center justify-center border-2"
+                                style={{
+                                  borderColor: node.completed
+                                    ? GOLD
+                                    : node.inProgress
+                                    ? 'rgba(34,197,94,0.4)'
+                                    : node.unlocked
+                                    ? 'rgba(197,160,89,0.5)'
+                                    : 'rgba(255,255,255,0.1)',
+                                  background: node.completed
+                                    ? `radial-gradient(circle, rgba(197,160,89,0.2), transparent)`
+                                    : node.inProgress
+                                    ? 'rgba(34,197,94,0.08)'
+                                    : 'rgba(255,255,255,0.02)',
+                                  boxShadow: node.completed ? `0 0 15px rgba(197,160,89,0.3)` : 'none',
+                                }}
+                                animate={isActive && node.unlocked ? { boxShadow: ['0 0 10px rgba(197,160,89,0.2)', '0 0 25px rgba(197,160,89,0.4)', '0 0 10px rgba(197,160,89,0.2)'] } : {}}
+                                transition={{ duration: 2.5, repeat: Infinity }}
+                              >
+                                {/* Progress arc */}
+                                {node.inProgress && (
+                                  <svg className="absolute inset-0 -rotate-90" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="21" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="2" />
+                                    <motion.circle cx="24" cy="24" r="21" fill="none" stroke="#34D399" strokeWidth="2" strokeLinecap="round"
+                                      initial={{ pathLength: 0 }}
+                                      animate={{ pathLength: node.layers / 3 }}
+                                      transition={{ duration: 1 }}
+                                      strokeDasharray={circ * 0.9}
+                                      style={{ transformOrigin: 'center' }}
+                                    />
+                                  </svg>
+                                )}
+                                {node.completed ? (
+                                  <CheckCircle size={20} style={{ color: GOLD }} />
+                                ) : node.unlocked ? (
+                                  <BookOpen size={16} style={{ color: isActive ? GOLD : 'rgba(197,160,89,0.5)' }} />
+                                ) : (
+                                  <Lock size={14} style={{ color: 'rgba(255,255,255,0.2)' }} />
+                                )}
+                              </motion.div>
+                            </div>
+
+                            {/* Title */}
+                            <h3 className="font-serif text-sm font-bold text-center leading-tight mb-1"
+                              style={{ color: node.unlocked ? CREAM : 'rgba(229,229,229,0.3)' }}>
+                              {node.title}
+                            </h3>
+
+                            {/* Layer progress dots */}
+                            <div className="flex items-center justify-center gap-1">
+                              {[0, 1, 2].map(i => (
+                                <div
+                                  key={i}
+                                  className="w-1.5 h-1.5 rounded-full transition-all duration-300"
+                                  style={{
+                                    background: i < node.layers ? GOLD : 'rgba(255,255,255,0.08)',
+                                    boxShadow: i < node.layers ? `0 0 6px ${GOLD}60` : 'none',
+                                  }}
+                                />
+                              ))}
+                            </div>
+
+                            {isActive && node.unlocked && (
+                              <motion.div
+                                className="absolute -bottom-1 left-1/2 -translate-x-1/2 text-[8px] font-mono font-black uppercase tracking-[0.3em] px-2 py-0.5 rounded-full"
+                                style={{ background: `rgba(197,160,89,0.15)`, color: GOLD }}
+                                animate={{ opacity: [0.5, 1, 0.5] }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                              >
+                                SIGUIENTE
+                              </motion.div>
+                            )}
+                          </div>
+                        </motion.div>
+                      </Link>
+                    );
+                  })}
+
+                  {/* Relic chest at end */}
+                  {lvlCompleted >= lvlNodes.length && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      className="shrink-0 w-[200px] rounded-2xl p-4 flex flex-col items-center justify-center gap-2 border"
+                      style={{
+                        background: `linear-gradient(135deg, rgba(197,160,89,0.1), rgba(212,175,55,0.05))`,
+                        borderColor: 'rgba(197,160,89,0.3)',
+                        backdropFilter: 'blur(12px)',
+                        boxShadow: '0 0 20px rgba(197,160,89,0.1)',
+                      }}
+                    >
+                      <motion.div
+                        animate={{ rotate: [0, -10, 10, 0] }}
+                        transition={{ duration: 0.6, repeat: Infinity, repeatDelay: 3 }}
+                      >
+                        <Trophy size={28} style={{ color: GOLD }} />
+                      </motion.div>
+                      <p className="font-serif text-xs text-center" style={{ color: 'rgba(197,160,89,0.7)' }}>
+                        Reliquia del Nivel {lvl.nivel}
+                      </p>
+                      <span className="text-[8px] font-mono font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(197,160,89,0.4)' }}>
+                        OBTENIDA
+                      </span>
+                    </motion.div>
+                  )}
+                </div>
               </motion.div>
             );
           })}
-        </div>
 
-        {/* Right: immersive card for current node */}
-        <div className="w-[340px] shrink-0 ml-6">
-          {activeNode && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              key={activeNode.slug}
-              className="sticky top-24"
-            >
-              <div className="relative">
-                {/* Glow */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-cyan-500/20 to-violet-500/10 blur-2xl" />
-
-                <div className="relative rounded-2xl border border-white/[0.06] bg-[#0A0D14]/90 backdrop-blur-xl p-6">
-                  {/* Level badge */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                    <span className="text-[9px] font-mono font-black uppercase tracking-[0.3em] text-cyan-400/70">
-                      NIVEL {activeNode.nivel}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h2 className="font-sans text-xl font-bold text-white mb-2 leading-tight">
-                    {activeNode.title}
-                  </h2>
-
-                  {/* Progress bar */}
-                  {activeNode.inProgress && (
-                    <div className="mb-4">
-                      <div className="flex justify-between text-[9px] font-mono text-white/30 mb-1.5">
-                        <span>Progreso de capas</span>
-                        <span>{activeNode.layers}/3</span>
-                      </div>
-                      <div className="h-1 rounded-full bg-white/5 overflow-hidden">
-                        <motion.div
-                          className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-violet-500"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${(activeNode.layers / 3) * 100}%` }}
-                          transition={{ duration: 1 }}
-                        />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Description */}
-                  <p className="text-xs text-white/40 leading-relaxed mb-4 font-serif">
-                    {activeNode.locked
-                      ? 'Completa el nodo anterior para desbloquear esta lección.'
-                      : activeNode.completed
-                      ? 'Has dominado las 3 capas de este conocimiento.'
-                      : activeNode.inProgress
-                      ? 'Continúa explorando las capas restantes de este tema.'
-                      : 'Comienza tu viaje en esta lección del Sendero del Sabio.'}
-                  </p>
-
-                  {/* Action button */}
-                  <Link
-                    href={activeNode.locked ? '#' : `/guias/ciencias_naturales/fisica/${activeNode.slug}`}
-                    className={cn(
-                      "flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-mono text-xs font-bold uppercase tracking-wider transition-all",
-                      activeNode.locked
-                        ? "bg-white/5 text-white/20 cursor-not-allowed"
-                        : "bg-white/[0.06] border border-white/10 text-white/70 hover:bg-white/10 hover:border-white/20"
-                    )}
-                  >
-                    {activeNode.locked ? 'BLOQUEADO' : activeNode.completed ? 'REPASAR' : activeNode.inProgress ? 'CONTINUAR' : 'EMPEZAR'}
-                    <ChevronRight size={14} />
-                  </Link>
+          {/* Bottom summary */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-10 p-6 rounded-2xl border relative overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, rgba(197,160,89,0.04), rgba(26,26,26,0.6))', borderColor: 'rgba(197,160,89,0.15)', backdropFilter: 'blur(12px)' }}
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 opacity-[0.03]" style={{ background: `radial-gradient(circle, ${GOLD}, transparent)` }} />
+            <div className="relative flex items-center gap-8">
+              <div className="flex items-center gap-3">
+                <div className="p-3 rounded-xl" style={{ background: 'rgba(197,160,89,0.08)' }}>
+                  <Scroll size={20} style={{ color: GOLD }} />
+                </div>
+                <div>
+                  <div className="font-serif text-2xl font-bold" style={{ color: GOLD }}>{completedCount}</div>
+                  <div className="text-[9px] font-mono uppercase tracking-[0.2em] mt-0.5" style={{ color: 'rgba(229,229,229,0.4)' }}>Guías Completadas</div>
                 </div>
               </div>
 
-              {/* Section hint */}
-              <div className="mt-4 text-center">
-                <span className="text-[9px] font-mono text-white/15 uppercase tracking-[0.4em]">
-                  {levels.find(l => l.nivel === activeNode.nivel)?.titulo || ''}
+              <div className="w-px h-12" style={{ background: 'rgba(197,160,89,0.1)' }} />
+
+              <div>
+                <div className="font-serif text-2xl font-bold" style={{ color: GOLD }}>{totalLayers}</div>
+                <div className="text-[9px] font-mono uppercase tracking-[0.2em] mt-0.5" style={{ color: 'rgba(229,229,229,0.4)' }}>Capas Asimiladas</div>
+              </div>
+
+              <div className="w-px h-12" style={{ background: 'rgba(197,160,89,0.1)' }} />
+
+              <div>
+                <div className="font-serif text-2xl font-bold" style={{ color: GOLD }}>
+                  {allArticles.length > 0 ? Math.round((completedCount / allArticles.length) * 100) : 0}%
+                </div>
+                <div className="text-[9px] font-mono uppercase tracking-[0.2em] mt-0.5" style={{ color: 'rgba(229,229,229,0.4)' }}>Dominio</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* RIGHT: Sidebar with profile widgets */}
+        <div className="w-[300px] shrink-0 space-y-4 hidden xl:block">
+          {/* User level + progress ring */}
+          <div className="rounded-2xl p-5 border text-center relative overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, rgba(26,26,26,0.8), rgba(18,18,18,0.9))', borderColor: 'rgba(197,160,89,0.15)', backdropFilter: 'blur(12px)' }}>
+            <div className="absolute top-0 right-0 w-24 h-24 opacity-[0.04]" style={{ background: `radial-gradient(circle, ${GOLD}, transparent)` }} />
+
+            {/* Circular progress */}
+            <div className="relative inline-flex items-center justify-center mb-3">
+              <svg width="72" height="72" viewBox="0 0 72 72" className="-rotate-90">
+                <circle cx="36" cy="36" r="28" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="3" />
+                <motion.circle cx="36" cy="36" r="28" fill="none" stroke={GOLD} strokeWidth="3" strokeLinecap="round"
+                  strokeDasharray={circ}
+                  initial={{ strokeDashoffset: circ }}
+                  animate={{ strokeDashoffset: circ * (1 - levelProgress) }}
+                  transition={{ duration: 1.5, ease: 'easeOut' }}
+                  style={{ filter: `drop-shadow(0 0 6px rgba(197,160,89,0.4))` }}
+                />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="font-serif text-xl font-bold" style={{ color: GOLD }}>{userLevel}</span>
+                <span className="text-[7px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(197,160,89,0.5)' }}>NIVEL</span>
+              </div>
+            </div>
+
+            <p className="font-serif text-xs font-bold" style={{ color: CREAM }}>
+              Sabio Nivel {userLevel}
+            </p>
+            <p className="text-[9px] mt-1" style={{ color: 'rgba(229,229,229,0.4)' }}>
+              {formatXP(userXp)} XP acumulados
+            </p>
+
+            <div className="flex items-center justify-center gap-4 mt-4 pt-3 border-t" style={{ borderColor: 'rgba(197,160,89,0.08)' }}>
+              <div className="text-center">
+                <div className="font-mono font-black text-sm" style={{ color: GOLD }}>{physicsRelics.length}</div>
+                <div className="text-[7px] font-mono uppercase tracking-[0.2em] mt-0.5" style={{ color: 'rgba(229,229,229,0.3)' }}>Reliquias</div>
+              </div>
+              <div className="w-px h-8" style={{ background: 'rgba(197,160,89,0.1)' }} />
+              <div className="text-center">
+                <FlameStreakIcon streak={dailyStreak} />
+                <div className="text-[7px] font-mono uppercase tracking-[0.2em] mt-0.5" style={{ color: 'rgba(229,229,229,0.3)' }}>Racha</div>
+              </div>
+              <div className="w-px h-8" style={{ background: 'rgba(197,160,89,0.1)' }} />
+              <div className="text-center">
+                <div className="font-mono font-black text-sm" style={{ color: GOLD }}>{achievements.length}</div>
+                <div className="text-[7px] font-mono uppercase tracking-[0.2em] mt-0.5" style={{ color: 'rgba(229,229,229,0.3)' }}>Logros</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Leaderboard */}
+          <div className="rounded-2xl p-5 border relative overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, rgba(26,26,26,0.8), rgba(18,18,18,0.9))', borderColor: 'rgba(197,160,89,0.15)', backdropFilter: 'blur(12px)' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Scroll size={14} style={{ color: GOLD }} />
+              <span className="text-[9px] font-mono font-black uppercase tracking-[0.3em]" style={{ color: 'rgba(197,160,89,0.6)' }}>Ranking</span>
+            </div>
+            {[1, 2, 3, 4, 5].map(r => (
+              <div key={r} className="flex items-center gap-2.5 py-1.5 border-b last:border-0"
+                style={{ borderColor: 'rgba(197,160,89,0.06)' }}>
+                <span className="font-mono font-bold text-[10px] w-5" style={{ color: r === 1 ? GOLD : r <= 3 ? 'rgba(197,160,89,0.5)' : 'rgba(255,255,255,0.15)' }}>
+                  {r === 1 ? '🥇' : r === 2 ? '🥈' : r === 3 ? '🥉' : `#${r}`}
+                </span>
+                <div className="w-6 h-6 rounded-full flex items-center justify-center text-[8px] font-mono"
+                  style={{ background: 'rgba(197,160,89,0.08)', color: 'rgba(197,160,89,0.5)' }}>
+                  {String.fromCharCode(64 + r)}
+                </div>
+                <div className="flex-1">
+                  <div className="text-[10px] font-medium" style={{ color: CREAM }}>Sabio Arcano</div>
+                  <div className="text-[8px] font-mono" style={{ color: 'rgba(197,160,89,0.4)' }}>Nivel {7 - r}</div>
+                </div>
+                <span className="text-[9px] font-mono font-bold" style={{ color: 'rgba(197,160,89,0.5)' }}>
+                  {formatXP((6 - r) * 1500 + 500)} XP
                 </span>
               </div>
-            </motion.div>
-          )}
+            ))}
+          </div>
+
+          {/* Achievements gallery */}
+          <div className="rounded-2xl p-5 border relative overflow-hidden"
+            style={{ background: 'linear-gradient(135deg, rgba(26,26,26,0.8), rgba(18,18,18,0.9))', borderColor: 'rgba(197,160,89,0.15)', backdropFilter: 'blur(12px)' }}>
+            <div className="flex items-center gap-2 mb-3">
+              <Medal size={14} style={{ color: GOLD }} />
+              <span className="text-[9px] font-mono font-black uppercase tracking-[0.3em]" style={{ color: 'rgba(197,160,89,0.6)' }}>Logros</span>
+            </div>
+            <div className="grid grid-cols-4 gap-2">
+              {['first_blood', 'explorer', 'streak_7', 'triple_crown', 'collector'].map((id, i) => {
+                const unlocked = achievements.includes(id);
+                const labels: Record<string, string> = { first_blood: '🐺', explorer: '🧭', streak_7: '🔥', triple_crown: '👑', collector: '💎' };
+                return (
+                  <motion.div key={id}
+                    whileHover={{ scale: 1.1 }}
+                    className="aspect-square rounded-xl flex items-center justify-center border transition-all"
+                    style={{
+                      background: unlocked ? 'rgba(197,160,89,0.1)' : 'rgba(255,255,255,0.02)',
+                      borderColor: unlocked ? 'rgba(197,160,89,0.3)' : 'rgba(255,255,255,0.05)',
+                      opacity: unlocked ? 1 : 0.3,
+                      filter: unlocked ? 'none' : 'grayscale(1)',
+                    }}>
+                    <span className="text-lg">{labels[id] || '🏆'}</span>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Bottom stats bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 bg-[#06080D]/90 backdrop-blur-xl border-t border-white/5 px-6 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-center gap-8">
-          {levels.map(lvl => {
-            const done = allNodes.filter(n => n.nivel === lvl.nivel && n.completed).length;
-            const total = allNodes.filter(n => n.nivel === lvl.nivel).length;
-            const pct = total > 0 ? Math.round((done / total) * 100) : 0;
-            const lvlColors = LEVEL_COLORS[lvl.nivel] || LEVEL_COLORS[1];
-            return (
-              <div key={lvl.nivel} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: lvlColors.dot }} />
-                <span className="text-[9px] font-mono font-bold text-white/30 uppercase">{lvl.titulo}</span>
-                <div className="w-16 h-1 rounded-full bg-white/5 overflow-hidden">
-                  <div className="h-full rounded-full transition-all duration-500" style={{ width: `${pct}%`, background: lvlColors.dot }} />
+      {/* Bottom navigation bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t px-6 py-2.5"
+        style={{ background: 'rgba(18,18,18,0.92)', backdropFilter: 'blur(20px)', borderColor: 'rgba(197,160,89,0.1)' }}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <span className="text-[9px] font-mono uppercase tracking-[0.3em]" style={{ color: 'rgba(229,229,229,0.25)' }}>
+            {completedCount} de {allArticles.length} emblemas obtenidos
+          </span>
+
+          <div className="flex items-center gap-6">
+            {levels.map(lvl => {
+              const done = nodelData.filter(n => n.nivel === lvl.nivel && n.completed).length;
+              const total = nodelData.filter(n => n.nivel === lvl.nivel).length;
+              const pct = total > 0 ? (done / total) * 100 : 0;
+              return (
+                <div key={lvl.nivel} className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full" style={{ background: pct >= 100 ? GOLD : 'rgba(255,255,255,0.1)' }} />
+                  <span className="text-[8px] font-mono font-bold uppercase" style={{ color: 'rgba(229,229,229,0.3)' }}>
+                    {lvl.titulo}
+                  </span>
+                  <div className="w-14 h-1 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                    <motion.div
+                      className="h-full rounded-full"
+                      style={{ background: `linear-gradient(to right, ${LEVEL_COLORS[lvl.nivel as keyof typeof LEVEL_COLORS]?.from || GOLD}, ${LEVEL_COLORS[lvl.nivel as keyof typeof LEVEL_COLORS]?.to || GOLD})` }}
+                      initial={{ width: 0 }}
+                      animate={{ width: `${pct}%` }}
+                      transition={{ duration: 1, delay: 0.3 }}
+                    />
+                  </div>
                 </div>
-                <span className="text-[9px] font-mono text-white/20">{done}/{total}</span>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
+          {activeNode && (
+            <Link
+              href={`/guias/ciencias_naturales/fisica/${activeNode.slug}`}
+              className="flex items-center gap-1.5 px-4 py-1.5 rounded-full font-mono text-[10px] font-bold uppercase tracking-wider transition-all hover:scale-105"
+              style={{ background: `rgba(197,160,89,0.12)`, color: GOLD, border: `1px solid rgba(197,160,89,0.25)` }}
+            >
+              Continuar <ChevronRight size={12} />
+            </Link>
+          )}
         </div>
       </div>
     </div>
