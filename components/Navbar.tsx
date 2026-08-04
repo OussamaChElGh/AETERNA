@@ -51,7 +51,7 @@ export function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-3xl tracking-tighter leading-none transition-all group-hover:italic text-brand-ink dark:text-brand-offwhite">
-                  AE<span className="text-brand-gold group-hover:text-brand-cosmic transition-colors duration-500">TER</span>NA
+                  AN<span className="text-brand-gold group-hover:text-brand-cosmic transition-colors duration-500">EKT</span>IA
                 </span>
                 <span className="text-[6px] uppercase font-bold tracking-[0.8em] text-brand-muted mt-2">Archivo Universal • 2026</span>
               </div>
