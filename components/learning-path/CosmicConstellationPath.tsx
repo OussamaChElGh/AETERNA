@@ -1,7 +1,7 @@
 ﻿'use client'
 import { useMemo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { Trophy, Star, Flame, Zap, Award } from 'lucide-react'
+import { Trophy, Star, Flame, Award, Zap } from 'lucide-react'
 import { RouteMap, type RouteData, type RouteLevel, type RouteNode, type RouteUserProgress, type NodeStatus, type ChestReward } from '@/components/learning-path/RouteMap'
 import fisicaCurriculum from '@/data/curriculum/fisica.json'
 import relicData from '@/data/relics.json'
@@ -60,9 +60,7 @@ function toNodeType(tipo?: string): 'theory' | 'practice' {
 function getRelicForLevel(nivel: number): ChestReward {
   const relics = (relicData as { relics: { id: string; name: string; description: string; icon: string; unlocksOn: { type: string; nivel: number } }[] }).relics
   const relic = relics.find(r => r.unlocksOn.type === 'nivel_completed' && r.unlocksOn.nivel === nivel)
-  if (relic) {
-    return { name: relic.name, image: relic.icon, description: relic.description }
-  }
+  if (relic) return { name: relic.name, image: relic.icon, description: relic.description }
   return { name: `Reliquia del Nivel ${nivel}`, image: '/images/reliquias/placeholder.png', description: 'Un artefacto ancestral aguarda.' }
 }
 
@@ -100,20 +98,12 @@ export default function CosmicConstellationPath() {
         const done = completedPaths.includes(a.slug) || lyrs >= 3
         const unlocked = globalOrder === 1 || prevDone
         if (done) prevDone = true; else prevDone = false
-
         const status: NodeStatus = done ? 'done' : unlocked ? 'active' : 'locked'
-
         return {
-          id: a.slug,
-          order: globalOrder,
-          title: a.title,
+          id: a.slug, order: globalOrder, title: a.title,
           description: NODE_DESCRIPTIONS[a.slug] || 'Un misterio del cosmos por descubrir.',
-          emoji: NODE_EMOJIS[a.slug] || '🔮',
-          slug: a.slug,
-          xp: 75,
-          stars: (Math.min(lyrs, 3) as 0 | 1 | 2 | 3),
-          status,
-          type: toNodeType(a.tipo),
+          emoji: NODE_EMOJIS[a.slug] || '🔮', slug: a.slug, xp: 75,
+          stars: (Math.min(lyrs, 3) as 0 | 1 | 2 | 3), status, type: toNodeType(a.tipo),
         }
       })
 
@@ -121,21 +111,14 @@ export default function CosmicConstellationPath() {
       const minForChest = Math.ceil(nodes.length / 2)
 
       return {
-        id: lvl.nivel,
-        title: lvl.titulo,
-        emoji: LEVEL_EMOJIS[idx] || '🌑',
-        colorClass: COLOR_CLASSES[idx] || 'purple',
-        nodes,
+        id: lvl.nivel, title: lvl.titulo, emoji: LEVEL_EMOJIS[idx] || '🌑',
+        colorClass: COLOR_CLASSES[idx] || 'purple', nodes,
         chestUnlocked: doneCount >= minForChest,
         chestReward: getRelicForLevel(lvl.nivel),
       }
     })
 
-    return {
-      id: 'fisica',
-      title: 'Física',
-      levels,
-    }
+    return { id: 'fisica', title: 'Física', levels }
   }, [articles, completedPaths, completedLayers])
 
   const routeUserProgress: RouteUserProgress = useMemo(() => {
@@ -144,12 +127,7 @@ export default function CosmicConstellationPath() {
     const totalXP = allNodes.reduce((s, n) => s + (n.stars ?? 0) * 25, 0)
     const pct = allNodes.length > 0 ? doneNodes.length / allNodes.length : 0
     const levelName = pct >= 1 ? 'Maestro del Cosmos' : pct >= 0.66 ? 'Guardián Arcano' : pct >= 0.33 ? 'Aprendiz del Nexo' : 'Iniciado del Éter'
-
-    return {
-      totalXP,
-      levelName,
-      completedNodes: doneNodes.map(n => n.id),
-    }
+    return { totalXP, levelName, completedNodes: doneNodes.map(n => n.id) }
   }, [routeData])
 
   const handleNodeStart = useCallback((slug: string) => {
@@ -159,111 +137,103 @@ export default function CosmicConstellationPath() {
   const allNodesFlat = routeData.levels.flatMap(l => l.nodes)
   const doneCount = allNodesFlat.filter(n => n.status === 'done').length
   const rank = getRankInfo(routeUserProgress.totalXP, allNodesFlat.length, doneCount)
-  const unlockedChests = routeData.levels.filter(l => l.chestUnlocked).length
-
   const RankIcon = rank.icon
 
   return (
     <div className="min-h-screen flex" style={{ background: '#0D0B14', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
       {/* ─── Main Path ─── */}
-      <div className="flex-1 min-w-0 py-8">
-        <div className="max-w-xl mx-auto">
-          <div className="text-center mb-6 px-4">
-            <p className="text-[11px] font-bold tracking-[0.3em] uppercase text-[#8B6914] mb-2">
+      <div className="flex-1 min-w-0 py-10">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-8 px-4">
+            <p className="text-xs font-bold tracking-[0.35em] uppercase text-[#8B6914] mb-3">
               Archivo del Nexo
             </p>
-            <h1 className="text-3xl font-bold tracking-tight" style={{ color: '#D4AF37' }}>
+            <h1 className="text-4xl font-bold tracking-tight mb-3" style={{ color: '#D4AF37' }}>
               El Sendero del Sabio
             </h1>
-            <p className="text-sm text-[#8B6914] mt-2">
+            <p className="text-base text-[#8B6914]">
               {allNodesFlat.length} constelaciones · {routeData.levels.length} reinos · 3 velos por lección
             </p>
           </div>
 
-          <RouteMap
-            route={routeData}
-            userProgress={routeUserProgress}
-            onNodeStart={handleNodeStart}
-          />
+          <RouteMap route={routeData} userProgress={routeUserProgress} onNodeStart={handleNodeStart} />
         </div>
       </div>
 
       {/* ─── Sidebar ─── */}
-      <aside className="w-[260px] shrink-0 border-l border-[#2A2415] bg-[#0D0B14] py-8 px-5 hidden lg:flex flex-col gap-6 overflow-y-auto sticky top-0 h-screen">
+      <aside className="w-[300px] shrink-0 border-l border-[#2A2415] bg-[#0D0B14] py-10 px-6 hidden lg:flex flex-col gap-6 overflow-y-auto sticky top-0 h-screen">
         {/* Rank */}
-        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
-          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Clasificación</p>
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: `${rank.color}15`, border: `2px solid ${rank.color}40` }}>
-              <RankIcon size={20} style={{ color: rank.color }} />
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-5">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Clasificación</p>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: `${rank.color}15`, border: `2px solid ${rank.color}40` }}>
+              <RankIcon size={24} style={{ color: rank.color }} />
             </div>
             <div>
-              <p className="text-sm font-bold" style={{ color: rank.color }}>{rank.name}</p>
-              {rank.nextRank && (
-                <p className="text-[10px] text-[#6B5B35]">Próximo: {rank.nextRank}</p>
-              )}
+              <p className="text-lg font-bold" style={{ color: rank.color }}>{rank.name}</p>
+              {rank.nextRank && <p className="text-xs text-[#6B5B35]">Próximo: {rank.nextRank}</p>}
             </div>
           </div>
         </div>
 
         {/* Stats */}
-        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
-          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Estadísticas</p>
-          <div className="space-y-3">
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-5">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-4">Estadísticas</p>
+          <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Trophy size={14} className="text-[#D4AF37]" />
-                <span className="text-xs text-[#8B7720]">XP Total</span>
+              <div className="flex items-center gap-3">
+                <Trophy size={16} className="text-[#D4AF37]" />
+                <span className="text-sm text-[#8B7720]">XP Total</span>
               </div>
-              <span className="text-sm font-bold text-[#D4AF37]">{routeUserProgress.totalXP.toLocaleString()}</span>
+              <span className="text-base font-bold text-[#D4AF37]">{routeUserProgress.totalXP.toLocaleString()}</span>
             </div>
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Star size={14} className="text-[#A78BFA]" />
-                <span className="text-xs text-[#8B7720]">Paradas</span>
+              <div className="flex items-center gap-3">
+                <Star size={16} className="text-[#A78BFA]" />
+                <span className="text-sm text-[#8B7720]">Paradas</span>
               </div>
-              <span className="text-sm font-bold text-[#A78BFA]">{doneCount}/{allNodesFlat.length}</span>
+              <span className="text-base font-bold text-[#A78BFA]">{doneCount}/{allNodesFlat.length}</span>
             </div>
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Flame size={14} className="text-[#FB923C]" />
-                <span className="text-xs text-[#8B7720]">Racha</span>
+              <div className="flex items-center gap-3">
+                <Flame size={16} className="text-[#FB923C]" />
+                <span className="text-sm text-[#8B7720]">Racha diaria</span>
               </div>
-              <span className="text-sm font-bold text-[#FB923C]">{dailyStreak} días</span>
+              <span className="text-base font-bold text-[#FB923C]">{dailyStreak} días</span>
             </div>
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Award size={14} className="text-[#2DD4BF]" />
-                <span className="text-xs text-[#8B7720]">Logros</span>
+              <div className="flex items-center gap-3">
+                <Award size={16} className="text-[#2DD4BF]" />
+                <span className="text-sm text-[#8B7720]">Logros</span>
               </div>
-              <span className="text-sm font-bold text-[#2DD4BF]">{achievements.length}</span>
+              <span className="text-base font-bold text-[#2DD4BF]">{achievements.length}</span>
             </div>
           </div>
         </div>
 
         {/* Progress bar */}
-        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
-          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Progreso</p>
-          <div className="h-2.5 bg-[#2A2415] rounded-full overflow-hidden mb-2">
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-5">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Progreso</p>
+          <div className="h-3 bg-[#2A2415] rounded-full overflow-hidden mb-3">
             <div
               className="h-full bg-gradient-to-r from-[#B8860B] to-[#D4AF37] rounded-full transition-all duration-700"
               style={{ width: `${Math.min(100, allNodesFlat.length > 0 ? (doneCount / allNodesFlat.length) * 100 : 0)}%` }}
             />
           </div>
-          <div className="flex justify-between text-[10px]">
-            <span className="text-[#6B5B35]">{Math.round(allNodesFlat.length > 0 ? (doneCount / allNodesFlat.length) * 100 : 0)}%</span>
+          <div className="flex justify-between text-xs">
+            <span className="text-[#6B5B35] font-bold">{Math.round(allNodesFlat.length > 0 ? (doneCount / allNodesFlat.length) * 100 : 0)}%</span>
             <span className="text-[#6B5B35]">100%</span>
           </div>
         </div>
 
-        {/* Chests unlocked */}
-        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
-          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Cofres</p>
-          <div className="flex gap-2">
+        {/* Chests */}
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-5">
+          <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Cofres de nivel</p>
+          <div className="flex gap-3">
             {routeData.levels.map((lvl) => (
               <div
                 key={lvl.id}
-                className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg border-2 transition-all ${
+                className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl border-2 transition-all ${
                   lvl.chestUnlocked ? 'border-[#D4AF37] bg-[#D4AF37]/10' : 'border-[#2A2415] bg-[#2A2415]/10 opacity-30'
                 }`}
                 title={lvl.chestUnlocked ? lvl.chestReward?.name : 'Bloqueado'}
@@ -276,18 +246,18 @@ export default function CosmicConstellationPath() {
 
         {/* Relics */}
         {relics.length > 0 && (
-          <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
-            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Reliquias ({relics.length})</p>
-            <div className="space-y-2">
+          <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-5">
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Reliquias ({relics.length})</p>
+            <div className="space-y-3">
               {relics.slice(0, 4).map((relicId) => {
                 const r = (relicData as { relics: { id: string; name: string; icon: string }[] }).relics.find(x => x.id === relicId)
                 if (!r) return null
                 return (
-                  <div key={relicId} className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-[#2A2415] border border-[#D4AF37]/20 flex items-center justify-center overflow-hidden">
-                      <img src={r.icon} alt={r.name} className="w-6 h-6 object-contain" />
+                  <div key={relicId} className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-[#2A2415] border border-[#D4AF37]/20 flex items-center justify-center overflow-hidden shrink-0">
+                      <img src={r.icon} alt={r.name} className="w-8 h-8 object-contain" />
                     </div>
-                    <span className="text-[10px] text-[#8B7720] truncate">{r.name}</span>
+                    <span className="text-xs text-[#8B7720] truncate">{r.name}</span>
                   </div>
                 )
               })}
