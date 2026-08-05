@@ -1,8 +1,10 @@
 ﻿'use client'
 import { useMemo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { RouteMap, type RouteData, type RouteLevel, type RouteNode, type RouteUserProgress, type NodeStatus } from '@/components/learning-path/RouteMap'
+import { Trophy, Star, Flame, Zap, Award } from 'lucide-react'
+import { RouteMap, type RouteData, type RouteLevel, type RouteNode, type RouteUserProgress, type NodeStatus, type ChestReward } from '@/components/learning-path/RouteMap'
 import fisicaCurriculum from '@/data/curriculum/fisica.json'
+import relicData from '@/data/relics.json'
 import { useGamification } from '@/context/GamificationContext'
 
 type ArticleJSON = { slug: string; title: string; nivel: number; orden: number; tipo?: string }
@@ -55,11 +57,31 @@ function toNodeType(tipo?: string): 'theory' | 'practice' {
   return tipo === 'practice' ? 'practice' : 'theory'
 }
 
+function getRelicForLevel(nivel: number): ChestReward {
+  const relics = (relicData as { relics: { id: string; name: string; description: string; icon: string; unlocksOn: { type: string; nivel: number } }[] }).relics
+  const relic = relics.find(r => r.unlocksOn.type === 'nivel_completed' && r.unlocksOn.nivel === nivel)
+  if (relic) {
+    return { name: relic.name, image: relic.icon, description: relic.description }
+  }
+  return { name: `Reliquia del Nivel ${nivel}`, image: '/images/reliquias/placeholder.png', description: 'Un artefacto ancestral aguarda.' }
+}
+
+function getRankInfo(xp: number, totalNodes: number, completedNodes: number) {
+  const pct = totalNodes > 0 ? completedNodes / totalNodes : 0
+  if (pct >= 1) return { name: 'Maestro del Cosmos', color: '#D4AF37', icon: Trophy, nextRank: null }
+  if (pct >= 0.66) return { name: 'Guardián Arcano', color: '#A78BFA', icon: Award, nextRank: 'Maestro del Cosmos' }
+  if (pct >= 0.33) return { name: 'Aprendiz del Nexo', color: '#2DD4BF', icon: Star, nextRank: 'Guardián Arcano' }
+  return { name: 'Iniciado del Éter', color: '#F87171', icon: Zap, nextRank: 'Aprendiz del Nexo' }
+}
+
 export default function CosmicConstellationPath() {
   const { progress } = useGamification()
   const router = useRouter()
   const completedPaths = progress.completedPaths || []
   const completedLayers = progress.completedLayers || {}
+  const relics = progress.physicsRelics || []
+  const achievements = progress.achievements || []
+  const dailyStreak = progress.dailyStreak || 0
 
   const curriculum = fisicaCurriculum as { levels?: { nivel: number; titulo: string; descripcion: string }[]; articles?: ArticleJSON[] }
   const articles = useMemo(() => [...(curriculum.articles || [])].sort((a, b) => a.nivel - b.nivel || a.orden - b.orden), [])
@@ -96,6 +118,7 @@ export default function CosmicConstellationPath() {
       })
 
       const doneCount = nodes.filter(n => n.status === 'done').length
+      const minForChest = Math.ceil(nodes.length / 2)
 
       return {
         id: lvl.nivel,
@@ -103,8 +126,8 @@ export default function CosmicConstellationPath() {
         emoji: LEVEL_EMOJIS[idx] || '🌑',
         colorClass: COLOR_CLASSES[idx] || 'purple',
         nodes,
-        chestUnlocked: doneCount >= 2,
-        chestReward: doneCount >= 2 ? `Artefacto astral del ${lvl.titulo}` : undefined,
+        chestUnlocked: doneCount >= minForChest,
+        chestReward: getRelicForLevel(lvl.nivel),
       }
     })
 
@@ -133,27 +156,145 @@ export default function CosmicConstellationPath() {
     router.push(`/guias/ciencias_naturales/fisica/${slug}`)
   }, [router])
 
+  const allNodesFlat = routeData.levels.flatMap(l => l.nodes)
+  const doneCount = allNodesFlat.filter(n => n.status === 'done').length
+  const rank = getRankInfo(routeUserProgress.totalXP, allNodesFlat.length, doneCount)
+  const unlockedChests = routeData.levels.filter(l => l.chestUnlocked).length
+
+  const RankIcon = rank.icon
+
   return (
-    <div className="min-h-screen" style={{ background: '#0D0B14', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
-      <div className="max-w-lg mx-auto py-8">
-        <div className="text-center mb-6 px-4">
-          <p className="text-[10px] font-semibold tracking-[0.3em] uppercase text-[#6B5B35] mb-2">
-            Archivo del Nexo
-          </p>
-          <h1 className="text-2xl font-bold tracking-tight" style={{ color: '#D4AF37' }}>
-            El Sendero del Sabio
-          </h1>
-          <p className="text-xs text-[#6B5B35] mt-1.5">
-            16 constelaciones · 4 reinos · 3 velos por lección
-          </p>
+    <div className="min-h-screen flex" style={{ background: '#0D0B14', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
+      {/* ─── Main Path ─── */}
+      <div className="flex-1 min-w-0 py-8">
+        <div className="max-w-xl mx-auto">
+          <div className="text-center mb-6 px-4">
+            <p className="text-[11px] font-bold tracking-[0.3em] uppercase text-[#8B6914] mb-2">
+              Archivo del Nexo
+            </p>
+            <h1 className="text-3xl font-bold tracking-tight" style={{ color: '#D4AF37' }}>
+              El Sendero del Sabio
+            </h1>
+            <p className="text-sm text-[#8B6914] mt-2">
+              {allNodesFlat.length} constelaciones · {routeData.levels.length} reinos · 3 velos por lección
+            </p>
+          </div>
+
+          <RouteMap
+            route={routeData}
+            userProgress={routeUserProgress}
+            onNodeStart={handleNodeStart}
+          />
+        </div>
+      </div>
+
+      {/* ─── Sidebar ─── */}
+      <aside className="w-[260px] shrink-0 border-l border-[#2A2415] bg-[#0D0B14] py-8 px-5 hidden lg:flex flex-col gap-6 overflow-y-auto sticky top-0 h-screen">
+        {/* Rank */}
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
+          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Clasificación</p>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ background: `${rank.color}15`, border: `2px solid ${rank.color}40` }}>
+              <RankIcon size={20} style={{ color: rank.color }} />
+            </div>
+            <div>
+              <p className="text-sm font-bold" style={{ color: rank.color }}>{rank.name}</p>
+              {rank.nextRank && (
+                <p className="text-[10px] text-[#6B5B35]">Próximo: {rank.nextRank}</p>
+              )}
+            </div>
+          </div>
         </div>
 
-        <RouteMap
-          route={routeData}
-          userProgress={routeUserProgress}
-          onNodeStart={handleNodeStart}
-        />
-      </div>
+        {/* Stats */}
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
+          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Estadísticas</p>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Trophy size={14} className="text-[#D4AF37]" />
+                <span className="text-xs text-[#8B7720]">XP Total</span>
+              </div>
+              <span className="text-sm font-bold text-[#D4AF37]">{routeUserProgress.totalXP.toLocaleString()}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Star size={14} className="text-[#A78BFA]" />
+                <span className="text-xs text-[#8B7720]">Paradas</span>
+              </div>
+              <span className="text-sm font-bold text-[#A78BFA]">{doneCount}/{allNodesFlat.length}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Flame size={14} className="text-[#FB923C]" />
+                <span className="text-xs text-[#8B7720]">Racha</span>
+              </div>
+              <span className="text-sm font-bold text-[#FB923C]">{dailyStreak} días</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Award size={14} className="text-[#2DD4BF]" />
+                <span className="text-xs text-[#8B7720]">Logros</span>
+              </div>
+              <span className="text-sm font-bold text-[#2DD4BF]">{achievements.length}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Progress bar */}
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
+          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Progreso</p>
+          <div className="h-2.5 bg-[#2A2415] rounded-full overflow-hidden mb-2">
+            <div
+              className="h-full bg-gradient-to-r from-[#B8860B] to-[#D4AF37] rounded-full transition-all duration-700"
+              style={{ width: `${Math.min(100, allNodesFlat.length > 0 ? (doneCount / allNodesFlat.length) * 100 : 0)}%` }}
+            />
+          </div>
+          <div className="flex justify-between text-[10px]">
+            <span className="text-[#6B5B35]">{Math.round(allNodesFlat.length > 0 ? (doneCount / allNodesFlat.length) * 100 : 0)}%</span>
+            <span className="text-[#6B5B35]">100%</span>
+          </div>
+        </div>
+
+        {/* Chests unlocked */}
+        <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
+          <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Cofres</p>
+          <div className="flex gap-2">
+            {routeData.levels.map((lvl) => (
+              <div
+                key={lvl.id}
+                className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg border-2 transition-all ${
+                  lvl.chestUnlocked ? 'border-[#D4AF37] bg-[#D4AF37]/10' : 'border-[#2A2415] bg-[#2A2415]/10 opacity-30'
+                }`}
+                title={lvl.chestUnlocked ? lvl.chestReward?.name : 'Bloqueado'}
+              >
+                {lvl.chestUnlocked ? '🎁' : '🔒'}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Relics */}
+        {relics.length > 0 && (
+          <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-4">
+            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Reliquias ({relics.length})</p>
+            <div className="space-y-2">
+              {relics.slice(0, 4).map((relicId) => {
+                const r = (relicData as { relics: { id: string; name: string; icon: string }[] }).relics.find(x => x.id === relicId)
+                if (!r) return null
+                return (
+                  <div key={relicId} className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-[#2A2415] border border-[#D4AF37]/20 flex items-center justify-center overflow-hidden">
+                      <img src={r.icon} alt={r.name} className="w-6 h-6 object-contain" />
+                    </div>
+                    <span className="text-[10px] text-[#8B7720] truncate">{r.name}</span>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )}
+      </aside>
     </div>
   )
 }
