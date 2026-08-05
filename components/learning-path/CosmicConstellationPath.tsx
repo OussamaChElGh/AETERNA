@@ -6,6 +6,7 @@ import { RouteMap, type RouteData, type RouteLevel, type RouteNode, type RouteUs
 import fisicaCurriculum from '@/data/curriculum/fisica.json'
 import relicData from '@/data/relics.json'
 import { useGamification } from '@/context/GamificationContext'
+import { getNodeIcon, IconGuiaMaestra } from '@/components/learning-path/NodeIcons'
 
 /* ─── DATA ─── */
 type ArticleJSON = { slug: string; title: string; nivel: number; orden: number; tipo?: string }
@@ -39,18 +40,7 @@ const NODE_DESCRIPTIONS: Record<string, string> = {
   'fisica-tecnologia': 'Cuando la teoría se convierte en civilización.',
 }
 
-const NODE_EMOJIS: Record<string, string> = {
-  'guia-maestra-de-fisica':'🔮','como-piensa-un-fisico':'☄️','cinematica':'🌌','materia-y-energia':'💠',
-  'metodo-cientifico':'⚗️','vectores':'🧿','leyes-newton-movimiento':'🌍','trabajo-energia':'⚡',
-  'momentum-colisiones':'💫','movimiento-circular-satelites':'🪐','torque-momento-angular':'🌀',
-  'termodinamica':'🔥','electromagnetismo':'🌩️','ondas-y-optica':'🌈','mecanica-cuantica':'⬡',
-  'relatividad-especial':'⏳','relatividad-general':'🕳️','fisica-atomica-y-nuclear':'⚛️',
-  'fisica-particulas':'✨','teoria-del-todo':'☯️','cosmologia':'🌟','fluidos':'💧',
-  'electromagnetismo-avanzado':'🔌','ondas-y-optica-practica':'👁️','relatividad-especial-practica':'🚀',
-}
-
 const COLOR_CLASSES = ['purple', 'teal', 'gold', 'red'] as const
-const LEVEL_EMOJIS = ['🌑', '🌓', '🌕', '🌟']
 
 function toNodeType(t?: string): 'theory' | 'practice' { return t==='practice'?'practice':'theory' }
 
@@ -164,7 +154,7 @@ export default function CosmicConstellationPath() {
         return {
           id:a.slug, order:globalOrder, title:a.title,
           description:NODE_DESCRIPTIONS[a.slug]||'Un misterio del cosmos.',
-          emoji:NODE_EMOJIS[a.slug]||'🔮', slug:a.slug, xp:75,
+          emoji:'✦', slug:a.slug, xp:75, icon: getNodeIcon(a.slug),
           stars:Math.min(lyrs,3) as 0|1|2|3,
           status:(done?'done':unlocked?'active':'locked') as NodeStatus,
           type:toNodeType(a.tipo),
@@ -172,7 +162,7 @@ export default function CosmicConstellationPath() {
       })
       const doneCount = nodes.filter(n=>n.status==='done').length
       return {
-        id:lvl.nivel, title:lvl.titulo, emoji:LEVEL_EMOJIS[idx]||'🌑',
+        id:lvl.nivel, title:lvl.titulo, emoji:'✦',
         colorClass:COLOR_CLASSES[idx]||'purple', nodes,
         chestUnlocked: doneCount>=Math.ceil(nodes.length/2),
         chestReward: getRelicForLevel(lvl.nivel),
@@ -239,7 +229,7 @@ export default function CosmicConstellationPath() {
           {/* RANK */}
           <SideCard title="Rango arcano" icon={RankIcon} accent={rank.color}>
             <div className="flex items-center gap-3">
-              <span className="text-3xl">{rank.emoji}</span>
+              <RankIcon size={32} style={{color:rank.color}} />
               <div>
                 <p className="text-base font-bold" style={{color:rank.color}}>{rank.name}</p>
                 {rank.xpNeeded && <p className="text-[10px] text-[#6B5B35]/50">Próximo: {rank.xpNeeded}</p>}
@@ -372,7 +362,7 @@ export default function CosmicConstellationPath() {
               return (
                 <div className="flex items-center gap-3 p-2.5 rounded-xl border border-[#FB923C]/10 bg-[#FB923C]/3 cursor-pointer hover:bg-[#FB923C]/6 transition-colors"
                   onClick={()=>router.push(`/guias/ciencias_naturales/fisica/${next.slug}`)}>
-                  <span className="text-2xl">{next.emoji}</span>
+                  {next.icon ? <next.icon className="w-8 h-8 text-[#FB923C]" /> : <span className="text-2xl">{next.emoji}</span>}
                   <div>
                     <p className="text-xs font-bold text-[#FB923C]">{next.title}</p>
                     <p className="text-[10px] text-[#FB923C]/40">+{next.xp} XP · {next.type==='theory'?'Teoría':'Práctica'}</p>

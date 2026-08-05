@@ -9,6 +9,7 @@ export interface RouteNode {
   id: string; order: number; title: string; description: string
   emoji: string; slug: string; xp: number; stars?: 0 | 1 | 2 | 3
   status: NodeStatus; type: 'theory' | 'practice'
+  icon?: React.ComponentType<{ className?: string }>
 }
 
 export interface ChestReward {
@@ -97,7 +98,9 @@ function NodeCircle({ node, palette, onClick }: { node:RouteNode; palette:typeof
       {/* Shadow floor */}
       <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[70%] h-[25%] rounded-full"
         style={{background:'rgba(0,0,0,0.4)', filter:'blur(8px)'}} />
-      <span className="relative z-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">{node.emoji}</span>
+      <span className="relative z-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
+        {node.icon ? <node.icon className="w-12 h-12" /> : node.emoji}
+      </span>
 
       {node.status==='active' && (
         <span className="absolute -top-3 -right-3 text-xs font-bold px-2.5 py-1 rounded-full animate-pulse"
@@ -305,7 +308,9 @@ function NodeModal({ node, onClose, onStart }: { node:RouteNode; onClose:()=>voi
         onClick={e=>e.stopPropagation()}>
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-center gap-5">
-            <span className="text-6xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">{node.emoji}</span>
+            <span className="text-6xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+              {node.icon ? <node.icon className="w-16 h-16" /> : node.emoji}
+            </span>
             <div>
               <p className="text-xs text-[#8B6914]/60 tracking-[0.2em] font-bold mb-1">PARADA {node.order}</p>
               <h3 className="text-[#D4AF37] font-bold text-2xl leading-tight">{node.title}</h3>
