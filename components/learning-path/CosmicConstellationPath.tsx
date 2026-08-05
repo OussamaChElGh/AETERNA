@@ -142,8 +142,8 @@ export default function CosmicConstellationPath() {
   return (
     <div className="min-h-screen flex" style={{ background: '#0D0B14', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
       {/* ─── Main Path ─── */}
-      <div className="flex-1 min-w-0 py-10">
-        <div className="max-w-2xl mx-auto">
+      <div className="flex-1 min-w-0 py-10 flex justify-end">
+        <div className="max-w-2xl w-full mr-4">
           <div className="text-center mb-8 px-4">
             <p className="text-xs font-bold tracking-[0.35em] uppercase text-[#8B6914] mb-3">
               Archivo del Nexo
