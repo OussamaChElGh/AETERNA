@@ -468,7 +468,7 @@ export function RouteMap({ route, userProgress, onNodeStart }: RouteMapProps) {
 
   return (
     <>
-      <div className="w-full max-w-2xl mx-auto px-4 py-6 flex flex-col gap-5">
+      <div className="w-full max-w-2xl px-4 py-6 flex flex-col gap-5">
 
         {route.levels.map((level, levelIdx) => (
           <div key={level.id} className="flex flex-col items-center gap-0">

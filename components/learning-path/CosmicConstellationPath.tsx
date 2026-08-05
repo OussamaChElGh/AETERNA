@@ -140,10 +140,10 @@ export default function CosmicConstellationPath() {
   const RankIcon = rank.icon
 
   return (
-    <div className="min-h-screen flex" style={{ background: '#0D0B14', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
+    <div className="min-h-screen flex justify-center" style={{ background: '#0D0B14', fontFamily: 'var(--font-sans), system-ui, sans-serif' }}>
       {/* ─── Main Path ─── */}
-      <div className="flex-1 min-w-0 py-10 flex justify-end">
-        <div className="max-w-2xl w-full mr-4">
+      <div className="py-10">
+        <div className="max-w-2xl w-full">
           <div className="text-center mb-8 px-4">
             <p className="text-xs font-bold tracking-[0.35em] uppercase text-[#8B6914] mb-3">
               Archivo del Nexo
@@ -161,7 +161,7 @@ export default function CosmicConstellationPath() {
       </div>
 
       {/* ─── Sidebar ─── */}
-      <aside className="w-[300px] shrink-0 border-l border-[#2A2415] bg-[#0D0B14] py-10 px-6 hidden lg:flex flex-col gap-6 overflow-y-auto sticky top-0 h-screen">
+      <aside className="w-[300px] shrink-0 border-l border-[#2A2415] bg-[#0D0B14] py-10 px-6 hidden lg:flex flex-col gap-6 overflow-y-auto sticky top-0">
         {/* Rank */}
         <div className="rounded-2xl border border-[#2A2415] bg-[#16140F] p-5">
           <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#6B5B35] mb-3">Clasificación</p>
