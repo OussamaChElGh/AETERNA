@@ -1,296 +1,237 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { cn } from '@/lib/utils'
 
 export type NodeStatus = 'done' | 'active' | 'locked'
 
 export interface RouteNode {
-  id: string
-  order: number
-  title: string
-  description: string
-  emoji: string
-  slug: string
-  xp: number
-  stars?: 0 | 1 | 2 | 3
-  status: NodeStatus
-  type: 'theory' | 'practice'
+  id: string; order: number; title: string; description: string
+  emoji: string; slug: string; xp: number; stars?: 0 | 1 | 2 | 3
+  status: NodeStatus; type: 'theory' | 'practice'
 }
 
 export interface ChestReward {
-  name: string
-  image: string
-  description: string
+  name: string; image: string; description: string
 }
 
 export interface RouteLevel {
-  id: number
-  title: string
-  emoji: string
+  id: number; title: string; emoji: string
   colorClass: 'gold' | 'purple' | 'teal' | 'red'
-  nodes: RouteNode[]
-  chestUnlocked: boolean
-  chestReward?: ChestReward
+  nodes: RouteNode[]; chestUnlocked: boolean; chestReward?: ChestReward
 }
 
-export interface RouteData {
-  id: string
-  title: string
-  levels: RouteLevel[]
+export interface RouteData { id: string; title: string; levels: RouteLevel[] }
+
+export interface RouteUserProgress { totalXP: number; levelName: string; completedNodes: string[] }
+
+/* ───────── PALETTE ───────── */
+const P = {
+  gold:   { accent:'#D4AF37', accent2:'#EFD75F', accent3:'#B8860B', bg:'#1C1510', border:'#2A2415', glow:'rgba(212,175,55,0.25)' },
+  purple: { accent:'#A78BFA', accent2:'#C4B5FD', accent3:'#7C3AED', bg:'#1C1A28', border:'#2A2045', glow:'rgba(167,139,250,0.25)' },
+  teal:   { accent:'#2DD4BF', accent2:'#5EEAD4', accent3:'#0D9488', bg:'#0A1E18', border:'#0A2020', glow:'rgba(45,212,191,0.25)' },
+  red:    { accent:'#F87171', accent2:'#FCA5A5', accent3:'#DC2626', bg:'#1E0F0F', border:'#2A1010', glow:'rgba(248,113,113,0.25)' },
 }
 
-export interface RouteUserProgress {
-  totalXP: number
-  levelName: string
-  completedNodes: string[]
-}
-
-const LEVEL_PALETTE = {
-  gold: {
-    band:        'border-[#2A2415]',
-    title:       'text-[#D4AF37] border-[#2A2415] bg-[#16140F]',
-    connector:   'from-[#B8860B] to-[#8B6914]',
-    hConnector:  'from-[#8B6914] to-[#B8860B]',
-    done:        'bg-[#1C1510] border-[#D4AF37] shadow-[0_0_0_8px_rgba(212,175,55,0.2)]',
-    active:      'bg-[#2A1E08] border-[#EFD75F] shadow-[0_0_0_10px_rgba(239,215,95,0.25),0_0_28px_rgba(239,215,95,0.35)]',
-    locked:      'bg-[#1A1710] border-[#2A2415] opacity-40',
-    xpBadge:     'bg-[#EF9F27] text-[#412402]',
-    doneCheck:   'bg-[#D4AF37] text-[#412402]',
-    labelDone:   'text-[#D4AF37]',
-    labelActive: 'text-[#EFD75F]',
-    chest:       'border-[#D4AF37] bg-[#16140F]',
-    chestGlow:   'hover:shadow-[0_0_24px_rgba(212,175,55,0.5)]',
-  },
-  purple: {
-    band:        'border-[#2A2045]',
-    title:       'text-[#A78BFA] border-[#2A2045] bg-[#16140F]',
-    connector:   'from-[#7C3AED] to-[#5B21B6]',
-    hConnector:  'from-[#5B21B6] to-[#7C3AED]',
-    done:        'bg-[#1C1A28] border-[#A78BFA] shadow-[0_0_0_8px_rgba(167,139,250,0.2)]',
-    active:      'bg-[#22203A] border-[#C4B5FD] shadow-[0_0_0_10px_rgba(196,181,253,0.25),0_0_28px_rgba(196,181,253,0.35)]',
-    locked:      'bg-[#1A1820] border-[#2A2045] opacity-40',
-    xpBadge:     'bg-[#A78BFA] text-[#26215C]',
-    doneCheck:   'bg-[#A78BFA] text-[#26215C]',
-    labelDone:   'text-[#A78BFA]',
-    labelActive: 'text-[#C4B5FD]',
-    chest:       'border-[#7C3AED] bg-[#16140F]',
-    chestGlow:   'hover:shadow-[0_0_24px_rgba(167,139,250,0.5)]',
-  },
-  teal: {
-    band:        'border-[#0A2020]',
-    title:       'text-[#2DD4BF] border-[#0A2020] bg-[#16140F]',
-    connector:   'from-[#0D9488] to-[#0F766E]',
-    hConnector:  'from-[#0F766E] to-[#0D9488]',
-    done:        'bg-[#0A1E18] border-[#2DD4BF] shadow-[0_0_0_8px_rgba(45,212,191,0.2)]',
-    active:      'bg-[#0D2820] border-[#5EEAD4] shadow-[0_0_0_10px_rgba(94,234,212,0.25),0_0_28px_rgba(94,234,212,0.35)]',
-    locked:      'bg-[#101810] border-[#0A2020] opacity-40',
-    xpBadge:     'bg-[#2DD4BF] text-[#042F2E]',
-    doneCheck:   'bg-[#2DD4BF] text-[#042F2E]',
-    labelDone:   'text-[#2DD4BF]',
-    labelActive: 'text-[#5EEAD4]',
-    chest:       'border-[#0D9488] bg-[#16140F]',
-    chestGlow:   'hover:shadow-[0_0_24px_rgba(45,212,191,0.5)]',
-  },
-  red: {
-    band:        'border-[#2A1010]',
-    title:       'text-[#F87171] border-[#2A1010] bg-[#16140F]',
-    connector:   'from-[#DC2626] to-[#991B1B]',
-    hConnector:  'from-[#991B1B] to-[#DC2626]',
-    done:        'bg-[#1E0F0F] border-[#F87171] shadow-[0_0_0_8px_rgba(248,113,113,0.2)]',
-    active:      'bg-[#2A1010] border-[#FCA5A5] shadow-[0_0_0_10px_rgba(252,165,165,0.25),0_0_28px_rgba(252,165,165,0.35)]',
-    locked:      'bg-[#1A1010] border-[#2A1010] opacity-40',
-    xpBadge:     'bg-[#F87171] text-[#501313]',
-    doneCheck:   'bg-[#F87171] text-[#501313]',
-    labelDone:   'text-[#F87171]',
-    labelActive: 'text-[#FCA5A5]',
-    chest:       'border-[#DC2626] bg-[#16140F]',
-    chestGlow:   'hover:shadow-[0_0_24px_rgba(248,113,113,0.5)]',
-  },
-}
-
-function Stars({ count, lit }: { count: 3; lit: number }) {
+/* ───────── CONSTELLATION PARTICLES ───────── */
+function ConstellationParticles({ accent, count = 20 }: { accent: string; count?: number }) {
+  const particles = useRef(Array.from({ length: count }, (_, i) => ({
+    id: i, x: Math.random() * 100, y: Math.random() * 100,
+    size: 1 + Math.random() * 2.5, delay: Math.random() * 4,
+    duration: 2 + Math.random() * 3, opacity: 0.15 + Math.random() * 0.35,
+  }))).current
   return (
-    <div className="flex gap-1 mt-1.5">
-      {Array.from({ length: count }).map((_, i) => (
-        <span
-          key={i}
-          className={cn('text-sm transition-opacity', i < lit ? 'opacity-100' : 'opacity-20')}
-          style={{ color: '#D4AF37' }}
-        >★</span>
+    <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
+      {particles.map(p => (
+        <div key={p.id} className="absolute rounded-full animate-pulse"
+          style={{
+            left:`${p.x}%`, top:`${p.y}%`, width:`${p.size}px`, height:`${p.size}px`,
+            background:accent, opacity:p.opacity,
+            animationDuration:`${p.duration}s`, animationDelay:`${p.delay}s`,
+            boxShadow:`0 0 ${p.size*3}px ${accent}40`,
+          }} />
       ))}
     </div>
   )
 }
 
-function Tooltip({ title, description }: { title: string; description: string }) {
-  return (
-    <div className={cn(
-      'absolute bottom-[calc(100%+16px)] left-1/2 -translate-x-1/2',
-      'w-[200px] rounded-xl p-3.5 z-20',
-      'bg-[#1C1810] border border-[#D4AF37] border-opacity-60',
-      'opacity-0 group-hover:opacity-100 transition-opacity duration-150',
-      'pointer-events-none text-left'
-    )}>
-      <p className="text-sm font-bold text-[#D4AF37] mb-1 leading-tight">{title}</p>
-      <p className="text-xs text-[#8B6914] leading-relaxed">{description}</p>
-    </div>
-  )
+/* ───────── STAR RATING ───────── */
+function Stars({ count=3, lit=0 }: { count?:number; lit:number }) {
+  return (<div className="flex gap-1 mt-1.5">{Array.from({length:count}).map((_,i)=>(
+    <span key={i} className={cn('text-sm transition-all duration-300', i<lit?'opacity-100 scale-110':'opacity-15')}
+      style={{color:'#D4AF37', filter:i<lit?'drop-shadow(0 0 4px #D4AF37)':'none'}}>★</span>
+  ))}</div>)
 }
 
-function NodeCircle({
-  node,
-  palette,
-  onClick,
-}: {
-  node: RouteNode
-  palette: typeof LEVEL_PALETTE['gold']
-  onClick: () => void
-}) {
-  const circleClass = cn(
-    'relative w-[112px] h-[112px] rounded-full flex items-center justify-center text-4xl',
-    'border-[3px] transition-all duration-200 cursor-pointer',
-    'hover:scale-110',
-    node.status === 'done'   && palette.done,
-    node.status === 'active' && palette.active,
-    node.status === 'locked' && palette.locked,
-  )
-
+/* ───────── NODE CIRCLE ───────── */
+function NodeCircle({ node, palette, onClick }: { node:RouteNode; palette:typeof P['gold']; onClick:()=>void }) {
   return (
     <button
-      className={circleClass}
       onClick={onClick}
-      aria-label={`${node.title} — ${node.status === 'locked' ? 'bloqueado' : node.status === 'done' ? 'completado' : 'en progreso'}`}
-    >
-      <span role="img" aria-hidden>{node.emoji}</span>
-
-      {node.status === 'active' && (
-        <span className={cn(
-          'absolute -top-3 -right-3 text-xs font-bold px-2.5 py-1 rounded-full',
-          'animate-pulse',
-          palette.xpBadge
-        )}>+{node.xp} XP</span>
+      className={cn(
+        'relative w-[120px] h-[120px] rounded-full flex items-center justify-center text-4xl',
+        'transition-all duration-300 cursor-pointer border-[3px]',
+        'hover:scale-110 hover:-translate-y-1',
+        node.status==='done'   && `bg-[${palette.bg}] border-[${palette.accent}]`,
+        node.status==='active' && `bg-[${palette.bg}] border-[${palette.accent2}]`,
+        node.status==='locked' && `bg-[#131012] border-[${palette.border}] opacity-35`,
       )}
+      style={{
+        background: node.status==='done'
+          ? `radial-gradient(circle at 35% 30%, ${palette.accent}20 0%, ${palette.bg} 60%, #0A080F 100%)`
+          : node.status==='active'
+          ? `radial-gradient(circle at 35% 30%, ${palette.accent2}30 0%, ${palette.bg} 55%, #0A080F 100%)`
+          : `radial-gradient(circle at 35% 30%, rgba(255,255,255,0.02) 0%, #131012 60%, #0A080F 100%)`,
+        borderColor: node.status==='done' ? palette.accent : node.status==='active' ? palette.accent2 : palette.border,
+        boxShadow: node.status==='done'
+          ? `0 8px 32px rgba(0,0,0,0.5), 0 0 32px ${palette.glow}, inset 0 1px 0 rgba(255,255,255,0.03)`
+          : node.status==='active'
+          ? `0 8px 32px rgba(0,0,0,0.5), 0 0 48px ${palette.glow}, 0 0 80px ${palette.accent}20, inset 0 1px 0 rgba(255,255,255,0.04)`
+          : `0 4px 16px rgba(0,0,0,0.4)`,
+      }}
+      aria-label={`${node.title} — ${node.status}`}
+    >
+      {/* Glass specular highlight */}
+      <div className="absolute top-3 left-3 w-6 h-4 rounded-full opacity-[0.06]"
+        style={{background:'linear-gradient(135deg, white, transparent)'}} />
+      {/* Shadow floor */}
+      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[70%] h-[25%] rounded-full"
+        style={{background:'rgba(0,0,0,0.4)', filter:'blur(8px)'}} />
+      <span className="relative z-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">{node.emoji}</span>
 
-      {node.status === 'done' && (
-        <span className={cn(
-          'absolute -top-2 -right-2 w-[26px] h-[26px] rounded-full',
-          'flex items-center justify-center text-sm font-bold',
-          palette.doneCheck
-        )}>✓</span>
+      {node.status==='active' && (
+        <span className="absolute -top-3 -right-3 text-xs font-bold px-2.5 py-1 rounded-full animate-pulse"
+          style={{background:palette.accent2, color:'#0A080F', boxShadow:`0 2px 12px ${palette.glow}`}}>
+          +{node.xp} XP
+        </span>
+      )}
+      {node.status==='done' && (
+        <span className="absolute -top-2 -right-2 w-[28px] h-[28px] rounded-full flex items-center justify-center text-sm font-bold"
+          style={{background:`linear-gradient(135deg, ${palette.accent2}, ${palette.accent})`, color:'#0A080F', boxShadow:`0 3px 12px ${palette.glow}`}}>
+          ✓
+        </span>
+      )}
+      {/* Active pulse rings */}
+      {node.status==='active' && (
+        <>
+          <div className="absolute -inset-3 rounded-full border-2 pointer-events-none animate-ping opacity-30"
+            style={{borderColor:palette.accent2, animationDuration:'2s'}} />
+          <div className="absolute -inset-4 rounded-full border pointer-events-none animate-pulse opacity-15"
+            style={{borderColor:palette.accent2}} />
+        </>
       )}
     </button>
   )
 }
 
-function RouteNodeComponent({
-  node,
-  palette,
-  onNodeClick,
-}: {
-  node: RouteNode
-  palette: typeof LEVEL_PALETTE['gold']
-  onNodeClick: (node: RouteNode) => void
-}) {
-  const labelClass = cn(
-    'text-sm font-bold text-center max-w-[110px] leading-snug',
-    node.status === 'done'   && palette.labelDone,
-    node.status === 'active' && palette.labelActive,
-    node.status === 'locked' && 'text-[#444441]',
-  )
-
+/* ───────── TOOLTIP ───────── */
+function Tooltip({ title, desc }: { title:string; desc:string }) {
   return (
-    <div className="relative group flex flex-col items-center gap-2.5">
-      <NodeCircle node={node} palette={palette} onClick={() => onNodeClick(node)} />
-      <span className={labelClass}>{node.title}</span>
-      <Stars count={3} lit={node.stars ?? 0} />
-      <Tooltip title={`${node.order}. ${node.title}`} description={node.description} />
+    <div className={cn(
+      'absolute bottom-[calc(100%+16px)] left-1/2 -translate-x-1/2 w-[200px] rounded-2xl p-3.5 z-20',
+      'bg-[#0F0C18]/95 backdrop-blur-xl border border-[#D4AF37]/30',
+      'opacity-0 group-hover:opacity-100 transition-all duration-200',
+      'pointer-events-none text-left shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_16px_rgba(212,175,55,0.1)]'
+    )}>
+      <p className="text-sm font-bold text-[#D4AF37] mb-1">{title}</p>
+      <p className="text-xs text-[#8B6914]/80 leading-relaxed">{desc}</p>
     </div>
   )
 }
 
-function HorizontalConnector({ palette }: { palette: typeof LEVEL_PALETTE['gold'] }) {
+/* ───────── NODE COMPONENT ───────── */
+function RouteNodeComponent({ node, palette, onClick }: {
+  node:RouteNode; palette:typeof P['gold']; onClick:(n:RouteNode)=>void
+}) {
   return (
-    <div className={cn(
-      'h-[3px] w-20 flex-shrink-0 mx-2',
-      'bg-gradient-to-r opacity-50 rounded-full',
-      palette.hConnector
-    )} />
+    <div className="relative group flex flex-col items-center gap-2.5">
+      <NodeCircle node={node} palette={palette} onClick={()=>onClick(node)} />
+      <span className={cn('text-sm font-bold text-center max-w-[120px] leading-tight',
+        node.status==='done'&&'text-[#D4AF37]',
+        node.status==='active'&&'text-[#EFD75F]',
+        node.status==='locked'&&'text-[#3D3A35]',
+      )}>{node.title}</span>
+      <Stars lit={node.stars??0} />
+      <Tooltip title={`${node.order}. ${node.title}`} desc={node.description} />
+    </div>
   )
 }
 
-function VerticalConnector({ palette, locked = false }: { palette: typeof LEVEL_PALETTE['gold']; locked?: boolean }) {
+/* ───────── CONNECTORS ───────── */
+function HorizontalConnector({ palette }: { palette:typeof P['gold'] }) {
   return (
-    <div className={cn(
-      'w-[3px] h-12 bg-gradient-to-b flex-shrink-0 rounded-full',
-      locked ? 'opacity-15' : 'opacity-60',
-      palette.connector
-    )} />
+    <div className="flex items-center gap-1 mx-1">
+      <div className="h-[2px] w-24 rounded-full opacity-50"
+        style={{background:`linear-gradient(90deg, ${palette.accent3}, ${palette.accent})`}} />
+      <div className="w-1.5 h-1.5 rounded-full"
+        style={{background:palette.accent, boxShadow:`0 0 6px ${palette.accent}`}} />
+    </div>
   )
 }
 
-function Chest({
-  unlocked,
-  reward,
-  palette,
-  onOpen,
-}: {
-  unlocked: boolean
-  reward?: ChestReward
-  palette: typeof LEVEL_PALETTE['gold']
-  onOpen: () => void
+function VerticalConnector({ palette, locked=false }: { palette:typeof P['gold']; locked?:boolean }) {
+  return (
+    <div className="flex flex-col items-center gap-1">
+      <div className="w-[2px] h-12 rounded-full"
+        style={{background:`linear-gradient(180deg, ${palette.accent3}, ${palette.accent})`, opacity:locked?0.15:0.5}} />
+      <div className="w-1.5 h-1.5 rounded-full"
+        style={{background:palette.accent, boxShadow:`0 0 6px ${palette.accent}`, opacity:locked?0.3:0.8}} />
+    </div>
+  )
+}
+
+/* ───────── CHEST ───────── */
+function Chest({ unlocked, reward, palette, onOpen }: {
+  unlocked:boolean; reward?:ChestReward; palette:typeof P['gold']; onOpen:()=>void
 }) {
   const [showPreview, setShowPreview] = useState(false)
-
   return (
-    <div className="relative">
+    <div className="relative flex flex-col items-center gap-1">
       <button
-        onClick={() => { if (unlocked) { setShowPreview(v => !v); onOpen() } }}
+        onClick={()=>{if(unlocked){setShowPreview(v=>!v);onOpen()}}}
         disabled={!unlocked}
         className={cn(
-          'relative group w-24 h-16 rounded-xl flex flex-col items-center justify-center gap-1.5',
+          'relative w-24 h-16 rounded-xl flex flex-col items-center justify-center gap-1',
           'border-2 transition-all duration-200',
           unlocked
-            ? cn(palette.chest, palette.chestGlow, 'hover:scale-110 cursor-pointer')
-            : 'bg-[#16140F] border-[#2A2415] opacity-35 cursor-not-allowed'
+            ? 'cursor-pointer hover:scale-110 hover:-translate-y-1'
+            : 'opacity-30 cursor-not-allowed'
         )}
-        aria-label={unlocked ? `Cofre: ${reward?.name}` : 'Cofre bloqueado'}
+        style={{
+          background: unlocked ? `linear-gradient(180deg, ${palette.bg}F0, #0A080F)` : '#0F0C18',
+          borderColor: unlocked ? palette.accent : palette.border,
+          boxShadow: unlocked ? `0 6px 20px rgba(0,0,0,0.5), 0 0 24px ${palette.glow}` : 'none',
+        }}
+        aria-label={unlocked?`Cofre: ${reward?.name}`:'Cofre bloqueado'}
       >
-        <span className="text-3xl leading-none" role="img" aria-hidden>
-          {unlocked ? '🎁' : '🔒'}
+        <span className="text-3xl">{unlocked?'🎁':'🔒'}</span>
+        <span className="text-[10px] font-bold tracking-widest uppercase"
+          style={{color:unlocked?palette.accent:'#3D3A35'}}>
+          {unlocked?'Abrir':'Sellado'}
         </span>
-        <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: unlocked ? '#D4AF37' : '#3D3A30' }}>
-          {unlocked ? 'Abrir' : 'Sellado'}
-        </span>
-
         {unlocked && (
-          <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#D4AF37] text-[#16140F] text-xs font-bold flex items-center justify-center animate-bounce">
-            !
-          </span>
+          <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold animate-bounce"
+            style={{background:palette.accent, color:'#0A080F'}}>!</span>
         )}
       </button>
 
+      {/* Reward popup */}
       {showPreview && unlocked && reward && (
-        <div className={cn(
-          'absolute left-1/2 -translate-x-1/2 bottom-full mb-3',
-          'w-[260px] rounded-2xl p-5 z-30',
-          'bg-[#1C1810] border border-[#D4AF37] border-opacity-70',
-          'shadow-[0_12px_40px_rgba(0,0,0,0.7),0_0_32px_rgba(212,175,55,0.25)]',
-          'animate-in zoom-in-95 fade-in duration-200'
-        )}>
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-[280px] rounded-2xl p-5 z-30
+          bg-[#0F0C18]/98 backdrop-blur-xl border border-[#D4AF37]/40
+          shadow-[0_16px_48px_rgba(0,0,0,0.6),0_0_40px_rgba(212,175,55,0.15)]
+          animate-in zoom-in-95 fade-in duration-200">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 rounded-xl bg-[#2A2415] border border-[#D4AF37]/30 flex items-center justify-center shrink-0 overflow-hidden">
-              <img src={reward.image} alt={reward.name} className="w-12 h-12 object-contain" />
+            <div className="w-16 h-16 rounded-xl bg-[#1C1810] border border-[#D4AF37]/30 flex items-center justify-center shrink-0 overflow-hidden">
+              <img src={reward.image} alt="" className="w-12 h-12 object-contain" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#8B6914] mb-1">Recompensa</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#8B6914]/70 mb-1">Recompensa</p>
               <p className="text-sm font-bold text-[#D4AF37] leading-tight">{reward.name}</p>
-              <p className="text-xs text-[#8B6914] mt-2 leading-relaxed">{reward.description}</p>
+              <p className="text-xs text-[#8B6914]/60 mt-2 leading-relaxed">{reward.description}</p>
             </div>
-            <button
-              onClick={(e) => { e.stopPropagation(); setShowPreview(false) }}
-              className="text-[#8B6914] hover:text-[#D4AF37] text-base shrink-0"
-            >✕</button>
+            <button onClick={e=>{e.stopPropagation();setShowPreview(false)}}
+              className="text-[#8B6914] hover:text-[#D4AF37] text-xl shrink-0">✕</button>
           </div>
         </div>
       )}
@@ -298,142 +239,97 @@ function Chest({
   )
 }
 
-function LevelBand({
-  level,
-  onNodeClick,
-  onChestOpen,
-}: {
-  level: RouteLevel
-  onNodeClick: (node: RouteNode) => void
-  onChestOpen: (level: RouteLevel) => void
+/* ───────── LEVEL BAND ───────── */
+function LevelBand({ level, onNodeClick, onChestOpen }: {
+  level:RouteLevel; onNodeClick:(n:RouteNode)=>void; onChestOpen:(l:RouteLevel)=>void
 }) {
-  const palette = LEVEL_PALETTE[level.colorClass]
-  const nodeRows: RouteNode[][] = []
-
-  for (let i = 0; i < level.nodes.length; i += 2) {
-    nodeRows.push(level.nodes.slice(i, i + 2))
-  }
-
-  const completedInLevel = level.nodes.filter(n => n.status === 'done').length
+  const palette = P[level.colorClass]
+  const rows:RouteNode[][] = []
+  for(let i=0;i<level.nodes.length;i+=2) rows.push(level.nodes.slice(i,i+2))
+  const done = level.nodes.filter(n=>n.status==='done').length
 
   return (
-    <div className={cn(
-      'relative rounded-3xl border p-6 pb-7',
-      'bg-[#16140F]',
-      palette.band
-    )}>
-      <div className={cn(
-        'absolute -top-[16px] left-1/2 -translate-x-1/2',
-        'px-5 py-1.5 rounded-full border text-xs font-bold tracking-[0.2em]',
-        'whitespace-nowrap',
-        palette.title
-      )}>
-        {level.emoji} NIVEL {level.id} — {level.title.toUpperCase()}
+    <div className="relative rounded-3xl border p-6 pb-7 overflow-hidden"
+      style={{background:`linear-gradient(175deg, ${palette.bg}F5 0%, ${palette.bg}98 50%, rgba(0,0,0,0.4) 100%)`, borderColor:`${palette.accent}18`}}>
+      <ConstellationParticles accent={palette.accent} count={30} />
+
+      {/* Level header pill */}
+      <div className="relative z-10 flex justify-center mb-1">
+        <div className="absolute -top-[18px] px-5 py-1.5 rounded-full border text-xs font-bold tracking-[0.2em] whitespace-nowrap"
+          style={{background:`linear-gradient(180deg, ${palette.bg}F0, rgba(0,0,0,0.8))`, borderColor:`${palette.accent}30`, color:palette.accent2,
+            boxShadow:`0 4px 16px rgba(0,0,0,0.4), 0 0 20px ${palette.glow}`}}>
+          {level.emoji} NIVEL {level.id} — {level.title.toUpperCase()}
+        </div>
       </div>
 
-      <div className="flex flex-col items-center gap-0 pt-4">
-        {nodeRows.map((pair, rowIdx) => (
-          <div key={rowIdx} className="flex flex-col items-center gap-0">
+      {/* Row counter */}
+      <div className="relative z-10 flex justify-center mb-4 mt-3">
+        <span className="text-[11px] font-mono tracking-[0.12em] opacity-25" style={{color:palette.accent2}}>
+          {done}/{level.nodes.length}
+        </span>
+      </div>
+
+      {/* Nodes */}
+      <div className="relative z-10 flex flex-col items-center gap-0">
+        {rows.map((pair, ri) => (
+          <div key={ri} className="flex flex-col items-center gap-0">
             <div className="flex items-center gap-0">
-              <RouteNodeComponent node={pair[0]} palette={palette} onNodeClick={onNodeClick} />
+              <RouteNodeComponent node={pair[0]} palette={palette} onClick={onNodeClick} />
               {pair[1] && (
                 <>
                   <HorizontalConnector palette={palette} />
-                  <RouteNodeComponent node={pair[1]} palette={palette} onNodeClick={onNodeClick} />
+                  <RouteNodeComponent node={pair[1]} palette={palette} onClick={onNodeClick} />
                 </>
               )}
             </div>
-
-            {rowIdx < nodeRows.length - 1 && (
+            {ri < rows.length-1 && (
               <>
                 <VerticalConnector palette={palette} />
-                <Chest
-                  unlocked={level.chestUnlocked}
-                  reward={level.chestReward}
-                  palette={palette}
-                  onOpen={() => onChestOpen(level)}
-                />
+                <Chest unlocked={level.chestUnlocked} reward={level.chestReward} palette={palette} onOpen={()=>onChestOpen(level)} />
                 <VerticalConnector palette={palette} />
               </>
             )}
           </div>
         ))}
       </div>
-
-      <div className="flex justify-center mt-5">
-        <span className="text-[11px] font-mono tracking-[0.15em] opacity-30" style={{ color: palette.labelActive }}>
-          {completedInLevel}/{level.nodes.length} completados
-        </span>
-      </div>
     </div>
   )
 }
 
-function NodeModal({
-  node,
-  onClose,
-  onStart,
-}: {
-  node: RouteNode
-  onClose: () => void
-  onStart: (slug: string) => void
-}) {
+/* ───────── NODE MODAL ───────── */
+function NodeModal({ node, onClose, onStart }: { node:RouteNode; onClose:()=>void; onStart:(s:string)=>void }) {
   return (
-    <div
-      className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
-      onClick={onClose}
-    >
-      <div
-        className="bg-[#1C1810] border border-[#D4AF37] border-opacity-60 rounded-3xl p-8 max-w-md w-full"
-        onClick={e => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      onClick={onClose}>
+      <div className="bg-[#0F0C18]/98 border border-[#D4AF37]/30 rounded-3xl p-8 max-w-md w-full shadow-[0_16px_64px_rgba(0,0,0,0.7),0_0_48px_rgba(212,175,55,0.1)]"
+        onClick={e=>e.stopPropagation()}>
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-center gap-5">
-            <span className="text-6xl">{node.emoji}</span>
+            <span className="text-6xl drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">{node.emoji}</span>
             <div>
-              <p className="text-xs text-[#8B6914] tracking-[0.2em] font-bold mb-1">PARADA {node.order}</p>
+              <p className="text-xs text-[#8B6914]/60 tracking-[0.2em] font-bold mb-1">PARADA {node.order}</p>
               <h3 className="text-[#D4AF37] font-bold text-2xl leading-tight">{node.title}</h3>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="text-[#8B6914] hover:text-[#D4AF37] transition-colors text-2xl leading-none"
-            aria-label="Cerrar"
-          >✕</button>
+          <button onClick={onClose} className="text-[#8B6914]/50 hover:text-[#D4AF37] text-2xl">✕</button>
         </div>
-
-        <p className="text-[#8B7720] text-base leading-relaxed mb-6">{node.description}</p>
-
+        <p className="text-[#8B7720]/70 text-base leading-relaxed mb-6">{node.description}</p>
         <div className="flex items-center justify-between mb-6">
           <div className="flex gap-6">
-            <div className="text-center">
-              <p className="text-[#D4AF37] font-bold text-2xl">{node.xp}</p>
-              <p className="text-[#8B6914] text-xs">XP máx.</p>
-            </div>
-            <div className="text-center">
-              <p className="text-[#D4AF37] font-bold text-2xl">{node.type === 'theory' ? '📖' : '⚡'}</p>
-              <p className="text-[#8B6914] text-xs">{node.type === 'theory' ? 'Teoría' : 'Práctica'}</p>
-            </div>
+            <div className="text-center"><p className="text-[#D4AF37] font-bold text-2xl">{node.xp}</p><p className="text-[#8B6914]/60 text-xs">XP</p></div>
+            <div className="text-center"><p className="text-2xl">{node.type==='theory'?'📖':'⚡'}</p><p className="text-[#8B6914]/60 text-xs">{node.type==='theory'?'Teoría':'Práctica'}</p></div>
           </div>
-          <Stars count={3} lit={node.stars ?? 0} />
+          <Stars lit={node.stars??0} />
         </div>
-
-        {node.status === 'locked' ? (
-          <div className="text-center py-4 rounded-xl bg-[#16140F] border border-[#2A2415]">
+        {node.status==='locked' ? (
+          <div className="text-center py-4 rounded-xl bg-[#0A080F] border border-[#2A2415]/50">
             <p className="text-[#555449] text-base">Completa la parada anterior</p>
           </div>
         ) : (
-          <button
-            onClick={() => onStart(node.slug)}
-            className={cn(
-              'w-full py-4 rounded-2xl font-bold text-lg transition-all duration-200',
-              'hover:scale-[1.02] active:scale-[0.98]',
-              node.status === 'done'
-                ? 'bg-[#1C1510] border-2 border-[#D4AF37] text-[#D4AF37]'
-                : 'bg-[#D4AF37] text-[#16140F] shadow-[0_6px_28px_rgba(212,175,55,0.4)]'
-            )}
-          >
-            {node.status === 'done' ? 'Repasar parada' : 'Comenzar parada →'}
+          <button onClick={()=>onStart(node.slug)}
+            className={cn('w-full py-4 rounded-2xl font-bold text-lg transition-all hover:scale-[1.02] active:scale-[0.98]',
+              node.status==='done'?'bg-[#1C1510] border-2 border-[#D4AF37] text-[#D4AF37]':'bg-[#D4AF37] text-[#0A080F] shadow-[0_6px_28px_rgba(212,175,55,0.4)]')}>
+            {node.status==='done'?'Repasar parada':'Comenzar parada →'}
           </button>
         )}
       </div>
@@ -441,82 +337,51 @@ function NodeModal({
   )
 }
 
-interface RouteMapProps {
-  route: RouteData
-  userProgress: RouteUserProgress
-  onNodeStart?: (slug: string) => void
-}
+/* ───────── MAIN ───────── */
+interface RouteMapProps { route:RouteData; userProgress:RouteUserProgress; onNodeStart?:(slug:string)=>void }
 
 export function RouteMap({ route, userProgress, onNodeStart }: RouteMapProps) {
-  const [selectedNode, setSelectedNode] = useState<RouteNode | null>(null)
-  const [openedChest, setOpenedChest] = useState<string | null>(null)
-
-  const handleNodeClick = (node: RouteNode) => setSelectedNode(node)
-
-  const handleChestOpen = (level: RouteLevel) => {
-    if (level.chestUnlocked && openedChest !== level.id.toString()) {
-      setOpenedChest(level.id.toString())
-    }
-  }
-
-  const handleNodeStart = (slug: string) => {
-    setSelectedNode(null)
-    onNodeStart?.(slug)
-  }
-
-  const totalNodes = route.levels.reduce((s, l) => s + l.nodes.length, 0)
+  const [selectedNode, setSelectedNode] = useState<RouteNode|null>(null)
+  const [openedChest, setOpenedChest] = useState<string|null>(null)
+  const totalNodes = route.levels.reduce((s,l)=>s+l.nodes.length,0)
 
   return (
     <>
-      <div className="w-full max-w-2xl px-4 py-6 flex flex-col gap-5">
-
-        {route.levels.map((level, levelIdx) => (
+      <div className="w-full flex flex-col gap-5">
+        {route.levels.map((level, i) => (
           <div key={level.id} className="flex flex-col items-center gap-0">
-            <LevelBand level={level} onNodeClick={handleNodeClick} onChestOpen={handleChestOpen} />
-            {levelIdx < route.levels.length - 1 && (
-              <div className={cn(
-                'w-[3px] h-12 bg-gradient-to-b opacity-30 rounded-full',
-                LEVEL_PALETTE[route.levels[levelIdx + 1].colorClass].connector
-              )} />
+            <LevelBand level={level} onNodeClick={setSelectedNode} onChestOpen={(lvl) => setOpenedChest(lvl.id.toString())} />
+            {i < route.levels.length-1 && (
+              <div className="w-[2px] h-12 rounded-full opacity-20"
+                style={{background:`linear-gradient(180deg, ${P[route.levels[i+1].colorClass].accent3}, ${P[route.levels[i+1].colorClass].accent})`}} />
             )}
           </div>
         ))}
 
-        <div className={cn(
-          'flex items-center justify-between mt-4 px-6 py-5 rounded-2xl',
-          'bg-[#16140F] border border-[#2A2415]'
-        )}>
+        {/* Bottom bar */}
+        <div className="flex items-center justify-between px-6 py-4 rounded-2xl border"
+          style={{background:'linear-gradient(180deg, rgba(22,20,15,0.9), rgba(10,8,15,0.95))', borderColor:'#2A2415'}}>
           <div>
-            <p className="text-xs text-[#8B6914] tracking-[0.2em] font-bold mb-1 uppercase">{userProgress.levelName}</p>
+            <p className="text-xs text-[#8B6914]/50 tracking-[0.2em] font-bold uppercase">{userProgress.levelName}</p>
             <p className="text-[#D4AF37] font-bold text-xl">{userProgress.totalXP.toLocaleString()} XP</p>
           </div>
           <div className="text-right">
-            <p className="text-xs text-[#8B6914] mb-2">Progreso global</p>
+            <p className="text-xs text-[#8B6914]/50 mb-1.5">Progreso</p>
             <div className="w-40 h-2.5 bg-[#2A2415] rounded-full overflow-hidden">
-              <div
-                className="h-full bg-gradient-to-r from-[#B8860B] to-[#D4AF37] rounded-full transition-all duration-700"
-                style={{ width: `${Math.min(100, totalNodes > 0 ? (userProgress.completedNodes.length / totalNodes) * 100 : 0)}%` }}
-              />
+              <div className="h-full bg-gradient-to-r from-[#B8860B] to-[#D4AF37] rounded-full transition-all duration-700"
+                style={{width:`${totalNodes>0?(userProgress.completedNodes.length/totalNodes)*100:0}%`}} />
             </div>
-            <p className="text-xs text-[#8B6914] mt-1.5">{userProgress.completedNodes.length} / {totalNodes} paradas</p>
+            <p className="text-xs text-[#8B6914]/50 mt-1.5">{userProgress.completedNodes.length}/{totalNodes}</p>
           </div>
         </div>
       </div>
 
-      {selectedNode && <NodeModal node={selectedNode} onClose={() => setSelectedNode(null)} onStart={handleNodeStart} />}
+      {selectedNode && <NodeModal node={selectedNode} onClose={()=>setSelectedNode(null)} onStart={(s)=>{setSelectedNode(null);onNodeStart?.(s)}} />}
 
       {openedChest && (
-        <div className={cn(
-          'fixed bottom-8 left-1/2 -translate-x-1/2 z-50',
-          'bg-[#1C1810] border border-[#D4AF37] rounded-2xl px-6 py-4',
-          'flex items-center gap-4 shadow-2xl',
-          'animate-in slide-in-from-bottom-6 fade-in duration-300'
-        )}>
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-[#0F0C18]/95 backdrop-blur-xl border border-[#D4AF37]/40 rounded-2xl px-6 py-4 flex items-center gap-4 shadow-2xl animate-in slide-in-from-bottom-6 fade-in duration-300">
           <span className="text-3xl">🎁</span>
-          <div>
-            <p className="text-[#D4AF37] font-bold text-base">¡Cofre desbloqueado!</p>
-            <p className="text-[#8B6914] text-sm">Revisa tu habitación</p>
-          </div>
+          <div><p className="text-[#D4AF37] font-bold text-base">¡Cofre desbloqueado!</p><p className="text-[#8B6914]/60 text-sm">Revisa tu habitación</p></div>
         </div>
       )}
     </>
