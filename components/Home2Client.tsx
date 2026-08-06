@@ -8,7 +8,7 @@ import { LearningPath, LearningPathArticle, LearningPathLevel } from '@/componen
 import { NexusNode3D } from '@/components/NexusNode3D';
 import { Starfield } from '@/components/Starfield';
 import { evaluateRoomUnlocks } from '@/lib/roomEngineStorage';
-import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
+import { useCombinedAssets } from '@/hooks/useCombinedAssets';
 import { MiniLeaderboard } from '@/components/MiniLeaderboard';
 import { getLeaderboard, deriveLevel, type LeaderboardEntry } from '@/lib/leaderboard';
 import { useAuth } from '@/context/AuthContext';
@@ -145,6 +145,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
   const { progress } = useGamification();
   const [mounted, setMounted] = useState(false);
   const [hoverNode, setHoverNode] = useState<string | null>(null);
+  const { catalog } = useCombinedAssets();
 
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -189,7 +190,7 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
   });
   const relicUnlockedCount = (progress.physicsRelics || []).length;
   const objectUnlockedCount = [...unlockedIds].filter(id => {
-    const item = ROOM_ENGINE_CATALOG.find(i => i.id === id);
+    const item = catalog.find(i => i.id === id);
     return item && item.unlockCondition && item.unlockCondition.type !== 'default';
   }).length;
   const levelInfo = {

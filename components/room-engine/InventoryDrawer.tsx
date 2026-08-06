@@ -1,8 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
-import { getRoomAsset } from '@/data/roomEngineAssets';
+import { useCombinedAssets } from '@/hooks/useCombinedAssets';
 import { PlacedRoomItem, RoomCatalogItem } from '@/types/roomEngine';
 import { BookOpen, Plus, ChevronUp, ChevronDown, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -23,6 +22,7 @@ export function InventoryDrawer({
   unlockedIds
 }: InventoryDrawerProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const { catalog, assets } = useCombinedAssets();
 
   const categories = [
     { id: 'all', label: 'Colección Completa' },
@@ -31,7 +31,7 @@ export function InventoryDrawer({
     { id: 'decoration', label: 'Decoración' }
   ];
 
-  const filteredCatalog = ROOM_ENGINE_CATALOG.filter(item => {
+  const filteredCatalog = catalog.filter(item => {
     if (activeCategory !== 'all' && item.category !== activeCategory) return false;
     return true;
   });
@@ -109,7 +109,7 @@ export function InventoryDrawer({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-h-[200px] overflow-y-auto pr-1">
             {filteredCatalog.map(item => {
               const instanceCount = placedItems.filter(p => p.catalogItemId === item.id).length;
-              const asset = getRoomAsset(item.assetId);
+              const asset = assets[item.assetId];
               const badge = getRarityBadge(item.rarity);
               const isLocked = unlockedIds ? !unlockedIds.has(item.id) : false;
 

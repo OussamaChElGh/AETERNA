@@ -494,13 +494,13 @@
       "category": "decoration",
       "imageUrl": "/images/anektia_master_blackboard.png",
       "storagePath": "/images/anektia_master_blackboard.png",
-      "footprintTileWidth": 2,
+      "footprintTileWidth": 4,
       "footprintTileHeight": 1,
       "pixelWidth": 160,
       "pixelHeight": 200,
       "anchorX": 0.5,
       "anchorY": 0.9,
-      "placementSurface": "wall",
+      "placementSurface": "floor",
       "canRotate": true,
       "unlockCondition": {
         "type": "article_completed",
@@ -508,7 +508,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1785994433611
     },
     {
       "id": "compass_proportions",
