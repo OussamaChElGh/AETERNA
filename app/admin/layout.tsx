@@ -14,6 +14,7 @@ import {
   RefreshCw,
   BarChart3,
   Brain,
+  Code2,
   ArrowLeft
 } from 'lucide-react';
 import { ToastProvider } from '@/components/ui/ToastProvider';
@@ -26,6 +27,7 @@ const NAV_ITEMS = [
   { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
   { href: '/admin/analytics', icon: BarChart3, label: 'Analytics' },
   { href: '/admin/planner', icon: Brain, label: 'Planificador IA' },
+  { href: '/admin/stitch', icon: Code2, label: 'Stitch-to-Code' },
   { href: '/admin/imagenes', icon: ImageIcon, label: 'Imágenes' },
   { href: '/admin/assets', icon: Package, label: 'Assets' },
   { href: '/admin/articulos', icon: BookOpen, label: 'Artículos' },
