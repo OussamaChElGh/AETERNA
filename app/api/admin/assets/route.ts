@@ -38,6 +38,39 @@ export async function POST(request: Request) {
   }
 }
 
+export async function PUT(request: Request) {
+  try {
+    const body = await request.json();
+    const { id, ...updates } = body;
+    
+    if (!id) {
+      return NextResponse.json({ error: 'Asset ID required' }, { status: 400 });
+    }
+    
+    const data = await fs.readFile(ASSETS_FILE, 'utf-8');
+    const assets = JSON.parse(data);
+    
+    const index = assets.assets.findIndex((a: any) => a.id === id);
+    if (index === -1) {
+      return NextResponse.json({ error: 'Asset not found' }, { status: 404 });
+    }
+    
+    assets.assets[index] = {
+      ...assets.assets[index],
+      ...updates,
+      id,
+      updatedAt: Date.now(),
+    };
+    
+    await fs.writeFile(ASSETS_FILE, JSON.stringify(assets, null, 2));
+    
+    return NextResponse.json(assets.assets[index]);
+  } catch (error) {
+    console.error('Error updating asset:', error);
+    return NextResponse.json({ error: 'Error updating asset' }, { status: 500 });
+  }
+}
+
 export async function DELETE(request: Request) {
   try {
     const { searchParams } = new URL(request.url);

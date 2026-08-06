@@ -119,9 +119,16 @@ export async function getAssetsByType(type: AssetMetadata['type']): Promise<(Ass
   return allAssets.filter(asset => asset.type === type);
 }
 
-export async function updateAsset(assetId: string, updates: Partial<UploadAssetInput>): Promise<void> {
-  // Note: This would need a PUT endpoint if needed
-  console.warn('updateAsset not implemented for local storage');
+export async function updateAsset(id: string, updates: Partial<UploadAssetInput>): Promise<void> {
+  const response = await fetch('/api/admin/assets', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, ...updates }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al actualizar asset');
+  }
 }
 
 export async function updateAssetImage(assetId: string, file: File): Promise<void> {

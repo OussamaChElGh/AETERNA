@@ -20,6 +20,7 @@ import {
   createAsset, 
   getAllAssets, 
   deleteAsset, 
+  updateAsset,
   updateAssetImage,
   type AssetMetadata,
   type UploadAssetInput 
@@ -318,6 +319,331 @@ function UploadForm({ onSuccess }: { onSuccess: () => void }) {
   );
 }
 
+function EditModal({ 
+  asset, 
+  onClose, 
+  onSuccess 
+}: { 
+  asset: AssetMetadata & { id: string }; 
+  onClose: () => void; 
+  onSuccess: () => void;
+}) {
+  const { showToast } = useToast();
+  const [saving, setSaving] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+  const [formData, setFormData] = useState({
+    name: asset.name,
+    description: asset.description,
+    type: asset.type,
+    discipline: asset.discipline,
+    rarity: asset.rarity,
+    category: asset.category,
+    placementSurface: asset.placementSurface,
+    canRotate: asset.canRotate,
+    footprintTileWidth: asset.footprintTileWidth,
+    footprintTileHeight: asset.footprintTileHeight,
+    pixelWidth: asset.pixelWidth,
+    pixelHeight: asset.pixelHeight,
+    anchorX: asset.anchorX,
+    anchorY: asset.anchorY,
+  });
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const selectedFile = e.target.files?.[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      const reader = new FileReader();
+      reader.onloadend = () => setPreview(reader.result as string);
+      reader.readAsDataURL(selectedFile);
+    }
+  }
+
+  function handleInputChange(field: string, value: any) {
+    setFormData(prev => ({ ...prev, [field]: value }));
+    if (field === 'type') {
+      setFormData(prev => ({ ...prev, [field]: value, category: value }));
+    }
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!formData.name.trim()) {
+      showToast('error', 'Ingresa un nombre');
+      return;
+    }
+
+    setSaving(true);
+    try {
+      // Primero actualizar metadata
+      await updateAsset(asset.id, formData);
+      
+      // Si hay nueva imagen, subirla
+      if (file) {
+        await updateAssetImage(asset.id, file);
+      }
+      
+      showToast('success', 'Asset actualizado');
+      onSuccess();
+      onClose();
+    } catch (error) {
+      console.error('Error updating asset:', error);
+      showToast('error', 'Error al actualizar asset');
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="bg-[#1a1a1a] border border-white/10 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+      >
+        <div className="sticky top-0 bg-[#1a1a1a] border-b border-white/10 p-6 flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-white">Editar Asset</h2>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+          >
+            <X size={20} className="text-white" />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Image Section */}
+            <div>
+              <label className="block text-white/60 text-sm mb-2">Imagen</label>
+              <div className="border-2 border-dashed border-white/20 rounded-lg p-4 text-center hover:border-white/40 transition-colors">
+                {preview ? (
+                  <div className="relative">
+                    <img src={preview} alt="Preview" className="max-h-48 mx-auto rounded" />
+                    <button
+                      type="button"
+                      onClick={() => { setFile(null); setPreview(null); }}
+                      className="absolute top-2 right-2 bg-black/50 p-1 rounded-full hover:bg-black/70"
+                    >
+                      <X size={16} className="text-white" />
+                    </button>
+                  </div>
+                ) : (
+                  <div>
+                    <img src={asset.imageUrl} alt={asset.name} className="max-h-48 mx-auto rounded mb-4" />
+                    <label className="cursor-pointer">
+                      <Upload size={32} className="text-white/40 mx-auto mb-2" />
+                      <p className="text-white/60 text-sm">Click para cambiar imagen</p>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                    </label>
+                  </div>
+                )}
+              </div>
+              {file && <p className="text-white/40 text-xs mt-2 truncate">{file.name}</p>}
+            </div>
+
+            {/* Form Fields */}
+            <div className="space-y-4">
+              <div>
+                <label className="block text-white/60 text-sm mb-1">Nombre</label>
+                <input
+                  type="text"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                />
+              </div>
+
+              <div>
+                <label className="block text-white/60 text-sm mb-1">Descripción</label>
+                <textarea
+                  value={formData.description}
+                  onChange={(e) => handleInputChange('description', e.target.value)}
+                  rows={2}
+                  className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50 resize-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Tipo</label>
+                  <select
+                    value={formData.type}
+                    onChange={(e) => handleInputChange('type', e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  >
+                    {TYPE_OPTIONS.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Disciplina</label>
+                  <select
+                    value={formData.discipline}
+                    onChange={(e) => handleInputChange('discipline', e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  >
+                    {DISCIPLINE_OPTIONS.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Rareza</label>
+                  <select
+                    value={formData.rarity}
+                    onChange={(e) => handleInputChange('rarity', e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  >
+                    {RARITY_OPTIONS.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Superficie</label>
+                  <select
+                    value={formData.placementSurface}
+                    onChange={(e) => handleInputChange('placementSurface', e.target.value)}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  >
+                    {SURFACE_OPTIONS.map(opt => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Ancho (tiles)</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="8"
+                    value={formData.footprintTileWidth}
+                    onChange={(e) => handleInputChange('footprintTileWidth', parseInt(e.target.value))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Alto (tiles)</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="8"
+                    value={formData.footprintTileHeight}
+                    onChange={(e) => handleInputChange('footprintTileHeight', parseInt(e.target.value))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Ancho (px)</label>
+                  <input
+                    type="number"
+                    min="1"
+                    value={formData.pixelWidth}
+                    onChange={(e) => handleInputChange('pixelWidth', parseInt(e.target.value))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Alto (px)</label>
+                  <input
+                    type="number"
+                    min="1"
+                    value={formData.pixelHeight}
+                    onChange={(e) => handleInputChange('pixelHeight', parseInt(e.target.value))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Anchor X</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={formData.anchorX}
+                    onChange={(e) => handleInputChange('anchorX', parseFloat(e.target.value))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  />
+                </div>
+                <div>
+                  <label className="block text-white/60 text-sm mb-1">Anchor Y</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    value={formData.anchorY}
+                    onChange={(e) => handleInputChange('anchorY', parseFloat(e.target.value))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  id="editCanRotate"
+                  checked={formData.canRotate}
+                  onChange={(e) => handleInputChange('canRotate', e.target.checked)}
+                  className="w-4 h-4"
+                />
+                <label htmlFor="editCanRotate" className="text-white/80 text-sm">Puede rotar</label>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-3 mt-6">
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 bg-white/5 hover:bg-white/10 text-white py-3 rounded-lg transition-colors"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              disabled={saving || !formData.name.trim()}
+              className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-white/10 disabled:text-white/40 text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+            >
+              {saving ? (
+                <>
+                  <Loader2 className="animate-spin" size={18} />
+                  Guardando...
+                </>
+              ) : (
+                <>
+                  <CheckCircle size={18} />
+                  Guardar Cambios
+                </>
+              )}
+            </button>
+          </div>
+        </form>
+      </motion.div>
+    </div>
+  );
+}
+
 function AssetCard({ asset, onDelete, onRefresh }: { 
   asset: AssetMetadata & { id: string }; 
   onDelete: (id: string) => void;
@@ -325,6 +651,7 @@ function AssetCard({ asset, onDelete, onRefresh }: {
 }) {
   const { showToast } = useToast();
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [uploading, setUploading] = useState(false);
 
   async function handleImageReplace(e: React.ChangeEvent<HTMLInputElement>) {
@@ -361,8 +688,14 @@ function AssetCard({ asset, onDelete, onRefresh }: {
             className="w-full h-full object-contain p-4"
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+            <button
+              onClick={() => setShowEditModal(true)}
+              className="p-2 bg-blue-500/20 hover:bg-blue-500/40 rounded-full transition-colors"
+            >
+              <Edit2 className="text-blue-400" size={18} />
+            </button>
             <label className={`p-2 rounded-full cursor-pointer transition-colors ${uploading ? 'bg-white/10' : 'bg-white/20 hover:bg-white/30'}`}>
-              {uploading ? <Loader2 className="text-white animate-spin" size={18} /> : <Edit2 className="text-white" size={18} />}
+              {uploading ? <Loader2 className="text-white animate-spin" size={18} /> : <Upload className="text-white" size={18} />}
               <input
                 type="file"
                 accept="image/*"
@@ -402,6 +735,16 @@ function AssetCard({ asset, onDelete, onRefresh }: {
         confirmText="Eliminar"
         variant="danger"
       />
+
+      <AnimatePresence>
+        {showEditModal && (
+          <EditModal
+            asset={asset}
+            onClose={() => setShowEditModal(false)}
+            onSuccess={onRefresh}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
