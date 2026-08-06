@@ -129,6 +129,8 @@ export default function CosmicConstellationPath() {
 
   const completedPaths = progress.completedPaths || []
   const completedLayers = progress.completedLayers || {}
+  const completedBosses = progress.completedBosses || []
+  const skippedBosses = progress.skippedBosses || []
   const relics = progress.physicsRelics || []
   const achievements = progress.achievements || []
   const dailyStreak = progress.dailyStreak || 0
@@ -151,17 +153,36 @@ export default function CosmicConstellationPath() {
         const unlocked = globalOrder===1||prevDone
         if(done) prevDone=true; else prevDone=false
         
-        const isBoss = i === lvlArticles.length - 1;
-        
         return {
           id:a.slug, order:globalOrder, title:a.title,
           description:NODE_DESCRIPTIONS[a.slug]||'Un misterio del cosmos.',
-          emoji:'✨', slug:a.slug, xp: isBoss ? 150 : 75, icon: getNodeIcon(a.slug),
+          emoji:'✨', slug:a.slug, xp: 75, icon: getNodeIcon(a.slug),
           stars:Math.min(lyrs,3) as 0|1|2|3,
           status:(done?'done':unlocked?'active':'locked') as NodeStatus,
-          type: isBoss ? 'boss' : toNodeType(a.tipo),
+          type: toNodeType(a.tipo),
         }
       })
+      
+      // Append Boss Node
+      if (nodes.length > 0) {
+        globalOrder++
+        const bossId = `boss-lvl-${lvl.nivel}`
+        const bossDone = completedBosses.includes(bossId) || skippedBosses.includes(bossId)
+        const bossUnlocked = prevDone
+        if(bossDone) prevDone=true; else prevDone=false
+        
+        nodes.push({
+          id: bossId,
+          order: globalOrder,
+          title: `Prueba: ${lvl.titulo}`,
+          description: 'Demuestra lo que has aprendido en este nivel.',
+          emoji: '⚔️',
+          slug: bossId,
+          xp: 150,
+          status: (bossDone?'done':bossUnlocked?'active':'locked') as NodeStatus,
+          type: 'boss'
+        })
+      }
 
       let chestNode = null
       if (nodes.length > 0) {

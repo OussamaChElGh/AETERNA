@@ -72,6 +72,9 @@ export interface UserProgress {
   hearts: number;
   maxHearts: number;
   lastHeartRegenDate?: string;
+  completedBosses?: string[];
+  skippedBosses?: string[];
+  extraFurniture?: string[];
 }
 
 export type NotificationType = 'level_up' | 'achievement' | 'streak' | 'xp' | 'warning';
@@ -125,6 +128,9 @@ interface GamificationContextType {
   feedbackEvent: FeedbackEvent | null;
   loseHeart: () => void;
   regenerateHearts: () => void;
+  completeBoss: (bossId: string) => void;
+  skipBoss: (bossId: string) => void;
+  grantFurniture: (itemIds: string[]) => void;
 }
 
 const defaultProgress: UserProgress = {
@@ -148,6 +154,9 @@ const defaultProgress: UserProgress = {
   hearts: 4,
   maxHearts: 4,
   lastHeartRegenDate: '',
+  completedBosses: [],
+  skippedBosses: [],
+  extraFurniture: [],
 };
 
 const GamificationContext = createContext<GamificationContextType | undefined>(undefined);
@@ -329,6 +338,9 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
             dailyStreak: parsed.dailyStreak || 0,
             lastActiveDate: parsed.lastActiveDate || "",
             achievements: parsed.achievements || [],
+            completedBosses: parsed.completedBosses || [],
+            skippedBosses: parsed.skippedBosses || [],
+            extraFurniture: parsed.extraFurniture || [],
           });
         }
       }
@@ -1001,6 +1013,12 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       photoURL: user?.photoURL || '',
       weeklyXp: 0,
       weeklyResetDate: getMondayKey(),
+      hearts: 4,
+      maxHearts: 4,
+      lastHeartRegenDate: '',
+      completedBosses: [],
+      skippedBosses: [],
+      extraFurniture: [],
     };
     setProgress(emptyProgress);
     if (user) {
@@ -1036,6 +1054,31 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     }));
   }, []);
 
+  const completeBoss = useCallback((bossId: string) => {
+    setProgress(prev => {
+      const bosses = prev.completedBosses || [];
+      if (bosses.includes(bossId)) return prev;
+      return { ...prev, completedBosses: [...bosses, bossId] };
+    });
+  }, []);
+
+  const skipBoss = useCallback((bossId: string) => {
+    setProgress(prev => {
+      const skipped = prev.skippedBosses || [];
+      if (skipped.includes(bossId)) return prev;
+      return { ...prev, skippedBosses: [...skipped, bossId] };
+    });
+  }, []);
+
+  const grantFurniture = useCallback((itemIds: string[]) => {
+    setProgress(prev => {
+      const current = prev.extraFurniture || [];
+      const newItems = itemIds.filter(id => !current.includes(id));
+      if (newItems.length === 0) return prev;
+      return { ...prev, extraFurniture: [...current, ...newItems] };
+    });
+  }, []);
+
   return (
     <GamificationContext.Provider value={{ 
       progress, 
@@ -1058,6 +1101,9 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       feedbackEvent,
       loseHeart,
       regenerateHearts,
+      completeBoss,
+      skipBoss,
+      grantFurniture,
     }}>
       {children}
 
