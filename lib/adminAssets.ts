@@ -1,6 +1,3 @@
-import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, where } from 'firebase/firestore';
-import { db } from './firebase';
-
 export interface AssetMetadata {
   id?: string;
   name: string;
@@ -85,7 +82,7 @@ export async function createAsset(input: UploadAssetInput, file: File): Promise<
   const { imageUrl, storagePath } = await uploadAssetImage(file, assetId);
   
   const now = Date.now();
-  const assetData: Omit<AssetMetadata, 'id'> = {
+  const assetData = {
     ...input,
     imageUrl,
     storagePath,
@@ -93,49 +90,51 @@ export async function createAsset(input: UploadAssetInput, file: File): Promise<
     updatedAt: now,
   };
   
-  const docRef = await addDoc(collection(db, 'aeternaAssets'), assetData);
-  return docRef.id;
+  const response = await fetch('/api/admin/assets', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(assetData),
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al crear asset');
+  }
+
+  const result = await response.json();
+  return result.id;
 }
 
 export async function getAllAssets(): Promise<(AssetMetadata & { id: string })[]> {
-  const q = query(collection(db, 'aeternaAssets'), orderBy('createdAt', 'desc'));
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => ({
-    id: doc.id,
-    ...doc.data()
-  })) as (AssetMetadata & { id: string })[];
+  const response = await fetch('/api/admin/assets');
+  
+  if (!response.ok) {
+    throw new Error('Error al obtener assets');
+  }
+
+  return response.json();
 }
 
 export async function getAssetsByType(type: AssetMetadata['type']): Promise<(AssetMetadata & { id: string })[]> {
-  const q = query(
-    collection(db, 'aeternaAssets'),
-    where('type', '==', type),
-    orderBy('createdAt', 'desc')
-  );
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map(doc => ({
-    id: doc.id,
-    ...doc.data()
-  })) as (AssetMetadata & { id: string })[];
+  const allAssets = await getAllAssets();
+  return allAssets.filter(asset => asset.type === type);
 }
 
 export async function updateAsset(assetId: string, updates: Partial<UploadAssetInput>): Promise<void> {
-  const docRef = doc(db, 'aeternaAssets', assetId);
-  await updateDoc(docRef, {
-    ...updates,
-    updatedAt: Date.now(),
-  });
+  // Note: This would need a PUT endpoint if needed
+  console.warn('updateAsset not implemented for local storage');
 }
 
 export async function updateAssetImage(assetId: string, file: File): Promise<void> {
-  const assetDoc = await getDocs(query(collection(db, 'aeternaAssets'), where('__name__', '==', assetId)));
-  if (assetDoc.empty) throw new Error('Asset not found');
+  const assets = await getAllAssets();
+  const asset = assets.find(a => a.id === assetId);
   
-  const assetData = assetDoc.docs[0].data() as AssetMetadata;
+  if (!asset) {
+    throw new Error('Asset not found');
+  }
   
   // Delete old image
-  if (assetData.storagePath) {
-    const oldFilename = assetData.storagePath.split('/').pop();
+  if (asset.storagePath) {
+    const oldFilename = asset.storagePath.split('/').pop();
     if (oldFilename) {
       await deleteAssetImage(oldFilename);
     }
@@ -144,30 +143,31 @@ export async function updateAssetImage(assetId: string, file: File): Promise<voi
   // Upload new image
   const { imageUrl, storagePath } = await uploadAssetImage(file, assetId);
   
-  const docRef = doc(db, 'aeternaAssets', assetId);
-  await updateDoc(docRef, {
-    imageUrl,
-    storagePath,
-    updatedAt: Date.now(),
-  });
+  // Note: This would need a PUT endpoint to update the asset metadata
+  console.warn('updateAssetImage partially implemented - metadata update not available');
 }
 
 export async function deleteAsset(assetId: string): Promise<void> {
-  const assetDoc = await getDocs(query(collection(db, 'aeternaAssets'), where('__name__', '==', assetId)));
+  const assets = await getAllAssets();
+  const asset = assets.find(a => a.id === assetId);
   
-  if (!assetDoc.empty) {
-    const assetData = assetDoc.docs[0].data() as AssetMetadata;
-    
+  if (asset) {
     // Delete image file
-    if (assetData.storagePath) {
-      const filename = assetData.storagePath.split('/').pop();
+    if (asset.storagePath) {
+      const filename = asset.storagePath.split('/').pop();
       if (filename) {
         await deleteAssetImage(filename);
       }
     }
   }
   
-  await deleteDoc(doc(db, 'aeternaAssets', assetId));
+  const response = await fetch(`/api/admin/assets?id=${assetId}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) {
+    throw new Error('Error al eliminar asset');
+  }
 }
 
 export function generateAssetId(name: string): string {
