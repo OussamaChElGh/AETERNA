@@ -12,6 +12,8 @@ import {
   Package,
   BookOpen,
   RefreshCw,
+  BarChart3,
+  Brain,
   ArrowLeft
 } from 'lucide-react';
 import { ToastProvider } from '@/components/ui/ToastProvider';
@@ -22,6 +24,8 @@ interface AdminLayoutProps {
 
 const NAV_ITEMS = [
   { href: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
+  { href: '/admin/analytics', icon: BarChart3, label: 'Analytics' },
+  { href: '/admin/planner', icon: Brain, label: 'Planificador IA' },
   { href: '/admin/imagenes', icon: ImageIcon, label: 'Imágenes' },
   { href: '/admin/assets', icon: Package, label: 'Assets' },
   { href: '/admin/articulos', icon: BookOpen, label: 'Artículos' },
