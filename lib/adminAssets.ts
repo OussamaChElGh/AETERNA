@@ -1,6 +1,5 @@
-import { ref, uploadBytes, getDownloadURL, deleteObject, listAll } from 'firebase/storage';
-import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, setDoc, query, orderBy, where } from 'firebase/firestore';
-import { storage, db } from './firebase';
+import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, where } from 'firebase/firestore';
+import { db } from './firebase';
 
 export interface AssetMetadata {
   id?: string;
@@ -49,14 +48,35 @@ export interface UploadAssetInput {
 }
 
 export async function uploadAssetImage(file: File, assetId: string): Promise<{ imageUrl: string; storagePath: string }> {
-  const extension = file.name.split('.').pop() || 'png';
-  const storagePath = `assets/${assetId}.${extension}`;
-  const storageRef = ref(storage, storagePath);
-  
-  await uploadBytes(storageRef, file);
-  const imageUrl = await getDownloadURL(storageRef);
-  
-  return { imageUrl, storagePath };
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('assetId', assetId);
+
+  const response = await fetch('/api/admin/assets/upload', {
+    method: 'POST',
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.error || 'Error al subir imagen');
+  }
+
+  const data = await response.json();
+  return {
+    imageUrl: data.imageUrl,
+    storagePath: data.storagePath,
+  };
+}
+
+export async function deleteAssetImage(filename: string): Promise<void> {
+  const response = await fetch(`/api/admin/assets/upload?filename=${encodeURIComponent(filename)}`, {
+    method: 'DELETE',
+  });
+
+  if (!response.ok) {
+    console.warn('Could not delete image file');
+  }
 }
 
 export async function createAsset(input: UploadAssetInput, file: File): Promise<string> {
@@ -113,15 +133,15 @@ export async function updateAssetImage(assetId: string, file: File): Promise<voi
   
   const assetData = assetDoc.docs[0].data() as AssetMetadata;
   
+  // Delete old image
   if (assetData.storagePath) {
-    try {
-      const oldRef = ref(storage, assetData.storagePath);
-      await deleteObject(oldRef);
-    } catch (e) {
-      console.warn('Could not delete old image:', e);
+    const oldFilename = assetData.storagePath.split('/').pop();
+    if (oldFilename) {
+      await deleteAssetImage(oldFilename);
     }
   }
   
+  // Upload new image
   const { imageUrl, storagePath } = await uploadAssetImage(file, assetId);
   
   const docRef = doc(db, 'aeternaAssets', assetId);
@@ -138,12 +158,11 @@ export async function deleteAsset(assetId: string): Promise<void> {
   if (!assetDoc.empty) {
     const assetData = assetDoc.docs[0].data() as AssetMetadata;
     
+    // Delete image file
     if (assetData.storagePath) {
-      try {
-        const storageRef = ref(storage, assetData.storagePath);
-        await deleteObject(storageRef);
-      } catch (e) {
-        console.warn('Could not delete storage file:', e);
+      const filename = assetData.storagePath.split('/').pop();
+      if (filename) {
+        await deleteAssetImage(filename);
       }
     }
   }
