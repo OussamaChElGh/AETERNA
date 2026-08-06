@@ -3,7 +3,7 @@ import { CATEGORIES_DATA } from '@/data/categories';
 import { getArticleBySlug, getAllArticles, getArticleForRender } from '@/lib/server-content';
 import { GuidePageClient } from '@/components/GuidePageClient';
 import { ArticlePageClient } from '@/components/article-page';
-import { PhysicsLearningPath } from '@/components/learning-path/PhysicsLearningPath';
+import CosmicConstellationPath from '@/components/learning-path/CosmicConstellationPath';
 
 interface Props {
   params: Promise<{ category: string; subcategory: string }>;
@@ -72,7 +72,7 @@ export default async function GuiasResolverPage({ params }: Props) {
     const normalizedCat = category?.replace(/-/g, '_');
     const normalizedSub = subcategory?.replace(/-/g, '_');
     if (normalizedCat === 'ciencias_naturales' && normalizedSub === 'fisica') {
-      return <PhysicsLearningPath />;
+      return <CosmicConstellationPath />;
     }
     const articles = getAllArticles();
     return <GuidePageClient overrideSubcategory={subcategory} overrideCategory={category} initialArticles={articles} />;

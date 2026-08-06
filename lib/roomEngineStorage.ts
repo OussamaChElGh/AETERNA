@@ -44,11 +44,13 @@ export function isCatalogItemUnlocked(item: RoomCatalogItem, ctx: RoomUnlockCont
 }
 
 export function evaluateRoomUnlocks(
-  ctx: RoomUnlockContext
+  ctx: RoomUnlockContext,
+  catalogOverride?: RoomCatalogItem[]
 ): { unlockedIds: Set<string>; lockedIds: Set<string> } {
+  const catalog = catalogOverride ?? getCombinedCatalog();
   const unlockedIds = new Set<string>();
   const lockedIds = new Set<string>();
-  for (const item of getCombinedCatalog()) {
+  for (const item of catalog) {
     if (isCatalogItemUnlocked(item, ctx)) {
       unlockedIds.add(item.id);
     } else {

@@ -60,8 +60,8 @@ export function AnektiaEnvironmentEngine({
       userId: user?.uid,
       userEmail: user?.email
     };
-    return evaluateRoomUnlocks(ctx).unlockedIds;
-  }, [progress.completedPaths, progress.completedLayers, user?.uid, user?.email]);
+    return evaluateRoomUnlocks(ctx, dynamicCatalog).unlockedIds;
+  }, [progress.completedPaths, progress.completedLayers, user?.uid, user?.email, dynamicCatalog]);
 
   const mountedRef = useRef(false);
   useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
