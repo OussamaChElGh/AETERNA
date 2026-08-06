@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import { PlacedRoomItem } from '@/types/roomEngine';
+import { PlacedRoomItem, RoomCatalogItem, RoomAsset } from '@/types/roomEngine';
 import { getCatalogItem } from '@/data/roomEngineCatalog';
 import { getRoomAsset } from '@/data/roomEngineAssets';
 import { tileToScreen, screenToTile, calculateDerivedZIndex, validatePlacement } from '@/lib/roomEngineStorage';
@@ -20,6 +20,8 @@ interface IsoSpriteObjectProps {
   onDelete: (instanceId: string) => void;
   onDeselect: () => void;
   scaleFactor: number;
+  dynamicCatalog?: RoomCatalogItem[];
+  dynamicAssets?: Record<string, RoomAsset>;
 }
 
 export function IsoSpriteObject({
@@ -33,12 +35,18 @@ export function IsoSpriteObject({
   onToggleElevation,
   onDelete,
   onDeselect,
-  scaleFactor
+  scaleFactor,
+  dynamicCatalog,
+  dynamicAssets
 }: IsoSpriteObjectProps) {
-  const catalogItem = getCatalogItem(item.catalogItemId);
+  const staticCatalogItem = getCatalogItem(item.catalogItemId);
+  const dynamicItem = dynamicCatalog?.find(d => d.id === item.catalogItemId);
+  const catalogItem = dynamicItem || staticCatalogItem;
   if (!catalogItem) return null;
 
-  const asset = getRoomAsset(catalogItem.assetId);
+  const staticAsset = getRoomAsset(catalogItem.assetId);
+  const dynamicAsset = dynamicAssets?.[catalogItem.assetId];
+  const asset = dynamicAsset || staticAsset;
 
   const rawSpriteSrc = (asset?.spritesByRotation && asset.spritesByRotation[item.rotation]) 
     || asset?.src 

@@ -486,7 +486,7 @@
     },
     {
       "id": "blackboard_equations",
-      "name": "Pizarra de Ecuaciones",
+      "name": "Pizarrita",
       "description": "Pizarra de pizarra verde con fórmulas de la física escritas en tiza blanca.",
       "type": "decoration",
       "discipline": "physics",
@@ -508,7 +508,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785994433611
+      "updatedAt": 1785995101357
     },
     {
       "id": "compass_proportions",

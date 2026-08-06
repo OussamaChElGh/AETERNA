@@ -9,6 +9,7 @@ import { RoomCatalogItem as LegacyCatalogItem } from '@/types/roomEngine';
 import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks, hasRoomEngineState, validatePlacement } from '@/lib/roomEngineStorage';
 import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
+import { useCombinedAssets } from '@/hooks/useCombinedAssets';
 import { Starfield } from '@/components/Starfield';
 import { ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -28,6 +29,7 @@ export function AnektiaEnvironmentEngine({
   const { user } = useAuth();
   const { progress } = useGamification();
   const userId = user?.uid || 'anonymous';
+  const { catalog: dynamicCatalog, assets: dynamicAssets } = useCombinedAssets();
 
   const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(() => {
     const hasSaved = hasRoomEngineState();
@@ -288,6 +290,8 @@ export function AnektiaEnvironmentEngine({
               onDelete={handleDelete}
               onDeselect={() => setSelectedInstanceId(null)}
               scaleFactor={scaleFactor * zoom}
+              dynamicCatalog={dynamicCatalog}
+              dynamicAssets={dynamicAssets}
             />
           </div>
 

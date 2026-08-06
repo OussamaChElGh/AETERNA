@@ -25,6 +25,7 @@ import {
   type AssetMetadata,
   type UploadAssetInput 
 } from '@/lib/adminAssets';
+import { invalidateAssetsCache } from '@/hooks/useCombinedAssets';
 import { useToast } from '@/components/ui/ToastProvider';
 import { ConfirmModal } from '@/components/ui/ConfirmModal';
 
@@ -115,6 +116,7 @@ function UploadForm({ onSuccess }: { onSuccess: () => void }) {
     setUploading(true);
     try {
       await createAsset(formData, file);
+      invalidateAssetsCache();
       showToast('success', 'Asset creado', `${formData.name} añadido correctamente`);
       setFile(null);
       setPreview(null);
@@ -375,14 +377,13 @@ function EditModal({
 
     setSaving(true);
     try {
-      // Primero actualizar metadata
       await updateAsset(asset.id, formData);
       
-      // Si hay nueva imagen, subirla
       if (file) {
         await updateAssetImage(asset.id, file);
       }
       
+      invalidateAssetsCache();
       showToast('success', 'Asset actualizado');
       onSuccess();
       onClose();
@@ -661,6 +662,7 @@ function AssetCard({ asset, onDelete, onRefresh }: {
     setUploading(true);
     try {
       await updateAssetImage(asset.id, file);
+      invalidateAssetsCache();
       showToast('success', 'Imagen actualizada');
       onRefresh();
     } catch (error) {
@@ -771,6 +773,7 @@ export default function AdminAssetsPage() {
   async function handleDelete(assetId: string) {
     try {
       await deleteAsset(assetId);
+      invalidateAssetsCache();
       showToast('success', 'Asset eliminado');
       fetchAssets();
     } catch (error) {
@@ -785,6 +788,7 @@ export default function AdminAssetsPage() {
       const data = await res.json();
       
       if (data.success) {
+        invalidateAssetsCache();
         showToast('success', 'Sincronización completada', 
           `${data.added} nuevos, ${data.updated} actualizados`);
         fetchAssets();

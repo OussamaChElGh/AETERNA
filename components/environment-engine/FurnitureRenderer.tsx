@@ -2,6 +2,7 @@
 import React from 'react';
 import { EnvironmentPlacedItem } from '@/types/environmentEngine';
 import { IsoSpriteObject } from '../room-engine/IsoSpriteObject';
+import { RoomCatalogItem, RoomAsset } from '@/types/roomEngine';
 
 interface FurnitureRendererProps {
   placedItems: EnvironmentPlacedItem[];
@@ -14,6 +15,8 @@ interface FurnitureRendererProps {
   onDelete: (instanceId: string) => void;
   onDeselect: () => void;
   scaleFactor: number;
+  dynamicCatalog?: RoomCatalogItem[];
+  dynamicAssets?: Record<string, RoomAsset>;
 }
 
 export function FurnitureRenderer({
@@ -26,13 +29,10 @@ export function FurnitureRenderer({
   onToggleElevation,
   onDelete,
   onDeselect,
-  scaleFactor
+  scaleFactor,
+  dynamicCatalog,
+  dynamicAssets
 }: FurnitureRendererProps) {
-  // El orden de profundidad lo gestiona IsoSpriteObject vía z-index CSS
-  // (calculateDerivedZIndex aplicado como style.zIndex). Ordenar aquí por
-  // profundidad en cada render causa reordenamientos del DOM durante el drag
-  // → lag perceptible. Renderizamos en orden de array y dejamos que el CSS
-  // resuelva el solapamiento.
   return (
     <>
       {placedItems.map(item => (
@@ -49,6 +49,8 @@ export function FurnitureRenderer({
           onDelete={onDelete}
           onDeselect={onDeselect}
           scaleFactor={scaleFactor}
+          dynamicCatalog={dynamicCatalog}
+          dynamicAssets={dynamicAssets}
         />
       ))}
     </>

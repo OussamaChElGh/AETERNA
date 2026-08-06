@@ -5,6 +5,7 @@ import { FloorRenderer } from './FloorRenderer';
 import { WallRenderer } from './WallRenderer';
 import { FurnitureRenderer } from './FurnitureRenderer';
 import { ParticleRenderer } from './renderers/ParticleRenderer';
+import { RoomCatalogItem, RoomAsset } from '@/types/roomEngine';
 
 interface RoomProps {
   layout: EnvironmentLayout;
@@ -19,6 +20,8 @@ interface RoomProps {
   onDelete: (instanceId: string) => void;
   onDeselect: () => void;
   scaleFactor: number;
+  dynamicCatalog?: RoomCatalogItem[];
+  dynamicAssets?: Record<string, RoomAsset>;
 }
 
 export function Room({
@@ -33,7 +36,9 @@ export function Room({
   onToggleElevation,
   onDelete,
   onDeselect,
-  scaleFactor
+  scaleFactor,
+  dynamicCatalog,
+  dynamicAssets
 }: RoomProps) {
   return (
     <div 
@@ -66,6 +71,8 @@ export function Room({
         onDelete={onDelete}
         onDeselect={onDeselect}
         scaleFactor={scaleFactor}
+        dynamicCatalog={dynamicCatalog}
+        dynamicAssets={dynamicAssets}
       />
 
       {/* 4. ParticleRenderer (Floating Dust Motes Pass) */}
