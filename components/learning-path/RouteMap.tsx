@@ -26,12 +26,12 @@ export interface RouteData { id: string; title: string; levels: RouteLevel[] }
 
 export interface RouteUserProgress { totalXP: number; levelName: string; completedNodes: string[] }
 
-/* ───────── PALETTE ───────── */
+/* ───────── PALETTE (NEON + GLASS) ───────── */
 const P = {
-  gold:   { accent:'#D4AF37', accent2:'#EFD75F', accent3:'#B8860B', bg:'#1C1510', border:'#2A2415', glow:'rgba(212,175,55,0.25)' },
-  purple: { accent:'#A78BFA', accent2:'#C4B5FD', accent3:'#7C3AED', bg:'#1C1A28', border:'#2A2045', glow:'rgba(167,139,250,0.25)' },
-  teal:   { accent:'#2DD4BF', accent2:'#5EEAD4', accent3:'#0D9488', bg:'#0A1E18', border:'#0A2020', glow:'rgba(45,212,191,0.25)' },
-  red:    { accent:'#F87171', accent2:'#FCA5A5', accent3:'#DC2626', bg:'#1E0F0F', border:'#2A1010', glow:'rgba(248,113,113,0.25)' },
+  gold:   { accent:'#FFD700', accent2:'#FFF07F', accent3:'#B8860B', bg:'rgba(255,215,0,0.05)', border:'rgba(255,215,0,0.2)', glow:'rgba(255,215,0,0.4)' },
+  purple: { accent:'#C084FC', accent2:'#E9D5FF', accent3:'#9333EA', bg:'rgba(192,132,252,0.05)', border:'rgba(192,132,252,0.2)', glow:'rgba(192,132,252,0.4)' },
+  teal:   { accent:'#2DD4BF', accent2:'#99F6E4', accent3:'#0D9488', bg:'rgba(45,212,191,0.05)', border:'rgba(45,212,191,0.2)', glow:'rgba(45,212,191,0.4)' },
+  red:    { accent:'#F87171', accent2:'#FECACA', accent3:'#DC2626', bg:'rgba(248,113,113,0.05)', border:'rgba(248,113,113,0.2)', glow:'rgba(248,113,113,0.4)' },
 }
 
 /* ───────── CONSTELLATION PARTICLES ───────── */
@@ -59,71 +59,65 @@ function ConstellationParticles({ accent, count = 20 }: { accent: string; count?
 /* ───────── STAR RATING ───────── */
 function Stars({ count=3, lit=0 }: { count?:number; lit:number }) {
   return (<div className="flex gap-1 mt-1.5">{Array.from({length:count}).map((_,i)=>(
-    <span key={i} className={cn('text-sm transition-all duration-300', i<lit?'opacity-100 scale-110':'opacity-15')}
-      style={{color:'#D4AF37', filter:i<lit?'drop-shadow(0 0 4px #D4AF37)':'none'}}>★</span>
+    <span key={i} className={cn('text-sm transition-all duration-300', i<lit?'opacity-100 scale-110':'opacity-20')}
+      style={{color:'#FFD700', filter:i<lit?'drop-shadow(0 0 6px #FFD700)':'none'}}>★</span>
   ))}</div>)
 }
 
 /* ───────── NODE CIRCLE ───────── */
 function NodeCircle({ node, palette, onClick }: { node:RouteNode; palette:typeof P['gold']; onClick:()=>void }) {
-  return (
-    <button
-      onClick={onClick}
-      className={cn(
-        'relative w-[120px] h-[120px] rounded-full flex items-center justify-center text-4xl',
-        'transition-all duration-300 cursor-pointer border-[3px]',
-        'hover:scale-110 hover:-translate-y-1',
-        node.status==='done'   && `bg-[${palette.bg}] border-[${palette.accent}]`,
-        node.status==='active' && `bg-[${palette.bg}] border-[${palette.accent2}]`,
-        node.status==='locked' && `bg-[#131012] border-[${palette.border}] opacity-35`,
-      )}
-      style={{
-        background: node.status==='done'
-          ? `radial-gradient(circle at 35% 30%, ${palette.accent}20 0%, ${palette.bg} 60%, #0A080F 100%)`
-          : node.status==='active'
-          ? `radial-gradient(circle at 35% 30%, ${palette.accent2}30 0%, ${palette.bg} 55%, #0A080F 100%)`
-          : `radial-gradient(circle at 35% 30%, rgba(255,255,255,0.02) 0%, #131012 60%, #0A080F 100%)`,
-        borderColor: node.status==='done' ? palette.accent : node.status==='active' ? palette.accent2 : palette.border,
-        boxShadow: node.status==='done'
-          ? `0 8px 32px rgba(0,0,0,0.5), 0 0 32px ${palette.glow}, inset 0 1px 0 rgba(255,255,255,0.03)`
-          : node.status==='active'
-          ? `0 8px 32px rgba(0,0,0,0.5), 0 0 48px ${palette.glow}, 0 0 80px ${palette.accent}20, inset 0 1px 0 rgba(255,255,255,0.04)`
-          : `0 4px 16px rgba(0,0,0,0.4)`,
-      }}
-      aria-label={`${node.title} — ${node.status}`}
-    >
-      {/* Glass specular highlight */}
-      <div className="absolute top-3 left-3 w-6 h-4 rounded-full opacity-[0.06]"
-        style={{background:'linear-gradient(135deg, white, transparent)'}} />
-      {/* Shadow floor */}
-      <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[70%] h-[25%] rounded-full"
-        style={{background:'rgba(0,0,0,0.4)', filter:'blur(8px)'}} />
-      <span className="relative z-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
-        {node.icon ? <node.icon className="w-12 h-12" /> : node.emoji}
-      </span>
+  const isDone = node.status==='done'
+  const isActive = node.status==='active'
+  const isLocked = node.status==='locked'
 
-      {node.status==='active' && (
-        <span className="absolute -top-3 -right-3 text-xs font-bold px-2.5 py-1 rounded-full animate-pulse"
-          style={{background:palette.accent2, color:'#0A080F', boxShadow:`0 2px 12px ${palette.glow}`}}>
-          +{node.xp} XP
-        </span>
-      )}
-      {node.status==='done' && (
-        <span className="absolute -top-2 -right-2 w-[28px] h-[28px] rounded-full flex items-center justify-center text-sm font-bold"
-          style={{background:`linear-gradient(135deg, ${palette.accent2}, ${palette.accent})`, color:'#0A080F', boxShadow:`0 3px 12px ${palette.glow}`}}>
-          ✓
-        </span>
-      )}
-      {/* Active pulse rings */}
-      {node.status==='active' && (
-        <>
-          <div className="absolute -inset-3 rounded-full border-2 pointer-events-none animate-ping opacity-30"
-            style={{borderColor:palette.accent2, animationDuration:'2s'}} />
-          <div className="absolute -inset-4 rounded-full border pointer-events-none animate-pulse opacity-15"
-            style={{borderColor:palette.accent2}} />
-        </>
-      )}
-    </button>
+  return (
+    <div className="flex flex-col items-center group">
+      <button 
+        onClick={onClick} 
+        disabled={isLocked} 
+        className={cn(
+          "relative w-[110px] h-[110px] rounded-full flex items-center justify-center transition-all duration-300",
+          isLocked ? 'cursor-not-allowed opacity-50 grayscale' : 'cursor-pointer hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]'
+        )}
+        style={{
+          background: 'rgba(0,0,0,0.7)',
+          border: '4px solid #D4AF37',
+          boxShadow: isLocked ? 'none' : '0 0 15px rgba(212,175,55,0.4), inset 0 0 15px rgba(212,175,55,0.4)'
+        }}
+      >
+        <div className="absolute inset-2 rounded-full border border-[#D4AF37]/30" />
+        
+        {/* Content over the ring */}
+        <div className="relative z-20 flex flex-col items-center justify-center">
+          {node.icon ? (
+            <node.icon className="w-10 h-10 text-[#D4AF37]" style={{filter: 'drop-shadow(0 2px 5px rgba(0,0,0,1))'}} />
+          ) : (
+            <span className="text-4xl drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">{node.emoji}</span>
+          )}
+        </div>
+
+        {isActive && (
+          <span className="absolute -top-1 -right-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full z-30 animate-pulse border border-[#3E2723]"
+            style={{background:'#D4AF37', color:'#050505', boxShadow:`0 2px 12px rgba(212,175,55,0.8)`}}>
+            +{node.xp} XP
+          </span>
+        )}
+        {isDone && (
+          <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold z-30 border-2 border-[#3E2723]"
+            style={{background:`#D4AF37`, color:'#050505', boxShadow:`0 0 10px rgba(212,175,55,1)`}}>
+            ✓
+          </span>
+        )}
+      </button>
+
+      {/* Title Badge Below Node */}
+      <div className="mt-3 flex flex-col items-center w-[160px] text-center z-20">
+        <p className={`text-sm font-serif font-bold leading-tight ${isLocked?'text-white/50':'text-[#D4AF37] drop-shadow-[0_2px_2px_rgba(0,0,0,1)]'}`}>
+          {node.title}
+        </p>
+        <Stars lit={node.stars??0} />
+      </div>
+    </div>
   )
 }
 
@@ -149,10 +143,10 @@ function RouteNodeComponent({ node, palette, onClick }: {
   return (
     <div className="relative group flex flex-col items-center gap-2.5">
       <NodeCircle node={node} palette={palette} onClick={()=>onClick(node)} />
-      <span className={cn('text-sm font-bold text-center max-w-[120px] leading-tight',
-        node.status==='done'&&'text-[#D4AF37]',
-        node.status==='active'&&'text-[#EFD75F]',
-        node.status==='locked'&&'text-[#3D3A35]',
+      <span className={cn('text-sm font-bold text-center max-w-[140px] leading-tight',
+        node.status==='done'&&'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]',
+        node.status==='active'&&'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]',
+        node.status==='locked'&&'text-white/40',
       )}>{node.title}</span>
       <Stars lit={node.stars??0} />
       <Tooltip title={`${node.order}. ${node.title}`} desc={node.description} />
@@ -161,24 +155,15 @@ function RouteNodeComponent({ node, palette, onClick }: {
 }
 
 /* ───────── CONNECTORS ───────── */
-function HorizontalConnector({ palette }: { palette:typeof P['gold'] }) {
-  return (
-    <div className="flex items-center gap-1 mx-1">
-      <div className="h-[2px] w-24 rounded-full opacity-50"
-        style={{background:`linear-gradient(90deg, ${palette.accent3}, ${palette.accent})`}} />
-      <div className="w-1.5 h-1.5 rounded-full"
-        style={{background:palette.accent, boxShadow:`0 0 6px ${palette.accent}`}} />
-    </div>
-  )
-}
-
 function VerticalConnector({ palette, locked=false }: { palette:typeof P['gold']; locked?:boolean }) {
   return (
-    <div className="flex flex-col items-center gap-1">
-      <div className="w-[2px] h-12 rounded-full"
-        style={{background:`linear-gradient(180deg, ${palette.accent3}, ${palette.accent})`, opacity:locked?0.15:0.5}} />
-      <div className="w-1.5 h-1.5 rounded-full"
-        style={{background:palette.accent, boxShadow:`0 0 6px ${palette.accent}`, opacity:locked?0.3:0.8}} />
+    <div className="flex flex-col items-center gap-0">
+      <div className="w-[3px] h-16 rounded-full my-2"
+        style={{
+          background: locked ? 'rgba(255,255,255,0.05)' : `linear-gradient(180deg, ${palette.accent}, ${palette.accent2}, ${palette.accent})`, 
+          opacity: locked ? 0.3 : 1,
+          boxShadow: locked ? 'none' : `0 0 15px ${palette.accent}, 0 0 30px ${palette.glow}`
+        }} />
     </div>
   )
 }
@@ -189,52 +174,54 @@ function Chest({ unlocked, reward, palette, onOpen }: {
 }) {
   const [showPreview, setShowPreview] = useState(false)
   return (
-    <div className="relative flex flex-col items-center gap-1">
+    <div className="relative flex flex-col items-center gap-1 my-2">
       <button
         onClick={()=>{if(unlocked){setShowPreview(v=>!v);onOpen()}}}
         disabled={!unlocked}
         className={cn(
-          'relative w-24 h-16 rounded-xl flex flex-col items-center justify-center gap-1',
-          'border-2 transition-all duration-200',
+          'relative w-20 h-20 rounded-2xl flex flex-col items-center justify-center gap-1 backdrop-blur-xl',
+          'border transition-all duration-300',
           unlocked
             ? 'cursor-pointer hover:scale-110 hover:-translate-y-1'
-            : 'opacity-30 cursor-not-allowed'
+            : 'opacity-40 cursor-not-allowed'
         )}
         style={{
-          background: unlocked ? `linear-gradient(180deg, ${palette.bg}F0, #0A080F)` : '#0F0C18',
-          borderColor: unlocked ? palette.accent : palette.border,
-          boxShadow: unlocked ? `0 6px 20px rgba(0,0,0,0.5), 0 0 24px ${palette.glow}` : 'none',
+          background: unlocked ? `linear-gradient(135deg, rgba(255,255,255,0.15), rgba(0,0,0,0.5))` : 'rgba(255,255,255,0.05)',
+          borderColor: unlocked ? palette.accent : 'rgba(255,255,255,0.1)',
+          boxShadow: unlocked ? `0 8px 32px rgba(0,0,0,0.5), 0 0 24px ${palette.glow}, inset 0 1px 0 rgba(255,255,255,0.3)` : 'none',
         }}
         aria-label={unlocked?`Cofre: ${reward?.name}`:'Cofre bloqueado'}
       >
         <span className="text-3xl">{unlocked?'🎁':'🔒'}</span>
-        <span className="text-[10px] font-bold tracking-widest uppercase"
-          style={{color:unlocked?palette.accent:'#3D3A35'}}>
+        <span className="text-[9px] font-bold tracking-widest uppercase"
+          style={{color:unlocked?'white':'rgba(255,255,255,0.5)'}}>
           {unlocked?'Abrir':'Sellado'}
         </span>
         {unlocked && (
           <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold animate-bounce"
-            style={{background:palette.accent, color:'#0A080F'}}>!</span>
+            style={{background:palette.accent, color:'#050505', boxShadow:`0 0 10px ${palette.glow}`}}>!</span>
         )}
       </button>
 
       {/* Reward popup */}
       {showPreview && unlocked && reward && (
         <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 w-[280px] rounded-2xl p-5 z-30
-          bg-[#0F0C18]/98 backdrop-blur-xl border border-[#D4AF37]/40
-          shadow-[0_16px_48px_rgba(0,0,0,0.6),0_0_40px_rgba(212,175,55,0.15)]
-          animate-in zoom-in-95 fade-in duration-200">
+          bg-[#050505]/90 backdrop-blur-2xl border
+          shadow-[0_16px_48px_rgba(0,0,0,0.8),0_0_40px_rgba(255,255,255,0.1)]
+          animate-in zoom-in-95 fade-in duration-200"
+          style={{borderColor:palette.accent}}>
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 rounded-xl bg-[#1C1810] border border-[#D4AF37]/30 flex items-center justify-center shrink-0 overflow-hidden">
-              <img src={reward.image} alt="" className="w-12 h-12 object-contain" />
+            <div className="w-16 h-16 rounded-xl flex items-center justify-center shrink-0 overflow-hidden"
+                 style={{background:'rgba(255,255,255,0.1)', border:`1px solid ${palette.border}`}}>
+              <img src={reward.image} alt="" className="w-12 h-12 object-contain drop-shadow-[0_0_8px_white]" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-[#8B6914]/70 mb-1">Recompensa</p>
-              <p className="text-sm font-bold text-[#D4AF37] leading-tight">{reward.name}</p>
-              <p className="text-xs text-[#8B6914]/60 mt-2 leading-relaxed">{reward.description}</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.15em] mb-1" style={{color:palette.accent}}>Recompensa</p>
+              <p className="text-sm font-bold text-white leading-tight">{reward.name}</p>
+              <p className="text-xs text-white/60 mt-2 leading-relaxed">{reward.description}</p>
             </div>
             <button onClick={e=>{e.stopPropagation();setShowPreview(false)}}
-              className="text-[#8B6914] hover:text-[#D4AF37] text-xl shrink-0">✕</button>
+              className="text-white/50 hover:text-white text-xl shrink-0">✕</button>
           </div>
         </div>
       )}
@@ -247,49 +234,44 @@ function LevelBand({ level, onNodeClick, onChestOpen }: {
   level:RouteLevel; onNodeClick:(n:RouteNode)=>void; onChestOpen:(l:RouteLevel)=>void
 }) {
   const palette = P[level.colorClass]
-  const rows:RouteNode[][] = []
-  for(let i=0;i<level.nodes.length;i+=2) rows.push(level.nodes.slice(i,i+2))
   const done = level.nodes.filter(n=>n.status==='done').length
 
   return (
-    <div className="relative rounded-3xl border p-6 pb-7 overflow-hidden"
-      style={{background:`linear-gradient(175deg, ${palette.bg}F5 0%, ${palette.bg}98 50%, rgba(0,0,0,0.4) 100%)`, borderColor:`${palette.accent}18`}}>
-      <ConstellationParticles accent={palette.accent} count={30} />
+    <div className="relative w-full py-12 flex flex-col items-center">
+      <ConstellationParticles accent={palette.accent} count={15} />
 
       {/* Level header pill */}
-      <div className="relative z-10 flex justify-center mb-1">
-        <div className="absolute -top-[18px] px-5 py-1.5 rounded-full border text-xs font-bold tracking-[0.2em] whitespace-nowrap"
-          style={{background:`linear-gradient(180deg, ${palette.bg}F0, rgba(0,0,0,0.8))`, borderColor:`${palette.accent}30`, color:palette.accent2,
-            boxShadow:`0 4px 16px rgba(0,0,0,0.4), 0 0 20px ${palette.glow}`}}>
-          {level.emoji} NIVEL {level.id} — {level.title.toUpperCase()}
+      <div className="relative z-10 flex justify-center mb-16">
+        <div className="px-10 py-4 rounded-full border backdrop-blur-3xl text-sm font-black tracking-[0.25em] whitespace-nowrap"
+          style={{
+            background:`linear-gradient(135deg, rgba(0,0,0,0.8), rgba(255,255,255,0.08))`, 
+            borderColor:palette.accent, 
+            color:palette.accent2,
+            boxShadow:`0 16px 40px rgba(0,0,0,0.9), 0 0 30px ${palette.glow}, inset 0 2px 0 rgba(255,255,255,0.3)`
+          }}>
+          <span className="mr-3 text-xl">{level.emoji}</span> NIVEL {level.id} — {level.title.toUpperCase()}
         </div>
       </div>
 
       {/* Row counter */}
-      <div className="relative z-10 flex justify-center mb-4 mt-3">
-        <span className="text-[11px] font-mono tracking-[0.12em] opacity-25" style={{color:palette.accent2}}>
-          {done}/{level.nodes.length}
+      <div className="relative z-10 flex justify-center mb-10">
+        <span className="text-[11px] font-mono tracking-[0.12em] text-white/50 bg-black/60 px-4 py-1.5 rounded-full border border-white/10 backdrop-blur-sm">
+          {done}/{level.nodes.length} completados
         </span>
       </div>
 
-      {/* Nodes */}
+      {/* Nodes (Vertical) */}
       <div className="relative z-10 flex flex-col items-center gap-0">
-        {rows.map((pair, ri) => (
-          <div key={ri} className="flex flex-col items-center gap-0">
-            <div className="flex items-center gap-0">
-              <RouteNodeComponent node={pair[0]} palette={palette} onClick={onNodeClick} />
-              {pair[1] && (
-                <>
-                  <HorizontalConnector palette={palette} />
-                  <RouteNodeComponent node={pair[1]} palette={palette} onClick={onNodeClick} />
-                </>
-              )}
-            </div>
-            {ri < rows.length-1 && (
+        {level.nodes.map((node, ri) => (
+          <div key={node.id} className="flex flex-col items-center gap-0 w-full">
+            <RouteNodeComponent node={node} palette={palette} onClick={onNodeClick} />
+            {ri < level.nodes.length-1 && (
+              <VerticalConnector palette={palette} locked={level.nodes[ri+1].status==='locked'} />
+            )}
+            {ri === level.nodes.length-1 && (
               <>
-                <VerticalConnector palette={palette} />
+                <VerticalConnector palette={palette} locked={!level.chestUnlocked} />
                 <Chest unlocked={level.chestUnlocked} reward={level.chestReward} palette={palette} onOpen={()=>onChestOpen(level)} />
-                <VerticalConnector palette={palette} />
               </>
             )}
           </div>
@@ -342,53 +324,80 @@ function NodeModal({ node, onClose, onStart }: { node:RouteNode; onClose:()=>voi
   )
 }
 
-/* ───────── MAIN ───────── */
+/* ───────── MAIN HORIZONTAL LAYOUT ───────── */
 interface RouteMapProps { route:RouteData; userProgress:RouteUserProgress; onNodeStart?:(slug:string)=>void }
 
 export function RouteMap({ route, userProgress, onNodeStart }: RouteMapProps) {
   const [selectedNode, setSelectedNode] = useState<RouteNode|null>(null)
-  const [openedChest, setOpenedChest] = useState<string|null>(null)
-  const totalNodes = route.levels.reduce((s,l)=>s+l.nodes.length,0)
+  
+  const allNodes = route.levels.flatMap(l=>l.nodes)
+  if(allNodes.length === 0) return null
+
+  const heroNode = allNodes[0]
+  const branchNodes = allNodes.slice(1, 5) // Take next 4 nodes for the tree
+
+  // Hardcoded positions for the first 4 branch nodes to match the image exactly
+  const nodePositions = [
+    { top: '15%', left: '550px' }, // Top branch
+    { top: '50%', left: '550px' }, // Middle branch
+    { top: '85%', left: '550px' }, // Bottom branch
+    { top: '50%', left: '750px' }, // Next middle branch
+  ]
 
   return (
-    <>
-      <div className="w-full flex flex-col gap-5">
-        {route.levels.map((level, i) => (
-          <div key={level.id} className="flex flex-col items-center gap-0">
-            <LevelBand level={level} onNodeClick={setSelectedNode} onChestOpen={(lvl) => setOpenedChest(lvl.id.toString())} />
-            {i < route.levels.length-1 && (
-              <div className="w-[2px] h-12 rounded-full opacity-20"
-                style={{background:`linear-gradient(180deg, ${P[route.levels[i+1].colorClass].accent3}, ${P[route.levels[i+1].colorClass].accent})`}} />
-            )}
-          </div>
-        ))}
+    <div className="relative w-full h-[600px] flex items-center -ml-8">
+      {/* SVGs para las líneas conectoras */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{filter:'drop-shadow(0 0 5px rgba(212,175,55,0.5))'}}>
+        {/* Línea horizontal principal desde Hero hasta el medio */}
+        <path d="M 400 300 L 550 300" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
+        {/* Bifurcación superior */}
+        <path d="M 450 300 L 450 90 L 550 90" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
+        {/* Bifurcación inferior */}
+        <path d="M 450 300 L 450 510 L 550 510" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
+        {/* Conector al nodo final */}
+        <path d="M 600 300 L 750 300" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
+      </svg>
 
-        {/* Bottom bar */}
-        <div className="flex items-center justify-between px-6 py-4 rounded-2xl border"
-          style={{background:'linear-gradient(180deg, rgba(22,20,15,0.9), rgba(10,8,15,0.95))', borderColor:'#2A2415'}}>
-          <div>
-            <p className="text-xs text-[#8B6914]/50 tracking-[0.2em] font-bold uppercase">{userProgress.levelName}</p>
-            <p className="text-[#D4AF37] font-bold text-xl">{userProgress.totalXP.toLocaleString()} XP</p>
+      {/* HERO CARD (Left) */}
+      <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10 w-[400px]">
+        <div 
+          onClick={() => setSelectedNode(heroNode)}
+          className="relative rounded-2xl bg-black/80 border border-[#D4AF37]/50 overflow-hidden cursor-pointer group transition-transform hover:scale-[1.02]"
+          style={{boxShadow:'0 10px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(212,175,55,0.1)'}}>
+          
+          <div className="h-[200px] w-full relative overflow-hidden bg-black flex items-center justify-center">
+            {/* Agujero Negro usando mix-blend y una imagen rotada */}
+            <img src="/images/node-energy.png" alt="Blackhole" className="absolute w-[150%] h-[150%] object-cover mix-blend-screen opacity-80 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
           </div>
-          <div className="text-right">
-            <p className="text-xs text-[#8B6914]/50 mb-1.5">Progreso</p>
-            <div className="w-40 h-2.5 bg-[#2A2415] rounded-full overflow-hidden">
-              <div className="h-full bg-gradient-to-r from-[#B8860B] to-[#D4AF37] rounded-full transition-all duration-700"
-                style={{width:`${totalNodes>0?(userProgress.completedNodes.length/totalNodes)*100:0}%`}} />
+
+          <div className="p-6 relative z-10 border-t border-[#D4AF37]/20">
+            <p className="text-[#D4AF37] font-bold text-[10px] tracking-[0.2em] uppercase mb-2">Sección 1 • Nivel 1</p>
+            <h2 className="text-3xl font-serif font-bold text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">{heroNode.title}</h2>
+            <p className="text-white/60 text-sm leading-relaxed mb-4">{heroNode.description}</p>
+            
+            <div className="flex items-center gap-3 mt-4">
+              <span className="px-3 py-1 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-xs font-bold text-[#D4AF37]">
+                +{heroNode.xp} XP
+              </span>
+              <Stars lit={heroNode.stars??0} />
             </div>
-            <p className="text-xs text-[#8B6914]/50 mt-1.5">{userProgress.completedNodes.length}/{totalNodes}</p>
           </div>
         </div>
       </div>
 
-      {selectedNode && <NodeModal node={selectedNode} onClose={()=>setSelectedNode(null)} onStart={(s)=>{setSelectedNode(null);onNodeStart?.(s)}} />}
-
-      {openedChest && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-[#0F0C18]/95 backdrop-blur-xl border border-[#D4AF37]/40 rounded-2xl px-6 py-4 flex items-center gap-4 shadow-2xl animate-in slide-in-from-bottom-6 fade-in duration-300">
-          <span className="text-3xl">🎁</span>
-          <div><p className="text-[#D4AF37] font-bold text-base">¡Cofre desbloqueado!</p><p className="text-[#8B6914]/60 text-sm">Revisa tu habitación</p></div>
+      {/* BRANCH NODES (Right) */}
+      {branchNodes.map((node, i) => (
+        <div 
+          key={node.id} 
+          className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
+          style={{ top: nodePositions[i].top, left: nodePositions[i].left }}>
+          <NodeCircle node={node} palette={P['gold']} onClick={() => setSelectedNode(node)} />
         </div>
-      )}
-    </>
+      ))}
+
+      {/* NODE MODAL */}
+      {selectedNode && <NodeModal node={selectedNode} onClose={()=>setSelectedNode(null)} onStart={(s)=>{setSelectedNode(null);onNodeStart?.(s)}} />}
+    </div>
   )
 }

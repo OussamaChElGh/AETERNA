@@ -1,7 +1,7 @@
-﻿'use client'
+'use client'
 import { useMemo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { Trophy, Star, Flame, Award, Zap, Sparkles, Target, TrendingUp, Gift, Map } from 'lucide-react'
+import { Trophy, Star, Flame, Award, Zap, Sparkles, Target, TrendingUp, Gift, Map, CheckCircle } from 'lucide-react'
 import { RouteMap, type RouteData, type RouteLevel, type RouteNode, type RouteUserProgress, type NodeStatus, type ChestReward } from '@/components/learning-path/RouteMap'
 import fisicaCurriculum from '@/data/curriculum/fisica.json'
 import relicData from '@/data/relics.json'
@@ -62,46 +62,63 @@ function getRankInfo(totalNodes:number, done:number) {
 /* ─── AMBIENT STARFIELD ─── */
 function AmbientBackground() {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Nebula glows */}
-      <div className="absolute top-[-20%] left-[-5%] w-[60vw] h-[50vh] rounded-full opacity-[0.04] blur-[180px]"
-        style={{background:'radial-gradient(ellipse, #8B5CF6, transparent)'}} />
-      <div className="absolute bottom-[-15%] right-[-5%] w-[50vw] h-[40vh] rounded-full opacity-[0.03] blur-[150px]"
-        style={{background:'radial-gradient(ellipse, #06B6D4, transparent)'}} />
-      <div className="absolute top-[40%] left-[20%] w-[30vw] h-[30vh] rounded-full opacity-[0.03] blur-[120px]"
-        style={{background:'radial-gradient(ellipse, #D4AF37, transparent)'}} />
-
-      {/* Stars */}
-      {Array.from({length:120}).map((_,i)=>{
-        const size = i<10?2.5:i<30?2:1
-        const bright = i<10
-        return (
-          <div key={i} className="absolute rounded-full animate-pulse"
-            style={{
-              left:`${5+Math.random()*90}%`, top:`${3+Math.random()*94}%`,
-              width:size, height:size,
-              background:['#A78BFA','#67E8F9','#D4AF37','#F472B6','#FCD34D'][i%5],
-              opacity:0.15+Math.random()*0.15, animationDuration:`${3+Math.random()*5}s`,
-              boxShadow:bright?`0 0 ${size*4}px currentColor`:'none',
-            }} />
-        )
-      })}
+    <div className="fixed inset-0 pointer-events-none z-0 bg-[url('/images/hero-fantasy-room.png')] bg-cover bg-center bg-fixed">
+      {/* Dark overlay to make UI readable */}
+      <div className="absolute inset-0 bg-black/60" />
+      {/* Top gradient for header */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/80 to-transparent" />
+      {/* Right gradient for sidebar */}
+      <div className="absolute top-0 right-0 bottom-0 w-[400px] bg-gradient-to-l from-black/80 to-transparent" />
     </div>
   )
 }
 
+function TopBar({ xp, level, capes, hearts }: { xp:number; level:number; capes:number; hearts:number }) {
+  return (
+    <header className="fixed top-0 left-0 right-0 h-16 z-50 flex items-center px-8 justify-between">
+      <div className="flex items-center gap-6">
+        <h1 className="text-xl font-serif text-[#D4AF37] tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Física</h1>
+        <div className="flex items-center gap-4 text-xs font-bold">
+          <div className="flex items-center gap-1.5 text-[#D4AF37] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            <span className="text-lg">💛</span> <span>{hearts}</span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-1 bg-black/40 rounded-full border border-[#D4AF37]/30 text-[#D4AF37]">
+            <Zap size={14} /> <span>{xp.toLocaleString()} XP</span>
+          </div>
+          <div className="flex items-center gap-1.5 px-3 py-1 bg-[#D4AF37]/20 rounded-full border border-[#D4AF37]/50 text-[#D4AF37]">
+            <Award size={14} /> <span>N.{level}</span>
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center gap-3 text-xs font-mono text-white/50 tracking-widest drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+        <span>1/27</span>
+        <span>•</span>
+        <span>{capes} capas</span>
+      </div>
+    </header>
+  )
+}
+
 /* ─── SIDEBAR CARD ─── */
-function SideCard({ title, icon: Icon, children, accent='#D4AF37' }: {
+function SideCard({ title, icon: Icon, children, accent='#FFD700' }: {
   title:string; icon:React.ComponentType<{size?:number; className?:string; style?:React.CSSProperties}>; children:React.ReactNode; accent?:string
 }) {
   return (
-    <div className="rounded-2xl border p-4 backdrop-blur-sm"
-      style={{background:'rgba(22,20,15,0.7)', borderColor:'rgba(42,36,21,0.5)'}}>
-      <div className="flex items-center gap-2 mb-3">
-        <Icon size={14} style={{color:accent}} />
-        <p className="text-[10px] font-bold tracking-[0.18em] uppercase" style={{color:`${accent}80`}}>{title}</p>
+    <div className="relative p-6 shadow-[0_16px_40px_rgba(0,0,0,0.8)] overflow-hidden rounded-3xl"
+      style={{
+        background:'rgba(0,0,0,0.4)',
+      }}>
+      {/* 3D Frame Background */}
+      <img src="/images/sidebar-frame.png" alt="frame" className="absolute inset-0 w-full h-full object-fill mix-blend-screen opacity-50 pointer-events-none" />
+      
+      <div className="absolute top-0 left-0 w-[2px] h-full" style={{background: `linear-gradient(180deg, transparent, ${accent}, transparent)`}} />
+      <div className="relative flex items-center gap-3 mb-5 z-10">
+        <div className="p-2 rounded-xl bg-black/50 border border-white/5 shadow-[inset_0_0_10px_rgba(255,255,255,0.05)]">
+          <Icon size={16} style={{color:accent, filter:`drop-shadow(0 0 6px ${accent})`}} />
+        </div>
+        <p className="text-xs font-bold tracking-[0.2em] uppercase text-white/80">{title}</p>
       </div>
-      {children}
+      <div className="relative z-10">{children}</div>
     </div>
   )
 }
@@ -190,188 +207,107 @@ export default function CosmicConstellationPath() {
   const RankIcon = rank.icon
 
   return (
-    <div className="min-h-screen relative" style={{background:'#08060D', fontFamily:'var(--font-sans), system-ui, sans-serif'}}>
+    <div className="min-h-screen relative text-white selection:bg-[#C084FC]/30" style={{background:'#030206', fontFamily:'var(--font-sans), system-ui, sans-serif'}}>
       <AmbientBackground />
+      <TopBar xp={routeUserProgress.totalXP} level={26} capes={4} hearts={4} />
 
       {/* ─── LAYOUT ─── */}
-      <div className="relative z-10 flex justify-center gap-0 min-h-screen">
-        {/* ─── MAIN PATH ─── */}
-        <main className="w-full max-w-[720px] py-10 px-4">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-3 mb-3">
-              <span className="h-px w-12 rounded-full opacity-20"
-                style={{background:`linear-gradient(90deg, transparent, #D4AF37)`}} />
-              <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-[#8B6914]/50">Volumen I</span>
-              <span className="h-px w-12 rounded-full opacity-20"
-                style={{background:`linear-gradient(90deg, #D4AF37, transparent)`}} />
-            </div>
-            <h1 className="text-4xl font-bold tracking-tight mb-2"
-              style={{color:'#D4AF37', textShadow:'0 2px 12px rgba(0,0,0,0.5), 0 0 40px rgba(212,175,55,0.15)'}}>
-              El Sendero del Sabio
-            </h1>
-            <p className="text-base text-[#8B6914]/50 italic mb-3">
-              "El universo no está hecho de átomos; está hecho de historias."
-            </p>
-            <div className="flex items-center justify-center gap-4 text-[11px] font-mono tracking-[0.12em] text-[#8B6914]/30">
-              <span>{allNodes.length} constelaciones</span><span>·</span>
-              <span>{routeData.levels.length} reinos</span><span>·</span>
-              <span>3 velos por lección</span>
-            </div>
-          </div>
-
+      <div className="relative z-10 flex w-full min-h-screen pt-16">
+        {/* ─── MAIN PATH (CONSTELLATION) ─── */}
+        <main className="flex-1 overflow-x-auto overflow-y-hidden relative flex items-center justify-start pl-16">
           <RouteMap route={routeData} userProgress={routeUserProgress} onNodeStart={handleNodeStart} />
         </main>
-
         {/* ─── SIDEBAR DASHBOARD ─── */}
-        <aside className="w-[320px] shrink-0 border-l border-[#2A2415]/50 py-10 px-5 hidden lg:flex flex-col gap-4 overflow-y-auto sticky top-0 h-screen"
-          style={{background:'radial-gradient(ellipse at 0% 50%, rgba(10,8,21,0.8), transparent 70%)'}}>
+        <aside className="w-[340px] shrink-0 py-8 px-4 hidden xl:flex flex-col gap-6 overflow-y-auto sticky top-16 h-[calc(100vh-4rem)]">
+          
+          {/* RPG WOODEN FRAME (RACHA, NIVEL, RELIQUIAS) */}
+          <div className="relative bg-[#1A120B] p-1 shadow-[0_20px_50px_rgba(0,0,0,0.8)] border-[3px] border-[#3E2723]">
+            {/* Outer Gold Border */}
+            <div className="relative border-4 border-double border-[#D4AF37] p-4 flex flex-col items-center gap-6" style={{boxShadow:'inset 0 0 20px rgba(0,0,0,0.8)'}}>
+              
+              {/* Corner Ornaments */}
+              <div className="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]" />
+              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]" />
+              <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]" />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]" />
 
-          {/* RANK */}
-          <SideCard title="Rango arcano" icon={RankIcon} accent={rank.color}>
-            <div className="flex items-center gap-3">
-              <RankIcon size={32} style={{color:rank.color}} />
-              <div>
-                <p className="text-base font-bold" style={{color:rank.color}}>{rank.name}</p>
-                {rank.xpNeeded && <p className="text-[10px] text-[#6B5B35]/50">Próximo: {rank.xpNeeded}</p>}
+              {/* Racha Section */}
+              <div className="w-full text-center">
+                <p className="text-[#D4AF37] font-serif text-sm tracking-widest uppercase mb-1">Racha</p>
+                <div className="flex items-center justify-center gap-3">
+                  <Flame size={24} className="text-[#FB923C]" style={{filter:'drop-shadow(0 0 8px #FB923C)'}} />
+                  <span className="text-2xl font-serif text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">{dailyStreak} días</span>
+                </div>
               </div>
-            </div>
-            <div className="mt-3">
-              <div className="flex justify-between text-[10px] text-[#6B5B35]/40 mb-1">
-                <span>Progreso de rango</span><span>{pct}%</span>
-              </div>
-              <div className="h-1.5 bg-[#2A2415] rounded-full overflow-hidden">
-                <div className="h-full rounded-full transition-all duration-700" style={{width:`${pct}%`, background:`linear-gradient(90deg, ${rank.color}80, ${rank.color})`}} />
-              </div>
-            </div>
-          </SideCard>
 
-          {/* STREAK + WEEKLY */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-2xl border p-4 backdrop-blur-sm"
-              style={{background:'rgba(22,20,15,0.7)', borderColor:'rgba(42,36,21,0.5)'}}>
-              <div className="flex items-center gap-1.5 mb-2">
-                <Flame size={14} style={{color:'#FB923C'}} />
-                <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#FB923C]/60">Racha</p>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-[#FB923C]">{dailyStreak}</span>
-                <span className="text-xs text-[#FB923C]/40">días</span>
-              </div>
-              <div className="flex gap-1 mt-2">
-                {[0,1,2,3,4].map(i=>(
-                  <div key={i} className={`flex-1 h-1 rounded-full ${i<Math.min(dailyStreak,5)?'bg-[#FB923C]':'bg-[#2A2415]'}`} />
-                ))}
-              </div>
-            </div>
+              {/* Ornamental Divider */}
+              <div className="w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
 
-            <div className="rounded-2xl border p-4 backdrop-blur-sm"
-              style={{background:'rgba(22,20,15,0.7)', borderColor:'rgba(42,36,21,0.5)'}}>
-              <div className="flex items-center gap-1.5 mb-2">
-                <TrendingUp size={14} style={{color:'#2DD4BF'}} />
-                <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#2DD4BF]/60">Semanal</p>
+              {/* Level Parchment */}
+              <div className="relative w-[180px] h-[140px] flex flex-col items-center justify-center mt-2">
+                {/* Parchment background */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#F4E4BC] to-[#D9B87B] rounded-sm shadow-[0_5px_15px_rgba(0,0,0,0.6)]">
+                  {/* Rolled edges effect */}
+                  <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-b from-[rgba(0,0,0,0.3)] to-transparent rounded-t-sm" />
+                  <div className="absolute bottom-0 left-0 right-0 h-3 bg-gradient-to-t from-[rgba(0,0,0,0.3)] to-transparent rounded-b-sm" />
+                </div>
+                
+                <div className="relative z-10 flex flex-col items-center">
+                  <p className="text-[#5D4037] font-serif font-bold text-xs tracking-widest uppercase mb-1">Nivel</p>
+                  <div className="relative w-16 h-16 flex items-center justify-center rounded-full border-2 border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.4),inset_0_0_10px_rgba(0,0,0,0.2)]">
+                    <span className="text-4xl font-serif text-[#3E2723] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">26</span>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-bold text-[#2DD4BF]">{weeklyXp}</span>
-                <span className="text-xs text-[#2DD4BF]/40">XP</span>
-              </div>
-              <div className="w-full h-1 bg-[#2A2415] rounded-full mt-2 overflow-hidden">
-                <div className="h-full bg-[#2DD4BF] rounded-full" style={{width:`${Math.min(100,(weeklyXp/500)*100)}%`}} />
+
+              {/* Ornamental Divider */}
+              <div className="w-full h-px bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mt-2" />
+
+              {/* Relics Section */}
+              <div className="w-full text-center">
+                <p className="text-[#D4AF37] font-serif text-sm tracking-widest uppercase mb-1">Reliquias</p>
+                <span className="text-xl font-serif text-white drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">{chestsUnlocked}/4</span>
               </div>
             </div>
           </div>
 
-          {/* STATS */}
-          <SideCard title="Estadísticas" icon={Target} accent="#A78BFA">
+          {/* MISSIONS SECTION */}
+          <div className="relative p-4 rounded-2xl bg-black/70 border border-white/10 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
+            <h3 className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 mb-4 flex items-center gap-2">
+              <Star size={12} className="text-[#D4AF37]" /> Misiones Secundarias
+            </h3>
+            
             <div className="space-y-3">
-              {[
-                {label:'XP Total', value:totalUserXp.toLocaleString(), color:'#D4AF37', icon:Trophy},
-                {label:'Paradas completadas', value:`${doneCount}/${allNodes.length}`, color:'#A78BFA', icon:Map},
-                {label:'Logros', value:String(achievements.length), color:'#2DD4BF', icon:Award},
-              ].map(s=>(
-                <div key={s.label} className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <s.icon size={13} style={{color:s.color, opacity:0.6}} />
-                    <span className="text-xs text-[#8B7720]/60">{s.label}</span>
+              {/* Mission 1 */}
+              <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex gap-3 hover:bg-white/10 transition-colors cursor-pointer">
+                <div className="mt-0.5">
+                  <CheckCircle size={16} className="text-white/20" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white mb-1">Racha Perfecta</h4>
+                  <p className="text-xs text-white/50 mb-2 leading-tight">Mantén una racha de 7 días consecutivos de estudio.</p>
+                  <div className="flex items-center gap-1 text-[10px] font-bold text-[#D4AF37]">
+                    <Zap size={10} /> +300 XP
                   </div>
-                  <span className="text-sm font-bold" style={{color:s.color}}>{s.value}</span>
                 </div>
-              ))}
-            </div>
-          </SideCard>
+              </div>
 
-          {/* PROGRESS */}
-          <SideCard title="Progreso global" icon={Sparkles} accent="#D4AF37">
-            <div className="flex items-center gap-4">
-              <ProgressRing pct={pct} size={56} stroke={5} color="#D4AF37" />
-              <div className="flex-1 space-y-2">
-                <div className="flex justify-between text-xs">
-                  <span className="text-[#D4AF37] font-bold">{doneCount} completadas</span>
-                  <span className="text-[#6B5B35]/40">{allNodes.length} total</span>
+              {/* Mission 2 */}
+              <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex gap-3 hover:bg-white/10 transition-colors cursor-pointer">
+                <div className="mt-0.5">
+                  <CheckCircle size={16} className="text-white/20" />
                 </div>
-                <div className="h-2 bg-[#2A2415] rounded-full overflow-hidden">
-                  <div className="h-full rounded-full transition-all duration-700"
-                    style={{width:`${pct}%`, background:'linear-gradient(90deg, #B8860B, #D4AF37)'}} />
+                <div>
+                  <h4 className="text-sm font-bold text-white mb-1">Explorador del Nivel</h4>
+                  <p className="text-xs text-white/50 mb-2 leading-tight">Visita todos los artículos del nivel actual.</p>
+                  <div className="flex items-center gap-1 text-[10px] font-bold text-[#D4AF37]">
+                    <Zap size={10} /> +200 XP
+                  </div>
                 </div>
-                <p className="text-[10px] text-[#6B5B35]/30">
-                  {allNodes.length-doneCount} paradas restantes para la maestría
-                </p>
               </div>
             </div>
-          </SideCard>
+          </div>
 
-          {/* CHESTS */}
-          <SideCard title="Cofres de nivel" icon={Gift} accent="#D4AF37">
-            <div className="flex gap-3">
-              {routeData.levels.map(lvl=>(
-                <div key={lvl.id}
-                  className={`w-14 h-14 rounded-xl flex flex-col items-center justify-center gap-0.5 border-2 transition-all ${
-                    lvl.chestUnlocked?'border-[#D4AF37]/40 bg-[#D4AF37]/5':'border-[#2A2415] bg-[#0A080F]/50 opacity-30'}`}
-                  title={lvl.chestUnlocked?lvl.chestReward?.name:'Bloqueado'}>
-                  <span className="text-xl">{lvl.chestUnlocked?'🎁':'🔒'}</span>
-                  <span className="text-[8px] font-bold text-[#8B6914]/40">{lvl.chestUnlocked?'N'+lvl.id:'--'}</span>
-                </div>
-              ))}
-            </div>
-          </SideCard>
-
-          {/* RELICS */}
-          {relics.length>0 && (
-            <SideCard title={`Reliquias (${relics.length})`} icon={Sparkles} accent="#F472B6">
-              <div className="space-y-2">
-                {relics.map(relicId=>{
-                  const r = (relicData as { relics:{id:string;name:string;icon:string}[] }).relics.find(x=>x.id===relicId)
-                  if(!r) return null
-                  return (
-                    <div key={relicId} className="flex items-center gap-3 p-2 rounded-xl border border-[#2A2415]/30 bg-[#0A080F]/50">
-                      <div className="w-9 h-9 rounded-lg bg-[#1C1810] border border-[#D4AF37]/10 flex items-center justify-center overflow-hidden shrink-0">
-                        <img src={r.icon} alt="" className="w-7 h-7 object-contain" />
-                      </div>
-                      <span className="text-[11px] text-[#8B7720]/60 truncate">{r.name}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            </SideCard>
-          )}
-
-          {/* NEXT QUEST */}
-          <SideCard title="Próxima parada" icon={Map} accent="#FB923C">
-            {(()=>{
-              const next = allNodes.find(n=>n.status==='active')
-              if(!next) return <p className="text-xs text-[#6B5B35]/40">¡Todo completado!</p>
-              return (
-                <div className="flex items-center gap-3 p-2.5 rounded-xl border border-[#FB923C]/10 bg-[#FB923C]/3 cursor-pointer hover:bg-[#FB923C]/6 transition-colors"
-                  onClick={()=>router.push(`/guias/ciencias_naturales/fisica/${next.slug}`)}>
-                  {next.icon ? <next.icon className="w-8 h-8 text-[#FB923C]" /> : <span className="text-2xl">{next.emoji}</span>}
-                  <div>
-                    <p className="text-xs font-bold text-[#FB923C]">{next.title}</p>
-                    <p className="text-[10px] text-[#FB923C]/40">+{next.xp} XP · {next.type==='theory'?'Teoría':'Práctica'}</p>
-                  </div>
-                  <Sparkles size={14} className="ml-auto text-[#FB923C]/60" />
-                </div>
-              )
-            })()}
-          </SideCard>
         </aside>
       </div>
     </div>
