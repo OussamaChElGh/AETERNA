@@ -1,5 +1,5 @@
 'use client'
-import { useMemo, useCallback } from 'react'
+import { useMemo, useCallback, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Trophy, Star, Flame, Award, Zap, Sparkles, Target, TrendingUp, Gift, Map, CheckCircle } from 'lucide-react'
 import { RouteMap, type RouteData, type RouteLevel, type RouteNode, type RouteUserProgress, type NodeStatus, type ChestReward } from '@/components/learning-path/RouteMap'
@@ -8,6 +8,7 @@ import relicData from '@/data/relics.json'
 import { useGamification } from '@/context/GamificationContext'
 import { useAuth } from '@/context/AuthContext'
 import { getNodeIcon, IconGuiaMaestra } from '@/components/learning-path/NodeIcons'
+import { ChestRewardModal } from './ChestRewardModal'
 
 /* ─── DATA ─── */
 type ArticleJSON = { slug: string; title: string; nivel: number; orden: number; tipo?: string }
@@ -156,6 +157,9 @@ export default function CosmicConstellationPath() {
   const { progress } = useGamification()
   const { user } = useAuth()
   const router = useRouter()
+  const [chestModalOpen, setChestModalOpen] = useState(false)
+  const [activeChestLevel, setActiveChestLevel] = useState<number>(1)
+
   const completedPaths = progress.completedPaths || []
   const completedLayers = progress.completedLayers || {}
   const relics = progress.physicsRelics || []
@@ -229,7 +233,15 @@ export default function CosmicConstellationPath() {
     return { totalXP, levelName, completedNodes:doneNodes.map(n=>n.id) }
   },[routeData])
 
-  const handleNodeStart = useCallback((slug:string)=>router.push(`/guias/ciencias_naturales/fisica/${slug}`),[router])
+  const handleNodeStart = useCallback((slug:string)=>{
+    if (slug.startsWith('chest-')) {
+      const lvlStr = slug.replace('chest-', '')
+      setActiveChestLevel(parseInt(lvlStr, 10))
+      setChestModalOpen(true)
+      return
+    }
+    router.push(`/guias/ciencias_naturales/fisica/${slug}`)
+  },[router])
 
   const allNodes = routeData.levels.flatMap(l=>l.nodes)
   const doneCount = allNodes.filter(n=>n.status==='done').length
@@ -354,6 +366,12 @@ export default function CosmicConstellationPath() {
 
         </aside>
       </div>
+      
+      <ChestRewardModal 
+        isOpen={chestModalOpen} 
+        onClose={() => setChestModalOpen(false)} 
+        chestLevel={activeChestLevel} 
+      />
     </div>
   )
 }

@@ -10,6 +10,33 @@ import fisicaCurriculum from "@/data/curriculum/fisica.json";
 import relicData from "@/data/relics.json";
 import { evaluateRoomUnlocks } from "@/lib/roomEngineStorage";
 import { ROOM_ENGINE_CATALOG } from "@/data/roomEngineCatalog";
+import { RoomCatalogItem } from "@/types/roomEngine";
+
+// Cache global para assets combinados
+let combinedCatalogCache: RoomCatalogItem[] | null = null;
+let combinedCacheTimestamp = 0;
+const COMBINED_CACHE_DURATION = 30000; // 30 segundos
+
+async function fetchCombinedCatalog(): Promise<RoomCatalogItem[]> {
+  const now = Date.now();
+  if (combinedCatalogCache && (now - combinedCacheTimestamp) < COMBINED_CACHE_DURATION) {
+    return combinedCatalogCache;
+  }
+  
+  try {
+    const res = await fetch('/api/assets/combined');
+    if (res.ok) {
+      const data = await res.json();
+      combinedCatalogCache = data.catalog;
+      combinedCacheTimestamp = now;
+      return data.catalog;
+    }
+  } catch (error) {
+    console.error('Error fetching combined catalog:', error);
+  }
+  
+  return ROOM_ENGINE_CATALOG;
+}
 
 /**
  * Devuelve el lunes de la semana actual a las 00:00 (UTC) como ISO string.
@@ -579,7 +606,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     });
   }, [notify]);
 
-  const completePath = useCallback((pathId: string, telemetry?: Telemetry) => {
+  const completePath = useCallback(async (pathId: string, telemetry?: Telemetry) => {
     if (stateRef.current.completedPaths.includes(pathId)) return;
 
     // Anticheat check for article-based paths (DISABLED)
@@ -600,6 +627,9 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       }
     }
     */
+
+    // Cargar catálogo combinado antes de la evaluación
+    const catalog = await fetchCombinedCatalog();
 
     setProgress((prev) => {
       if (prev.completedPaths.includes(pathId)) return prev;
@@ -627,7 +657,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         userId: user?.uid
       };
       const { unlockedIds } = evaluateRoomUnlocks(ctx);
-      const newlyUnlocked = ROOM_ENGINE_CATALOG.filter(item => unlockedIds.has(item.id));
+      const newlyUnlocked = catalog.filter(item => unlockedIds.has(item.id));
       newlyUnlocked.forEach(item => {
         notifyOnce(`room_unlock_${item.id}`, {
           type: 'achievement',
@@ -852,14 +882,15 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
    * Desbloquea el mueble asociado a una capa completada.
    * Usa el catálogo del Room Engine (catálogo nuevo).
    */
-  const unlockLayerPoster = useCallback((articleId: string, capa: string) => {
+  const unlockLayerPoster = useCallback(async (articleId: string, capa: string) => {
     const ctx = {
       completedPaths: stateRef.current.completedPaths,
       completedLayers: { ...(stateRef.current.completedLayers || {}), [articleId]: [...((stateRef.current.completedLayers || {})[articleId] || []), capa] },
       userId: user?.uid
     };
     const { unlockedIds } = evaluateRoomUnlocks(ctx);
-    const newlyUnlocked = ROOM_ENGINE_CATALOG.filter(item => unlockedIds.has(item.id));
+    const catalog = await fetchCombinedCatalog();
+    const newlyUnlocked = catalog.filter(item => unlockedIds.has(item.id));
     newlyUnlocked.forEach(item => {
       notifyOnce(`poster_unlock_${item.id}`, {
         type: 'achievement',
