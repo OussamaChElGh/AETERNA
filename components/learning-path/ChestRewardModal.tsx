@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Sparkles } from 'lucide-react'
-import { ROOM_ITEM_CATALOG } from '@/data/roomCatalog'
+import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog'
+import { ROOM_ASSETS } from '@/data/roomEngineAssets'
+import { RoomCatalogItem } from '@/types/roomEngine'
 
 interface ChestRewardModalProps {
   isOpen: boolean
@@ -11,10 +13,8 @@ interface ChestRewardModalProps {
   chestLevel: number
 }
 
-// 4 possible items from the catalog
-const POSSIBLE_ITEMS = ROOM_ITEM_CATALOG.filter(item => 
-  ['physics_telescope', 'physics_prism', 'physics_schrodinger_cat', 'math_golden_spiral'].includes(item.id)
-)
+// 4 possible items from the new catalog (we can pick available ones or just take first 4)
+const POSSIBLE_ITEMS = ROOM_ENGINE_CATALOG.slice(0, 4)
 
 export function ChestRewardModal({ isOpen, onClose, chestLevel }: ChestRewardModalProps) {
   const [isOpening, setIsOpening] = useState(false)
@@ -80,7 +80,7 @@ export function ChestRewardModal({ isOpen, onClose, chestLevel }: ChestRewardMod
                 <div className="flex justify-center gap-4 flex-wrap">
                   {POSSIBLE_ITEMS.map((item) => (
                     <div key={item.id} className="w-24 h-24 rounded-xl bg-black/50 border border-white/10 flex items-center justify-center p-2 relative group">
-                      <img src={item.asset.src} alt={item.name} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-50 group-hover:opacity-100" />
+                      <img src={ROOM_ASSETS[item.assetId]?.src || '/images/placeholders/furniture.png'} alt={item.name} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all opacity-50 group-hover:opacity-100" />
                       {/* Tooltip */}
                       <div className="absolute -bottom-8 bg-black border border-[#D4AF37]/50 text-xs text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none z-10 transition-opacity">
                         {item.name}
@@ -120,7 +120,7 @@ export function ChestRewardModal({ isOpen, onClose, chestLevel }: ChestRewardMod
               {/* Recompensa Destacada */}
               <div className="relative w-48 h-48 rounded-full bg-black/50 border-2 border-[#D4AF37] flex items-center justify-center mb-6 shadow-[0_0_40px_rgba(212,175,55,0.4)]">
                 <div className="absolute inset-0 bg-[#D4AF37]/10 rounded-full animate-pulse" />
-                <img src={reward.asset.src} alt={reward.name} className="w-32 h-32 object-contain relative z-10 animate-bounce" />
+                <img src={ROOM_ASSETS[reward.assetId]?.src || '/images/placeholders/furniture.png'} alt={reward.name} className="w-32 h-32 object-contain relative z-10 animate-bounce" />
                 <div className="absolute -bottom-3 px-4 py-1 bg-[#D4AF37] text-black font-bold text-xs uppercase tracking-widest rounded-full border border-[#FFF8DC]">
                   {reward.rarity}
                 </div>

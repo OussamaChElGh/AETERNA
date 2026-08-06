@@ -9,6 +9,7 @@ import { useGamification } from '@/context/GamificationContext'
 import { useAuth } from '@/context/AuthContext'
 import { getNodeIcon, IconGuiaMaestra } from '@/components/learning-path/NodeIcons'
 import { ChestRewardModal } from './ChestRewardModal'
+import { BossChallengeModal } from './BossChallengeModal'
 
 /* ─── DATA ─── */
 type ArticleJSON = { slug: string; title: string; nivel: number; orden: number; tipo?: string }
@@ -75,41 +76,6 @@ function AmbientBackground() {
   )
 }
 
-function TopBar({ xp, level, capes, hearts, user }: { xp:number; level:number; capes:number; hearts:number; user:any }) {
-  return (
-    <header className="fixed top-0 left-0 right-0 h-16 z-50 flex items-center px-8 justify-between">
-      <div className="flex items-center gap-6">
-        <h1 className="text-xl font-serif text-[#D4AF37] tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Física</h1>
-        <div className="flex items-center gap-4 text-xs font-bold">
-          <div className="flex items-center gap-1.5 text-[#D4AF37] drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-            <span className="text-lg">💛</span> <span>{hearts}</span>
-          </div>
-          <div className="flex items-center gap-1.5 px-3 py-1 bg-black/40 rounded-full border border-[#D4AF37]/30 text-[#D4AF37]">
-            <Zap size={14} /> <span>{xp.toLocaleString()} XP</span>
-          </div>
-          <div className="flex items-center gap-1.5 px-3 py-1 bg-[#D4AF37]/20 rounded-full border border-[#D4AF37]/50 text-[#D4AF37]">
-            <Award size={14} /> <span>N.{level}</span>
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center gap-4 text-xs font-mono text-white/50 tracking-widest drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-        <span>1/27</span>
-        <span>•</span>
-        <span>{capes} capas</span>
-        
-        {user && (
-          <div className="flex items-center gap-2 ml-2 pl-4 border-l border-white/20">
-            <span className="text-[#D4AF37] font-bold text-[10px] font-sans uppercase tracking-widest">{user.displayName || 'Estudioso'}</span>
-            <div className="w-8 h-8 rounded-full border border-[#D4AF37]/50 overflow-hidden shadow-[0_0_10px_rgba(212,175,55,0.2)]">
-              <img src={user.photoURL || "/images/placeholders/avatar.jpg"} alt="avatar" className="w-full h-full object-cover" />
-            </div>
-          </div>
-        )}
-      </div>
-    </header>
-  )
-}
-
 /* ─── SIDEBAR CARD ─── */
 function SideCard({ title, icon: Icon, children, accent='#FFD700' }: {
   title:string; icon:React.ComponentType<{size?:number; className?:string; style?:React.CSSProperties}>; children:React.ReactNode; accent?:string
@@ -159,6 +125,7 @@ export default function CosmicConstellationPath() {
   const router = useRouter()
   const [chestModalOpen, setChestModalOpen] = useState(false)
   const [activeChestLevel, setActiveChestLevel] = useState<number>(1)
+  const [bossModalNode, setBossModalNode] = useState<RouteNode | null>(null)
 
   const completedPaths = progress.completedPaths || []
   const completedLayers = progress.completedLayers || {}
@@ -177,19 +144,22 @@ export default function CosmicConstellationPath() {
     const levels: RouteLevel[] = curriculumLevels.map((lvl,idx)=>{
       const lvlArticles = articles.filter(a=>a.nivel===lvl.nivel)
       let prevDone = true
-      const nodes: RouteNode[] = lvlArticles.map(a=>{
+      const nodes: RouteNode[] = lvlArticles.map((a, i) => {
         globalOrder++
         const lyrs = completedLayers[a.slug]?.length||0
         const done = completedPaths.includes(a.slug)||lyrs>=3
         const unlocked = globalOrder===1||prevDone
         if(done) prevDone=true; else prevDone=false
+        
+        const isBoss = i === lvlArticles.length - 1;
+        
         return {
           id:a.slug, order:globalOrder, title:a.title,
           description:NODE_DESCRIPTIONS[a.slug]||'Un misterio del cosmos.',
-          emoji:'✦', slug:a.slug, xp:75, icon: getNodeIcon(a.slug),
+          emoji:'✨', slug:a.slug, xp: isBoss ? 150 : 75, icon: getNodeIcon(a.slug),
           stars:Math.min(lyrs,3) as 0|1|2|3,
           status:(done?'done':unlocked?'active':'locked') as NodeStatus,
-          type:toNodeType(a.tipo),
+          type: isBoss ? 'boss' : toNodeType(a.tipo),
         }
       })
 
@@ -233,6 +203,9 @@ export default function CosmicConstellationPath() {
     return { totalXP, levelName, completedNodes:doneNodes.map(n=>n.id) }
   },[routeData])
 
+  // Define allNodes early so useCallback can use it
+  const allNodes = useMemo(() => routeData.levels.flatMap(l=>l.nodes), [routeData])
+
   const handleNodeStart = useCallback((slug:string)=>{
     if (slug.startsWith('chest-')) {
       const lvlStr = slug.replace('chest-', '')
@@ -240,10 +213,17 @@ export default function CosmicConstellationPath() {
       setChestModalOpen(true)
       return
     }
-    router.push(`/guias/ciencias_naturales/fisica/${slug}`)
-  },[router])
+    
+    // Check if it's a boss node
+    const node = allNodes.find(n => n.slug === slug);
+    if (node?.type === 'boss') {
+      setBossModalNode(node);
+      return;
+    }
 
-  const allNodes = routeData.levels.flatMap(l=>l.nodes)
+    router.push(`/guias/ciencias_naturales/fisica/${slug}`)
+  },[router, allNodes])
+
   const doneCount = allNodes.filter(n=>n.status==='done').length
   const pct = allNodes.length>0?Math.round((doneCount/allNodes.length)*100):0
   const rank = getRankInfo(allNodes.length, doneCount)
@@ -253,7 +233,6 @@ export default function CosmicConstellationPath() {
   return (
     <div className="min-h-screen relative text-white selection:bg-[#C084FC]/30" style={{background:'#030206', fontFamily:'var(--font-sans), system-ui, sans-serif'}}>
       <AmbientBackground />
-      <TopBar xp={totalUserXp} level={progress.level || 1} capes={4} hearts={4} user={user} />
 
       {/* ─── LAYOUT ─── */}
       <div className="relative z-10 flex w-full min-h-screen pt-16">
@@ -372,6 +351,14 @@ export default function CosmicConstellationPath() {
         onClose={() => setChestModalOpen(false)} 
         chestLevel={activeChestLevel} 
       />
+      
+      {bossModalNode && (
+        <BossChallengeModal 
+          isOpen={true} 
+          onClose={() => setBossModalNode(null)} 
+          node={bossModalNode} 
+        />
+      )}
     </div>
   )
 }

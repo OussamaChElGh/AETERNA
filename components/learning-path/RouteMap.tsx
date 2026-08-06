@@ -8,7 +8,7 @@ export type NodeStatus = 'done' | 'active' | 'locked'
 export interface RouteNode {
   id: string; order: number; title: string; description: string
   emoji: string; slug: string; xp: number; stars?: 0 | 1 | 2 | 3
-  status: NodeStatus; type: 'theory' | 'practice' | 'chest'
+  status: NodeStatus; type: 'theory' | 'practice' | 'chest' | 'boss'
   icon?: React.ComponentType<{ className?: string }>
 }
 
@@ -98,7 +98,7 @@ function NodeCircle({ node, onClick }: { node:RouteNode; onClick:()=>void }) {
           
           {/* Pop-out Image */}
           <img 
-            src="/images/chest-nanobanana.png" 
+            src="/images/chest-nanobanana.webp" 
             alt="chest" 
             className={cn(
               "absolute -top-10 w-[140px] h-[140px] object-contain z-20 drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)]", 
@@ -136,29 +136,31 @@ function NodeCircle({ node, onClick }: { node:RouteNode; onClick:()=>void }) {
         onClick={onClick} 
         disabled={isLocked} 
         className={cn(
-          "relative w-[110px] h-[110px] rounded-full flex items-center justify-center transition-all duration-300",
-          isLocked ? 'cursor-not-allowed opacity-50 grayscale' : 'cursor-pointer hover:scale-105 hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]'
+          "relative rounded-full flex items-center justify-center transition-all duration-300",
+          node.type === 'boss' ? 'w-[130px] h-[130px]' : 'w-[110px] h-[110px]',
+          isLocked ? 'cursor-not-allowed opacity-50 grayscale' : 'cursor-pointer hover:scale-105',
+          !isLocked && node.type === 'boss' ? 'hover:shadow-[0_0_40px_rgba(255,0,50,0.6)]' : (!isLocked && 'hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]')
         )}
         style={{
           background: 'rgba(0,0,0,0.7)',
-          border: '4px solid #D4AF37',
-          boxShadow: isLocked ? 'none' : '0 0 15px rgba(212,175,55,0.4), inset 0 0 15px rgba(212,175,55,0.4)'
+          border: node.type === 'boss' ? '4px solid #FF3366' : '4px solid #D4AF37',
+          boxShadow: isLocked ? 'none' : (node.type === 'boss' ? '0 0 20px rgba(255,51,102,0.6), inset 0 0 20px rgba(255,51,102,0.4)' : '0 0 15px rgba(212,175,55,0.4), inset 0 0 15px rgba(212,175,55,0.4)')
         }}
       >
-        <div className="absolute inset-2 rounded-full border border-[#D4AF37]/30" />
+        <div className={cn("absolute inset-2 rounded-full border", node.type === 'boss' ? "border-[#FF3366]/40" : "border-[#D4AF37]/30")} />
         
         {/* Content over the ring */}
         <div className="relative z-20 flex flex-col items-center justify-center">
           {node.icon ? (
-            <node.icon className="w-10 h-10 text-[#D4AF37] drop-shadow-[0_2px_5px_rgba(0,0,0,1)]" />
+            <node.icon className={cn("drop-shadow-[0_2px_5px_rgba(0,0,0,1)]", node.type === 'boss' ? "w-14 h-14 text-[#FF3366]" : "w-10 h-10 text-[#D4AF37]")} />
           ) : (
-            <span className="text-4xl drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">{node.emoji}</span>
+            <span className={cn("drop-shadow-[0_2px_4px_rgba(0,0,0,1)]", node.type === 'boss' ? "text-5xl" : "text-4xl")}>{node.emoji}</span>
           )}
         </div>
 
         {isActive && (
           <span className="absolute -top-1 -right-1 text-[11px] font-bold px-2.5 py-0.5 rounded-full z-30 animate-pulse border border-[#3E2723]"
-            style={{background:'#D4AF37', color:'#050505', boxShadow:`0 2px 12px rgba(212,175,55,0.8)`}}>
+            style={{background: node.type === 'boss' ? '#FF3366' : '#D4AF37', color: node.type === 'boss' ? '#fff' : '#050505', boxShadow: node.type === 'boss' ? `0 2px 12px rgba(255,51,102,0.8)` : `0 2px 12px rgba(212,175,55,0.8)`}}>
             +{node.xp} XP
           </span>
         )}

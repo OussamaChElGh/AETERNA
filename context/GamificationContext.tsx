@@ -69,6 +69,9 @@ export interface UserProgress {
   photoURL?: string;
   weeklyXp?: number;
   weeklyResetDate?: string;
+  hearts: number;
+  maxHearts: number;
+  lastHeartRegenDate?: string;
 }
 
 export type NotificationType = 'level_up' | 'achievement' | 'streak' | 'xp' | 'warning';
@@ -120,6 +123,8 @@ interface GamificationContextType {
   setAlias: (alias: string) => void;
   fireFeedback: (ev: Omit<FeedbackEvent, 'id'>) => void;
   feedbackEvent: FeedbackEvent | null;
+  loseHeart: () => void;
+  regenerateHearts: () => void;
 }
 
 const defaultProgress: UserProgress = {
@@ -140,6 +145,9 @@ const defaultProgress: UserProgress = {
   photoURL: '',
   weeklyXp: 0,
   weeklyResetDate: getMondayKey(),
+  hearts: 4,
+  maxHearts: 4,
+  lastHeartRegenDate: '',
 };
 
 const GamificationContext = createContext<GamificationContextType | undefined>(undefined);
@@ -478,7 +486,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     });
   }, [progress.achievements, notify]);
 
-  // Check login streak
+  // Check login streak and regenerate hearts daily
   useEffect(() => {
     const todayStr = new Date().toISOString().split('T')[0];
     
@@ -487,7 +495,24 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     let streakPoints = 0;
     
     setProgress(prev => {
-      if (prev.lastActiveDate === todayStr) return prev; // Already logged in today
+      // First, handle Daily Heart Regeneration even if already logged in for XP purposes
+      let nextState = { ...prev };
+      let updatedState = false;
+      
+      if (!prev.lastHeartRegenDate || prev.lastHeartRegenDate.split('T')[0] !== todayStr) {
+        if (prev.hearts < prev.maxHearts) {
+          nextState.hearts = prev.maxHearts;
+          nextState.lastHeartRegenDate = todayStr;
+          updatedState = true;
+        } else if (!prev.lastHeartRegenDate) {
+          nextState.lastHeartRegenDate = todayStr;
+          updatedState = true;
+        }
+      }
+      
+      if (prev.lastActiveDate === todayStr) {
+        return updatedState ? nextState : prev; // Already logged in today
+      }
       
       let newStreak = prev.dailyStreak;
       
@@ -509,20 +534,17 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         newStreak = 1;
       }
       
+      nextState.dailyStreak = newStreak;
+      nextState.lastActiveDate = todayStr;
+      
       if (newStreak > prev.dailyStreak) {
         streakUpdated = true;
         newStreakValue = newStreak;
         streakPoints = 50 * newStreak;
-        
-        return { 
-          ...prev, 
-          dailyStreak: newStreak, 
-          lastActiveDate: todayStr,
-          xp: prev.xp + streakPoints
-        };
+        nextState.xp = prev.xp + streakPoints;
       }
       
-      return { ...prev, dailyStreak: newStreak, lastActiveDate: todayStr };
+      return nextState;
     });
     
     if (streakUpdated) {
@@ -999,6 +1021,21 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     setProgress(prev => ({ ...prev, alias: clean }));
   }, []);
 
+  const loseHeart = useCallback(() => {
+    setProgress(prev => {
+      if (prev.hearts <= 0) return prev;
+      return { ...prev, hearts: prev.hearts - 1 };
+    });
+  }, []);
+
+  const regenerateHearts = useCallback(() => {
+    setProgress(prev => ({
+      ...prev,
+      hearts: prev.maxHearts,
+      lastHeartRegenDate: new Date().toISOString()
+    }));
+  }, []);
+
   return (
     <GamificationContext.Provider value={{ 
       progress, 
@@ -1019,6 +1056,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       setAlias,
       fireFeedback,
       feedbackEvent,
+      loseHeart,
+      regenerateHearts,
     }}>
       {children}
 

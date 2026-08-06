@@ -38,8 +38,6 @@ import { useAuth } from "@/context/AuthContext";
 import { CATEGORIES_DATA } from "@/data/categories";
 import type { ArticleFrontmatter } from "@/types";
 import { ConstellationMap } from "@/components/ConstellationMap";
-import { RoomProvider } from "@/context/RoomContext";
-import { AnektiaKnowledgeRoom } from "@/components/interactive/AnektiaKnowledgeRoom";
 
 export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: ArticleFrontmatter[] }) {
   const { progress, selectAvatar, resetProgress, setAlias } = useGamification();
@@ -355,25 +353,6 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
       </section>
 
       <div className="mx-auto max-w-7xl px-8 -mt-16 relative z-30 space-y-8">
-        {/* PROMINENT HERO: Habitación del Conocimiento 2D Interactiva */}
-        <section className="shadow-2xl rounded-3xl overflow-hidden relative">
-          <div className="bg-brand-ink text-brand-gold p-3 px-6 flex items-center justify-between border-b border-brand-gold/30">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest flex items-center gap-2">
-              <Sparkles size={14} /> Motor de Habitación 2D Anektia
-            </span>
-            <Link 
-              href="/room-engine"
-              className="px-4 py-1.5 bg-brand-gold text-brand-ink text-[10px] font-mono font-bold uppercase tracking-widest rounded-xl hover:bg-white hover:text-black transition-all flex items-center gap-2"
-            >
-              <span>Abrir Room Engine 2D (/room-engine)</span>
-              <ArrowRight size={12} />
-            </Link>
-          </div>
-          <RoomProvider>
-            <AnektiaKnowledgeRoom />
-          </RoomProvider>
-        </section>
-
         {/* Bento Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Detailed Daily Challenge Card (Prominent at top) */}
