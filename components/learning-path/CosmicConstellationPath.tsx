@@ -6,6 +6,7 @@ import { RouteMap, type RouteData, type RouteLevel, type RouteNode, type RouteUs
 import fisicaCurriculum from '@/data/curriculum/fisica.json'
 import relicData from '@/data/relics.json'
 import { useGamification } from '@/context/GamificationContext'
+import { useAuth } from '@/context/AuthContext'
 import { getNodeIcon, IconGuiaMaestra } from '@/components/learning-path/NodeIcons'
 
 /* ─── DATA ─── */
@@ -73,7 +74,7 @@ function AmbientBackground() {
   )
 }
 
-function TopBar({ xp, level, capes, hearts }: { xp:number; level:number; capes:number; hearts:number }) {
+function TopBar({ xp, level, capes, hearts, user }: { xp:number; level:number; capes:number; hearts:number; user:any }) {
   return (
     <header className="fixed top-0 left-0 right-0 h-16 z-50 flex items-center px-8 justify-between">
       <div className="flex items-center gap-6">
@@ -90,10 +91,19 @@ function TopBar({ xp, level, capes, hearts }: { xp:number; level:number; capes:n
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-3 text-xs font-mono text-white/50 tracking-widest drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+      <div className="flex items-center gap-4 text-xs font-mono text-white/50 tracking-widest drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
         <span>1/27</span>
         <span>•</span>
         <span>{capes} capas</span>
+        
+        {user && (
+          <div className="flex items-center gap-2 ml-2 pl-4 border-l border-white/20">
+            <span className="text-[#D4AF37] font-bold text-[10px] font-sans uppercase tracking-widest">{user.displayName || 'Estudioso'}</span>
+            <div className="w-8 h-8 rounded-full border border-[#D4AF37]/50 overflow-hidden shadow-[0_0_10px_rgba(212,175,55,0.2)]">
+              <img src={user.photoURL || "/images/placeholders/avatar.jpg"} alt="avatar" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        )}
       </div>
     </header>
   )
@@ -144,6 +154,7 @@ function ProgressRing({ pct, size=48, stroke=4, color='#D4AF37' }: { pct:number;
 /* ─── MAIN ─── */
 export default function CosmicConstellationPath() {
   const { progress } = useGamification()
+  const { user } = useAuth()
   const router = useRouter()
   const completedPaths = progress.completedPaths || []
   const completedLayers = progress.completedLayers || {}
@@ -177,10 +188,31 @@ export default function CosmicConstellationPath() {
           type:toNodeType(a.tipo),
         }
       })
+
+      let chestNode = null
+      if (nodes.length > 0) {
+        const midIndex = Math.ceil(nodes.length / 2)
+        const prevNode = nodes[midIndex - 1]
+        const chestStatus = prevNode?.status === 'done' ? 'active' : 'locked'
+        
+        chestNode = {
+          id: `chest-lvl-${lvl.nivel}`,
+          order: prevNode ? prevNode.order + 0.5 : globalOrder + 0.5,
+          title: 'Tesoro Arcano',
+          description: 'Cofre mágico con mobiliario para tu sala de estudio.',
+          emoji: '🎁',
+          slug: `chest-${lvl.nivel}`,
+          xp: 150,
+          status: chestStatus as NodeStatus,
+          type: 'chest' as const
+        }
+      }
+
       const doneCount = nodes.filter(n=>n.status==='done').length
       return {
         id:lvl.nivel, title:lvl.titulo, emoji:'✦',
         colorClass:COLOR_CLASSES[idx]||'purple', nodes,
+        chestNode,
         chestUnlocked: doneCount>=Math.ceil(nodes.length/2),
         chestReward: getRelicForLevel(lvl.nivel),
       }
@@ -209,13 +241,25 @@ export default function CosmicConstellationPath() {
   return (
     <div className="min-h-screen relative text-white selection:bg-[#C084FC]/30" style={{background:'#030206', fontFamily:'var(--font-sans), system-ui, sans-serif'}}>
       <AmbientBackground />
-      <TopBar xp={routeUserProgress.totalXP} level={26} capes={4} hearts={4} />
+      <TopBar xp={totalUserXp} level={progress.level || 1} capes={4} hearts={4} user={user} />
 
       {/* ─── LAYOUT ─── */}
       <div className="relative z-10 flex w-full min-h-screen pt-16">
         {/* ─── MAIN PATH (CONSTELLATION) ─── */}
         <main className="flex-1 overflow-x-auto overflow-y-hidden relative flex items-center justify-start pl-16">
           <RouteMap route={routeData} userProgress={routeUserProgress} onNodeStart={handleNodeStart} />
+          
+          {/* Scroll Indicator */}
+          <div className="sticky right-12 z-50 pointer-events-none flex flex-col items-center justify-center opacity-80 animate-pulse ml-8">
+            <div className="w-12 h-12 rounded-full border-2 border-[#D4AF37] flex items-center justify-center bg-black/60 shadow-[0_0_20px_rgba(212,175,55,0.5)] backdrop-blur-sm">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+            <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-[10px] mt-3 drop-shadow-[0_2px_2px_rgba(0,0,0,1)]">
+              Descubrir
+            </span>
+          </div>
         </main>
         {/* ─── SIDEBAR DASHBOARD ─── */}
         <aside className="w-[340px] shrink-0 py-8 px-4 hidden xl:flex flex-col gap-6 overflow-y-auto sticky top-16 h-[calc(100vh-4rem)]">
@@ -255,7 +299,7 @@ export default function CosmicConstellationPath() {
                 <div className="relative z-10 flex flex-col items-center">
                   <p className="text-[#5D4037] font-serif font-bold text-xs tracking-widest uppercase mb-1">Nivel</p>
                   <div className="relative w-16 h-16 flex items-center justify-center rounded-full border-2 border-[#D4AF37] shadow-[0_0_15px_rgba(212,175,55,0.4),inset_0_0_10px_rgba(0,0,0,0.2)]">
-                    <span className="text-4xl font-serif text-[#3E2723] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">26</span>
+                    <span className="text-4xl font-serif text-[#3E2723] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">{progress.level || 1}</span>
                   </div>
                 </div>
               </div>

@@ -8,7 +8,7 @@ export type NodeStatus = 'done' | 'active' | 'locked'
 export interface RouteNode {
   id: string; order: number; title: string; description: string
   emoji: string; slug: string; xp: number; stars?: 0 | 1 | 2 | 3
-  status: NodeStatus; type: 'theory' | 'practice'
+  status: NodeStatus; type: 'theory' | 'practice' | 'chest'
   icon?: React.ComponentType<{ className?: string }>
 }
 
@@ -17,9 +17,14 @@ export interface ChestReward {
 }
 
 export interface RouteLevel {
-  id: number; title: string; emoji: string
-  colorClass: 'gold' | 'purple' | 'teal' | 'red'
-  nodes: RouteNode[]; chestUnlocked: boolean; chestReward?: ChestReward
+  id: number
+  title: string
+  emoji: string
+  colorClass: string
+  nodes: RouteNode[]
+  chestUnlocked?: boolean
+  chestReward?: ChestReward | null
+  chestNode?: RouteNode | null
 }
 
 export interface RouteData { id: string; title: string; levels: RouteLevel[] }
@@ -38,18 +43,16 @@ const P = {
 function ConstellationParticles({ accent, count = 20 }: { accent: string; count?: number }) {
   const particles = useRef(Array.from({ length: count }, (_, i) => ({
     id: i, x: Math.random() * 100, y: Math.random() * 100,
-    size: 1 + Math.random() * 2.5, delay: Math.random() * 4,
-    duration: 2 + Math.random() * 3, opacity: 0.15 + Math.random() * 0.35,
-  }))).current
+    size: Math.random() * 3 + 1, delay: Math.random() * 2
+  })))
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
-      {particles.map(p => (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
+      {particles.current.map(p => (
         <div key={p.id} className="absolute rounded-full animate-pulse"
           style={{
-            left:`${p.x}%`, top:`${p.y}%`, width:`${p.size}px`, height:`${p.size}px`,
-            background:accent, opacity:p.opacity,
-            animationDuration:`${p.duration}s`, animationDelay:`${p.delay}s`,
-            boxShadow:`0 0 ${p.size*3}px ${accent}40`,
+            left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size,
+            backgroundColor: accent, boxShadow: `0 0 ${p.size * 2}px ${accent}`,
+            animationDelay: `${p.delay}s`, animationDuration: `${2 + Math.random()}s`
           }} />
       ))}
     </div>
@@ -65,10 +68,67 @@ function Stars({ count=3, lit=0 }: { count?:number; lit:number }) {
 }
 
 /* ───────── NODE CIRCLE ───────── */
-function NodeCircle({ node, palette, onClick }: { node:RouteNode; palette:typeof P['gold']; onClick:()=>void }) {
+function NodeCircle({ node, onClick }: { node:RouteNode; onClick:()=>void }) {
   const isDone = node.status==='done'
   const isActive = node.status==='active'
   const isLocked = node.status==='locked'
+  const isChest = node.type === 'chest'
+
+  if (isChest) {
+    return (
+      <div className="flex flex-col items-center group">
+        <button 
+          onClick={onClick} 
+          disabled={isLocked} 
+          className={cn(
+            "relative w-[120px] h-[100px] flex items-center justify-center transition-all duration-500",
+            isLocked ? 'cursor-not-allowed opacity-50 grayscale' : 'cursor-pointer hover:scale-110 hover:-translate-y-2'
+          )}
+          style={{
+            background: 'linear-gradient(135deg, #FFD700 0%, #B8860B 100%)',
+            boxShadow: isLocked ? 'none' : '0 15px 30px rgba(0,0,0,0.8), 0 0 40px rgba(255,215,0,0.5), inset 0 0 20px rgba(255,255,255,0.5)',
+            border: '2px solid #FFF8DC',
+            borderRadius: '16px' // Cofre cuadrado/redondeado
+          }}
+        >
+          {/* Holographic Chest Core (Background frame) */}
+          <div className="absolute inset-1.5 bg-[#1A120B] rounded-xl overflow-hidden border border-[#D4AF37]/50 shadow-[inset_0_0_20px_rgba(255,215,0,0.2)]">
+            <div className="absolute inset-0 bg-gradient-to-t from-transparent to-[#FFD700]/30 animate-pulse" />
+          </div>
+          
+          {/* Pop-out Image */}
+          <img 
+            src="/images/chest-nanobanana.png" 
+            alt="chest" 
+            className={cn(
+              "absolute -top-10 w-[140px] h-[140px] object-contain z-20 drop-shadow-[0_15px_15px_rgba(0,0,0,0.8)]", 
+              !isLocked && "animate-bounce"
+            )} 
+            style={{
+              filter: isLocked ? 'grayscale(100%) opacity(0.5)' : 'drop-shadow(0 0 15px rgba(255,215,0,0.6))'
+            }}
+          />
+          {isActive && (
+            <span className="absolute -top-4 right-1/2 translate-x-1/2 text-[10px] font-bold px-3 py-1 rounded-full z-30 animate-pulse border border-[#FFD700] bg-black text-[#FFD700] shadow-[0_0_15px_#FFD700]">
+              ¡ABRIR!
+            </span>
+          )}
+          {isDone && (
+            <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold z-30 border-2 border-[#3E2723]"
+              style={{background:`#D4AF37`, color:'#050505', boxShadow:`0 0 10px rgba(212,175,55,1)`}}>
+              ✓
+            </span>
+          )}
+        </button>
+
+        <div className="mt-4 flex flex-col items-center w-[160px] text-center z-20">
+          <p className={cn("text-sm font-serif font-bold tracking-widest uppercase", isLocked ? "text-[#555449]" : "text-[#FFD700] drop-shadow-[0_2px_4px_rgba(0,0,0,1)]")}>
+            {node.title}
+          </p>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="flex flex-col items-center group">
@@ -90,7 +150,7 @@ function NodeCircle({ node, palette, onClick }: { node:RouteNode; palette:typeof
         {/* Content over the ring */}
         <div className="relative z-20 flex flex-col items-center justify-center">
           {node.icon ? (
-            <node.icon className="w-10 h-10 text-[#D4AF37]" style={{filter: 'drop-shadow(0 2px 5px rgba(0,0,0,1))'}} />
+            <node.icon className="w-10 h-10 text-[#D4AF37] drop-shadow-[0_2px_5px_rgba(0,0,0,1)]" />
           ) : (
             <span className="text-4xl drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">{node.emoji}</span>
           )}
@@ -142,7 +202,7 @@ function RouteNodeComponent({ node, palette, onClick }: {
 }) {
   return (
     <div className="relative group flex flex-col items-center gap-2.5">
-      <NodeCircle node={node} palette={palette} onClick={()=>onClick(node)} />
+      <NodeCircle node={node} onClick={()=>onClick(node)} />
       <span className={cn('text-sm font-bold text-center max-w-[140px] leading-tight',
         node.status==='done'&&'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]',
         node.status==='active'&&'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]',
@@ -233,7 +293,7 @@ function Chest({ unlocked, reward, palette, onOpen }: {
 function LevelBand({ level, onNodeClick, onChestOpen }: {
   level:RouteLevel; onNodeClick:(n:RouteNode)=>void; onChestOpen:(l:RouteLevel)=>void
 }) {
-  const palette = P[level.colorClass]
+  const palette = P[level.colorClass as keyof typeof P]
   const done = level.nodes.filter(n=>n.status==='done').length
 
   return (
@@ -271,7 +331,7 @@ function LevelBand({ level, onNodeClick, onChestOpen }: {
             {ri === level.nodes.length-1 && (
               <>
                 <VerticalConnector palette={palette} locked={!level.chestUnlocked} />
-                <Chest unlocked={level.chestUnlocked} reward={level.chestReward} palette={palette} onOpen={()=>onChestOpen(level)} />
+                <Chest unlocked={!!level.chestUnlocked} reward={level.chestReward || undefined} palette={palette} onOpen={()=>onChestOpen(level)} />
               </>
             )}
           </div>
@@ -333,68 +393,154 @@ export function RouteMap({ route, userProgress, onNodeStart }: RouteMapProps) {
   const allNodes = route.levels.flatMap(l=>l.nodes)
   if(allNodes.length === 0) return null
 
-  const heroNode = allNodes[0]
-  const branchNodes = allNodes.slice(1, 5) // Take next 4 nodes for the tree
+  // Configuration for layout
+  const ROW_HEIGHT = 180
+  const COLUMN_WIDTH = 250
+  const HERO_WIDTH = 400
+  const GAP_HERO_TO_NODES = 120
+  const GAP_NODES_TO_NEXT_HERO = 250
 
-  // Hardcoded positions for the first 4 branch nodes to match the image exactly
-  const nodePositions = [
-    { top: '15%', left: '550px' }, // Top branch
-    { top: '50%', left: '550px' }, // Middle branch
-    { top: '85%', left: '550px' }, // Bottom branch
-    { top: '50%', left: '750px' }, // Next middle branch
-  ]
+  const maxNodesPerColumn = 4
+  const containerHeight = Math.max(650, maxNodesPerColumn * ROW_HEIGHT + 100)
+  const centerY = containerHeight / 2
 
-  return (
-    <div className="relative w-full h-[600px] flex items-center -ml-8">
-      {/* SVGs para las líneas conectoras */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" style={{filter:'drop-shadow(0 0 5px rgba(212,175,55,0.5))'}}>
-        {/* Línea horizontal principal desde Hero hasta el medio */}
-        <path d="M 400 300 L 550 300" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
-        {/* Bifurcación superior */}
-        <path d="M 450 300 L 450 90 L 550 90" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
-        {/* Bifurcación inferior */}
-        <path d="M 450 300 L 450 510 L 550 510" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
-        {/* Conector al nodo final */}
-        <path d="M 600 300 L 750 300" stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
-      </svg>
+  const svgPaths: React.ReactNode[] = []
+  const renderedElements: React.ReactNode[] = []
 
-      {/* HERO CARD (Left) */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-0 z-10 w-[400px]">
+  let currentX = 0
+
+  console.log('Rendering RouteMap levels:', route.levels.map(l => ({ id: l.id, nodes: l.nodes.length })))
+
+  route.levels.forEach((level, levelIndex) => {
+    const heroX = currentX
+
+    // 1. DIBUJAR HERO CARD DEL NIVEL
+    renderedElements.push(
+      <div key={`hero-${level.id}`} className="absolute z-10 w-[400px]" style={{ top: `${centerY}px`, left: `${heroX}px`, transform: 'translateY(-50%)' }}>
         <div 
-          onClick={() => setSelectedNode(heroNode)}
-          className="relative rounded-2xl bg-black/80 border border-[#D4AF37]/50 overflow-hidden cursor-pointer group transition-transform hover:scale-[1.02]"
+          className="relative rounded-2xl bg-black/80 border border-[#D4AF37]/50 overflow-hidden group transition-transform hover:scale-[1.02]"
           style={{boxShadow:'0 10px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(212,175,55,0.1)'}}>
           
           <div className="h-[200px] w-full relative overflow-hidden bg-black flex items-center justify-center">
-            {/* Agujero Negro usando mix-blend y una imagen rotada */}
-            <img src="/images/node-energy.png" alt="Blackhole" className="absolute w-[150%] h-[150%] object-cover mix-blend-screen opacity-80 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700" />
+            {/* Usamos el emoji o imagen del nivel */}
+            <img src="/images/node-energy.png" alt="Blackhole" className="absolute w-[150%] h-[150%] object-cover mix-blend-screen opacity-60 group-hover:scale-110 group-hover:rotate-6 transition-all duration-700" 
+                 style={{filter: `hue-rotate(${levelIndex * 45}deg)`}}/>
+            <span className="relative z-10 text-6xl drop-shadow-[0_0_20px_rgba(255,255,255,0.8)] opacity-80">{level.emoji}</span>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
           </div>
 
           <div className="p-6 relative z-10 border-t border-[#D4AF37]/20">
-            <p className="text-[#D4AF37] font-bold text-[10px] tracking-[0.2em] uppercase mb-2">Sección 1 • Nivel 1</p>
-            <h2 className="text-3xl font-serif font-bold text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">{heroNode.title}</h2>
-            <p className="text-white/60 text-sm leading-relaxed mb-4">{heroNode.description}</p>
+            <p className="text-[#D4AF37] font-bold text-[10px] tracking-[0.2em] uppercase mb-2">SECCIÓN {levelIndex+1} • NIVEL {level.id}</p>
+            <h2 className="text-3xl font-serif font-bold text-white mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,1)]">{level.title}</h2>
+            <p className="text-white/60 text-sm leading-relaxed mb-4">
+              {level.nodes.length > 0 
+                ? `Domina los ${level.nodes.length} módulos de este nivel para desbloquear los secretos del cosmos.`
+                : 'Módulos en desarrollo. Pronto descubrirás nuevos secretos en esta región.'}
+            </p>
             
             <div className="flex items-center gap-3 mt-4">
               <span className="px-3 py-1 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-full text-xs font-bold text-[#D4AF37]">
-                +{heroNode.xp} XP
+                {level.nodes.length > 0 ? `${level.nodes.filter(n=>n.status==='done').length} / ${level.nodes.length} completados` : 'Próximamente'}
               </span>
-              <Stars lit={heroNode.stars??0} />
             </div>
           </div>
         </div>
       </div>
+    )
 
-      {/* BRANCH NODES (Right) */}
-      {branchNodes.map((node, i) => (
-        <div 
-          key={node.id} 
-          className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
-          style={{ top: nodePositions[i].top, left: nodePositions[i].left }}>
-          <NodeCircle node={node} palette={P['gold']} onClick={() => setSelectedNode(node)} />
-        </div>
-      ))}
+    // 2. CALCULAR COLUMNAS DE NODOS
+    let trunkEndX = heroX + HERO_WIDTH
+
+    if (level.nodes.length > 0) {
+      const colsCount = Math.ceil(level.nodes.length / maxNodesPerColumn)
+      const hasChest = !!level.chestNode
+      const totalSlots = colsCount + (hasChest ? 1 : 0)
+      const chestSlotIndex = hasChest ? Math.ceil(colsCount / 2) : -1 // Interpuesto a la mitad
+
+      const nodesStartX = heroX + HERO_WIDTH + GAP_HERO_TO_NODES
+      
+      // Conector desde el Hero Card hasta el inicio de las ramas (y a través de ellas)
+      trunkEndX = nodesStartX + (totalSlots - 1) * COLUMN_WIDTH
+      svgPaths.push(
+        <path key={`trunk-pre-${level.id}`} d={`M ${heroX + HERO_WIDTH} ${centerY} L ${trunkEndX} ${centerY}`} stroke="#D4AF37" strokeWidth="3" strokeDasharray="5 5" fill="none" opacity="0.4" />
+      )
+
+      // 2.1 Dibujar Cofre Interpuesto en el Tronco
+      if (hasChest && level.chestNode) {
+        const chestX = nodesStartX + chestSlotIndex * COLUMN_WIDTH
+        renderedElements.push(
+          <div 
+            key={level.chestNode.id} 
+            className="absolute z-10 -translate-y-1/2 -translate-x-1/2"
+            style={{ top: `${centerY}px`, left: `${chestX}px` }}>
+            <NodeCircle node={level.chestNode} onClick={() => onNodeStart?.(level.chestNode!.slug)} />
+          </div>
+        )
+      }
+
+      // 2.2 Dibujar Nodos (Arcos Verticales)
+      for (let c = 0; c < colsCount; c++) {
+        // Shift column slot if it's after the chest
+        const slotIndex = (hasChest && c >= chestSlotIndex) ? c + 1 : c
+        const colNodes = level.nodes.slice(c * maxNodesPerColumn, (c + 1) * maxNodesPerColumn)
+        const colX = nodesStartX + slotIndex * COLUMN_WIDTH
+        const branchStartX = colX - 60 // Donde se curva la rama desde el tronco principal
+
+        colNodes.forEach((node, r) => {
+          const nodeY = centerY + (r - (colNodes.length - 1) / 2) * ROW_HEIGHT
+
+          // Draw SVG branch
+          if (nodeY === centerY) {
+            svgPaths.push(
+              <path key={`path-${node.id}`} d={`M ${branchStartX} ${centerY} L ${colX} ${centerY}`} stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
+            )
+          } else {
+            const radius = 15
+            const isUp = nodeY < centerY
+            svgPaths.push(
+              <path key={`path-${node.id}`} 
+                d={`M ${branchStartX} ${centerY} L ${branchStartX} ${isUp ? nodeY + radius : nodeY - radius} Q ${branchStartX} ${nodeY} ${branchStartX + radius} ${nodeY} L ${colX} ${nodeY}`} 
+                stroke="#D4AF37" strokeWidth="2" strokeDasharray="5 5" fill="none" opacity="0.6" />
+            )
+          }
+
+          // Render Node
+          renderedElements.push(
+            <div 
+              key={node.id} 
+              className="absolute z-10 -translate-y-1/2 -translate-x-1/2"
+              style={{ top: `${nodeY}px`, left: `${colX}px` }}>
+              <NodeCircle node={node} onClick={() => onNodeStart?.(node.slug)} />
+            </div>
+          )
+        })
+      }
+    }
+
+    // Si hay un nivel siguiente, conectamos el trunk hacia su Hero Card
+    if (levelIndex < route.levels.length - 1) {
+      const nextHeroX = trunkEndX + GAP_NODES_TO_NEXT_HERO
+      svgPaths.push(
+        <path key={`trunk-post-${level.id}`} d={`M ${trunkEndX} ${centerY} L ${nextHeroX} ${centerY}`} stroke="#D4AF37" strokeWidth="3" strokeDasharray="5 5" fill="none" opacity="0.4" />
+      )
+    }
+
+    // Avanzar cursor X para el próximo nivel
+    currentX = trunkEndX + GAP_NODES_TO_NEXT_HERO
+  })
+
+  // Width total del container
+  const containerWidth = currentX + 100 // padding final
+
+  return (
+    <div className="relative flex items-center shrink-0 -ml-8" style={{ width: `${containerWidth}px`, height: `${containerHeight}px` }}>
+      {/* SVGs para las líneas conectoras */}
+      <svg className="absolute inset-0 pointer-events-none z-0" style={{ width: '100%', height: '100%', filter:'drop-shadow(0 0 8px rgba(212,175,55,0.8))' }}>
+        {svgPaths}
+      </svg>
+
+      {/* ALL LEVELS HERO CARDS & NODES */}
+      {renderedElements}
 
       {/* NODE MODAL */}
       {selectedNode && <NodeModal node={selectedNode} onClose={()=>setSelectedNode(null)} onStart={(s)=>{setSelectedNode(null);onNodeStart?.(s)}} />}
