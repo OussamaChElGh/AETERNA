@@ -11,6 +11,7 @@ import {
   Terminal,
   Package,
   BookOpen,
+  RefreshCw,
   ArrowLeft
 } from 'lucide-react';
 import { ToastProvider } from '@/components/ui/ToastProvider';
@@ -24,6 +25,7 @@ const NAV_ITEMS = [
   { href: '/admin/imagenes', icon: ImageIcon, label: 'Imágenes' },
   { href: '/admin/assets', icon: Package, label: 'Assets' },
   { href: '/admin/articulos', icon: BookOpen, label: 'Artículos' },
+  { href: '/admin/sync', icon: RefreshCw, label: 'Sync' },
   { href: '/admin/auditoria', icon: ShieldCheck, label: 'Auditoría' },
   { href: '/admin/scripts', icon: Terminal, label: 'Scripts' },
 ];
