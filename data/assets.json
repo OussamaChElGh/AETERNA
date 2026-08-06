@@ -1,3 +1,25 @@
 {
-  "assets": []
+  "assets": [
+    {
+      "name": "Estante rural",
+      "description": "",
+      "type": "furniture",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "furniture",
+      "placementSurface": "floor",
+      "canRotate": true,
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 2,
+      "pixelWidth": 128,
+      "pixelHeight": 128,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "imageUrl": "/images/assets/asset_1785992502833_esrk0rx.png",
+      "storagePath": "public/images/assets/asset_1785992502833_esrk0rx.png",
+      "createdAt": 1785992502864,
+      "updatedAt": 1785992502864,
+      "id": "asset_1785992502864_lg0zq7g"
+    }
+  ]
 }

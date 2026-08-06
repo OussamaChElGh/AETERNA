@@ -13,7 +13,8 @@ import {
   X,
   Loader2,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  RefreshCw
 } from 'lucide-react';
 import { 
   createAsset, 
@@ -410,6 +411,7 @@ export default function AdminAssetsPage() {
   const [assets, setAssets] = useState<(AssetMetadata & { id: string })[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<AssetType>('all');
+  const [syncing, setSyncing] = useState(false);
 
   async function fetchAssets() {
     try {
@@ -433,6 +435,26 @@ export default function AdminAssetsPage() {
     }
   }
 
+  async function handleSync() {
+    setSyncing(true);
+    try {
+      const res = await fetch('/api/admin/assets/sync', { method: 'POST' });
+      const data = await res.json();
+      
+      if (data.success) {
+        showToast('success', 'Sincronización completada', 
+          `${data.added} nuevos, ${data.updated} actualizados`);
+        fetchAssets();
+      } else {
+        showToast('error', data.error || 'Error al sincronizar');
+      }
+    } catch (error) {
+      showToast('error', 'Error al sincronizar catálogo');
+    } finally {
+      setSyncing(false);
+    }
+  }
+
   useEffect(() => {
     fetchAssets();
   }, []);
@@ -447,15 +469,34 @@ export default function AdminAssetsPage() {
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-8"
+        className="mb-8 flex items-start justify-between"
       >
-        <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-          <Package size={32} className="text-blue-400" />
-          Gestión de Assets
-        </h1>
-        <p className="text-white/60 mt-2">
-          Sube y gestiona imágenes para muebles y reliquias
-        </p>
+        <div>
+          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+            <Package size={32} className="text-blue-400" />
+            Gestión de Assets
+          </h1>
+          <p className="text-white/60 mt-2">
+            Sube y gestiona imágenes para muebles y reliquias
+          </p>
+        </div>
+        <button
+          onClick={handleSync}
+          disabled={syncing}
+          className="bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors"
+        >
+          {syncing ? (
+            <>
+              <Loader2 className="animate-spin" size={18} />
+              Sincronizando...
+            </>
+          ) : (
+            <>
+              <RefreshCw size={18} />
+              Sincronizar Catálogo
+            </>
+          )}
+        </button>
       </motion.div>
 
       {/* Upload Form */}

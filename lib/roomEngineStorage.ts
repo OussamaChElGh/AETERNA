@@ -1,6 +1,5 @@
 import { UserRoomData, PlacedRoomItem, PlacementValidationResult, RoomCatalogItem } from '@/types/roomEngine';
-import { getCatalogItem, ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
-import { getRoomAsset } from '@/data/roomEngineAssets';
+import { getCombinedCatalog, getCombinedCatalogItem, getCombinedRoomAsset } from '@/data/dynamicAssetsClient';
 import { ANEKTIA_ROOM_LAYOUT, isTileOnFloor, isTileOnWall } from '@/data/roomLayoutData';
 import { db } from '@/lib/firebase';
 import { doc, setDoc } from 'firebase/firestore';
@@ -43,7 +42,7 @@ export function evaluateRoomUnlocks(
 ): { unlockedIds: Set<string>; lockedIds: Set<string> } {
   const unlockedIds = new Set<string>();
   const lockedIds = new Set<string>();
-  for (const item of ROOM_ENGINE_CATALOG) {
+  for (const item of getCombinedCatalog()) {
     if (isCatalogItemUnlocked(item, ctx)) {
       unlockedIds.add(item.id);
     } else {
@@ -90,8 +89,8 @@ export function calculateDerivedZIndex(
   tileZ: number,
   catalogItemId: string
 ): number {
-  const catalogItem = getCatalogItem(catalogItemId);
-  const asset = catalogItem ? getRoomAsset(catalogItem.assetId) : undefined;
+  const catalogItem = getCombinedCatalogItem(catalogItemId);
+  const asset = catalogItem ? getCombinedRoomAsset(catalogItem.assetId) : undefined;
 
   const footprintW = asset?.footprintTileWidth || 1;
   const footprintH = asset?.footprintTileHeight || 1;
@@ -127,13 +126,13 @@ export function buildOccupancyGrid(placedItems: PlacedRoomItem[], excludeInstanc
   const grid: OccupancyGrid = new Map();
   for (const item of placedItems) {
     if (item.instanceId === excludeInstanceId) continue;
-    const catItem = getCatalogItem(item.catalogItemId);
+    const catItem = getCombinedCatalogItem(item.catalogItemId);
 
     // Rugs do NOT block furniture placement on top of them!
     const isRug = item.catalogItemId.includes('rug') || catItem?.name?.toLowerCase().includes('alfombra');
     if (isRug) continue;
 
-    const asset = catItem ? getRoomAsset(catItem.assetId) : undefined;
+    const asset = catItem ? getCombinedRoomAsset(catItem.assetId) : undefined;
     // Use collisionTileWidth/Height if defined (allows visual footprint > collision footprint for closer placement)
     const rawW = asset?.collisionTileWidth ?? asset?.footprintTileWidth ?? 1;
     const rawH = asset?.collisionTileHeight ?? asset?.footprintTileHeight ?? 1;
@@ -180,12 +179,12 @@ export function validatePlacement(
   currentInstanceId: string | null,
   placedItems: PlacedRoomItem[]
 ): PlacementValidationResult {
-  const catalogItem = getCatalogItem(catalogItemId);
+  const catalogItem = getCombinedCatalogItem(catalogItemId);
   if (!catalogItem) {
     return { isValid: false, reason: 'blocked', invalidTiles: [] };
   }
 
-  const asset = getRoomAsset(catalogItem.assetId);
+  const asset = getCombinedRoomAsset(catalogItem.assetId);
   // Use collisionTileWidth/Height if defined for the item being placed
   const rawW = asset?.collisionTileWidth ?? asset?.footprintTileWidth ?? 1;
   const rawH = asset?.collisionTileHeight ?? asset?.footprintTileHeight ?? 1;
@@ -226,10 +225,10 @@ export function validatePlacement(
           const hasSupportTable = placedItems.some(item => {
             if (item.instanceId === currentInstanceId) return false;
             if (item.tileZ !== 0) return false;
-            const tableItem = getCatalogItem(item.catalogItemId);
+            const tableItem = getCombinedCatalogItem(item.catalogItemId);
             if (tableItem?.category !== 'furniture') return false;
 
-            const tableAsset = getRoomAsset(tableItem.assetId);
+            const tableAsset = getCombinedRoomAsset(tableItem.assetId);
             const tW = tableAsset?.footprintTileWidth || 1;
             const tH = tableAsset?.footprintTileHeight || 1;
 
@@ -327,7 +326,7 @@ export function loadRoomEngineState(): UserRoomData {
         }
 
         const sanitizedItems = mergedItems.map(item => {
-          const catItem = getCatalogItem(item.catalogItemId);
+          const catItem = getCombinedCatalogItem(item.catalogItemId);
           if (catItem?.placementSurface === 'floor') {
             return {
               ...item,
