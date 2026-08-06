@@ -57,10 +57,11 @@ export function AnektiaEnvironmentEngine({
     const ctx = {
       completedPaths: progress.completedPaths || [],
       completedLayers: progress.completedLayers || {},
-      userId: user?.uid
+      userId: user?.uid,
+      userEmail: user?.email
     };
     return evaluateRoomUnlocks(ctx).unlockedIds;
-  }, [progress.completedPaths, progress.completedLayers, user?.uid]);
+  }, [progress.completedPaths, progress.completedLayers, user?.uid, user?.email]);
 
   const mountedRef = useRef(false);
   useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);

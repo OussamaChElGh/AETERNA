@@ -7,14 +7,20 @@ import { doc, setDoc } from 'firebase/firestore';
 export const GM_USER_IDS: string[] = [
 ];
 
+export const GM_USER_EMAILS: string[] = [
+  'usamachaikh@gmail.com'
+];
+
 export interface RoomUnlockContext {
   completedPaths: string[];
   completedLayers?: Record<string, string[]>;
   userId?: string;
+  userEmail?: string | null;
 }
 
 export function isCatalogItemUnlocked(item: RoomCatalogItem, ctx: RoomUnlockContext): boolean {
   if (ctx.userId && GM_USER_IDS.includes(ctx.userId)) return true;
+  if (ctx.userEmail && GM_USER_EMAILS.includes(ctx.userEmail)) return true;
   
   const cond = item.unlockCondition;
   if (!cond || cond.type === 'default') return true;

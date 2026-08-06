@@ -486,7 +486,7 @@
     },
     {
       "id": "blackboard_equations",
-      "name": "Pizarrita",
+      "name": "Pizarra de ecuaciones",
       "description": "Pizarra de pizarra verde con fórmulas de la física escritas en tiza blanca.",
       "type": "decoration",
       "discipline": "physics",
@@ -496,9 +496,9 @@
       "storagePath": "/images/anektia_master_blackboard.png",
       "footprintTileWidth": 4,
       "footprintTileHeight": 1,
-      "pixelWidth": 160,
-      "pixelHeight": 200,
-      "anchorX": 0.5,
+      "pixelWidth": 230,
+      "pixelHeight": 400,
+      "anchorX": 1,
       "anchorY": 0.9,
       "placementSurface": "floor",
       "canRotate": true,
@@ -508,7 +508,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785995101357
+      "updatedAt": 1785996198724
     },
     {
       "id": "compass_proportions",

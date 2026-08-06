@@ -654,7 +654,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       const ctx = {
         completedPaths: newCompletedPaths,
         completedLayers: prev.completedLayers || {},
-        userId: user?.uid
+        userId: user?.uid,
+        userEmail: user?.email
       };
       const { unlockedIds } = evaluateRoomUnlocks(ctx);
       const newlyUnlocked = catalog.filter(item => unlockedIds.has(item.id));
@@ -886,7 +887,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     const ctx = {
       completedPaths: stateRef.current.completedPaths,
       completedLayers: { ...(stateRef.current.completedLayers || {}), [articleId]: [...((stateRef.current.completedLayers || {})[articleId] || []), capa] },
-      userId: user?.uid
+      userId: user?.uid,
+      userEmail: user?.email
     };
     const { unlockedIds } = evaluateRoomUnlocks(ctx);
     const catalog = await fetchCombinedCatalog();
@@ -899,7 +901,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         points: 75
       });
     });
-  }, [notifyOnce, user?.uid]);
+  }, [notifyOnce, user?.uid, user?.email]);
 
   const completeLayer = useCallback((articleId: string, capa: string) => {
     if (stateRef.current.completedLayers?.[articleId]?.includes(capa)) return;

@@ -186,7 +186,8 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
   const { unlockedIds } = evaluateRoomUnlocks({
     completedPaths: progress.completedPaths || [],
     completedLayers: progress.completedLayers || {},
-    userId: authUser?.uid
+    userId: authUser?.uid,
+    userEmail: authUser?.email
   });
   const relicUnlockedCount = (progress.physicsRelics || []).length;
   const objectUnlockedCount = [...unlockedIds].filter(id => {
