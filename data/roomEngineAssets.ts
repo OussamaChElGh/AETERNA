@@ -867,6 +867,246 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     pixelHeight: 200,
     anchorX: 0.5,
     anchorY: 0.9
+  },
+  asset_book_tower: {
+    id: 'asset_book_tower',
+    src: '/images/anektia_pixel_cs.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_cs.png',
+      90: '/images/anektia_pixel_cs.png',
+      180: '/images/anektia_pixel_cs.png',
+      270: '/images/anektia_pixel_cs.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 70,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_scroll_wall: {
+    id: 'asset_scroll_wall',
+    src: '/images/anektia_pixel_physics.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_physics.png',
+      90: '/images/anektia_pixel_physics.png',
+      180: '/images/anektia_pixel_physics.png',
+      270: '/images/anektia_pixel_physics.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.9
+  },
+  asset_codex_stand: {
+    id: 'asset_codex_stand',
+    src: '/images/anektia_pixel_terminal.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_terminal.png',
+      90: '/images/anektia_pixel_terminal.png',
+      180: '/images/anektia_pixel_terminal.png',
+      270: '/images/anektia_pixel_terminal.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 110,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_fern_ceramic: {
+    id: 'asset_fern_ceramic',
+    src: '/images/anektia_pixel_plant.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_plant.png',
+      90: '/images/anektia_pixel_plant.png',
+      180: '/images/anektia_pixel_plant.png',
+      270: '/images/anektia_pixel_plant.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 110,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_hanging_ivy_long: {
+    id: 'asset_hanging_ivy_long',
+    src: '/images/anektia_master_wall_ivy.png',
+    spritesByRotation: {
+      0: '/images/anektia_master_wall_ivy.png',
+      90: '/images/anektia_master_wall_ivy.png',
+      180: '/images/anektia_master_wall_ivy.png',
+      270: '/images/anektia_master_wall_ivy.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 100,
+    pixelHeight: 160,
+    anchorX: 0.5,
+    anchorY: 0.9
+  },
+  asset_cactus_desk: {
+    id: 'asset_cactus_desk',
+    src: '/images/anektia_pixel_plant.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_plant.png',
+      90: '/images/anektia_pixel_plant.png',
+      180: '/images/anektia_pixel_plant.png',
+      270: '/images/anektia_pixel_plant.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 60,
+    pixelHeight: 70,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_alembic_copper: {
+    id: 'asset_alembic_copper',
+    src: '/images/anektia_pixel_prism.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_prism.png',
+      90: '/images/anektia_pixel_prism.png',
+      180: '/images/anektia_pixel_prism.png',
+      270: '/images/anektia_pixel_prism.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 90,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_flasks_trio: {
+    id: 'asset_flasks_trio',
+    src: '/images/anektia_pixel_abacus.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_abacus.png',
+      90: '/images/anektia_pixel_abacus.png',
+      180: '/images/anektia_pixel_abacus.png',
+      270: '/images/anektia_pixel_abacus.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_side_table_marble: {
+    id: 'asset_side_table_marble',
+    src: '/images/anektia_pixel_desk.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_desk.png',
+      90: '/images/anektia_pixel_desk.png',
+      180: '/images/anektia_pixel_desk.png',
+      270: '/images/anektia_pixel_desk.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 100,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_coat_rack_brass: {
+    id: 'asset_coat_rack_brass',
+    src: '/images/anektia_pixel_bust.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_bust.png',
+      90: '/images/anektia_pixel_bust.png',
+      180: '/images/anektia_pixel_bust.png',
+      270: '/images/anektia_pixel_bust.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 60,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_trunk_leather: {
+    id: 'asset_trunk_leather',
+    src: '/images/anektia_pixel_terminal.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_terminal.png',
+      90: '/images/anektia_pixel_terminal.png',
+      180: '/images/anektia_pixel_terminal.png',
+      270: '/images/anektia_pixel_terminal.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 1,
+    pixelWidth: 120,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_hourglass_brass: {
+    id: 'asset_hourglass_brass',
+    src: '/images/anektia_pixel_abacus.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_abacus.png',
+      90: '/images/anektia_pixel_abacus.png',
+      180: '/images/anektia_pixel_abacus.png',
+      270: '/images/anektia_pixel_abacus.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 70,
+    pixelHeight: 90,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_portrait_aristotle: {
+    id: 'asset_portrait_aristotle',
+    src: '/images/anektia_pixel_physics.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_physics.png',
+      90: '/images/anektia_pixel_physics.png',
+      180: '/images/anektia_pixel_physics.png',
+      270: '/images/anektia_pixel_physics.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 90,
+    pixelHeight: 120,
+    anchorX: 0.5,
+    anchorY: 0.9
+  },
+  asset_candlestick_trio: {
+    id: 'asset_candlestick_trio',
+    src: '/images/anektia_pixel_lamp.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_lamp.png',
+      90: '/images/anektia_pixel_lamp.png',
+      180: '/images/anektia_pixel_lamp.png',
+      270: '/images/anektia_pixel_lamp.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 60,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_rug_oval_burgundy: {
+    id: 'asset_rug_oval_burgundy',
+    src: '/images/anektia_master_rug.png',
+    spritesByRotation: {
+      0: '/images/anektia_master_rug.png',
+      90: '/images/anektia_master_rug.png',
+      180: '/images/anektia_master_rug.png',
+      270: '/images/anektia_master_rug.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 2,
+    pixelWidth: 160,
+    pixelHeight: 120,
+    anchorX: 0.5,
+    anchorY: 0.5
   }
 };
 

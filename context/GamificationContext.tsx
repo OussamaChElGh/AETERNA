@@ -433,6 +433,17 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     loadData();
   }, [user]);
 
+  // Hack temporal solicitado por el usuario para resetear corazones automáticamente.
+  useEffect(() => {
+    if (progress.hearts < progress.maxHearts) {
+      setProgress(prev => ({
+        ...prev,
+        hearts: prev.maxHearts,
+        lastHeartRegenDate: new Date().toISOString()
+      }));
+    }
+  }, [progress.hearts, progress.maxHearts]);
+
   // Persist to LocalStorage AND Firebase whenever progress updates
   useEffect(() => {
     localStorage.setItem("aeterna_progress_v3", JSON.stringify(progress));
@@ -1040,10 +1051,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
   }, []);
 
   const loseHeart = useCallback(() => {
-    setProgress(prev => {
-      if (prev.hearts <= 0) return prev;
-      return { ...prev, hearts: prev.hearts - 1 };
-    });
+    // Por petición del usuario, por ahora no se descuentan corazones.
+    // get/set removed
   }, []);
 
   const regenerateHearts = useCallback(() => {
