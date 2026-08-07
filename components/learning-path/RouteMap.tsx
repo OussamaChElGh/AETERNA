@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { Check, Lock, Play, Zap } from 'lucide-react'
+import { ROOM_ASSETS } from '@/data/roomEngineAssets'
 import { cn } from '@/lib/utils'
 
 export type NodeStatus = 'done' | 'active' | 'locked'
@@ -9,6 +11,7 @@ export interface RouteNode {
   id: string; order: number; title: string; description: string
   emoji: string; slug: string; xp: number; stars?: 0 | 1 | 2 | 3
   status: NodeStatus; type: 'theory' | 'practice' | 'chest' | 'boss'
+  possibleRewards?: any[] // used for chests
   icon?: React.ComponentType<{ className?: string }>
 }
 
@@ -76,7 +79,7 @@ function NodeCircle({ node, onClick }: { node:RouteNode; onClick:()=>void }) {
 
   if (isChest) {
     return (
-      <div className="flex flex-col items-center group">
+      <div className="relative flex flex-col items-center group">
         <button 
           onClick={onClick} 
           disabled={isLocked} 
@@ -126,6 +129,27 @@ function NodeCircle({ node, onClick }: { node:RouteNode; onClick:()=>void }) {
             {node.title}
           </p>
         </div>
+
+        {/* Hover Tooltip con posibles recompensas */}
+        {!isLocked && node.possibleRewards && (
+          <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 w-[200px] bg-black/90 border border-[#D4AF37]/50 rounded-xl p-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 flex flex-col items-center">
+            <p className="text-[10px] text-[#D4AF37] uppercase tracking-widest font-bold mb-2">Posibles Premios</p>
+            <div className="flex gap-2 justify-center flex-wrap">
+              {node.possibleRewards.slice(0,3).map((item, i) => (
+                <div key={i} className="w-10 h-10 rounded border border-white/10 bg-white/5 flex items-center justify-center overflow-hidden">
+                  <img src={ROOM_ASSETS[item.assetId]?.src || '/images/placeholders/furniture.png'} alt={item.name} className="w-8 h-8 object-contain" />
+                </div>
+              ))}
+              {node.possibleRewards.length > 3 && (
+                <div className="w-10 h-10 rounded border border-white/10 bg-white/5 flex items-center justify-center">
+                  <span className="text-white/50 text-xs">+{node.possibleRewards.length - 3}</span>
+                </div>
+              )}
+            </div>
+            {/* Pequeña flecha hacia abajo */}
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-black/90 border-b border-r border-[#D4AF37]/50 rotate-45" />
+          </div>
+        )}
       </div>
     )
   }

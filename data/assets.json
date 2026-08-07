@@ -46,7 +46,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "sofa_leather",
@@ -68,7 +68,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "bookshelf_library",
@@ -94,7 +94,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "desk_academic",
@@ -116,7 +116,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "armchair_chesterfield",
@@ -138,7 +138,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "globe_brass",
@@ -164,7 +164,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "window_gothic",
@@ -190,7 +190,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "ivy_wall",
@@ -212,7 +212,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "clock_wall",
@@ -238,7 +238,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "fireplace_gothic",
@@ -260,7 +260,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "astrolabe_stand",
@@ -286,7 +286,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "rug_persian",
@@ -308,7 +308,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "tapestry_alchemy",
@@ -334,7 +334,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "sconce_candelabra",
@@ -356,7 +356,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "window_arched_sunlight",
@@ -382,7 +382,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "window_stained_rose",
@@ -408,7 +408,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "window_stone_arch_gothic",
@@ -434,7 +434,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "door_gothic_double",
@@ -456,7 +456,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "chair_baroque_royal",
@@ -482,11 +482,11 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "blackboard_equations",
-      "name": "Pizarra de ecuaciones",
+      "name": "Pizarra de Ecuaciones",
       "description": "Pizarra de pizarra verde con fórmulas de la física escritas en tiza blanca.",
       "type": "decoration",
       "discipline": "physics",
@@ -494,13 +494,13 @@
       "category": "decoration",
       "imageUrl": "/images/anektia_master_blackboard.png",
       "storagePath": "/images/anektia_master_blackboard.png",
-      "footprintTileWidth": 4,
+      "footprintTileWidth": 2,
       "footprintTileHeight": 1,
-      "pixelWidth": 230,
-      "pixelHeight": 400,
-      "anchorX": 1,
+      "pixelWidth": 160,
+      "pixelHeight": 200,
+      "anchorX": 0.5,
       "anchorY": 0.9,
-      "placementSurface": "floor",
+      "placementSurface": "wall",
       "canRotate": true,
       "unlockCondition": {
         "type": "article_completed",
@@ -508,7 +508,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785996198724
+      "updatedAt": 1786094893197
     },
     {
       "id": "compass_proportions",
@@ -534,7 +534,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "sundial_marble",
@@ -560,7 +560,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "chronometer_brass",
@@ -586,7 +586,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "anvil_energy",
@@ -612,7 +612,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "newtons_cradle",
@@ -638,7 +638,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "gyroscope_brass",
@@ -664,7 +664,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "archimedes_fountain",
@@ -690,7 +690,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "tesla_coil_mini",
@@ -716,7 +716,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "faraday_cage",
@@ -742,7 +742,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "prism_desk",
@@ -768,7 +768,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "melting_clock",
@@ -794,7 +794,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "orrery_planets",
@@ -820,7 +820,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "nucleus_lamp",
@@ -846,7 +846,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "planck_cube",
@@ -872,7 +872,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "silicon_chip_frame",
@@ -898,7 +898,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "pixel_schrodinger",
@@ -924,7 +924,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "pixel_abacus",
@@ -950,7 +950,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "pixel_terminal",
@@ -976,7 +976,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "pixel_bust",
@@ -1002,7 +1002,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "pixel_microscope",
@@ -1028,7 +1028,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "pixel_terrarium",
@@ -1054,7 +1054,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
     },
     {
       "id": "pixel_plant",
@@ -1080,7 +1080,299 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1785993786707
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_bookshelf",
+      "name": "Estantería de Tomos Pixel Art",
+      "description": "Librería en pixel art con tomos encuadernados y pergaminos enrollados.",
+      "type": "furniture",
+      "discipline": "computer_science",
+      "rarity": "uncommon",
+      "category": "furniture",
+      "imageUrl": "/images/anektia_pixel_bookshelf.png",
+      "storagePath": "/images/anektia_pixel_bookshelf.png",
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 2,
+      "pixelWidth": 100,
+      "pixelHeight": 140,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "guia-maestra-de-fisica"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_armchair_pixel",
+      "name": "Silla de Estudio Pixel Art",
+      "description": "Silla académica de madera oscura en pixel art, con reposabrazos esculpidos.",
+      "type": "furniture",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "furniture",
+      "imageUrl": "/images/anektia_pixel_armchair.png",
+      "storagePath": "/images/anektia_pixel_armchair.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 80,
+      "pixelHeight": 80,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_desk_pixel",
+      "name": "Escritorio de Madera Noble Pixel Art",
+      "description": "Escritorio de madera noble en pixel art, superficie amplia para estudio.",
+      "type": "furniture",
+      "discipline": "general",
+      "rarity": "uncommon",
+      "category": "furniture",
+      "imageUrl": "/images/anektia_pixel_desk.png",
+      "storagePath": "/images/anektia_pixel_desk.png",
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 2,
+      "pixelWidth": 140,
+      "pixelHeight": 100,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_lamp",
+      "name": "Lámpara de Escritorio Pixel Art",
+      "description": "Lámpara de escritorio en pixel art con luz cálida para largas jornadas de estudio.",
+      "type": "decoration",
+      "discipline": "physics",
+      "rarity": "common",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_pixel_lamp.png",
+      "storagePath": "/images/anektia_pixel_lamp.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 70,
+      "pixelHeight": 80,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "desk",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_globe",
+      "name": "Globo Terráqueo de Caoba Pixel Art",
+      "description": "Globo terráqueo en pixel art sobre base de madera oscura con meridiano de latón.",
+      "type": "scientific",
+      "discipline": "mathematics",
+      "rarity": "uncommon",
+      "category": "scientific",
+      "imageUrl": "/images/anektia_pixel_math.png",
+      "storagePath": "/images/anektia_pixel_math.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 80,
+      "pixelHeight": 80,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "cosmologia"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_constellation",
+      "name": "Cuadro de Constelaciones Pixel Art",
+      "description": "Mapa estelar enmarcado en pixel art mostrando las constelaciones del hemisferio norte.",
+      "type": "decoration",
+      "discipline": "physics",
+      "rarity": "uncommon",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_pixel_physics.png",
+      "storagePath": "/images/anektia_pixel_physics.png",
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 1,
+      "pixelWidth": 120,
+      "pixelHeight": 80,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "placementSurface": "wall",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "cosmologia"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_books",
+      "name": "Pila de Libros Antiguos Pixel Art",
+      "description": "Apilamiento de tomos de cuero y pergamino en pixel art, esencia del estudio académico.",
+      "type": "books",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "books",
+      "imageUrl": "/images/anektia_pixel_cs.png",
+      "storagePath": "/images/anektia_pixel_cs.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 80,
+      "pixelHeight": 70,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "desk",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_prism",
+      "name": "Prisma de Cristal Pixel Art",
+      "description": "Prisma de cristal sobre soporte de latón en pixel art, descomponiendo la luz en colores.",
+      "type": "scientific",
+      "discipline": "physics",
+      "rarity": "uncommon",
+      "category": "scientific",
+      "imageUrl": "/images/anektia_pixel_prism.png",
+      "storagePath": "/images/anektia_pixel_prism.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 80,
+      "pixelHeight": 80,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "desk",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "ondas-y-optica-practica"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "pixel_trophy",
+      "name": "Trofeo Académico Dorado Pixel Art",
+      "description": "Trofeo de oro en pixel art, símbolo de excelencia académica y perseverancia.",
+      "type": "decoration",
+      "discipline": "general",
+      "rarity": "epic",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_pixel_trophy.png",
+      "storagePath": "/images/anektia_pixel_trophy.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 80,
+      "pixelHeight": 100,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "fisica-atomica-y-nuclear"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "flat_gothic_window",
+      "name": "Ventana Gótica Plana",
+      "description": "Ventana gótica plana con vidriera en tonos azul y oro para decorar paredes.",
+      "type": "decoration",
+      "discipline": "physics",
+      "rarity": "rare",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_master_flat_gothic_window.png",
+      "storagePath": "/images/anektia_master_flat_gothic_window.png",
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 1,
+      "pixelWidth": 160,
+      "pixelHeight": 220,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "placementSurface": "wall",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "materia-y-energia"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "rug_alternative",
+      "name": "Alfombra Académica",
+      "description": "Alfombra en tonos cálidos con motivos geométricos, perfecta para el estudio.",
+      "type": "decoration",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_master_rug.png",
+      "storagePath": "/images/anektia_master_rug.png",
+      "footprintTileWidth": 3,
+      "footprintTileHeight": 2,
+      "pixelWidth": 200,
+      "pixelHeight": 140,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
+    },
+    {
+      "id": "ashlar_stone_wall",
+      "name": "Revestimiento de Sillería",
+      "description": "Revestimiento decorativo de piedra labrada estilo gótico para paredes.",
+      "type": "decoration",
+      "discipline": "mathematics",
+      "rarity": "uncommon",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_master_wall_ashlar_stone.png",
+      "storagePath": "/images/anektia_master_wall_ashlar_stone.png",
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 1,
+      "pixelWidth": 160,
+      "pixelHeight": 200,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "placementSurface": "wall",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "leyes-newton-movimiento"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786094893197,
+      "updatedAt": 1786094893197
     }
   ]
 }

@@ -268,14 +268,36 @@ export function BossChallengeModal({ isOpen, onClose, node }: BossChallengeModal
             <p className="text-center text-xl text-white mb-2 font-bold">¡Has superado el examen!</p>
             <p className="text-center text-sm text-white/50 mb-8">El Guardián te ha concedido acceso y recompensas.</p>
 
-            <div className="flex justify-center gap-6 mb-10 flex-wrap">
+            <div className="flex justify-center gap-8 mb-10 flex-wrap">
               {rewards.map((item, i) => (
-                <div key={`${item.id}-${i}`} className="flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-2xl bg-black border border-[#D4AF37]/50 shadow-[0_0_30px_rgba(212,175,55,0.3)] flex items-center justify-center p-3 relative group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/20 to-transparent" />
-                    <img src={ROOM_ASSETS[item.assetId]?.src || '/images/placeholders/furniture.png'} alt={item.name} className="w-full h-full object-contain drop-shadow-md z-10" />
+                <div key={`${item.id}-${i}`} className="flex flex-col items-center group relative cursor-help">
+                  {/* Cofre Visual */}
+                  <div className="w-32 h-32 flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+                    {/* Efecto de luz detrás del cofre */}
+                    <div className="absolute inset-0 bg-[#D4AF37]/20 blur-xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity" />
+                    <img 
+                      src="/images/chest-nanobanana.webp" 
+                      alt="Cofre de Recompensa" 
+                      className="w-full h-full object-contain relative z-10 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]"
+                    />
                   </div>
-                  <span className="text-xs text-[#D4AF37] mt-3 max-w-[96px] text-center truncate">{item.name}</span>
+                  
+                  {/* Nombre del cofre genérico que luego desaparece */}
+                  <span className="text-sm font-bold text-[#D4AF37] mt-4 uppercase tracking-widest group-hover:opacity-0 transition-opacity">
+                    Cofre Épico
+                  </span>
+
+                  {/* Tooltip con el Mueble Revelado (Previsualización) */}
+                  <div className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 bg-[#0a0202]/95 border border-[#D4AF37]/50 rounded-xl p-4 shadow-[0_15px_40px_rgba(0,0,0,0.9)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 flex flex-col items-center">
+                    <p className="text-[10px] text-[#D4AF37] uppercase tracking-widest font-bold mb-3 text-center">Contenido Revelado</p>
+                    <div className="w-20 h-20 rounded-lg bg-black border border-[#D4AF37]/30 flex items-center justify-center mb-3">
+                      <img src={ROOM_ASSETS[item.assetId]?.src || '/images/placeholders/furniture.png'} alt={item.name} className="w-16 h-16 object-contain drop-shadow-md" />
+                    </div>
+                    <span className="text-xs text-white text-center font-bold leading-tight">{item.name}</span>
+                    <span className="text-[10px] text-white/50 mt-1 capitalize">{item.rarity}</span>
+                    {/* Flecha del Tooltip */}
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#0a0202]/95 border-b border-r border-[#D4AF37]/50 rotate-45" />
+                  </div>
                 </div>
               ))}
             </div>

@@ -496,6 +496,145 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     placementSurface: 'floor',
     canRotate: true,
     unlockCondition: { type: 'article_completed', targetId: 'como-piensa-un-fisico' }
+  },
+  {
+    id: 'pixel_bookshelf',
+    name: 'Estantería de Tomos Pixel Art',
+    description: 'Librería en pixel art con tomos encuadernados y pergaminos enrollados.',
+    discipline: 'computer_science',
+    category: 'furniture',
+    rarity: 'uncommon',
+    assetId: 'asset_pixel_bookshelf',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'guia-maestra-de-fisica' }
+  },
+  {
+    id: 'pixel_armchair_pixel',
+    name: 'Silla de Estudio Pixel Art',
+    description: 'Silla académica de madera oscura en pixel art, con reposabrazos esculpidos.',
+    discipline: 'general',
+    category: 'furniture',
+    rarity: 'common',
+    assetId: 'asset_pixel_armchair_pixel',
+    placementSurface: 'floor',
+    canRotate: true
+  },
+  {
+    id: 'pixel_desk_pixel',
+    name: 'Escritorio de Madera Noble Pixel Art',
+    description: 'Escritorio de madera noble en pixel art, superficie amplia para estudio.',
+    discipline: 'general',
+    category: 'furniture',
+    rarity: 'uncommon',
+    assetId: 'asset_pixel_desk_pixel',
+    placementSurface: 'floor',
+    canRotate: true
+  },
+  {
+    id: 'pixel_lamp',
+    name: 'Lámpara de Escritorio Pixel Art',
+    description: 'Lámpara de escritorio en pixel art con luz cálida para largas jornadas de estudio.',
+    discipline: 'physics',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_pixel_lamp',
+    placementSurface: 'desk',
+    canRotate: true
+  },
+  {
+    id: 'pixel_globe',
+    name: 'Globo Terráqueo de Caoba Pixel Art',
+    description: 'Globo terráqueo en pixel art sobre base de madera oscura con meridiano de latón.',
+    discipline: 'mathematics',
+    category: 'scientific',
+    rarity: 'uncommon',
+    assetId: 'asset_pixel_globe',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'cosmologia' }
+  },
+  {
+    id: 'pixel_constellation',
+    name: 'Cuadro de Constelaciones Pixel Art',
+    description: 'Mapa estelar enmarcado en pixel art mostrando las constelaciones del hemisferio norte.',
+    discipline: 'physics',
+    category: 'decoration',
+    rarity: 'uncommon',
+    assetId: 'asset_pixel_constellation',
+    placementSurface: 'wall',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'cosmologia' }
+  },
+  {
+    id: 'pixel_books',
+    name: 'Pila de Libros Antiguos Pixel Art',
+    description: 'Apilamiento de tomos de cuero y pergamino en pixel art, esencia del estudio académico.',
+    discipline: 'general',
+    category: 'books',
+    rarity: 'common',
+    assetId: 'asset_pixel_books',
+    placementSurface: 'desk',
+    canRotate: true
+  },
+  {
+    id: 'pixel_prism',
+    name: 'Prisma de Cristal Pixel Art',
+    description: 'Prisma de cristal sobre soporte de latón en pixel art, descomponiendo la luz en colores.',
+    discipline: 'physics',
+    category: 'scientific',
+    rarity: 'uncommon',
+    assetId: 'asset_pixel_prism',
+    placementSurface: 'desk',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'ondas-y-optica-practica' }
+  },
+  {
+    id: 'pixel_trophy',
+    name: 'Trofeo Académico Dorado Pixel Art',
+    description: 'Trofeo de oro en pixel art, símbolo de excelencia académica y perseverancia.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'epic',
+    assetId: 'asset_pixel_trophy',
+    placementSurface: 'floor',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'fisica-atomica-y-nuclear' }
+  },
+  {
+    id: 'flat_gothic_window',
+    name: 'Ventana Gótica Plana',
+    description: 'Ventana gótica plana con vidriera en tonos azul y oro para decorar paredes.',
+    discipline: 'physics',
+    category: 'decoration',
+    rarity: 'rare',
+    assetId: 'asset_flat_gothic_window',
+    placementSurface: 'wall',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'materia-y-energia' }
+  },
+  {
+    id: 'rug_alternative',
+    name: 'Alfombra Académica',
+    description: 'Alfombra en tonos cálidos con motivos geométricos, perfecta para el estudio.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_rug_alternative',
+    placementSurface: 'floor',
+    canRotate: true
+  },
+  {
+    id: 'ashlar_stone_wall',
+    name: 'Revestimiento de Sillería',
+    description: 'Revestimiento decorativo de piedra labrada estilo gótico para paredes.',
+    discipline: 'mathematics',
+    category: 'decoration',
+    rarity: 'uncommon',
+    assetId: 'asset_ashlar_stone_wall',
+    placementSurface: 'wall',
+    canRotate: true,
+    unlockCondition: { type: 'article_completed', targetId: 'leyes-newton-movimiento' }
   }
 ];
 

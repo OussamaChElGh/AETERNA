@@ -10,6 +10,7 @@ import { useAuth } from '@/context/AuthContext'
 import { getNodeIcon, IconGuiaMaestra } from '@/components/learning-path/NodeIcons'
 import { ChestRewardModal } from './ChestRewardModal'
 import { BossChallengeModal } from './BossChallengeModal'
+import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog'
 
 /* ─── DATA ─── */
 type ArticleJSON = { slug: string; title: string; nivel: number; orden: number; tipo?: string }
@@ -190,6 +191,12 @@ export default function CosmicConstellationPath() {
         const prevNode = nodes[midIndex - 1]
         const chestStatus = prevNode?.status === 'done' ? 'active' : 'locked'
         
+        // Seleccionar 4 premios basados en el nivel
+        const possibleRewards = ROOM_ENGINE_CATALOG.slice(
+          (lvl.nivel - 1) * 4,
+          lvl.nivel * 4
+        )
+
         chestNode = {
           id: `chest-lvl-${lvl.nivel}`,
           order: prevNode ? prevNode.order + 0.5 : globalOrder + 0.5,
@@ -199,7 +206,8 @@ export default function CosmicConstellationPath() {
           slug: `chest-${lvl.nivel}`,
           xp: 150,
           status: chestStatus as NodeStatus,
-          type: 'chest' as const
+          type: 'chest' as const,
+          possibleRewards,
         }
       }
 

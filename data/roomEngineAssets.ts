@@ -675,6 +675,198 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     pixelHeight: 100,
     anchorX: 0.5,
     anchorY: 0.85
+  },
+  asset_pixel_bookshelf: {
+    id: 'asset_pixel_bookshelf',
+    src: '/images/anektia_pixel_bookshelf.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_bookshelf.png',
+      90: '/images/anektia_pixel_bookshelf.png',
+      180: '/images/anektia_pixel_bookshelf.png',
+      270: '/images/anektia_pixel_bookshelf.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 2,
+    pixelWidth: 100,
+    pixelHeight: 140,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_armchair_pixel: {
+    id: 'asset_pixel_armchair_pixel',
+    src: '/images/anektia_pixel_armchair.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_armchair.png',
+      90: '/images/anektia_pixel_armchair.png',
+      180: '/images/anektia_pixel_armchair.png',
+      270: '/images/anektia_pixel_armchair.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_desk_pixel: {
+    id: 'asset_pixel_desk_pixel',
+    src: '/images/anektia_pixel_desk.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_desk.png',
+      90: '/images/anektia_pixel_desk.png',
+      180: '/images/anektia_pixel_desk.png',
+      270: '/images/anektia_pixel_desk.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 2,
+    pixelWidth: 140,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_lamp: {
+    id: 'asset_pixel_lamp',
+    src: '/images/anektia_pixel_lamp.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_lamp.png',
+      90: '/images/anektia_pixel_lamp.png',
+      180: '/images/anektia_pixel_lamp.png',
+      270: '/images/anektia_pixel_lamp.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 70,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_globe: {
+    id: 'asset_pixel_globe',
+    src: '/images/anektia_pixel_math.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_math.png',
+      90: '/images/anektia_pixel_math.png',
+      180: '/images/anektia_pixel_math.png',
+      270: '/images/anektia_pixel_math.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_constellation: {
+    id: 'asset_pixel_constellation',
+    src: '/images/anektia_pixel_physics.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_physics.png',
+      90: '/images/anektia_pixel_physics.png',
+      180: '/images/anektia_pixel_physics.png',
+      270: '/images/anektia_pixel_physics.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 1,
+    pixelWidth: 120,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.9
+  },
+  asset_pixel_books: {
+    id: 'asset_pixel_books',
+    src: '/images/anektia_pixel_cs.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_cs.png',
+      90: '/images/anektia_pixel_cs.png',
+      180: '/images/anektia_pixel_cs.png',
+      270: '/images/anektia_pixel_cs.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 70,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_prism: {
+    id: 'asset_pixel_prism',
+    src: '/images/anektia_pixel_prism.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_prism.png',
+      90: '/images/anektia_pixel_prism.png',
+      180: '/images/anektia_pixel_prism.png',
+      270: '/images/anektia_pixel_prism.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 80,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_pixel_trophy: {
+    id: 'asset_pixel_trophy',
+    src: '/images/anektia_pixel_trophy.png',
+    spritesByRotation: {
+      0: '/images/anektia_pixel_trophy.png',
+      90: '/images/anektia_pixel_trophy.png',
+      180: '/images/anektia_pixel_trophy.png',
+      270: '/images/anektia_pixel_trophy.png'
+    },
+    footprintTileWidth: 1,
+    footprintTileHeight: 1,
+    pixelWidth: 80,
+    pixelHeight: 100,
+    anchorX: 0.5,
+    anchorY: 0.85
+  },
+  asset_flat_gothic_window: {
+    id: 'asset_flat_gothic_window',
+    src: '/images/anektia_master_flat_gothic_window.png',
+    spritesByRotation: {
+      0: '/images/anektia_master_flat_gothic_window.png',
+      90: '/images/anektia_master_flat_gothic_window.png',
+      180: '/images/anektia_master_flat_gothic_window.png',
+      270: '/images/anektia_master_flat_gothic_window.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 1,
+    pixelWidth: 160,
+    pixelHeight: 220,
+    anchorX: 0.5,
+    anchorY: 0.9
+  },
+  asset_rug_alternative: {
+    id: 'asset_rug_alternative',
+    src: '/images/anektia_master_rug.png',
+    spritesByRotation: {
+      0: '/images/anektia_master_rug.png',
+      90: '/images/anektia_master_rug.png',
+      180: '/images/anektia_master_rug.png',
+      270: '/images/anektia_master_rug.png'
+    },
+    footprintTileWidth: 3,
+    footprintTileHeight: 2,
+    pixelWidth: 200,
+    pixelHeight: 140,
+    anchorX: 0.5,
+    anchorY: 0.5
+  },
+  asset_ashlar_stone_wall: {
+    id: 'asset_ashlar_stone_wall',
+    src: '/images/anektia_master_wall_ashlar_stone.png',
+    spritesByRotation: {
+      0: '/images/anektia_master_wall_ashlar_stone.png',
+      90: '/images/anektia_master_wall_ashlar_stone.png',
+      180: '/images/anektia_master_wall_ashlar_stone.png',
+      270: '/images/anektia_master_wall_ashlar_stone.png'
+    },
+    footprintTileWidth: 2,
+    footprintTileHeight: 1,
+    pixelWidth: 160,
+    pixelHeight: 200,
+    anchorX: 0.5,
+    anchorY: 0.9
   }
 };
 
