@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: 'es_ES',
       type: 'profile',
     },
+    robots: { index: false, follow: false },
   };
 }
 

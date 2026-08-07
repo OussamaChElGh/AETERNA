@@ -2,6 +2,11 @@ import path from 'path';
 import fs from 'fs';
 import { parseFrontmatter } from '@/lib/server-content';
 import { ArticleAuditor } from '@/components/ArticleAuditor';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false }
+};
 
 const contentDirectories = [
   path.join(process.cwd(), 'content', 'guias'),

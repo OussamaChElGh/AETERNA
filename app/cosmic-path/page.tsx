@@ -4,6 +4,7 @@ import CosmicConstellationPath from '@/components/learning-path/CosmicConstellat
 export const metadata: Metadata = {
   title: 'El Sendero del Sabio | Anektia',
   description: 'Camino de aprendizaje de física — Dark Academia Edition',
+  robots: { index: false, follow: false }
 };
 
 export default function CosmicPathPage() {

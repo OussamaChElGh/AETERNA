@@ -21,6 +21,11 @@ import {
 } from 'lucide-react';
 import { ToastProvider } from '@/components/ui/ToastProvider';
 import { cn } from '@/lib/utils';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false }
+};
 
 interface AdminLayoutProps {
   children: ReactNode;

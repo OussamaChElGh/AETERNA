@@ -7,7 +7,8 @@ import { DEFAULT_PLACED_ITEMS } from '@/lib/roomEngineStorage';
 
 export const metadata: Metadata = {
   title: 'Anektia Environment System v1.0 | Motor de Escenarios Isométricos Modulares',
-  description: 'Motor de escenarios isométricos modulares 2.5D desacoplado de imágenes gigantes. Ensamblado de baldosas de suelo, paredes, iluminación y física.'
+  description: 'Motor de escenarios isométricos modulares 2.5D desacoplado de imágenes gigantes. Ensamblado de baldosas de suelo, paredes, iluminación y física.',
+  robots: { index: false, follow: false }
 };
 
 export default function RoomEnginePage() {
