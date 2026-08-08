@@ -11,7 +11,7 @@ interface CombinedAssets {
 
 let cachedData: CombinedAssets | null = null;
 let cacheTimestamp = 0;
-const CACHE_DURATION = 30000; // 30 segundos
+const CACHE_DURATION = process.env.NODE_ENV === 'development' ? 0 : 30000; // 0s en dev, 30s en prod
 
 export function useCombinedAssets() {
   const [catalog, setCatalog] = useState<RoomCatalogItem[]>(ROOM_ENGINE_CATALOG);

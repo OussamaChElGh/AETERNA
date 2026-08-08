@@ -6,6 +6,8 @@ import path from 'path';
 
 const ASSETS_FILE = path.join(process.cwd(), 'data', 'assets.json');
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     // Leer assets dinámicos
