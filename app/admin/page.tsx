@@ -8,7 +8,9 @@ import {
   HardDrive, 
   TrendingDown,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  BookOpen,
+  ChevronRight
 } from 'lucide-react';
 
 import { StatCard } from '@/components/admin/StatCard';
@@ -26,10 +28,26 @@ interface ScanResult {
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
+interface BranchSummary {
+  branchId: string;
+  branchName: string;
+  icon: string;
+  status: string;
+  levels: number;
+  totalArticles: number;
+  articlesByLevel: Record<number, number>;
+  typesDistribution: Record<string, number>;
+}
+
 export default function AdminDashboard() {
   const { data: scanResult, error, isLoading } = useSWR<ScanResult>('/api/admin/images/scan', fetcher, {
     revalidateOnFocus: false
   });
+
+  const { data: branchesData } = useSWR<{ branches: BranchSummary[] }>('/api/curriculum/branches', fetcher, {
+    revalidateOnFocus: false
+  });
+  const branches = branchesData?.branches || [];
 
   function formatBytes(bytes: number): string {
     if (bytes === 0) return '0 B';
@@ -179,6 +197,59 @@ export default function AdminDashboard() {
             >
               Ir al Auditor →
             </a>
+          </motion.div>
+
+          {/* Curriculum Multi-Rama Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.7 }}
+            className="bg-white/5 border border-white/10 rounded-xl p-6 mb-8"
+          >
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <BookOpen size={20} className="text-emerald-400" />
+              Currículum Multi-Rama
+            </h2>
+            <p className="text-white/60 mb-4">
+              Gestiona las ramas de aprendizaje: física, matemáticas, química y más.
+            </p>
+            {branches.length > 0 ? (
+              <div className="space-y-2 mb-4">
+                {branches.map(branch => (
+                  <div key={branch.branchId} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg">{branch.icon}</span>
+                      <span className="text-white/80 text-sm">{branch.branchName}</span>
+                      <span className={`px-1.5 py-0.5 rounded text-[10px] font-mono ${
+                        branch.status === 'active' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+                      }`}>
+                        {branch.status === 'active' ? 'activo' : 'borrador'}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3 text-xs text-white/40 font-mono">
+                      <span>{branch.levels} niveles</span>
+                      <span>{branch.totalArticles} arts</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-white/40 text-sm mb-4">No hay ramas definidas todavía.</p>
+            )}
+            <div className="flex gap-3">
+              <a
+                href="/admin/curriculum"
+                className="flex-1 block bg-emerald-600 hover:bg-emerald-700 text-white text-center py-2 rounded-lg transition-colors text-sm"
+              >
+                Gestionar Ramas →
+              </a>
+              <a
+                href="/admin/planner"
+                className="flex-1 block bg-white/10 hover:bg-white/20 text-white text-center py-2 rounded-lg transition-colors text-sm"
+              >
+                Planificar →
+              </a>
+            </div>
           </motion.div>
 
           {/* Recent Images */}
