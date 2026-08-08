@@ -46,7 +46,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "sofa_leather",
@@ -68,7 +68,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "bookshelf_library",
@@ -94,29 +94,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
-    },
-    {
-      "id": "desk_academic",
-      "name": "Escritorio Académico de Caoba",
-      "description": "Gran mesa de estudio de caoba con superficie de cuero y manuscritos.",
-      "type": "furniture",
-      "discipline": "general",
-      "rarity": "rare",
-      "category": "furniture",
-      "imageUrl": "/images/assets/desk_academic.png",
-      "storagePath": "public/images/assets/desk_academic.png",
-      "footprintTileWidth": 3,
-      "footprintTileHeight": 2,
-      "pixelWidth": 200,
-      "pixelHeight": 160,
-      "anchorX": 0.5,
-      "anchorY": 0.8,
-      "placementSurface": "floor",
-      "canRotate": true,
-      "isFromCatalog": true,
-      "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "armchair_chesterfield",
@@ -138,7 +116,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "globe_brass",
@@ -164,7 +142,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "window_gothic",
@@ -190,7 +168,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "ivy_wall",
@@ -212,7 +190,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "clock_wall",
@@ -238,7 +216,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "fireplace_gothic",
@@ -260,7 +238,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "astrolabe_stand",
@@ -286,7 +264,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "rug_persian",
@@ -308,7 +286,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "tapestry_alchemy",
@@ -334,7 +312,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "sconce_candelabra",
@@ -356,7 +334,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "window_arched_sunlight",
@@ -382,7 +360,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "window_stained_rose",
@@ -408,7 +386,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "window_stone_arch_gothic",
@@ -434,7 +412,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "door_gothic_double",
@@ -456,7 +434,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "chair_baroque_royal",
@@ -482,7 +460,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "blackboard_equations",
@@ -508,7 +486,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "compass_proportions",
@@ -534,7 +512,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "sundial_marble",
@@ -560,7 +538,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "chronometer_brass",
@@ -586,7 +564,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "anvil_energy",
@@ -612,7 +590,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "newtons_cradle",
@@ -638,7 +616,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "gyroscope_brass",
@@ -664,7 +642,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "archimedes_fountain",
@@ -690,7 +668,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "tesla_coil_mini",
@@ -716,7 +694,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "faraday_cage",
@@ -742,7 +720,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "prism_desk",
@@ -768,7 +746,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "melting_clock",
@@ -794,7 +772,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "orrery_planets",
@@ -820,7 +798,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "nucleus_lamp",
@@ -846,7 +824,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "planck_cube",
@@ -872,7 +850,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "silicon_chip_frame",
@@ -898,7 +876,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_schrodinger",
@@ -924,7 +902,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_abacus",
@@ -950,7 +928,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_terminal",
@@ -976,7 +954,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_bust",
@@ -1002,7 +980,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_microscope",
@@ -1028,7 +1006,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_terrarium",
@@ -1054,7 +1032,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_plant",
@@ -1080,7 +1058,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_bookshelf",
@@ -1106,7 +1084,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_armchair_pixel",
@@ -1128,7 +1106,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_desk_pixel",
@@ -1150,7 +1128,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_lamp",
@@ -1172,7 +1150,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_globe",
@@ -1198,7 +1176,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_constellation",
@@ -1224,7 +1202,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_books",
@@ -1246,7 +1224,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_prism",
@@ -1272,7 +1250,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "pixel_trophy",
@@ -1298,7 +1276,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "flat_gothic_window",
@@ -1324,7 +1302,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "rug_alternative",
@@ -1346,7 +1324,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "ashlar_stone_wall",
@@ -1372,7 +1350,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "book_tower",
@@ -1394,7 +1372,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "scroll_wall",
@@ -1420,7 +1398,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "codex_stand",
@@ -1446,7 +1424,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "fern_ceramic",
@@ -1468,7 +1446,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "hanging_ivy_long",
@@ -1490,7 +1468,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "cactus_desk",
@@ -1512,7 +1490,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "alembic_copper",
@@ -1538,7 +1516,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "flasks_trio",
@@ -1564,7 +1542,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "side_table_marble",
@@ -1586,7 +1564,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "coat_rack_brass",
@@ -1608,7 +1586,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "trunk_leather",
@@ -1634,7 +1612,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "hourglass_brass",
@@ -1660,7 +1638,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "portrait_aristotle",
@@ -1686,7 +1664,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "candlestick_trio",
@@ -1708,7 +1686,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "rug_oval_burgundy",
@@ -1734,7 +1712,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "floor_oak_parquet",
@@ -1756,7 +1734,7 @@
       "canRotate": false,
       "isFromCatalog": true,
       "createdAt": 1786198927211,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "floor_oak_tile_b",
@@ -1778,7 +1756,7 @@
       "canRotate": false,
       "isFromCatalog": true,
       "createdAt": 1786198927211,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "floor_oak_tile_c",
@@ -1800,7 +1778,7 @@
       "canRotate": false,
       "isFromCatalog": true,
       "createdAt": 1786198927211,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "wall_mahogany_nw",
@@ -1822,7 +1800,7 @@
       "canRotate": false,
       "isFromCatalog": true,
       "createdAt": 1786198927211,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
     },
     {
       "id": "wall_mahogany_ne",
@@ -1844,7 +1822,50 @@
       "canRotate": false,
       "isFromCatalog": true,
       "createdAt": 1786198927211,
-      "updatedAt": 1786199647049
+      "updatedAt": 1786199969976
+    },
+    {
+      "name": "Escritorio de caoba",
+      "description": "",
+      "type": "furniture",
+      "discipline": "physics",
+      "rarity": "common",
+      "category": "furniture",
+      "placementSurface": "floor",
+      "canRotate": true,
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 2,
+      "pixelWidth": 128,
+      "pixelHeight": 128,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "imageUrl": "/images/assets/asset_1786199958682_xi7xyeh.png",
+      "storagePath": "public/images/assets/asset_1786199958682_xi7xyeh.png",
+      "createdAt": 1786199958715,
+      "updatedAt": 1786199958715,
+      "id": "asset_1786199958715_2f27r9a"
+    },
+    {
+      "id": "desk_academic",
+      "name": "Escritorio Académico de Caoba",
+      "description": "Gran mesa de estudio de caoba con superficie de cuero y manuscritos.",
+      "type": "furniture",
+      "discipline": "general",
+      "rarity": "rare",
+      "category": "furniture",
+      "imageUrl": "/images/anektia_master_desk_0deg.png",
+      "storagePath": "/images/anektia_master_desk_0deg.png",
+      "footprintTileWidth": 3,
+      "footprintTileHeight": 2,
+      "pixelWidth": 200,
+      "pixelHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.8,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786199969976,
+      "updatedAt": 1786199969976
     }
   ]
 }
