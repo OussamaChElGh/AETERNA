@@ -31,6 +31,7 @@ const NAV_ITEMS = [
   { href: '/admin/analytics', icon: BarChart3, label: 'Analytics' },
   { href: '/admin/planner', icon: Brain, label: 'Planificador IA' },
   { href: '/admin/stitch', icon: Code2, label: 'Stitch-to-Code' },
+  { href: '/admin/curriculum', icon: BookOpen, label: 'Currículum' },
   { href: '/admin/imagenes', icon: ImageIcon, label: 'Imágenes' },
   { href: '/admin/assets', icon: Package, label: 'Assets' },
   { href: '/admin/articulos', icon: BookOpen, label: 'Artículos' },

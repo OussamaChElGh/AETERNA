@@ -12,7 +12,8 @@
     "rigor:harvest": "npx tsx scripts/rigor-harvest.ts",
     "rigor:validate": "npx tsx scripts/rigor-validate.ts",
     "article:sync": "npx tsx scripts/article-sync.ts",
-    "images:generate": "npx tsx scripts/images-generate.ts"
+    "images:generate": "npx tsx scripts/images-generate.ts",
+    "curriculum:scaffold": "npx tsx scripts/scaffold-curriculum.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

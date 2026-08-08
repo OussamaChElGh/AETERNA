@@ -1,10 +1,15 @@
 {
   "branchId": "fisica",
   "branchName": "Física",
+  "subcategory": "fisica",
+  "categoryId": "ciencias_naturales",
   "profileId": "bachillerato",
-  "source": "FASE3-benchmarking + inventory real de content/guias/ciencias_naturales/fisica",
+  "icon": "⚛️",
+  "status": "active",
   "contentPath": "ciencias_naturales/fisica",
   "description": "Mapa curricular declarativo de la rama de Física. Cada artículo define sus capas objetivo (inicio/intermedio/avanzado), secciones, competencias y bloques interactivos recomendados.",
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "updatedAt": "2025-01-01T00:00:00.000Z",
   "levels": [
     {
       "nivel": 1,

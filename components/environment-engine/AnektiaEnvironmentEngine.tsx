@@ -31,14 +31,22 @@ export function AnektiaEnvironmentEngine({
   const userId = user?.uid || 'anonymous';
   const { catalog: dynamicCatalog, assets: dynamicAssets } = useCombinedAssets();
 
-  const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(() => {
+  const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(initialItems);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isLoadedFromStorage, setIsLoadedFromStorage] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
     const hasSaved = hasRoomEngineState();
     if (hasSaved) {
       const loaded = loadRoomEngineState();
-      return loaded.placedItems.length > 0 ? loaded.placedItems : initialItems;
+      if (loaded.placedItems.length > 0) {
+        setPlacedItems(loaded.placedItems);
+      }
     }
-    return initialItems;
-  });
+    setIsLoadedFromStorage(true);
+  }, []);
+
   const [editMode, setEditMode] = useState<boolean>(false);
   const [showGrid, setShowGrid] = useState<boolean>(true);
   const [showDebugMode, setShowDebugMode] = useState<boolean>(false);
@@ -68,9 +76,9 @@ export function AnektiaEnvironmentEngine({
 
   // Auto-save on placedItems change (debounced to localStorage + Firestore)
   useEffect(() => {
-    if (!mountedRef.current) return;
+    if (!mountedRef.current || !isLoadedFromStorage) return;
     saveRoomEngineStateDebounced({ roomId: 'main_2d_room', theme: 'academic_library', gridSizeX: layout.gridSizeX, gridSizeY: layout.gridSizeY, placedItems }, userId);
-  }, [placedItems, userId, layout]);
+  }, [placedItems, userId, layout, isLoadedFromStorage]);
 
   useEffect(() => {
     const updateScale = () => {

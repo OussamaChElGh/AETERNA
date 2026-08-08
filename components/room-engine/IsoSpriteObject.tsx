@@ -51,6 +51,8 @@ export function IsoSpriteObject({
     || asset?.src 
     || '/images/anektia_master_sofa.png';
 
+  const cleanSpriteSrc = rawSpriteSrc.replace(/\\/g, '/');
+
   const [isDragging, setIsDragging] = useState(false);
   const [isValidDrag, setIsValidDrag] = useState(true);
 
@@ -279,7 +281,7 @@ export function IsoSpriteObject({
         {/* RASTER PNG SPRITE — oculto hasta que el chroma-key procese la transparencia */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={rawSpriteSrc}
+          src={cleanSpriteSrc}
           alt={catalogItem.name}
           className={cn(
             "w-full h-full object-contain filter group-hover:scale-[1.02] transition-transform pointer-events-none",

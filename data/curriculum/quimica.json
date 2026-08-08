@@ -1,0 +1,36 @@
+{
+  "branchId": "quimica",
+  "branchName": "Química",
+  "subcategory": "quimica",
+  "categoryId": "ciencias_naturales",
+  "profileId": "bachillerato",
+  "icon": "🧪",
+  "status": "draft",
+  "description": "Currículum de Química.",
+  "contentPath": "ciencias_naturales/quimica",
+  "levels": [
+    {
+      "nivel": 1,
+      "titulo": "Fundamentos",
+      "descripcion": "Conceptos y herramientas básicas."
+    },
+    {
+      "nivel": 2,
+      "titulo": "Núcleo",
+      "descripcion": "Desarrollo de los temas centrales."
+    },
+    {
+      "nivel": 3,
+      "titulo": "Avanzado",
+      "descripcion": "Temas de profundización y frontera."
+    },
+    {
+      "nivel": 4,
+      "titulo": "Especialización",
+      "descripcion": "Aplicaciones y síntesis."
+    }
+  ],
+  "articles": [],
+  "createdAt": "2026-08-08T13:31:01.181Z",
+  "updatedAt": "2026-08-08T13:31:01.181Z"
+}
