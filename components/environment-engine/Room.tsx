@@ -49,7 +49,8 @@ export function Room({
         width: '1200px',
         height: '950px',
         transform: `scale(${scaleFactor})`,
-        transformOrigin: 'top left'
+        transformOrigin: 'top left',
+        backgroundColor: '#14110D'
       }}
       className="relative"
     >
