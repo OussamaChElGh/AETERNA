@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { useCombinedAssets } from '@/hooks/useCombinedAssets';
 import { PlacedRoomItem, RoomCatalogItem } from '@/types/roomEngine';
 import { BookOpen, Plus, ChevronUp, ChevronDown, Lock } from 'lucide-react';
@@ -133,11 +132,11 @@ export function InventoryDrawer({
                     </div>
                   )}
                   <div className="w-12 h-12 relative shrink-0 bg-brand-gold/10 rounded-xl p-1 border border-brand-gold/20 flex items-center justify-center">
-                    <Image
-                      src={(asset?.src || '/images/anektia_master_sofa.png').replace(/\\/g, '/')}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={asset?.src || '/images/anektia_master_sofa.png'}
                       alt={item.name}
-                      fill
-                      className="object-contain drop-shadow-md group-hover:scale-105 transition-transform"
+                      className="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform"
                     />
                   </div>
 
