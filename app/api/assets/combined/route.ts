@@ -60,11 +60,16 @@ export async function GET() {
     const fullCatalog = [...combinedCatalog, ...newDynamicItems];
 
     // Combinar ROOM_ASSETS con dinámicos
+    // Mapa: catalogItem.id → catalogItem.assetId (ROOM_ASSETS key)
+    const catalogAssetIdMap = new Map(ROOM_ENGINE_CATALOG.map(c => [c.id, c.assetId]));
+
     const combinedAssets = { ...ROOM_ASSETS };
     for (const asset of dynamicAssets) {
-      if (!combinedAssets[asset.id]) {
-        combinedAssets[asset.id] = {
-          id: asset.id,
+      const assetKey = catalogAssetIdMap.get(asset.id) || asset.id;
+
+      if (!combinedAssets[assetKey]) {
+        combinedAssets[assetKey] = {
+          id: assetKey,
           src: asset.imageUrl,
           footprintTileWidth: asset.footprintTileWidth,
           footprintTileHeight: asset.footprintTileHeight,
@@ -74,16 +79,15 @@ export async function GET() {
           anchorY: asset.anchorY,
         };
       } else if (asset.imageUrl) {
-        // Actualizar imagen si cambió
-        combinedAssets[asset.id] = {
-          ...combinedAssets[asset.id],
+        combinedAssets[assetKey] = {
+          ...combinedAssets[assetKey],
           src: asset.imageUrl,
-          footprintTileWidth: asset.footprintTileWidth || combinedAssets[asset.id].footprintTileWidth,
-          footprintTileHeight: asset.footprintTileHeight || combinedAssets[asset.id].footprintTileHeight,
-          pixelWidth: asset.pixelWidth || combinedAssets[asset.id].pixelWidth,
-          pixelHeight: asset.pixelHeight || combinedAssets[asset.id].pixelHeight,
-          anchorX: asset.anchorX ?? combinedAssets[asset.id].anchorX,
-          anchorY: asset.anchorY ?? combinedAssets[asset.id].anchorY,
+          footprintTileWidth: asset.footprintTileWidth || combinedAssets[assetKey].footprintTileWidth,
+          footprintTileHeight: asset.footprintTileHeight || combinedAssets[assetKey].footprintTileHeight,
+          pixelWidth: asset.pixelWidth || combinedAssets[assetKey].pixelWidth,
+          pixelHeight: asset.pixelHeight || combinedAssets[assetKey].pixelHeight,
+          anchorX: asset.anchorX ?? combinedAssets[assetKey].anchorX,
+          anchorY: asset.anchorY ?? combinedAssets[assetKey].anchorY,
         };
       }
     }
