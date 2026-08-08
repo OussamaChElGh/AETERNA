@@ -3,6 +3,10 @@
 
 const alphaCache = new Map<string, string>();
 
+export function clearChromaKeyCache() {
+  alphaCache.clear();
+}
+
 export function getChromaKeyAlphaSprite(src: string): Promise<string> {
   if (alphaCache.has(src)) {
     return Promise.resolve(alphaCache.get(src)!);

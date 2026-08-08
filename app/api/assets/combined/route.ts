@@ -63,14 +63,16 @@ export async function GET() {
     // Mapa: catalogItem.id → catalogItem.assetId (ROOM_ASSETS key)
     const catalogAssetIdMap = new Map(ROOM_ENGINE_CATALOG.map(c => [c.id, c.assetId]));
 
+    const now = Date.now();
     const combinedAssets = { ...ROOM_ASSETS };
     for (const asset of dynamicAssets) {
       const assetKey = catalogAssetIdMap.get(asset.id) || asset.id;
+      const cacheBust = asset.updatedAt ? `?t=${asset.updatedAt}` : '';
 
       if (!combinedAssets[assetKey]) {
         combinedAssets[assetKey] = {
           id: assetKey,
-          src: asset.imageUrl,
+          src: asset.imageUrl + cacheBust,
           footprintTileWidth: asset.footprintTileWidth,
           footprintTileHeight: asset.footprintTileHeight,
           pixelWidth: asset.pixelWidth,
@@ -81,7 +83,7 @@ export async function GET() {
       } else if (asset.imageUrl) {
         combinedAssets[assetKey] = {
           ...combinedAssets[assetKey],
-          src: asset.imageUrl,
+          src: asset.imageUrl + cacheBust,
           footprintTileWidth: asset.footprintTileWidth || combinedAssets[assetKey].footprintTileWidth,
           footprintTileHeight: asset.footprintTileHeight || combinedAssets[assetKey].footprintTileHeight,
           pixelWidth: asset.pixelWidth || combinedAssets[assetKey].pixelWidth,

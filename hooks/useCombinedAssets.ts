@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { RoomCatalogItem, RoomAsset } from '@/types/roomEngine';
 import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog';
 import { ROOM_ASSETS } from '@/data/roomEngineAssets';
+import { clearChromaKeyCache } from '@/lib/chromaKeyAlpha';
 
 interface CombinedAssets {
   catalog: RoomCatalogItem[];
@@ -56,4 +57,5 @@ export function useCombinedAssets() {
 export function invalidateAssetsCache() {
   cachedData = null;
   cacheTimestamp = 0;
+  clearChromaKeyCache();
 }
