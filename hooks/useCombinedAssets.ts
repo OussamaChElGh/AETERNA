@@ -12,7 +12,7 @@ interface CombinedAssets {
 
 let cachedData: CombinedAssets | null = null;
 let cacheTimestamp = 0;
-const CACHE_DURATION = process.env.NODE_ENV === 'development' ? 0 : 30000; // 0s en dev, 30s en prod
+const CACHE_DURATION = 5000;
 
 export function useCombinedAssets() {
   const [catalog, setCatalog] = useState<RoomCatalogItem[]>(ROOM_ENGINE_CATALOG);
@@ -20,13 +20,16 @@ export function useCombinedAssets() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
+
     async function fetchAssets() {
       const now = Date.now();
-      
-      // Usar cache si es reciente
+
       if (cachedData && (now - cacheTimestamp) < CACHE_DURATION) {
-        setCatalog(cachedData.catalog);
-        setAssets(cachedData.assets);
+        if (!cancelled) {
+          setCatalog(cachedData.catalog);
+          setAssets(cachedData.assets);
+        }
         return;
       }
 
@@ -37,23 +40,26 @@ export function useCombinedAssets() {
           const data = await res.json();
           cachedData = data;
           cacheTimestamp = now;
-          setCatalog(data.catalog);
-          setAssets(data.assets);
+          if (!cancelled) {
+            setCatalog(data.catalog);
+            setAssets(data.assets);
+          }
         }
       } catch (error) {
         console.error('Error fetching combined assets:', error);
       } finally {
-        setLoading(false);
+        if (!cancelled) setLoading(false);
       }
     }
 
     fetchAssets();
+
+    return () => { cancelled = true; };
   }, []);
 
   return { catalog, assets, loading };
 }
 
-// Función para invalidar cache manualmente
 export function invalidateAssetsCache() {
   cachedData = null;
   cacheTimestamp = 0;
