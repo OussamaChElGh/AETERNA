@@ -808,6 +808,61 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     placementSurface: 'floor',
     canRotate: true,
     unlockCondition: { type: 'article_completed', targetId: 'relatividad-general' }
+  },
+  {
+    id: 'floor_oak_parquet',
+    name: 'Suelo de Parqué de Roble',
+    description: 'Suelo de parqué de roble en espiga, suelo base del estudio principal.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_floor_oak_parquet',
+    placementSurface: 'floor',
+    canRotate: false
+  },
+  {
+    id: 'floor_oak_tile_b',
+    name: 'Suelo de Parqué Variante B',
+    description: 'Variante de parqué de roble con patrón alternativo.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_floor_oak_tile_b',
+    placementSurface: 'floor',
+    canRotate: false
+  },
+  {
+    id: 'floor_oak_tile_c',
+    name: 'Suelo de Parqué Variante C',
+    description: 'Variante de parqué de roble con patrón oscuro.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_floor_oak_tile_c',
+    placementSurface: 'floor',
+    canRotate: false
+  },
+  {
+    id: 'wall_mahogany_nw',
+    name: 'Pared de Caoba Noroeste',
+    description: 'Revestimiento de pared en caoba oscura con librería, pared NW del estudio.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_wall_mahogany_nw',
+    placementSurface: 'wall',
+    canRotate: false
+  },
+  {
+    id: 'wall_mahogany_ne',
+    name: 'Pared de Caoba Noreste',
+    description: 'Revestimiento de pared en caoba oscura, pared NE del estudio.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_wall_mahogany_ne',
+    placementSurface: 'wall',
+    canRotate: false
   }
 ];
 

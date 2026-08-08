@@ -54,10 +54,11 @@ export async function POST() {
         assetsData.assets.push(newAsset);
         addedCount++;
       } else {
-        // Actualizar metadata manteniendo createdAt original
-        const originalCreatedAt = assetsData.assets[existingIndex].createdAt || Date.now();
+        // Actualizar metadata manteniendo imageUrl y storagePath del usuario
+        const existing = assetsData.assets[existingIndex];
+        const originalCreatedAt = existing.createdAt || Date.now();
         assetsData.assets[existingIndex] = {
-          ...assetsData.assets[existingIndex],
+          ...existing,
           id: catalogItem.id,
           name: catalogItem.name,
           description: catalogItem.description,
@@ -65,14 +66,14 @@ export async function POST() {
           discipline: catalogItem.discipline,
           rarity: catalogItem.rarity,
           category: catalogItem.category,
-          imageUrl: roomAsset?.src || assetsData.assets[existingIndex].imageUrl,
-          storagePath: roomAsset?.src || assetsData.assets[existingIndex].storagePath,
-          footprintTileWidth: roomAsset?.footprintTileWidth || assetsData.assets[existingIndex].footprintTileWidth || 2,
-          footprintTileHeight: roomAsset?.footprintTileHeight || assetsData.assets[existingIndex].footprintTileHeight || 2,
-          pixelWidth: roomAsset?.pixelWidth || assetsData.assets[existingIndex].pixelWidth || 128,
-          pixelHeight: roomAsset?.pixelHeight || assetsData.assets[existingIndex].pixelHeight || 128,
-          anchorX: roomAsset?.anchorX || assetsData.assets[existingIndex].anchorX || 0.5,
-          anchorY: roomAsset?.anchorY || assetsData.assets[existingIndex].anchorY || 0.85,
+          imageUrl: existing.imageUrl || roomAsset?.src || '',
+          storagePath: existing.storagePath || roomAsset?.src || '',
+          footprintTileWidth: existing.footprintTileWidth || roomAsset?.footprintTileWidth || 2,
+          footprintTileHeight: existing.footprintTileHeight || roomAsset?.footprintTileHeight || 2,
+          pixelWidth: existing.pixelWidth || roomAsset?.pixelWidth || 128,
+          pixelHeight: existing.pixelHeight || roomAsset?.pixelHeight || 128,
+          anchorX: existing.anchorX ?? roomAsset?.anchorX ?? 0.5,
+          anchorY: existing.anchorY ?? roomAsset?.anchorY ?? 0.85,
           placementSurface: catalogItem.placementSurface,
           canRotate: catalogItem.canRotate,
           unlockCondition: catalogItem.unlockCondition,

@@ -1107,6 +1107,56 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     pixelHeight: 120,
     anchorX: 0.5,
     anchorY: 0.5
+  },
+  asset_floor_oak_parquet: {
+    id: 'asset_floor_oak_parquet',
+    src: '/images/anektia_master_oak_floor_tile.png',
+    footprintTileWidth: 14,
+    footprintTileHeight: 14,
+    pixelWidth: 1200,
+    pixelHeight: 600,
+    anchorX: 0.5,
+    anchorY: 0.5
+  },
+  asset_floor_oak_tile_b: {
+    id: 'asset_floor_oak_tile_b',
+    src: '/images/anektia_master_oak_floor_tile_b.png',
+    footprintTileWidth: 14,
+    footprintTileHeight: 14,
+    pixelWidth: 1200,
+    pixelHeight: 600,
+    anchorX: 0.5,
+    anchorY: 0.5
+  },
+  asset_floor_oak_tile_c: {
+    id: 'asset_floor_oak_tile_c',
+    src: '/images/anektia_master_oak_floor_tile_c.png',
+    footprintTileWidth: 14,
+    footprintTileHeight: 14,
+    pixelWidth: 1200,
+    pixelHeight: 600,
+    anchorX: 0.5,
+    anchorY: 0.5
+  },
+  asset_wall_mahogany_nw: {
+    id: 'asset_wall_mahogany_nw',
+    src: '/images/master_wall_iso_nw.png',
+    footprintTileWidth: 14,
+    footprintTileHeight: 1,
+    pixelWidth: 1200,
+    pixelHeight: 480,
+    anchorX: 0.5,
+    anchorY: 0.9
+  },
+  asset_wall_mahogany_ne: {
+    id: 'asset_wall_mahogany_ne',
+    src: '/images/master_wall_iso_ne.png',
+    footprintTileWidth: 14,
+    footprintTileHeight: 1,
+    pixelWidth: 1200,
+    pixelHeight: 480,
+    anchorX: 0.5,
+    anchorY: 0.9
   }
 };
 
