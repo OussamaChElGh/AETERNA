@@ -33,11 +33,7 @@ export async function POST(request: NextRequest) {
     const inputBuffer = fs.readFileSync(fullPath);
     const { buffer, removedPercent } = await removeImageBackground(inputBuffer);
 
-    const outputFilename = `${path.basename(urlPath, path.extname(urlPath))}_nobg.png`;
-    const outputRelPath = path.join(path.dirname(urlPath), outputFilename);
-    const outputFullPath = path.join(process.cwd(), 'public', outputRelPath);
-
-    fs.writeFileSync(outputFullPath, buffer);
+    fs.writeFileSync(fullPath, buffer);
 
     let assetUpdated = false;
     try {
@@ -45,19 +41,17 @@ export async function POST(request: NextRequest) {
       const assets = JSON.parse(raw);
       const index = assets.assets.findIndex((a: any) => a.id === assetId);
       if (index !== -1) {
-        assets.assets[index].imageUrl = outputRelPath;
-        assets.assets[index].storagePath = `public${outputRelPath}`;
         assets.assets[index].updatedAt = Date.now();
         await fs.promises.writeFile(ASSETS_FILE, JSON.stringify(assets, null, 2));
         assetUpdated = true;
       }
     } catch {
-      // non-fatal: image processed but metadata not updated
+      // non-fatal
     }
 
     return NextResponse.json({
       success: true,
-      imageUrl: outputRelPath,
+      imageUrl,
       removedPercent,
       assetUpdated,
       message: `Fondo eliminado (${removedPercent}% de píxeles transparentados)`,
