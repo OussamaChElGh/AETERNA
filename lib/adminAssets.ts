@@ -150,8 +150,12 @@ export async function updateAssetImage(assetId: string, file: File): Promise<voi
   // Upload new image
   const { imageUrl, storagePath } = await uploadAssetImage(file, assetId);
   
-  // Note: This would need a PUT endpoint to update the asset metadata
-  console.warn('updateAssetImage partially implemented - metadata update not available');
+  // Update asset metadata with new image info
+  await fetch('/api/admin/assets', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: assetId, imageUrl, storagePath, updatedAt: Date.now() }),
+  });
 }
 
 export async function deleteAsset(assetId: string): Promise<void> {

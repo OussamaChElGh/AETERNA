@@ -48,7 +48,7 @@ export function AnektiaEnvironmentEngine({
   }, []);
 
   const [editMode, setEditMode] = useState<boolean>(false);
-  const [showGrid, setShowGrid] = useState<boolean>(true);
+  const [showGrid, setShowGrid] = useState<boolean>(false);
   const [showDebugMode, setShowDebugMode] = useState<boolean>(false);
   const [selectedInstanceId, setSelectedInstanceId] = useState<string | null>(null);
   const [inventoryOpen, setInventoryOpen] = useState<boolean>(true);
