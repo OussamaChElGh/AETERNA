@@ -426,7 +426,7 @@ export function ShareRankCard(props: ShareRankCardProps) {
                     </div>
                   </div>
                   <div className="mt-auto pt-4 border-t border-brand-gold/20 flex items-center justify-between">
-                    <div className="text-[9px] font-mono uppercase tracking-widest text-brand-offwhite/40">anektia.app</div>
+                    <div className="text-[9px] font-mono uppercase tracking-widest text-brand-offwhite/40">anektia.com</div>
                     {props.scope === 'weekly' ? (
                       <Crown size={16} className="text-brand-cosmic" />
                     ) : (

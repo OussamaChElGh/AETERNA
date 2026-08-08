@@ -31,7 +31,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     openGraph: {
       title,
       description,
-      url: 'https://anektia.app/clasificacion',
+      url: 'https://anektia.com/clasificacion',
       siteName: 'ANEKTIA',
       locale: 'es_ES',
       type: 'website',
