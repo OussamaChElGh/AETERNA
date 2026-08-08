@@ -4,7 +4,6 @@ import { PlacedRoomItem, RoomCatalogItem, RoomAsset } from '@/types/roomEngine';
 import { getCatalogItem } from '@/data/roomEngineCatalog';
 import { getRoomAsset } from '@/data/roomEngineAssets';
 import { tileToScreen, screenToTile, calculateDerivedZIndex, validatePlacement } from '@/lib/roomEngineStorage';
-import { getChromaKeyAlphaSprite } from '@/lib/chromaKeyAlpha';
 import { CompactObjectToolbar } from './CompactObjectToolbar';
 import { cn } from '@/lib/utils';
 
@@ -52,26 +51,10 @@ export function IsoSpriteObject({
     || asset?.src 
     || '/images/anektia_master_sofa.png';
 
-  const [cleanSpriteSrc, setCleanSpriteSrc] = useState<string>('');
-  const [spriteReady, setSpriteReady] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [isValidDrag, setIsValidDrag] = useState(true);
 
   const dragStartRef = useRef<{ startX: number; startY: number; initialTileX: number; initialTileY: number; initialTileZ: number } | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    setSpriteReady(false);
-    getChromaKeyAlphaSprite(rawSpriteSrc).then(cleanUrl => {
-      if (isMounted) {
-        setCleanSpriteSrc(cleanUrl);
-        setSpriteReady(true);
-      }
-    });
-    return () => {
-      isMounted = false;
-    };
-  }, [rawSpriteSrc]);
 
   const { screenX, screenY } = tileToScreen(item.tileX, item.tileY, item.tileZ);
 
@@ -296,12 +279,12 @@ export function IsoSpriteObject({
         {/* RASTER PNG SPRITE — oculto hasta que el chroma-key procese la transparencia */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={cleanSpriteSrc}
+          src={rawSpriteSrc}
           alt={catalogItem.name}
           className={cn(
             "w-full h-full object-contain filter group-hover:scale-[1.02] transition-transform pointer-events-none",
             dropShadowClass,
-            !spriteReady ? "opacity-0" : (isDragging ? (isValidDrag ? "opacity-70" : "opacity-50") : "opacity-100"),
+            isDragging ? (isValidDrag ? "opacity-70" : "opacity-50") : "opacity-100",
             isSelected && isValidDrag && "drop-shadow-[0_0_12px_#22d3ee] drop-shadow-[0_0_6px_#06b6d4] drop-shadow-[0_0_3px_#0891b2]",
             isSelected && !isValidDrag && "drop-shadow-[0_0_12px_#ef4444] drop-shadow-[0_0_6px_#dc2626] drop-shadow-[0_0_3px_#b91c1c]"
           )}

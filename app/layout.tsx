@@ -44,17 +44,21 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body className="antialiased min-h-screen flex flex-col bg-background text-foreground font-sans">
-        {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-WMYM36JQG7" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+        {/* Google Analytics - Solo se carga en Producción */}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Script src="https://www.googletagmanager.com/gtag/js?id=G-WMYM36JQG7" strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive" dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-            gtag('config', 'G-WMYM36JQG7');
-          `}
-        </Script>
+                gtag('config', 'G-WMYM36JQG7');
+              `
+            }} />
+          </>
+        )}
         
         <ThemeProvider defaultTheme="dark" storageKey="aeterna-theme">
           <AuthProvider>

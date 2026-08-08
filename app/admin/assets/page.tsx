@@ -14,7 +14,8 @@ import {
   Loader2,
   CheckCircle,
   AlertCircle,
-  RefreshCw
+  RefreshCw,
+  Scissors
 } from 'lucide-react';
 import { 
   createAsset, 
@@ -654,6 +655,30 @@ function AssetCard({ asset, onDelete, onRefresh }: {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [removingBg, setRemovingBg] = useState(false);
+
+  async function handleRemoveBg() {
+    setRemovingBg(true);
+    try {
+      const res = await fetch('/api/admin/assets/remove-bg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ imageUrl: asset.imageUrl, assetId: asset.id }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        invalidateAssetsCache();
+        showToast('success', 'Fondo eliminado', data.message);
+        onRefresh();
+      } else {
+        showToast('error', data.error || 'Error al quitar fondo');
+      }
+    } catch (error) {
+      showToast('error', 'Error al quitar fondo');
+    } finally {
+      setRemovingBg(false);
+    }
+  }
 
   async function handleImageReplace(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -706,6 +731,14 @@ function AssetCard({ asset, onDelete, onRefresh }: {
                 disabled={uploading}
               />
             </label>
+            <button
+              onClick={handleRemoveBg}
+              disabled={removingBg}
+              className="p-2 bg-emerald-500/20 hover:bg-emerald-500/40 rounded-full transition-colors disabled:opacity-50"
+              title="Quitar fondo"
+            >
+              {removingBg ? <Loader2 className="text-emerald-400 animate-spin" size={18} /> : <Scissors className="text-emerald-400" size={18} />}
+            </button>
             <button
               onClick={() => setShowDeleteConfirm(true)}
               className="p-2 bg-red-500/20 hover:bg-red-500/40 rounded-full transition-colors"

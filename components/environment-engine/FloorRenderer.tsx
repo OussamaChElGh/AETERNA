@@ -1,7 +1,6 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { EnvironmentLayout, EnvironmentTheme } from '@/types/environmentEngine';
-import { getChromaKeyAlphaSprite } from '@/lib/chromaKeyAlpha';
 import { VISUAL_FLOOR } from '@/lib/environment-engine/EnvironmentGeometry';
 
 interface FloorRendererProps {
@@ -10,15 +9,7 @@ interface FloorRendererProps {
 }
 
 const FloorRendererBase = ({ layout, theme }: FloorRendererProps) => {
-  const [cleanFloorSrc, setCleanFloorSrc] = useState<string>('/images/master_floor_asset.png');
-
-  useEffect(() => {
-    let isMounted = true;
-    getChromaKeyAlphaSprite('/images/master_floor_asset.png').then(cleanUrl => {
-      if (isMounted) setCleanFloorSrc(cleanUrl);
-    });
-    return () => { isMounted = false; };
-  }, []);
+  const cleanFloorSrc = '/images/master_floor_asset.png';
 
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>

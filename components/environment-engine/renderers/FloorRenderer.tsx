@@ -1,9 +1,8 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { EnvironmentLayout, EnvironmentTheme } from '@/types/environmentEngine';
 import { tileToScreen } from '@/lib/roomEngineStorage';
 import { AutotilingEngine } from '@/lib/environment-engine/AutotilingEngine';
-import { getChromaKeyAlphaSprite } from '@/lib/chromaKeyAlpha';
 
 interface FloorRendererProps {
   layout: EnvironmentLayout;
@@ -11,23 +10,8 @@ interface FloorRendererProps {
 }
 
 export function FloorRenderer({ layout, theme }: FloorRendererProps) {
-  const [cleanVariants, setCleanVariants] = useState<string[]>([]);
+  const cleanVariants = theme.floorTileSet.variants;
   const autotiling = new AutotilingEngine(layout);
-
-  useEffect(() => {
-    let isMounted = true;
-    const variants = theme.floorTileSet.variants;
-
-    Promise.all(variants.map(src => getChromaKeyAlphaSprite(src))).then(cleaned => {
-      if (isMounted) {
-        setCleanVariants(cleaned);
-      }
-    });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [theme.floorTileSet.variants]);
 
   const floorTileNodes: React.ReactNode[] = [];
   const platformEdges: React.ReactNode[] = [];
