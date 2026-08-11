@@ -1960,6 +1960,28 @@
       "isFromCatalog": true,
       "createdAt": 1786479930923,
       "updatedAt": 1786479930923
+    },
+    {
+      "name": "pared de hiedra",
+      "description": "una pared al mas puro estilo de las ninfas del bosque",
+      "type": "decoration",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "decoration",
+      "placementSurface": "wall",
+      "canRotate": true,
+      "footprintTileWidth": 8,
+      "footprintTileHeight": 1,
+      "pixelWidth": 1200,
+      "pixelHeight": 480,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "isFullWall": "nw",
+      "imageUrl": "/images/assets/asset_1786483450512_iftkwtw.png",
+      "storagePath": "public/images/assets/asset_1786483450512_iftkwtw.png",
+      "createdAt": 1786483450555,
+      "updatedAt": 1786483478342,
+      "id": "asset_1786483450555_5h1vcak"
     }
   ]
 }

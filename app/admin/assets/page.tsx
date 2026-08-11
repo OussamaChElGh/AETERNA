@@ -292,7 +292,7 @@ function UploadForm({ onSuccess }: { onSuccess: () => void }) {
               <input
                 type="number"
                 min="1"
-                max="8"
+                max="64"
                 value={formData.footprintTileWidth}
                 onChange={(e) => handleInputChange('footprintTileWidth', parseInt(e.target.value))}
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
@@ -303,7 +303,7 @@ function UploadForm({ onSuccess }: { onSuccess: () => void }) {
               <input
                 type="number"
                 min="1"
-                max="8"
+                max="64"
                 value={formData.footprintTileHeight}
                 onChange={(e) => handleInputChange('footprintTileHeight', parseInt(e.target.value))}
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
@@ -625,7 +625,7 @@ function EditModal({
                   <input
                     type="number"
                     min="1"
-                    max="8"
+                    max="64"
                     value={formData.footprintTileWidth}
                     onChange={(e) => handleInputChange('footprintTileWidth', parseInt(e.target.value))}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
@@ -636,7 +636,7 @@ function EditModal({
                   <input
                     type="number"
                     min="1"
-                    max="8"
+                    max="64"
                     value={formData.footprintTileHeight}
                     onChange={(e) => handleInputChange('footprintTileHeight', parseInt(e.target.value))}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500/50"
