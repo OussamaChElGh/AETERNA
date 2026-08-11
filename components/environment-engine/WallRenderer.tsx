@@ -5,29 +5,22 @@ import { EnvironmentLayout, EnvironmentTheme } from '@/types/environmentEngine';
 interface WallRendererProps {
   layout: EnvironmentLayout;
   theme: EnvironmentTheme;
-  roomWidth?: number;
-  roomHeight?: number;
 }
 
-const WallRendererBase = ({ layout, theme, roomWidth = 1200, roomHeight = 950 }: WallRendererProps) => {
+const WallRendererBase = ({ layout, theme }: WallRendererProps) => {
   const wallSrcNW = '/images/master_wall_iso_nw.png';
   const wallSrcNE = '/images/master_wall_iso_ne.png';
-  const scaleX = roomWidth / 1200;
-  const scaleY = roomHeight / 950;
-  const originX = 600 * scaleX;
-  const originY = 255 * scaleY;
-  const wWidth = 525.5 * scaleX;
-  const wHeight = 480 * scaleY;
 
   return (
     <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 5 }}>
+      {/* NW Wall (Left Wall: slanting downwards from 600,255 to 130,490) */}
       <div
         style={{
           position: 'absolute',
-          left: `${originX}px`,
-          top: `${originY}px`,
-          width: `${wWidth}px`,
-          height: `${wHeight}px`,
+          left: '600px',
+          top: '255px',
+          width: '525.5px',
+          height: '480px',
           transformOrigin: '100% 100%',
           transform: 'translate(-100%, -100%) skewY(-26.565deg) scaleX(0.8944)',
           pointerEvents: 'none'
@@ -41,13 +34,14 @@ const WallRendererBase = ({ layout, theme, roomWidth = 1200, roomHeight = 950 }:
         />
       </div>
 
+      {/* NE Wall (Right Wall: slanting downwards from 600,255 to 1070,490) */}
       <div
         style={{
           position: 'absolute',
-          left: `${originX}px`,
-          top: `${originY}px`,
-          width: `${wWidth}px`,
-          height: `${wHeight}px`,
+          left: '600px',
+          top: '255px',
+          width: '525.5px',
+          height: '480px',
           transformOrigin: '0% 100%',
           transform: 'translate(0%, -100%) skewY(26.565deg) scaleX(0.8944)',
           pointerEvents: 'none'

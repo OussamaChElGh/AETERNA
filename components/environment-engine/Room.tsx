@@ -22,9 +22,6 @@ interface RoomProps {
   scaleFactor: number;
   dynamicCatalog?: RoomCatalogItem[];
   dynamicAssets?: Record<string, RoomAsset>;
-  roomWidth?: number;
-  roomHeight?: number;
-  visibleGrid?: number;
 }
 
 export function Room({
@@ -41,10 +38,7 @@ export function Room({
   onDeselect,
   scaleFactor,
   dynamicCatalog,
-  dynamicAssets,
-  roomWidth = 1200,
-  roomHeight = 950,
-  visibleGrid = 14
+  dynamicAssets
 }: RoomProps) {
   return (
     <div 
@@ -52,21 +46,21 @@ export function Room({
         position: 'absolute',
         top: 0,
         left: 0,
-        width: `${roomWidth}px`,
-        height: `${roomHeight}px`,
+        width: '1200px',
+        height: '950px',
         transform: `scale(${scaleFactor})`,
         transformOrigin: 'top left',
         backgroundColor: '#14110D'
       }}
       className="relative"
     >
-      {/* 1. FloorRenderer (FloorModule01, FloorModule02, FloorModule03) */}
-      <FloorRenderer layout={layout} theme={theme} visibleGrid={visibleGrid} roomWidth={roomWidth} roomHeight={roomHeight} />
+      {/* 1. FloorRenderer */}
+      <FloorRenderer layout={layout} theme={theme} />
 
-      {/* 2. WallRenderer (WallNorth, WallWest, Corner, Window) */}
-      <WallRenderer layout={layout} theme={theme} roomWidth={roomWidth} roomHeight={roomHeight} />
+      {/* 2. WallRenderer */}
+      <WallRenderer layout={layout} theme={theme} />
 
-      {/* 3. FurnitureRenderer (Placed User Items with Contact Shadows & Depth Sorting) */}
+      {/* 3. FurnitureRenderer */}
       <FurnitureRenderer
         placedItems={placedItems}
         editMode={editMode}
@@ -82,7 +76,7 @@ export function Room({
         dynamicAssets={dynamicAssets}
       />
 
-      {/* 4. ParticleRenderer (Floating Dust Motes Pass) */}
+      {/* 4. ParticleRenderer */}
       <ParticleRenderer theme={theme} />
     </div>
   );

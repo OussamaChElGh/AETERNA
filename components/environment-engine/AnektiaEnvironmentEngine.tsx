@@ -49,6 +49,7 @@ export function AnektiaEnvironmentEngine({
   const roomWidth = currentTier.roomWidth;
   const roomHeight = currentTier.roomHeight;
   const visibleGrid = currentTier.visibleGrid;
+  const roomScale = visibleGrid / 14;
 
   const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(initialItems);
   const [isMounted, setIsMounted] = useState(false);
@@ -79,6 +80,8 @@ export function AnektiaEnvironmentEngine({
   const [isPanning, setIsPanning] = useState(false);
   const panStartRef = useRef<{ startX: number; startY: number; initialPanX: number; initialPanY: number } | null>(null);
 
+  const combinedScale = scaleFactor * zoom * roomScale;
+
   // Gamification unlock evaluation (memoized: no se recalcula durante drags)
   const unlockedIds = useMemo(() => {
     const ctx = {
@@ -103,14 +106,14 @@ export function AnektiaEnvironmentEngine({
     const updateScale = () => {
       if (!containerRef.current) return;
       const width = containerRef.current.clientWidth;
-      const factor = width / roomWidth;
-      setScaleFactor(Math.max(0.3, Math.min(1.2, factor)));
+      const factor = width / 1200;
+      setScaleFactor(Math.max(0.3, Math.min(1.5, factor)));
     };
 
     updateScale();
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
-  }, [roomWidth]);
+  }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     if (relicWallOpen) return;
@@ -297,7 +300,7 @@ export function AnektiaEnvironmentEngine({
             isPanning ? "cursor-grabbing" : "cursor-grab",
             showExpandAnim && "ring-4 ring-brand-gold animate-pulse"
           )}
-          style={{ aspectRatio: `${roomWidth} / ${roomHeight}` }}
+          style={{ aspectRatio: '1200 / 950' }}
         >
           {/* Starfield atmospheric layer */}
           <Starfield className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
@@ -323,8 +326,8 @@ export function AnektiaEnvironmentEngine({
               position: 'absolute',
               top: 0,
               left: 0,
-              width: `${roomWidth}px`,
-              height: `${roomHeight}px`,
+              width: '1200px',
+              height: '950px',
               transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
               transformOrigin: 'top left'
             }}
@@ -342,12 +345,9 @@ export function AnektiaEnvironmentEngine({
               onToggleElevation={handleToggleElevation}
               onDelete={handleDelete}
               onDeselect={() => setSelectedInstanceId(null)}
-              scaleFactor={scaleFactor * zoom}
+              scaleFactor={combinedScale}
               dynamicCatalog={dynamicCatalog}
               dynamicAssets={dynamicAssets}
-              roomWidth={roomWidth}
-              roomHeight={roomHeight}
-              visibleGrid={visibleGrid}
             />
           </div>
 
