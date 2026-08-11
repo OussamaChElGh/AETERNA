@@ -49,6 +49,7 @@ export function AnektiaEnvironmentEngine({
   const roomWidth = currentTier.roomWidth;
   const roomHeight = currentTier.roomHeight;
   const visibleGrid = currentTier.visibleGrid;
+  // Escala SOLO del suelo/paredes (no afecta muebles)
   const roomScale = visibleGrid / 14;
 
   const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(initialItems);
@@ -80,7 +81,10 @@ export function AnektiaEnvironmentEngine({
   const [isPanning, setIsPanning] = useState(false);
   const panStartRef = useRef<{ startX: number; startY: number; initialPanX: number; initialPanY: number } | null>(null);
 
-  const combinedScale = scaleFactor * zoom * roomScale;
+  const combinedScale = scaleFactor * zoom;
+  // Escala relativa del entorno (suelo+paredes) vs muebles.
+  // El Room ya escala todo con combinedScale; aquí solo reducimos suelo/paredes.
+  const environmentScale = 0.65;
 
   // Gamification unlock evaluation (memoized: no se recalcula durante drags)
   const unlockedIds = useMemo(() => {
@@ -348,6 +352,7 @@ export function AnektiaEnvironmentEngine({
               scaleFactor={combinedScale}
               dynamicCatalog={dynamicCatalog}
               dynamicAssets={dynamicAssets}
+              envScale={environmentScale}
             />
           </div>
 

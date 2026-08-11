@@ -22,6 +22,7 @@ interface RoomProps {
   scaleFactor: number;
   dynamicCatalog?: RoomCatalogItem[];
   dynamicAssets?: Record<string, RoomAsset>;
+  envScale?: number;
 }
 
 export function Room({
@@ -38,7 +39,8 @@ export function Room({
   onDeselect,
   scaleFactor,
   dynamicCatalog,
-  dynamicAssets
+  dynamicAssets,
+  envScale = 1
 }: RoomProps) {
   return (
     <div 
@@ -54,13 +56,13 @@ export function Room({
       }}
       className="relative"
     >
-      {/* 1. FloorRenderer */}
-      <FloorRenderer layout={layout} theme={theme} />
+      {/* 1. FloorRenderer (escala SOLO el suelo) */}
+      <FloorRenderer layout={layout} theme={theme} scale={envScale} />
 
-      {/* 2. WallRenderer */}
-      <WallRenderer layout={layout} theme={theme} />
+      {/* 2. WallRenderer (escala SOLO las paredes) */}
+      <WallRenderer layout={layout} theme={theme} scale={envScale} />
 
-      {/* 3. FurnitureRenderer */}
+      {/* 3. FurnitureRenderer (muebles a escala normal = scaleFactor del Room) */}
       <FurnitureRenderer
         placedItems={placedItems}
         editMode={editMode}
