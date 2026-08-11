@@ -363,11 +363,6 @@ export function IsoSpriteObject({
           onDeselect={onDeselect}
         />
       )}
-      {isFullWall && (
-        <span className="absolute bottom-1 right-1 text-[8px] font-mono bg-black/70 text-emerald-400 px-1 rounded pointer-events-none z-50">
-          {fullWallFace}{isMirroredFace ? '·180' : ''}
-        </span>
-      )}
     </div>
   );
 }
