@@ -22,6 +22,7 @@ interface IsoSpriteObjectProps {
   dynamicCatalog?: RoomCatalogItem[];
   dynamicAssets?: Record<string, RoomAsset>;
   envScale?: number;
+  visibleGrid?: number;
 }
 
 export function IsoSpriteObject({
@@ -38,7 +39,8 @@ export function IsoSpriteObject({
   scaleFactor,
   dynamicCatalog,
   dynamicAssets,
-  envScale = 1
+  envScale = 1,
+  visibleGrid = 14
 }: IsoSpriteObjectProps) {
   // Only fallback to static catalog if dynamicCatalog is completely missing (e.g. not passed)
   // If dynamicCatalog is provided but doesn't have the item, it means it was deleted!
@@ -171,8 +173,11 @@ export function IsoSpriteObject({
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!isDragging || !dragStartRef.current || !editMode) return;
 
-    const deltaXScreen = (e.clientX - dragStartRef.current.startX) / scaleFactor;
-    const deltaYScreen = (e.clientY - dragStartRef.current.startY) / scaleFactor;
+    const isWallSurface = catalogItem.placementSurface === 'wall';
+    // Wall decor renders at envScale on top of scaleFactor; floor furniture only scaleFactor
+    const effectiveScale = isWallSurface && !isFullWall ? scaleFactor * envScale : scaleFactor;
+    const deltaXScreen = (e.clientX - dragStartRef.current.startX) / effectiveScale;
+    const deltaYScreen = (e.clientY - dragStartRef.current.startY) / effectiveScale;
 
     const currentInitialScreen = tileToScreen(dragStartRef.current.initialTileX, dragStartRef.current.initialTileY, dragStartRef.current.initialTileZ);
     const rawTargetScreenX = currentInitialScreen.screenX + deltaXScreen;
@@ -180,7 +185,6 @@ export function IsoSpriteObject({
 
     const rawTile = screenToTile(rawTargetScreenX, rawTargetScreenY, dragStartRef.current.initialTileZ);
 
-    const isWallSurface = catalogItem.placementSurface === 'wall';
     let targetTileX = rawTile.tileX;
     let targetTileY = rawTile.tileY;
     let targetTileZ = item.tileZ;
@@ -189,13 +193,15 @@ export function IsoSpriteObject({
       const initialZ = dragStartRef.current.initialTileZ ?? item.tileZ;
       targetTileZ = Math.max(0, Math.min(8, Math.round(initialZ - deltaYScreen / 32)));
 
+      const maxWallTile = Math.max(0, visibleGrid - 1);
+
       // Allow wall decor to switch walls dynamically between NW (tileY=0) and NE (tileX=0)
       if (rawTile.tileX >= rawTile.tileY) {
         targetTileY = 0;
-        targetTileX = Math.max(0, Math.min(15, rawTile.tileX));
+        targetTileX = Math.max(0, Math.min(maxWallTile, rawTile.tileX));
       } else {
         targetTileX = 0;
-        targetTileY = Math.max(0, Math.min(15, rawTile.tileY));
+        targetTileY = Math.max(0, Math.min(maxWallTile, rawTile.tileY));
       }
     }
 
@@ -267,12 +273,20 @@ export function IsoSpriteObject({
 
   const isDoorItem = item.catalogItemId.includes('door');
 
+  // Wall decor (non full-wall wall items) must follow the env wrapper scale so
+  // they stay attached to the (scaled) room walls. Full walls already handle it.
+  const isWallDecor = isWallItem && !isFullWall;
+
   // Full-wall positioning: align exactly to WallRenderer geometry, scaled by envScale
   // matching the wrapper transformOrigin (50% 30%) => env origin at (600, 285)
-  const renderLeft = isFullWall ? ENV_ORIGIN.x + (WALL_ORIGIN.x - ENV_ORIGIN.x) * envScale : screenX;
-  const renderTop = isFullWall ? ENV_ORIGIN.y + (WALL_ORIGIN.y - ENV_ORIGIN.y) * envScale : screenY;
-  const renderWidth = isFullWall ? WALL_SIZE.w * envScale : pixelWidth;
-  const renderHeight = isFullWall ? WALL_SIZE.h * envScale : pixelHeight;
+  const renderLeft = isFullWall
+    ? ENV_ORIGIN.x + (WALL_ORIGIN.x - ENV_ORIGIN.x) * envScale
+    : (isWallDecor ? ENV_ORIGIN.x + (screenX - ENV_ORIGIN.x) * envScale : screenX);
+  const renderTop = isFullWall
+    ? ENV_ORIGIN.y + (WALL_ORIGIN.y - ENV_ORIGIN.y) * envScale
+    : (isWallDecor ? ENV_ORIGIN.y + (screenY - ENV_ORIGIN.y) * envScale : screenY);
+  const renderWidth = isFullWall ? WALL_SIZE.w * envScale : (isWallDecor ? pixelWidth * envScale : pixelWidth);
+  const renderHeight = isFullWall ? WALL_SIZE.h * envScale : (isWallDecor ? pixelHeight * envScale : pixelHeight);
   const renderAnchorX = isFullWall ? 0 : anchorXPercent;
   const renderAnchorY = isFullWall ? 0 : anchorYPercent;
 

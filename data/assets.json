@@ -404,15 +404,15 @@
       "storagePath": "/images/anektia_master_gothic_door.png",
       "footprintTileWidth": 2,
       "footprintTileHeight": 1,
-      "pixelWidth": 200,
-      "pixelHeight": 280,
+      "pixelWidth": 100,
+      "pixelHeight": 170,
       "anchorX": 0.5,
       "anchorY": 1,
       "placementSurface": "wall",
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786467831016
+      "updatedAt": 1786484490523
     },
     {
       "id": "chair_baroque_royal",

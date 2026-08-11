@@ -351,6 +351,7 @@ export function AnektiaEnvironmentEngine({
               dynamicCatalog={dynamicCatalog}
               dynamicAssets={dynamicAssets}
               envScale={environmentScale}
+              visibleGrid={visibleGrid}
             />
           </div>
 
