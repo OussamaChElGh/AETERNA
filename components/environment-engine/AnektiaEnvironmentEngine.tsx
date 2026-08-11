@@ -12,7 +12,6 @@ import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
 import { useCombinedAssets } from '@/hooks/useCombinedAssets';
 import { getRoomTier, getNextTier, RoomTier, DEFAULT_TIER, BASE_ROOM_WIDTH } from '@/lib/roomTiers';
-import { getRoomAsset } from '@/data/roomEngineAssets';
 import { Starfield } from '@/components/Starfield';
 import { ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -199,18 +198,6 @@ export function AnektiaEnvironmentEngine({
     };
     setPlacedItems(prev => prev.map(item => {
       if (item.instanceId !== instanceId) return item;
-
-      const catItem = dynamicCatalog?.find(d => d.id === item.catalogItemId);
-      const staticAsset = catItem ? getRoomAsset(catItem.assetId) : undefined;
-      const dynamicAsset = catItem ? dynamicAssets?.[catItem.assetId] : undefined;
-      const asset = (staticAsset && dynamicAsset) ? { ...staticAsset, ...dynamicAsset } : (dynamicAsset || staticAsset);
-      const isFullWall = asset?.isFullWall === 'nw' || asset?.isFullWall === 'ne';
-
-      // Full walls: rotation cycles 0/180 (NW) and 90/270 (NE)
-      if (isFullWall) {
-        return { ...item, rotation: nextRotations[item.rotation] ?? 0 };
-      }
-
       return { ...item, rotation: nextRotations[item.rotation] ?? 0 };
     }));
   };

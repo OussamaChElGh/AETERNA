@@ -53,6 +53,9 @@ export function IsoSpriteObject({
   // Merge static + dynamic so flags like isFullWall survive even if the
   // dynamic entry (from assets.json) doesn't carry them.
   const asset = dynamicAsset ? { ...staticAsset, ...dynamicAsset } : staticAsset;
+  // Authoritative source for full-wall detection (static catalog)
+  const nativeWallFace = staticAsset?.isFullWall;
+  const isFullWall = nativeWallFace === 'nw' || nativeWallFace === 'ne';
 
   const rawSpriteSrc = (asset?.spritesByRotation && asset.spritesByRotation[item.rotation]) 
     || asset?.src 
@@ -84,8 +87,6 @@ export function IsoSpriteObject({
   // The placement face is derived from rotation (0/180 = NW, 90/270 = NE) so the same
   // wall can go on either side by rotating. The image is mirrored when the placement
   // side differs from the asset's native side.
-  const nativeWallFace = asset?.isFullWall;
-  const isFullWall = nativeWallFace === 'nw' || nativeWallFace === 'ne';
   const placementFace: 'nw' | 'ne' = (item.rotation === 0 || item.rotation === 180) ? 'nw' : 'ne';
   const fullWallFace: 'nw' | 'ne' = placementFace;
   const isMirroredFace = isFullWall && nativeWallFace !== placementFace;
@@ -282,6 +283,12 @@ export function IsoSpriteObject({
     ? (effectiveWallSide === 'nw' ? 'drop-shadow-[5px_6px_8px_rgba(0,0,0,0.55)]' : 'drop-shadow-[-5px_6px_8px_rgba(0,0,0,0.55)]')
     : 'drop-shadow-[0_10px_16px_rgba(0,0,0,0.5)]';
 
+  const outerTransform = isFullWall
+    ? fullWallTransform
+    : `translate(-${renderAnchorX}%, -${renderAnchorY}%)`;
+
+  const outerTransformOrigin = isFullWall ? fullWallTransformOrigin : undefined;
+
   return (
     <div
       onPointerDown={handlePointerDown}
@@ -293,20 +300,19 @@ export function IsoSpriteObject({
         top: `${renderTop}px`,
         width: `${renderWidth}px`,
         height: `${renderHeight}px`,
-        transform: `translate(-${renderAnchorX}%, -${renderAnchorY}%)`,
+        transform: outerTransform,
+        transformOrigin: outerTransformOrigin,
         zIndex: isDragging ? 99999 : isSelected ? 500000 : dynamicZIndex
       }}
       className={cn(
         "group select-none transition-transform duration-75 flex items-center justify-center",
         editMode ? "cursor-grab active:cursor-grabbing" : "cursor-pointer",
-        isSelected && "scale-[1.02]"
+        isSelected && !isFullWall && "scale-[1.02]"
       )}
     >
       <div
         className="relative w-full h-full"
-        style={isFullWall
-          ? { transform: fullWallTransform, transformOrigin: fullWallTransformOrigin }
-          : spriteTransformStyle}
+        style={isFullWall ? undefined : spriteTransformStyle}
       >
         {/* CONTACT SHADOW — elipse oscura en el suelo para muebles de piso */}
         {!isWallItem && (
@@ -352,6 +358,11 @@ export function IsoSpriteObject({
           onDelete={onDelete}
           onDeselect={onDeselect}
         />
+      )}
+      {isFullWall && (
+        <span className="absolute bottom-1 right-1 text-[8px] font-mono bg-black/70 text-emerald-400 px-1 rounded pointer-events-none z-50">
+          {fullWallFace}{isMirroredFace ? '·mirror' : ''}
+        </span>
       )}
     </div>
   );
