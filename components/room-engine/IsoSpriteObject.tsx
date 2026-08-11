@@ -79,11 +79,12 @@ export function IsoSpriteObject({
   const isNwWall = item.tileY === 0;
 
   // Full-wall rendering: asset marked as a complete wall panel aligns to room wall geometry
-  // The placement face is derived from tile position; the image is mirrored when the
-  // placement side differs from the asset's native side so the same wall works on both.
+  // The placement face is derived from rotation (0/180 = NW, 90/270 = NE) so the same
+  // wall can go on either side by rotating. The image is mirrored when the placement
+  // side differs from the asset's native side.
   const nativeWallFace = asset?.isFullWall;
   const isFullWall = nativeWallFace === 'nw' || nativeWallFace === 'ne';
-  const placementFace: 'nw' | 'ne' = isNwWall ? 'nw' : 'ne';
+  const placementFace: 'nw' | 'ne' = (item.rotation === 0 || item.rotation === 180) ? 'nw' : 'ne';
   const fullWallFace: 'nw' | 'ne' = placementFace;
   const isMirroredFace = isFullWall && nativeWallFace !== placementFace;
   // WallRenderer geometry in the 1200x950 unscaled space
@@ -270,8 +271,10 @@ export function IsoSpriteObject({
     : `translate(-100%, -100%) skewY(-26.565deg) scaleX(${fullWallScaleX})`;
   const fullWallTransformOrigin = fullWallFace === 'ne' ? '0% 100%' : '100% 100%';
 
+  const effectiveWallSide: 'nw' | 'ne' = isFullWall ? fullWallFace : (isNwWall ? 'nw' : 'ne');
+
   const dropShadowClass = isWallItem
-    ? (isNwWall ? 'drop-shadow-[5px_6px_8px_rgba(0,0,0,0.55)]' : 'drop-shadow-[-5px_6px_8px_rgba(0,0,0,0.55)]')
+    ? (effectiveWallSide === 'nw' ? 'drop-shadow-[5px_6px_8px_rgba(0,0,0,0.55)]' : 'drop-shadow-[-5px_6px_8px_rgba(0,0,0,0.55)]')
     : 'drop-shadow-[0_10px_16px_rgba(0,0,0,0.5)]';
 
   return (

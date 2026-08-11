@@ -203,17 +203,9 @@ export function AnektiaEnvironmentEngine({
       const asset = catItem ? dynamicAssets?.[catItem.assetId] : undefined;
       const isFullWall = asset?.isFullWall === 'nw' || asset?.isFullWall === 'ne';
 
-      // Full walls: rotation toggles between NW (tileY=0) and NE (tileX=0)
+      // Full walls: rotation cycles 0/180 (NW) and 90/270 (NE)
       if (isFullWall) {
-        const maxTile = visibleGrid - 1;
-        const centerTile = Math.floor(maxTile / 2);
-        const onNw = item.tileY === 0;
-        return {
-          ...item,
-          tileX: onNw ? 0 : centerTile,
-          tileY: onNw ? centerTile : 0,
-          rotation: 0
-        };
+        return { ...item, rotation: nextRotations[item.rotation] ?? 0 };
       }
 
       return { ...item, rotation: nextRotations[item.rotation] ?? 0 };
