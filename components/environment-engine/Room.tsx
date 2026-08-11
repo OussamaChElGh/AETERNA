@@ -56,13 +56,21 @@ export function Room({
       }}
       className="relative"
     >
-      {/* 1. FloorRenderer (escala SOLO el suelo) */}
-      <FloorRenderer layout={layout} theme={theme} scale={envScale} />
+      {/* ENVIRONMENT WRAPPER: suelo + paredes se escalan juntos */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          transform: `scale(${envScale})`,
+          transformOrigin: '50% 30%',
+          pointerEvents: 'none'
+        }}
+      >
+        <FloorRenderer layout={layout} theme={theme} />
+        <WallRenderer layout={layout} theme={theme} />
+      </div>
 
-      {/* 2. WallRenderer (escala SOLO las paredes) */}
-      <WallRenderer layout={layout} theme={theme} scale={envScale} />
-
-      {/* 3. FurnitureRenderer (muebles a escala normal = scaleFactor del Room) */}
+      {/* FurnitureRenderer (muebles a escala normal = scaleFactor del Room) */}
       <FurnitureRenderer
         placedItems={placedItems}
         editMode={editMode}
