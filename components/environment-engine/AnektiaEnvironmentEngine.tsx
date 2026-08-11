@@ -197,10 +197,26 @@ export function AnektiaEnvironmentEngine({
       0: 90, 90: 180, 180: 270, 270: 0
     };
     setPlacedItems(prev => prev.map(item => {
-      if (item.instanceId === instanceId) {
-        return { ...item, rotation: nextRotations[item.rotation] ?? 0 };
+      if (item.instanceId !== instanceId) return item;
+
+      const catItem = dynamicCatalog?.find(d => d.id === item.catalogItemId);
+      const asset = catItem ? dynamicAssets?.[catItem.assetId] : undefined;
+      const isFullWall = asset?.isFullWall === 'nw' || asset?.isFullWall === 'ne';
+
+      // Full walls: rotation toggles between NW (tileY=0) and NE (tileX=0)
+      if (isFullWall) {
+        const maxTile = visibleGrid - 1;
+        const centerTile = Math.floor(maxTile / 2);
+        const onNw = item.tileY === 0;
+        return {
+          ...item,
+          tileX: onNw ? 0 : centerTile,
+          tileY: onNw ? centerTile : 0,
+          rotation: 0
+        };
       }
-      return item;
+
+      return { ...item, rotation: nextRotations[item.rotation] ?? 0 };
     }));
   };
 

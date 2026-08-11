@@ -79,8 +79,13 @@ export function IsoSpriteObject({
   const isNwWall = item.tileY === 0;
 
   // Full-wall rendering: asset marked as a complete wall panel aligns to room wall geometry
-  const fullWallFace = asset?.isFullWall;
-  const isFullWall = fullWallFace === 'nw' || fullWallFace === 'ne';
+  // The placement face is derived from tile position; the image is mirrored when the
+  // placement side differs from the asset's native side so the same wall works on both.
+  const nativeWallFace = asset?.isFullWall;
+  const isFullWall = nativeWallFace === 'nw' || nativeWallFace === 'ne';
+  const placementFace: 'nw' | 'ne' = isNwWall ? 'nw' : 'ne';
+  const fullWallFace: 'nw' | 'ne' = placementFace;
+  const isMirroredFace = isFullWall && nativeWallFace !== placementFace;
   // WallRenderer geometry in the 1200x950 unscaled space
   const WALL_ORIGIN = { x: 600, y: 255 };
   const WALL_SIZE = { w: 525.5, h: 480 };
@@ -259,9 +264,10 @@ export function IsoSpriteObject({
   const renderAnchorX = isFullWall ? 0 : anchorXPercent;
   const renderAnchorY = isFullWall ? 0 : anchorYPercent;
 
+  const fullWallScaleX = isMirroredFace ? -0.8944 : 0.8944;
   const fullWallTransform = fullWallFace === 'ne'
-    ? 'translate(0%, -100%) skewY(26.565deg) scaleX(0.8944)'
-    : 'translate(-100%, -100%) skewY(-26.565deg) scaleX(0.8944)';
+    ? `translate(0%, -100%) skewY(26.565deg) scaleX(${fullWallScaleX})`
+    : `translate(-100%, -100%) skewY(-26.565deg) scaleX(${fullWallScaleX})`;
   const fullWallTransformOrigin = fullWallFace === 'ne' ? '0% 100%' : '100% 100%';
 
   const dropShadowClass = isWallItem

@@ -1487,7 +1487,8 @@
       "canRotate": false,
       "isFromCatalog": true,
       "createdAt": 1786198927211,
-      "updatedAt": 1786467831016
+      "updatedAt": 1786477240548,
+      "isDeleted": true
     },
     {
       "name": "Escritorio de caoba",
@@ -1915,6 +1916,27 @@
       "createdAt": 1786470336313,
       "updatedAt": 1786470405394,
       "id": "asset_1786470336313_9pgxcov"
+    },
+    {
+      "name": "pared de motel",
+      "description": "una pared algo cochambrosa",
+      "type": "furniture",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "furniture",
+      "placementSurface": "wall",
+      "canRotate": false,
+      "footprintTileWidth": 8,
+      "footprintTileHeight": 2,
+      "pixelWidth": 128,
+      "pixelHeight": 128,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "imageUrl": "/images/assets/asset_1786477478030_sywwc1e.png",
+      "storagePath": "public/images/assets/asset_1786477478030_sywwc1e.png",
+      "createdAt": 1786477478966,
+      "updatedAt": 1786477501990,
+      "id": "asset_1786477478966_zbqyd82"
     }
   ]
 }
