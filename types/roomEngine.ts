@@ -13,6 +13,7 @@ export interface RoomAsset {
   anchorX: number;             // 0.5 = center
   anchorY: number;             // 0.85 = base contact point
   isIsoPreAngled?: boolean;    // If true, sprite already has 2.5D isometric perspective (skips CSS skewing)
+  isFullWall?: 'nw' | 'ne';    // If set, renders as a full wall panel aligned to the room wall geometry
 }
 
 export interface RoomCatalogItem {

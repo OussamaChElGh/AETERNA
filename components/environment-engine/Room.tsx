@@ -84,6 +84,7 @@ export function Room({
         scaleFactor={scaleFactor}
         dynamicCatalog={dynamicCatalog}
         dynamicAssets={dynamicAssets}
+        envScale={envScale}
       />
 
       {/* 4. ParticleRenderer */}

@@ -1146,7 +1146,8 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     pixelWidth: 1200,
     pixelHeight: 480,
     anchorX: 0.5,
-    anchorY: 0.9
+    anchorY: 0.9,
+    isFullWall: 'nw'
   },
   asset_wall_mahogany_ne: {
     id: 'asset_wall_mahogany_ne',
@@ -1156,7 +1157,8 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     pixelWidth: 1200,
     pixelHeight: 480,
     anchorX: 0.5,
-    anchorY: 0.9
+    anchorY: 0.9,
+    isFullWall: 'ne'
   }
 };
 

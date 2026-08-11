@@ -21,6 +21,7 @@ interface IsoSpriteObjectProps {
   scaleFactor: number;
   dynamicCatalog?: RoomCatalogItem[];
   dynamicAssets?: Record<string, RoomAsset>;
+  envScale?: number;
 }
 
 export function IsoSpriteObject({
@@ -36,7 +37,8 @@ export function IsoSpriteObject({
   onDeselect,
   scaleFactor,
   dynamicCatalog,
-  dynamicAssets
+  dynamicAssets,
+  envScale = 1
 }: IsoSpriteObjectProps) {
   // Only fallback to static catalog if dynamicCatalog is completely missing (e.g. not passed)
   // If dynamicCatalog is provided but doesn't have the item, it means it was deleted!
@@ -75,6 +77,12 @@ export function IsoSpriteObject({
 
   const isWallItem = catalogItem.placementSurface === 'wall';
   const isNwWall = item.tileY === 0;
+
+  // Full-wall rendering: asset marked as a complete wall panel aligns to room wall geometry
+  const fullWallFace = asset?.isFullWall;
+  const isFullWall = fullWallFace === 'nw' || fullWallFace === 'ne';
+  const WALL_ORIGIN = { x: 600, y: 255 };
+  const WALL_SIZE = { w: 525.5, h: 480 };
 
   const anchorXPercent = (asset?.anchorX ?? 0.5) * 100;
   const anchorYPercent = isWallItem ? 100 : (asset?.anchorY ?? 0.85) * 100;
@@ -239,6 +247,19 @@ export function IsoSpriteObject({
 
   const isDoorItem = item.catalogItemId.includes('door');
 
+  // Full-wall positioning: align exactly to WallRenderer geometry, scaled by envScale
+  const renderLeft = isFullWall ? WALL_ORIGIN.x * envScale : screenX;
+  const renderTop = isFullWall ? WALL_ORIGIN.y * envScale : screenY;
+  const renderWidth = isFullWall ? WALL_SIZE.w * envScale : pixelWidth;
+  const renderHeight = isFullWall ? WALL_SIZE.h * envScale : pixelHeight;
+  const renderAnchorX = isFullWall ? 0 : anchorXPercent;
+  const renderAnchorY = isFullWall ? 0 : anchorYPercent;
+
+  const fullWallTransform = fullWallFace === 'ne'
+    ? 'translate(0%, -100%) skewY(26.565deg) scaleX(0.8944)'
+    : 'translate(-100%, -100%) skewY(-26.565deg) scaleX(0.8944)';
+  const fullWallTransformOrigin = fullWallFace === 'ne' ? '0% 100%' : '100% 100%';
+
   const dropShadowClass = isWallItem
     ? (isNwWall ? 'drop-shadow-[5px_6px_8px_rgba(0,0,0,0.55)]' : 'drop-shadow-[-5px_6px_8px_rgba(0,0,0,0.55)]')
     : 'drop-shadow-[0_10px_16px_rgba(0,0,0,0.5)]';
@@ -250,11 +271,11 @@ export function IsoSpriteObject({
       onPointerUp={handlePointerUp}
       style={{
         position: 'absolute',
-        left: `${screenX}px`,
-        top: `${screenY}px`,
-        width: `${pixelWidth}px`,
-        height: `${pixelHeight}px`,
-        transform: `translate(-${anchorXPercent}%, -${anchorYPercent}%)`,
+        left: `${renderLeft}px`,
+        top: `${renderTop}px`,
+        width: `${renderWidth}px`,
+        height: `${renderHeight}px`,
+        transform: `translate(-${renderAnchorX}%, -${renderAnchorY}%)`,
         zIndex: isDragging ? 99999 : isSelected ? 500000 : dynamicZIndex
       }}
       className={cn(
@@ -263,7 +284,12 @@ export function IsoSpriteObject({
         isSelected && "scale-[1.02]"
       )}
     >
-      <div className="relative w-full h-full" style={spriteTransformStyle}>
+      <div
+        className="relative w-full h-full"
+        style={isFullWall
+          ? { transform: fullWallTransform, transformOrigin: fullWallTransformOrigin }
+          : spriteTransformStyle}
+      >
         {/* CONTACT SHADOW — elipse oscura en el suelo para muebles de piso */}
         {!isWallItem && (
           <div
@@ -287,8 +313,10 @@ export function IsoSpriteObject({
           src={cleanSpriteSrc}
           alt={catalogItem.name}
           className={cn(
-            "w-full h-full object-contain filter group-hover:scale-[1.02] transition-transform pointer-events-none",
-            dropShadowClass,
+            isFullWall
+              ? "w-full h-full object-cover pointer-events-none"
+              : "w-full h-full object-contain filter group-hover:scale-[1.02] transition-transform pointer-events-none",
+            !isFullWall && dropShadowClass,
             isDragging ? (isValidDrag ? "opacity-70" : "opacity-50") : "opacity-100",
             isSelected && isValidDrag && "drop-shadow-[0_0_12px_#22d3ee] drop-shadow-[0_0_6px_#06b6d4] drop-shadow-[0_0_3px_#0891b2]",
             isSelected && !isValidDrag && "drop-shadow-[0_0_12px_#ef4444] drop-shadow-[0_0_6px_#dc2626] drop-shadow-[0_0_3px_#b91c1c]"

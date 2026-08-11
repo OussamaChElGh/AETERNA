@@ -17,6 +17,7 @@ interface FurnitureRendererProps {
   scaleFactor: number;
   dynamicCatalog?: RoomCatalogItem[];
   dynamicAssets?: Record<string, RoomAsset>;
+  envScale?: number;
 }
 
 export function FurnitureRenderer({
@@ -31,7 +32,8 @@ export function FurnitureRenderer({
   onDeselect,
   scaleFactor,
   dynamicCatalog,
-  dynamicAssets
+  dynamicAssets,
+  envScale = 1
 }: FurnitureRendererProps) {
   return (
     <>
@@ -51,6 +53,7 @@ export function FurnitureRenderer({
           scaleFactor={scaleFactor}
           dynamicCatalog={dynamicCatalog}
           dynamicAssets={dynamicAssets}
+          envScale={envScale}
         />
       ))}
     </>
