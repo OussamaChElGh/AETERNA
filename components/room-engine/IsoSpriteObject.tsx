@@ -81,8 +81,11 @@ export function IsoSpriteObject({
   // Full-wall rendering: asset marked as a complete wall panel aligns to room wall geometry
   const fullWallFace = asset?.isFullWall;
   const isFullWall = fullWallFace === 'nw' || fullWallFace === 'ne';
+  // WallRenderer geometry in the 1200x950 unscaled space
   const WALL_ORIGIN = { x: 600, y: 255 };
   const WALL_SIZE = { w: 525.5, h: 480 };
+  // The env wrapper in Room.tsx scales around transformOrigin '50% 30%' => (600, 285)
+  const ENV_ORIGIN = { x: 600, y: 285 };
 
   const anchorXPercent = (asset?.anchorX ?? 0.5) * 100;
   const anchorYPercent = isWallItem ? 100 : (asset?.anchorY ?? 0.85) * 100;
@@ -248,8 +251,9 @@ export function IsoSpriteObject({
   const isDoorItem = item.catalogItemId.includes('door');
 
   // Full-wall positioning: align exactly to WallRenderer geometry, scaled by envScale
-  const renderLeft = isFullWall ? WALL_ORIGIN.x * envScale : screenX;
-  const renderTop = isFullWall ? WALL_ORIGIN.y * envScale : screenY;
+  // matching the wrapper transformOrigin (50% 30%) => env origin at (600, 285)
+  const renderLeft = isFullWall ? ENV_ORIGIN.x + (WALL_ORIGIN.x - ENV_ORIGIN.x) * envScale : screenX;
+  const renderTop = isFullWall ? ENV_ORIGIN.y + (WALL_ORIGIN.y - ENV_ORIGIN.y) * envScale : screenY;
   const renderWidth = isFullWall ? WALL_SIZE.w * envScale : pixelWidth;
   const renderHeight = isFullWall ? WALL_SIZE.h * envScale : pixelHeight;
   const renderAnchorX = isFullWall ? 0 : anchorXPercent;
