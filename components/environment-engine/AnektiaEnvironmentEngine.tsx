@@ -296,7 +296,7 @@ export function AnektiaEnvironmentEngine({
           onPointerUp={handlePointerUp}
           onWheel={handleWheel}
           className={cn(
-            "relative w-full max-w-[700px] mx-auto bg-[#14110D] rounded-3xl border-2 border-brand-gold/30 shadow-[0_0_60px_rgba(212,175,55,0.1)] overflow-hidden select-none transition-all duration-300 environment-viewport",
+            "relative w-full bg-[#14110D] rounded-3xl border-2 border-brand-gold/30 shadow-[0_0_60px_rgba(212,175,55,0.1)] overflow-hidden select-none transition-all duration-300 environment-viewport",
             isPanning ? "cursor-grabbing" : "cursor-grab",
             showExpandAnim && "ring-4 ring-brand-gold animate-pulse"
           )}
