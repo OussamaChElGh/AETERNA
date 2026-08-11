@@ -16,6 +16,7 @@ export interface AssetMetadata {
   anchorY: number;
   placementSurface: 'floor' | 'wall' | 'desk';
   canRotate: boolean;
+  isFullWall?: 'nw' | 'ne';
   unlockCondition?: {
     type: 'article_completed' | 'layer_completed' | 'default' | 'nivel_completed';
     targetId?: string;
@@ -35,6 +36,7 @@ export interface UploadAssetInput {
   category: 'furniture' | 'scientific' | 'decoration' | 'plants' | 'books';
   placementSurface: 'floor' | 'wall' | 'desk';
   canRotate: boolean;
+  isFullWall?: 'nw' | 'ne';
   footprintTileWidth: number;
   footprintTileHeight: number;
   pixelWidth: number;

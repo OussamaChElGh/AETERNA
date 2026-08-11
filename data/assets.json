@@ -1935,8 +1935,9 @@
       "imageUrl": "/images/assets/asset_1786477478030_sywwc1e.png",
       "storagePath": "public/images/assets/asset_1786477478030_sywwc1e.png",
       "createdAt": 1786477478966,
-      "updatedAt": 1786477568666,
-      "id": "asset_1786477478966_zbqyd82"
+      "updatedAt": 1786480057155,
+      "id": "asset_1786477478966_zbqyd82",
+      "isDeleted": true
     },
     {
       "id": "pared_motel_nw",

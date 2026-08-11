@@ -86,6 +86,7 @@ export async function GET() {
           pixelHeight: asset.pixelHeight,
           anchorX: asset.anchorX,
           anchorY: asset.anchorY,
+          isFullWall: asset.isFullWall || undefined,
         };
       } else if (asset.imageUrl) {
         combinedAssets[assetKey] = {
@@ -97,6 +98,7 @@ export async function GET() {
           pixelHeight: asset.pixelHeight || combinedAssets[assetKey].pixelHeight,
           anchorX: asset.anchorX ?? combinedAssets[assetKey].anchorX,
           anchorY: asset.anchorY ?? combinedAssets[assetKey].anchorY,
+          isFullWall: asset.isFullWall || combinedAssets[assetKey].isFullWall,
         };
       }
     }

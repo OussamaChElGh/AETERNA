@@ -86,6 +86,29 @@ function UploadForm({ onSuccess }: { onSuccess: () => void }) {
     anchorY: 0.85,
   });
 
+  function handleFullWallToggle(face: 'nw' | 'ne') {
+    setFormData(prev => {
+      const currentlySet = prev.isFullWall === face;
+      const isFullWall = currentlySet ? undefined : face;
+      // Auto-fill wall geometry when marking as a full wall
+      if (isFullWall) {
+        return {
+          ...prev,
+          isFullWall,
+          placementSurface: 'wall',
+          canRotate: false,
+          footprintTileWidth: 14,
+          footprintTileHeight: 1,
+          pixelWidth: 1200,
+          pixelHeight: 480,
+          anchorX: 0.5,
+          anchorY: 0.9,
+        };
+      }
+      return { ...prev, isFullWall: undefined };
+    });
+  }
+
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
@@ -298,6 +321,53 @@ function UploadForm({ onSuccess }: { onSuccess: () => void }) {
             />
             <label htmlFor="canRotate" className="text-white/80 text-sm">Puede rotar</label>
           </div>
+
+          {/* Full Wall Toggle */}
+          <div className="border border-white/10 rounded-lg p-3 bg-black/20">
+            <label className="block text-white/60 text-sm mb-2">
+              Pared completa (se amolda a la geometría de la sala)
+            </label>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => handleFullWallToggle('nw')}
+                className={`flex-1 px-3 py-2 rounded-lg text-sm font-bold transition-colors border ${
+                  formData.isFullWall === 'nw'
+                    ? 'bg-emerald-600 text-white border-emerald-400'
+                    : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10'
+                }`}
+              >
+                Cara NW
+              </button>
+              <button
+                type="button"
+                onClick={() => handleFullWallToggle('ne')}
+                className={`flex-1 px-3 py-2 rounded-lg text-sm font-bold transition-colors border ${
+                  formData.isFullWall === 'ne'
+                    ? 'bg-emerald-600 text-white border-emerald-400'
+                    : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10'
+                }`}
+              >
+                Cara NE
+              </button>
+              <button
+                type="button"
+                onClick={() => handleFullWallToggle(formData.isFullWall || 'nw')}
+                className={`px-3 py-2 rounded-lg text-sm font-bold transition-colors border ${
+                  !formData.isFullWall
+                    ? 'bg-white/10 text-white border-white/20'
+                    : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'
+                }`}
+              >
+                No
+              </button>
+            </div>
+            {formData.isFullWall && (
+              <p className="text-emerald-400/80 text-xs mt-2">
+                ✓ Geometría auto-configurada (1200×480, footprint 14×1). La pared se amoldará a la sala y rotará 360°.
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
@@ -344,6 +414,7 @@ function EditModal({
     category: asset.category,
     placementSurface: asset.placementSurface,
     canRotate: asset.canRotate,
+    isFullWall: asset.isFullWall as 'nw' | 'ne' | undefined,
     footprintTileWidth: asset.footprintTileWidth,
     footprintTileHeight: asset.footprintTileHeight,
     pixelWidth: asset.pixelWidth,
@@ -351,6 +422,28 @@ function EditModal({
     anchorX: asset.anchorX,
     anchorY: asset.anchorY,
   });
+
+  function handleEditFullWallToggle(face: 'nw' | 'ne') {
+    setFormData(prev => {
+      const currentlySet = prev.isFullWall === face;
+      const isFullWall = currentlySet ? undefined : face;
+      if (isFullWall) {
+        return {
+          ...prev,
+          isFullWall,
+          placementSurface: 'wall',
+          canRotate: false,
+          footprintTileWidth: 14,
+          footprintTileHeight: 1,
+          pixelWidth: 1200,
+          pixelHeight: 480,
+          anchorX: 0.5,
+          anchorY: 0.9,
+        };
+      }
+      return { ...prev, isFullWall: undefined };
+    });
+  }
 
   function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     const selectedFile = e.target.files?.[0];
@@ -610,6 +703,53 @@ function EditModal({
                   className="w-4 h-4"
                 />
                 <label htmlFor="editCanRotate" className="text-white/80 text-sm">Puede rotar</label>
+              </div>
+
+              {/* Full Wall Toggle (Edit) */}
+              <div className="border border-white/10 rounded-lg p-3 bg-black/20">
+                <label className="block text-white/60 text-sm mb-2">
+                  Pared completa (se amolda a la geometría de la sala)
+                </label>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleEditFullWallToggle('nw')}
+                    className={`flex-1 px-3 py-2 rounded-lg text-sm font-bold transition-colors border ${
+                      formData.isFullWall === 'nw'
+                        ? 'bg-emerald-600 text-white border-emerald-400'
+                        : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10'
+                    }`}
+                  >
+                    Cara NW
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleEditFullWallToggle('ne')}
+                    className={`flex-1 px-3 py-2 rounded-lg text-sm font-bold transition-colors border ${
+                      formData.isFullWall === 'ne'
+                        ? 'bg-emerald-600 text-white border-emerald-400'
+                        : 'bg-white/5 text-white/70 border-white/10 hover:bg-white/10'
+                    }`}
+                  >
+                    Cara NE
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleEditFullWallToggle(formData.isFullWall || 'nw')}
+                    className={`px-3 py-2 rounded-lg text-sm font-bold transition-colors border ${
+                      !formData.isFullWall
+                        ? 'bg-white/10 text-white border-white/20'
+                        : 'bg-white/5 text-white/40 border-white/10 hover:bg-white/10'
+                    }`}
+                  >
+                    No
+                  </button>
+                </div>
+                {formData.isFullWall && (
+                  <p className="text-emerald-400/80 text-xs mt-2">
+                    ✓ Geometría auto-configurada (1200×480, footprint 14×1). La pared se amoldará a la sala y rotará 360°.
+                  </p>
+                )}
               </div>
             </div>
           </div>
