@@ -50,7 +50,9 @@ export function IsoSpriteObject({
 
   const staticAsset = getRoomAsset(catalogItem.assetId);
   const dynamicAsset = dynamicAssets?.[catalogItem.assetId];
-  const asset = dynamicAsset || staticAsset;
+  // Merge static + dynamic so flags like isFullWall survive even if the
+  // dynamic entry (from assets.json) doesn't carry them.
+  const asset = dynamicAsset ? { ...staticAsset, ...dynamicAsset } : staticAsset;
 
   const rawSpriteSrc = (asset?.spritesByRotation && asset.spritesByRotation[item.rotation]) 
     || asset?.src 
@@ -133,6 +135,9 @@ export function IsoSpriteObject({
     onSelect(item);
 
     if (!editMode) return;
+
+    // Full walls are fixed to the room geometry; only rotation switches sides
+    if (isFullWall) return;
 
     const initialValidation = validatePlacement(
       item.tileX,
