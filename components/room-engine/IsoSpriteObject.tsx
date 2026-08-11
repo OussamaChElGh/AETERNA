@@ -84,12 +84,16 @@ export function IsoSpriteObject({
   const isNwWall = item.tileY === 0;
 
   // Full-wall rendering: asset marked as a complete wall panel aligns to room wall geometry
-  // The placement face is derived from rotation (0/180 = NW, 90/270 = NE) so the same
-  // wall can go on either side by rotating. The image is mirrored when the placement
-  // side differs from the asset's native side.
-  const placementFace: 'nw' | 'ne' = (item.rotation === 0 || item.rotation === 180) ? 'nw' : 'ne';
-  const fullWallFace: 'nw' | 'ne' = placementFace;
-  const isMirroredFace = isFullWall && nativeWallFace !== placementFace;
+  // Rotation drives a full 360° swing around the apex across the 4 arms of an "X":
+  //   0°  = NW (upper-left arm)
+  //   90° = NE (upper-right arm)
+  //   180°= NW swung to lower-left (contralateral lower arm)
+  //   270°= NE swung to lower-right
+  // The image mirrors on the second half so the same wall completes a full revolution.
+  const half = item.rotation === 180 || item.rotation === 270;
+  const face: 'nw' | 'ne' = (item.rotation === 0 || item.rotation === 180) ? 'nw' : 'ne';
+  const fullWallFace: 'nw' | 'ne' = face;
+  const isMirroredFace = half;
   // WallRenderer geometry in the 1200x950 unscaled space
   const WALL_ORIGIN = { x: 600, y: 255 };
   const WALL_SIZE = { w: 525.5, h: 480 };
@@ -361,7 +365,7 @@ export function IsoSpriteObject({
       )}
       {isFullWall && (
         <span className="absolute bottom-1 right-1 text-[8px] font-mono bg-black/70 text-emerald-400 px-1 rounded pointer-events-none z-50">
-          {fullWallFace}{isMirroredFace ? '·mirror' : ''}
+          {fullWallFace}{isMirroredFace ? '·180' : ''}
         </span>
       )}
     </div>
