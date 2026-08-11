@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { AnektiaEnvironmentEngine } from '@/components/environment-engine/AnektiaEnvironmentEngine';
-import { MAIN_STUDY_LAYOUT } from '@/data/environment-engine/layouts/mainStudy.layout';
+import { MAIN_STUDY_LAYOUT, buildMainStudyCells } from '@/data/environment-engine/layouts/mainStudy.layout';
 import { ACADEMIC_LIBRARY_THEME } from '@/data/environment-engine/themes/academicLibrary.theme';
 import { DEFAULT_PLACED_ITEMS } from '@/lib/roomEngineStorage';
 
@@ -12,9 +12,14 @@ export const metadata: Metadata = {
 };
 
 export default function RoomEnginePage() {
+  const initialVisibleGrid = 10;
+
   return (
     <AnektiaEnvironmentEngine
-      layout={MAIN_STUDY_LAYOUT}
+      layout={{
+        ...MAIN_STUDY_LAYOUT,
+        cells: buildMainStudyCells(initialVisibleGrid),
+      }}
       theme={ACADEMIC_LIBRARY_THEME}
       initialItems={DEFAULT_PLACED_ITEMS}
     />

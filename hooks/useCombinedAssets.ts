@@ -65,3 +65,7 @@ export function invalidateAssetsCache() {
   cacheTimestamp = 0;
   clearChromaKeyCache();
 }
+
+export function getCachedCombinedAssets() {
+  return cachedData;
+}

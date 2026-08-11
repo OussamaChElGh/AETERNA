@@ -218,8 +218,7 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'legendary',
     assetId: 'asset_chair_baroque_royal',
     placementSurface: 'floor',
-    canRotate: true,
-    unlockCondition: { type: 'article_completed', targetId: 'fisica-particulas' }
+    canRotate: true
   },
   {
     id: 'blackboard_equations',
@@ -446,8 +445,7 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'rare',
     assetId: 'asset_pixel_terminal',
     placementSurface: 'floor',
-    canRotate: true,
-    unlockCondition: { type: 'article_completed', targetId: 'fisica-tecnologia' }
+    canRotate: true
   },
   {
     id: 'pixel_bust',
@@ -482,8 +480,7 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'uncommon',
     assetId: 'asset_pixel_terrarium',
     placementSurface: 'floor',
-    canRotate: true,
-    unlockCondition: { type: 'article_completed', targetId: 'fluidos' }
+    canRotate: true
   },
   {
     id: 'pixel_plant',
@@ -494,8 +491,7 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     rarity: 'common',
     assetId: 'asset_pixel_plant',
     placementSurface: 'floor',
-    canRotate: true,
-    unlockCondition: { type: 'article_completed', targetId: 'como-piensa-un-fisico' }
+    canRotate: true
   },
   {
     id: 'pixel_bookshelf',

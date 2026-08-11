@@ -38,9 +38,12 @@ export function IsoSpriteObject({
   dynamicCatalog,
   dynamicAssets
 }: IsoSpriteObjectProps) {
-  const staticCatalogItem = getCatalogItem(item.catalogItemId);
-  const dynamicItem = dynamicCatalog?.find(d => d.id === item.catalogItemId);
-  const catalogItem = dynamicItem || staticCatalogItem;
+  // Only fallback to static catalog if dynamicCatalog is completely missing (e.g. not passed)
+  // If dynamicCatalog is provided but doesn't have the item, it means it was deleted!
+  const catalogItem = dynamicCatalog 
+    ? dynamicCatalog.find(d => d.id === item.catalogItemId)
+    : getCatalogItem(item.catalogItemId);
+
   if (!catalogItem) return null;
 
   const staticAsset = getRoomAsset(catalogItem.assetId);

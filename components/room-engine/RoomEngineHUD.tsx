@@ -34,113 +34,111 @@ export function RoomEngineHUD({
   showDebugToggle = true
 }: RoomEngineHUDProps) {
   return (
-    <div className="bg-brand-ink/80 backdrop-blur-md border border-brand-gold/30 rounded-2xl p-3.5 mb-4 shadow-xl flex flex-wrap items-center justify-between gap-4 font-sans transition-all duration-300">
-      {/* Title & Back Button */}
-      <div className="flex items-center gap-3">
-        <Link 
-          href="/"
-          className="p-2 bg-brand-gold/10 hover:bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-xl transition-all hover:scale-105"
-          title="Volver al Nexo"
-        >
-          <ArrowLeft size={16} />
-        </Link>
-        <div>
-          <span className="text-[9px] font-mono font-bold uppercase tracking-[0.25em] text-brand-gold block">
-            Anektia • Estancia del Conocimiento
-          </span>
-          <h1 className="font-serif text-lg sm:text-xl font-bold text-brand-offwhite leading-tight">
-            Habitación de Estudio
-          </h1>
+    <div className="absolute top-0 left-0 right-0 z-50 flex items-start justify-between p-4 sm:p-6 pointer-events-none transition-all duration-500">
+      
+      {/* Left: Navigation and Primary Actions */}
+      <div className="flex flex-col gap-3 pointer-events-auto">
+        <div className="flex items-center gap-3">
+          <Link 
+            href="/"
+            className="flex items-center justify-center w-10 h-10 bg-brand-ink/80 backdrop-blur-md hover:bg-brand-gold text-brand-gold hover:text-brand-ink border border-brand-gold/30 rounded-full transition-all shadow-[0_0_15px_rgba(212,175,55,0.15)] group"
+            title="Volver al Nexo"
+          >
+            <ArrowLeft size={18} className="group-hover:-translate-x-0.5 transition-transform" />
+          </Link>
+          
+          <button
+            onClick={() => setEditMode(!editMode)}
+            className={cn(
+              "px-5 py-2.5 text-[10px] font-mono font-bold uppercase tracking-[0.15em] rounded-full transition-all border flex items-center gap-2.5 shadow-lg active:scale-95",
+              editMode
+                ? "bg-brand-gold text-brand-ink border-brand-gold shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+                : "bg-brand-ink/80 backdrop-blur-md text-brand-offwhite border-brand-gold/30 hover:border-brand-gold hover:text-brand-gold"
+            )}
+          >
+            {editMode ? <Edit3 size={15} /> : <Eye size={15} />}
+            <span>{editMode ? "Decoración" : "Contemplación"}</span>
+          </button>
         </div>
-      </div>
 
-      {/* Mode Switcher & Controls */}
-      <div className="flex items-center gap-3">
-        {/* Main Mode Toggle: Contemplación / Decoración */}
-        <button
-          onClick={() => setEditMode(!editMode)}
-          className={cn(
-            "px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider rounded-xl transition-all border flex items-center gap-2 shadow-md active:scale-95 select-none",
-            editMode
-              ? "bg-brand-gold text-brand-ink border-brand-gold font-black shadow-[0_0_15px_rgba(212,175,55,0.35)]"
-              : "bg-white/5 text-brand-offwhite border-brand-gold/30 hover:border-brand-gold hover:bg-brand-gold/10"
-          )}
-        >
-          {editMode ? <Edit3 size={14} /> : <Eye size={14} />}
-          <span>{editMode ? "Modo Decoración" : "Modo Contemplación"}</span>
-        </button>
-
-        {/* Relic Wall */}
         {onToggleRelicWall && (
           <button
             onClick={onToggleRelicWall}
             className={cn(
-              "p-2 rounded-xl border text-xs transition-all flex items-center gap-1.5 font-mono font-bold select-none",
+              "self-start px-4 py-2 rounded-full border text-[10px] transition-all flex items-center gap-2 font-mono font-bold uppercase tracking-wider backdrop-blur-md",
               relicWallOpen
-                ? "bg-brand-gold/20 border-brand-gold text-brand-gold"
-                : "bg-white/5 border-white/10 text-brand-offwhite/60 hover:text-brand-gold hover:border-brand-gold/40"
+                ? "bg-brand-gold text-brand-ink border-brand-gold shadow-[0_0_15px_rgba(212,175,55,0.4)]"
+                : "bg-brand-ink/60 border-brand-gold/20 text-brand-gold hover:bg-brand-gold/10"
             )}
             title="Muro de Reliquias"
           >
-            <Award size={15} />
-            <span className="hidden sm:inline text-[11px]">Reliquias</span>
+            <Award size={14} />
+            <span>Tus Reliquias</span>
           </button>
         )}
+      </div>
 
-        {/* Decoration Mode Secondary Controls */}
+      {/* Center: Glorious Title */}
+      <div className="hidden md:flex flex-col items-center pointer-events-auto mt-2">
+        <h1 className="font-serif text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#F2E8C6] via-[#D4AF37] to-[#8C6D23] drop-shadow-[0_0_25px_rgba(212,175,55,0.4)] tracking-tight italic">
+          Tu Estancia Mágica
+        </h1>
+        <span className="text-[10px] font-mono font-bold uppercase tracking-[0.4em] text-brand-gold/70 mt-2 flex items-center gap-2">
+          <span className="w-8 h-[1px] bg-brand-gold/30"></span>
+          El Nexo de la Sabiduría
+          <span className="w-8 h-[1px] bg-brand-gold/30"></span>
+        </span>
+      </div>
+
+      {/* Right: Secondary/Edit Controls */}
+      <div className={cn(
+        "flex flex-col items-end gap-2 pointer-events-auto transition-all duration-300",
+        editMode ? "pr-0 md:pr-[360px]" : "pr-0"
+      )}>
+        {/* Item Counter Pill */}
+        <div className="bg-brand-ink/80 backdrop-blur-md border border-brand-gold/30 text-brand-gold text-[10px] font-mono font-bold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg mb-2">
+          <Sparkle size={14} className="text-brand-gold" />
+          <span>{itemCount} {itemCount === 1 ? 'Objeto' : 'Objetos'}</span>
+          <span className="text-brand-gold/30">|</span>
+          <span className="text-brand-offwhite/70">{unlockedCount} Desbloqueados</span>
+        </div>
+
         {editMode && (
-          <>
-            {/* Subtle Grid Toggle */}
+          <div className="flex flex-col gap-2 items-end">
             <button
               onClick={() => setShowGrid(!showGrid)}
               className={cn(
-                "p-2 rounded-xl border text-xs transition-all flex items-center gap-1.5 font-mono font-bold select-none",
+                "px-3 py-1.5 rounded-lg border text-[10px] transition-all flex items-center gap-2 font-mono font-bold uppercase tracking-wider backdrop-blur-md",
                 showGrid
                   ? "bg-brand-gold/20 border-brand-gold text-brand-gold"
-                  : "bg-white/5 border-white/10 text-brand-offwhite/60 hover:text-brand-gold"
+                  : "bg-brand-ink/60 border-brand-gold/20 text-brand-offwhite/60 hover:text-brand-gold"
               )}
-              title="Alternar Guía Isométrica"
             >
-              <Grid size={15} />
-              <span className="hidden sm:inline text-[11px]">Guía</span>
+              <Grid size={13} /> Guía
             </button>
 
-            {/* DEBUG GEOMETRY TOGGLE */}
             {showDebugToggle && (
               <button
                 onClick={() => setShowDebugMode(!showDebugMode)}
                 className={cn(
-                  "p-2 rounded-xl border text-xs transition-all flex items-center gap-1.5 font-mono font-bold select-none",
+                  "px-3 py-1.5 rounded-lg border text-[10px] transition-all flex items-center gap-2 font-mono font-bold uppercase tracking-wider backdrop-blur-md",
                   showDebugMode
-                    ? "bg-emerald-500/20 border-emerald-500 text-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.3)]"
-                    : "bg-white/5 border-white/10 text-brand-offwhite/60 hover:text-emerald-500"
+                    ? "bg-emerald-500/20 border-emerald-500 text-emerald-500"
+                    : "bg-brand-ink/60 border-brand-gold/20 text-brand-offwhite/60 hover:text-emerald-500"
                 )}
-                title="Alternar Debug Geometría Lógica (Verde = Suelo, Azul = Pared, Rojo = Fuera)"
               >
-                <Wrench size={15} />
-                <span className="hidden sm:inline text-[11px]">Debug Geometría</span>
+                <Wrench size={13} /> Debug
               </button>
             )}
 
-            {/* Reset Layout */}
             <button
               onClick={onReset}
-              className="p-2 rounded-xl border border-red-500/20 text-red-500 hover:bg-red-500/10 text-xs transition-all flex items-center gap-1.5 font-mono font-bold select-none"
-              title="Restablecer Disposición"
+              className="px-3 py-1.5 rounded-lg border border-red-500/30 text-red-400 hover:bg-red-500/10 hover:border-red-500 text-[10px] transition-all flex items-center gap-2 font-mono font-bold uppercase tracking-wider backdrop-blur-md bg-brand-ink/60"
             >
-              <RotateCcw size={15} />
-              <span className="hidden sm:inline text-[11px]">Restablecer</span>
+              <RotateCcw size={13} /> Reset
             </button>
-          </>
+          </div>
         )}
-
-        {/* Item Counter Pill */}
-        <div className="bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-[11px] font-mono font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 shadow-sm">
-          <Sparkle size={13} className="text-brand-gold fill-brand-gold/30" />
-          <span>{itemCount} {itemCount === 1 ? 'Objeto' : 'Objetos'}</span>
-          <span className="text-brand-gold/50">·</span>
-          <span>{unlockedCount} {unlockedCount === 1 ? 'Desbloqueado' : 'Desbloqueados'}</span>
-        </div>
       </div>
     </div>
   );

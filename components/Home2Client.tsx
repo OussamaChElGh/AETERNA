@@ -14,6 +14,7 @@ import { getLeaderboard, deriveLevel, type LeaderboardEntry } from '@/lib/leader
 import { useAuth } from '@/context/AuthContext';
 import { CATEGORIES_DATA } from '@/data/categories';
 import { cn } from '@/lib/utils';
+import { OnboardingFunnel } from '@/components/onboarding/OnboardingFunnel';
 
 interface Home2ClientProps {
   levels: LearningPathLevel[];
@@ -633,6 +634,8 @@ export function Home2Client({ levels, articles, articleContent }: Home2ClientPro
           </div>
         </div>
       </section>
+
+      <OnboardingFunnel />
     </div>
   );
 }

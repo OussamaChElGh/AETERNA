@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { motion } from 'motion/react';
 import { EnvironmentLayout, EnvironmentTheme, EnvironmentPlacedItem } from '@/types/environmentEngine';
 import { Room } from './Room';
 import { RoomEngineHUD } from '../room-engine/RoomEngineHUD';
@@ -10,6 +11,7 @@ import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks,
 import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
 import { useCombinedAssets } from '@/hooks/useCombinedAssets';
+import { getRoomTier, getNextTier, RoomTier, DEFAULT_TIER, BASE_ROOM_WIDTH } from '@/lib/roomTiers';
 import { Starfield } from '@/components/Starfield';
 import { ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -30,6 +32,23 @@ export function AnektiaEnvironmentEngine({
   const { progress } = useGamification();
   const userId = user?.uid || 'anonymous';
   const { catalog: dynamicCatalog, assets: dynamicAssets } = useCombinedAssets();
+
+  const roomTier = getRoomTier(progress.level);
+  const nextTier = getNextTier(roomTier);
+  const [currentTier, setCurrentTier] = useState<RoomTier>(roomTier);
+  const [showExpandAnim, setShowExpandAnim] = useState(false);
+
+  useEffect(() => {
+    if (roomTier.tier > currentTier.tier) {
+      setShowExpandAnim(true);
+      setCurrentTier(roomTier);
+      setTimeout(() => setShowExpandAnim(false), 2000);
+    }
+  }, [roomTier.tier]);
+
+  const roomWidth = currentTier.roomWidth;
+  const roomHeight = currentTier.roomHeight;
+  const visibleGrid = currentTier.visibleGrid;
 
   const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(initialItems);
   const [isMounted, setIsMounted] = useState(false);
@@ -84,14 +103,14 @@ export function AnektiaEnvironmentEngine({
     const updateScale = () => {
       if (!containerRef.current) return;
       const width = containerRef.current.clientWidth;
-      const factor = width / 1200;
-      setScaleFactor(Math.max(0.4, Math.min(1.2, factor)));
+      const factor = width / roomWidth;
+      setScaleFactor(Math.max(0.3, Math.min(1.2, factor)));
     };
 
     updateScale();
     window.addEventListener('resize', updateScale);
     return () => window.removeEventListener('resize', updateScale);
-  }, []);
+  }, [roomWidth]);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     if (relicWallOpen) return;
@@ -137,11 +156,13 @@ export function AnektiaEnvironmentEngine({
     if (!unlockedIds.has(item.id)) return;
     const newInstanceId = `inst_${item.id}_${Date.now()}`;
     const isWallItem = item.placementSurface === 'wall';
+    const maxTile = visibleGrid - 1;
+    const centerTile = Math.floor(maxTile / 2);
     const newItem: EnvironmentPlacedItem = {
       instanceId: newInstanceId,
       catalogItemId: item.id,
-      tileX: isWallItem ? 4 : (layout.spawnPoint?.tileX ?? 7),
-      tileY: isWallItem ? 0 : (layout.spawnPoint?.tileY ?? 7),
+      tileX: isWallItem ? centerTile : centerTile,
+      tileY: isWallItem ? 0 : centerTile,
       tileZ: 0,
       rotation: 0
     };
@@ -243,6 +264,27 @@ export function AnektiaEnvironmentEngine({
           showDebugToggle={false}
         />
 
+        {/* Room Tier Badge */}
+        <div className="flex items-center gap-3 mb-3 px-1">
+          <span className="text-xs text-brand-gold font-mono font-bold uppercase tracking-widest bg-brand-gold/10 px-3 py-1.5 rounded-full border border-brand-gold/30">
+            {currentTier.name}
+          </span>
+          {nextTier && (
+            <span className="text-[10px] text-white/30 font-mono">
+              Próxima expansión: Nivel {nextTier.levelRequired} → {nextTier.name}
+            </span>
+          )}
+          {showExpandAnim && (
+            <motion.span
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="text-xs text-brand-gold font-bold animate-pulse"
+            >
+              ✦ ¡Sala expandida!
+            </motion.span>
+          )}
+        </div>
+
         {/* ENVIRONMENT ENGINE VIEWPORT */}
         <div 
           ref={containerRef}
@@ -251,9 +293,11 @@ export function AnektiaEnvironmentEngine({
           onPointerUp={handlePointerUp}
           onWheel={handleWheel}
           className={cn(
-            "relative w-full aspect-[16/10] min-h-[500px] bg-[#14110D] rounded-3xl border-2 border-brand-gold/30 shadow-[0_0_60px_rgba(212,175,55,0.1)] overflow-hidden select-none transition-all duration-300 environment-viewport",
-            isPanning ? "cursor-grabbing" : "cursor-grab"
+            "relative w-full bg-[#14110D] rounded-3xl border-2 border-brand-gold/30 shadow-[0_0_60px_rgba(212,175,55,0.1)] overflow-hidden select-none transition-all duration-300 environment-viewport",
+            isPanning ? "cursor-grabbing" : "cursor-grab",
+            showExpandAnim && "ring-4 ring-brand-gold animate-pulse"
           )}
+          style={{ aspectRatio: `${roomWidth} / ${roomHeight}` }}
         >
           {/* Starfield atmospheric layer */}
           <Starfield className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
@@ -279,8 +323,8 @@ export function AnektiaEnvironmentEngine({
               position: 'absolute',
               top: 0,
               left: 0,
-              width: '1200px',
-              height: '950px',
+              width: `${roomWidth}px`,
+              height: `${roomHeight}px`,
               transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
               transformOrigin: 'top left'
             }}
@@ -301,6 +345,9 @@ export function AnektiaEnvironmentEngine({
               scaleFactor={scaleFactor * zoom}
               dynamicCatalog={dynamicCatalog}
               dynamicAssets={dynamicAssets}
+              roomWidth={roomWidth}
+              roomHeight={roomHeight}
+              visibleGrid={visibleGrid}
             />
           </div>
 

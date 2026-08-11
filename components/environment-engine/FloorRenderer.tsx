@@ -7,15 +7,24 @@ import { getChromaKeyAlphaSprite } from '@/lib/chromaKeyAlpha';
 interface FloorRendererProps {
   layout: EnvironmentLayout;
   theme: EnvironmentTheme;
+  visibleGrid?: number;
+  roomWidth?: number;
+  roomHeight?: number;
 }
 
-const FloorRendererBase = ({ layout, theme }: FloorRendererProps) => {
+const FloorRendererBase = ({ layout, theme, visibleGrid = 14, roomWidth = 1200, roomHeight = 950 }: FloorRendererProps) => {
   const [cleanFloorSrc, setCleanFloorSrc] = useState<string>('');
   const rawSrc = '/images/master_floor_asset.png';
 
   useEffect(() => {
     getChromaKeyAlphaSprite(rawSrc).then(setCleanFloorSrc);
   }, []);
+
+  const floorScale = visibleGrid / 14;
+  const scaleX = (roomWidth / 1200);
+  const scaleY = (roomHeight / 950);
+  const centerX = 600 * scaleX;
+  const centerY = 490 * scaleY;
 
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
@@ -26,10 +35,10 @@ const FloorRendererBase = ({ layout, theme }: FloorRendererProps) => {
           alt="Master Wooden Floor"
           style={{
             position: 'absolute',
-            left:   `${VISUAL_FLOOR.centerX}px`,
-            top:    `${VISUAL_FLOOR.centerY}px`,
-            width:  `${VISUAL_FLOOR.imageWidth}px`,
-            height: `${VISUAL_FLOOR.imageHeight}px`,
+            left:   `${centerX}px`,
+            top:    `${centerY}px`,
+            width:  `${VISUAL_FLOOR.imageWidth * floorScale * scaleX}px`,
+            height: `${VISUAL_FLOOR.imageHeight * floorScale * scaleY}px`,
             transform: 'translate(-50%, -50%)',
             pointerEvents: 'none',
             filter: 'drop-shadow(0 12px 32px rgba(0,0,0,0.65))'

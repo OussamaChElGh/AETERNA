@@ -6,12 +6,20 @@ import { ROOM_ASSETS, getRoomAsset as getStaticRoomAsset } from './roomEngineAss
 // Los assets dinámicos se cargan solo en el servidor
 
 export function getCombinedCatalog(): RoomCatalogItem[] {
-  // Por ahora, solo retornar el catálogo estático en el cliente
-  // En el servidor, se puede usar getCombinedCatalogServer desde dynamicAssets
+  if (typeof window !== 'undefined') {
+    const { getCachedCombinedAssets } = require('@/hooks/useCombinedAssets');
+    const cached = getCachedCombinedAssets?.();
+    if (cached?.catalog) return cached.catalog;
+  }
   return ROOM_ENGINE_CATALOG;
 }
 
 export function getCombinedCatalogItem(id: string): RoomCatalogItem | undefined {
+  if (typeof window !== 'undefined') {
+    const { getCachedCombinedAssets } = require('@/hooks/useCombinedAssets');
+    const cached = getCachedCombinedAssets?.();
+    if (cached?.catalog) return cached.catalog.find((c: RoomCatalogItem) => c.id === id);
+  }
   return getStaticCatalogItem(id);
 }
 

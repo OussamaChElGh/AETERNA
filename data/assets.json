@@ -46,7 +46,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "sofa_leather",
@@ -68,7 +68,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "bookshelf_library",
@@ -94,7 +94,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "armchair_chesterfield",
@@ -116,7 +116,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "globe_brass",
@@ -142,7 +142,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "window_gothic",
@@ -168,29 +168,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "ivy_wall",
-      "name": "Hiedra Verde para Pared",
-      "description": "Enredadera de hiedra natural sobre enrejado de madera para decorar paredes.",
-      "type": "plants",
-      "discipline": "biology",
-      "rarity": "common",
-      "category": "plants",
-      "imageUrl": "/images/anektia_master_wall_ivy.png",
-      "storagePath": "/images/anektia_master_wall_ivy.png",
-      "footprintTileWidth": 1,
-      "footprintTileHeight": 1,
-      "pixelWidth": 100,
-      "pixelHeight": 140,
-      "anchorX": 0.5,
-      "anchorY": 0.85,
-      "placementSurface": "wall",
-      "canRotate": true,
-      "isFromCatalog": true,
-      "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "clock_wall",
@@ -216,7 +194,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "fireplace_gothic",
@@ -226,8 +204,8 @@
       "discipline": "physics",
       "rarity": "rare",
       "category": "furniture",
-      "imageUrl": "/images/anektia_master_fireplace.png",
-      "storagePath": "/images/anektia_master_fireplace.png",
+      "imageUrl": "/images/anektia_master_fireplace.webp",
+      "storagePath": "/images/anektia_master_fireplace.webp",
       "footprintTileWidth": 2,
       "footprintTileHeight": 2,
       "pixelWidth": 160,
@@ -238,7 +216,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "astrolabe_stand",
@@ -264,7 +242,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "rug_persian",
@@ -274,8 +252,8 @@
       "discipline": "general",
       "rarity": "common",
       "category": "decoration",
-      "imageUrl": "/images/anektia_master_persian_rug.png",
-      "storagePath": "/images/anektia_master_persian_rug.png",
+      "imageUrl": "/images/anektia_master_persian_rug.webp",
+      "storagePath": "/images/anektia_master_persian_rug.webp",
       "footprintTileWidth": 3,
       "footprintTileHeight": 3,
       "pixelWidth": 240,
@@ -286,7 +264,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "tapestry_alchemy",
@@ -312,7 +290,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "sconce_candelabra",
@@ -334,7 +312,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "window_arched_sunlight",
@@ -360,7 +338,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "window_stained_rose",
@@ -386,7 +364,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "window_stone_arch_gothic",
@@ -412,7 +390,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "door_gothic_double",
@@ -434,7 +412,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "chair_baroque_royal",
@@ -454,13 +432,9 @@
       "anchorY": 1,
       "placementSurface": "floor",
       "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "fisica-particulas"
-      },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "blackboard_equations",
@@ -486,7 +460,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "compass_proportions",
@@ -512,7 +486,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "sundial_marble",
@@ -538,7 +512,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "chronometer_brass",
@@ -564,7 +538,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "anvil_energy",
@@ -590,7 +564,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "newtons_cradle",
@@ -616,7 +590,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "gyroscope_brass",
@@ -642,7 +616,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "archimedes_fountain",
@@ -668,7 +642,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "tesla_coil_mini",
@@ -694,7 +668,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "faraday_cage",
@@ -720,7 +694,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "prism_desk",
@@ -746,7 +720,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "melting_clock",
@@ -756,8 +730,8 @@
       "discipline": "physics",
       "rarity": "epic",
       "category": "decoration",
-      "imageUrl": "/images/anektia_master_melting_clock.png",
-      "storagePath": "/images/anektia_master_melting_clock.png",
+      "imageUrl": "/images/anektia_master_melting_clock.webp",
+      "storagePath": "/images/anektia_master_melting_clock.webp",
       "footprintTileWidth": 1,
       "footprintTileHeight": 1,
       "pixelWidth": 110,
@@ -772,7 +746,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "orrery_planets",
@@ -798,7 +772,8 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468719471,
+      "isDeleted": true
     },
     {
       "id": "nucleus_lamp",
@@ -824,7 +799,8 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468721755,
+      "isDeleted": true
     },
     {
       "id": "planck_cube",
@@ -850,7 +826,8 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468724071,
+      "isDeleted": true
     },
     {
       "id": "silicon_chip_frame",
@@ -876,7 +853,8 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468726406,
+      "isDeleted": true
     },
     {
       "id": "pixel_schrodinger",
@@ -902,7 +880,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_abacus",
@@ -928,7 +906,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_terminal",
@@ -948,13 +926,10 @@
       "anchorY": 0.85,
       "placementSurface": "floor",
       "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "fisica-tecnologia"
-      },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468714768,
+      "isDeleted": true
     },
     {
       "id": "pixel_bust",
@@ -980,33 +955,8 @@
       },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "pixel_microscope",
-      "name": "Microscopio de Laboratorio Pixel Art",
-      "description": "Microscopio óptico en pixel art, herramienta de la física atómica.",
-      "type": "scientific",
-      "discipline": "physics",
-      "rarity": "epic",
-      "category": "scientific",
-      "imageUrl": "/images/anektia_pixel_microscope.png",
-      "storagePath": "/images/anektia_pixel_microscope.png",
-      "footprintTileWidth": 1,
-      "footprintTileHeight": 1,
-      "pixelWidth": 90,
-      "pixelHeight": 110,
-      "anchorX": 0.5,
-      "anchorY": 0.85,
-      "placementSurface": "floor",
-      "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "fisica-atomica-y-nuclear"
-      },
-      "isFromCatalog": true,
-      "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468773168,
+      "isDeleted": true
     },
     {
       "id": "pixel_terrarium",
@@ -1026,39 +976,9 @@
       "anchorY": 0.85,
       "placementSurface": "floor",
       "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "fluidos"
-      },
       "isFromCatalog": true,
       "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "pixel_plant",
-      "name": "Planta Decorativa Pixel Art",
-      "description": "Planta de interior en pixel art, toque verde para la habitación.",
-      "type": "plants",
-      "discipline": "biology",
-      "rarity": "common",
-      "category": "plants",
-      "imageUrl": "/images/anektia_pixel_plant.png",
-      "storagePath": "/images/anektia_pixel_plant.png",
-      "footprintTileWidth": 1,
-      "footprintTileHeight": 1,
-      "pixelWidth": 80,
-      "pixelHeight": 100,
-      "anchorX": 0.5,
-      "anchorY": 0.85,
-      "placementSurface": "floor",
-      "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "como-piensa-un-fisico"
-      },
-      "isFromCatalog": true,
-      "createdAt": 1785993786707,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_bookshelf",
@@ -1084,7 +1004,8 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468742320,
+      "isDeleted": true
     },
     {
       "id": "pixel_armchair_pixel",
@@ -1106,7 +1027,8 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468735123,
+      "isDeleted": true
     },
     {
       "id": "pixel_desk_pixel",
@@ -1118,7 +1040,7 @@
       "category": "furniture",
       "imageUrl": "/images/anektia_pixel_desk.png",
       "storagePath": "/images/anektia_pixel_desk.png",
-      "footprintTileWidth": 2,
+      "footprintTileWidth": 3,
       "footprintTileHeight": 2,
       "pixelWidth": 140,
       "pixelHeight": 100,
@@ -1128,7 +1050,8 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786468740034,
+      "isDeleted": true
     },
     {
       "id": "pixel_lamp",
@@ -1150,7 +1073,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_globe",
@@ -1176,7 +1099,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_constellation",
@@ -1186,8 +1109,8 @@
       "discipline": "physics",
       "rarity": "uncommon",
       "category": "decoration",
-      "imageUrl": "/images/anektia_pixel_physics.png",
-      "storagePath": "/images/anektia_pixel_physics.png",
+      "imageUrl": "/images/anektia_pixel_physics.webp",
+      "storagePath": "/images/anektia_pixel_physics.webp",
       "footprintTileWidth": 2,
       "footprintTileHeight": 1,
       "pixelWidth": 120,
@@ -1202,7 +1125,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_books",
@@ -1224,7 +1147,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_prism",
@@ -1250,7 +1173,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "pixel_trophy",
@@ -1276,81 +1199,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "flat_gothic_window",
-      "name": "Ventana Gótica Plana",
-      "description": "Ventana gótica plana con vidriera en tonos azul y oro para decorar paredes.",
-      "type": "decoration",
-      "discipline": "physics",
-      "rarity": "rare",
-      "category": "decoration",
-      "imageUrl": "/images/anektia_master_flat_gothic_window.png",
-      "storagePath": "/images/anektia_master_flat_gothic_window.png",
-      "footprintTileWidth": 2,
-      "footprintTileHeight": 1,
-      "pixelWidth": 160,
-      "pixelHeight": 220,
-      "anchorX": 0.5,
-      "anchorY": 0.9,
-      "placementSurface": "wall",
-      "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "materia-y-energia"
-      },
-      "isFromCatalog": true,
-      "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "rug_alternative",
-      "name": "Alfombra Académica",
-      "description": "Alfombra en tonos cálidos con motivos geométricos, perfecta para el estudio.",
-      "type": "decoration",
-      "discipline": "general",
-      "rarity": "common",
-      "category": "decoration",
-      "imageUrl": "/images/anektia_master_rug.png",
-      "storagePath": "/images/anektia_master_rug.png",
-      "footprintTileWidth": 3,
-      "footprintTileHeight": 2,
-      "pixelWidth": 200,
-      "pixelHeight": 140,
-      "anchorX": 0.5,
-      "anchorY": 0.5,
-      "placementSurface": "floor",
-      "canRotate": true,
-      "isFromCatalog": true,
-      "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "ashlar_stone_wall",
-      "name": "Revestimiento de Sillería",
-      "description": "Revestimiento decorativo de piedra labrada estilo gótico para paredes.",
-      "type": "decoration",
-      "discipline": "mathematics",
-      "rarity": "uncommon",
-      "category": "decoration",
-      "imageUrl": "/images/anektia_master_wall_ashlar_stone.png",
-      "storagePath": "/images/anektia_master_wall_ashlar_stone.png",
-      "footprintTileWidth": 2,
-      "footprintTileHeight": 1,
-      "pixelWidth": 160,
-      "pixelHeight": 200,
-      "anchorX": 0.5,
-      "anchorY": 0.9,
-      "placementSurface": "wall",
-      "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "leyes-newton-movimiento"
-      },
-      "isFromCatalog": true,
-      "createdAt": 1786094893197,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "book_tower",
@@ -1372,7 +1221,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "scroll_wall",
@@ -1382,8 +1231,8 @@
       "discipline": "philosophy",
       "rarity": "uncommon",
       "category": "decoration",
-      "imageUrl": "/images/anektia_pixel_physics.png",
-      "storagePath": "/images/anektia_pixel_physics.png",
+      "imageUrl": "/images/anektia_pixel_physics.webp",
+      "storagePath": "/images/anektia_pixel_physics.webp",
       "footprintTileWidth": 1,
       "footprintTileHeight": 1,
       "pixelWidth": 80,
@@ -1398,55 +1247,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "codex_stand",
-      "name": "Códice Iluminado en Atril",
-      "description": "Códice medieval abierto sobre atril de madera tallada mostrando miniaturas doradas.",
-      "type": "books",
-      "discipline": "philosophy",
-      "rarity": "epic",
-      "category": "books",
-      "imageUrl": "/images/anektia_pixel_terminal.png",
-      "storagePath": "/images/anektia_pixel_terminal.png",
-      "footprintTileWidth": 1,
-      "footprintTileHeight": 1,
-      "pixelWidth": 90,
-      "pixelHeight": 110,
-      "anchorX": 0.5,
-      "anchorY": 0.85,
-      "placementSurface": "floor",
-      "canRotate": true,
-      "unlockCondition": {
-        "type": "article_completed",
-        "targetId": "metodo-cientifico"
-      },
-      "isFromCatalog": true,
-      "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "fern_ceramic",
-      "name": "Helecho en Maceta Esmaltada",
-      "description": "Helecho frondoso en maceta de cerámica verde esmaltada con motivos botánicos.",
-      "type": "plants",
-      "discipline": "biology",
-      "rarity": "common",
-      "category": "plants",
-      "imageUrl": "/images/anektia_pixel_plant.png",
-      "storagePath": "/images/anektia_pixel_plant.png",
-      "footprintTileWidth": 1,
-      "footprintTileHeight": 1,
-      "pixelWidth": 80,
-      "pixelHeight": 110,
-      "anchorX": 0.5,
-      "anchorY": 0.85,
-      "placementSurface": "floor",
-      "canRotate": true,
-      "isFromCatalog": true,
-      "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "hanging_ivy_long",
@@ -1456,8 +1257,8 @@
       "discipline": "biology",
       "rarity": "common",
       "category": "plants",
-      "imageUrl": "/images/anektia_master_wall_ivy.png",
-      "storagePath": "/images/anektia_master_wall_ivy.png",
+      "imageUrl": "/images/anektia_master_wall_ivy.webp",
+      "storagePath": "/images/anektia_master_wall_ivy.webp",
       "footprintTileWidth": 1,
       "footprintTileHeight": 1,
       "pixelWidth": 100,
@@ -1468,29 +1269,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "cactus_desk",
-      "name": "Cactus de Escritorio",
-      "description": "Pequeño cactus en maceta de cerámica, compañero estoico de largas jornadas de estudio.",
-      "type": "plants",
-      "discipline": "biology",
-      "rarity": "common",
-      "category": "plants",
-      "imageUrl": "/images/anektia_pixel_plant.png",
-      "storagePath": "/images/anektia_pixel_plant.png",
-      "footprintTileWidth": 1,
-      "footprintTileHeight": 1,
-      "pixelWidth": 60,
-      "pixelHeight": 70,
-      "anchorX": 0.5,
-      "anchorY": 0.85,
-      "placementSurface": "desk",
-      "canRotate": true,
-      "isFromCatalog": true,
-      "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "alembic_copper",
@@ -1516,7 +1295,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "flasks_trio",
@@ -1542,7 +1321,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "side_table_marble",
@@ -1554,17 +1333,17 @@
       "category": "furniture",
       "imageUrl": "/images/anektia_pixel_desk.png",
       "storagePath": "/images/anektia_pixel_desk.png",
-      "footprintTileWidth": 1,
-      "footprintTileHeight": 1,
-      "pixelWidth": 100,
-      "pixelHeight": 80,
+      "footprintTileWidth": 3,
+      "footprintTileHeight": 2,
+      "pixelWidth": 300,
+      "pixelHeight": 160,
       "anchorX": 0.5,
       "anchorY": 0.85,
       "placementSurface": "floor",
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "coat_rack_brass",
@@ -1586,7 +1365,7 @@
       "canRotate": true,
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "trunk_leather",
@@ -1612,7 +1391,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "hourglass_brass",
@@ -1638,7 +1417,7 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
     },
     {
       "id": "portrait_aristotle",
@@ -1648,8 +1427,8 @@
       "discipline": "philosophy",
       "rarity": "epic",
       "category": "decoration",
-      "imageUrl": "/images/anektia_pixel_physics.png",
-      "storagePath": "/images/anektia_pixel_physics.png",
+      "imageUrl": "/images/anektia_pixel_physics.webp",
+      "storagePath": "/images/anektia_pixel_physics.webp",
       "footprintTileWidth": 1,
       "footprintTileHeight": 1,
       "pixelWidth": 90,
@@ -1664,7 +1443,72 @@
       },
       "isFromCatalog": true,
       "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "updatedAt": 1786467831016
+    },
+    {
+      "id": "wall_mahogany_nw",
+      "name": "Pared de Caoba Noroeste",
+      "description": "Revestimiento de pared en caoba oscura con librería, pared NW del estudio.",
+      "type": "decoration",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "decoration",
+      "imageUrl": "/images/master_wall_iso_nw.png",
+      "storagePath": "/images/master_wall_iso_nw.png",
+      "footprintTileWidth": 14,
+      "footprintTileHeight": 1,
+      "pixelWidth": 1200,
+      "pixelHeight": 480,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "placementSurface": "wall",
+      "canRotate": false,
+      "isFromCatalog": true,
+      "createdAt": 1786198927211,
+      "updatedAt": 1786467831016
+    },
+    {
+      "id": "wall_mahogany_ne",
+      "name": "Pared de Caoba Noreste",
+      "description": "Revestimiento de pared en caoba oscura, pared NE del estudio.",
+      "type": "decoration",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "decoration",
+      "imageUrl": "/images/master_wall_iso_ne.png",
+      "storagePath": "/images/master_wall_iso_ne.png",
+      "footprintTileWidth": 14,
+      "footprintTileHeight": 1,
+      "pixelWidth": 1200,
+      "pixelHeight": 480,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "placementSurface": "wall",
+      "canRotate": false,
+      "isFromCatalog": true,
+      "createdAt": 1786198927211,
+      "updatedAt": 1786467831016
+    },
+    {
+      "name": "Escritorio de caoba",
+      "description": "",
+      "type": "furniture",
+      "discipline": "physics",
+      "rarity": "common",
+      "category": "furniture",
+      "placementSurface": "floor",
+      "canRotate": true,
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 2,
+      "pixelWidth": 128,
+      "pixelHeight": 128,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "imageUrl": "/images/assets/asset_1786199958682_xi7xyeh.png",
+      "storagePath": "public/images/assets/asset_1786199958682_xi7xyeh.png",
+      "createdAt": 1786199958715,
+      "updatedAt": 1786199958715,
+      "id": "asset_1786199958715_2f27r9a"
     },
     {
       "id": "candlestick_trio",
@@ -1685,8 +1529,208 @@
       "placementSurface": "desk",
       "canRotate": true,
       "isFromCatalog": true,
-      "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "createdAt": 1786461711697,
+      "updatedAt": 1786468792578,
+      "isDeleted": true
+    },
+    {
+      "id": "desk_academic",
+      "name": "Escritorio Académico de Caoba",
+      "description": "Gran mesa de estudio de caoba con superficie de cuero y manuscritos.",
+      "type": "furniture",
+      "discipline": "general",
+      "rarity": "rare",
+      "category": "furniture",
+      "imageUrl": "/images/anektia_master_desk_0deg.png",
+      "storagePath": "/images/anektia_master_desk_0deg.png",
+      "footprintTileWidth": 3,
+      "footprintTileHeight": 2,
+      "pixelWidth": 200,
+      "pixelHeight": 160,
+      "anchorX": 0.5,
+      "anchorY": 0.8,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468907365,
+      "isDeleted": true
+    },
+    {
+      "id": "ivy_wall",
+      "name": "Hiedra Verde para Pared",
+      "description": "Enredadera de hiedra natural sobre enrejado de madera para decorar paredes.",
+      "type": "plants",
+      "discipline": "biology",
+      "rarity": "common",
+      "category": "plants",
+      "imageUrl": "/images/anektia_master_wall_ivy.webp",
+      "storagePath": "/images/anektia_master_wall_ivy.webp",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 100,
+      "pixelHeight": 140,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "wall",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786467831016
+    },
+    {
+      "id": "pixel_microscope",
+      "name": "Microscopio de Laboratorio Pixel Art",
+      "description": "Microscopio óptico en pixel art, herramienta de la física atómica.",
+      "type": "scientific",
+      "discipline": "physics",
+      "rarity": "epic",
+      "category": "scientific",
+      "imageUrl": "/images/anektia_pixel_microscope.png",
+      "storagePath": "/images/anektia_pixel_microscope.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 90,
+      "pixelHeight": 110,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "fisica-atomica-y-nuclear"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468730259,
+      "isDeleted": true
+    },
+    {
+      "id": "pixel_plant",
+      "name": "Planta Decorativa Pixel Art",
+      "description": "Planta de interior en pixel art, toque verde para la habitación.",
+      "type": "plants",
+      "discipline": "biology",
+      "rarity": "common",
+      "category": "plants",
+      "imageUrl": "/images/anektia_pixel_plant.png",
+      "storagePath": "/images/anektia_pixel_plant.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 80,
+      "pixelHeight": 100,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468436697,
+      "isDeleted": true
+    },
+    {
+      "id": "flat_gothic_window",
+      "name": "Ventana Gótica Plana",
+      "description": "Ventana gótica plana con vidriera en tonos azul y oro para decorar paredes.",
+      "type": "decoration",
+      "discipline": "physics",
+      "rarity": "rare",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_master_flat_gothic_window.png",
+      "storagePath": "/images/anektia_master_flat_gothic_window.png",
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 1,
+      "pixelWidth": 160,
+      "pixelHeight": 220,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "placementSurface": "wall",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "materia-y-energia"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468750897,
+      "isDeleted": true
+    },
+    {
+      "id": "rug_alternative",
+      "name": "Alfombra Académica",
+      "description": "Alfombra en tonos cálidos con motivos geométricos, perfecta para el estudio.",
+      "type": "decoration",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_master_rug.png",
+      "storagePath": "/images/anektia_master_rug.png",
+      "footprintTileWidth": 3,
+      "footprintTileHeight": 2,
+      "pixelWidth": 200,
+      "pixelHeight": 140,
+      "anchorX": 0.5,
+      "anchorY": 0.5,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468748610,
+      "isDeleted": true
+    },
+    {
+      "id": "ashlar_stone_wall",
+      "name": "Revestimiento de Sillería",
+      "description": "Revestimiento decorativo de piedra labrada estilo gótico para paredes.",
+      "type": "decoration",
+      "discipline": "mathematics",
+      "rarity": "uncommon",
+      "category": "decoration",
+      "imageUrl": "/images/anektia_master_wall_ashlar_stone.png",
+      "storagePath": "/images/anektia_master_wall_ashlar_stone.png",
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 1,
+      "pixelWidth": 160,
+      "pixelHeight": 200,
+      "anchorX": 0.5,
+      "anchorY": 0.9,
+      "placementSurface": "wall",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "leyes-newton-movimiento"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468746473,
+      "isDeleted": true
+    },
+    {
+      "id": "codex_stand",
+      "name": "Códice Iluminado en Atril",
+      "description": "Códice medieval abierto sobre atril de madera tallada mostrando miniaturas doradas.",
+      "type": "books",
+      "discipline": "philosophy",
+      "rarity": "epic",
+      "category": "books",
+      "imageUrl": "/images/anektia_pixel_terminal.png",
+      "storagePath": "/images/anektia_pixel_terminal.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 90,
+      "pixelHeight": 110,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "unlockCondition": {
+        "type": "article_completed",
+        "targetId": "metodo-cientifico"
+      },
+      "isFromCatalog": true,
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468706630,
+      "isDeleted": true
     },
     {
       "id": "rug_oval_burgundy",
@@ -1711,8 +1755,76 @@
         "targetId": "relatividad-general"
       },
       "isFromCatalog": true,
-      "createdAt": 1786095523084,
-      "updatedAt": 1786199969976
+      "createdAt": 1786467588497,
+      "updatedAt": 1786468755741,
+      "isDeleted": true
+    },
+    {
+      "name": "planta de sala",
+      "description": "un planta común",
+      "type": "furniture",
+      "discipline": "general",
+      "rarity": "common",
+      "category": "furniture",
+      "placementSurface": "floor",
+      "canRotate": true,
+      "footprintTileWidth": 2,
+      "footprintTileHeight": 2,
+      "pixelWidth": 128,
+      "pixelHeight": 128,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "imageUrl": "/images/assets/asset_1786467809715_hdohi00.png",
+      "storagePath": "public/images/assets/asset_1786467809715_hdohi00.png",
+      "createdAt": 1786467809743,
+      "updatedAt": 1786468828186,
+      "id": "asset_1786467809743_5aladbu"
+    },
+    {
+      "id": "fern_ceramic",
+      "name": "Helecho en Maceta Esmaltada",
+      "description": "Helecho frondoso en maceta de cerámica verde esmaltada con motivos botánicos.",
+      "type": "plants",
+      "discipline": "biology",
+      "rarity": "common",
+      "category": "plants",
+      "imageUrl": "/images/anektia_pixel_plant.png",
+      "storagePath": "/images/anektia_pixel_plant.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 80,
+      "pixelHeight": 110,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "floor",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786467831016,
+      "updatedAt": 1786468703108,
+      "isDeleted": true
+    },
+    {
+      "id": "cactus_desk",
+      "name": "Cactus de Escritorio",
+      "description": "Pequeño cactus en maceta de cerámica, compañero estoico de largas jornadas de estudio.",
+      "type": "plants",
+      "discipline": "biology",
+      "rarity": "common",
+      "category": "plants",
+      "imageUrl": "/images/anektia_pixel_plant.png",
+      "storagePath": "/images/anektia_pixel_plant.png",
+      "footprintTileWidth": 1,
+      "footprintTileHeight": 1,
+      "pixelWidth": 60,
+      "pixelHeight": 70,
+      "anchorX": 0.5,
+      "anchorY": 0.85,
+      "placementSurface": "desk",
+      "canRotate": true,
+      "isFromCatalog": true,
+      "createdAt": 1786467831016,
+      "updatedAt": 1786468701101,
+      "isDeleted": true
     },
     {
       "id": "floor_oak_parquet",
@@ -1733,8 +1845,9 @@
       "placementSurface": "floor",
       "canRotate": false,
       "isFromCatalog": true,
-      "createdAt": 1786198927211,
-      "updatedAt": 1786199969976
+      "createdAt": 1786467831016,
+      "updatedAt": 1786468692381,
+      "isDeleted": true
     },
     {
       "id": "floor_oak_tile_b",
@@ -1755,8 +1868,9 @@
       "placementSurface": "floor",
       "canRotate": false,
       "isFromCatalog": true,
-      "createdAt": 1786198927211,
-      "updatedAt": 1786199969976
+      "createdAt": 1786467831016,
+      "updatedAt": 1786468695112,
+      "isDeleted": true
     },
     {
       "id": "floor_oak_tile_c",
@@ -1777,95 +1891,30 @@
       "placementSurface": "floor",
       "canRotate": false,
       "isFromCatalog": true,
-      "createdAt": 1786198927211,
-      "updatedAt": 1786199969976
+      "createdAt": 1786467831016,
+      "updatedAt": 1786468688367,
+      "isDeleted": true
     },
     {
-      "id": "wall_mahogany_nw",
-      "name": "Pared de Caoba Noroeste",
-      "description": "Revestimiento de pared en caoba oscura con librería, pared NW del estudio.",
-      "type": "decoration",
-      "discipline": "general",
-      "rarity": "common",
-      "category": "decoration",
-      "imageUrl": "/images/master_wall_iso_nw.png",
-      "storagePath": "/images/master_wall_iso_nw.png",
-      "footprintTileWidth": 14,
-      "footprintTileHeight": 1,
-      "pixelWidth": 1200,
-      "pixelHeight": 480,
-      "anchorX": 0.5,
-      "anchorY": 0.9,
-      "placementSurface": "wall",
-      "canRotate": false,
-      "isFromCatalog": true,
-      "createdAt": 1786198927211,
-      "updatedAt": 1786199969976
-    },
-    {
-      "id": "wall_mahogany_ne",
-      "name": "Pared de Caoba Noreste",
-      "description": "Revestimiento de pared en caoba oscura, pared NE del estudio.",
-      "type": "decoration",
-      "discipline": "general",
-      "rarity": "common",
-      "category": "decoration",
-      "imageUrl": "/images/master_wall_iso_ne.png",
-      "storagePath": "/images/master_wall_iso_ne.png",
-      "footprintTileWidth": 14,
-      "footprintTileHeight": 1,
-      "pixelWidth": 1200,
-      "pixelHeight": 480,
-      "anchorX": 0.5,
-      "anchorY": 0.9,
-      "placementSurface": "wall",
-      "canRotate": false,
-      "isFromCatalog": true,
-      "createdAt": 1786198927211,
-      "updatedAt": 1786199969976
-    },
-    {
-      "name": "Escritorio de caoba",
-      "description": "",
+      "name": "ventana corriente",
+      "description": "una ventana al exterior",
       "type": "furniture",
-      "discipline": "physics",
+      "discipline": "general",
       "rarity": "common",
       "category": "furniture",
-      "placementSurface": "floor",
-      "canRotate": true,
+      "placementSurface": "wall",
+      "canRotate": false,
       "footprintTileWidth": 2,
       "footprintTileHeight": 2,
       "pixelWidth": 128,
       "pixelHeight": 128,
       "anchorX": 0.5,
       "anchorY": 0.85,
-      "imageUrl": "/images/assets/asset_1786199958682_xi7xyeh.png",
-      "storagePath": "public/images/assets/asset_1786199958682_xi7xyeh.png",
-      "createdAt": 1786199958715,
-      "updatedAt": 1786199958715,
-      "id": "asset_1786199958715_2f27r9a"
-    },
-    {
-      "id": "desk_academic",
-      "name": "Escritorio Académico de Caoba",
-      "description": "Gran mesa de estudio de caoba con superficie de cuero y manuscritos.",
-      "type": "furniture",
-      "discipline": "general",
-      "rarity": "rare",
-      "category": "furniture",
-      "imageUrl": "/images/anektia_master_desk_0deg.png",
-      "storagePath": "/images/anektia_master_desk_0deg.png",
-      "footprintTileWidth": 3,
-      "footprintTileHeight": 2,
-      "pixelWidth": 200,
-      "pixelHeight": 160,
-      "anchorX": 0.5,
-      "anchorY": 0.8,
-      "placementSurface": "floor",
-      "canRotate": true,
-      "isFromCatalog": true,
-      "createdAt": 1786199969976,
-      "updatedAt": 1786199969976
+      "imageUrl": "/images/assets/asset_1786470336277_danu6nd.png",
+      "storagePath": "public/images/assets/asset_1786470336277_danu6nd.png",
+      "createdAt": 1786470336313,
+      "updatedAt": 1786470405394,
+      "id": "asset_1786470336313_9pgxcov"
     }
   ]
 }

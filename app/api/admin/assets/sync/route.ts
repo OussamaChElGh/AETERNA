@@ -18,83 +18,15 @@ export async function POST() {
       // Archivo no existe o está vacío
     }
 
-    // Sincronizar catálogo estático con assets.json
-    let addedCount = 0;
-    let updatedCount = 0;
-
-    for (const catalogItem of ROOM_ENGINE_CATALOG) {
-      const existingIndex = assetsData.assets.findIndex((a: any) => a.id === catalogItem.id);
-      const roomAsset = ROOM_ASSETS[catalogItem.assetId];
-      
-      if (existingIndex === -1) {
-        // Nuevo asset
-        const newAsset = {
-          id: catalogItem.id,
-          name: catalogItem.name,
-          description: catalogItem.description,
-          type: catalogItem.category,
-          discipline: catalogItem.discipline,
-          rarity: catalogItem.rarity,
-          category: catalogItem.category,
-          imageUrl: roomAsset?.src || '',
-          storagePath: roomAsset?.src || '',
-          footprintTileWidth: roomAsset?.footprintTileWidth || 2,
-          footprintTileHeight: roomAsset?.footprintTileHeight || 2,
-          pixelWidth: roomAsset?.pixelWidth || 128,
-          pixelHeight: roomAsset?.pixelHeight || 128,
-          anchorX: roomAsset?.anchorX || 0.5,
-          anchorY: roomAsset?.anchorY || 0.85,
-          placementSurface: catalogItem.placementSurface,
-          canRotate: catalogItem.canRotate,
-          unlockCondition: catalogItem.unlockCondition,
-          isFromCatalog: true,
-          createdAt: Date.now(),
-          updatedAt: Date.now(),
-        };
-        assetsData.assets.push(newAsset);
-        addedCount++;
-      } else {
-        // Actualizar metadata manteniendo imageUrl y storagePath del usuario
-        const existing = assetsData.assets[existingIndex];
-        const originalCreatedAt = existing.createdAt || Date.now();
-        assetsData.assets[existingIndex] = {
-          ...existing,
-          id: catalogItem.id,
-          name: catalogItem.name,
-          description: catalogItem.description,
-          type: catalogItem.category,
-          discipline: catalogItem.discipline,
-          rarity: catalogItem.rarity,
-          category: catalogItem.category,
-          imageUrl: existing.imageUrl || roomAsset?.src || '',
-          storagePath: existing.storagePath || roomAsset?.src || '',
-          footprintTileWidth: existing.footprintTileWidth || roomAsset?.footprintTileWidth || 2,
-          footprintTileHeight: existing.footprintTileHeight || roomAsset?.footprintTileHeight || 2,
-          pixelWidth: existing.pixelWidth || roomAsset?.pixelWidth || 128,
-          pixelHeight: existing.pixelHeight || roomAsset?.pixelHeight || 128,
-          anchorX: existing.anchorX ?? roomAsset?.anchorX ?? 0.5,
-          anchorY: existing.anchorY ?? roomAsset?.anchorY ?? 0.85,
-          placementSurface: catalogItem.placementSurface,
-          canRotate: catalogItem.canRotate,
-          unlockCondition: catalogItem.unlockCondition,
-          isFromCatalog: true,
-          createdAt: originalCreatedAt,
-          updatedAt: Date.now(),
-        };
-        updatedCount++;
-      }
-    }
-
-    // Guardar
-    await fs.writeFile(ASSETS_FILE, JSON.stringify(assetsData, null, 2));
-    
-    // Limpiar cache para que el room-engine recargue los datos
+    // Sincronizar ya no es necesario porque GET /api/admin/assets y /api/assets/combined 
+    // manejan la combinación dinámicamente, y PUT/DELETE manejan isDeleted.
+    // Simplemente limpiamos la caché por si acaso.
     clearDynamicAssetsCache();
 
     return NextResponse.json({
       success: true,
-      added: addedCount,
-      updated: updatedCount,
+      added: 0,
+      updated: 0,
       total: assetsData.assets.length,
       catalogSize: ROOM_ENGINE_CATALOG.length,
     });

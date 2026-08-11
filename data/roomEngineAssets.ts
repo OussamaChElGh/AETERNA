@@ -117,12 +117,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_ivy_wall: {
     id: 'asset_ivy_wall',
-    src: '/images/anektia_master_wall_ivy.png',
+    src: '/images/anektia_master_wall_ivy.webp',
     spritesByRotation: {
-      0: '/images/anektia_master_wall_ivy.png',
-      90: '/images/anektia_master_wall_ivy.png',
-      180: '/images/anektia_master_wall_ivy.png',
-      270: '/images/anektia_master_wall_ivy.png'
+      0: '/images/anektia_master_wall_ivy.webp',
+      90: '/images/anektia_master_wall_ivy.webp',
+      180: '/images/anektia_master_wall_ivy.webp',
+      270: '/images/anektia_master_wall_ivy.webp'
     },
     footprintTileWidth: 1,
     footprintTileHeight: 1,
@@ -149,12 +149,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_fireplace_gothic: {
     id: 'asset_fireplace_gothic',
-    src: '/images/anektia_master_fireplace.png',
+    src: '/images/anektia_master_fireplace.webp',
     spritesByRotation: {
-      0: '/images/anektia_master_fireplace.png',
-      90: '/images/anektia_master_fireplace.png',
-      180: '/images/anektia_master_fireplace.png',
-      270: '/images/anektia_master_fireplace.png'
+      0: '/images/anektia_master_fireplace.webp',
+      90: '/images/anektia_master_fireplace.webp',
+      180: '/images/anektia_master_fireplace.webp',
+      270: '/images/anektia_master_fireplace.webp'
     },
     footprintTileWidth: 2,
     footprintTileHeight: 2,
@@ -181,12 +181,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_rug_persian: {
     id: 'asset_rug_persian',
-    src: '/images/anektia_master_persian_rug.png',
+    src: '/images/anektia_master_persian_rug.webp',
     spritesByRotation: {
-      0: '/images/anektia_master_persian_rug.png',
-      90: '/images/anektia_master_persian_rug.png',
-      180: '/images/anektia_master_persian_rug.png',
-      270: '/images/anektia_master_persian_rug.png'
+      0: '/images/anektia_master_persian_rug.webp',
+      90: '/images/anektia_master_persian_rug.webp',
+      180: '/images/anektia_master_persian_rug.webp',
+      270: '/images/anektia_master_persian_rug.webp'
     },
     footprintTileWidth: 3,
     footprintTileHeight: 3,
@@ -486,12 +486,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_melting_clock: {
     id: 'asset_melting_clock',
-    src: '/images/anektia_master_melting_clock.png',
+    src: '/images/anektia_master_melting_clock.webp',
     spritesByRotation: {
-      0: '/images/anektia_master_melting_clock.png',
-      90: '/images/anektia_master_melting_clock.png',
-      180: '/images/anektia_master_melting_clock.png',
-      270: '/images/anektia_master_melting_clock.png'
+      0: '/images/anektia_master_melting_clock.webp',
+      90: '/images/anektia_master_melting_clock.webp',
+      180: '/images/anektia_master_melting_clock.webp',
+      270: '/images/anektia_master_melting_clock.webp'
     },
     footprintTileWidth: 1,
     footprintTileHeight: 1,
@@ -758,12 +758,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_pixel_constellation: {
     id: 'asset_pixel_constellation',
-    src: '/images/anektia_pixel_physics.png',
+    src: '/images/anektia_pixel_physics.webp',
     spritesByRotation: {
-      0: '/images/anektia_pixel_physics.png',
-      90: '/images/anektia_pixel_physics.png',
-      180: '/images/anektia_pixel_physics.png',
-      270: '/images/anektia_pixel_physics.png'
+      0: '/images/anektia_pixel_physics.webp',
+      90: '/images/anektia_pixel_physics.webp',
+      180: '/images/anektia_pixel_physics.webp',
+      270: '/images/anektia_pixel_physics.webp'
     },
     footprintTileWidth: 2,
     footprintTileHeight: 1,
@@ -886,12 +886,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_scroll_wall: {
     id: 'asset_scroll_wall',
-    src: '/images/anektia_pixel_physics.png',
+    src: '/images/anektia_pixel_physics.webp',
     spritesByRotation: {
-      0: '/images/anektia_pixel_physics.png',
-      90: '/images/anektia_pixel_physics.png',
-      180: '/images/anektia_pixel_physics.png',
-      270: '/images/anektia_pixel_physics.png'
+      0: '/images/anektia_pixel_physics.webp',
+      90: '/images/anektia_pixel_physics.webp',
+      180: '/images/anektia_pixel_physics.webp',
+      270: '/images/anektia_pixel_physics.webp'
     },
     footprintTileWidth: 1,
     footprintTileHeight: 1,
@@ -934,12 +934,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_hanging_ivy_long: {
     id: 'asset_hanging_ivy_long',
-    src: '/images/anektia_master_wall_ivy.png',
+    src: '/images/anektia_master_wall_ivy.webp',
     spritesByRotation: {
-      0: '/images/anektia_master_wall_ivy.png',
-      90: '/images/anektia_master_wall_ivy.png',
-      180: '/images/anektia_master_wall_ivy.png',
-      270: '/images/anektia_master_wall_ivy.png'
+      0: '/images/anektia_master_wall_ivy.webp',
+      90: '/images/anektia_master_wall_ivy.webp',
+      180: '/images/anektia_master_wall_ivy.webp',
+      270: '/images/anektia_master_wall_ivy.webp'
     },
     footprintTileWidth: 1,
     footprintTileHeight: 1,
@@ -1062,12 +1062,12 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
   },
   asset_portrait_aristotle: {
     id: 'asset_portrait_aristotle',
-    src: '/images/anektia_pixel_physics.png',
+    src: '/images/anektia_pixel_physics.webp',
     spritesByRotation: {
-      0: '/images/anektia_pixel_physics.png',
-      90: '/images/anektia_pixel_physics.png',
-      180: '/images/anektia_pixel_physics.png',
-      270: '/images/anektia_pixel_physics.png'
+      0: '/images/anektia_pixel_physics.webp',
+      90: '/images/anektia_pixel_physics.webp',
+      180: '/images/anektia_pixel_physics.webp',
+      270: '/images/anektia_pixel_physics.webp'
     },
     footprintTileWidth: 1,
     footprintTileHeight: 1,

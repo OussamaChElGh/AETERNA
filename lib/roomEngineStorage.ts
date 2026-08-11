@@ -279,6 +279,30 @@ export function validatePlacement(
 
 export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
   {
+    instanceId: 'inst_rug_center',
+    catalogItemId: 'rug_persian',
+    tileX: 5,
+    tileY: 4,
+    tileZ: 0,
+    rotation: 0
+  },
+  {
+    instanceId: 'inst_desk_center',
+    catalogItemId: 'desk_academic',
+    tileX: 5,
+    tileY: 4,
+    tileZ: 0,
+    rotation: 0
+  },
+  {
+    instanceId: 'inst_chair_desk',
+    catalogItemId: 'chair_baroque_royal',
+    tileX: 6,
+    tileY: 3,
+    tileZ: 0,
+    rotation: 180
+  },
+  {
     instanceId: 'inst_sofa_ne',
     catalogItemId: 'sofa_leather',
     tileX: 0,
@@ -287,10 +311,10 @@ export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
     rotation: 90
   },
   {
-    instanceId: 'inst_desk_center',
-    catalogItemId: 'desk_academic',
-    tileX: 5,
-    tileY: 4,
+    instanceId: 'inst_plant_corner',
+    catalogItemId: 'fern_ceramic',
+    tileX: 2,
+    tileY: 7,
     tileZ: 0,
     rotation: 0
   }

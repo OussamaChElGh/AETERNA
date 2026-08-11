@@ -24,9 +24,14 @@ export async function GET() {
     const dynamicMap = new Map(dynamicAssets.map(a => [a.id, a]));
 
     // Combinar catálogo estático con dinámico
-    const combinedCatalog = ROOM_ENGINE_CATALOG.map(item => {
+    const combinedCatalog = [];
+    for (const item of ROOM_ENGINE_CATALOG) {
       const dynamic = dynamicMap.get(item.id);
-      return {
+      
+      // Skip deleted items
+      if (dynamic?.isDeleted) continue;
+
+      combinedCatalog.push({
         ...item,
         // Override con datos dinámicos si existen
         name: dynamic?.name || item.name,
@@ -36,14 +41,14 @@ export async function GET() {
         rarity: dynamic?.rarity || item.rarity,
         placementSurface: dynamic?.placementSurface || item.placementSurface,
         canRotate: dynamic?.canRotate ?? item.canRotate,
-        unlockCondition: dynamic?.unlockCondition || item.unlockCondition,
-      };
-    });
+        unlockCondition: dynamic?.unlockCondition !== undefined ? dynamic.unlockCondition : item.unlockCondition,
+      });
+    }
 
     // Agregar assets dinámicos que no están en el catálogo estático
     const staticIds = new Set(ROOM_ENGINE_CATALOG.map(i => i.id));
     const newDynamicItems = dynamicAssets
-      .filter(a => !staticIds.has(a.id))
+      .filter(a => !staticIds.has(a.id) && !a.isDeleted)
       .map(a => ({
         id: a.id,
         name: a.name,
@@ -66,6 +71,8 @@ export async function GET() {
     const now = Date.now();
     const combinedAssets = { ...ROOM_ASSETS };
     for (const asset of dynamicAssets) {
+      if (asset.isDeleted) continue;
+      
       const assetKey = catalogAssetIdMap.get(asset.id) || asset.id;
       const cacheBust = asset.updatedAt ? `?t=${asset.updatedAt}` : '';
 

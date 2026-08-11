@@ -75,6 +75,7 @@ export interface UserProgress {
   completedBosses?: string[];
   skippedBosses?: string[];
   extraFurniture?: string[];
+  hasSeenOnboarding?: boolean;
 }
 
 export type NotificationType = 'level_up' | 'achievement' | 'streak' | 'xp' | 'warning';
@@ -131,6 +132,7 @@ interface GamificationContextType {
   completeBoss: (bossId: string) => void;
   skipBoss: (bossId: string) => void;
   grantFurniture: (itemIds: string[]) => void;
+  markOnboardingSeen: () => void;
 }
 
 const defaultProgress: UserProgress = {
@@ -157,6 +159,7 @@ const defaultProgress: UserProgress = {
   completedBosses: [],
   skippedBosses: [],
   extraFurniture: [],
+  hasSeenOnboarding: false,
 };
 
 const GamificationContext = createContext<GamificationContextType | undefined>(undefined);
@@ -1088,6 +1091,10 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     });
   }, []);
 
+  const markOnboardingSeen = useCallback(() => {
+    setProgress(prev => ({ ...prev, hasSeenOnboarding: true }));
+  }, []);
+
   return (
     <GamificationContext.Provider value={{ 
       progress, 
@@ -1113,6 +1120,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       completeBoss,
       skipBoss,
       grantFurniture,
+      markOnboardingSeen,
     }}>
       {children}
 

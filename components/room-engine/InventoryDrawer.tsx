@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useCombinedAssets } from '@/hooks/useCombinedAssets';
 import { PlacedRoomItem, RoomCatalogItem } from '@/types/roomEngine';
-import { BookOpen, Plus, ChevronUp, ChevronDown, Lock } from 'lucide-react';
+import { BookOpen, Plus, ChevronRight, ChevronLeft, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface InventoryDrawerProps {
@@ -24,7 +24,7 @@ export function InventoryDrawer({
   const { catalog, assets } = useCombinedAssets();
 
   const categories = [
-    { id: 'all', label: 'Colección Completa' },
+    { id: 'all', label: 'Todo' },
     { id: 'furniture', label: 'Mobiliario' },
     { id: 'scientific', label: 'Instrumentos' },
     { id: 'decoration', label: 'Decoración' }
@@ -38,129 +38,154 @@ export function InventoryDrawer({
   const getDisciplineLabel = (disc: string) => {
     switch (disc) {
       case 'physics': return 'Física';
-      case 'mathematics': return 'Matemáticas';
+      case 'mathematics': return 'Mates';
       case 'philosophy': return 'Filosofía';
       case 'biology': return 'Biología';
-      case 'computer_science': return 'Computación';
+      case 'computer_science': return 'Comp';
       default: return 'General';
     }
   };
 
-  const getRarityBadge = (rarity: string) => {
+  const getRarityStyle = (rarity: string) => {
     switch (rarity) {
-      case 'epic': return { text: 'Épico', color: 'bg-amber-500/10 text-amber-400 border-amber-500/30' };
-      case 'rare': return { text: 'Raro', color: 'bg-purple-500/10 text-purple-400 border-purple-500/30' };
-      case 'uncommon': return { text: 'Poco Común', color: 'bg-blue-500/10 text-blue-400 border-blue-500/30' };
-      default: return { text: 'Común', color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' };
+      case 'epic': return { text: 'Épico', badge: 'bg-amber-500/20 text-amber-400', border: 'border-amber-500/30 group-hover:border-amber-500/70', glow: 'shadow-[0_0_15px_rgba(245,158,11,0.2)]' };
+      case 'rare': return { text: 'Raro', badge: 'bg-purple-500/20 text-purple-400', border: 'border-purple-500/30 group-hover:border-purple-500/70', glow: 'shadow-[0_0_15px_rgba(168,85,247,0.2)]' };
+      case 'uncommon': return { text: 'Poco Común', badge: 'bg-blue-500/20 text-blue-400', border: 'border-blue-500/30 group-hover:border-blue-500/70', glow: 'shadow-[0_0_15px_rgba(59,130,246,0.2)]' };
+      default: return { text: 'Común', badge: 'bg-emerald-500/20 text-emerald-400', border: 'border-emerald-500/30 group-hover:border-emerald-500/70', glow: 'shadow-[0_0_15px_rgba(16,185,129,0.2)]' };
     }
   };
 
   return (
-    <div className={cn(
-      "fixed bottom-4 left-1/2 -translate-x-1/2 z-[900] bg-brand-ink/95 backdrop-blur-md border-2 border-brand-gold/40 rounded-3xl shadow-[0_0_60px_rgba(212,175,55,0.15)] transition-all duration-300 font-sans max-w-4xl w-[92vw]",
-      isOpen ? "p-5 max-h-[340px]" : "p-3 max-h-[58px] overflow-hidden"
-    )}>
-      {/* Header Bar */}
-      <div 
+    <>
+      {/* Floating Toggle Button when closed */}
+      <button 
         onClick={onToggle}
-        className="flex items-center justify-between cursor-pointer select-none border-b border-brand-gold/20 pb-2 mb-3"
+        className={cn(
+          "fixed top-1/2 right-0 -translate-y-1/2 z-[890] bg-brand-ink/90 backdrop-blur-md text-brand-gold border border-brand-gold/40 border-r-0 rounded-l-2xl p-2 transition-transform duration-500 shadow-[-5px_0_20px_rgba(212,175,55,0.15)] flex items-center justify-center hover:bg-brand-gold/10 hover:pr-4",
+          isOpen ? "translate-x-full" : "translate-x-0"
+        )}
       >
-        <div className="flex items-center gap-2.5">
-          <BookOpen className="text-brand-gold" size={17} />
-          <h3 className="font-serif font-bold text-sm text-brand-offwhite uppercase tracking-wider">
-            Colección del Conocimiento
-          </h3>
-          <span className="text-[10px] text-brand-gold font-mono font-bold bg-brand-gold/10 px-2.5 py-0.5 rounded-full border border-brand-gold/30">
-            {placedItems.length} {placedItems.length === 1 ? 'Colocado' : 'Colocados'}
-          </span>
+        <ChevronLeft size={24} />
+      </button>
+
+      {/* Main Sidebar */}
+      <div className={cn(
+        "fixed top-0 right-0 h-full z-[900] bg-[#0A0A0C]/95 backdrop-blur-3xl border-l border-brand-gold/30 shadow-[-20px_0_80px_rgba(212,175,55,0.15)] transition-transform duration-500 font-sans w-full sm:w-[380px] flex flex-col overflow-hidden",
+        isOpen ? "translate-x-0" : "translate-x-full"
+      )}>
+        {/* Decorative Grid Background */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(212,175,55,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(212,175,55,0.03)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
+
+        {/* Header Bar */}
+        <div className="relative z-10 flex items-center justify-between p-6 border-b border-brand-gold/20 bg-gradient-to-b from-brand-ink to-transparent">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+              <BookOpen className="text-brand-gold" size={18} />
+            </div>
+            <div>
+              <h3 className="font-serif font-bold text-lg text-brand-offwhite leading-tight">
+                Colección
+              </h3>
+              <span className="text-[10px] text-brand-gold/70 font-mono font-bold uppercase tracking-widest">
+                {placedItems.length} En Uso
+              </span>
+            </div>
+          </div>
+
+          <button 
+            onClick={onToggle}
+            className="p-2 rounded-full bg-brand-gold/10 text-brand-gold hover:bg-brand-gold hover:text-brand-ink transition-colors shadow-sm"
+          >
+            <ChevronRight size={18} />
+          </button>
         </div>
 
-        <button className="p-1 rounded-full bg-brand-gold/10 text-brand-gold hover:bg-brand-gold/20 transition-colors">
-          {isOpen ? <ChevronDown size={18} /> : <ChevronUp size={18} />}
-        </button>
-      </div>
-
-      {/* Expanded Catalog Grid */}
-      {isOpen && (
-        <div className="space-y-3">
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+        {/* Category Filters */}
+        <div className="relative z-10 p-4 border-b border-white/5">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
             {categories.map(cat => (
               <button
                 key={cat.id}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setActiveCategory(cat.id);
-                }}
+                onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  "px-3 py-1.5 text-[10px] font-mono font-bold uppercase tracking-wider rounded-xl transition-all border shrink-0 select-none",
+                  "px-4 py-2 text-[10px] font-mono font-bold uppercase tracking-wider rounded-lg transition-all border shrink-0 select-none",
                   activeCategory === cat.id
-                    ? "bg-brand-gold text-brand-ink border-brand-gold font-black shadow-sm"
-                    : "bg-white/5 text-brand-offwhite/70 border-white/10 hover:text-brand-gold"
+                    ? "bg-brand-gold text-brand-ink border-brand-gold shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+                    : "bg-white/5 text-brand-offwhite/60 border-white/5 hover:bg-white/10 hover:text-brand-gold"
                 )}
               >
                 {cat.label}
               </button>
             ))}
           </div>
+        </div>
 
-          {/* Catalog Item Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-h-[200px] overflow-y-auto pr-1">
+        {/* Catalog Grid */}
+        <div className="relative z-10 flex-1 overflow-y-auto p-4 custom-scrollbar">
+          <div className="grid grid-cols-2 gap-4">
             {filteredCatalog.map(item => {
               const instanceCount = placedItems.filter(p => p.catalogItemId === item.id).length;
               const asset = assets[item.assetId];
-              const badge = getRarityBadge(item.rarity);
               const isLocked = unlockedIds ? !unlockedIds.has(item.id) : false;
+              const rarityStyle = getRarityStyle(item.rarity);
 
               return (
                 <div
                   key={item.id}
-                  onClick={(e) => {
-                    e.stopPropagation();
+                  onClick={() => {
                     if (!isLocked) onSpawnItem(item);
                   }}
                   className={cn(
-                    "p-3 rounded-2xl border transition-all flex items-center gap-3 relative group select-none",
+                    "flex flex-col p-3 rounded-2xl border transition-all duration-300 relative group select-none overflow-hidden bg-[#14110D]",
                     isLocked
-                      ? "border-white/5 bg-black/20 cursor-not-allowed opacity-50 grayscale"
-                      : "border-brand-gold/30 bg-white/5 hover:border-brand-gold hover:shadow-xl cursor-pointer active:scale-98"
+                      ? "border-white/5 bg-black/40 cursor-not-allowed opacity-60 grayscale"
+                      : cn("cursor-pointer hover:-translate-y-1 hover:bg-[#1A1611]", rarityStyle.border, rarityStyle.glow)
                   )}
                 >
                   {isLocked && (
-                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/30 backdrop-blur-[1px]">
-                      <Lock size={20} className="text-brand-gold/60" />
+                    <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-black/60 backdrop-blur-[2px]">
+                      <Lock size={24} className="text-brand-gold/60 mb-2" />
+                      <span className="text-[9px] font-mono font-bold text-brand-gold/60 uppercase tracking-widest text-center px-2">Bloqueado</span>
                     </div>
                   )}
-                  <div className="w-12 h-12 relative shrink-0 bg-brand-gold/10 rounded-xl p-1 border border-brand-gold/20 flex items-center justify-center">
+
+                  {/* Image Container */}
+                  <div className="w-full h-24 relative shrink-0 bg-gradient-to-b from-white/5 to-transparent rounded-xl p-2 mb-3 flex items-center justify-center group-hover:from-brand-gold/10 transition-colors">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={asset?.src || '/images/anektia_master_sofa.png'}
+                      src={asset?.src?.replace(/\\/g, '/') || '/images/anektia_master_sofa.png'}
                       alt={item.name}
-                      className="w-full h-full object-contain drop-shadow-md group-hover:scale-105 transition-transform"
+                      className="w-full h-full object-contain drop-shadow-xl group-hover:scale-110 transition-transform duration-500"
                     />
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-brand-gold">
-                        {getDisciplineLabel(item.discipline)}
-                      </span>
-                      <span className={cn("text-[8px] font-mono font-bold px-1.5 py-0.2 rounded-full border", badge.color)}>
-                        {badge.text}
+                    
+                    {/* Badge */}
+                    <div className="absolute -bottom-2 right-1 z-10">
+                      <span className={cn("text-[8px] font-mono font-bold px-2 py-0.5 rounded-full border shadow-sm", rarityStyle.badge, "border-current/20")}>
+                        {rarityStyle.text}
                       </span>
                     </div>
+                  </div>
 
-                    <h4 className="font-serif font-bold text-xs text-brand-offwhite leading-tight mb-1">
-                      {item.name}
-                    </h4>
+                  {/* Text Details */}
+                  <div className="flex flex-col flex-1 justify-between">
+                    <div>
+                      <span className="text-[8px] font-mono font-bold uppercase tracking-wider text-brand-gold/70 block mb-1">
+                        {getDisciplineLabel(item.discipline)}
+                      </span>
+                      <h4 className="font-serif font-bold text-[13px] text-brand-offwhite leading-tight mb-2 group-hover:text-brand-gold transition-colors">
+                        {item.name}
+                      </h4>
+                    </div>
 
-                    <div className="flex items-center justify-between text-[9px] text-brand-offwhite/40 font-mono">
-                      {isLocked ? (
-                        <span>Bloqueado · Completar para desbloquear</span>
-                      ) : (
-                        <span>{instanceCount > 0 ? `En habitación: ${instanceCount}` : 'Disponible'}</span>
+                    <div className="flex items-center justify-between text-[9px] font-mono border-t border-white/5 pt-2 mt-auto">
+                      <span className="text-brand-offwhite/50">
+                        {instanceCount > 0 ? `En sala: ${instanceCount}` : 'Disponible'}
+                      </span>
+                      {!isLocked && (
+                        <div className="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-ink transition-colors">
+                          <Plus size={12} className="text-brand-gold group-hover:text-brand-ink" />
+                        </div>
                       )}
-                      {!isLocked && <Plus size={12} className="text-brand-gold group-hover:scale-125 transition-transform" />}
                     </div>
                   </div>
                 </div>
@@ -168,7 +193,7 @@ export function InventoryDrawer({
             })}
           </div>
         </div>
-      )}
-    </div>
+      </div>
+    </>
   );
 }
