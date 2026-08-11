@@ -859,6 +859,17 @@ export const ROOM_ENGINE_CATALOG: RoomCatalogItem[] = [
     assetId: 'asset_wall_mahogany_ne',
     placementSurface: 'wall',
     canRotate: false
+  },
+  {
+    id: 'pared_motel_nw',
+    name: 'Pared de Motel',
+    description: 'Diseño de pared de motel.',
+    discipline: 'general',
+    category: 'decoration',
+    rarity: 'common',
+    assetId: 'asset_pared_motel_nw',
+    placementSurface: 'wall',
+    canRotate: false
   }
 ];
 

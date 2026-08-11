@@ -1159,6 +1159,17 @@ export const ROOM_ASSETS: Record<string, RoomAsset> = {
     anchorX: 0.5,
     anchorY: 0.9,
     isFullWall: 'ne'
+  },
+  asset_pared_motel_nw: {
+    id: 'asset_pared_motel_nw',
+    src: '/images/assets/asset_1786477478030_sywwc1e.png',
+    footprintTileWidth: 14,
+    footprintTileHeight: 1,
+    pixelWidth: 1200,
+    pixelHeight: 480,
+    anchorX: 0.5,
+    anchorY: 0.9,
+    isFullWall: 'nw'
   }
 };
 
