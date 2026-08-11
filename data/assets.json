@@ -1926,18 +1926,19 @@
       "category": "furniture",
       "placementSurface": "wall",
       "canRotate": false,
-      "footprintTileWidth": 8,
+      "footprintTileWidth": 14,
       "footprintTileHeight": 1,
       "pixelWidth": 1200,
       "pixelHeight": 480,
       "anchorX": 0.5,
-      "anchorY": 0.85,
+      "anchorY": 0.9,
       "imageUrl": "/images/assets/asset_1786477478030_sywwc1e.png",
       "storagePath": "public/images/assets/asset_1786477478030_sywwc1e.png",
       "createdAt": 1786477478966,
       "updatedAt": 1786480057155,
       "id": "asset_1786477478966_zbqyd82",
-      "isDeleted": true
+      "isDeleted": true,
+      "isFullWall": "nw"
     },
     {
       "id": "pared_motel_nw",
@@ -1959,7 +1960,8 @@
       "canRotate": false,
       "isFromCatalog": true,
       "createdAt": 1786479930923,
-      "updatedAt": 1786479930923
+      "updatedAt": 1786479930923,
+      "isFullWall": "nw"
     },
     {
       "name": "pared de hiedra",
@@ -1970,7 +1972,7 @@
       "category": "decoration",
       "placementSurface": "wall",
       "canRotate": true,
-      "footprintTileWidth": 8,
+      "footprintTileWidth": 14,
       "footprintTileHeight": 1,
       "pixelWidth": 1200,
       "pixelHeight": 480,
@@ -1980,7 +1982,7 @@
       "imageUrl": "/images/assets/asset_1786483450512_iftkwtw.png",
       "storagePath": "public/images/assets/asset_1786483450512_iftkwtw.png",
       "createdAt": 1786483450555,
-      "updatedAt": 1786483478342,
+      "updatedAt": 1786483946265,
       "id": "asset_1786483450555_5h1vcak"
     }
   ]

@@ -53,8 +53,9 @@ export function IsoSpriteObject({
   // Merge static + dynamic so flags like isFullWall survive even if the
   // dynamic entry (from assets.json) doesn't carry them.
   const asset = dynamicAsset ? { ...staticAsset, ...dynamicAsset } : staticAsset;
-  // Authoritative source for full-wall detection (static catalog)
-  const nativeWallFace = staticAsset?.isFullWall;
+  // Full-wall detection from the merged asset (dynamic admin-created walls
+  // carry isFullWall in assets.json, static catalog walls in roomEngineAssets)
+  const nativeWallFace = asset?.isFullWall;
   const isFullWall = nativeWallFace === 'nw' || nativeWallFace === 'ne';
 
   const rawSpriteSrc = (asset?.spritesByRotation && asset.spritesByRotation[item.rotation]) 

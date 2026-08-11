@@ -105,7 +105,17 @@ function UploadForm({ onSuccess }: { onSuccess: () => void }) {
           anchorY: 0.9,
         };
       }
-      return { ...prev, isFullWall: undefined };
+      // Reset to normal decorative geometry when not a full wall
+      return {
+        ...prev,
+        isFullWall: undefined,
+        footprintTileWidth: 2,
+        footprintTileHeight: 1,
+        pixelWidth: 128,
+        pixelHeight: 128,
+        anchorX: 0.5,
+        anchorY: 0.85,
+      };
     });
   }
 
@@ -441,7 +451,17 @@ function EditModal({
           anchorY: 0.9,
         };
       }
-      return { ...prev, isFullWall: undefined };
+      // Reset to normal decorative geometry when not a full wall
+      return {
+        ...prev,
+        isFullWall: undefined,
+        footprintTileWidth: 2,
+        footprintTileHeight: 1,
+        pixelWidth: 128,
+        pixelHeight: 128,
+        anchorX: 0.5,
+        anchorY: 0.85,
+      };
     });
   }
 
