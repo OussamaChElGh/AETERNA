@@ -45,7 +45,7 @@ interface ConvertResult {
   savingsPercent: number;
 }
 
-type FilterType = 'all' | 'pending' | 'converted' | 'png' | 'webp';
+type FilterType = 'all' | 'pending' | 'converted' | 'png' | 'webp' | 'articles';
 
 function StatCard({ label, value, color, index }: { label: string; value: string | number; color: string; index: number }) {
   return (
@@ -154,6 +154,9 @@ export default function ImageOptimizerPage() {
         break;
       case 'webp':
         images = images.filter(img => img.format === 'webp');
+        break;
+      case 'articles':
+        images = images.filter(img => img.relativePath.includes('/articles/'));
         break;
     }
     
@@ -316,6 +319,7 @@ export default function ImageOptimizerPage() {
               <option value="converted">Convertidas</option>
               <option value="png">Solo PNG</option>
               <option value="webp">Solo WebP</option>
+              <option value="articles">Solo Artículos</option>
             </select>
           </div>
         </div>
