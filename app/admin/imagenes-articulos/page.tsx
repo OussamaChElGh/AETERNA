@@ -13,6 +13,7 @@ import {
   BookOpen,
   Plus,
   ExternalLink,
+  Sparkles,
   X
 } from 'lucide-react';
 import { useToast } from '@/components/ui/ToastProvider';
@@ -29,10 +30,21 @@ interface ArticleImageItem {
   ext: string;
 }
 
+interface Placeholder {
+  id: string;
+  description: string;
+  location: string;
+  sectionId: string;
+  sectionTitle: string;
+  level: string;
+}
+
 interface ArticleState {
   slug: string;
   title: string;
   images: ArticleImageItem[];
+  placeholders: Placeholder[];
+  placeholdersLoading: boolean;
   loading: boolean;
   open: boolean;
   uploading: boolean;
@@ -58,9 +70,13 @@ export default function ArticleImagesManager() {
       setArticles(list);
       const init: Record<string, ArticleState> = {};
       for (const a of list) {
-        init[a.slug] = { slug: a.slug, title: a.title, images: [], loading: false, open: false, uploading: false };
+        init[a.slug] = { slug: a.slug, title: a.title, images: [], placeholders: [], placeholdersLoading: false, loading: false, open: false, uploading: false };
       }
       setStates(init);
+      // Load placeholder counts for all articles so the header badge shows
+      for (const a of list) {
+        loadPlaceholders(a.slug);
+      }
     } catch (e) {
       showToast('error', 'Error al cargar artículos');
     } finally {
@@ -75,8 +91,42 @@ export default function ArticleImagesManager() {
       if (nowOpen && s.images.length === 0) {
         loadImages(slug);
       }
+      if (nowOpen && s.placeholders.length === 0) {
+        loadPlaceholders(slug);
+      }
       return { ...prev, [slug]: { ...s, open: nowOpen } };
     });
+  }
+
+  async function loadPlaceholders(slug: string) {
+    setStates(prev => ({ ...prev, [slug]: { ...prev[slug], placeholdersLoading: true } }));
+    try {
+      const res = await fetch(`/api/admin/articles/images/placeholders?slug=${slug}`);
+      const data = await res.json();
+      setStates(prev => ({ ...prev, [slug]: { ...prev[slug], placeholders: data.placeholders || [], placeholdersLoading: false } }));
+    } catch (e) {
+      showToast('error', 'Error al cargar placeholders');
+      setStates(prev => ({ ...prev, [slug]: { ...prev[slug], placeholdersLoading: false } }));
+    }
+  }
+
+  async function assignImage(slug: string, description: string, url: string) {
+    try {
+      const res = await fetch('/api/admin/articles/images/assign', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, description, url }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('success', 'Imagen asignada al placeholder', data.replaced > 1 ? `${data.replaced} reemplazos` : undefined);
+        loadPlaceholders(slug);
+      } else {
+        showToast('error', data.error || 'Error al asignar');
+      }
+    } catch (e) {
+      showToast('error', 'Error al asignar imagen');
+    }
   }
 
   async function loadImages(slug: string) {
@@ -209,6 +259,11 @@ export default function ArticleImagesManager() {
                     }`}>
                       {st.images.length} {st.images.length === 1 ? 'imagen' : 'imágenes'}
                     </span>
+                    {st.placeholders.length > 0 && (
+                      <span className="px-2.5 py-1 rounded-full text-xs font-mono bg-amber-500/10 text-amber-400">
+                        {st.placeholders.length} sugeridas
+                      </span>
+                    )}
                     <span className="text-white/40 text-sm">{st.open ? '−' : '+'}</span>
                   </div>
                 </div>
@@ -240,6 +295,63 @@ export default function ArticleImagesManager() {
                         <ExternalLink size={14} />
                         Abrir editor
                       </Link>
+                    </div>
+
+                    {/* Placeholders */}
+                    <div className="mb-5">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Sparkles size={15} className="text-amber-400" />
+                        <h4 className="text-sm font-semibold text-white">Imágenes sugeridas en el artículo</h4>
+                        <span className="text-[10px] font-mono text-white/40">
+                          {st.placeholders.length > 0 ? `(${st.placeholders.length})` : ''}
+                        </span>
+                      </div>
+
+                      {st.placeholdersLoading ? (
+                        <div className="flex items-center gap-2 py-3 text-white/40 text-sm">
+                          <Loader2 className="animate-spin" size={14} /> Escaneando placeholders...
+                        </div>
+                      ) : st.placeholders.length === 0 ? (
+                        <p className="text-white/30 text-xs py-2">
+                          No hay [IMAGEN SUGERIDA] en este artículo. Sube imágenes arriba y asígnalas manualmente.
+                        </p>
+                      ) : (
+                        <div className="space-y-2">
+                          {st.placeholders.map((ph, i) => (
+                            <div
+                              key={ph.id}
+                              className="flex flex-col sm:flex-row sm:items-center gap-2 bg-black/20 border border-white/10 rounded-lg p-2.5"
+                            >
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-amber-400/70 text-[10px] font-mono">#{i + 1}</span>
+                                  <p className="text-white/70 text-xs truncate">{ph.description}</p>
+                                </div>
+                                <p className="text-[10px] text-white/30 font-mono mt-0.5">{ph.location}</p>
+                              </div>
+
+                              {/* Assign: pick from uploaded images */}
+                              {st.images.length > 0 ? (
+                                <select
+                                  onChange={(e) => {
+                                    if (e.target.value) assignImage(article.slug, ph.description, e.target.value);
+                                    e.target.value = '';
+                                  }}
+                                  className="bg-white/5 border border-white/10 rounded px-2 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500/50"
+                                  defaultValue=""
+                                >
+                                  <option value="" disabled>Asignar imagen…</option>
+                                  {st.images.map(img => (
+                                    <option key={img.name} value={img.url}>{img.name}</option>
+                                  ))}
+                                </select>
+                              ) : (
+                                <span className="text-[10px] text-white/30">Sube imágenes para asignar</span>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     {st.loading ? (

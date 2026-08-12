@@ -17,6 +17,7 @@ import {
   Upload,
   Copy,
   Check,
+  Sparkles,
   X
 } from 'lucide-react';
 import { useToast } from '@/components/ui/ToastProvider';
@@ -560,6 +561,15 @@ interface ArticleImageItem {
   ext: string;
 }
 
+interface Placeholder {
+  id: string;
+  description: string;
+  location: string;
+  sectionId: string;
+  sectionTitle: string;
+  level: string;
+}
+
 function ArticleImagesPanel({
   slug,
   showToast,
@@ -568,13 +578,18 @@ function ArticleImagesPanel({
   showToast: (type: 'success' | 'error', title: string, message?: string) => void;
 }) {
   const [images, setImages] = useState<ArticleImageItem[]>([]);
+  const [placeholders, setPlaceholders] = useState<Placeholder[]>([]);
+  const [placeholdersLoading, setPlaceholdersLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
 
   useEffect(() => {
-    if (slug) loadImages();
+    if (slug) {
+      loadImages();
+      loadPlaceholders();
+    }
   }, [slug]);
 
   async function loadImages() {
@@ -588,6 +603,40 @@ function ArticleImagesPanel({
       showToast('error', 'Error al cargar imágenes');
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function loadPlaceholders() {
+    if (!slug) return;
+    setPlaceholdersLoading(true);
+    try {
+      const res = await fetch(`/api/admin/articles/images/placeholders?slug=${slug}`);
+      const data = await res.json();
+      setPlaceholders(data.placeholders || []);
+    } catch (e) {
+      showToast('error', 'Error al cargar placeholders');
+    } finally {
+      setPlaceholdersLoading(false);
+    }
+  }
+
+  async function assignImage(description: string, url: string) {
+    if (!slug) return;
+    try {
+      const res = await fetch('/api/admin/articles/images/assign', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, description, url }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast('success', 'Imagen asignada al placeholder');
+        loadPlaceholders();
+      } else {
+        showToast('error', data.error || 'Error al asignar');
+      }
+    } catch (e) {
+      showToast('error', 'Error al asignar imagen');
     }
   }
 
@@ -708,6 +757,61 @@ function ArticleImagesPanel({
             <input type="file" accept="image/*" multiple onChange={handleFileInput} className="hidden" disabled={uploading} />
           </label>
         </div>
+      </motion.section>
+
+      {/* Placeholders */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.05 }}
+        className="bg-white/5 border border-white/10 rounded-xl p-6"
+      >
+        <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+          <Sparkles size={18} className="text-amber-400" />
+          Imágenes sugeridas en el artículo
+          <span className="text-xs text-white/40 font-mono ml-1">({placeholders.length})</span>
+        </h2>
+
+        {placeholdersLoading ? (
+          <div className="flex items-center gap-2 py-6 text-white/40 text-sm">
+            <Loader2 className="animate-spin" size={16} /> Escaneando [IMAGEN SUGERIDA]...
+          </div>
+        ) : placeholders.length === 0 ? (
+          <p className="text-white/40 text-sm py-4">
+            No hay [IMAGEN SUGERIDA] en este artículo.
+          </p>
+        ) : (
+          <div className="space-y-2">
+            {placeholders.map((ph, i) => (
+              <div key={ph.id} className="flex flex-col sm:flex-row sm:items-center gap-2 bg-black/20 border border-white/10 rounded-lg p-3">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400/70 text-[10px] font-mono">#{i + 1}</span>
+                    <p className="text-white/70 text-sm truncate">{ph.description}</p>
+                  </div>
+                  <p className="text-[10px] text-white/30 font-mono mt-0.5">{ph.location}</p>
+                </div>
+                {images.length > 0 ? (
+                  <select
+                    onChange={(e) => {
+                      if (e.target.value) assignImage(ph.description, e.target.value);
+                      e.target.value = '';
+                    }}
+                    className="bg-white/5 border border-white/10 rounded px-2 py-1.5 text-xs text-white focus:outline-none focus:border-amber-500/50"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Asignar imagen…</option>
+                    {images.map(img => (
+                      <option key={img.name} value={img.url}>{img.name}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <span className="text-[10px] text-white/30">Sube imágenes para asignar</span>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </motion.section>
 
       {/* Gallery */}
