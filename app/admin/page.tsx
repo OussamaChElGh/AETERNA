@@ -10,6 +10,8 @@ import {
   CheckCircle,
   AlertCircle,
   BookOpen,
+  Images,
+  Copy,
   ChevronRight
 } from 'lucide-react';
 
@@ -250,6 +252,42 @@ export default function AdminDashboard() {
                 Planificar →
               </a>
             </div>
+          </motion.div>
+
+          {/* Article Images Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.75 }}
+            className="bg-white/5 border border-white/10 rounded-xl p-6 mb-8"
+          >
+            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+              <Images size={20} className="text-indigo-400" />
+              Imágenes de Artículos
+            </h2>
+            <p className="text-white/60 mb-4">
+              Sube, gestiona y copia como markdown las imágenes de cada artículo de aprendizaje.
+            </p>
+            <div className="space-y-2 text-sm mb-4">
+              <div className="flex items-center gap-2 text-white/70">
+                <ImageIcon size={14} className="text-white/40" />
+                <span>Imágenes organizadas por artículo en /images/articles/</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/70">
+                <CheckCircle size={14} className="text-emerald-400" />
+                <span>Conversión automática a WebP al subir</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/70">
+                <Copy size={14} className="text-white/40" />
+                <span>Copiar markdown con un click para insertar en el contenido</span>
+              </div>
+            </div>
+            <a
+              href="/admin/imagenes-articulos"
+              className="block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 rounded-lg transition-colors text-sm"
+            >
+              Gestionar Imágenes de Artículos →
+            </a>
           </motion.div>
 
           {/* Recent Images */}

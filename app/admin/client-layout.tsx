@@ -15,6 +15,7 @@ import {
   BarChart3,
   Brain,
   Code2,
+  Images,
   ArrowLeft,
   Menu,
   X
@@ -33,6 +34,7 @@ const NAV_ITEMS = [
   { href: '/admin/stitch', icon: Code2, label: 'Stitch-to-Code' },
   { href: '/admin/curriculum', icon: BookOpen, label: 'Currículum' },
   { href: '/admin/imagenes', icon: ImageIcon, label: 'Imágenes' },
+  { href: '/admin/imagenes-articulos', icon: Images, label: 'Imágenes Artículos' },
   { href: '/admin/assets', icon: Package, label: 'Assets' },
   { href: '/admin/articulos', icon: BookOpen, label: 'Artículos' },
   { href: '/admin/sync', icon: RefreshCw, label: 'Sync' },
