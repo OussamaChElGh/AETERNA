@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { PlacedRoomItem, RoomCatalogItem, RoomAsset } from '@/types/roomEngine';
 import { getCatalogItem } from '@/data/roomEngineCatalog';
 import { getRoomAsset } from '@/data/roomEngineAssets';
-import { tileToScreen, screenToTile, calculateDerivedZIndex, validatePlacement } from '@/lib/roomEngineStorage';
+import { tileToScreen, screenToTile, calculateDerivedZIndex, validateRoomChange } from '@/lib/roomEngineStorage';
 import { CompactObjectToolbar } from './CompactObjectToolbar';
 import { cn } from '@/lib/utils';
 
@@ -71,7 +71,10 @@ export function IsoSpriteObject({
 
   const dragStartRef = useRef<{ startX: number; startY: number; initialTileX: number; initialTileY: number; initialTileZ: number } | null>(null);
 
-  const { screenX, screenY } = tileToScreen(item.tileX, item.tileY, item.tileZ);
+  const [preview, setPreview] = useState<PlacedRoomItem | null>(null);
+  const previewRef = useRef<PlacedRoomItem | null>(null);
+  const visibleItem = preview ?? item;
+  const { screenX, screenY } = tileToScreen(visibleItem.tileX, visibleItem.tileY, visibleItem.tileZ);
 
   const dynamicZIndex = calculateDerivedZIndex(
     item.tileX,
@@ -84,7 +87,7 @@ export function IsoSpriteObject({
   const pixelHeight = asset?.pixelHeight || 120;
 
   const isWallItem = catalogItem.placementSurface === 'wall';
-  const isNwWall = item.tileY === 0;
+  const isNwWall = visibleItem.tileY === 0;
 
   // Full-wall rendering: asset marked as a complete wall panel aligns to room wall geometry
   // Rotation drives a full 360° swing around the apex across the 4 arms of an "X":
@@ -101,7 +104,6 @@ export function IsoSpriteObject({
   const WALL_ORIGIN = { x: 600, y: 255 };
   const WALL_SIZE = { w: 525.5, h: 480 };
   // The env wrapper in Room.tsx scales around transformOrigin '50% 30%' => (600, 285)
-  const ENV_ORIGIN = { x: 600, y: 285 };
 
   const anchorXPercent = (asset?.anchorX ?? 0.5) * 100;
   const anchorYPercent = isWallItem ? 100 : (asset?.anchorY ?? 0.85) * 100;
@@ -147,18 +149,8 @@ export function IsoSpriteObject({
     // Full walls are fixed to the room geometry; only rotation switches sides
     if (isFullWall) return;
 
-    const initialValidation = validatePlacement(
-      item.tileX,
-      item.tileY,
-      item.tileZ,
-      item.rotation,
-      item.catalogItemId,
-      item.instanceId,
-      placedItems
-    );
-
     setIsDragging(true);
-    setIsValidDrag(initialValidation.isValid);
+    setIsValidDrag(true);
     dragStartRef.current = {
       startX: e.clientX,
       startY: e.clientY,
@@ -174,8 +166,7 @@ export function IsoSpriteObject({
     if (!isDragging || !dragStartRef.current || !editMode) return;
 
     const isWallSurface = catalogItem.placementSurface === 'wall';
-    // Wall decor renders at envScale on top of scaleFactor; floor furniture only scaleFactor
-    const effectiveScale = isWallSurface && !isFullWall ? scaleFactor * envScale : scaleFactor;
+    const effectiveScale = scaleFactor;
     const deltaXScreen = (e.clientX - dragStartRef.current.startX) / effectiveScale;
     const deltaYScreen = (e.clientY - dragStartRef.current.startY) / effectiveScale;
 
@@ -205,70 +196,42 @@ export function IsoSpriteObject({
       }
     }
 
-    const validation = validatePlacement(
-      targetTileX,
-      targetTileY,
-      targetTileZ,
-      item.rotation,
-      item.catalogItemId,
-      item.instanceId,
-      placedItems
-    );
-
-    setIsValidDrag(validation.isValid);
-
-    if (targetTileX !== item.tileX || targetTileY !== item.tileY || targetTileZ !== item.tileZ) {
-      onUpdatePosition(item.instanceId, targetTileX, targetTileY, targetTileZ);
-    }
+    const next = { ...item, tileX: targetTileX, tileY: targetTileY, tileZ: targetTileZ };
+    previewRef.current = next;
+    setPreview(next);
+    setIsValidDrag(validateRoomChange(placedItems, next, item.instanceId, visibleGrid));
   };
 
   useEffect(() => {
     if (!isDragging) return;
-
-    const handleGlobalRelease = () => {
-      if (isDragging) {
-        setIsDragging(false);
-        if (!isValidDrag && dragStartRef.current) {
-          onUpdatePosition(
-            item.instanceId,
-            dragStartRef.current.initialTileX,
-            dragStartRef.current.initialTileY,
-            dragStartRef.current.initialTileZ
-          );
-        }
-        dragStartRef.current = null;
-        setIsValidDrag(true);
-      }
+    const cancel = () => {
+      dragStartRef.current = null;
+      previewRef.current = null;
+      setPreview(null);
+      setIsDragging(false);
+      setIsValidDrag(true);
     };
-
-    window.addEventListener('pointercancel', handleGlobalRelease);
-    window.addEventListener('blur', handleGlobalRelease);
+    window.addEventListener('pointercancel', cancel);
+    window.addEventListener('blur', cancel);
     return () => {
-      window.removeEventListener('pointercancel', handleGlobalRelease);
-      window.removeEventListener('blur', handleGlobalRelease);
+      window.removeEventListener('pointercancel', cancel);
+      window.removeEventListener('blur', cancel);
     };
-  }, [isDragging, isValidDrag, item.instanceId, onUpdatePosition]);
+  }, [isDragging]);
 
   const handlePointerUp = (e: React.PointerEvent) => {
-    if (isDragging) {
-      setIsDragging(false);
-
-      if (!isValidDrag && dragStartRef.current) {
-        onUpdatePosition(
-          item.instanceId, 
-          dragStartRef.current.initialTileX, 
-          dragStartRef.current.initialTileY,
-          dragStartRef.current.initialTileZ
-        );
-      }
-
-      dragStartRef.current = null;
-      setIsValidDrag(true);
-
-      try {
-        (e.target as HTMLElement).releasePointerCapture(e.pointerId);
-      } catch (err) {}
+    if (!dragStartRef.current) return;
+    const next = previewRef.current;
+    if (next && validateRoomChange(placedItems, next, item.instanceId, visibleGrid)) {
+      onUpdatePosition(item.instanceId, next.tileX, next.tileY, next.tileZ);
     }
+    previewRef.current = null;
+    dragStartRef.current = null;
+    setPreview(null);
+    setIsDragging(false);
+    setIsValidDrag(true);
+    const target = e.target as HTMLElement;
+    if (target.hasPointerCapture(e.pointerId)) target.releasePointerCapture(e.pointerId);
   };
 
   const isDoorItem = item.catalogItemId.includes('door');
@@ -279,14 +242,10 @@ export function IsoSpriteObject({
 
   // Full-wall positioning: align exactly to WallRenderer geometry, scaled by envScale
   // matching the wrapper transformOrigin (50% 30%) => env origin at (600, 285)
-  const renderLeft = isFullWall
-    ? ENV_ORIGIN.x + (WALL_ORIGIN.x - ENV_ORIGIN.x) * envScale
-    : (isWallDecor ? ENV_ORIGIN.x + (screenX - ENV_ORIGIN.x) * envScale : screenX);
-  const renderTop = isFullWall
-    ? ENV_ORIGIN.y + (WALL_ORIGIN.y - ENV_ORIGIN.y) * envScale
-    : (isWallDecor ? ENV_ORIGIN.y + (screenY - ENV_ORIGIN.y) * envScale : screenY);
-  const renderWidth = isFullWall ? WALL_SIZE.w * envScale : (isWallDecor ? pixelWidth * envScale : pixelWidth);
-  const renderHeight = isFullWall ? WALL_SIZE.h * envScale : (isWallDecor ? pixelHeight * envScale : pixelHeight);
+  const renderLeft = isFullWall ? WALL_ORIGIN.x : screenX;
+  const renderTop = isFullWall ? WALL_ORIGIN.y : screenY;
+  const renderWidth = isFullWall ? WALL_SIZE.w * envScale : (isWallDecor ? pixelWidth * 0.65 : pixelWidth);
+  const renderHeight = isFullWall ? WALL_SIZE.h * envScale : (isWallDecor ? pixelHeight * 0.65 : pixelHeight);
   const renderAnchorX = isFullWall ? 0 : anchorXPercent;
   const renderAnchorY = isFullWall ? 0 : anchorYPercent;
 

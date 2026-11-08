@@ -7,11 +7,12 @@ import { RoomEngineHUD } from '../room-engine/RoomEngineHUD';
 import { InventoryDrawer } from '../room-engine/InventoryDrawer';
 import { RelicWall } from './RelicWall';
 import { RoomCatalogItem as LegacyCatalogItem } from '@/types/roomEngine';
-import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks, hasRoomEngineState, validatePlacement } from '@/lib/roomEngineStorage';
+import { loadRoomEngineState, saveRoomEngineStateDebounced, evaluateRoomUnlocks, hasRoomEngineState, validateRoomChange, TILE_WIDTH_HALF, tileToScreen } from '@/lib/roomEngineStorage';
 import { useAuth } from '@/context/AuthContext';
 import { useGamification } from '@/context/GamificationContext';
 import { useCombinedAssets } from '@/hooks/useCombinedAssets';
 import { getRoomTier, getNextTier, RoomTier, DEFAULT_TIER, BASE_ROOM_WIDTH } from '@/lib/roomTiers';
+import { VISUAL_FLOOR } from '@/lib/environment-engine/EnvironmentGeometry';
 import { Starfield } from '@/components/Starfield';
 import { ZoomIn, ZoomOut, Maximize2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -39,18 +40,14 @@ export function AnektiaEnvironmentEngine({
   const [showExpandAnim, setShowExpandAnim] = useState(false);
 
   useEffect(() => {
+    setCurrentTier(roomTier);
     if (roomTier.tier > currentTier.tier) {
       setShowExpandAnim(true);
-      setCurrentTier(roomTier);
       setTimeout(() => setShowExpandAnim(false), 2000);
     }
   }, [roomTier.tier]);
 
-  const roomWidth = currentTier.roomWidth;
-  const roomHeight = currentTier.roomHeight;
   const visibleGrid = currentTier.visibleGrid;
-  // Escala SOLO del suelo/paredes (no afecta muebles)
-  const roomScale = visibleGrid / 14;
 
   const [placedItems, setPlacedItems] = useState<EnvironmentPlacedItem[]>(initialItems);
   const [isMounted, setIsMounted] = useState(false);
@@ -61,13 +58,12 @@ export function AnektiaEnvironmentEngine({
     const hasSaved = hasRoomEngineState();
     if (hasSaved) {
       const loaded = loadRoomEngineState();
-      if (loaded.placedItems.length > 0) {
-        setPlacedItems(loaded.placedItems);
-      }
+      setPlacedItems(loaded.placedItems);
     }
     setIsLoadedFromStorage(true);
   }, []);
 
+  const [placementError, setPlacementError] = useState('');
   const [editMode, setEditMode] = useState<boolean>(false);
   const [showGrid, setShowGrid] = useState<boolean>(false);
   const [showDebugMode, setShowDebugMode] = useState<boolean>(false);
@@ -81,21 +77,22 @@ export function AnektiaEnvironmentEngine({
   const [isPanning, setIsPanning] = useState(false);
   const panStartRef = useRef<{ startX: number; startY: number; initialPanX: number; initialPanY: number } | null>(null);
 
-  const combinedScale = scaleFactor * zoom;
+  const combinedScale = scaleFactor * zoom * Math.min(1, 16 / visibleGrid);
   // Escala relativa del entorno (suelo+paredes) vs muebles.
   // El Room ya escala todo con combinedScale; aquí solo reducimos suelo/paredes.
-  const environmentScale = 0.65;
+  const environmentScale = (visibleGrid - 1) * TILE_WIDTH_HALF / (VISUAL_FLOOR.centerX - VISUAL_FLOOR.leftCorner.x);
 
   // Gamification unlock evaluation (memoized: no se recalcula durante drags)
   const unlockedIds = useMemo(() => {
     const ctx = {
       completedPaths: progress.completedPaths || [],
       completedLayers: progress.completedLayers || {},
+      extraFurniture: progress.extraFurniture,
       userId: user?.uid,
       userEmail: user?.email
     };
     return evaluateRoomUnlocks(ctx, dynamicCatalog).unlockedIds;
-  }, [progress.completedPaths, progress.completedLayers, user?.uid, user?.email, dynamicCatalog]);
+  }, [progress.completedPaths, progress.completedLayers, progress.extraFurniture, user?.uid, user?.email, dynamicCatalog]);
 
   const mountedRef = useRef(false);
   useEffect(() => { mountedRef.current = true; return () => { mountedRef.current = false; }; }, []);
@@ -161,78 +158,60 @@ export function AnektiaEnvironmentEngine({
 
   const handleSpawnItem = (item: LegacyCatalogItem) => {
     if (!unlockedIds.has(item.id)) return;
-    const newInstanceId = `inst_${item.id}_${Date.now()}`;
-    const isWallItem = item.placementSurface === 'wall';
-    const maxTile = visibleGrid - 1;
-    const centerTile = Math.floor(maxTile / 2);
-    const newItem: EnvironmentPlacedItem = {
-      instanceId: newInstanceId,
-      catalogItemId: item.id,
-      tileX: isWallItem ? centerTile : centerTile,
-      tileY: isWallItem ? 0 : centerTile,
-      tileZ: 0,
-      rotation: 0
-    };
-
-    setPlacedItems(prev => [...prev, newItem]);
-    setSelectedInstanceId(newInstanceId);
-  };
-
-  const handleUpdatePosition = (instanceId: string, tileX: number, tileY: number, tileZ?: number) => {
-    setPlacedItems(prev => prev.map(item => {
-      if (item.instanceId === instanceId) {
-        return { 
-          ...item, 
-          tileX, 
-          tileY,
-          tileZ: tileZ !== undefined ? tileZ : item.tileZ 
-        };
-      }
-      return item;
-    }));
-  };
-
-  const handleRotate = (instanceId: string) => {
-    const nextRotations: Record<0 | 90 | 180 | 270, 0 | 90 | 180 | 270> = {
-      0: 90, 90: 180, 180: 270, 270: 0
-    };
-    setPlacedItems(prev => prev.map(item => {
-      if (item.instanceId !== instanceId) return item;
-      return { ...item, rotation: nextRotations[item.rotation] ?? 0 };
-    }));
-  };
-
-  const handleToggleElevation = (instanceId: string) => {
-    setPlacedItems(prev => {
-      const target = prev.find(i => i.instanceId === instanceId);
-      if (!target) return prev;
-      const nextZ = target.tileZ === 1 ? 0 : 1;
-      if (nextZ === 1) {
-        // Elevar solo si hay una mesa de apoyo debajo (validación completa).
-        const validation = validatePlacement(
-          target.tileX, target.tileY, nextZ,
-          target.rotation, target.catalogItemId,
-          target.instanceId, prev
-        );
-        if (!validation.isValid) return prev;
-      }
-      return prev.map(item => {
-        if (item.instanceId === instanceId) {
-          return { ...item, tileZ: nextZ };
+    const instanceId = crypto.randomUUID();
+    const isWall = item.placementSurface === 'wall';
+    const center = Math.floor(visibleGrid / 2);
+    const candidates: EnvironmentPlacedItem[] = [];
+    for (let x = 0; x < visibleGrid; x++) {
+      for (let y = 0; y < visibleGrid; y++) {
+        if (isWall ? x === 0 || y === 0 : x > 0 && y > 0) {
+          candidates.push({ instanceId, catalogItemId: item.id, tileX: x, tileY: y, tileZ: 0, rotation: 0 });
         }
-        return item;
-      });
-    });
+      }
+    }
+    candidates.sort((a, b) => Math.abs(a.tileX - center) + Math.abs(a.tileY - center)
+      - Math.abs(b.tileX - center) - Math.abs(b.tileY - center));
+    const position = candidates.find(candidate => validateRoomChange(placedItems, candidate, instanceId, visibleGrid));
+    if (!position) {
+      setPlacementError('No hay espacio para este objeto.');
+      return;
+    }
+    setPlacementError('');
+    setPlacedItems([...placedItems, position]);
+    setSelectedInstanceId(instanceId);
   };
 
-  const handleDelete = (instanceId: string) => {
-    setPlacedItems(prev => prev.filter(item => item.instanceId !== instanceId));
-    if (selectedInstanceId === instanceId) setSelectedInstanceId(null);
+  const changeItem = (id: string, change: (item: EnvironmentPlacedItem) => EnvironmentPlacedItem | null) => {
+    const current = placedItems.find(item => item.instanceId === id);
+    if (!current) return;
+    const next = change(current);
+    if (!validateRoomChange(placedItems, next, id, visibleGrid)) {
+      setPlacementError('La posición está ocupada, fuera del espacio o dejaría un objeto sin apoyo.');
+      return;
+    }
+    setPlacementError('');
+    setPlacedItems(next
+      ? placedItems.map(item => item.instanceId === id ? next : item)
+      : placedItems.filter(item => item.instanceId !== id));
+    if (!next) setSelectedInstanceId(null);
   };
+
+  const handleUpdatePosition = (id: string, tileX: number, tileY: number, tileZ?: number) =>
+    changeItem(id, item => ({ ...item, tileX, tileY, tileZ: tileZ ?? item.tileZ }));
+
+  const handleRotate = (id: string) => changeItem(id, item => ({
+    ...item, rotation: ((item.rotation + 90) % 360) as EnvironmentPlacedItem['rotation']
+  }));
+
+  const handleToggleElevation = (id: string) =>
+    changeItem(id, item => ({ ...item, tileZ: item.tileZ === 1 ? 0 : 1 }));
+
+  const handleDelete = (id: string) => changeItem(id, () => null);
 
   const handleReset = () => {
-    const loaded = loadRoomEngineState();
-    setPlacedItems(loaded.placedItems);
+    if (!window.confirm('¿Restaurar el diseño inicial de la habitación?')) return;
+    setPlacedItems(initialItems);
+    setPlacementError('');
     setSelectedInstanceId(null);
     setPan({ x: 0, y: 0 });
     setZoom(1.0);
@@ -254,6 +233,7 @@ export function AnektiaEnvironmentEngine({
 
       <div className="max-w-6xl mx-auto pb-24 relative z-10">
         {/* HUD Navigation Header */}
+        {placementError && <p role="status" className="relative z-50 mx-auto bg-brand-ink px-4 py-2 text-brand-offwhite">{placementError}</p>}
         <RoomEngineHUD
           editMode={editMode}
           setEditMode={setEditMode}
@@ -307,21 +287,6 @@ export function AnektiaEnvironmentEngine({
           {/* Starfield atmospheric layer */}
           <Starfield className="absolute inset-0 w-full h-full pointer-events-none opacity-40" />
 
-          {/* Isometric grid overlay (guide) */}
-          {showGrid && (
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                backgroundImage:
-                  'linear-gradient(60deg, rgba(212,175,55,0.08) 1px, transparent 1px), linear-gradient(120deg, rgba(212,175,55,0.08) 1px, transparent 1px)',
-                backgroundSize: '56px 97px',
-                backgroundPosition: 'center center',
-                maskImage: 'radial-gradient(ellipse 45% 40% at 50% 55%, black 30%, transparent 75%)',
-                WebkitMaskImage: 'radial-gradient(ellipse 45% 40% at 50% 55%, black 30%, transparent 75%)'
-              }}
-            />
-          )}
-
           {/* CAMERA PAN & ZOOM WRAPPER */}
           <div 
             style={{
@@ -330,10 +295,28 @@ export function AnektiaEnvironmentEngine({
               left: 0,
               width: '1200px',
               height: '950px',
-              transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+              transform: `translate(${pan.x}px, ${pan.y}px)`,
               transformOrigin: 'top left'
             }}
           >
+            {showGrid && (
+              <svg aria-hidden="true" className="pointer-events-none absolute inset-0 z-10"
+                width={1200 * combinedScale} height={950 * combinedScale} viewBox="0 0 1200 950">
+                {Array.from({ length: visibleGrid }, (_, index) => {
+                  const far = visibleGrid - 1;
+                  const a = tileToScreen(index, 0);
+                  const b = tileToScreen(index, far);
+                  const c = tileToScreen(0, index);
+                  const d = tileToScreen(far, index);
+                  return (
+                    <g key={index} stroke="rgba(212,175,55,0.35)">
+                      <line x1={a.screenX} y1={a.screenY} x2={b.screenX} y2={b.screenY} />
+                      <line x1={c.screenX} y1={c.screenY} x2={d.screenX} y2={d.screenY} />
+                    </g>
+                  );
+                })}
+              </svg>
+            )}
             {/* MAIN ROOM CONTAINER */}
             <Room
               layout={layout}
@@ -393,6 +376,8 @@ export function AnektiaEnvironmentEngine({
         {/* Inventory Drawer (Only in Edit Mode) */}
         {editMode && (
           <InventoryDrawer
+            catalog={dynamicCatalog}
+            assets={dynamicAssets}
             isOpen={inventoryOpen}
             onToggle={() => setInventoryOpen(!inventoryOpen)}
             onSpawnItem={handleSpawnItem}

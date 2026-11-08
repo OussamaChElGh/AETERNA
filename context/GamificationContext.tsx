@@ -8,6 +8,8 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { FeedbackOverlay } from "@/components/FeedbackOverlay";
 import fisicaCurriculum from "@/data/curriculum/fisica.json";
 import relicData from "@/data/relics.json";
+import { getFurnitureGrant } from '@/lib/chestRewards';
+import { recordStudyActivity, studySlug, getStudyStatus } from '@/lib/studyProgress';
 import { evaluateRoomUnlocks } from "@/lib/roomEngineStorage";
 import { ROOM_ENGINE_CATALOG } from "@/data/roomEngineCatalog";
 import { RoomCatalogItem } from "@/types/roomEngine";
@@ -57,6 +59,7 @@ export interface UserProgress {
   completedPaths: string[];
   unlockedRoadmaps: string[];
   articleProgress?: Record<string, number>;
+  studyActivity?: { slug: string; layer?: string; at: number }[];
   selectedAvatarId?: string;
   dailyStreak: number;
   lastActiveDate: string;
@@ -75,6 +78,7 @@ export interface UserProgress {
   completedBosses?: string[];
   skippedBosses?: string[];
   extraFurniture?: string[];
+  claimedFurnitureChests?: Record<string, string>;
   hasSeenOnboarding?: boolean;
 }
 
@@ -131,7 +135,7 @@ interface GamificationContextType {
   regenerateHearts: () => void;
   completeBoss: (bossId: string) => void;
   skipBoss: (bossId: string) => void;
-  grantFurniture: (itemIds: string[]) => void;
+  grantFurniture: (itemIds: string[], chestId?: string) => void;
   markOnboardingSeen: () => void;
 }
 
@@ -701,12 +705,14 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       // Evaluación de desbloqueos del Room Engine (catálogo nuevo)
       const ctx = {
         completedPaths: newCompletedPaths,
+        extraFurniture: prev.extraFurniture,
         completedLayers: prev.completedLayers || {},
         userId: user?.uid,
         userEmail: user?.email
       };
-      const { unlockedIds } = evaluateRoomUnlocks(ctx);
-      const newlyUnlocked = catalog.filter(item => unlockedIds.has(item.id));
+      const { unlockedIds } = evaluateRoomUnlocks(ctx, catalog);
+      const before = evaluateRoomUnlocks({ ...ctx, completedPaths: prev.completedPaths }, catalog).unlockedIds;
+      const newlyUnlocked = catalog.filter(item => unlockedIds.has(item.id) && !before.has(item.id));
       newlyUnlocked.forEach(item => {
         notifyOnce(`room_unlock_${item.id}`, {
           type: 'achievement',
@@ -735,7 +741,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         const nivel = r.unlocksOn.nivel || 0;
         const slugs = articlesByNivel[nivel] || [];
         if (slugs.length === 0 || newPhysicsRelics.includes(r.id)) continue;
-        const nivelDone = slugs.every(slug => newCompletedPaths.includes(slug));
+        const nivelDone = slugs.every(slug => getStudyStatus({ ...prev, completedPaths: newCompletedPaths }, slug).completed);
         if (nivelDone) {
           newPhysicsRelics.push(r.id);
           notifyOnce(`relic_${r.id}`, {
@@ -761,6 +767,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         ...prev, 
         xp: newXp,
         completedPaths: newCompletedPaths,
+        studyActivity: recordStudyActivity(prev.studyActivity, { slug: studySlug(pathId) }, Date.now()),
         achievements: newAchievements,
         physicsRelics: newPhysicsRelics
       };
@@ -980,6 +987,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
         ...prev,
         xp: newXp,
         completedLayers: { ...(prev.completedLayers || {}), [articleId]: newLayers },
+        studyActivity: recordStudyActivity(prev.studyActivity, { slug: articleId, layer: capa }, Date.now()),
         achievements: newAchievements
       };
     });
@@ -1022,6 +1030,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       answeredQuestions: [],
       physicsRelics: [],
       completedLayers: {},
+      studyActivity: [],
       alias: '',
       displayName: user?.displayName || '',
       photoURL: user?.photoURL || '',
@@ -1082,12 +1091,10 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     });
   }, []);
 
-  const grantFurniture = useCallback((itemIds: string[]) => {
+  const grantFurniture = useCallback((itemIds: string[], chestId?: string) => {
     setProgress(prev => {
-      const current = prev.extraFurniture || [];
-      const newItems = itemIds.filter(id => !current.includes(id));
-      if (newItems.length === 0) return prev;
-      return { ...prev, extraFurniture: [...current, ...newItems] };
+      const grant = getFurnitureGrant(prev, itemIds, chestId);
+      return grant ? { ...prev, ...grant } : prev;
     });
   }, []);
 

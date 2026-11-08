@@ -135,7 +135,7 @@ export function RoomEngineHUD({
               onClick={onReset}
               className="px-3 py-1.5 rounded-lg border border-red-500/30 text-red-400 hover:bg-red-500/10 hover:border-red-500 text-[10px] transition-all flex items-center gap-2 font-mono font-bold uppercase tracking-wider backdrop-blur-md bg-brand-ink/60"
             >
-              <RotateCcw size={13} /> Reset
+              <RotateCcw size={13} /> Restaurar diseño
             </button>
           </div>
         )}

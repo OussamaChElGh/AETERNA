@@ -1,6 +1,7 @@
 import { UserRoomData, PlacedRoomItem, PlacementValidationResult, RoomCatalogItem } from '@/types/roomEngine';
 import { getCombinedCatalog, getCombinedCatalogItem, getCombinedRoomAsset } from '@/data/dynamicAssetsClient';
-import { ANEKTIA_ROOM_LAYOUT, isTileOnFloor, isTileOnWall } from '@/data/roomLayoutData';
+import { VISUAL_FLOOR } from '@/lib/environment-engine/EnvironmentGeometry';
+import { getStudyStatus, type StudyProgress } from '@/lib/studyProgress';
 import { db } from '@/lib/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 
@@ -11,9 +12,7 @@ export const GM_USER_EMAILS: string[] = [
   'usamachaikh@gmail.com'
 ];
 
-export interface RoomUnlockContext {
-  completedPaths: string[];
-  completedLayers?: Record<string, string[]>;
+export interface RoomUnlockContext extends StudyProgress {
   userId?: string;
   userEmail?: string | null;
 }
@@ -22,17 +21,12 @@ export function isCatalogItemUnlocked(item: RoomCatalogItem, ctx: RoomUnlockCont
   if (ctx.userId && GM_USER_IDS.includes(ctx.userId)) return true;
   if (ctx.userEmail && GM_USER_EMAILS.includes(ctx.userEmail)) return true;
   
+  if (ctx.extraFurniture?.includes(item.id)) return true;
   const cond = item.unlockCondition;
   if (!cond || cond.type === 'default') return true;
 
   if (cond.type === 'article_completed' && cond.targetId) {
-    const target = cond.targetId;
-    return ctx.completedPaths.some(p =>
-      p === target ||
-      p.endsWith(`/${target}`) ||
-      p.endsWith(`article_read_${target}`) ||
-      p.endsWith(`_${target}`)
-    );
+    return getStudyStatus(ctx, cond.targetId).completed;
   }
 
   if (cond.type === 'layer_completed' && cond.targetId) {
@@ -66,7 +60,7 @@ export const GRID_SIZE_Y = 32;
 export const TILE_WIDTH_HALF = 32;
 export const TILE_HEIGHT_HALF = 16;
 export const ORIGIN_X = 600;
-export const ORIGIN_Y = 260;
+export const ORIGIN_Y = VISUAL_FLOOR.topCorner.y;
 
 const STORAGE_KEY = 'aeterna_2d_room_engine_state';
 
@@ -154,7 +148,7 @@ export function buildOccupancyGrid(placedItems: PlacedRoomItem[], excludeInstanc
       for (let dy = 0; dy < (isWall ? 1 : h); dy++) {
         for (let dz = 0; dz < zSpan; dz++) {
           const cx = isWall ? (item.tileY === 0 ? item.tileX + dx : 0) : item.tileX + dx;
-          const cy = isWall ? (item.tileX === 0 ? item.tileY + dx : 0) : item.tileY + dy;
+          const cy = isWall ? (item.tileY !== 0 ? item.tileY + dx : 0) : item.tileY + dy;
           const cz = item.tileZ + dz;
           const key = `${cx}_${cy}_${cz}`;
           grid.set(key, item.instanceId);
@@ -171,9 +165,9 @@ export function isValidPlacedItem(item: any): item is PlacedRoomItem {
     item !== null &&
     typeof item.instanceId === 'string' &&
     typeof item.catalogItemId === 'string' &&
-    typeof item.tileX === 'number' && item.tileX >= 0 &&
-    typeof item.tileY === 'number' && item.tileY >= 0 &&
-    typeof item.tileZ === 'number' && item.tileZ >= 0 &&
+    Number.isInteger(item.tileX) && item.tileX >= 0 &&
+    Number.isInteger(item.tileY) && item.tileY >= 0 &&
+    Number.isInteger(item.tileZ) && item.tileZ >= 0 &&
     [0, 90, 180, 270].includes(item.rotation)
   );
 }
@@ -185,10 +179,11 @@ export function validatePlacement(
   rotation: 0 | 90 | 180 | 270,
   catalogItemId: string,
   currentInstanceId: string | null,
-  placedItems: PlacedRoomItem[]
+  placedItems: PlacedRoomItem[],
+  visibleGrid = 14
 ): PlacementValidationResult {
   const catalogItem = getCombinedCatalogItem(catalogItemId);
-  if (!catalogItem) {
+  if (!catalogItem || ![targetTileX, targetTileY, targetTileZ].every(Number.isInteger) || targetTileZ < 0) {
     return { isValid: false, reason: 'blocked', invalidTiles: [] };
   }
 
@@ -201,6 +196,12 @@ export function validatePlacement(
   const effectiveH = (rotation === 90 || rotation === 270) ? rawW : rawH;
 
   const isTargetWall = catalogItem.placementSurface === 'wall';
+  if (isTargetWall && ((targetTileX !== 0 && targetTileY !== 0) || targetTileZ > 8)) {
+    return { isValid: false, reason: 'wall_mismatch', invalidTiles: [] };
+  }
+  if (!isTargetWall && targetTileZ > 1) {
+    return { isValid: false, reason: 'invalid_elevation', invalidTiles: [] };
+  }
   const targetZSpan = isTargetWall ? Math.max(1, Math.ceil((asset?.pixelHeight || 120) / 60)) : 1;
 
   const invalidTiles: { tileX: number; tileY: number }[] = [];
@@ -212,17 +213,17 @@ export function validatePlacement(
     for (let dy = 0; dy < (isTargetWall ? 1 : effectiveH); dy++) {
       for (let dz = 0; dz < targetZSpan; dz++) {
         const cx = isTargetWall ? (targetTileY === 0 ? targetTileX + dx : 0) : targetTileX + dx;
-        const cy = isTargetWall ? (targetTileX === 0 ? targetTileY + dx : 0) : targetTileY + dy;
+        const cy = isTargetWall ? (targetTileY !== 0 ? targetTileY + dx : 0) : targetTileY + dy;
         const cz = targetTileZ + dz;
 
         // 1. Validate Surface Type (Floor vs Wall)
         if (isTargetWall) {
-          if (!isTileOnWall(cx, cy)) {
+          if (cx < 0 || cy < 0 || cx >= visibleGrid || cy >= visibleGrid) {
             invalidTiles.push({ tileX: cx, tileY: cy });
             failureReason = failureReason || 'wall_mismatch';
           }
         } else {
-          if (!isTileOnFloor(cx, cy)) {
+          if (cx < 1 || cy < 1 || cx >= visibleGrid || cy >= visibleGrid) {
             invalidTiles.push({ tileX: cx, tileY: cy });
             failureReason = failureReason || 'out_of_floor';
           }
@@ -234,11 +235,12 @@ export function validatePlacement(
             if (item.instanceId === currentInstanceId) return false;
             if (item.tileZ !== 0) return false;
             const tableItem = getCombinedCatalogItem(item.catalogItemId);
-            if (tableItem?.category !== 'furniture') return false;
+            if (tableItem?.placementSurface !== 'floor' || !/desk|table|escritorio|mesa/i.test(`${tableItem.id} ${tableItem.name}`)) return false;
 
             const tableAsset = getCombinedRoomAsset(tableItem.assetId);
-            const tW = tableAsset?.footprintTileWidth || 1;
-            const tH = tableAsset?.footprintTileHeight || 1;
+            const turned = item.rotation === 90 || item.rotation === 270;
+            const tW = (turned ? tableAsset?.footprintTileHeight : tableAsset?.footprintTileWidth) || 1;
+            const tH = (turned ? tableAsset?.footprintTileWidth : tableAsset?.footprintTileHeight) || 1;
 
             return cx >= item.tileX && cx < item.tileX + tW &&
                    cy >= item.tileY && cy < item.tileY + tH;
@@ -277,6 +279,23 @@ export function validatePlacement(
   };
 }
 
+export function validateRoomChange(items: PlacedRoomItem[], next: PlacedRoomItem | null, id: string, visibleGrid: number) {
+  if (next && !validatePlacement(next.tileX, next.tileY, next.tileZ, next.rotation,
+    next.catalogItemId, id, items, visibleGrid).isValid) return false;
+
+  const remaining = items.filter(item => item.instanceId !== id);
+  if (next) remaining.push(next);
+
+  // Do not orphan objects that were supported before moving, rotating or removing a base.
+  return items.every(item => {
+    if (item.instanceId === id || item.tileZ === 0 ||
+        getCombinedCatalogItem(item.catalogItemId)?.placementSurface === 'wall') return true;
+    const check = (room: PlacedRoomItem[]) => validatePlacement(item.tileX, item.tileY,
+      item.tileZ, item.rotation, item.catalogItemId, item.instanceId, room, visibleGrid);
+    return !check(items).isValid || check(remaining).isValid;
+  });
+}
+
 export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
   {
     instanceId: 'inst_rug_center',
@@ -305,8 +324,8 @@ export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
   {
     instanceId: 'inst_sofa_ne',
     catalogItemId: 'sofa_leather',
-    tileX: 0,
-    tileY: 7,
+    tileX: 1,
+    tileY: 1,
     tileZ: 0,
     rotation: 90
   },
@@ -314,7 +333,7 @@ export const DEFAULT_PLACED_ITEMS: PlacedRoomItem[] = [
     instanceId: 'inst_plant_corner',
     catalogItemId: 'fern_ceramic',
     tileX: 2,
-    tileY: 7,
+    tileY: 6,
     tileZ: 0,
     rotation: 0
   }
@@ -326,7 +345,7 @@ export function hasRoomEngineState(): boolean {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return false;
     const parsed = JSON.parse(raw);
-    return !!(parsed && Array.isArray(parsed.placedItems) && parsed.placedItems.length > 0);
+    return !!(parsed && Array.isArray(parsed.placedItems));
   } catch {
     return false;
   }
@@ -348,16 +367,8 @@ export function loadRoomEngineState(): UserRoomData {
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed && Array.isArray(parsed.placedItems)) {
-        const validParsedItems = parsed.placedItems.filter(isValidPlacedItem);
-        const existingInstanceIds = new Set(validParsedItems.map((i: PlacedRoomItem) => i.instanceId));
-        const mergedItems = [...validParsedItems];
-        for (const defItem of DEFAULT_PLACED_ITEMS) {
-          if (!existingInstanceIds.has(defItem.instanceId)) {
-            mergedItems.push(defItem);
-          }
-        }
-
-        const sanitizedItems = mergedItems.map(item => {
+        const validParsedItems = (parsed.placedItems as unknown[]).filter(isValidPlacedItem);
+        const sanitizedItems = validParsedItems.map(item => {
           const catItem = getCombinedCatalogItem(item.catalogItemId);
           if (catItem?.placementSurface === 'floor') {
             return {
@@ -390,29 +401,29 @@ let saveDebounceTimer: NodeJS.Timeout | null = null;
 export function saveRoomEngineStateDebounced(state: UserRoomData, userId: string = 'anonymous'): void {
   if (saveDebounceTimer) clearTimeout(saveDebounceTimer);
 
-  saveDebounceTimer = setTimeout(() => {
-    const cleanPlacedItems: PlacedRoomItem[] = state.placedItems.map(item => ({
-      instanceId: item.instanceId,
-      catalogItemId: item.catalogItemId,
-      tileX: item.tileX,
-      tileY: item.tileY,
-      tileZ: item.tileZ,
-      rotation: item.rotation
-    }));
+  const cleanPlacedItems: PlacedRoomItem[] = state.placedItems.map(item => ({
+    instanceId: item.instanceId,
+    catalogItemId: item.catalogItemId,
+    tileX: item.tileX,
+    tileY: item.tileY,
+    tileZ: item.tileZ,
+    rotation: item.rotation
+  }));
 
-    const cleanState: UserRoomData = {
-      ...state,
-      placedItems: cleanPlacedItems
-    };
+  const cleanState: UserRoomData = {
+    ...state,
+    placedItems: cleanPlacedItems
+  };
 
-    if (typeof window !== 'undefined') {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(cleanState));
-      } catch (e) {
-        console.warn('Error saving room state to LocalStorage:', e);
-      }
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleanState));
+    } catch (e) {
+      console.warn('Error saving room state to LocalStorage:', e);
     }
+  }
 
+  saveDebounceTimer = setTimeout(() => {
     if (userId && userId !== 'anonymous' && db) {
       try {
         // Ruta dedicada del Room Engine. Separada de la del sistema legacy

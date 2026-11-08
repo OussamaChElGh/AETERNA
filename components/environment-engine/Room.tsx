@@ -64,7 +64,7 @@ export function Room({
           position: 'absolute',
           inset: 0,
           transform: `scale(${envScale})`,
-          transformOrigin: '50% 30%',
+          transformOrigin: '600px 255px',
           pointerEvents: 'none'
         }}
       >

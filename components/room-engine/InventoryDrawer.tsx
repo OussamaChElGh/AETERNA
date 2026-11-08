@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { useCombinedAssets } from '@/hooks/useCombinedAssets';
-import { PlacedRoomItem, RoomCatalogItem } from '@/types/roomEngine';
+import { PlacedRoomItem, RoomAsset, RoomCatalogItem } from '@/types/roomEngine';
 import { BookOpen, Plus, ChevronRight, ChevronLeft, Lock } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -11,6 +10,8 @@ interface InventoryDrawerProps {
   onSpawnItem: (item: RoomCatalogItem) => void;
   placedItems: PlacedRoomItem[];
   unlockedIds?: Set<string>;
+  catalog: RoomCatalogItem[];
+  assets: Record<string, RoomAsset>;
 }
 
 export function InventoryDrawer({
@@ -18,10 +19,11 @@ export function InventoryDrawer({
   onToggle,
   onSpawnItem,
   placedItems,
-  unlockedIds
+  unlockedIds,
+  catalog,
+  assets
 }: InventoryDrawerProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const { catalog, assets } = useCombinedAssets();
 
   const categories = [
     { id: 'all', label: 'Todo' },

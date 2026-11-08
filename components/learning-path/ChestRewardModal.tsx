@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Sparkles } from 'lucide-react'
-import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog'
+import { getChestRewards } from '@/lib/chestRewards'
 import { ROOM_ASSETS } from '@/data/roomEngineAssets'
 import { useGamification } from '@/context/GamificationContext'
 
@@ -15,36 +15,30 @@ interface ChestRewardModalProps {
 
 export function ChestRewardModal({ isOpen, onClose, chestLevel }: ChestRewardModalProps) {
   const [isOpening, setIsOpening] = useState(false)
-  const [reward, setReward] = useState<typeof ROOM_ENGINE_CATALOG[0] | null>(null)
-  const { grantFurniture } = useGamification()
+  const { progress, grantFurniture } = useGamification()
   
-  // Computamos los premios posibles dinámicamente según el nivel
-  const possibleRewards = ROOM_ENGINE_CATALOG.slice(
-    (chestLevel - 1) * 4,
-    chestLevel * 4
-  )
+  const possibleRewards = getChestRewards(chestLevel)
+  const chestId = `physics-${chestLevel}`
+  const reward = possibleRewards.find(item => item.id === progress.claimedFurnitureChests?.[chestId])
 
   useEffect(() => {
-    if (isOpen) {
+    if (!isOpening) return
+    const timer = setTimeout(() => {
+      const unowned = possibleRewards.filter(item => !progress.extraFurniture?.includes(item.id))
+      const choices = unowned.length > 0 ? unowned : possibleRewards
+      const selected = choices[Math.floor(Math.random() * choices.length)]
+      if (selected) grantFurniture([selected.id], chestId)
       setIsOpening(false)
-      setReward(null)
-    }
+    }, 2500)
+    return () => clearTimeout(timer)
+  }, [isOpening, chestId, grantFurniture])
+
+  useEffect(() => {
+    if (!isOpen) setIsOpening(false)
   }, [isOpen])
 
   const handleOpenChest = () => {
-    setIsOpening(true)
-    // Simulate RNG opening (spin animation)
-    setTimeout(() => {
-      const randomIndex = Math.floor(Math.random() * possibleRewards.length)
-      const selectedReward = possibleRewards[randomIndex]
-      setReward(selectedReward)
-      setIsOpening(false)
-      
-      // Guardar permanentemente el mueble
-      if (selectedReward) {
-        grantFurniture([selectedReward.id])
-      }
-    }, 2500)
+    if (!reward && !isOpening && possibleRewards.length > 0) setIsOpening(true)
   }
 
   if (!isOpen) return null

@@ -1,4 +1,5 @@
 'use client';
+import { getStudyStatus } from '@/lib/studyProgress';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
@@ -42,7 +43,6 @@ function RelicIcon({ src, name }: { src: string; name: string }) {
 export function RelicWall({ open, onClose }: RelicWallProps) {
   const { progress } = useGamification();
   const relics = (relicsData.relics || []) as Omit<RelicEntry, 'unlocked'>[];
-  const completedPaths = progress.completedPaths || [];
   const completedLayers = progress.completedLayers || {};
 
   // Mapa de artículos por nivel desde el curriculum de física
@@ -56,7 +56,7 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
   const nivelCompleted = (nivel: number): boolean => {
     const slugs = articlesByNivel[nivel] || [];
     if (slugs.length === 0) return false;
-    return slugs.every(slug => completedPaths.includes(slug));
+    return slugs.every(slug => getStudyStatus(progress, slug).completed);
   };
 
   const posterEntries: RelicEntry[] = relics.map(r => {
@@ -67,7 +67,7 @@ export function RelicWall({ open, onClose }: RelicWallProps) {
       const layers = completedLayers[r.unlocksOn.article || ''] || [];
       unlocked = layers.includes(r.unlocksOn.layer || '');
     } else if (r.unlocksOn.type === 'article_completed') {
-      unlocked = completedPaths.includes(r.unlocksOn.article || '');
+      unlocked = getStudyStatus(progress, r.unlocksOn.article || '').completed;
     }
     return { ...r, unlocked };
   });

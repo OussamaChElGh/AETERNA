@@ -37,6 +37,7 @@ import {
 import { useAuth } from "@/context/AuthContext";
 import { CATEGORIES_DATA } from "@/data/categories";
 import type { ArticleFrontmatter } from "@/types";
+import { getStudyStatus, STUDY_LAYERS } from '@/lib/studyProgress';
 import { ConstellationMap } from "@/components/ConstellationMap";
 
 export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: ArticleFrontmatter[] }) {
@@ -89,26 +90,27 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
 
     const today = new Date().toISOString().split('T')[0];
     const storageKey = `daily_challenge_${user?.uid || 'guest'}`;
-    const cached = localStorage.getItem(storageKey);
-    
-    if (cached) {
-      const { day, challenge } = JSON.parse(cached);
-      if (day === today) {
-        setDailyChallenge(challenge);
-        return;
+    try {
+      const cached = localStorage.getItem(storageKey);
+      if (cached) {
+        const { day, challenge } = JSON.parse(cached);
+        if (day === today && (!challenge.slug || !getStudyStatus(progress, challenge.slug).completed)) {
+          setDailyChallenge(challenge);
+          return;
+        }
       }
-    }
+    } catch { /* A blocked or corrupt cache should not prevent a recommendation. */ }
 
     // Generate new challenge
     // 1. Prioritize articles with progress between 0 and 100
     const inProgress = articles.filter(a => {
-      const p = progress.articleProgress?.[a.slug || ''] || 0;
-      return p > 0 && p < 95;
+      const p = getStudyStatus(progress, a.slug || '').percent;
+      return p > 0 && p < 100;
     });
 
     // 2. Then articles not started at all
     const notStarted = articles.filter(a => {
-      const p = progress.articleProgress?.[a.slug || ''] || 0;
+      const p = getStudyStatus(progress, a.slug || '').percent;
       return p === 0;
     });
 
@@ -136,13 +138,13 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
       challengeData = {
         title: "Maestría Absoluta",
         description: "Ha explorado todos los tomos disponibles. Su misión hoy es la contemplación de lo aprendido.",
-        path: "/constelacion"
+        path: "/cosmic-path"
       };
     }
 
     setDailyChallenge(challengeData);
-    localStorage.setItem(storageKey, JSON.stringify({ day: today, challenge: challengeData }));
-  }, [articles, progress.articleProgress, user?.uid]);
+    try { localStorage.setItem(storageKey, JSON.stringify({ day: today, challenge: challengeData })); } catch {}
+  }, [articles, progress.articleProgress, progress.completedLayers, progress.completedPaths, user?.uid]);
 
   // Force path refresh if stored challenge has old format or missing path
   useEffect(() => {
@@ -184,11 +186,7 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
     const totalArticles = categoryArticles.length;
     let completedWeight = 0;
     categoryArticles.forEach(art => {
-      let val = progress.articleProgress?.[art.slug || ''] || 0;
-      if (art.slug && progress.completedPaths.some(p => p.endsWith('.' + art.slug))) {
-         val = Math.max(val, 100);
-      }
-      completedWeight += val;
+      completedWeight += getStudyStatus(progress, art.slug || '').percent;
     });
 
     const averageProgress = totalArticles > 0 ? Math.round(completedWeight / totalArticles) : 0;
@@ -224,6 +222,24 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
     }
   };
 
+  const articleBySlug = new Map(articles.map(article => [article.slug, article]));
+  const activity = (progress.studyActivity || []).filter(event => articleBySlug.has(event.slug));
+  const articlePercent = Object.fromEntries(articles.map(article => [
+    article.slug, getStudyStatus(progress, article.slug).percent
+  ]));
+  const recentSlugs = [...new Set([
+    ...activity.map(event => event.slug),
+    ...articles.filter(article => articlePercent[article.slug] > 0).map(article => article.slug)
+  ])];
+  const latest = articleBySlug.get(recentSlugs[0]);
+  const latestStatus = latest && getStudyStatus(progress, latest.slug);
+  const nextLayer = latestStatus && STUDY_LAYERS.find(layer => !latestStatus.layers.includes(layer));
+  const canContinueLayer = !!nextLayer && !!latestStatus && (!latestStatus.completed || latestStatus.layers.length > 0);
+  const nextHref = latest && canContinueLayer
+    ? `${getArticlePath(latest)}?nivel=${nextLayer}`
+    : dailyChallenge?.path || '/guias';
+  const studiedLayers = articles.reduce((total, article) => total + getStudyStatus(progress, article.slug).layers.length, 0);
+
   const progressStats = calculateProgressToNextLevel(progress.xp);
 
   return (
@@ -250,14 +266,17 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
               >
                 Su Archivo <span className="italic text-brand-gold">Central</span>
               </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg text-white/50 leading-relaxed font-sans font-light max-w-xl"
-              >
-                Usted está navegando por la cartografía de sus propios hallazgos intelectuales. Cada lectura enciende una neurona en el gran archivo universal.
-              </motion.p>
+              <div className="space-y-3">
+                <p className="text-sm text-white/70">{latest ? `${activity.length ? 'Última lección' : 'Lección con progreso'} · ${latest.title}` : 'Aún no hay lecciones registradas.'}</p>
+                <p className="text-sm text-white/70">
+                  {studiedLayers} capas completadas
+                  {latestStatus && ` · ${latestStatus.layers.length}/3 en la última lección`}
+                </p>
+                <Link href={nextHref} className="inline-flex items-center gap-2 font-bold text-brand-gold">
+                  {canContinueLayer ? `Continuar en nivel ${nextLayer}` : 'Ir a la siguiente lección'}
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
 
             {user && (
@@ -594,10 +613,6 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
                     />
                   </RadarChart>
                 </ResponsiveContainer>
-
-                <div className="absolute bottom-8 right-8 text-[8px] uppercase tracking-widest font-bold text-brand-muted/50 font-mono">
-                   Sincronización de Datos: Real-Time / {user?.uid?.slice(0, 4)}
-                </div>
              </div>
           </motion.div>
         </div>
@@ -652,18 +667,18 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
                <span className="text-[9px] font-bold uppercase tracking-[0.4em] text-brand-gold mb-4 block">Fuelle Intelectual</span>
                <h4 className="font-serif text-2xl mb-6">Su <span className="italic">Biblioteca</span> Privada</h4>
                <div className="space-y-4">
-                  {articles.filter(a => (progress.articleProgress?.[a.slug || ''] || 0) > 0).slice(0, 3).map(a => (
+                  {recentSlugs.slice(0, 3).map(slug => articleBySlug.get(slug)!).map(a => (
                     <Link key={a.slug} href={getArticlePath(a)} className="group block bg-white border border-brand-border/40 p-4 rounded-2xl hover:border-brand-gold transition-colors shadow-sm hover:shadow-md">
                        <div className="flex justify-between items-center mb-2">
                           <span className="text-[10px] font-bold uppercase text-brand-ink group-hover:text-brand-gold transition-colors block max-w-[80%] truncate">{a.title}</span>
-                          <span className="text-[9px] font-mono text-brand-gold">{progress.articleProgress?.[a.slug || ''] || 0}%</span>
+                          <span className="text-[9px] font-mono text-brand-gold">{articlePercent[a.slug]}%</span>
                        </div>
                        <div className="h-1 bg-brand-border/30 w-full rounded-full overflow-hidden">
-                          <div className="h-full bg-brand-gold/60 rounded-full" style={{ width: `${progress.articleProgress?.[a.slug || ''] || 0}%` }} />
+                          <div className="h-full bg-brand-gold/60 rounded-full" style={{ width: `${articlePercent[a.slug]}%` }} />
                        </div>
                     </Link>
                   ))}
-                  {articles.filter(a => (progress.articleProgress?.[a.slug || ''] || 0) > 0).length === 0 && (
+                  {recentSlugs.length === 0 && (
                     <p className="text-[10px] text-brand-muted italic">Aún no ha rescatado tomos del olvido.</p>
                   )}
                </div>
@@ -685,21 +700,12 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
                   </p>
                 </div>
                 
-                <div className="hidden md:block">
-                   <div className="bg-brand-ink text-brand-offwhite px-6 py-4 flex items-center gap-6 border border-brand-gold/30 rounded-2xl shadow-xl shadow-brand-ink/10">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full bg-brand-gold animate-pulse shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
-                        <span className="text-[9px] uppercase font-bold tracking-widest">Sincronizado</span>
-                      </div>
-                      <div className="w-px h-8 bg-white/10" />
-                      <span className="text-[11px] font-mono italic text-white/50">{new Date().toLocaleTimeString()}</span>
-                   </div>
-                </div>
+
              </div>
              
              <div className="w-full h-[600px] border border-brand-border/60 bg-gradient-to-b from-white to-brand-offwhite/50 shadow-2xl shadow-brand-blue/5 overflow-hidden mb-24 relative group/map rounded-3xl">
                 <div className="absolute inset-0 bg-engraving opacity-[0.03] pointer-events-none" />
-                <ConstellationMap articles={articles} articleProgress={progress.articleProgress || {}} />
+                <ConstellationMap articles={articles} articleProgress={articlePercent} />
                 
                 <div className="absolute top-6 left-6 flex flex-col gap-4 pointer-events-none">
                    <div className="bg-brand-ink/80 backdrop-blur-md border border-white/10 p-5 rounded-2xl inline-block shadow-xl">
@@ -728,63 +734,22 @@ export function ProfilePageClient({ initialArticles = [] }: { initialArticles?: 
                    </div>
                 </div>
                 
-                <div className="space-y-6">
-                   <motion.div 
-                     initial={{ opacity: 0, x: -20 }}
-                     whileInView={{ opacity: 1, x: 0 }}
-                     viewport={{ once: true }}
-                     className="flex gap-8 p-8 bg-white border border-brand-border/40 rounded-2xl group hover:border-brand-gold transition-all shadow-sm hover:shadow-lg"
-                   >
-                      <div className="w-12 h-12 bg-brand-ink rounded-xl flex items-center justify-center shrink-0 shadow-lg">
-                         <BookOpen className="w-5 h-5 text-brand-gold" />
-                      </div>
-                      <div>
-                         <span className="text-[9px] uppercase tracking-widest font-bold text-brand-muted mb-2 block">Hace 2 horas</span>
-                         <h5 className="font-serif text-xl text-brand-ink mb-2">Reflexión sobre lo Inmanente</h5>
-                         <p className="text-sm text-brand-mixed opacity-60 leading-relaxed font-sans max-w-2xl">
-                           Ha profundizado en el concepto de la "Sustancia" según Spinoza. Su mapa se ha expandido hacia el cuadrante racionalista.
-                         </p>
-                      </div>
-                   </motion.div>
-                   
-                   <motion.div 
-                     initial={{ opacity: 0, x: -20 }}
-                     whileInView={{ opacity: 1, x: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ delay: 0.1 }}
-                     className="flex gap-8 p-8 bg-white border border-brand-border/40 rounded-2xl group hover:border-brand-gold transition-all shadow-sm opacity-60 hover:opacity-100"
-                   >
-                      <div className="w-12 h-12 bg-brand-ink rounded-xl flex items-center justify-center shrink-0">
-                         <Star className="w-5 h-5 text-brand-gold" />
-                      </div>
-                      <div>
-                         <span className="text-[9px] uppercase tracking-widest font-bold text-brand-muted mb-2 block">Ayer</span>
-                         <h5 className="font-serif text-xl text-brand-ink mb-2">Hito Alcanzado: Lector Decisivo</h5>
-                         <p className="text-sm text-brand-mixed opacity-60 leading-relaxed font-sans max-w-2xl">
-                           Al terminar el análisis de la dialéctica hegeliana, ha obtenido 500 unidades de XP.
-                         </p>
-                      </div>
-                   </motion.div>
-
-                   <motion.div 
-                     initial={{ opacity: 0, x: -20 }}
-                     whileInView={{ opacity: 1, x: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ delay: 0.2 }}
-                     className="flex gap-8 p-8 bg-brand-ink text-white border border-brand-ink/50 rounded-2xl shadow-xl relative overflow-hidden"
-                   >
-                      <div className="absolute inset-0 bg-engraving opacity-10" />
-                      <div className="w-12 h-12 bg-brand-gold rounded-xl flex items-center justify-center shrink-0 relative z-10">
-                         <Fingerprint className="w-5 h-5 text-brand-ink" />
-                      </div>
-                      <div className="relative z-10">
-                         <span className="text-[9px] uppercase tracking-widest font-bold text-brand-gold mb-2 block">Evento de Seguridad</span>
-                         <h5 className="font-serif text-xl text-white mb-2">Identidad Cifrada en la Logia</h5>
-                         <p className="text-sm text-white/60 leading-relaxed font-sans max-w-2xl">
-                           Su perfil ha sido sincronizado con los servidores centrales de la Biblioteca. Su legado está ahora a salvo del tiempo.
-                         </p>
-                      </div>
-                   </motion.div>
+                <div className="space-y-4">
+                  {activity.length === 0 && <p className="text-sm text-brand-muted">La próxima lección completada aparecerá aquí.</p>}
+                  {activity.slice(0, 6).map(event => {
+                    const article = articleBySlug.get(event.slug)!;
+                    const date = new Date(event.at);
+                    return (
+                      <Link key={`${event.slug}:${event.layer || 'article'}`} href={getArticlePath(article)}
+                        className="block rounded-2xl border border-brand-border/40 bg-white p-5 hover:border-brand-gold">
+                        <time dateTime={date.toISOString()} className="text-xs text-brand-muted">
+                          {date.toLocaleDateString('es-ES')}
+                        </time>
+                        <p className="font-serif text-xl">{article.title}</p>
+                        <p className="text-sm text-brand-muted">{event.layer ? `Capa completada · ${event.layer}` : 'Lección completada'}</p>
+                      </Link>
+                    );
+                  })}
                 </div>
              </div>
           </div>

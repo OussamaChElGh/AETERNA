@@ -8,6 +8,8 @@ import relicData from '@/data/relics.json'
 import { useGamification } from '@/context/GamificationContext'
 import { useAuth } from '@/context/AuthContext'
 import { getNodeIcon, IconGuiaMaestra } from '@/components/learning-path/NodeIcons'
+import { getChestRewards } from '@/lib/chestRewards'
+import { getStudyStatus } from '@/lib/studyProgress'
 import { ChestRewardModal } from './ChestRewardModal'
 import { BossChallengeModal } from './BossChallengeModal'
 import { ROOM_ENGINE_CATALOG } from '@/data/roomEngineCatalog'
@@ -128,7 +130,6 @@ export default function CosmicConstellationPath() {
   const [activeChestLevel, setActiveChestLevel] = useState<number>(1)
   const [bossModalNode, setBossModalNode] = useState<RouteNode | null>(null)
 
-  const completedPaths = progress.completedPaths || []
   const completedLayers = progress.completedLayers || {}
   const completedBosses = progress.completedBosses || []
   const skippedBosses = progress.skippedBosses || []
@@ -150,7 +151,7 @@ export default function CosmicConstellationPath() {
       const nodes: RouteNode[] = lvlArticles.map((a, i) => {
         globalOrder++
         const lyrs = completedLayers[a.slug]?.length||0
-        const done = completedPaths.includes(a.slug)||lyrs>=3
+        const done = getStudyStatus(progress, a.slug).completed
         const unlocked = globalOrder===1||prevDone
         if(done) prevDone=true; else prevDone=false
         
@@ -189,13 +190,10 @@ export default function CosmicConstellationPath() {
       if (nodes.length > 0) {
         const midIndex = Math.ceil(nodes.length / 2)
         const prevNode = nodes[midIndex - 1]
-        const chestStatus = prevNode?.status === 'done' ? 'active' : 'locked'
+        const chestStatus = progress.claimedFurnitureChests?.[`physics-${lvl.nivel}`] ? 'done'
+          : prevNode?.status === 'done' ? 'active' : 'locked'
         
-        // Seleccionar 4 premios basados en el nivel
-        const possibleRewards = ROOM_ENGINE_CATALOG.slice(
-          (lvl.nivel - 1) * 4,
-          lvl.nivel * 4
-        )
+        const possibleRewards = getChestRewards(lvl.nivel)
 
         chestNode = {
           id: `chest-lvl-${lvl.nivel}`,
@@ -211,17 +209,16 @@ export default function CosmicConstellationPath() {
         }
       }
 
-      const doneCount = nodes.filter(n=>n.status==='done').length
       return {
         id:lvl.nivel, title:lvl.titulo, emoji:'✦',
         colorClass:COLOR_CLASSES[idx]||'purple', nodes,
         chestNode,
-        chestUnlocked: doneCount>=Math.ceil(nodes.length/2),
+        chestUnlocked: !!chestNode && chestNode.status !== 'locked',
         chestReward: getRelicForLevel(lvl.nivel),
       }
     })
     return { id:'fisica', title:'Física', levels }
-  },[articles,completedPaths,completedLayers])
+  },[articles,progress,completedLayers])
 
   const routeUserProgress: RouteUserProgress = useMemo(()=>{
     const allNodes = routeData.levels.flatMap(l=>l.nodes)

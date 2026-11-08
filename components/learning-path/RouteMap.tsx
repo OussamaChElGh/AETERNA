@@ -80,7 +80,7 @@ function NodeCircle({ node, onClick }: { node:RouteNode; onClick:()=>void }) {
   if (isChest) {
     return (
       <div className="relative flex flex-col items-center group">
-        <button 
+        <button aria-label={`${node.title} · nivel ${node.slug.replace('chest-', '')}`}
           onClick={onClick} 
           disabled={isLocked} 
           className={cn(
