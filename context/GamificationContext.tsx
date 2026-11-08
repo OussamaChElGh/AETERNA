@@ -332,6 +332,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
   const syncedFirebase = useRef(false);
   
   const [progress, setProgress] = useState<UserProgress>(defaultProgress);
+  const [localProgressLoaded, setLocalProgressLoaded] = useState(false);
 
   useEffect(() => {
     try {
@@ -353,6 +354,8 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       }
     } catch (e) {
       console.warn("Could not read progress from local storage.");
+    } finally {
+      setLocalProgressLoaded(true);
     }
   }, []);
 
@@ -370,8 +373,9 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
     });
   }, []);
 
-  // Pull from Firebase when user logs in
+  // Pull from Firebase after the local progress has been restored.
   useEffect(() => {
+    if (!localProgressLoaded) return;
     if (!user) {
       syncedFirebase.current = false;
       return;
@@ -438,7 +442,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       }
     };
     loadData();
-  }, [user]);
+  }, [user, localProgressLoaded]);
 
   // Hack temporal solicitado por el usuario para resetear corazones automáticamente.
   useEffect(() => {
@@ -453,8 +457,13 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
 
   // Persist to LocalStorage AND Firebase whenever progress updates
   useEffect(() => {
-    localStorage.setItem("aeterna_progress_v3", JSON.stringify(progress));
     stateRef.current = progress;
+    if (!localProgressLoaded) return;
+    try {
+      localStorage.setItem("aeterna_progress_v3", JSON.stringify(progress));
+    } catch (error) {
+      console.warn("Could not save progress to local storage.", error);
+    }
     
     if (user && syncedFirebase.current) {
       const saveToCloud = async () => {
@@ -475,7 +484,7 @@ export function GamificationProvider({ children }: { children: React.ReactNode }
       };
       saveToCloud();
     }
-  }, [progress, user]);
+  }, [progress, user, localProgressLoaded]);
 
   const notify = useCallback((notification: Omit<GamificationNotification, 'id'>) => {
     const id = Math.random().toString(36).substring(7);
